@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 26**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 27**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 26**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. Abrí el engranaje de Configuración: debe indicar **Estable 27**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -105,3 +105,7 @@ Verificación de Estable 25: 23 pruebas dirigidas aprobadas, incluyendo capturas
 ## Fuentes separadas — Estable 26
 
 El HTML completo sigue en la raíz. Las fuentes editables y los recursos están separados; `npm run build` reconstruye el juego offline. Ver [instrucciones de desarrollo](DESARROLLO.md), [verificación de esta entrega](ESTABLE_26.md), [expansión propuesta](EXPANSION_PESCA_26.md) y [manifiesto artístico](arte/manifest-produccion.json). No se agrega contenido ni se modifica balance.
+
+## Interfaz y expansión — Estable 27
+
+Cabecera compacta y configuración central; 13 zonas, 50 especies y 32 encargos. Se conservan 50 cañas ofrecidas, 90 IDs históricos y guardados v7. HUD inferior de 118 px. Hay 116 ilustraciones integradas; los originales y las versiones anteriores se conservan. Ver [detalle y pruebas](ESTABLE_27.md) y [galería completa](arte/galeria-estable27.html).

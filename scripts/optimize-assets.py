@@ -9,7 +9,7 @@ file=root/'assets/manifest.json'
 m=json.loads(file.read_text());saved=0
 for a in m['resources'].values():
     source=root/a['source']
-    if a['mime']!='image/png':continue
+    if a['mime']!='image/png' or a.get('compression'):continue
     raw=source.read_bytes()
     with Image.open(io.BytesIO(raw)) as image:
         original=image.convert('RGBA');out=io.BytesIO()

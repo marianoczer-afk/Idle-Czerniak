@@ -504,7 +504,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 26</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 27</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -606,7 +606,7 @@ function toggleFavorite(id){
 }
 function downloadHTML(){
   // Exporta el documento completo, no una vista previa ni un acceso externo.
-  const page = document.documentElement.cloneNode(true);e217CleanClone(page);
+  const page = document.documentElement.cloneNode(true);e217CleanClone(page);if(typeof e227CleanDownload==='function')e227CleanDownload(page);
   page.querySelector("#uiWorkspace")?.remove();
   page.querySelector("#balanceLabPanel")?.remove();
   page.querySelector("#devBalancePanel")?.remove();

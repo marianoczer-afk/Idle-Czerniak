@@ -86,5 +86,29 @@
   {
     "file": "src/catalogs/111-e208-art-e208_fish_art.js",
     "symbol": "E208_FISH_ART"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E227_FISH"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E227_ZONES"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E227_QUESTS"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E227_MASTERY_BASELINE"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E227_OLD_QUESTS"
+  },
+  {
+    "file": "src/catalogs/133-art-frames.js",
+    "symbol": "E227_ART"
   }
 ]

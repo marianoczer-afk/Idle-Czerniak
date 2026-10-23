@@ -1,0 +1,30 @@
+[
+  {
+    "version": "Estable 26",
+    "cpuThrottle": 4,
+    "viewport": 390,
+    "finishMilliseconds": [
+      184,
+      172,
+      172,
+      153,
+      159,
+      167
+    ],
+    "median": 167
+  },
+  {
+    "version": "Estable 27",
+    "cpuThrottle": 4,
+    "viewport": 390,
+    "finishMilliseconds": [
+      173,
+      218,
+      191,
+      150,
+      189,
+      170
+    ],
+    "median": 189
+  }
+]

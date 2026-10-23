@@ -1,0 +1,33 @@
+/* Two-row global chrome. No rules modify the bottom HUD or combat dock. */
+body>header.globalHeader{display:block;padding:7px 16px 0;margin:0 auto;max-width:1360px;border-bottom:1px solid #675431;background:linear-gradient(#231e17,#171410);position:sticky;top:0;z-index:10}
+.globalHeaderTop{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:42px}
+.globalHeaderTop h1{font:600 clamp(12px,1.4vw,19px) Georgia,serif;letter-spacing:.1em;color:#e8cf91;margin:0;white-space:nowrap}
+.generalIdentity{max-width:530px;min-width:0;flex:1;color:#e9dab6;font-size:13px;display:none}
+.hasActiveCharacter .generalIdentity{display:block}.generalIdentity>b{display:block;overflow-wrap:anywhere;font-weight:600}
+.generalXP{display:flex;align-items:center;gap:9px;position:relative;min-height:20px}
+#generalXPText{font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap;order:2;color:#d1c5a8}
+.generalXPTrack{height:6px;flex:1;min-width:50px;background:#111c18;border:1px solid #847044;border-radius:4px;overflow:hidden}
+#generalXPBar{display:block;height:100%;background:linear-gradient(90deg,#779f62,#b5d88b)}
+.globalHeaderNav{display:flex;align-items:center;gap:8px;min-width:0;position:relative}
+.globalHeaderNav .workspaceTabs{position:static;margin:0;flex:1;min-width:0;padding:4px 0 6px;scrollbar-width:none;background:none}.globalHeaderNav .workspaceTabs::-webkit-scrollbar{display:none}
+.globalHeaderNav .workspaceTabs button{min-height:36px;padding:7px 15px;flex:none}
+body:not(.hasActiveCharacter) .globalHeaderNav .workspaceTabs{display:none}
+#gameSettings{margin-left:auto;flex:none;border:0;padding:0;background:none}
+#gameSettings>summary{list-style:none;display:flex;align-items:center;justify-content:center;position:relative;width:38px;height:36px;border:1px solid #655333;border-radius:7px;color:#ddc28c;cursor:pointer}
+#gameSettings>summary::-webkit-details-marker{display:none}#gameSettings>summary svg{width:21px;height:21px}
+.saveIndicator{position:absolute;right:3px;top:3px;width:5px;height:5px;border-radius:50%;background:#89b880}.saveError .saveIndicator{background:#ed775e;box-shadow:0 0 5px #ed775e}.saveError:after{content:'!';font-weight:bold;color:#ed775e}
+.settingsPanel{position:absolute;z-index:20;right:0;top:100%;width:min(370px,calc(100vw - 20px));max-height:calc(100dvh - 180px);overflow-y:auto;scrollbar-width:none;background:#211d17;border:1px solid #99804c;border-radius:9px;box-shadow:0 12px 38px #000b;padding:14px}
+.settingsPanel h2{margin:0 0 12px;font:600 17px Georgia,serif;color:#ead193}.settingsActions .actions{display:flex;gap:6px;flex-wrap:wrap}.settingsActions button{font-size:12px;min-height:36px}.settingsActions>.actions{margin-top:8px}.settingsTechnical{font-size:11px;color:#b8a888;margin-top:10px}#settingsSaveState{font-size:12px;color:#c1b699}#settingsSaveState .warn{color:#ff9c7b}
+.settingsActions #saveInfo{display:none}.settingsActions .sidebarQuickActions{display:none}
+.generalXPDrop{position:absolute;right:0;bottom:7px;color:#c5efa5;pointer-events:none;font:700 12px Georgia,serif;text-shadow:0 1px 4px #101b12;animation:generalXPFloat 1.75s ease both;z-index:2;white-space:nowrap}
+@keyframes generalXPFloat{0%{opacity:0;transform:translateY(4px)}12%,76%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+@media(max-width:600px){body>header.globalHeader{padding:5px 8px 0}.globalHeaderTop{gap:8px;min-height:46px}.generalIdentity{font-size:10px;max-width:65%}.globalHeaderTop h1{font-size:10px;white-space:normal;text-align:right;max-width:110px;line-height:1.4}.generalXP{gap:5px}#generalXPText{font-size:8px}.globalHeaderNav .workspaceTabs{gap:4px}.globalHeaderNav .workspaceTabs button{padding:6px 10px;font-size:12px;min-height:34px}.globalHeaderNav{gap:4px}#gameSettings>summary{width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){.generalXPDrop{animation:none}}
+/* Art layers are overlays; existing card/hitbox/HUD dimensions stay authoritative. */
+.e227ControlArt{background:none!important;overflow:hidden}.e227ControlArt>svg{width:100%;height:100%;display:block}
+.e227SidebarArt{width:100%;height:54px;display:block;border-radius:5px;margin-bottom:8px;opacity:.9;pointer-events:none}
+#e16Tank .e227WaterArt{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:.55;pointer-events:none;z-index:0}
+#e16Tank .fishZone,#e16Tank .fishTarget{z-index:1}
+@media(min-width:851px){.hasActiveCharacter .hybridSidebar{top:calc(var(--global-header-height,98px) + 12px);max-height:calc(100dvh - var(--dock-space,135px) - var(--global-header-height,98px) - 24px)}}
+html{scroll-padding-top:var(--global-header-height,98px)}
+#page_fishing .e186Book .e186Fish .e192Sprite>svg.fishIllustration{width:100%!important;height:100%!important;object-fit:contain!important;filter:none}

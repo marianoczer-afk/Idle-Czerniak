@@ -7,7 +7,7 @@
 
 #page_fishing .e192Sprite img.e1117Fish{object-fit:contain!important;object-position:center!important}
 #page_fishing .e1123ZoneBanner{position:relative;overflow:hidden;min-height:155px;border:1px solid #779b8b;border-radius:12px;margin:10px 0 15px;background:#12343b}
-#page_fishing .e1123ZoneBanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#page_fishing .e1123ZoneBanner img,#page_fishing .e1123ZoneBanner>svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 #page_fishing .e1123ZoneBanner:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#071b23e8 0%,#071b2388 45%,transparent 100%)}
 #page_fishing .e1123ZoneBannerText{position:relative;z-index:1;padding:23px;max-width:65%;text-shadow:0 2px 6px #000}
 #page_fishing .e1123ZoneBannerText strong{font-size:20px;color:#ffe1a4;display:block}

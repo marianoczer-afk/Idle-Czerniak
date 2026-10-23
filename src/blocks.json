@@ -772,5 +772,29 @@
     "file": "src/js/fishing/art/129-e223-art-presentation.js",
     "type": "script",
     "attributes": " data-e223-art-presentation"
+  },
+  {
+    "id": "block-130",
+    "file": "src/js/fishing/expansion/130-expansion.js",
+    "type": "script",
+    "attributes": " data-expansion-27"
+  },
+  {
+    "id": "block-131",
+    "file": "src/css/ui/131-global-header.css",
+    "type": "style",
+    "attributes": " id=\"global-header-css\""
+  },
+  {
+    "id": "block-132",
+    "file": "src/js/ui/132-global-header.js",
+    "type": "script",
+    "attributes": " data-global-header-27"
+  },
+  {
+    "id": "block-133",
+    "file": "src/js/fishing/art/133-production-art.js",
+    "type": "script",
+    "attributes": " data-production-art-27"
   }
 ]

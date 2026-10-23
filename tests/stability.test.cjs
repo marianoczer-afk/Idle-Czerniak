@@ -103,8 +103,8 @@ for(const width of [1366,390])test(`Fishing context, mystery, invariant phases, 
   });
   assert.equal(result.delta,1);assert.ok(result.xp>0);
   assert.match(await page.locator('#e188FishingHud').innerText(),/Atún gigante/);
-  const art=page.locator('#e188FishingHud .e189Art img');await art.waitFor();
-  await page.waitForFunction(()=>document.querySelector('#e188FishingHud .e189Art img')?.naturalWidth>0);
+  const art=page.locator('#e188FishingHud .e189Art>svg.fishIllustration');await art.waitFor();
+  assert.equal(await art.getAttribute('preserveAspectRatio'),'xMidYMid meet');
   assert.equal(await art.evaluate(n=>getComputedStyle(n).objectFit),'contain');
   const finished=await geometry();for(const k of ['top','height','document','toolbar','dock'])closeTo(finished[k],bubbles[k]);
   await page.evaluate(()=>selectWorkspaceTab('combat'));
@@ -187,7 +187,7 @@ test('RNG: exact existing weights, boundaries, seeded frequencies and trophy thr
    try{for(const v of [0,.017999,.018,.114999,.115,.339999,.34,.999999]){Math.random=()=>v;thresholds.push(e186QualityRoll());}}finally{Math.random=old;}
    return {scenarios:rows.length,draws:rows.filter(Boolean).length*20000,emptyScenarios:rows.filter(n=>n===0).length,thresholds};
   });
-  assert.equal(report.scenarios,60);assert.equal(report.draws,1160000);assert.equal(report.emptyScenarios,2);
+  assert.equal(report.scenarios,78);assert.equal(report.draws,1520000);assert.equal(report.emptyScenarios,2);
   assert.deepEqual(report.thresholds,[.009,.009,.06,.06,.20,.20,.8,.8]);
  }finally{await context.close();}
 });
@@ -282,13 +282,13 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
  const {context,page}=await fresh();let downloadedContext,directory;
  try{
   await character(page);
-  await page.locator('.hybridSidebarBody details[data-ui-panel="save"]').evaluate(n=>n.open=true);
-  const pending=page.waitForEvent('download');await page.locator('.hybridSidebarBody [data-act="downloadHtml"]').click();
+  await page.locator('#gameSettings').evaluate(n=>n.open=true);
+  const pending=page.waitForEvent('download');await page.locator('#gameSettings [data-act="downloadHtml"]').click();
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-26">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 26<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-27">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 27<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -315,7 +315,7 @@ for(const width of [1366,390])test(`Estable 23: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 26/);
+  assert.match(await page.locator('header h1').innerText(),/ARGENTUM IDLE ONLINE/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -395,7 +395,7 @@ test('Weight and control balance: every species defined, capacity limits and pro
    if(JSON.stringify(E16_FISH)!==catalogue)throw Error('Mutated fish catalogue');
    return {count:E16_FISH.length,samples,widths,resized:g.fish.zone,caps:rods.map(e190Capacity),allReachable:E16_FISH.every(f=>e190CanLift(f,rods.find(r=>r.id==='e192_rod_abyss')))};
   });
-  assert.equal(result.count,41);assert.equal(result.samples,14760);assert.equal(result.allReachable,true);
+  assert.equal(result.count,50);assert.equal(result.samples,18000);assert.equal(result.allReachable,true);
   assert.ok(result.caps.every(n=>n>0));
   for(const row of result.widths){assert.ok(row.steel>row.basic);closeTo(row.steel-row.basic,row.width*.08,.001);}
   closeTo(result.resized,104,.001);
@@ -681,7 +681,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    const before=snapshot();e16Page();return before;
   });
   assert.equal(await page.locator('#fishingAtlas').count(),1);
-  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/25 encargos/);
+  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/32 encargos/);
   assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),0);
   let badges=0;
   for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
@@ -787,11 +787,11 @@ test('Estable 23: sidebar scrolls independently and switching character stays ac
   const side=page.locator('#hybridSidebar');await side.evaluate(n=>{n.open=true;n.querySelectorAll('details').forEach(d=>d.open=true);n.scrollTop=0;});
   const box=await side.boundingBox(),before=await page.evaluate(()=>scrollY);
   await page.mouse.move(box.x+box.width/2,box.y+150);await page.mouse.wheel(0,800);
-  await page.waitForFunction(()=>document.getElementById('hybridSidebar').scrollTop>0);
+  if(await side.evaluate(n=>n.scrollHeight>n.clientHeight))await page.waitForFunction(()=>document.getElementById('hybridSidebar').scrollTop>0);
   assert.equal(await page.evaluate(()=>scrollY),before);
-  const quick=page.locator('.sidebarQuickActions [data-act="switchCharacter"]');
+  await page.locator('#gameSettings').evaluate(n=>n.open=true);const quick=page.locator('#gameSettings [data-act="switchCharacter"]');
   assert.equal(await quick.isVisible(),true);
-  const button=await quick.boundingBox();assert.ok(button.y>=box.y&&button.y<box.y+70);
+  const button=await quick.boundingBox();assert.ok(button.y>=0&&button.y<782);
   await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('atun');});
   await quick.click();await page.waitForFunction(()=>!roster.activeId&&!busy&&document.getElementById('characterScreen')&&!document.getElementById('characterScreen').classList.contains('hidden'));
   assert.equal(await page.locator('#characterScreen').isVisible(),true);
@@ -911,7 +911,7 @@ for(const width of [1366,390])test(`Estable 23: restored zone and rod shortcuts 
   await page.locator('.e1120Choice').filter({hasText:'Río del Bosque'}).click();
   assert.equal(await page.evaluate(()=>state.ui.fishingZoneId),'rio');
   assert.match(await page.locator('#combatDock .e1118Zone small').innerText(),/Río del Bosque/);
-  const image=page.locator('#combatDock .e1118Zone img');assert.equal(await image.isVisible(),true);assert.ok((await image.getAttribute('src')).startsWith('data:image/'));
+  const image=page.locator('#combatDock .e1118Zone svg');assert.equal(await image.isVisible(),true);assert.equal(await image.locator('use').getAttribute('href'),'#art27-zone-rio');
   await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;});
   await page.locator('#combatDock .e194DockRod').click();await page.locator('.e1120Choice').filter({hasText:'Caña de bambú'}).click();
   assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_bamboo');
@@ -980,7 +980,7 @@ test('Estable 23: Atlas derives independent milestones from v7 records without m
   });
   assert.deepEqual(report.empty,[false,false,false]);assert.deepEqual(report.discovery,[true,false,false]);assert.deepEqual(report.quests,[true,true,false]);assert.deepEqual(report.all,[true,true,true]);
   assert.deepEqual(report.noQuestEmpty,[false,false,false]);assert.deepEqual(report.noQuestOne,[false,true,false]);assert.deepEqual(report.noQuestAll,[true,true,true]);assert.deepEqual(report.legacy,[true,false,true]);assert.equal(report.coral[1],true);
-  assert.equal(report.definitions,25);assert.equal(report.species,41);assert.deepEqual(report.counts,[1,8,1,1,1,1,0,6,0,6]);
+  assert.equal(report.definitions,32);assert.equal(report.species,50);assert.deepEqual(report.counts,[1,8,1,1,1,1,2,6,2,6,1,1,1]);
  }finally{await context.close();}
 });
 
@@ -993,10 +993,10 @@ for(const width of [1366,390])test(`Estable 23: Atlas search, mastery, accessibl
   await page.locator('.e194QuestFold').evaluate(n=>n.open=true);
   const first=page.locator('.e216Quest').first();assert.equal(await first.locator('.e171Quest').isVisible(),false);await first.locator('summary').click();assert.equal(await first.locator('.e171Quest').isVisible(),true);assert.match(await first.innerText(),/Cualquier tamaño cuenta/);
   await page.evaluate(()=>e16Page());assert.equal(await first.evaluate(n=>n.open),true);
-  await page.locator('#fishingAtlas').evaluate(n=>n.open=true);assert.equal(await page.locator('.atlasRow:visible').count(),10);
+  await page.locator('#fishingAtlas').evaluate(n=>n.open=true);assert.equal(await page.locator('.atlasRow:visible').count(),13);
   await page.locator('[data-atlas-search]').fill('rio del');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-search]').fill('');
-  await page.locator('[data-atlas-filter]').selectOption('complete');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-zone="manglar"]').click();assert.equal(await page.locator('.atlasMedal').count(),1);assert.match(await page.locator('.atlasZoneDetail').innerText(),/no tiene encargos/);
-  await page.locator('[data-atlas-filter]').selectOption('pending');assert.equal(await page.locator('.atlasRow:visible').count(),9);await page.locator('[data-atlas-zone="arrecife"]').click();
+  await page.locator('[data-atlas-filter]').selectOption('complete');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-zone="manglar"]').click();assert.equal(await page.locator('.atlasMedal').count(),1);assert.match(await page.locator('.atlasZoneDetail').innerText(),/sin encargos principales/);
+  await page.locator('[data-atlas-filter]').selectOption('pending');assert.equal(await page.locator('.atlasRow:visible').count(),12);await page.locator('[data-atlas-zone="arrecife"]').click();
   const before=await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId}));const badge=page.locator('[data-atlas-badge="arrecife"]');assert.match(await badge.getAttribute('title'),/secreto del arrecife.*Entregá.*Caña Coralina/is);await badge.click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),/Recompensa ya obtenida/);assert.equal(await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId})),before);
   const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,rows:[...document.querySelectorAll('.atlasRow:not([hidden])')].map(n=>n.getBoundingClientRect().height),quests:[...document.querySelectorAll('.e216Quest>summary')].map(n=>n.getBoundingClientRect().height)}));assert.ok(geometry.overflow<=1,JSON.stringify(geometry));assert.ok(geometry.rows.every(h=>h<=65));assert.ok(geometry.quests.every(h=>h<=85));
   await page.evaluate(async()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);await page.evaluate(()=>selectWorkspaceTab('fishing'));await atlasZone(page,'manglar');assert.equal(await page.locator('.atlasMedal').count(),1);assert.equal(await page.evaluate(()=>state.owned.e187_rod_coral),true);
@@ -1137,7 +1137,7 @@ for(const width of [1366,390])test(`Estable 23: illustrated journal, truthful re
  assert.equal(result.legacy.best,99);assert.equal(result.legacy.category,null);assert.deepEqual(result.legacy.categories,{});
  assert.equal(result.record.best,99);assert.equal(result.record.category,null);assert.deepEqual(result.record.categories,{normal:2,large:3,huge:4,legendary:5});
  await page.locator('.e181Journal').evaluate(n=>n.open=true);
- const cards=page.locator('[data-journal-fish]');assert.equal(await cards.count(),10);assert.equal(await cards.first().locator('img').count(),1);
+ const cards=page.locator('[data-journal-fish]');assert.equal(await cards.count(),10);assert.equal(await cards.first().locator('svg.fishIllustration').count(),1);
  await cards.nth(2).click();
  const geometry=await page.locator('.e218Album').evaluate(grid=>{const selected=grid.querySelector('[aria-expanded=true]'),detail=grid.querySelector('.e218Detail'),cards=[...grid.querySelectorAll('[data-journal-fish]')];return{top:detail.offsetTop,rowBottom:Math.max(...cards.filter(c=>c.offsetTop===selected.offsetTop).map(c=>c.offsetTop+c.offsetHeight)),next:detail.nextElementSibling?.offsetTop||Infinity,bottom:detail.offsetTop+detail.offsetHeight,overflow:detail.scrollWidth>detail.clientWidth+1};});
  assert.ok(geometry.top>=geometry.rowBottom);assert.ok(geometry.next>=geometry.bottom);assert.equal(geometry.overflow,false);
@@ -1438,7 +1438,7 @@ test('Estable 23: future data automatically reaches all fishing interfaces witho
  const rod={id:'test_rod',name:'Caña de ensayo',price:123,req:1,bonus:10,family:'test_family',zone:'test_expansion',specialty:'new',art:0};E161_RODS.push(rod);E1103_SPECIAL[rod.id]={speed:2,luck:3,resilience:4,trophy:5,maxKg:100,role:'Prueba'};
  state.ui.e18Fishing.bySpecies.test_species={total:2,best:'normal'};state.ui.e18Fishing.total+=2;e16Page();document.querySelector('.e181Journal').open=true;document.getElementById('fishingAtlas').open=true;
  return{zones:E165_ZONES.length,rods:e221Rods().length,offered:e212Offered(rod),journalZone:!!document.querySelector('[data-journal-zone] option[value="test_expansion"]'),shopZone:!!document.querySelector('[data-rod-zone] option[value="test_expansion"]'),atlas:!!document.querySelector('[data-atlas-zone="test_expansion"]'),species:!!document.querySelector('[data-journal-fish="test_species"]'),row:!!document.querySelector('.rodShopRow[data-rod-id="test_rod"]'),sameImage:e221ZoneImage(E165_ZONES.at(-1))===image};
- });assert.deepEqual(report,{zones:11,rods:51,offered:true,journalZone:true,shopZone:true,atlas:true,species:true,row:true,sameImage:true});
+ });assert.deepEqual(report,{zones:14,rods:51,offered:true,journalZone:true,shopZone:true,atlas:true,species:true,row:true,sameImage:true});
  await page.locator('#combatDock .e194DockRod').click();assert.equal(await page.locator('.e1120Choice[data-rod-id="test_rod"]').count(),1);await page.locator('.e217RodTools input[type="search"]').fill('ensayo');assert.equal(await page.locator('.e1120Choice:not([hidden])').count(),1);
  }finally{await context.close();}
 });
@@ -1601,15 +1601,15 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable26'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable26/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable27'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable27/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable26/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable27/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
-  assert.equal(await filter.inputValue(),'santuario');
+  assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);
   await page.keyboard.press('Escape');await filter.selectOption('all');
   const rows=page.locator('.rodRows').first();await rows.scrollIntoViewIfNeeded();await rows.evaluate(n=>n.scrollTop=n.scrollHeight);

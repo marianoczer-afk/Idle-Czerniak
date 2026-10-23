@@ -89,7 +89,7 @@ function e190ReturnToFishing(){
  if(!state||!ready||busy||managing)return;
  if(state.ui?.tab!=='fishing')selectWorkspaceTab('fishing');
  const progress=document.querySelector('#page_fishing .e163Skill');if(!progress)return;
- const tabs=document.querySelector('.workspaceTabs'),top=progress.getBoundingClientRect().top+window.scrollY-(tabs?.getBoundingClientRect().height||0)-12;
+ const chrome=document.querySelector('.globalHeader')||document.querySelector('.workspaceTabs'),top=progress.getBoundingClientRect().top+window.scrollY-(chrome?.getBoundingClientRect().height||0)-12;
  window.scrollTo({top:Math.max(0,top),behavior:'auto'});
 }
 function e16Rod(){return !!state?.owned?.e16_rod;}

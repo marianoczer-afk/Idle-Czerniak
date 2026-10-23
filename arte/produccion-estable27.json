@@ -1,0 +1,1820 @@
+{
+  "build": "estable-27",
+  "method": "Individual reviewed non-destructive SVG viewports; shared optimized atlases",
+  "sheets": [
+    {
+      "id": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "id": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "entries": [
+    {
+      "id": "gobio_runico",
+      "kind": "fish",
+      "symbol": "art27-fish-gobio_runico",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        0,
+        0,
+        512,
+        273
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "nautilo_bronce",
+      "kind": "fish",
+      "symbol": "art27-fish-nautilo_bronce",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        512,
+        0,
+        512,
+        273
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "congrio_archivo",
+      "kind": "fish",
+      "symbol": "art27-fish-congrio_archivo",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        0,
+        273,
+        512,
+        265
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "tetra_prismatico",
+      "kind": "fish",
+      "symbol": "art27-fish-tetra_prismatico",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        512,
+        273,
+        512,
+        265
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "ajolote_cuarzo",
+      "kind": "fish",
+      "symbol": "art27-fish-ajolote_cuarzo",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        0,
+        538,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "esturion_geoda",
+      "kind": "fish",
+      "symbol": "art27-fish-esturion_geoda",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        512,
+        538,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "isopodo_fosil",
+      "kind": "fish",
+      "symbol": "art27-fish-isopodo_fosil",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        0,
+        816,
+        512,
+        280
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "quimera_ambar",
+      "kind": "fish",
+      "symbol": "art27-fish-quimera_ambar",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        512,
+        816,
+        512,
+        280
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "titan_ammonita",
+      "kind": "fish",
+      "symbol": "art27-fish-titan_ammonita",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        0,
+        1096,
+        512,
+        440
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "bagre",
+      "kind": "fish",
+      "symbol": "art27-fish-bagre",
+      "sheetId": "art27-sheet-art-first",
+      "assetId": "image-0375b1f014dfc2b6",
+      "bounds": [
+        512,
+        1096,
+        512,
+        440
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "mojarra",
+      "kind": "fish",
+      "symbol": "art27-fish-mojarra",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        0,
+        0,
+        512,
+        288
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "trucha",
+      "kind": "fish",
+      "symbol": "art27-fish-trucha",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        512,
+        0,
+        512,
+        288
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "salmon",
+      "kind": "fish",
+      "symbol": "art27-fish-salmon",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        0,
+        288,
+        512,
+        280
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_espada",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_espada",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        512,
+        288,
+        512,
+        280
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "carpa_dorada",
+      "kind": "fish",
+      "symbol": "art27-fish-carpa_dorada",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        0,
+        568,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "trucha_arcoiris",
+      "kind": "fish",
+      "symbol": "art27-fish-trucha_arcoiris",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        512,
+        568,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_fantasma",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_fantasma",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        0,
+        846,
+        512,
+        309
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "lucio",
+      "kind": "fish",
+      "symbol": "art27-fish-lucio",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        512,
+        846,
+        512,
+        309
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "anguila",
+      "kind": "fish",
+      "symbol": "art27-fish-anguila",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        0,
+        1155,
+        512,
+        381
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "lubina",
+      "kind": "fish",
+      "symbol": "art27-fish-lubina",
+      "sheetId": "art27-sheet-fish-river",
+      "assetId": "image-82091950e1231823",
+      "bounds": [
+        512,
+        1155,
+        512,
+        381
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "atun",
+      "kind": "fish",
+      "symbol": "art27-fish-atun",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        0,
+        0,
+        512,
+        271
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "mantarraya",
+      "kind": "fish",
+      "symbol": "art27-fish-mantarraya",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        512,
+        0,
+        512,
+        271
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "perca_esmeralda",
+      "kind": "fish",
+      "symbol": "art27-fish-perca_esmeralda",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        0,
+        271,
+        512,
+        273
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "cangrejo_azul",
+      "kind": "fish",
+      "symbol": "art27-fish-cangrejo_azul",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        512,
+        271,
+        512,
+        273
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "koi_imperial",
+      "kind": "fish",
+      "symbol": "art27-fish-koi_imperial",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        0,
+        544,
+        512,
+        257
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "esturion",
+      "kind": "fish",
+      "symbol": "art27-fish-esturion",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        512,
+        544,
+        512,
+        257
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_luna",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_luna",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        0,
+        801,
+        512,
+        389
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "caballito_mar",
+      "kind": "fish",
+      "symbol": "art27-fish-caballito_mar",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        512,
+        801,
+        512,
+        389
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "morena",
+      "kind": "fish",
+      "symbol": "art27-fish-morena",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        0,
+        1190,
+        512,
+        346
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "tiburon_arrecife",
+      "kind": "fish",
+      "symbol": "art27-fish-tiburon_arrecife",
+      "sheetId": "art27-sheet-fish-coast",
+      "assetId": "image-f3728b043056d027",
+      "bounds": [
+        512,
+        1190,
+        512,
+        346
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_linternilla",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_linternilla",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        0,
+        0,
+        512,
+        293
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "calamar_abismo",
+      "kind": "fish",
+      "symbol": "art27-fish-calamar_abismo",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        512,
+        0,
+        512,
+        293
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_cristal",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_cristal",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        0,
+        293,
+        512,
+        298
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "leviatan",
+      "kind": "fish",
+      "symbol": "art27-fish-leviatan",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        512,
+        293,
+        512,
+        298
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "sabalo_manglar",
+      "kind": "fish",
+      "symbol": "art27-fish-sabalo_manglar",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        0,
+        591,
+        512,
+        289
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_arquero",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_arquero",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        512,
+        591,
+        512,
+        289
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "anguila_manglar",
+      "kind": "fish",
+      "symbol": "art27-fish-anguila_manglar",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        0,
+        880,
+        512,
+        295
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "tarpon",
+      "kind": "fish",
+      "symbol": "art27-fish-tarpon",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        512,
+        880,
+        512,
+        295
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "trucha_alpina",
+      "kind": "fish",
+      "symbol": "art27-fish-trucha_alpina",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        0,
+        1175,
+        512,
+        361
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "salvelino",
+      "kind": "fish",
+      "symbol": "art27-fish-salvelino",
+      "sheetId": "art27-sheet-fish-depth",
+      "assetId": "image-f9699b6e773e6798",
+      "bounds": [
+        512,
+        1175,
+        512,
+        361
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "bacalao_hielo",
+      "kind": "fish",
+      "symbol": "art27-fish-bacalao_hielo",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        0,
+        0,
+        512,
+        257
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "esturion_blanco",
+      "kind": "fish",
+      "symbol": "art27-fish-esturion_blanco",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        512,
+        0,
+        512,
+        257
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_lava",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_lava",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        0,
+        257,
+        512,
+        260
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "mero_obsidiana",
+      "kind": "fish",
+      "symbol": "art27-fish-mero_obsidiana",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        512,
+        257,
+        512,
+        260
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_escorpion",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_escorpion",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        0,
+        517,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "dragon_mar",
+      "kind": "fish",
+      "symbol": "art27-fish-dragon_mar",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        512,
+        517,
+        512,
+        278
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "carpa_celeste",
+      "kind": "fish",
+      "symbol": "art27-fish-carpa_celeste",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        0,
+        795,
+        512,
+        248
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "pez_cometa",
+      "kind": "fish",
+      "symbol": "art27-fish-pez_cometa",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        512,
+        795,
+        512,
+        248
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "raya_aurora",
+      "kind": "fish",
+      "symbol": "art27-fish-raya_aurora",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        0,
+        1043,
+        512,
+        493
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "guardian_mareas",
+      "kind": "fish",
+      "symbol": "art27-fish-guardian_mareas",
+      "sheetId": "art27-sheet-fish-legend",
+      "assetId": "image-efd99f37bf2e49e5",
+      "bounds": [
+        512,
+        1043,
+        512,
+        493
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e16_rod",
+      "kind": "rod",
+      "symbol": "art27-rod-e16_rod",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        0,
+        1024,
+        141
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e161_rod_bamboo",
+      "kind": "rod",
+      "symbol": "art27-rod-e161_rod_bamboo",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        141,
+        1024,
+        124
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e161_rod_fiber",
+      "kind": "rod",
+      "symbol": "art27-rod-e161_rod_fiber",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        265,
+        1024,
+        132
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e161_rod_steel",
+      "kind": "rod",
+      "symbol": "art27-rod-e161_rod_steel",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        397,
+        1024,
+        141
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e192_rod_laguna",
+      "kind": "rod",
+      "symbol": "art27-rod-e192_rod_laguna",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        538,
+        1024,
+        145
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e192_rod_coral",
+      "kind": "rod",
+      "symbol": "art27-rod-e192_rod_coral",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        683,
+        1024,
+        141
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e192_rod_abyss",
+      "kind": "rod",
+      "symbol": "art27-rod-e192_rod_abyss",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        824,
+        1024,
+        161
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_junco_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_junco_cauce",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        985,
+        1024,
+        147
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_junco_destello",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_junco_destello",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        1132,
+        1024,
+        160
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_sauce_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_sauce_pulso",
+      "sheetId": "art27-sheet-rods-0",
+      "assetId": "image-d0e4884112b48efa",
+      "bounds": [
+        0,
+        1292,
+        1024,
+        244
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_sauce_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_sauce_fortuna",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        0,
+        1024,
+        154
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_marea_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_marea_cauce",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        154,
+        1024,
+        131
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_marea_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_marea_titan",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        285,
+        1024,
+        129
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_nenufar_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_nenufar_fortuna",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        414,
+        1024,
+        136
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_nenufar_reliquia",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_nenufar_reliquia",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        550,
+        1024,
+        149
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_coral_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_coral_pulso",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        699,
+        1024,
+        150
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_coral_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_coral_cauce",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        849,
+        1024,
+        142
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_fosa_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_fosa_pulso",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        991,
+        1024,
+        152
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_fosa_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_fosa_titan",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        1143,
+        1024,
+        174
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_mangle_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_mangle_cauce",
+      "sheetId": "art27-sheet-rods-1",
+      "assetId": "image-e9bbd9307aa2a21a",
+      "bounds": [
+        0,
+        1317,
+        1024,
+        219
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_mangle_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_mangle_fortuna",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        0,
+        1024,
+        151
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_escarcha_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_escarcha_pulso",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        151,
+        1024,
+        134
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_escarcha_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_escarcha_cauce",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        285,
+        1024,
+        143
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_obsidiana_destello",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_obsidiana_destello",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        428,
+        1024,
+        130
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_obsidiana_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_obsidiana_titan",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        558,
+        1024,
+        147
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_celeste_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_celeste_pulso",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        705,
+        1024,
+        153
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_celeste_reliquia",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_celeste_reliquia",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        858,
+        1024,
+        158
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_pulso",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        1016,
+        1024,
+        154
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_cauce",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        1170,
+        1024,
+        157
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_destello",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_destello",
+      "sheetId": "art27-sheet-rods-2",
+      "assetId": "image-fc42b3efa2b79c04",
+      "bounds": [
+        0,
+        1327,
+        1024,
+        209
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_fortuna",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        0,
+        1024,
+        137
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_titan",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        137,
+        1024,
+        140
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_custodio_reliquia",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_custodio_reliquia",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        277,
+        1024,
+        137
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_pulso",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        414,
+        1024,
+        136
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_cauce",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        550,
+        1024,
+        145
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_destello",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_destello",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        695,
+        1024,
+        142
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_fortuna",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        837,
+        1024,
+        152
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_titan",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        989,
+        1024,
+        154
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_boreal_reliquia",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_boreal_reliquia",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        1143,
+        1024,
+        158
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_pulso",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_pulso",
+      "sheetId": "art27-sheet-rods-3",
+      "assetId": "image-c8aea481a958b326",
+      "bounds": [
+        0,
+        1301,
+        1024,
+        235
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_cauce",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_cauce",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        0,
+        1024,
+        139
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_destello",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_destello",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        139,
+        1024,
+        141
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_fortuna",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_fortuna",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        280,
+        1024,
+        132
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_titan",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_titan",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        412,
+        1024,
+        144
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e208_rod_eterno_reliquia",
+      "kind": "rod",
+      "symbol": "art27-rod-e208_rod_eterno_reliquia",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        556,
+        1024,
+        142
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e17_rod_viejo",
+      "kind": "rod",
+      "symbol": "art27-rod-e17_rod_viejo",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        698,
+        1024,
+        144
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e171_rod_rio",
+      "kind": "rod",
+      "symbol": "art27-rod-e171_rod_rio",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        842,
+        1024,
+        161
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e171_rod_costa",
+      "kind": "rod",
+      "symbol": "art27-rod-e171_rod_costa",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        1003,
+        1024,
+        159
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e18_rod_trofeo",
+      "kind": "rod",
+      "symbol": "art27-rod-e18_rod_trofeo",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        1162,
+        1024,
+        165
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "e187_rod_coral",
+      "kind": "rod",
+      "symbol": "art27-rod-e187_rod_coral",
+      "sheetId": "art27-sheet-rods-4",
+      "assetId": "image-4b8b219c9414b081",
+      "bounds": [
+        0,
+        1327,
+        1024,
+        209
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "muelle",
+      "kind": "zone",
+      "symbol": "art27-zone-muelle",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        0,
+        0,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "rio",
+      "kind": "zone",
+      "symbol": "art27-zone-rio",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        512,
+        0,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "costa",
+      "kind": "zone",
+      "symbol": "art27-zone-costa",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        0,
+        384,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "laguna",
+      "kind": "zone",
+      "symbol": "art27-zone-laguna",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        512,
+        384,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "arrecife",
+      "kind": "zone",
+      "symbol": "art27-zone-arrecife",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        0,
+        768,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "abismo",
+      "kind": "zone",
+      "symbol": "art27-zone-abismo",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        512,
+        768,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "manglar",
+      "kind": "zone",
+      "symbol": "art27-zone-manglar",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        0,
+        1152,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "glaciar",
+      "kind": "zone",
+      "symbol": "art27-zone-glaciar",
+      "sheetId": "art27-sheet-zones-a",
+      "assetId": "image-bd43a5ed9742c4b2",
+      "bounds": [
+        512,
+        1152,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "volcan",
+      "kind": "zone",
+      "symbol": "art27-zone-volcan",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        0,
+        0,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "santuario",
+      "kind": "zone",
+      "symbol": "art27-zone-santuario",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        512,
+        0,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "ruinas_sumergidas",
+      "kind": "zone",
+      "symbol": "art27-zone-ruinas_sumergidas",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        0,
+        384,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "cavernas_cristal",
+      "kind": "zone",
+      "symbol": "art27-zone-cavernas_cristal",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        512,
+        384,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "abismo_primordial",
+      "kind": "zone",
+      "symbol": "art27-zone-abismo_primordial",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        0,
+        768,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "sidebar",
+      "kind": "ui",
+      "symbol": "art27-ui-sidebar",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        512,
+        768,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "cast",
+      "kind": "ui",
+      "symbol": "art27-ui-cast",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        0,
+        1152,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    },
+    {
+      "id": "water",
+      "kind": "ui",
+      "symbol": "art27-ui-water",
+      "sheetId": "art27-sheet-zones-b",
+      "assetId": "image-379d989a161150a5",
+      "bounds": [
+        512,
+        1152,
+        512,
+        384
+      ],
+      "status": "generated-integrated",
+      "review": "Silueta y límites de celda revisados; revisión artística del usuario pendiente"
+    }
+  ]
+}

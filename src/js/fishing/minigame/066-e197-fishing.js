@@ -15,7 +15,7 @@ function e197Sync(){
  const pct=e16FishProgress().percent;
  const rod=e161Rod(),perks=e187Rewards(),key=JSON.stringify([xp,rod?.name,!!perks.laguna,!!perks.abismo]);
  if(card.dataset.renderKey===key)return;card.dataset.renderKey=key;
- card.innerHTML='<b>🎣 Progreso de Pesca</b><div class="e197Line"><span>Nivel '+lv+(lv===100?' · Máximo':'')+'</span><b>'+(lv===100?fmt(xp)+' XP acumulada':Math.floor(xp-lo)+' / '+(hi-lo)+' XP')+'</b></div><div class="e197Track"><div class="e197Fill" style="width:'+pct.toFixed(1)+'%"></div></div><div class="e197Line"><span>🎣 Caña equipada</span><b>'+ (rod?.name||'Ninguna').replaceAll('<','&lt;')+'</b></div><small>La experiencia y las cañas mejoran tu capacidad de pesca. Los atributos de combate siguen disponibles en su pestaña.</small>';
+ card.innerHTML=(typeof e227Illustration==='function'?e227Illustration('ui','sidebar','e227SidebarArt',true):'')+'<b>Progreso de Pesca</b><div class="e197Line"><span>Nivel '+lv+(lv===100?' · Máximo':'')+'</span><b>'+(lv===100?fmt(xp)+' XP acumulada':Math.floor(xp-lo)+' / '+(hi-lo)+' XP')+'</b></div><div class="e197Track"><div class="e197Fill" style="width:'+pct.toFixed(1)+'%"></div></div><div class="e197Line"><span>🎣 Caña equipada</span><b>'+ (rod?.name||'Ninguna').replaceAll('<','&lt;')+'</b></div><small>La experiencia y las cañas mejoran tu capacidad de pesca. Los atributos de combate siguen disponibles en su pestaña.</small>';
  if(perks.laguna)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌿 Instinto de pescador · +5% XP de Pesca activo</small>');
  if(perks.abismo)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌌 Pulso del abismo · +8 px de control activos</small>');
 }

@@ -11,6 +11,7 @@ function hybridSkillCard(name,xp,weapon=false){
   const percent=clamp((xp-low)/(high-low)*100,0,100);
   return `<div class="skillCard"><div class="row"><span>${esc(name)}</span><b>Nv ${level}</b></div><div class="bar xp" role="progressbar" aria-label="Progreso de ${esc(name)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.floor(percent)}"><div style="width:${percent}%"></div></div><small>${fmt(xp-low)} / ${fmt(high-low)} XP para el próximo nivel</small></div>`;
 }
+function sidebarLabel(s){return (s.ui?.tab==='fishing'?'Progreso de Pesca':'Atributos y habilidades')+' · '+(document.getElementById('hybridSidebar')?.open?'Contraer':'Expandir');}
 function hybridRefresh(){
   if(!state)return;
   const box=document.getElementById('skillsBox');
@@ -22,9 +23,7 @@ function hybridRefresh(){
   const summary=document.getElementById('hybridProfileSummary');
   if(summary){
     const d=derive(state);
-    summary.innerHTML=state.ui?.tab==='fishing'
-      ? `<div class="hybridIdentity"><strong>${esc(state.name)}</strong> · Pesca Nv ${e16FishLevel()}<br><span class="muted">${fmt(state.gold)} oro · ${esc(e161Rod()?.name||'Sin caña')}</span></div>`
-      : `<div class="hybridIdentity"><strong>${esc(state.name)}</strong> · Nv ${d.L}<br><span class="muted">${esc(raceById(state.race).name)} · ${esc(classById(state.cls).name)} · ${fmt(state.gold)} oro</span></div><div class="row muted" style="font-size:.75rem"><span>♥ ${Math.ceil(state.hp)}/${d.hpMax}</span><span>◆ ${Math.floor(state.mp)}/${d.mpMax}</span><span class="hybridProfileLabel">${document.getElementById('hybridSidebar')?.open?'▴ Contraer':'▾ Personaje'}</span></div>`;
+    summary.innerHTML='<span class="hybridProfileLabel">'+(sidebarLabel(state))+'</span>';
   }
   const start=document.getElementById('dockStart'),stop=document.getElementById('dockStop');
   if(start)start.disabled=busy||managing||(state.combat.active&&!navActive(state))||state.restLeft>0;
@@ -103,7 +102,7 @@ if(hybridDesktop.addEventListener)hybridDesktop.addEventListener('change',hybrid
 else hybridDesktop.addListener(hybridMediaChange);
 document.addEventListener('keydown',e=>{
   const tab=e.target.closest('[data-ui-tab]');if(!tab||busy||managing)return;
-  const tabs=Array.from(document.querySelectorAll('#uiWorkspace [data-ui-tab]'));
+  const tabs=Array.from(document.querySelectorAll('[data-ui-tab]'));
   const index=tabs.indexOf(tab);let next=index;
   if(e.key==='ArrowRight')next=(index+1)%tabs.length;
   else if(e.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;

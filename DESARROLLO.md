@@ -1,4 +1,4 @@
-# Fuentes y distribución · Estable 26
+# Fuentes y distribución · Estable 27
 
 ## Jugar / descargar
 
@@ -18,11 +18,11 @@ npm test
 `npm run dev` compila y sirve la raíz en http://localhost:8000. Para cada cambio posterior ejecutar `npm run build` de nuevo y recargar. Solo desarrollo requiere Node; Playwright sirve para pruebas. Acorn se usa únicamente en la importación inicial, no se incluye en el juego. La compilación usa módulos estándar de Node, sin bundler pesado.
 
 - `src/template.html`: estructura HTML, etiquetas originales y marcadores de bloques/recursos.
-- `src/blocks.json`: orden explícito de 129 bloques (62 JS, 67 CSS). **Conservar orden**: existen funciones globales extendidas por capas históricas.
+- `src/blocks.json`: orden explícito de 133 bloques (65 JS, 68 CSS). **Conservar orden**: existen funciones globales extendidas por capas históricas.
 - `src/js/`: sistemas actuales, herramientas DEV, interfaz, pesca, HUD, tienda, Atlas, colecciones y minijuego. La separación es progresiva: no cambia ámbitos ni reescribe motores que funcionan.
 - `src/css/`: componentes/áreas, manteniendo la cascada original.
-- `src/catalogs/`: 22 fragmentos de datos de peces, zonas, cañas, encargos, familias, especialidades y perfiles. Se insertan en su ubicación original con `/* @include ruta */`. No son módulos ES ni deben ejecutarse por separado. Los catálogos generados siguen derivándose de sus familias; no se duplican sus listas manualmente.
-- `assets/originals/`: 117 recursos únicos extraídos del HTML original, autenticados por SHA-256.
+- `src/catalogs/`: 24 archivos de datos de peces, zonas, cañas, encargos, familias, especialidades y perfiles. Se insertan en su ubicación original con `/* @include ruta */`. No son módulos ES ni deben ejecutarse por separado. Los catálogos generados siguen derivándose de sus familias; no se duplican sus listas manualmente.
+- `assets/originals/`: 129 recursos únicos: 117 extraídos del HTML original y 12 atlas nuevos, autenticados por SHA-256.
 - `assets/runtime/`: variantes optimizadas, verificadas píxel por píxel.
 - `assets/manifest.json`: ID estable por contenido, archivo original/runtime, formato, hashes, tamaños, dimensiones cuando se convierten y referencias. No renombrar IDs de entidades de juego al cambiar imágenes.
 - `arte/manifest-produccion.json`: vínculo de los IDs reales de entidades con recursos compartidos, uso, estado, tamaños de exportación y brief. Los IDs de archivo por contenido pueden cambiar con una nueva ilustración; el ID de pez/caña/zona permanece estable.
@@ -53,3 +53,13 @@ Ejecutar build, comprobación y pruebas; confirmar fuentes, manifiestos, imágen
 ## Límites de verificación
 
 Chromium administrado bloquea `file://` con `ERR_BLOCKED_BY_ADMINISTRATOR`: no se pudo probar directamente la persistencia al abrir desde disco en esta máquina. La suite sí prueba el HTML completo descargado, carga, ausencia de dependencias externas y guardados v7 con perfiles aislados por HTTP. La persistencia real de archivos locales depende además de cómo el navegador asigna su origen al archivo; moverlo o cambiar de navegador no migra automáticamente partidas. Exportar JSON permite trasladarlas sin alterarlas.
+
+## Arte y expansión de Estable 27
+
+`src/catalogs/130-expansion.js` contiene zonas, especies, encargos y la referencia congelada de maestrías. `src/js/fishing/expansion/130-expansion.js` los integra y acredita progreso histórico mediante extensiones opcionales de v7. `src/js/ui/132-global-header.js` presenta la cabecera y mueve los controles originales. No editar el HTML generado.
+
+`arte/produccion-estable27.json` vincula cada ilustración con atlas y encuadre. `npm run art:prepare` regenera los SVG individuales de `assets/illustrations/` y `src/catalogs/133-art-frames.js`; `npm run build` incorpora la biblioteca compartida y sus límites de clipping. `npm run art:gallery` genera la galería de revisión. Para producir otro lote, `scripts/import-production-art.py JOBS.json` acepta una lista de claves/rutas de archivos generados y usa los encuadres de producción revisados; es una herramienta de importación explícita, no una tarea del build diario. Actualizar los encuadres al cambiar una lámina.
+
+Los atlas nuevos usan WebP calidad 90 con resolución original, no compresión sin pérdida. `assets:optimize` respeta esa decisión y no vuelve a convertirlos a un archivo más grande. Los originales completos permanecen intactos. El compilador exige los hashes runtime y no duplica cada atlas al insertar sus múltiples símbolos.
+
+El manifiesto artístico actual contiene 50 especies, 50 cañas activas y 13 zonas reales. Las secciones anteriores que describen las conversiones sin pérdida se refieren a las tres imágenes optimizadas en Estable 26. Para el contenido efectivamente incorporado y sus diferencias respecto de la propuesta, ver `ESTABLE_27.md`.

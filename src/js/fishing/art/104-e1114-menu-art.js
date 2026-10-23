@@ -9,6 +9,7 @@
     if(btn.classList.contains('e1114ScenicChoice'))return;
     const zone=ids()[i];if(!zone)return;
     const art=window.e1114ZoneImages||{};
+    if(typeof e227ZoneArt==='function'&&e227ZoneArt(zone)){btn.insertAdjacentHTML('afterbegin',e227ZoneArt(zone,'e1114ZoneThumb'));btn.classList.add('e1114ScenicChoice');return;}
     const img=document.createElement('img');img.className='e1114ZoneThumb';
     img.alt='Paisaje de '+zone.name;img.loading='eager';img.src=e221ZoneImage(zone)||art.muelle||'';
     btn.insertBefore(img,btn.firstChild);btn.classList.add('e1114ScenicChoice');
