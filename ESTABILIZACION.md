@@ -205,3 +205,7 @@ Diario ilustrado con fichas junto a la fila elegida y récords reales por catego
 ## Estable 19
 
 Auditoría técnica y regresiones: cancelación de sesiones al importar/cambiar de contexto/borrar el activo; resolución de abortos IndexedDB; descarga secundaria completa; XP tardía en cola acotada; inventario sin reconstrucciones cuando no cambia; observador de menús limitado; limpieza de código demostrado inalcanzable y referencias obsoletas. Sin migración v7 ni cambios de balance. Detalle y límites en AUDITORIA_TECNICA.md.
+
+## Estable 20
+
+Pulido solicitado del texto flotante de XP, Diario (filtros, resumen y recuperación fiable de marcas), Atlas en acordeón y ajustes de tienda/procedencia. El HUD conserva exactamente las medidas de Estable 19, comprobadas en escritorio y móvil mediante fixture previo. Sin cambios de balance o esquema v7. Véase PULIDO_INTERFAZ.md.
