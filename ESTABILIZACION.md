@@ -159,3 +159,9 @@ Verificación Estable 12: los 45 casos de Chromium aprobados (44 en la ejecució
 Se recupera la tarjeta ilustrada de zona y el acceso al selector, ocultados al compactar Estable 12. El HUD conserva su altura compacta (máximo de 120 px en las pruebas), la XP, la caña con su selector y la última captura persistente. En móvil, el paisaje ocupa una columna pequeña junto a la caña. Se ajustan las reglas existentes, sin añadir otro bloque de parches. No cambian misiones, catálogo, balance, ilustraciones ni guardados.
 
 Verificación: 11 casos distintos aprobados en dos ejecuciones dirigidas de Chromium: fases sin desplazamiento, descarga autónoma, regreso a XP, HUD a 1366/390 px y ventanas bajas, selección real de zona y caña, misiones y conservación de última captura. Revisión visual de escritorio y móvil emulado.
+
+## Estable 14
+
+El recuadro del último pez iguala las dimensiones del paisaje de zona: 104 × 102 px en escritorio y 48 × 72 px en móvil. Se recupera la barra de progreso de captura en el HUD, con porcentaje actualizado por el render de la física y etiqueta independiente de los datos de la última captura. Fuera de una captura activa vuelve a cero y explica si está preparando, esperando picada o sin captura en curso; no reutiliza el 100 % anterior. Incluye atributos accesibles de progreso. Se mantiene la altura compacta y no cambian física, recompensas, catálogo ni guardados.
+
+Validación: 10 pruebas dirigidas aprobadas en Chromium, incluyendo escritorio/móvil, dimensiones iguales, progreso al 47 %, pérdida sin nueva recompensa, reinicio a cero, última captura persistente, fases sin salto, selectores, XP visible y descarga autónoma. Revisión visual de móvil y escritorio emulados.

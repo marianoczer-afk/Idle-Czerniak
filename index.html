@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 13</title>
-<meta name="argentum-build" content="estable-13">
+<title>Argentum Idle Online · Estable 14</title>
+<meta name="argentum-build" content="estable-14">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 13</h1>
+  <h1>Argentum Idle Online · Estable 14</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 13</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 14</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -775,7 +775,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 13</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 14</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -5973,6 +5973,14 @@ function e211SyncHud(){
  if(title)title.textContent='Última captura';
  if(result)result.textContent=fish?fish.name+(last.quality?' · '+last.quality:'')+(last.weightKg?' · '+e190Kg(last.weightKg):''):'Todavía no capturaste un pez';
  if(percent)percent.textContent=fish?'+'+fmt(last.xp)+' XP · '+fmt(last.price)+' oro al vender':'Tu próxima captura aparecerá acá';
+ const track=hud.querySelector('.e188Track'),fill=hud.querySelector('#e188HudFill');
+ if(track&&fill){
+  let label=hud.querySelector('.e214CaptureStatus');
+  if(!label){label=document.createElement('div');label.className='e214CaptureStatus';track.parentElement.append(label,track);}
+  const progress=e16Session?Math.round(clamp(e16Session.progress,0,1)*100):0;
+  label.textContent=e16Session?'Captura actual · '+progress+'%':e195Pending?'Preparando la picada · '+e195Pending.left+' toques':e161Fishing?'Esperando una picada…':'Sin captura en curso';
+  fill.style.width=progress+'%';track.setAttribute('role','progressbar');track.setAttribute('aria-label','Progreso de la captura actual');track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax','100');track.setAttribute('aria-valuenow',String(progress));track.setAttribute('aria-valuetext',label.textContent);
+ }
  if(art){
   const key=fish?.id||'empty';
   if(art.dataset.lastCatch!==key||art.querySelector('.fishMysteryArt')){art.innerHTML=fish?e189FishSVG(fish.id):'<span aria-hidden="true">🎣</span>';art.dataset.lastCatch=key;}
@@ -7071,9 +7079,11 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
 #combatDock.e188FishingMode .e194DockRod .e1123RodName{position:static!important;grid-row:1!important;inset:auto!important;padding:0 20px 0 6px!important;background:#061b23!important;font-size:10px!important;line-height:16px!important;white-space:nowrap!important}
 #combatDock.e188FishingMode .e194DockRodArt{position:relative!important;inset:auto!important;grid-row:2!important;width:100%!important;height:100%!important;min-height:0!important;padding:0!important;margin:0!important;background:#061b23!important}
 #combatDock.e188FishingMode .e194DockRodArt svg{object-fit:contain!important}
-#combatDock.e188FishingMode #e188FishingHud{align-self:center!important;grid-template-columns:84px minmax(0,1fr)!important;grid-template-rows:84px!important;min-height:84px!important;height:84px!important}
-#combatDock.e188FishingMode #e188FishingHud .e189Art{height:82px!important;min-height:0!important;max-height:82px!important;width:84px!important;min-width:0!important;max-width:84px!important}
-#combatDock.e188FishingMode #e188HudSub,#combatDock.e188FishingMode #e188HudZone,#combatDock.e188FishingMode .e188Track{display:none!important}
+#combatDock.e188FishingMode #e188FishingHud{align-self:center!important;grid-template-columns:104px minmax(0,1fr)!important;grid-template-rows:102px!important;min-height:102px!important;height:102px!important}
+#combatDock.e188FishingMode #e188FishingHud .e189Art{height:102px!important;min-height:0!important;max-height:102px!important;width:104px!important;min-width:0!important;max-width:104px!important}
+#combatDock.e188FishingMode #e188HudSub,#combatDock.e188FishingMode #e188HudZone{display:none!important}
+#combatDock.e188FishingMode #e188FishingHud .e188Track{display:block!important;width:100%!important;max-width:none!important;height:8px!important;margin-top:3px!important}
+.e214CaptureStatus{font-size:11px;line-height:14px;color:#d9cfb8;margin-top:5px}
 #combatDock.e188FishingMode #e188FishingHud .e189Art img{object-fit:contain!important}
 #combatDock.e188FishingMode .e188Meta{display:block!important;margin-top:4px!important}
 #combatDock.e188FishingMode #e188HudTitle{color:#c9bd9e!important;font-size:11px!important}
@@ -7089,9 +7099,10 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
  #combatDock.e188FishingMode .e1118Zone{width:48px!important;height:72px!important;grid-row:2!important}
  #combatDock.e188FishingMode .e1118Zone small{font-size:8px!important;padding-bottom:4px!important}
  #combatDock.e188FishingMode .e1118Zone .e1120RodLabel{display:none!important}
- #combatDock.e188FishingMode #e188FishingHud{grid-column:2!important;grid-row:1!important;grid-template-columns:44px minmax(0,1fr)!important;gap:5px!important}
- #combatDock.e188FishingMode #e188FishingHud .e189Art{height:54px!important;max-height:54px!important;width:44px!important;max-width:44px!important}
+ #combatDock.e188FishingMode #e188FishingHud{grid-column:2!important;grid-row:1!important;grid-template-columns:48px minmax(0,1fr)!important;gap:5px!important}
+ #combatDock.e188FishingMode #e188FishingHud .e189Art{height:72px!important;max-height:72px!important;width:48px!important;max-width:48px!important}
  #combatDock.e188FishingMode #e188HudResult,#combatDock.e188FishingMode #e188HudPercent{font-size:10px!important}
+ .e214CaptureStatus{font-size:9px;line-height:11px;margin-top:3px}
  .e212Goals li{flex-wrap:wrap;gap:2px}
 }
 </style>
