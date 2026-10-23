@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 22**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 23**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 22**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 23**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -74,3 +74,12 @@ Estable 21 comparte el catálogo de tienda y selector, reconoce contenido nuevo 
 ## Navegación y obtención de cañas
 
 Estable 22 conserva el HUD y mejora el scroll del Atlas y la Tienda, el orden del Diario y los accesos a compras y encargos desde el selector. Criterio de dificultad y pruebas en [NAVEGACION_PESCA.md](NAVEGACION_PESCA.md).
+
+## Arte y contenedores — Estable 23
+
+Cabeceras alineadas y completas; zona del HUD más ancha, nombre de caña superpuesto y fondo de última captura integrado. El HUD mantiene 118 px y conserva las dimensiones de la sección derecha y del combate. El juego sigue siendo un solo `index.html`.
+
+- [Inventario artístico completo](AUDITORIA_ARTISTICA.md): 41 especies y 90 IDs de cañas, recursos compartidos y prioridades.
+- [Distribución de encargos y propuesta de progresión](PROPUESTA_PROGRESION.md): análisis de las 10 zonas y 25 encargos; propuestas sin implementar.
+- [Muestra artística para revisar](arte/muestras.html): seis propuestas separadas del juego, con un HUD de prueba que utiliza su CSS real. Descargá el ZIP, extraelo y abrí `arte/muestras.html`.
+- [Verificación de la entrega](ARTE_ETAPA_A.md).
