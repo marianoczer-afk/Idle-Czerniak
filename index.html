@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 17</title>
-<meta name="argentum-build" content="estable-17">
+<title>Argentum Idle Online · Estable 18</title>
+<meta name="argentum-build" content="estable-18">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 17</h1>
+  <h1>Argentum Idle Online · Estable 18</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 17</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 18</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -775,7 +775,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 17</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 18</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -3119,7 +3119,14 @@ function e190RecordWeight(catchInfo){
  if(fresh)weights.legacyRiverTrophy=!!catchInfo.legacyRiverTrophy;
  const record=(target)=>{target.catches=(target.catches||0)+1;target.totalKg=Number(((target.totalKg||0)+catchInfo.weightKg).toFixed(2));target.bestKg=Math.max(target.bestKg||0,catchInfo.weightKg);};
  weights.bySpecies=weights.bySpecies||{};weights.byZone=weights.byZone||{};
- record(weights.bySpecies[id]||(weights.bySpecies[id]={}));
+ const speciesRecord=weights.bySpecies[id]||(weights.bySpecies[id]={});
+ const previousBest=Number(speciesRecord.bestKg)||0;
+ record(speciesRecord);
+ const label=e183LastQuality?.fish===catchInfo.fish.name?e183LastQuality.label:'';
+ const category=label.includes('LEGENDARIO')?'legendary':label.includes('ENORME')?'huge':label.includes('Grande')?'large':'normal';
+ speciesRecord.categoryBestKg=speciesRecord.categoryBestKg||{};
+ speciesRecord.categoryBestKg[category]=Math.max(Number(speciesRecord.categoryBestKg[category])||0,catchInfo.weightKg);
+ if(catchInfo.weightKg>previousBest)speciesRecord.bestCategory=category;
  const zone=weights.byZone[catchInfo.zone]||(weights.byZone[catchInfo.zone]={species:{}});
  zone.species=zone.species||{};zone.species[id]=(zone.species[id]||0)+1;record(zone);
  weights.last={id,weightKg:catchInfo.weightKg,zone:catchInfo.zone,rodId:catchInfo.rodId};
@@ -3148,10 +3155,7 @@ function e190DecorateFishingPage(){
  });
  const progress=e16FishProgress(),track=page.querySelector('.e163XpTrack');
  if(track){track.setAttribute('role','progressbar');track.setAttribute('aria-label','Experiencia de Pesca');track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax','100');track.setAttribute('aria-valuenow',progress.percent.toFixed(1));}
- const recent=e182LastCatch&&Date.now()-e182LastCatch.at<2000;
- page.querySelector('.e163Skill')?.classList.toggle('e190XpGain',!!recent);
- document.querySelector('#combatDock .dockProgress')?.classList.toggle('e190XpGain',!!recent);
-}
+ }
 function e190ReturnToFishing(){
  if(!state||!ready||busy||managing)return;
  if(state.ui?.tab!=='fishing')selectWorkspaceTab('fishing');
@@ -6991,7 +6995,7 @@ function e217Visible(node){
  const r=node.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth;
 }
 function e217XPTarget(key){
- const selectors=key==='pesca'?['#page_fishing .e187XpLabel','#e188FishingHud #dockPlayerXpText','.e197FishingSkills .e197Line b']:
+ const selectors=key==='pesca'?['#e188FishingHud #dockPlayerXpText','#page_fishing .e187XpLabel','.e197FishingSkills .e197Line b']:
  key==='character'?['#combatDock:not(.e188FishingMode) #dockPlayerXpText','#xpText']:[`#skillsBox [data-skill-key="${key}"] small`];
  for(const selector of selectors){const node=document.querySelector(selector);if(!e217Visible(node))continue;
   const bar=key==='pesca'?(node.closest('.e163XpTrack')||document.querySelector(node.closest('#combatDock')?'#combatDock .dockProgress .bar':'.e197Track')):
@@ -7007,10 +7011,11 @@ function e217RemoveFX(id){const f=e217ActiveFX.get(id);if(!f)return;f.node.remov
 function e217StartFX(event,kind){
  const id=event.key+':'+kind,now=performance.now(),previous=e217ActiveFX.get(id);
  const amount=kind==='drop'&&previous&&now-previous.updated<160?previous.amount+event.amount:event.amount;
+ if(previous&&kind==='drop'&&now-previous.updated<850){previous.amount+=event.amount;previous.updated=now;previous.node.textContent='+'+e217FormatXP(previous.amount)+' XP';return;}
  if(previous)e217RemoveFX(id);
  const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':'e217LevelNotice';node.dataset.xpSkill=event.key;
  node.textContent=kind==='drop'?'+'+e217FormatXP(amount)+' XP':'✦ ¡'+e217SkillLabel(event.key)+' nivel '+event.after+'!';
- e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,amount,kind,updated:now,until:now+(kind==='drop'?850:1800),bar:null});
+ e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,amount,kind,updated:now,until:now+(kind==='drop'?1000:1800),bar:null});
 }
 function e217FlushXP(){
  e217FlushFrame=0;
@@ -7046,14 +7051,65 @@ function e217CleanClone(page){page.querySelector('#e217XpEffects')?.remove();pag
 #fishingRodShop .rodShopStats .rodCompare b{font-size:10px!important;margin-left:3px;color:inherit}
 #e217XpEffects{position:fixed;inset:0;z-index:110000;pointer-events:none}
 .e217XpDrop,.e217LevelNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
-.e217XpDrop{font-size:12px;color:#c8ebaa;animation:e217XPDrop .85s ease-out both}
+.e217XpDrop{font-size:12px;color:#c8ebaa;animation:e217XPDrop 1s ease-out both}
 .e217LevelNotice{font-size:13px;color:#ffe1a0;background:#282116e8;border:1px solid #c4a257;border-radius:6px;padding:2px 7px;animation:e217LevelNotice 1.8s ease-out both}
 .e217LevelGlow{outline:1px solid #e3c16b;box-shadow:0 0 13px 3px #e2bd5666;animation:e217LevelPulse 1.8s ease-out both}
-@keyframes e217XPDrop{0%,12%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(-5px,-14px)}}
+@keyframes e217XPDrop{0%{opacity:0;transform:translate(0,0)}15%,55%{opacity:1}100%{opacity:0;transform:translate(-3px,-8px)}}
 @keyframes e217LevelNotice{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
 @keyframes e217LevelPulse{0%,100%{box-shadow:0 0 0 0 #e2bd5600}20%,60%{box-shadow:0 0 13px 3px #e2bd5677}}
 @media(max-width:420px){.e217RodTools{grid-template-columns:minmax(0,1fr) 30px;gap:4px}.e217RodTools input{grid-column:1;grid-row:1}.e217RodTools select{grid-column:1 / -1;grid-row:2}.e217RodTools button{grid-column:2;grid-row:1}#fishingRodShop .rodShopStats{grid-template-columns:repeat(2,minmax(0,1fr))}.e217LevelNotice{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
+</style>
+
+<script data-e218-journal>
+'use strict';
+const E218_CATEGORIES={normal:'Común',large:'Grande',huge:'Enorme',legendary:'Legendario'};
+const e218Selected=new WeakMap();
+function e218Record(id){
+ const w=state.ui?.fishingWeights?.bySpecies?.[id]||{},h=state.ui?.e18Fishing?.bySpecies?.[id]||{};
+ return {count:Number(h.total)||Number(w.catches)||0,best:Number(w.bestKg)||0,category:w.bestCategory||null,categories:w.categoryBestKg||{},quality:h.best||'normal'};
+}
+function e218Detail(f){
+ const r=e218Record(f.id),panel=document.createElement('section');panel.className='e218Detail';panel.id='fishingSpeciesDetail';
+ const zones=E165_ZONES.filter(z=>z.fish.includes(f.id)&&e16FishLevel()>=(z.req||1));
+ panel.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><div><h3>'+f.name+'</h3><p>'+fmt(r.count)+' capturas · '+zones.map(z=>z.name).join(' · ')+'</p><strong>🏆 Récord absoluto: '+(r.best?e190Kg(r.best):'Sin peso registrado')+(r.best?' · '+(E218_CATEGORIES[r.category]||'Categoría histórica no registrada'):'')+'</strong><div class="e218Records">'+Object.entries(E218_CATEGORIES).map(([key,label])=>'<div data-category="'+key+'"><b>'+label+'</b><span>'+(r.categories[key]?e190Kg(r.categories[key]):'Sin récord')+'</span></div>').join('')+'</div></div>';
+ return panel;
+}
+function e218PlaceDetail(grid,id){
+ grid.querySelector('.e218Detail')?.remove();grid.querySelectorAll('[data-journal-fish]').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.journalFish===id)));
+ const selected=grid.querySelector('[data-journal-fish="'+id+'"]');if(!selected)return;
+ const cards=[...grid.querySelectorAll('[data-journal-fish]')],top=selected.offsetTop;
+ const last=cards.filter(c=>Math.abs(c.offsetTop-top)<3).at(-1)||selected;
+ const fish=E16_FISH.find(f=>f.id===id);if(fish)last.after(e218Detail(fish));
+}
+function e218Journal(){
+ const journal=document.querySelector('#page_fishing .e181Journal');if(!journal||!state)return;
+ const list=journal.querySelector('.e187JournalList');if(!list)return;list.replaceChildren();list.classList.add('e218Album');
+ const fishes=E16_FISH.filter(f=>e218Record(f.id).count>0).sort((a,b)=>e218Record(b.id).count-e218Record(a.id).count);
+ for(const f of fishes){const r=e218Record(f.id),card=document.createElement('button');card.type='button';card.className='e218Card';card.dataset.journalFish=f.id;card.setAttribute('aria-expanded','false');card.setAttribute('aria-controls','fishingSpeciesDetail');
+ card.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><b>'+f.name+'</b><small>'+fmt(r.count)+' capturas</small><small>🏆 '+(r.best?e190Kg(r.best):'Sin peso registrado')+'</small><small>'+E218_CATEGORIES[r.quality]+'</small>';
+ card.onclick=()=>{const next=e218Selected.get(state)===f.id?null:f.id;e218Selected.set(state,next);e218PlaceDetail(list,next);};list.append(card);}
+ if(!fishes.length)list.textContent='Tus especies aparecerán acá cuando captures peces.';
+ const text=journal.querySelector('p');if(text)text.textContent='Tu álbum de capturas y récords personales. Elegí una especie para ver sus marcas.';
+ if(journal.open)e218PlaceDetail(list,e218Selected.get(state));
+ journal.addEventListener('toggle',()=>{if(journal.open)e218PlaceDetail(list,e218Selected.get(state));});
+ document.querySelectorAll('#page_fishing .e186Fish:not(.e186Unknown)').forEach(card=>{card.querySelectorAll('small').forEach(n=>n.remove());});
+}
+const e218PriorPage=e16Page;
+e16Page=function(){const result=e218PriorPage();e218Journal();return result;};
+window.addEventListener('resize',()=>{const grid=document.querySelector('.e218Album');if(grid&&state)e218PlaceDetail(grid,e218Selected.get(state));});
+</script>
+<style id="fishing-journal-css">
+#page_fishing .e218Album{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;position:relative}
+#page_fishing .e218Card{display:flex;flex-direction:column;gap:3px;align-items:stretch;text-align:left;min-width:0;padding:7px;border:1px solid #62563f;background:#211e18;border-radius:7px;color:#ecdcb6;font-size:12px}
+#page_fishing .e218Card[aria-expanded=true]{border-color:#d4b15f;background:#343023}
+#page_fishing .e218Card small{color:#bdb49c;font-size:11px}
+.e218Art{height:75px;overflow:hidden;background:#0b1e22;border-radius:5px}
+.e218Art img,.e218Art svg{width:100%;height:100%;object-fit:contain;display:block}
+#page_fishing .e218Detail{grid-column:1/-1;display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px;border:1px solid #b39757;border-radius:7px;background:#28251d;padding:10px;min-width:0}
+.e218Detail h3{font-size:14px;margin:0 0 4px}.e218Detail p{font-size:11px;margin:3px 0 7px;color:#c4baa2}.e218Detail strong{font-size:12px}.e218Detail .e218Art{height:120px}
+.e218Records{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-top:8px}.e218Records div{border:1px solid #696856;border-radius:5px;padding:5px;font-size:11px;display:flex;flex-direction:column;gap:3px}.e218Records [data-category=large]{border-color:#508879;color:#a4d1b5}.e218Records [data-category=huge]{border-color:#647cac;color:#b6cced}.e218Records [data-category=legendary]{border-color:#b18c43;color:#eed48b}
+@media(max-width:600px){#page_fishing .e218Album{grid-template-columns:repeat(2,minmax(0,1fr))}#page_fishing .e218Detail{grid-template-columns:75px minmax(0,1fr);gap:7px;padding:7px}.e218Detail .e218Art{height:90px}.e218Records{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </body>
 </html>

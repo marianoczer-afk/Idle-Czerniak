@@ -197,3 +197,7 @@ Tienda y selector comparten comparación automática en pp/kg con flechas y colo
 XP Drops y brillo/aviso de nivel nacen de concesiones reales, con agrupación y límite por habilidad, caducidad y movimiento reducido. No se reproducen por cargar, importar o simular offline. Los efectos usan una capa fija sin ocupar espacio y se excluyen del HTML descargado. Se conservan las fórmulas y el diseño general del HUD. Ver UX_CANAS_XP.md para criterios y casos especiales.
 
 Validación Estable 17: 65 pruebas completas aprobadas en Chromium. Se comprueban todos los órdenes, recomendaciones estables y sin dominadas por delante dentro del mismo grupo de propiedad, búsqueda, diferencias correctas y actualización al equipar, requisitos reales, guardados, importación, simulación offline, todas las habilidades y golpes de arma, subida de varios niveles, movimiento reducido y estabilidad geométrica. Se conservan las 118 imágenes embebidas. Revisión visual de selector/tienda y feedback XP; escritorio y móvil emulado.
+
+## Estable 18
+
+Diario ilustrado con fichas junto a la fila elegida y récords reales por categoría mediante extensiones compatibles de v7. Pesos históricos conservados sin atribuir categorías no verificables. Colecciones locales simplificadas. XP flotante priorizado junto al contador del HUD y animación suave sin antiguo brillo verde. Véase DIARIO_PESCA.md.
