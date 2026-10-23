@@ -123,3 +123,7 @@ Simulación de regresión, nivel 33, 40 semillas, decisiones cada 200 ms y máxi
 La demora posterior al resultado se eliminó. La espera hasta la siguiente picada pasa a `max(450, round(900 × (1 − atracción/100)))` milisegundos, en lugar de la base anterior de 1500/1700 ms. La atracción conserva su efecto sobre preparación y espera. Se reduce tiempo sin interacción; no se alteran los perfiles de dificultad del arrecife, la física de captura, las probabilidades, estadísticas de cañas, pesos, XP ni precios.
 
 La consolidación de render y guardado reduce además el bloqueo al terminar. La verificación de rendimiento usa Chromium móvil emulado; queda pendiente la experiencia en un teléfono físico.
+
+## Estable 12: menos ofertas redundantes
+
+Se retiran de la oferta 40 variantes próximas de precio, conservando dos especialidades por familia de compra. No se cambian estadísticas, precios, dificultad, azar, ritmo de pesca ni recompensas en esta versión. El equipo retirado que ya pertenece a una partida conserva sus efectos.

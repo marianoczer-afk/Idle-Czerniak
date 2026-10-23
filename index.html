@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 11</title>
-<meta name="argentum-build" content="estable-11">
+<title>Argentum Idle Online · Estable 12</title>
+<meta name="argentum-build" content="estable-12">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 11</h1>
+  <h1>Argentum Idle Online · Estable 12</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 11</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 12</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -775,7 +775,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 11</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 12</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -3643,7 +3643,7 @@ function e17QuestHtml(){
  ${done?`<p>✅ ¡Encargo completado! Ya conseguiste la <b>${E17_ROD.name}</b>.</p><div class="e17QuestReward"><span class="fishMuted">Control +7,5% de barra · Picadas 10% más rápidas · Recompensa permanente</span><button class="small" data-e17-equip ${e17Selected()?'disabled':''}>${e17Selected()?'✓ Caña equipada':'Equipar caña de misión'}</button></div>`:
  `<p>El viejo pescador necesita provisiones. Guardá estas capturas en tu inventario y entregalas juntas para conseguir una caña especial.</p>
  <div class="e17QuestGrid">${fish}</div>
- <div class="e17QuestReward"><div><b>🎁 ${E17_ROD.name}</b><div class="fishMuted">Potencia similar a una caña de Pesca 18–20, equipable desde nivel 6. No se vende en la tienda.</div></div>
+ <div class="e17QuestReward"><div><b>🎁 ${E17_ROD.name}</b><div class="fishMuted">Recompensa de este encargo. Requiere habilidad de Pesca 6 para reclamarla; no se compra con oro.</div></div>
  <button class="primary" data-e17-deliver ${!unlocked||!e17HasFish()?'disabled':''}>${!unlocked?'🔒 Requiere Pesca 6':!e17HasFish()?'Faltan peces':'Entregar peces y reclamar caña'}</button></div>
  <p class="fishMuted">Los peces entregados se consumen. Podés venderlos en Inventario, pero entonces no contarán para el encargo.</p>`}
  </section>`;
@@ -3754,7 +3754,7 @@ function e171QuestMarkup(q){
   const f=E16_FISH.find(f=>f.id===n.id),owned=state?.inventory?.['pez_'+n.id]||0;
   return `<span>${f?.icon||'🐟'} ${f?.name||n.id}: <b>${Math.min(owned,n.qty)}/${n.qty}</b></span>`;
  }).join('');
- return `<section class="e171Quest"><h3>📜 ${q.title}</h3><div class="fishMuted">Pesca ${q.level} · Entregá las capturas de esta zona</div>
+ return `<section class="e171Quest"><h3>📜 ${q.title}</h3><div class="fishMuted">Habilidad de Pesca ${q.level} · Guardá estos peces en el inventario y entregalos juntos. Cualquier tamaño cuenta; se consumen al reclamar.</div>
  <div class="e171Needs">${items}</div><div class="e171Footer"><div><b>🎁 ${q.rod.name}</b><div class="fishMuted">${q.rod.desc}</div></div>
  <button class="small primary" data-e171-deliver="${q.id}" ${e171CanDeliver(q)||done?'':'disabled'}>${done?'✓ Completada':e16FishLevel()<q.level?'🔒 Pesca '+q.level:e171CanDeliver(q)?'Entregar peces':'Faltan peces'}</button></div></section>`;
 }
@@ -4464,7 +4464,7 @@ e16Page=function(){
   const section=document.createElement('section');section.className='e187Quest';section.dataset.questId=q.id;
   if(done)continue;
   const head=document.createElement('div');head.className='e187QuestHead';const name=document.createElement('b');name.textContent='📜 '+q.title;head.append(name);section.append(head);
-  const p=document.createElement('p');p.textContent='Entregá los siguientes peces comunes de esta zona:';section.append(p);
+  const p=document.createElement('p');p.textContent='Guardá estos peces en tu inventario y entregalos juntos. Cualquier tamaño cuenta; se consumen al reclamar:';section.append(p);
   const needs=document.createElement('div');needs.className='e187QuestNeeds';let can=lvl>=q.req;
   for(const n of q.needs){const f=E16_FISH.find(f=>f.id===n.id),owned=state.inventory?.['pez_'+n.id]||0;can=can&&owned>=n.qty;
    const span=document.createElement('span');span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(owned,n.qty)+'/'+n.qty;needs.append(span);}
@@ -5120,7 +5120,7 @@ function e210StopFishing(){
  e16Session=null;e16Holding=false;e16Result='';
  if(e1111ResultTimer){clearTimeout(e1111ResultTimer);e1111ResultTimer=null;}
  e1111ResultUntil=0;
- if(e211FeedbackTimer)clearTimeout(e211FeedbackTimer);e211FeedbackTimer=null;e211Outcome=null;e182LastCatch=null;
+ e182LastCatch=null;
 }
 function e210RodRequirement(rod){
  if(rod.unlock)return state.owned?.[rod.id]?`${E165_ZONES.find(z=>z.id===rod.unlock.zone).name} · Desafío completado · ${rod.unlock.catches} capturas · ${rod.unlock.species} especies · récord mínimo ${e190Kg(rod.unlock.bestKg)}`:e208QuestText(rod);
@@ -5133,7 +5133,7 @@ function e210RodRequirement(rod){
 function e210ZoneChallenges(group){
  for(const rod of E208_CATALOG.filter(r=>r.unlock?.zone===e165Zone().id&&!state.owned?.[r.id])){
   const section=document.createElement('section');section.className='e187Quest';section.dataset.questId=rod.id;
-  section.innerHTML=`<div class="e187QuestHead"><b>📜 ${esc(rod.unlock.title)}</b></div><p>${esc(e208QuestText(rod))}</p><div class="e187QuestHead"><span>🎁 ${esc(rod.name)}</span><button class="small primary" data-catalog-claim="${rod.id}" ${e208QuestProgress(rod).ready&&!e16Session&&!e195Pending?'':'disabled'}>Reclamar caña</button></div>`;
+  section.innerHTML=`<div class="e187QuestHead"><b>📜 ${esc(rod.unlock.title)}</b></div>${e212QuestGoals(rod)}<div class="e187QuestHead"><span>🎁 ${esc(rod.name)}</span><button class="small primary" data-catalog-claim="${rod.id}" ${e208QuestProgress(rod).ready&&!e16Session&&!e195Pending?'':'disabled'}>Reclamar caña</button></div>`;
   group.append(section);
  }
 }
@@ -5965,29 +5965,19 @@ e16Page=function(){
 /* A catch is one transaction: run the existing award rules once, then render and save once.
    Feedback remains readable in the HUD without delaying the next attempt. */
 let e1111ResultUntil=0,e1111ResultTimer=null;
-let e211Outcome=null,e211FeedbackTimer=null;
 function e211SyncHud(){
  if(!state||!e161OnPage())return;
  const hud=document.getElementById('e188FishingHud');if(!hud)return;
- const title=hud.querySelector('#e188HudTitle'),result=hud.querySelector('#e188HudResult'),fill=hud.querySelector('#e188HudFill'),percent=hud.querySelector('#e188HudPercent');
- const pending=!!e195Pending,session=e16Session,age=e211Outcome?Date.now()-e211Outcome.at:Infinity,recent=e211Outcome?.zone===e165Zone().id&&age<2200;
- if(pending){if(title)title.textContent='🎣 Preparando la picada';if(fill)fill.style.width='0%';if(percent)percent.textContent='Toques restantes: '+e195Pending.left;}
- else if(session){if(percent)percent.textContent='Captura '+Math.round(session.progress*100)+'%';if(fill)fill.style.width=Math.round(session.progress*100)+'%';}
- else if(recent&&!e211Outcome.won){if(title)title.textContent='💨 El pez escapó';if(result)result.textContent='Podés intentarlo en la próxima picada';if(fill)fill.style.width='0%';if(percent)percent.textContent='Sin captura';}
- else if(!e182LastCatch){if(fill)fill.style.width='0%';if(percent)percent.textContent=e161Fishing?'Buscando peces':'Listo';}
- else if(percent&&e182LastCatch){percent.textContent='Guardado en el inventario';}
- let bonus=hud.querySelector('.e211XpFeedback');
- if(recent&&e211Outcome.won){
-  if(!bonus){bonus=document.createElement('span');bonus.className='e211XpFeedback';hud.querySelector('.e188Meta').append(bonus);}
-  const key=String(e211Outcome.at);
-  if(bonus.dataset.key!==key){bonus.dataset.key=key;bonus.textContent='Última captura: +'+fmt(e211Outcome.xp)+' XP';bonus.style.animationDelay='-'+Math.max(0,age)+'ms';}
- }else bonus?.remove();
- const panel=document.querySelector('#combatDock .e194DockRod'),svg=panel?.querySelector('svg.rodIllustration');
- if(panel&&svg){const box=svg.viewBox.baseVal;panel.style.setProperty('--e211-rod-ratio',String(box.width/box.height));}
-}
-function e211ScheduleFeedback(){
- if(e211FeedbackTimer)clearTimeout(e211FeedbackTimer);
- e211FeedbackTimer=setTimeout(()=>{e211FeedbackTimer=null;if(state&&ready&&e161OnPage())e188UpdateHud();},2250);
+ const last=state.ui?.lastFishingCatch,fish=last&&E16_FISH.find(f=>f.id===last.id);
+ const title=hud.querySelector('#e188HudTitle'),result=hud.querySelector('#e188HudResult'),percent=hud.querySelector('#e188HudPercent'),art=hud.querySelector('.e189Art');
+ if(title)title.textContent='Última captura';
+ if(result)result.textContent=fish?fish.name+(last.quality?' · '+last.quality:'')+(last.weightKg?' · '+e190Kg(last.weightKg):''):'Todavía no capturaste un pez';
+ if(percent)percent.textContent=fish?'+'+fmt(last.xp)+' XP · '+fmt(last.price)+' oro al vender':'Tu próxima captura aparecerá acá';
+ if(art){
+  const key=fish?.id||'empty';
+  if(art.dataset.lastCatch!==key||art.querySelector('.fishMysteryArt')){art.innerHTML=fish?e189FishSVG(fish.id):'<span aria-hidden="true">🎣</span>';art.dataset.lastCatch=key;}
+  art.classList.remove('e190Mystery');art.setAttribute('aria-label','Volver a la pesca'+(fish?' · última captura: '+fish.name:''));
+ }
 }
 const e1111PriorFinish=e16Finish;
 e16Finish=function(won){
@@ -5998,8 +5988,8 @@ e16Finish=function(won){
  fishingFinishDepth++;
  try{e1111PriorFinish(won);if(caught)e190RecordWeight(caught);}
  finally{fishingFinishDepth--;}
- e211Outcome={won:!!won,zone:e165Zone().id,at:Date.now(),xp:won?e182LastCatch?.xp||0:0};
- e16Page();e188UpdateHud();persist();e211ScheduleFeedback();
+ if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0};}
+ e16Page();e188UpdateHud();persist();
 };
 const e1111PriorPage=e16Page;
 e16Page=function(){
@@ -6429,7 +6419,7 @@ function openMenu(type,anchor){
  const lv=fishingLevel();popup=document.createElement('div');popup.className='e1120Menu';popup.dataset.type=type;
  const head=document.createElement('div');head.className='e1120MenuHeader';head.innerHTML='<span>'+(type==='zone'?'Elegir zona de pesca':'Equipar caña')+'</span>';
  const x=document.createElement('button');x.textContent='✕';x.onclick=closeMenu;head.append(x);popup.append(head);
- const entries=type==='zone'?E165_ZONES:[...new Map([...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].filter(Boolean).map(r=>[r.id,r])).values()].sort((a,b)=>Number(!!state?.owned?.[b.id])-Number(!!state?.owned?.[a.id])||Number(b.id===e161Rod()?.id)-Number(a.id===e161Rod()?.id));
+ const entries=type==='zone'?E165_ZONES:[...new Map([...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].filter(r=>r&&(e212Offered(r)||state?.owned?.[r.id])).map(r=>[r.id,r])).values()].sort((a,b)=>Number(!!state?.owned?.[b.id])-Number(!!state?.owned?.[a.id])||Number(b.id===e161Rod()?.id)-Number(a.id===e161Rod()?.id));
  entries.forEach((item,i)=>{
   const available=type==='zone'?lv>=item.req:!!state?.owned?.[item.id];
   const active=type==='zone'?e165Zone().id===item.id:e161Rod()?.id===item.id;
@@ -6593,6 +6583,7 @@ function sync(){
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
 const previousPage=e16Page;e16Page=function(){const r=previousPage();sync();return r;};
 const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
+const previousPaint=e16Paint;e16Paint=function(){const r=previousPaint();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
 })();
 </script>
@@ -6675,40 +6666,7 @@ object-position:center!important;transform:none!important;
 }
 </style>
 <style id="e1116-hud-layout-and-stable-phases">
-/* Three independent columns: left zone+rod, large trophy art, catch details. */
-#combatDock.e188FishingMode .dockInner{
- display:grid!important;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr)!important;
- gap:10px!important;align-items:stretch!important;
-}
-#combatDock.e188FishingMode .dockVitals{min-width:0!important;align-self:stretch!important}
-#combatDock.e188FishingMode #e188FishingHud{
- display:grid!important;grid-template-columns:108px minmax(0,1fr)!important;
- grid-template-rows:107px!important;align-items:stretch!important;
- gap:11px!important;min-width:0!important;min-height:107px!important;
- height:107px!important;overflow:hidden!important;
-}
-#combatDock.e188FishingMode #e188FishingHud .e189Art{
- grid-column:1!important;grid-row:1!important;position:relative!important;
- width:108px!important;min-width:108px!important;max-width:108px!important;
- height:107px!important;min-height:107px!important;max-height:107px!important;
- padding:0!important;margin:0!important;overflow:hidden!important;
- border-radius:10px!important;
-}
-#combatDock.e188FishingMode #e188FishingHud .e189Art img{
- display:block!important;position:absolute!important;inset:0!important;
- width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
- object-fit:cover!important;object-position:center!important;transform:none!important;
-}
-#combatDock.e188FishingMode #e188FishingHud .e189Data{
- grid-column:2!important;grid-row:1!important;min-width:0!important;
- height:100%!important;display:flex!important;flex-direction:column!important;
- justify-content:center!important;overflow:hidden!important;padding-right:3px!important;
-}
-#combatDock.e188FishingMode #e188FishingHud .e188Result{
- font-size:12px!important;line-height:1.35!important;overflow-wrap:break-word!important;
-}
-#combatDock.e188FishingMode #e188FishingHud .e188Track{width:100%!important;max-width:100%!important;min-width:0!important}
-#combatDock.e188FishingMode #e188FishingHud .e188Meta{font-size:11px!important;white-space:normal!important}
+/* Invariant fishing stage geometry across preparation and capture. */
 /* E1.11.19: phase-dependent external layout rule removed */
 
 #page_fishing .e162Dock #e16GamePanel,
@@ -6720,11 +6678,6 @@ object-position:center!important;transform:none!important;
 }
 #page_fishing .e162Dock .e1108Toolbar{height:55px!important;min-height:55px!important;max-height:55px!important;box-sizing:border-box!important}
 #page_fishing .e162DockHead{min-height:0!important}
-@media(max-width:760px){
- #combatDock.e188FishingMode .dockInner{grid-template-columns:1fr!important;gap:5px!important}
- #combatDock.e188FishingMode #e188FishingHud{grid-column:1!important;grid-row:2!important;grid-template-columns:90px minmax(0,1fr)!important;height:92px!important;min-height:92px!important;grid-template-rows:92px!important}
- #combatDock.e188FishingMode #e188FishingHud .e189Art{width:90px!important;min-width:90px!important;max-width:90px!important;height:92px!important;min-height:92px!important;max-height:92px!important}
-}
 </style>
 
 
@@ -6880,8 +6833,16 @@ function e208QuestProgress(rod){
 }
 function e208QuestText(rod){
  const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
- return `${zone.name} · ${Math.min(p.catches,q.catches)}/${q.catches} capturas · ${Math.min(p.species,q.species)}/${q.species} especies · récord ${e190Kg(p.bestKg)}/${e190Kg(q.bestKg)}.`;
+ return `${zone.name}: capturá ${q.catches} peces (${Math.min(p.catches,q.catches)}/${q.catches}), ${q.species} especies distintas (${Math.min(p.species,q.species)}/${q.species}) y un pez de ${e190Kg(q.bestKg)} o más (récord: ${e190Kg(p.bestKg)}).`;
 }
+function e212QuestGoals(rod){
+ const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
+ const goals=[[p.catches>=q.catches,`Capturá ${q.catches} peces en total`,`${Math.min(p.catches,q.catches)} de ${q.catches}`],[p.species>=q.species,`Capturá ${q.species} especies distintas`,`${Math.min(p.species,q.species)} de ${q.species}`],[p.bestKg>=q.bestKg,`Capturá un pez de ${e190Kg(q.bestKg)} o más`,`Tu récord: ${e190Kg(p.bestKg)}`]];
+ return `<p>Completá estos tres objetivos en <b>${esc(zone.name)}</b>:</p><ul class="e212Goals">${goals.map(([done,label,progress])=>`<li class="${done?'done':''}"><span>${done?'✓':'○'} ${esc(label)}</span><b>${esc(progress)}</b></li>`).join('')}</ul><small>Cuenta lo que ya pescaste en esta zona. No se consumen peces; podés venderlos.</small>`;
+}
+// Retired offers retain their IDs, stats and owned equipment for existing saves.
+const E212_OFFERS={junco:['cauce','destello'],sauce:['pulso','fortuna'],marea:['cauce','titan'],nenufar:['fortuna','reliquia'],coral:['pulso','cauce'],fosa:['pulso','titan'],mangle:['cauce','fortuna'],escarcha:['pulso','cauce'],obsidiana:['destello','titan'],celeste:['pulso','reliquia']};
+function e212Offered(rod){return !rod.family||!!rod.unlock||E212_OFFERS[rod.family]?.includes(rod.specialty);}
 function e208FilterShop(shop,expand=false){
  const query=(shop.querySelector('[data-rod-search]')?.value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
  const source=shop.querySelector('[data-rod-filter]')?.value||'all',zone=shop.querySelector('[data-rod-zone]')?.value||'all',sort=shop.querySelector('[data-rod-sort]')?.value||'owned';let count=0;
@@ -6965,7 +6926,7 @@ e189FishSVG=function(id){
 #fishingRodShop .rodTier>summary{cursor:pointer;padding:10px 4px;color:var(--gold)}
 #fishingRodShop .rodTier>summary small{color:var(--muted);font-weight:400;margin-left:8px}
 #fishingRodShop .rodRows{display:flex;flex-direction:column;gap:5px;padding-bottom:9px}
-#fishingRodShop .rodShopRow{display:grid;grid-template-columns:minmax(260px,40%) minmax(0,1fr) 104px;align-items:center;gap:14px;padding:8px;border:1px solid #554630;border-radius:7px;background:#211d18}
+#fishingRodShop .rodShopRow{display:grid;grid-template-columns:minmax(260px,40%) minmax(0,1fr) 104px;align-items:center;gap:14px;padding:6px;border:1px solid #554630;border-radius:7px;background:#211d18}
 #fishingRodShop .rodShopRow.equipped{border-color:var(--gold);background:#37301e}
 #fishingRodShop .rodShopArt{width:100%;height:104px;display:flex;align-items:center;justify-content:center;background:#10232a;border-radius:6px;overflow:hidden}
 #fishingRodShop .rodShopArt img,#fishingRodShop .rodShopArt svg{display:block;width:100%;height:100%;object-fit:contain;position:static;transform:none}
@@ -7043,7 +7004,7 @@ e189FishSVG=function(id){
    const page=document.getElementById('page_fishing'),shop=page?.querySelector('details:has(.fishRod)');
    if(!shop||!state)return result;
    const view=viewStates.get(state),active=e161Rod();
-   const catalog=[...E161_RODS,...[E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD]];
+   const catalog=[...E161_RODS,...[E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD]].filter(r=>e212Offered(r)||state.owned?.[r.id]);
    const sameLocation=view?.location===e165Zone().id;
    shop.id='fishingRodShop';shop.open=sameLocation?view.open:false;
    shop.innerHTML=`<summary>🎣 Tienda de cañas · ${catalog.length} cañas · ${esc(active?.name||'Sin caña')}</summary><p class="rodShopNote">Conseguí cañas con oro o encargos. Los nuevos desafíos registran capturas sin consumir peces. Cada una tiene una especialidad; las estrellas resumen sus atributos y no sustituyen la comparación. Las cañas conservan sus estadísticas: quien progresa es tu personaje.<small>⚡ Atracción: menos espera · 🍀 Suerte: especies raras · 🎯 Control: barra más ancha · 🛡 Resiliencia: movimiento más suave · 🏆 Trofeos: mejores ejemplares.</small></p>`;
@@ -7100,15 +7061,35 @@ e189FishSVG=function(id){
 .hybridSidebar,.hybridSidebarBody{scrollbar-width:none;-ms-overflow-style:none}
 .hybridSidebar::-webkit-scrollbar,.hybridSidebarBody::-webkit-scrollbar{display:none;width:0;height:0}
 body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidden],body.e197Fishing .hybridSidebarBody details[data-ui-panel="equipment"]>summary[hidden]{display:none!important}
-.e211XpFeedback{color:#bde7a5;font-size:11px;animation:e211Feedback 2.2s ease-out forwards}
-@keyframes e211Feedback{0%,60%{opacity:1}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.e211XpFeedback{animation:none}}
-#combatDock.e188FishingMode .dockVitals{grid-template-rows:31px auto!important}
-#combatDock.e188FishingMode .e194DockRod{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:18px auto!important;justify-content:stretch!important;justify-items:stretch!important;align-items:stretch!important;gap:0!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0!important;align-self:start!important}
-#combatDock.e188FishingMode .e194DockRod .e1123RodName{position:static!important;grid-row:1!important;display:block!important;inset:auto!important;padding:1px 22px 1px 6px!important;background:#061b23!important;font-size:11px!important;line-height:16px!important;white-space:nowrap!important}
-#combatDock.e188FishingMode .e194DockRodArt{position:relative!important;inset:auto!important;grid-row:2!important;display:block!important;width:100%!important;height:auto!important;aspect-ratio:var(--e211-rod-ratio,3.86)!important;padding:0!important;margin:0!important;background:#061b23!important}
-#combatDock.e188FishingMode .e1118Zone{height:100%!important}
-#combatDock.e188FishingMode #e188FishingHud{align-self:center!important}
+/* Compact dock: keep the complete rod by limiting its width, not by cropping it. */
+#combatDock.e188FishingMode{padding:7px 12px!important}
+#combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,240px) minmax(0,1fr)!important;grid-template-rows:auto!important;max-width:840px!important;gap:14px!important}
+#combatDock.e188FishingMode .dockVitals{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:27px 72px!important;gap:3px!important}
+#combatDock.e188FishingMode .dockProgress{grid-column:1!important}
+#combatDock.e188FishingMode .e1118Zone{display:none!important}
+#combatDock.e188FishingMode .e194DockRod{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:16px minmax(0,1fr)!important;grid-column:1!important;grid-row:2!important;justify-items:stretch!important;height:72px!important;min-height:0!important;max-height:72px!important;padding:0!important;gap:0!important}
+#combatDock.e188FishingMode .e194DockRod .e1123RodName{position:static!important;grid-row:1!important;inset:auto!important;padding:0 20px 0 6px!important;background:#061b23!important;font-size:10px!important;line-height:16px!important;white-space:nowrap!important}
+#combatDock.e188FishingMode .e194DockRodArt{position:relative!important;inset:auto!important;grid-row:2!important;width:100%!important;height:100%!important;min-height:0!important;padding:0!important;margin:0!important;background:#061b23!important}
+#combatDock.e188FishingMode .e194DockRodArt svg{object-fit:contain!important}
+#combatDock.e188FishingMode #e188FishingHud{align-self:center!important;grid-template-columns:84px minmax(0,1fr)!important;grid-template-rows:84px!important;min-height:84px!important;height:84px!important}
+#combatDock.e188FishingMode #e188FishingHud .e189Art{height:82px!important;min-height:0!important;max-height:82px!important;width:84px!important;min-width:0!important;max-width:84px!important}
+#combatDock.e188FishingMode #e188HudSub,#combatDock.e188FishingMode #e188HudZone,#combatDock.e188FishingMode .e188Track{display:none!important}
+#combatDock.e188FishingMode #e188FishingHud .e189Art img{object-fit:contain!important}
+#combatDock.e188FishingMode .e188Meta{display:block!important;margin-top:4px!important}
+#combatDock.e188FishingMode #e188HudTitle{color:#c9bd9e!important;font-size:11px!important}
+#combatDock.e188FishingMode #e188HudResult{white-space:normal!important;line-height:1.25!important}
+.e212Goals{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}
+.e212Goals li{display:flex;justify-content:space-between;gap:12px;color:#e2d4b4}
+.e212Goals li.done{color:#acd99b}
+.e212Goals b{white-space:nowrap}
+@media(max-width:700px){
+ #combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
+ #combatDock.e188FishingMode .dockVitals{grid-column:1!important;grid-row:1!important}
+ #combatDock.e188FishingMode #e188FishingHud{grid-column:2!important;grid-row:1!important;grid-template-columns:44px minmax(0,1fr)!important;gap:5px!important}
+ #combatDock.e188FishingMode #e188FishingHud .e189Art{height:54px!important;max-height:54px!important;width:44px!important;max-width:44px!important}
+ #combatDock.e188FishingMode #e188HudResult,#combatDock.e188FishingMode #e188HudPercent{font-size:10px!important}
+ .e212Goals li{flex-wrap:wrap;gap:2px}
+}
 </style>
 </body>
 </html>

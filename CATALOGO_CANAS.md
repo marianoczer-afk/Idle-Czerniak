@@ -1,8 +1,8 @@
-# Catálogo e ilustraciones · Estable 08
+# Catálogo e ilustraciones · Estable 12
 
 ## Alcance
 
-90 cañas: las 12 existentes, 60 nuevas por oro y 18 nuevas por desafíos. Se mantienen los IDs, precios y atributos de las 12 anteriores, las 41 especies, las 10 zonas y el guardado v7. No hay niveles propios de caña ni requisitos de nivel para comprar las nuevas. Los requisitos de habilidad de zonas y peces siguen vigentes.
+50 cañas en el catálogo para una partida nueva: las 12 originales, 20 compras de las familias nuevas y 18 desafíos. Se retiraron de la oferta 40 variantes de precio cercano; las ya adquiridas siguen visibles, equipables y guardadas, por lo que una colección antigua puede tener más de 50. Se mantienen los IDs, precios y atributos de las 12 anteriores, las 41 especies, las 10 zonas y el guardado v7. No hay niveles propios de caña ni requisitos de nivel para comprar las nuevas. Los requisitos de habilidad de zonas y peces siguen vigentes.
 
 El catálogo se define en `data-e208-catalog`, dentro de `index.html`: 13 familias con seis especialidades cada una producen los 78 IDs nuevos de forma determinista (`e208_rod_familia_especialidad`). Los `req` del catálogo solo organizan Aprendiz, Especialista y Maestría.
 
@@ -70,3 +70,22 @@ Los filtros y la ordenación permiten encontrar equipo propio, compras al alcanc
 ## Estable 11: render e ilustración
 
 El catálogo actual es el único que construye las filas completas: se elimina el catálogo heredado que se reemplazaba en el mismo render. No cambia el contenido de las 90 cañas. En el HUD, la ilustración usa todo el ancho con su proporción original y el nombre se presenta fuera de la imagen.
+
+## Estable 12: selección de ofertas
+
+Se conservan dos especialidades de compra por familia, elegidas por su función, no seis variaciones próximas de precio. `E212_OFFERS` define la selección explícita. No se cambian precios ni atributos para justificar el recorte. Los 90 IDs históricos siguen definidos, con índices estables, para preservar las partidas; el render incluye las retiradas solamente cuando pertenecen al personaje.
+
+| Familia | Especialidades ofrecidas |
+| --- | --- |
+| Junco | Resiliencia, atracción |
+| Sauce | Control, suerte |
+| Marea | Resiliencia, capacidad |
+| Nenúfar | Suerte, trofeos |
+| Coral | Control, resiliencia |
+| Fosa | Control, capacidad |
+| Manglar | Resiliencia, suerte |
+| Escarcha | Control, resiliencia |
+| Obsidiana | Atracción, capacidad |
+| Celeste | Control, trofeos |
+
+Las 18 recompensas de desafíos permanecen. Cada misión muestra tres objetivos separados, progreso y marca individual de cumplimiento. Se distingue entre desafíos históricos (no consumen peces) y entregas de inventario (consumen peces, cualquier tamaño cuenta).
