@@ -127,3 +127,7 @@ La consolidación de render y guardado reduce además el bloqueo al terminar. La
 ## Estable 12: menos ofertas redundantes
 
 Se retiran de la oferta 40 variantes próximas de precio, conservando dos especialidades por familia de compra. No se cambian estadísticas, precios, dificultad, azar, ritmo de pesca ni recompensas en esta versión. El equipo retirado que ya pertenece a una partida conserva sus efectos.
+
+## Estable 16: auditoría de encargos, sin ajuste de condiciones
+
+Los seis desafíos de cada familia comparten progreso histórico. Los de Río pueden quedar listos juntos con 30 capturas, 3 especies y récord de 6 kg; los seis de Glaciar requieren conjuntamente récord de 225 kg y los de Santuario 1080 kg, además de esos mismos máximos de cantidad/especies. Esto no incluye las entregas tradicionales ni Coleccionista. Ver ATLAS_PESCA.md. No se alteran metas, premios, estadísticas ni probabilidades para introducir el Atlas.

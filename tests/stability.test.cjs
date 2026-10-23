@@ -32,6 +32,10 @@ async function character(page,level=30,openCatalog=true){
  },level);
  if(openCatalog)await page.evaluate(()=>{document.getElementById('fishingRodShop').open=true;document.querySelector('.rodTier[data-tier="inicio"]').open=true;});
 }
+async function atlasZone(page,id){
+ await page.locator('#fishingAtlas').evaluate(n=>n.open=true);
+ await page.locator(`[data-atlas-zone="${id}"]`).click();
+}
 function closeTo(actual,expected,epsilon=1){assert.ok(Math.abs(actual-expected)<=epsilon,`${actual} vs ${expected}`);}
 
 test('HTML boundaries: styles parse and no CSS becomes body text',async()=>{
@@ -282,8 +286,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.match(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-15">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 15<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-16">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 16<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -302,7 +306,7 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
  }finally{await downloadedContext?.close();await context.close();if(directory)rmSync(directory,{recursive:true,force:true});}
 });
 
-for(const width of [1366,390])test(`Estable 15: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -310,7 +314,7 @@ for(const width of [1366,390])test(`Estable 15: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 15/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 16/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -331,7 +335,7 @@ for(const width of [1366,390])test(`Estable 15: empty last-catch panel and rods 
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 15: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -353,8 +357,8 @@ for(const width of [1366,390])test(`Estable 15: larger rod art, provenance, star
   assert.equal(stars.length,50);for(const star of stars){assert.match(star.label,/Valoración general: (10|[1-9]) de 10 estrellas/);assert.equal(star.count,10);}
   const scores=await page.evaluate(()=>{const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];const a=all.map(e193RodScore);state.skills.pesca.xp=98010;const b=all.map(e193RodScore);state.skills.pesca.xp=10240;return{a,b};});
   assert.deepEqual(scores.a,scores.b,'Star ratings belong to rods, not character levels');
-  await page.locator('.e171QuestGroup').evaluate(n=>n.open=true);
-  const reward=page.locator('[data-quest-id="laguna"]');
+  await atlasZone(page,'laguna');await page.locator('[data-atlas-badge="laguna"]').click();
+  const reward=page.locator('.atlasBadgeDetail');
   assert.match(await reward.innerText(),/Instinto de pescador.*\+5%.*XP/);
   assert.match(await reward.innerText(),/automáticamente/);
   await page.locator('#hybridSidebar').evaluate(n=>n.open=true);
@@ -362,8 +366,8 @@ for(const width of [1366,390])test(`Estable 15: larger rod art, provenance, star
   assert.equal(await page.evaluate(()=>!!state.owned.e187_rod_coral),false,'XP reward does not invent a rod');
   // Existing rod and control rewards report their actual effect as well.
   for(const [zone,pattern] of [['arrecife',/Caña Coralina.*11,5%/],['abismo',/8 px.*control permanente/]]){
-   await page.evaluate(zone=>{state.skills.pesca.xp=18490;state.ui.fishingZoneId=zone;state.ui.e187Rewards[zone]=true;if(zone==='arrecife')state.owned.e187_rod_coral=true;e16Page();document.querySelector('.e171QuestGroup').open=true;},zone);
-   assert.match(await page.locator(`[data-quest-id="${zone}"]`).innerText(),pattern);
+   await page.evaluate(zone=>{state.skills.pesca.xp=18490;state.ui.fishingZoneId=zone;state.ui.e187Rewards[zone]=true;if(zone==='arrecife')state.owned.e187_rod_coral=true;e16Page();},zone);
+   await atlasZone(page,zone);await page.locator(`[data-atlas-badge="${zone}"]`).click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),pattern);
   }
  }finally{await context.close();}
 });
@@ -453,7 +457,7 @@ test('Weighted records survive reload and the river challenge grants the existin
     Math.random=()=>.8;e161Fishing=true;e195OriginalStart(id);cancelAnimationFrame(e16Frame);
     Math.random=()=>.9;e16Finish(true);e161Fishing=false;e161StopWait();clearTimeout(e1111ResultTimer);
    }}finally{Math.random=old;}
-   e16Page();document.querySelector('.e194QuestFold').open=true;await persist();
+   e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);await persist();
    return {weights:copyJSON(state.ui.fishingWeights),inventory:copyJSON(state.inventory),xp:state.skills.pesca.xp,gold:state.gold};
   });
   assert.ok(expected.weights.byZone.rio.bestKg>=8);
@@ -675,19 +679,21 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    const snapshot=()=>({owned:JSON.stringify(state.owned),inventory:JSON.stringify(state.inventory),gold:state.gold,xp:state.skills.pesca.xp,rewards:JSON.stringify(state.ui.e187Rewards)});
    const before=snapshot();e16Page();return before;
   });
-  assert.equal(await page.locator('.e171QuestGroup').count(),1);
-  assert.match(await page.locator('.e171QuestGroup>summary').innerText(),/Encargos completados \(25\)/);
-  await page.locator('.e171QuestGroup').evaluate(n=>n.open=true);
-  assert.equal(await page.locator('.e209CompletedQuest').count(),25);
-  assert.equal(await page.locator('.e194QuestFold').count(),0);
-  assert.match(await page.locator('.e171QuestGroup [data-quest-id="laguna"]').innerText(),/naturalista.*Laguna Esmeralda.*5%.*permanente activa/is);
-  assert.match(await page.locator('.e171QuestGroup [data-quest-id="arrecife"]').innerText(),/secreto del arrecife.*Caña Coralina/is);
-  assert.match(await page.locator('.e171QuestGroup [data-quest-id="abismo"]').innerText(),/8 px.*permanente activa/is);
+  assert.equal(await page.locator('#fishingAtlas').count(),1);
+  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/25 encargos/);
+  assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),0);
+  let badges=0;
+  for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
+   await atlasZone(page,zone);badges+=await page.locator('[data-atlas-badge]').count();
+  }
+  assert.equal(badges,25);
+  for(const [zone,pattern] of [['laguna',/naturalista.*5%.*permanente activa/is],['arrecife',/secreto del arrecife.*Caña Coralina/is],['abismo',/8 px.*permanente activa/is]]){
+   await atlasZone(page,zone);await page.locator(`[data-atlas-badge="${zone}"]`).click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),pattern);
+  }
   for(const zone of ['muelle','arrecife','abismo','santuario']){
    await page.evaluate(zone=>{state.ui.fishingZoneId=zone;e16Page();},zone);
-   assert.equal(await page.locator('.e209CompletedQuest').count(),25);
-   assert.equal(await page.locator('.e171QuestGroup').evaluate(n=>n.open),true);
-   assert.equal(await page.locator('[data-quest-id="arrecife"]').count(),1);
+   assert.equal(await page.evaluate(()=>e216QuestDefinitions().filter(q=>q.done).length),25);
+   assert.equal(await page.locator('#fishingAtlas').evaluate(n=>n.open),true);
   }
   assert.deepEqual(await page.evaluate(()=>({owned:JSON.stringify(state.owned),inventory:JSON.stringify(state.inventory),gold:state.gold,xp:state.skills.pesca.xp,rewards:JSON.stringify(state.ui.e187Rewards)})),before);
  }finally{await context.close();}
@@ -697,17 +703,17 @@ test('Claiming Coralina moves the quest to Completed exactly once and retains th
  const {context,page}=await fresh();
  try{
   await character(page,40);
-  await page.evaluate(()=>{state.ui.fishingZoneId='arrecife';state.inventory.pez_pez_luna=4;state.inventory.pez_caballito_mar=3;e16Page();document.querySelector('.e194QuestFold').open=true;});
+  await page.evaluate(()=>{state.ui.fishingZoneId='arrecife';state.inventory.pez_pez_luna=4;state.inventory.pez_caballito_mar=3;e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   await page.locator('[data-e187-claim="arrecife"]').click();
   assert.equal(await page.locator('[data-e187-claim="arrecife"]').count(),0);
-  assert.equal(await page.locator('.e171QuestGroup [data-quest-id="arrecife"]').count(),1);
+  await atlasZone(page,'arrecife');assert.equal(await page.locator('[data-atlas-badge="arrecife"]').count(),1);
   const snapshot=await page.evaluate(()=>({gold:state.gold,xp:state.skills.pesca.xp,inventory:JSON.stringify(state.inventory),owned:JSON.stringify(state.owned),rewards:JSON.stringify(state.ui.e187Rewards)}));
   assert.equal(await page.evaluate(()=>state.owned[E187_ROD.id]&&e187Rewards().arrecife),true);
   assert.equal(await page.evaluate(()=>e161Rod().id),'e187_rod_coral');
   await page.evaluate(async()=>{const b=document.createElement('button');b.dataset.e187Claim='arrecife';document.body.append(b);b.click();b.remove();await persist();});
   assert.deepEqual(await page.evaluate(()=>({gold:state.gold,xp:state.skills.pesca.xp,inventory:JSON.stringify(state.inventory),owned:JSON.stringify(state.owned),rewards:JSON.stringify(state.ui.e187Rewards)})),snapshot);
   await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);await page.evaluate(()=>selectWorkspaceTab('fishing'));
-  assert.equal(await page.locator('.e171QuestGroup [data-quest-id="arrecife"]').count(),1);
+  await atlasZone(page,'arrecife');assert.equal(await page.locator('[data-atlas-badge="arrecife"]').count(),1);
   assert.equal(await page.evaluate(()=>!!state.owned.e187_rod_coral),true);
  }finally{await context.close();}
 });
@@ -717,7 +723,7 @@ test('Legacy Coralina ownership is recognized without inventing perk flags or co
  try{
   await character(page,40);
   const expected=await page.evaluate(()=>{state.owned.e187_rod_coral=true;state.ui.e187Rewards={};state.ui.fishingZoneId='arrecife';state.inventory.pez_pez_luna=4;state.inventory.pez_caballito_mar=3;e16Page();return JSON.stringify(state.inventory);});
-  assert.equal(await page.locator('.e171QuestGroup [data-quest-id="arrecife"]').count(),1);
+  await atlasZone(page,'arrecife');assert.equal(await page.locator('[data-atlas-badge="arrecife"]').count(),1);
   assert.equal(await page.locator('[data-e187-claim="arrecife"]').count(),0);
   await page.evaluate(()=>{const b=document.createElement('button');b.dataset.e187Claim='arrecife';document.body.append(b);b.click();b.remove();});
   assert.equal(await page.evaluate(()=>JSON.stringify(state.inventory)),expected);
@@ -726,7 +732,7 @@ test('Legacy Coralina ownership is recognized without inventing perk flags or co
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 15: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -736,7 +742,7 @@ for(const width of [1366,390])test(`Estable 15: collapsed catalog follows missio
   await page.locator('#fishingRodShop').evaluate(n=>n.open=true);await page.locator('.rodTier[data-tier="medio"]').evaluate(n=>n.open=true);
   const requirement=await page.locator('[data-rod-id="e187_rod_coral"] .rodShopInfo small').innerText();
   assert.match(requirement,/Arrecife de Coral.*Pesca 32.*Pez luna 0\/4.*Caballito de mar 0\/3/);
-  await page.evaluate(()=>{state.ui.fishingZoneId='rio';e16Page();document.querySelector('.e194QuestFold').open=true;});
+  await page.evaluate(()=>{state.ui.fishingZoneId='rio';e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   assert.equal(await page.locator('.e194QuestBody [data-catalog-claim]').count(),6);
   const quest=page.locator('.e194QuestBody [data-quest-id="e208_rod_custodio_pulso"]');
   assert.match(await quest.innerText(),/12 peces en total.*0 de 12.*2 especies distintas.*0 de 2.*récord/is);
@@ -747,18 +753,18 @@ for(const width of [1366,390])test(`Estable 15: collapsed catalog follows missio
  }finally{await context.close();}
 });
 
-test('Estable 15: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
+test('Estable 16: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
   await page.locator('#fishingRodShop').evaluate(n=>n.open=true);await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
   await page.locator('[data-rod-id="e208_rod_custodio_pulso"] button').click();
   assert.equal(await page.evaluate(()=>e165Zone().id),'rio');assert.equal(await page.locator('.e194QuestFold').evaluate(n=>n.open),true);
-  await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:12,bestKg:2,species:{bagre:6,trucha:6}}}};e16Page();document.querySelector('.e194QuestFold').open=true;});
+  await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:12,bestKg:2,species:{bagre:6,trucha:6}}}};e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   await page.locator('.e194QuestBody [data-catalog-claim="e208_rod_custodio_pulso"]').click();
   assert.equal(await page.evaluate(()=>!!state.owned.e208_rod_custodio_pulso),true);
   assert.equal(await page.locator('.e194QuestBody [data-catalog-claim="e208_rod_custodio_pulso"]').count(),0);
-  assert.equal(await page.locator('.e171QuestGroup [data-quest-id="e208_rod_custodio_pulso"]').count(),1);
+  await atlasZone(page,'rio');assert.equal(await page.locator('[data-atlas-badge="e208_rod_custodio_pulso"]').count(),1);
   await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
   assert.equal(await page.locator('.rodTier[data-tier="inicio"] .rodShopRow').first().getAttribute('data-rod-id'),'e208_rod_custodio_pulso');
   await page.locator('[data-rod-mine]').click();assert.equal(await page.locator('.rodShopRow:visible').count(),2);
@@ -773,7 +779,7 @@ test('Estable 15: new challenge is claimable in its zone; owned rods lead both t
  }finally{await context.close();}
 });
 
-test('Estable 15: sidebar scrolls independently and switching character stays accessible',async()=>{
+test('Estable 16: sidebar scrolls independently and switching character stays accessible',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -793,7 +799,7 @@ test('Estable 15: sidebar scrolls independently and switching character stays ac
  }finally{await context.close();}
 });
 
-test('Estable 15: finish renders and saves once; escape never awards a fish',async()=>{
+test('Estable 16: finish renders and saves once; escape never awards a fish',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -819,7 +825,7 @@ test('Estable 15: finish renders and saves once; escape never awards a fish',asy
  }finally{await context.close();}
 });
 
-test('Estable 15: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
+test('Estable 16: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -843,7 +849,7 @@ test('Estable 15: last catch stays through attempts, loss, time and reload witho
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 15: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.locator('#hybridSidebar').evaluate(n=>n.open=true);
@@ -866,7 +872,7 @@ for(const width of [1366,390])test(`Estable 15: sidebar headings hidden and comp
 });
 
 
-test('Estable 15: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
+test('Estable 16: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40);
@@ -882,11 +888,11 @@ test('Estable 15: curated offers remove close variants and preserve retired owne
  }finally{await context.close();}
 });
 
-test('Estable 15: quest goals explain all conditions and mark each completed objective',async()=>{
+test('Estable 16: quest goals explain all conditions and mark each completed objective',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
-  await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:3,species:{mojarra:2,lubina:1},bestKg:7.35}}};e16Page();document.querySelector('.e194QuestFold').open=true;});
+  await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:3,species:{mojarra:2,lubina:1},bestKg:7.35}}};e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   const quest=page.locator('.e194QuestBody [data-quest-id="e208_rod_custodio_pulso"]');
   assert.match(await quest.innerText(),/tres objetivos en Río del Bosque/);assert.match(await quest.innerText(),/Capturá 12 peces en total/);assert.match(await quest.innerText(),/Capturá 2 especies distintas/);assert.match(await quest.innerText(),/Capturá un pez de 2 kg o más/);assert.match(await quest.innerText(),/No se consumen peces/);
   assert.equal(await quest.locator('.e212Goals li').count(),3);assert.equal(await quest.locator('.e212Goals .done').count(),2);assert.equal(await quest.locator('button').isDisabled(),true);
@@ -895,7 +901,7 @@ test('Estable 15: quest goals explain all conditions and mark each completed obj
 });
 
 
-for(const width of [1366,390])test(`Estable 15: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -914,7 +920,7 @@ for(const width of [1366,390])test(`Estable 15: restored zone and rod shortcuts 
 });
 
 
-for(const width of [1366,390])test(`Estable 15: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -932,7 +938,7 @@ for(const width of [1366,390])test(`Estable 15: fish matches zone size and live 
 });
 
 
-for(const width of [1366,390])test(`Estable 15: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 16: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -953,5 +959,58 @@ for(const width of [1366,390])test(`Estable 15: larger full-height rod, XP on th
   await page.evaluate(()=>selectWorkspaceTab('fishing'));
   assert.equal(await page.locator('#e188FishingHud>.dockProgress').count(),1);assert.equal(await page.locator('#combatDock .dockProgress').count(),1);
   assert.equal(await page.locator('#combatDock .e1118Zone').isVisible(),true);assert.equal(await page.locator('#e188FishingHud .e188Track').isVisible(),true);
+ }finally{await context.close();}
+});
+
+test('Estable 16: Atlas derives independent milestones from v7 records without modifying saves or rewards',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,100,false);
+  const report=await page.evaluate(()=>{
+   state.inventory={};state.ui.e18Fishing={bySpecies:{}};state.ui.fishingWeights={};state.ui.e191Achievements={};state.ui.e187Rewards={};
+   const zone=id=>E165_ZONES.find(z=>z.id===id),record=state.ui.e18Fishing.bySpecies,read=id=>{const before=JSON.stringify(state),p=e216ZoneProgress(zone(id));if(JSON.stringify(state)!==before)throw Error('Atlas wrote to save');return p.stars;};
+   const empty=read('rio');for(const id of zone('rio').fish.slice(0,3))record[id]={total:1};const discovery=read('rio');
+   state.owned[E171_QUESTS[0].rod.id]=true;state.owned[E18_ROD.id]=true;for(const r of E208_CATALOG.filter(r=>r.unlock?.zone==='rio'))state.owned[r.id]=true;const quests=read('rio');
+   for(const id of zone('rio').fish)record[id]={total:1};const all=read('rio');
+   const noQuestEmpty=read('manglar');record[zone('manglar').fish[0]]={total:1};const noQuestOne=read('manglar');for(const id of zone('manglar').fish)record[id]={total:1};const noQuestAll=read('manglar');
+   state.ui.e191Achievements.glaciar=true;const legacy=read('glaciar');state.owned[E187_ROD.id]=true;const coral=read('arrecife');
+   return{empty,discovery,quests,all,noQuestEmpty,noQuestOne,noQuestAll,legacy,coral,definitions:e216QuestDefinitions().length,counts:E165_ZONES.map(z=>e216ZoneProgress(z).quests.length),species:E16_FISH.length};
+  });
+  assert.deepEqual(report.empty,[false,false,false]);assert.deepEqual(report.discovery,[true,false,false]);assert.deepEqual(report.quests,[true,true,false]);assert.deepEqual(report.all,[true,true,true]);
+  assert.deepEqual(report.noQuestEmpty,[false,false,false]);assert.deepEqual(report.noQuestOne,[false,true,false]);assert.deepEqual(report.noQuestAll,[true,true,true]);assert.deepEqual(report.legacy,[true,false,true]);assert.equal(report.coral[1],true);
+  assert.equal(report.definitions,25);assert.equal(report.species,41);assert.deepEqual(report.counts,[1,8,1,1,1,1,0,6,0,6]);
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 16: Atlas search, mastery, accessible badges and compact quest details (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,100,false);
+  await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.owned.e187_rod_coral=true;state.ui.e18Fishing={bySpecies:Object.fromEntries(E165_ZONES.find(z=>z.id==='manglar').fish.map(id=>[id,{total:1}]))};e16Page();});
+  assert.equal(await page.locator('#fishingAtlas').count(),1);assert.equal(await page.locator('.atlasZoneDetail').count(),0);assert.equal(await page.locator('.e216Quest').count(),8);assert.equal(await page.locator('.e216Quest[open]').count(),0);
+  await page.locator('.e194QuestFold').evaluate(n=>n.open=true);
+  const first=page.locator('.e216Quest').first();assert.equal(await first.locator('.e171Quest').isVisible(),false);await first.locator('summary').click();assert.equal(await first.locator('.e171Quest').isVisible(),true);assert.match(await first.innerText(),/Cualquier tamaño cuenta/);
+  await page.evaluate(()=>e16Page());assert.equal(await first.evaluate(n=>n.open),true);
+  await page.locator('#fishingAtlas').evaluate(n=>n.open=true);assert.equal(await page.locator('.atlasRow:visible').count(),10);
+  await page.locator('[data-atlas-search]').fill('rio del');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-search]').fill('');
+  await page.locator('[data-atlas-filter]').selectOption('complete');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-zone="manglar"]').click();assert.equal(await page.locator('.atlasMedal').count(),1);assert.match(await page.locator('.atlasZoneDetail').innerText(),/no tiene encargos/);
+  await page.locator('[data-atlas-filter]').selectOption('pending');assert.equal(await page.locator('.atlasRow:visible').count(),9);await page.locator('[data-atlas-zone="arrecife"]').click();
+  const before=await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId}));const badge=page.locator('[data-atlas-badge="arrecife"]');assert.match(await badge.getAttribute('title'),/secreto del arrecife.*Entregá.*Caña Coralina/is);await badge.click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),/Recompensa ya obtenida/);assert.equal(await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId})),before);
+  const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,rows:[...document.querySelectorAll('.atlasRow:not([hidden])')].map(n=>n.getBoundingClientRect().height),quests:[...document.querySelectorAll('.e216Quest>summary')].map(n=>n.getBoundingClientRect().height)}));assert.ok(geometry.overflow<=1,JSON.stringify(geometry));assert.ok(geometry.rows.every(h=>h<=65));assert.ok(geometry.quests.every(h=>h<=85));
+  await page.evaluate(async()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);await page.evaluate(()=>selectWorkspaceTab('fishing'));await atlasZone(page,'manglar');assert.equal(await page.locator('.atlasMedal').count(),1);assert.equal(await page.evaluate(()=>state.owned.e187_rod_coral),true);
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 16: thin rod art, signed attribute comparisons and full names (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_titan=true;state.ui.fishingRodId='e208_rod_custodio_titan';e16Page();});
+  assert.equal(await page.locator('#combatDock .e1118Zone .e1120RodLabel').count(),0);assert.equal(await page.locator('#page_fishing>h2').count(),0);
+  const name=page.locator('#combatDock .e1123RodName');assert.match(await name.innerText(),/Custodio del Río · Ancla de Titanes/);assert.ok(await name.evaluate(n=>n.scrollWidth<=n.clientWidth+1));
+  await page.locator('#combatDock .e194DockRod').click();
+  const choice=page.locator('.e1120Choice').filter({has:page.locator('b',{hasText:'Caña de fibra'})});assert.equal(await choice.locator('.e216RodThumb svg').count(),1);assert.equal(await choice.locator('.rodCompare').count(),6);
+  const actual=await choice.locator('[data-stat="control"]').getAttribute('data-delta'),expected=await page.evaluate(()=>Math.round((e1101Stats(E161_RODS.find(r=>r.id==='e161_rod_fiber')).control-e1101Stats(e161Rod()).control)/4*100)/100);assert.equal(Number(actual),expected);
+  const deltas=await page.locator('.rodCompare').evaluateAll(ns=>ns.map(n=>({delta:Number(n.dataset.delta),better:n.classList.contains('better'),worse:n.classList.contains('worse'),same:n.classList.contains('same')})));for(const d of deltas){assert.equal(d.better,d.delta>0);assert.equal(d.worse,d.delta<0);assert.equal(d.same,d.delta===0);}assert.ok(deltas.some(d=>d.better)&&deltas.some(d=>d.worse));
+  assert.ok(await page.locator('.e1120Menu').evaluate(n=>n.scrollWidth<=n.clientWidth+1));
  }finally{await context.close();}
 });

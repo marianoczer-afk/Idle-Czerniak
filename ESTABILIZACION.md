@@ -177,3 +177,13 @@ Se elimina el actualizador duplicado de XP y se retiran los cálculos antiguos e
 La limpieza reduce aproximadamente 33 KB de fuente. Las 118 imágenes originales permanecen idénticas y siguen representando la mayor parte del archivo autónomo. No se agregan dependencias al juego. Las capas históricas de mecánicas y premios se conservan; la consolidación realizada corresponde a presentación y actualizaciones redundantes.
 
 Validación: 51 pruebas completas aprobadas en Chromium. Incluyen guardados v7, azar, balance, misiones, premios únicos, descarga autónoma, fases sin desplazamiento, dimensiones del HUD, caña completa, XP a la derecha, reutilización del arte/estadísticas y retorno correcto a Combate sin duplicar la barra. Revisión visual en escritorio y móvil emulado.
+
+## Estable 16
+
+Primera versión del Atlas de Pesca: diez filas compactas y filtros, ficha seleccionada con tres hitos independientes, medalla visual e insignias de los 25 encargos existentes. Se calculan a partir del guardado actual, sin campos nuevos ni premios adicionales. Ver ATLAS_PESCA.md para inventario, condiciones y limitaciones históricas. Los encargos activos se convierten en filas desplegables preservando sus detalles y botones; el listado antiguo de completados se retira.
+
+El selector de caña incluye arte horizontal fino, seis atributos efectivos y diferencias firmadas respecto al equipo actual: verde apagado para aumentos, terracota para disminuciones y texto neutro para igualdad. Se retira el nombre de caña de la tarjeta de zona y el encabezado repetido de zona/nivel. Los nombres de caña se ajustan a varias líneas sin truncamiento; el HUD conserva su altura, XP, última captura y progreso en vivo.
+
+Una prueba de recarga detectó una carrera de arranque: el render de una partida activa podía ejecutarse antes de analizar todas las extensiones inline. `bootRoster` espera ahora a `DOMContentLoaded` antes de restaurar/renderizar. No cambia decodificación, claves ni progreso offline; permite que el código de todas las extensiones esté disponible al usarlo.
+
+Validación Estable 16: 56 pruebas completas aprobadas en Chromium, incluyendo hitos independientes, zonas sin encargos, insignias antiguas, apertura de recompensas, filtros/búsqueda, modelos de solo lectura, recarga de partidas activas, objetivos originales desplegados, diferencias de atributos, nombres completos, HUD, fases, guardados v7, premios únicos y probabilidades. Las 118 imágenes embebidas permanecen idénticas. Revisión visual del Atlas, ficha y selector a 1366 y 390 px.
