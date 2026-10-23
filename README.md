@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 23**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 24**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 23**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 24**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -83,3 +83,11 @@ Cabeceras alineadas y completas; zona del HUD más ancha, nombre de caña superp
 - [Distribución de encargos y propuesta de progresión](PROPUESTA_PROGRESION.md): análisis de las 10 zonas y 25 encargos; propuestas sin implementar.
 - [Muestra artística para revisar](arte/muestras.html): seis propuestas separadas del juego, con un HUD de prueba que utiliza su CSS real. Descargá el ZIP, extraelo y abrí `arte/muestras.html`.
 - [Verificación de la entrega](ARTE_ETAPA_A.md).
+
+## Ajuste breve — Estable 24
+
+Barras de scroll ocultas en selector de zonas y listas de cañas, desplazamiento nativo conservado y continuidad hacia la página. Se elimina el acceso duplicado junto a los controles de Pesca; la Tienda sigue disponible en su pestaña y desplegable. «¡NUEVO RÉCORD!» dura dos segundos al superar el récord absoluto previo de peso de una especie durante una captura exitosa; no se reproduce al cargar ni por empates o récords de categoría. La primera captura establece la referencia. No ocupa espacio en el HUD.
+
+Se reutilizan el inventario por IDs y la organización de `arte/` de Estable 23. El inventario es una fotografía del catálogo, no una nueva fuente de datos del juego. Las futuras fuentes se asociarán a esos IDs, conservando los maestros separados y el empaquetado autónomo; no se generan ni sustituyen imágenes en esta entrega. Sin cambios de balance, misiones o guardado v7.
+
+Validación de Estable 24: 18 pruebas dirigidas aprobadas en Chromium, con escritorio y ancho móvil; sintaxis válida. La hoja de geometría del HUD permanece idéntica a Estable 23. No se repite la suite completa ni las auditorías artísticas/técnicas en esta entrega acotada.

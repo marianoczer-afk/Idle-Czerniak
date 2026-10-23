@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 23</title>
-<meta name="argentum-build" content="estable-23">
+<title>Argentum Idle Online · Estable 24</title>
+<meta name="argentum-build" content="estable-24">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 23</h1>
+  <h1>Argentum Idle Online · Estable 24</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 23</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 24</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -776,7 +776,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 23</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 24</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -3071,6 +3071,7 @@ function e190RecordWeight(catchInfo){
  weights.bySpecies=weights.bySpecies||{};weights.byZone=weights.byZone||{};
  const speciesRecord=weights.bySpecies[id]||(weights.bySpecies[id]={});
  const known=e218Record(id),previousBest=known.best;
+ catchInfo.newAbsoluteRecord=previousBest>0&&catchInfo.weightKg>previousBest;
  speciesRecord.bestKg=previousBest;speciesRecord.categoryBestKg={...speciesRecord.categoryBestKg,...known.categories};if(known.category)speciesRecord.bestCategory=known.category;
  record(speciesRecord);
  const label=e183LastQuality?.fish===catchInfo.fish.name?e183LastQuality.label:'';
@@ -5825,7 +5826,7 @@ e16Finish=function(won){
  try{e1111PriorFinish(won);if(caught)e190RecordWeight(caught);}
  finally{fishingFinishDepth--;}
  if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0};}
- e16Page();e188UpdateHud();persist();
+ e16Page();e188UpdateHud();if(caught?.newAbsoluteRecord&&e217LiveXP(state)){e217StartFX({s:state,key:'pesca',amount:0},'record');if(!e217EffectFrame)e217EffectFrame=requestAnimationFrame(e217PositionFX);}persist();
 };
 const e1111PriorPage=e16Page;
 e16Page=function(){
@@ -6595,7 +6596,6 @@ e189FishSVG=function(id){
 #fishingRodShop .rodShopStats{font-size:.75rem;color:#b9dfc4;line-height:1.5;margin-top:3px}
 #fishingRodShop .rodShopAction{display:flex;flex-direction:column;align-items:stretch;gap:5px;text-align:center;font-size:.76rem;color:var(--gold)}
 #fishingRodShop .rodShopAction button{min-height:34px;font-size:.77rem;padding:5px 8px}
-#page_fishing .e1108Toolbar [data-rod-shop-open]{min-width:0;margin-left:auto;font-size:.8rem}
 #fishingRodShop .rodShopNote,#fishingRodShop .rodShopEmpty{font-size:.78rem;line-height:1.5;color:var(--muted)}
 @media(max-width:650px){
  #fishingRodShop .rodShopRow{grid-template-columns:minmax(0,1fr);gap:7px}
@@ -6756,8 +6756,6 @@ function e216RodComparison(rod){
    shop.addEventListener('input',filter);shop.addEventListener('change',filter);e208FilterShop(shop);
    if(previousShop&&previousShop!==shop)previousShop.remove();
    placeShop();
-   const toolbar=page.querySelector('.e1108Toolbar');
-   if(toolbar){const access=document.createElement('button');access.type='button';access.className='small';access.dataset.rodShopOpen='';access.textContent='🎣 Tienda de cañas';toolbar.append(access);}
    e190DecorateFishingPage();e216CompactQuests();
    page.querySelector('h2')?.remove();
    renderedState=state;
@@ -6774,13 +6772,6 @@ function e216RodComparison(rod){
  window.addEventListener('keydown',event=>{
   if(!['Enter',' '].includes(event.key)||!event.target.matches('#combatDock.e188FishingMode .e189Art'))return;
   event.preventDefault();event.stopImmediatePropagation();e190ReturnToFishing();
- },true);
- document.addEventListener('click',event=>{
-  if(!event.target.closest('[data-rod-shop-open]'))return;
-  event.preventDefault();event.stopImmediatePropagation();
-  if(!state||!ready||busy||managing||!storageReady)return;
-  selectWorkspaceTab('shop');
-  const shop=document.getElementById('fishingRodShop');if(shop)shop.open=true;
  },true);
 })();
 </script>
@@ -6999,8 +6990,8 @@ function e217StartFX(event,kind){
   return;
  }
  if(previous)e217RemoveFX(id);
- const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':'e217LevelNotice';node.dataset.xpSkill=event.key;
- node.textContent=kind==='drop'?'+'+e217FormatXP(amount)+' XP':'¡'+e217SkillLabel(event.key).toLocaleUpperCase('es-AR')+' NIVEL '+event.after+'!';
+ const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':kind==='record'?'e224RecordNotice':'e217LevelNotice';node.dataset.xpSkill=event.key;
+ node.textContent=kind==='record'?'¡NUEVO RÉCORD!':kind==='drop'?'+'+e217FormatXP(amount)+' XP':'¡'+e217SkillLabel(event.key).toLocaleUpperCase('es-AR')+' NIVEL '+event.after+'!';
  let arrow=null;if(kind==='level'){arrow=document.createElement('span');arrow.className='e221LevelArrow';arrow.innerHTML='<svg viewBox="0 0 16 20" aria-hidden="true"><path d="M8 1 1 9h4v10h6V9h4Z" fill="#f0cc70" stroke="#8e6028" stroke-width="1"/></svg>';e217EffectRoot().append(arrow);}
  e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,arrow,amount,kind,started:now,updated:now,until:now+(kind==='drop'?1700:2000),bar:null});
 }
@@ -7044,7 +7035,8 @@ function e217PositionFX(){
   if(f.kind==='drop'&&f.anchor!==target.node){const style=getComputedStyle(target.node);f.node.style.fontFamily=style.fontFamily;f.node.style.fontSize=(parseFloat(style.fontSize)*.96)+'px';f.node.style.fontWeight=style.fontWeight;f.node.style.lineHeight=style.lineHeight;f.anchor=target.node;}
   const range=document.createRange();range.selectNodeContents(target.node);const r=range.getBoundingClientRect(),b=target.bar.getBoundingClientRect(),w=f.node.getBoundingClientRect().width;
   const celebration=f.kind==='level'?e221LevelPosition(f,target):null;
-  const left=f.kind==='drop'?r.left-w-6:celebration.left,top=f.kind==='drop'?r.top:celebration.top;
+  const recordRect=f.kind==='record'?document.querySelector('#e188FishingHud .e189Art')?.getBoundingClientRect():null;
+  const left=f.kind==='record'?(recordRect?recordRect.left+(recordRect.width-w)/2:b.left):f.kind==='drop'?r.left-w-6:celebration.left,top=f.kind==='record'?(document.getElementById('combatDock').getBoundingClientRect().top-24):f.kind==='drop'?r.top:celebration.top;
   f.node.style.left=Math.max(6,Math.min(innerWidth-w-6,left))+'px';f.node.style.top=Math.max(6,top)+'px';
   if(f.kind==='level'&&f.bar!==target.bar){f.bar?.classList.remove('e217LevelGlow');f.bar=target.bar;f.bar.classList.add('e217LevelGlow');}
  }
@@ -7074,15 +7066,15 @@ function e217CleanClone(page){page.querySelectorAll('#e217XpEffects,.e1120Menu')
 #fishingRodShop .rodShopStats .rodCompare{display:block;font-size:10px;line-height:13px}
 #fishingRodShop .rodShopStats .rodCompare b{font-size:10px!important;margin-left:3px;color:inherit}
 #e217XpEffects{position:fixed;inset:0;z-index:110000;pointer-events:none}
-.e217XpDrop,.e217LevelNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
+.e217XpDrop,.e217LevelNotice,.e224RecordNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
 .e217XpDrop{font-size:11px;font-weight:400;line-height:normal;font-variant-numeric:tabular-nums;text-shadow:none;color:#bad5a4;animation:e217XPDrop 1.7s ease-out both}
-.e217LevelNotice{font-size:13px;color:#ffe1a0;background:none;border:0;padding:0;text-shadow:0 0 7px #7a541d,0 1px 2px #000;font-weight:700;animation:e217LevelNotice 2s ease-out both}
+.e217LevelNotice,.e224RecordNotice{font-size:13px;color:#ffe1a0;background:none;border:0;padding:0;text-shadow:0 0 7px #7a541d,0 1px 2px #000;font-weight:700;animation:e217LevelNotice 2s ease-out both}
 .e217LevelGlow{outline:1px solid #e3c16b;box-shadow:0 0 13px 3px #e2bd5666;animation:e217LevelPulse 2s ease-out both}
 @keyframes e217XPDrop{0%{opacity:.85;transform:translateY(0)}5%,60%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-4px)}}
 @keyframes e217LevelNotice{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
 @keyframes e217LevelPulse{0%,100%{box-shadow:0 0 0 0 #e2bd5600}20%,60%{box-shadow:0 0 13px 3px #e2bd5677}}
 @media(max-width:420px){.e217RodTools{grid-template-columns:minmax(0,1fr) 30px;gap:4px}.e217RodTools input{grid-column:1;grid-row:1}.e217RodTools select{grid-column:1 / -1;grid-row:2}.e217RodTools button{grid-column:2;grid-row:1}#fishingRodShop .rodShopStats{grid-template-columns:repeat(2,minmax(0,1fr))}.e217LevelNotice{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
+@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e224RecordNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
 </style>
 
 <script data-e218-journal>
@@ -7245,7 +7237,9 @@ selectWorkspaceTab=function(){const result=e221PriorTab.apply(this,arguments);e2
 #fishingAtlas .atlasRows{max-height:65vh;overflow-y:auto;scrollbar-width:none;overscroll-behavior:auto;overflow-anchor:none}
 #fishingAtlas .atlasRows::-webkit-scrollbar{display:none}
 #fishingAtlas{overflow-anchor:none}
-#fishingRodShop .rodRows{max-height:65vh;overflow-y:auto;scrollbar-width:thin;overscroll-behavior:auto}
+#fishingRodShop .rodRows{max-height:65vh;overflow-y:auto;scrollbar-width:none;overscroll-behavior:auto}
+#fishingRodShop .rodRows::-webkit-scrollbar,.e1120Menu[data-type=zone]::-webkit-scrollbar{display:none}
+.e1120Menu[data-type=zone]{scrollbar-width:none;overscroll-behavior:auto}
 .e221LevelArrow{position:fixed;width:10px;height:12px;pointer-events:none;animation:e221Arrow 2s ease-out both;filter:drop-shadow(0 0 3px #e2bd5680)}.e221LevelArrow svg{display:block;width:100%;height:100%}
 @keyframes e221Arrow{0%{opacity:0;transform:translateY(2px)}10%,75%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.e221LevelArrow{animation:none}.e221Cast:hover>.e221Art{filter:none}.e221Cast>.e221Art:after{animation:none;opacity:0}}

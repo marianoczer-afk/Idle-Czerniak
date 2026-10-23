@@ -116,7 +116,7 @@ for(const width of [1366,390])test(`Fishing context, mystery, invariant phases, 
 test('Rod shop: compact rows, categories, state, purchase/equip and 100-row catalog',async()=>{
  const {context,page}=await fresh();
  try{
-  await character(page);await page.locator('[data-rod-shop-open]').click();
+  await character(page);await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
   assert.equal(await page.evaluate(()=>state.ui.tab),'shop');
   assert.equal(await page.locator('#fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#combatDock .e1118Zone').isVisible(),false);
@@ -266,7 +266,7 @@ for(const width of [1366,1024,390])test(`Collection: images and full text fit ea
   assert.match(cards[0].text,/Trucha arcoíris/);assert.match(cards[1].text,/Perca esmeralda/);assert.match(cards[2].text,/Especie sin descubrir/);
   await page.evaluate(()=>e16Page());
   assert.equal(await page.locator('.e186Book').evaluate(n=>n.open),true);
-  await page.locator('[data-rod-shop-open]').click();
+  await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
   assert.equal(await page.locator('#fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('.rodShopRow').count(),50);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
@@ -286,9 +286,9 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const pending=page.waitForEvent('download');await page.locator('.hybridSidebarBody [data-act="downloadHtml"]').click();
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
-  assert.match(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-23">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 23<\/h1>/);
+  assert.doesNotMatch(html,/data-rod-shop-open/);
+  assert.match(html,/<meta name="argentum-build" content="estable-24">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 24<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -300,7 +300,7 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   assert.equal(await exported.locator('#characterScreen').isVisible(),true);
   assert.deepEqual(await exported.evaluate(()=>[...document.body.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim()).map(n=>n.textContent)),[]);
   await character(exported);
-  await exported.locator('[data-rod-shop-open]').click();
+  await exported.locator('#tab_shop').click();await exported.locator('#fishingRodShop').evaluate(n=>n.open=true);
   assert.equal(await exported.locator('#page_shop #fishingRodShop').isVisible(),true);
   assert.equal(await exported.locator('.rodShopRow').count(),50);
   assert.equal(await exported.locator('#argentum-art-library symbol').count(),16);
@@ -315,7 +315,7 @@ for(const width of [1366,390])test(`Estable 23: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 23/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 24/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -1044,7 +1044,7 @@ for(const width of [1366,390])test(`Estable 23: compact picker search, all sorts
 test('Estable 23: catalog comparisons use pp/kg, recalculate on equip and preserve filters while sorting by real requirements',async()=>{
  const {context,page}=await fresh();
  try{
-  await character(page,40);await page.locator('[data-rod-shop-open]').click();await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
+  await character(page,40);await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
   const row=page.locator('.rodShopRow[data-rod-id="e161_rod_fiber"]');assert.equal(await row.locator('.rodCompare').count(),6);assert.match(await row.locator('[data-stat="control"]').innerText(),/▼2,5 pp/);assert.match(await row.locator('[data-stat="maxKg"]').innerText(),/▼220 kg/);
   const gold=await page.evaluate(()=>state.gold);await row.locator('button').click();assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_fiber');assert.equal(await page.evaluate(()=>state.gold),gold-700);
   assert.ok(await row.locator('.rodCompare').evaluateAll(ns=>ns.every(n=>Number(n.dataset.delta)===0&&n.textContent.includes('='))));
@@ -1374,7 +1374,7 @@ for(const width of [1366,390])test(`Estable 23: Atlas expands immediately after 
 for(const width of [1366,390])test(`Estable 23: shop ownership toggle preserves other filters; headers and provenance use real data (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
- await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_pulso=true;e16Page();});await page.locator('[data-rod-shop-open]').click();
+ await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_pulso=true;e16Page();});await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
  await page.locator('[data-rod-search]').fill('custodio');await page.locator('[data-rod-zone]').selectOption('rio');await page.locator('[data-rod-filter]').selectOption('quest');await page.locator('[data-rod-sort]').selectOption('control');
  const total=await page.locator('.rodShopRow:not([hidden])').count();assert.ok(total>1);
  await page.locator('[data-rod-mine]').click();assert.equal(await page.locator('[data-rod-mine]').getAttribute('aria-pressed'),'true');assert.equal(await page.locator('.rodShopRow:not([hidden])').count(),1);
@@ -1551,5 +1551,31 @@ for(const width of [1366,390])test(`Estable 23: art proposal runs separately wit
   for(const value of ['bagre','calamar_abismo','mantarraya']){await page.selectOption('#fishSelect',value);assert.equal(await page.locator('#sampleFish svg').getAttribute('preserveAspectRatio'),'xMidYMid meet');assert.deepEqual(await geometry(),before);}
   for(const value of ['e161_rod_bamboo','e187_rod_coral','e208_rod_fosa_pulso']){await page.selectOption('#rodSelect',value);assert.equal(await page.locator('#sampleRod svg').getAttribute('preserveAspectRatio'),'xMidYMid meet');assert.deepEqual(await geometry(),before);}
   assert.equal(await page.evaluate(()=>localStorage.length),0);assert.equal(await page.evaluate(()=>typeof state),'undefined');assert.equal(await page.locator('image').getAttribute('href'),'muestra-conceptual-estable23.png');
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 24: hidden native scrollbars keep zone and shop scrolling (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,100,false);assert.equal(await page.locator('[data-rod-shop-open]').count(),0);
+  await page.locator('#combatDock .e1118Zone').click();
+  const menu=page.locator('.e1120Menu[data-type="zone"]');assert.deepEqual(await menu.evaluate(n=>({bar:getComputedStyle(n).scrollbarWidth,overflow:getComputedStyle(n).overflowY,chain:getComputedStyle(n).overscrollBehaviorY})),{bar:'none',overflow:'auto',chain:'auto'});
+  const b=await menu.boundingBox();await page.mouse.move(b.x+b.width/2,b.y+b.height/2);await page.mouse.wheel(0,200);await page.waitForTimeout(200);assert.ok(await menu.evaluate(n=>n.scrollTop)>0);
+  await page.keyboard.press('Escape');await page.locator('#fishingRodShop').evaluate(n=>n.open=true);await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
+  assert.equal(await page.locator('.rodRows').first().evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');assert.equal(await page.locator('.rodRows').first().evaluate(n=>getComputedStyle(n).overscrollBehaviorY),'auto');
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 24: only a live absolute weight improvement shows a temporary overlay (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);await page.evaluate(()=>{state.ui.fishingWeights={bySpecies:{salmon:{catches:1,bestKg:5,categoryBestKg:{normal:5}}},byZone:{}};});
+  const height=()=>page.locator('#combatDock').evaluate(n=>n.getBoundingClientRect().height);assert.equal(await height(),118);
+  await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('salmon');cancelAnimationFrame(e16Frame);e16Session.weightKg=6;e16Finish(true);e161StopWait();e161Fishing=false;});
+  const notice=page.locator('.e224RecordNotice');await notice.waitFor();assert.equal(await notice.innerText(),'¡NUEVO RÉCORD!');assert.equal(await height(),118);assert.equal(await page.evaluate(()=>e218Record('salmon').best),6);
+  assert.ok(await notice.evaluate(n=>n.getBoundingClientRect().bottom<=document.getElementById('combatDock').getBoundingClientRect().top));
+  await page.waitForTimeout(2200);assert.equal(await notice.count(),0);
+  for(const [won,weight] of [[true,6],[true,4],[false,10]]){await page.evaluate(({won,weight})=>{e161Fishing=true;e195OriginalStart('salmon');cancelAnimationFrame(e16Frame);e16Session.weightKg=weight;e16Finish(won);e161StopWait();e161Fishing=false;},{won,weight});assert.equal(await notice.count(),0);}
+  await page.evaluate(()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await notice.count(),0);assert.equal(await page.evaluate(()=>e218Record('salmon').best),6);assert.equal(await height(),118);
  }finally{await context.close();}
 });
