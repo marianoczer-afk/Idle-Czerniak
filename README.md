@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 18**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 19**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 18**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 19**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -58,3 +58,7 @@ Ver [ESTABILIZACION.md](ESTABILIZACION.md) para el diagnóstico, los cambios y e
 El catálogo de Estable 08, las especialidades, los desafíos y el encuadre del arte se describen en [CATALOGO_CANAS.md](CATALOGO_CANAS.md).
 
 Las ideas seleccionadas de los PDF aportados, priorizando una experiencia simple, se anotan en [REFERENCIAS_FISCH.md](REFERENCIAS_FISCH.md).
+
+## Auditoría técnica de Estable 19
+
+Correcciones, mediciones y límites de la revisión en [AUDITORIA_TECNICA.md](AUDITORIA_TECNICA.md). Ejecutá `npm run audit` para verificar la sintaxis de todos los scripts y `npm test` para las pruebas de navegador. El juego sigue siendo un único `index.html`; estas herramientas no son dependencias de ejecución.

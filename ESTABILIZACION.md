@@ -201,3 +201,7 @@ Validación Estable 17: 65 pruebas completas aprobadas en Chromium. Se comprueba
 ## Estable 18
 
 Diario ilustrado con fichas junto a la fila elegida y récords reales por categoría mediante extensiones compatibles de v7. Pesos históricos conservados sin atribuir categorías no verificables. Colecciones locales simplificadas. XP flotante priorizado junto al contador del HUD y animación suave sin antiguo brillo verde. Véase DIARIO_PESCA.md.
+
+## Estable 19
+
+Auditoría técnica y regresiones: cancelación de sesiones al importar/cambiar de contexto/borrar el activo; resolución de abortos IndexedDB; descarga secundaria completa; XP tardía en cola acotada; inventario sin reconstrucciones cuando no cambia; observador de menús limitado; limpieza de código demostrado inalcanzable y referencias obsoletas. Sin migración v7 ni cambios de balance. Detalle y límites en AUDITORIA_TECNICA.md.

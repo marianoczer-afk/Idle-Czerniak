@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 18</title>
-<meta name="argentum-build" content="estable-18">
+<title>Argentum Idle Online · Estable 19</title>
+<meta name="argentum-build" content="estable-19">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 18</h1>
+  <h1>Argentum Idle Online · Estable 19</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 18</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 19</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -661,6 +661,7 @@ async function idbPut(rec){
     const tx = db.transaction("saves","readwrite");
     tx.objectStore("saves").put(rec,"main");
     tx.oncomplete = res; tx.onerror = ()=> rej(tx.error);
+    tx.onabort = ()=> rej(tx.error || Error("Guardado IndexedDB abortado"));
   });
 }
 async function idbGet(){
@@ -775,7 +776,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 18</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 19</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -906,9 +907,10 @@ function downloadHTML(){
 function updateInv(){
   const box = document.getElementById("invBox"); if(!box) return;
   const keys = Object.keys(state.inventory).filter(k=>state.inventory[k]>0);
-  box.innerHTML = keys.length
+  const html = keys.length
     ? keys.map(k=>`<div class="row"><span>${esc(itemNameOf(k))}</span><b>x${state.inventory[k]}</b></div>`).join("")
     : `<div class="muted">Vacío. Los materiales de los enemigos aparecen acá.</div>`;
+  if(box.innerHTML!==html)box.innerHTML=html;
 }
 function itemNameOf(id){ const e = ENEMIES.find(x=>x.drop.itemId===id); return e ? e.drop.name : id; }
 function updateSpells(){
@@ -980,7 +982,7 @@ function updateLive(){
   }
   updateSpells();
   const lb = document.getElementById("logBox");
-  if(lb) lb.innerHTML = s.log.slice(0,40).map(l=>`<div><span class="muted">${l.t}</span> ${esc(l.msg)}</div>`).join("");
+  if(lb){const html=s.log.slice(0,40).map(l=>`<div><span class="muted">${l.t}</span> ${esc(l.msg)}</div>`).join("");if(lb.innerHTML!==html)lb.innerHTML=html;}
 }
 
 /* ---------- COMBATE (1 paso = 1 segundo simulado) ---------- */
@@ -1308,6 +1310,7 @@ async function importJSON(file){
     old=makeRosterRecord();
     await durableBackup(old,"before-import");
     await durableBackup(raw,"import-source");
+    e210StopFishing();
     if(legacy){
       const entry=incoming.characters[0];entry.id=newCharacterId();
       freezeCharacter(entry.state);roster.characters.push(entry);
@@ -1486,16 +1489,7 @@ document.addEventListener("click",e=>{
     selectWorkspaceTab("navigation");
   }else selectWorkspaceTab(button.dataset.uiTab);
 });
-document.addEventListener("keydown",e=>{
-  const tab=e.target.closest("[data-ui-tab]");if(!tab||busy||managing)return;
-  const index=UI_TABS.findIndex(([id])=>id===tab.dataset.uiTab);let next=index;
-  if(e.key==="ArrowRight")next=(index+1)%UI_TABS.length;
-  else if(e.key==="ArrowLeft")next=(index+UI_TABS.length-1)%UI_TABS.length;
-  else if(e.key==="Home")next=0;
-  else if(e.key==="End")next=UI_TABS.length-1;
-  else return;
-  e.preventDefault();selectWorkspaceTab(UI_TABS[next][0]);document.getElementById("tab_"+UI_TABS[next][0]).focus();
-});
+
 
 /* ---------- PERSONAJES Y PERSISTENCIA v7 ---------- */
 const MAX_CHARACTERS=5;
@@ -1629,6 +1623,7 @@ async function changeRoster(action,id){
       const entry=roster.characters.find(c=>c.id===id);if(!entry)return;
       if(!confirm(`¿Borrar a «${entry.state.name}» (nivel ${levelFromXp(entry.state.xp)})? Solo se elimina este personaje.`))return;
       await durableBackup(previous,"before-delete");
+      if(roster.activeId===id)e210StopFishing();
       roster.characters=roster.characters.filter(c=>c.id!==id);
       if(roster.activeId===id){roster.activeId=null;state=null;ready=false;runtimeAt=0;runtimeRemainder=0;}
     }
@@ -1975,7 +1970,7 @@ organizeWorkspace=function(){
   const saveBody=body.querySelector('details[data-ui-panel="save"] .sectionBody');
   if(saveBody){
     const stable=document.createElement('button');stable.className='small';
-    stable.type='button';stable.textContent='Descargar versión estable anterior';
+    stable.type='button';stable.textContent='Descargar copia completa';
     stable.addEventListener('click',downloadCompactStable);saveBody.append(stable);
   }
   const attributes=body.querySelector('details[data-ui-panel="attributes"]');
@@ -2024,30 +2019,8 @@ document.addEventListener('keydown',e=>{
   selectWorkspaceTab(tabs[next].dataset.uiTab);tabs[next].focus();
 },true);
 function downloadCompactStable(){
-  const page=document.documentElement.cloneNode(true);e217CleanClone(page);
-  // Copia anterior a progresión visible/laboratorio, manteniendo Entrega 3.
-  page.querySelectorAll('[data-progression-lab]').forEach(el=>el.remove());
-  page.querySelector('#balanceLabPanel')?.remove();
-  page.querySelector('#visibleProgressBox')?.remove();
-  page.querySelector('#devBalancePanel')?.remove();
-  // Conserva las herramientas de progresión DEV de la versión anterior.
-  page.querySelector('#devProgressionPanel')?.remove();
-  page.querySelector('#devAdminPanel')?.remove();
-  page.querySelector('#devIsolationTests')?.remove();
-  page.querySelector('#devModeBanner')?.remove();
-  page.querySelector('#devModeToggle')?.remove();
-  page.querySelector('body')?.classList.remove('devEnvironment');
-  page.querySelector('#uiWorkspace')?.remove();
-  page.querySelector('#dockControls')?.remove();
-  for(const id of ['characterScreen','createScreen','gameScreen','combatDock','toast'])page.querySelector('#'+id)?.classList.add('hidden');
-  for(const id of ['characterList','pChar','pCombat','raceOpts','classOpts','preview','dockQuick']){const el=page.querySelector('#'+id);if(el)el.innerHTML='';}
-  page.querySelector('#characterCount').textContent='0';
-  page.querySelector('#rosterTestOutput').textContent='No ejecutadas. No modifican tus partidas.';
-  const name=page.querySelector('#charName');name.value='';name.removeAttribute('value');
-  page.querySelector('#saveStatus').textContent='Cargando...';page.style.removeProperty('--dock-space');
-  const url=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+page.outerHTML],{type:'text/html;charset=utf-8'}));
-  const link=document.createElement('a');link.href=url;link.download='argentum-v7-anterior-progresion-visible.html';link.click();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  // Every download must preserve the complete, executable standalone application.
+  downloadHTML();
 }
 </script>
 <style data-dev-environment>
@@ -2126,7 +2099,7 @@ function prepareDevDungeon(s,id){
   if(dg.navReq)s.skills.navegacion.xp=Math.max(s.skills.navegacion.xp,requiredSkillXp(dg.navReq));
   clampDevResources(s);
 }
-function stopContextActivities(s){if(s)freezeCharacter(s);}
+function stopContextActivities(s){if(s){if(s===state)e210StopFishing();freezeCharacter(s);}}
 function devFixture(){
   const previous=draft;
   try{draft={name:"Prueba aislada",race:"humano",cls:"guerrero"};return normalNewState();}
@@ -2806,7 +2779,6 @@ const PROGRESS_MILESTONES={
  navegacion:[[8,'Ruta de altamar',true],[16,'Cruce de tormenta',true],[25,'Dungeon Pirata: requiere también personaje 35',true],[40,'Exploración marítima',false],[60,'Rutas de investigación',false],[80,'Expediciones de colección',false],[100,'Maestría marítima',false]]
 };
 const progressSkillName=k=>k==='character'?'Personaje':k==='weapon'?'Combate con Armas':SKILLS.find(x=>x.key===k)?.name||k;
-function progressSkillXP(s,k){return k==='character'?s.xp:k==='weapon'?s.skill.xp:s.skills[k].xp;}
 function progressSkillLevel(s,k){return k==='character'?levelFromXp(s.xp):k==='weapon'?levelFromXp(s.skill.xp):skl(s,k);}
 function progressThreshold(k,n){return k==='character'||k==='weapon'?xpFor(n):10*(n-1)**2;}
 function progressStatsText(a,b){return [['hpMax','HP'],['mpMax','MP'],['attack','ATK'],['defense','DEF'],['magicRes','RM'],['spellMult','Poder mágico']].map(([k,name])=>`${name}: ${Number(a[k].toFixed(3))} → ${Number(b[k].toFixed(3))}`).join(' · ');}
@@ -2820,51 +2792,29 @@ function progressNotice(s,before,after,label){
  s.ui.lastProgressNotice={label,text:progressStatsText(before,after)+(u.length?' · Requisitos alcanzados: '+u.join('; ')+'. Revisá compra y requisitos adicionales.':'')};
  if(u.length||!e217HasLevelFeedback(s))toast('¡'+label+'!'+(u.length?' · '+u.join(' · '):''));
 }
-const progressGains=new WeakMap();
-function showProgressGain(s,label,n){if(OFF.active||s!==state||!(n>0))return;progressGains.set(s,{at:Date.now(),text:'+'+Number(n.toFixed(2)).toLocaleString('es-AR')+' XP · '+label});}
 const visibleGainXP=gainCharacterXP;
-gainCharacterXP=function(s,n){const a=derive(s),value=visibleGainXP(s,n),b=derive(s);showProgressGain(s,'Personaje',value);e217XPEvent(s,'character',value,a.L,b.L);if(b.L>a.L)progressNotice(s,a,b,`Nivel ${a.L} → ${b.L}`);return value;};
+gainCharacterXP=function(s,n){const a=derive(s),value=visibleGainXP(s,n),b=derive(s);e217XPEvent(s,'character',value,a.L,b.L);if(b.L>a.L)progressNotice(s,a,b,`Nivel ${a.L} → ${b.L}`);return value;};
 const visibleSkillXP=sklXp;
-sklXp=function(s,key,n){const level=skl(s,key),a=derive(s),value=visibleSkillXP(s,key,n),end=skl(s,key);showProgressGain(s,progressSkillName(key),value);e217XPEvent(s,key,value,level,end);if(end>level)progressNotice(s,a,derive(s),`${progressSkillName(key)} ${level} → ${end}`);return value;};
+sklXp=function(s,key,n){const level=skl(s,key),a=derive(s),value=visibleSkillXP(s,key,n),end=skl(s,key);e217XPEvent(s,key,value,level,end);if(end>level)progressNotice(s,a,derive(s),`${progressSkillName(key)} ${level} → ${end}`);return value;};
 const visiblePlayerSwing=playerSwing;
-playerSwing=function(d,en){const a=derive(state),x=state.skill.xp;visiblePlayerSwing(d,en);const b=derive(state);showProgressGain(state,'Armas',state.skill.xp-x);e217XPEvent(state,'weapon',state.skill.xp-x,a.sk,b.sk);if(b.sk>a.sk)progressNotice(state,a,b,`Combate con Armas ${a.sk} → ${b.sk}`);};
+playerSwing=function(d,en){const a=derive(state),x=state.skill.xp;visiblePlayerSwing(d,en);const b=derive(state);e217XPEvent(state,'weapon',state.skill.xp-x,a.sk,b.sk);if(b.sk>a.sk)progressNotice(state,a,b,`Combate con Armas ${a.sk} → ${b.sk}`);};
 function visibleSkillCard(name,xp,weapon=false){
  const level=weapon?levelFromXp(xp):skillLvl(xp),lo=weapon?xpFor(level):10*(level-1)**2,hi=weapon?xpFor(level+1):10*level**2;
  const pct=clamp(100*(xp-lo)/(hi-lo),0,100);
  return `<div class="skillCard"><div class="row"><span>${esc(name)}</span><b>Nv ${level} → ${level+1}</b></div><div class="bar xp" role="progressbar" aria-label="${esc(name)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct.toFixed(1)}"><div style="width:${pct}%"></div></div><small>${fmt(xp-lo)} / ${fmt(hi-lo)} XP · ${pct.toFixed(1)}% · faltan ${fmt(hi-xp)} XP</small></div>`;
 }
 hybridSkillCard=visibleSkillCard;
-function progressGoals(s){const p=uiPreferences(s);if(!Array.isArray(p.goals))p.goals=[];p.goals=p.goals.filter(g=>{if(typeof g!=='string')return false;const [k,v]=g.split(':'),n=Number(v);return (k==='character'||Object.hasOwn(PROGRESS_MILESTONES,k))&&Number.isSafeInteger(n)&&n>=2&&n<=1000;}).slice(0,3);return p.goals;}
+
 function progressionVisibleRefresh(){
  if(!state||!ready)return;
  const s=state,d=derive(s),a=xpFor(d.L),b=xpFor(d.L+1);
  document.getElementById('xpText').textContent=`${fmt(s.xp-a)} / ${fmt(b-a)} XP · ${(100*(s.xp-a)/(b-a)).toFixed(1)}% · faltan ${fmt(b-s.xp)} para Nv ${d.L+1}`;
  for(const k in PROGRESS_MILESTONES){const card=document.querySelector(`[data-skill-key="${k}"]`);if(!card)continue;let hint=card.querySelector('.nextUnlock');if(!hint){hint=document.createElement('small');hint.className='nextUnlock';hint.style.minHeight='48px';card.append(hint);}Array.from(card.querySelectorAll('small')).slice(1).forEach(el=>{if(el!==hint)el.remove();});const l=progressSkillLevel(s,k),n=PROGRESS_MILESTONES[k].find(r=>r[0]>l&&r[2])||PROGRESS_MILESTONES[k].find(r=>r[0]>l);hint.textContent=n?`${n[2]?'Próximo requisito':'FUTURO, no implementado'}: ${n[1]} · ${l}/${n[0]}`:'Sin más hitos definidos.';}
  document.getElementById('visibleProgressBox')?.remove(); return; // E1.4: objetivos pausados hasta implementar misiones reales.
- let box=document.getElementById('visibleProgressBox');
- if(!box){box=document.createElement('details');box.id='visibleProgressBox';box.className='panel';box.open=uiPreferences(s).panels.progression!==false;box.innerHTML='<summary>🎯 Mis objetivos</summary><div id="gainNotice" style="height:40px;overflow:auto"></div><div id="levelNotice" style="height:80px;overflow:auto"></div><div id="goalsList"></div><details><summary>Elegir objetivos sugeridos</summary><div id="goalSuggestions"></div></details><details><summary>Meta personalizada (opcional)</summary><select id="progressGoalChoice"></select><label>Nivel <input id="progressGoalLevel" type="number" min="2" max="1000" value="10" style="width:80px"></label><button data-progress-add>Fijar objetivo</button></details>';box.querySelector('select').innerHTML=['character',...Object.keys(PROGRESS_MILESTONES)].map(k=>`<option value="${k}">${progressSkillName(k)}</option>`).join('');document.querySelector('.hybridSidebarBody')?.append(box);box.addEventListener('toggle',()=>{if(box.isConnected&&state===s&&!busy&&!managing){uiPreferences(s).panels.progression=box.open;persist();}});}
- const gain=progressGains.get(s);document.getElementById('gainNotice').textContent=gain&&Date.now()-gain.at<5000?gain.text:'La XP ganada por acción aparece aquí.';
- const notice=s.ui.lastProgressNotice;document.getElementById('levelNotice').textContent=notice?notice.label+' · '+notice.text:'Al subir verás tus mejoras de atributos.';
- const ids=progressGoals(s),host=document.getElementById('goalsList');
- if(host.dataset.ids!==ids.join('|')){host.dataset.ids=ids.join('|');host.innerHTML=ids.map((id,i)=>`<article data-target="${id}" style="margin:8px 0"><b></b><p></p><div class="bar xp"><div></div></div><small></small><button class="small" data-progress-remove="${i}">Quitar</button></article>`).join('')||'<p>Fijá hasta tres objetivos sugeridos.</p>';}
- host.querySelectorAll('[data-target]').forEach(el=>{const [k,v]=el.dataset.target.split(':'),n=+v,l=progressSkillLevel(s,k),row=PROGRESS_MILESTONES[k]?.find(r=>r[0]===n),dg=k==='character'?DUNGEONS.find(d=>d.minLevel===n):null,x=progressSkillXP(s,k),target=progressThreshold(k,n),future=row&&!row[2];el.querySelector('b').textContent=progressSkillName(k)+' '+l+'/'+n;el.querySelector('p').textContent=(future?'FUTURO: ':'Para qué: ')+(row?.[1]||dg?.name||'Meta personal')+(dg?.navReq?' · además Navegación '+dg.navReq:'');el.querySelector('.bar > div').style.width=clamp(x/target*100,0,100)+'%';el.querySelector('small').textContent=l>=n?(future?'Entrenamiento completado; contenido no disponible.':'✓ Objetivo alcanzado; revisá los requisitos de compra.'):`Faltan ${fmt(target-x)} XP. Cómo: ${k==='character'?'derrotá enemigos':k==='weapon'?'acertá golpes físicos':k==='magia'?'lanzá hechizos':k==='navegacion'?'realizá expediciones':k==='resMagica'?'recibí ataques mágicos':'equipá protección y recibí golpes físicos'}.`;if(el.dataset.done==='false'&&l>=n&&!future)toast('¡Objetivo completado! '+progressSkillName(k)+' '+n+'. Elegí tu próxima meta.');el.dataset.done=String(l>=n);});
- const suggested=document.getElementById('goalSuggestions'),options=[];
- const dg=DUNGEONS.find(d=>d.minLevel>d.L);if(dg)options.push(['character',dg.minLevel,'Llegá a nivel '+dg.minLevel+' para entrar a '+dg.name]);
- for(const k in PROGRESS_MILESTONES){const n=PROGRESS_MILESTONES[k].find(r=>r[2]&&r[0]>progressSkillLevel(s,k));if(n)options.push([k,n[0],'Subí '+progressSkillName(k)+' a '+n[0]+': '+n[1]]);}
- const signature=JSON.stringify(options);if(suggested.dataset.options!==signature){suggested.dataset.options=signature;suggested.innerHTML=options.slice(0,4).map(([k,n,text])=>`<p>${esc(text)}<br><button class="small" data-suggest="${k}:${n}">Fijar objetivo</button></p>`).join('')||'Sin nuevas sugerencias en este tramo.';}
- let estimate=document.getElementById('progressCombatEstimate');const details=document.querySelector('[aria-label="Ficha del NPC seleccionado"]');if(!estimate&&details){estimate=document.createElement('p');estimate.id='progressCombatEstimate';details.append(estimate);}const en=enemyById(s.combat.enemyId);if(estimate&&details.open)estimate.textContent=`Estimación: daño físico ${phys(d.attack,en.defense)} por acierto · precisión ${(100*hitChance(d.L,en.level)).toFixed(1)}%. Daño enemigo ${en.magic?Math.max(1,Math.floor(en.attack*100/(100+d.magicRes))):phys(en.attack,d.defense)} por acierto · precisión ${(100*hitChance(en.level,d.L)).toFixed(1)}%. No es una medición ni garantiza supervivencia.`;
- document.querySelectorAll('[data-act="buy"],[data-act="buySpell"]').forEach(el=>{const id=el.dataset.id,it=el.dataset.act==='buy'?itemById(id):spellById(id);el.disabled=s.gold<it.price||(el.dataset.act==='buy'?!reqOk(s,it.req):skl(s,'magia')<it.req);});
 }
-document.addEventListener('click',e=>{const b=e.target.closest('[data-suggest]');if(!b||!state||busy||managing||simulationLocked())return;const ids=progressGoals(state);if(ids.length>=3)return toast('Máximo tres objetivos. Quitá uno primero.');if(!ids.includes(b.dataset.suggest))ids.push(b.dataset.suggest);persist();progressionVisibleRefresh();});
+
 const progressLive=updateLive;
 updateLive=function(){progressLive();progressionVisibleRefresh();};
-document.addEventListener('click',e=>{
- const b=e.target.closest('[data-progress-add],[data-progress-remove]');if(!b||busy||managing||!state||simulationLocked())return;
- const list=progressGoals(state);
- if(b.hasAttribute('data-progress-add')){const k=document.getElementById('progressGoalChoice').value,n=Number(document.getElementById('progressGoalLevel').value);if(!Number.isSafeInteger(n)||n<2||n>1000)return toast('Nivel entero: 2–1000.');const choice=k+':'+n;if(list.length>=3)return toast('Podés fijar hasta tres objetivos.');if(!list.includes(choice))list.push(choice);}
- else list.splice(Number(b.dataset.progressRemove),1);
- persist();progressionVisibleRefresh();
-});
 /* Laboratorio: una referencia de contexto de vida estrictamente síncrona. */
 let labFrame=null,labJob=null;
 const labOriginalXP=xpFor,labOriginalDerive=derive,labOriginalHit=hitChance;
@@ -4453,14 +4403,7 @@ e16Page=function(){
  const journal=page.querySelector('.e181Journal');if(journal){
   journal.open=e187JournalOpen;
   const old=journal.querySelector('.e187JournalList');if(old)old.remove();
-  const records=e18Record(),list=document.createElement('div');list.className='e187JournalList';
-  const caught=Object.entries(records.bySpecies||{}).filter(([id,r])=>Number(r?.total)>0).sort((a,b)=>Number(b[1].total)-Number(a[1].total));
-  for(const [id,r] of caught){const f=E16_FISH.find(f=>f.id===id);if(!f)continue;
-   const item=document.createElement('div');item.className='e187JournalItem';
-   const best={normal:'Común',large:'Grande',huge:'Enorme',legendary:'Legendario'}[r.best]||'Común';
-   item.textContent=f.icon+' '+f.name+' · '+fmt(r.total)+' capturas';const small=document.createElement('small');small.textContent='Mejor ejemplar: '+best;item.append(small);list.append(item);
-  }
-  if(!caught.length){const empty=document.createElement('div');empty.className='fishMuted';empty.textContent='Tus especies aparecerán acá cuando captures peces.';list.append(empty);}
+  const list=document.createElement('div');list.className='e187JournalList';
   journal.append(list);
   const oldText=journal.querySelector('p');if(oldText)oldText.textContent='Registro de todas tus especies y sus mejores ejemplares.';
  }
@@ -4670,9 +4613,7 @@ e16Paint=function(){e189PrevPaint();if(e16Session)e189UpdateArt();};
 
 <style id="e190-polish">
 
-.e190XpGain{animation:e190XpGain .8s ease-out}
-@keyframes e190XpGain{50%{box-shadow:0 0 15px #98e67c88}}
-@media(prefers-reduced-motion:reduce){.e190XpGain{animation:none}}
+
 
 /* La especie permanece oculta hasta completar la captura. */
 #page_fishing #e16Target{font-size:0!important;filter:none!important}
@@ -4926,6 +4867,11 @@ function e193InvRows(){
 function e193Inventory(){
  const page=document.getElementById('page_inventory');if(!page||!state)return;
  let panel=page.querySelector('#e164Inventory');if(!panel){panel=document.createElement('section');panel.id='e164Inventory';panel.className='panel';page.prepend(panel);}
+ // These panels were superseded by the unified seller; do not rebuild their hidden lists.
+ page.querySelectorAll('#e15Merchant,#e16FishMerchant,#e163InvSummary,#e185PremiumInventory').forEach(n=>n.remove());
+ const renderKey=JSON.stringify([state.gold,state.inventory,state.ui?.e193InventoryOrder]);
+ if(panel.__inventoryState===state&&panel.__inventoryKey===renderKey)return;
+ panel.__inventoryState=state;panel.__inventoryKey=renderKey;
  const order=Array.isArray(state.ui?.e193InventoryOrder)?state.ui.e193InventoryOrder:[];
  const rows=e193InvRows().sort((a,b)=>{
   const ia=order.indexOf(a[0]),ib=order.indexOf(b[0]);
@@ -4955,10 +4901,11 @@ function e193Inventory(){
 }
 const e193PriorRender=renderGame;
 renderGame=function(){e193PriorRender();e193Inventory();};
-const e193PriorInv=e164Inventory;
-e164Inventory=function(){e193PriorInv();e193Inventory();};
-const e193PriorUpdate=updateInv;
-updateInv=function(){e193PriorUpdate();e193Inventory();};
+// All current sale buttons delegate to the existing sale handlers; only presentation is unified.
+e164Inventory=e193Inventory;
+e15MerchantPanel=e193Inventory;
+e16FishMerchant=e193Inventory;
+updateInv=function(){e15OldUpdateInv();e193Inventory();};
 document.addEventListener('click',e=>{
  const btn=e.target.closest('[data-e193-move]');if(!btn)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -5009,6 +4956,7 @@ function e194RodArt(id){
 }
 // One read-only ledger combines every quest family; ownership/flags remain the source of truth.
 function e210StopFishing(){
+ e219ClearXPEffects();
  e161Fishing=false;e161StopWait();e195Reset();cancelAnimationFrame(e16Frame);
  e16Session=null;e16Holding=false;e16Result='';
  if(e1111ResultTimer){clearTimeout(e1111ResultTimer);e1111ResultTimer=null;}
@@ -5068,7 +5016,7 @@ e16Page=function(){
  const list=page.querySelector('details:has(.fishRod)');
  if(list)list.querySelectorAll('.fishRod').forEach(row=>{
   const label=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=[...E161_RODS,E17_ROD,...(typeof E171_QUEST_RODS!=='undefined'?E171_QUEST_RODS:[]),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[])].find(r=>r?.name===label);
+  const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[])].find(r=>r?.name===label);
   const id=rod?.id||(/brumas/i.test(label)?'bruma':/guardarr/i.test(label)?'guardarr':/viejo/i.test(label)?'viejo':/coral/i.test(label)?'coral':null);
   if(!id)return;
   const existing=row.querySelector('.e193RodImage');
@@ -5971,7 +5919,7 @@ function e189FishSVG(id){
 function e1113RefreshArt(){
  document.querySelectorAll('#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt').forEach(node=>{
   const row=node.closest('.fishRod,.e17Quest,.e171Quest,.e187Quest'),name=row?.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rods=[...E161_RODS,E17_ROD,...(typeof E171_QUEST_RODS!=='undefined'?E171_QUEST_RODS:[]),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[]),...(typeof E18_ROD!=='undefined'?[E18_ROD]:[])];
+  const rods=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[]),...(typeof E18_ROD!=='undefined'?[E18_ROD]:[])];
   const rod=rods.find(r=>r?.name===name);
   if(rod)node.innerHTML=e194RodArt(rod.id);
  });
@@ -6328,7 +6276,7 @@ html,body,#page_fishing,#page_fishing .e162Dock,#page_fishing #e16GamePanel{over
   });
  }
  const observer=new MutationObserver(decorate);
- function start(){observer.observe(document.body,{childList:true,subtree:true});decorate();}
+ function start(){observer.observe(document.body,{childList:true});decorate();}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
 </script>
@@ -7010,12 +6958,17 @@ function e217SkillLabel(key){return key==='pesca'?'Pesca':key==='character'?'Per
 function e217RemoveFX(id){const f=e217ActiveFX.get(id);if(!f)return;f.node.remove();f.bar?.classList.remove('e217LevelGlow');e217ActiveFX.delete(id);}
 function e217StartFX(event,kind){
  const id=event.key+':'+kind,now=performance.now(),previous=e217ActiveFX.get(id);
- const amount=kind==='drop'&&previous&&now-previous.updated<160?previous.amount+event.amount:event.amount;
- if(previous&&kind==='drop'&&now-previous.updated<850){previous.amount+=event.amount;previous.updated=now;previous.node.textContent='+'+e217FormatXP(previous.amount)+' XP';return;}
+ const amount=event.amount;
+ if(previous&&kind==='drop'&&previous.s===event.s){
+  if(now-previous.started<160){previous.amount+=amount;previous.node.textContent='+'+e217FormatXP(previous.amount)+' XP';}
+  else if(previous.next)previous.next.amount+=amount;
+  else previous.next={...event};
+  return;
+ }
  if(previous)e217RemoveFX(id);
  const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':'e217LevelNotice';node.dataset.xpSkill=event.key;
  node.textContent=kind==='drop'?'+'+e217FormatXP(amount)+' XP':'✦ ¡'+e217SkillLabel(event.key)+' nivel '+event.after+'!';
- e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,amount,kind,updated:now,until:now+(kind==='drop'?1000:1800),bar:null});
+ e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,amount,kind,started:now,updated:now,until:now+(kind==='drop'?1000:1800),bar:null});
 }
 function e217FlushXP(){
  e217FlushFrame=0;
@@ -7026,7 +6979,7 @@ function e217PositionFX(){
  e217EffectFrame=0;const now=performance.now();
  for(const [id,f] of e217ActiveFX){
   const target=e217LiveXP(f.s)?e217XPTarget(f.key):null;
-  if(now>=f.until||!target){e217RemoveFX(id);continue;}
+  if(now>=f.until||!target){const next=f.next;e217RemoveFX(id);if(target&&next&&e217LiveXP(next.s))e217StartFX(next,'drop');continue;}
   const range=document.createRange();range.selectNodeContents(target.node);const r=range.getBoundingClientRect(),b=target.bar.getBoundingClientRect(),w=f.node.getBoundingClientRect().width;
   const left=f.kind==='drop'?r.left-w-6:b.right-w,top=f.kind==='drop'?r.top:b.top-22;
   f.node.style.left=Math.max(6,Math.min(innerWidth-w-6,left))+'px';f.node.style.top=Math.max(6,top)+'px';
@@ -7034,7 +6987,15 @@ function e217PositionFX(){
  }
  if(e217ActiveFX.size)e217EffectFrame=requestAnimationFrame(e217PositionFX);else document.getElementById('e217XpEffects')?.remove();
 }
-function e217CleanClone(page){page.querySelector('#e217XpEffects')?.remove();page.querySelectorAll('.e217LevelGlow').forEach(n=>n.classList.remove('e217LevelGlow'));}
+
+function e219ClearXPEffects(){
+ cancelAnimationFrame(e217FlushFrame);cancelAnimationFrame(e217EffectFrame);e217FlushFrame=0;e217EffectFrame=0;
+ e217PendingXP.clear();for(const id of [...e217ActiveFX.keys()])e217RemoveFX(id);
+ document.getElementById('e217XpEffects')?.remove();
+}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)e219ClearXPEffects();});
+
+function e217CleanClone(page){page.querySelectorAll('#e217XpEffects,.e1120Menu').forEach(n=>n.remove());page.querySelectorAll('.e217LevelGlow').forEach(n=>n.classList.remove('e217LevelGlow'));}
 
 </script>
 <style id="rod-selection-and-xp-feedback-css">
@@ -7096,7 +7057,7 @@ function e218Journal(){
  document.querySelectorAll('#page_fishing .e186Fish:not(.e186Unknown)').forEach(card=>{card.querySelectorAll('small').forEach(n=>n.remove());});
 }
 const e218PriorPage=e16Page;
-e16Page=function(){const result=e218PriorPage();e218Journal();return result;};
+e16Page=function(){if(fishingFinishDepth)return;const result=e218PriorPage();e218Journal();return result;};
 window.addEventListener('resize',()=>{const grid=document.querySelector('.e218Album');if(grid&&state)e218PlaceDetail(grid,e218Selected.get(state));});
 </script>
 <style id="fishing-journal-css">

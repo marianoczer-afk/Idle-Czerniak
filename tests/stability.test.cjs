@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.match(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-18">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 18<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-19">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 19<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -307,7 +307,7 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
  }finally{await downloadedContext?.close();await context.close();if(directory)rmSync(directory,{recursive:true,force:true});}
 });
 
-for(const width of [1366,390])test(`Estable 18: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -315,7 +315,7 @@ for(const width of [1366,390])test(`Estable 18: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 18/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 19/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -336,7 +336,7 @@ for(const width of [1366,390])test(`Estable 18: empty last-catch panel and rods 
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -733,7 +733,7 @@ test('Legacy Coralina ownership is recognized without inventing perk flags or co
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -754,7 +754,7 @@ for(const width of [1366,390])test(`Estable 18: collapsed catalog follows missio
  }finally{await context.close();}
 });
 
-test('Estable 18: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
+test('Estable 19: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -780,7 +780,7 @@ test('Estable 18: new challenge is claimable in its zone; owned rods lead both t
  }finally{await context.close();}
 });
 
-test('Estable 18: sidebar scrolls independently and switching character stays accessible',async()=>{
+test('Estable 19: sidebar scrolls independently and switching character stays accessible',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -800,7 +800,7 @@ test('Estable 18: sidebar scrolls independently and switching character stays ac
  }finally{await context.close();}
 });
 
-test('Estable 18: finish renders and saves once; escape never awards a fish',async()=>{
+test('Estable 19: finish renders and saves once; escape never awards a fish',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -826,7 +826,7 @@ test('Estable 18: finish renders and saves once; escape never awards a fish',asy
  }finally{await context.close();}
 });
 
-test('Estable 18: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
+test('Estable 19: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -850,7 +850,7 @@ test('Estable 18: last catch stays through attempts, loss, time and reload witho
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.locator('#hybridSidebar').evaluate(n=>n.open=true);
@@ -873,7 +873,7 @@ for(const width of [1366,390])test(`Estable 18: sidebar headings hidden and comp
 });
 
 
-test('Estable 18: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
+test('Estable 19: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40);
@@ -889,7 +889,7 @@ test('Estable 18: curated offers remove close variants and preserve retired owne
  }finally{await context.close();}
 });
 
-test('Estable 18: quest goals explain all conditions and mark each completed objective',async()=>{
+test('Estable 19: quest goals explain all conditions and mark each completed objective',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -902,7 +902,7 @@ test('Estable 18: quest goals explain all conditions and mark each completed obj
 });
 
 
-for(const width of [1366,390])test(`Estable 18: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -921,7 +921,7 @@ for(const width of [1366,390])test(`Estable 18: restored zone and rod shortcuts 
 });
 
 
-for(const width of [1366,390])test(`Estable 18: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -939,7 +939,7 @@ for(const width of [1366,390])test(`Estable 18: fish matches zone size and live 
 });
 
 
-for(const width of [1366,390])test(`Estable 18: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -963,7 +963,7 @@ for(const width of [1366,390])test(`Estable 18: larger full-height rod, XP on th
  }finally{await context.close();}
 });
 
-test('Estable 18: Atlas derives independent milestones from v7 records without modifying saves or rewards',async()=>{
+test('Estable 19: Atlas derives independent milestones from v7 records without modifying saves or rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,100,false);
@@ -983,7 +983,7 @@ test('Estable 18: Atlas derives independent milestones from v7 records without m
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: Atlas search, mastery, accessible badges and compact quest details (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: Atlas search, mastery, accessible badges and compact quest details (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,100,false);
@@ -1002,7 +1002,7 @@ for(const width of [1366,390])test(`Estable 18: Atlas search, mastery, accessibl
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: thin rod art, signed attribute comparisons and full names (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: thin rod art, signed attribute comparisons and full names (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_titan=true;state.ui.fishingRodId='e208_rod_custodio_titan';e16Page();});
@@ -1016,7 +1016,7 @@ for(const width of [1366,390])test(`Estable 18: thin rod art, signed attribute c
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: compact picker search, all sorts, honest levels and Pareto recommendations (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: compact picker search, all sorts, honest levels and Pareto recommendations (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.evaluate(()=>{for(const id of ['e16_rod','e161_rod_bamboo','e161_rod_fiber','e171_rod_rio','e208_rod_celeste_pulso'])state.owned[id]=true;e16Page();});
@@ -1040,7 +1040,7 @@ for(const width of [1366,390])test(`Estable 18: compact picker search, all sorts
  }finally{await context.close();}
 });
 
-test('Estable 18: catalog comparisons use pp/kg, recalculate on equip and preserve filters while sorting by real requirements',async()=>{
+test('Estable 19: catalog comparisons use pp/kg, recalculate on equip and preserve filters while sorting by real requirements',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40);await page.locator('[data-rod-shop-open]').click();await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
@@ -1052,7 +1052,7 @@ test('Estable 18: catalog comparisons use pp/kg, recalculate on equip and preser
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: real fishing XP groups drops, shows final level and preserves layout (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: real fishing XP groups drops, shows final level and preserves layout (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.bringToFront();await page.evaluate(()=>{state.skills.pesca.xp=15995;e16Page();e190ReturnToFishing();});
@@ -1067,7 +1067,7 @@ for(const width of [1366,390])test(`Estable 18: real fishing XP groups drops, sh
  }finally{await context.close();}
 });
 
-test('Estable 18: XP routes to the actual skill and suppresses offline, load and background-state awards',async()=>{
+test('Estable 19: XP routes to the actual skill and suppresses offline, load and background-state awards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);await page.evaluate(()=>selectWorkspaceTab('combat'));await page.locator('#hybridSidebar').evaluate(n=>n.open=true);await page.locator('[data-skill-key="magia"]').scrollIntoViewIfNeeded();await page.bringToFront();
@@ -1080,7 +1080,7 @@ test('Estable 18: XP routes to the actual skill and suppresses offline, load and
  }finally{await context.close();}
 });
 
-test('Estable 18: reduced motion keeps brief feedback without animation; multi-level gains show one final level',async()=>{
+test('Estable 19: reduced motion keeps brief feedback without animation; multi-level gains show one final level',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>{state.skills.pesca.xp=0;e16Page();e190ReturnToFishing();});await page.bringToFront();
@@ -1089,7 +1089,7 @@ test('Estable 18: reduced motion keeps brief feedback without animation; multi-l
  }finally{await context.close();}
 });
 
-test('Estable 18: every existing skill bar receives only its live award, including weapon hits',async()=>{
+test('Estable 19: every existing skill bar receives only its live award, including weapon hits',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);await page.evaluate(()=>selectWorkspaceTab('combat'));await page.locator('#hybridSidebar').evaluate(n=>n.open=true);await page.bringToFront();
@@ -1107,7 +1107,7 @@ test('Estable 18: every existing skill bar receives only its live award, includi
  }finally{await context.close();}
 });
 
-test('Estable 18: importing and selecting a high-level backup does not replay XP drops or level-ups',async()=>{
+test('Estable 19: importing and selecting a high-level backup does not replay XP drops or level-ups',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);page.on('dialog',dialog=>dialog.accept());
@@ -1120,7 +1120,7 @@ test('Estable 18: importing and selecting a high-level backup does not replay XP
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 18: illustrated journal, truthful records, nearby details and HUD XP (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 19: illustrated journal, truthful records, nearby details and HUD XP (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
  await character(page,40,false);
@@ -1145,5 +1145,158 @@ for(const width of [1366,390])test(`Estable 18: illustrated journal, truthful re
  await page.waitForSelector('.e217XpDrop');await page.waitForTimeout(200);
  const fx=await page.evaluate(()=>{const d=document.querySelector('.e217XpDrop'),target=e217XPTarget('pesca'),r=document.createRange();r.selectNodeContents(target.node);return{text:d.textContent,hud:!!target.node.closest('#e188FishingHud'),right:d.getBoundingClientRect().right,left:r.getBoundingClientRect().left,opacity:Number(getComputedStyle(d).opacity)};});
  assert.equal(fx.text,'+30 XP');assert.equal(fx.hud,true);assert.ok(fx.right<fx.left);assert.ok(fx.opacity>.5);
+ }finally{await context.close();}
+});
+
+// Regression cases found during the technical audit. Every failure is injected in an isolated context.
+for(const phase of ['capture','bubbles','waiting'])test(`Audit 19: import cancels ${phase} without transferring runtime or losing v7 history`,async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);page.on('dialog',d=>d.accept());
+ const result=await page.evaluate(async phase=>{
+ state.ui.fishingWeights={bySpecies:{bagre:{bestKg:7.2,bestCategory:'large',categoryBestKg:{large:7.2},catches:3}},byZone:{rio:{catches:3,bestKg:7.2,species:{bagre:3}}}};
+ state.ui.e18Fishing={total:3,large:3,bySpecies:{bagre:{total:3,best:'large'}}};state.ui.e187Rewards={laguna:true};state.ui.historicalUnknownField={keep:'intacto'};
+ const backup=makeRosterRecord(),incoming=backup.characters[0].state;incoming.name='Importado';incoming.gold=98765;
+ // Full potion charges refresh their wall-clock anchors on render; those clocks are not progress.
+ const snapshot=s=>{const ui=copyJSON(s.ui);if(ui.potions){delete ui.potions.hpAt;delete ui.potions.mpAt;}return JSON.stringify([ui,s.skills,s.owned,s.inventory]);};const history=snapshot(incoming);
+ e161Fishing=true;
+ if(phase==='capture'){e195OriginalStart('bagre');cancelAnimationFrame(e16Frame);}
+ else if(phase==='bubbles')e16Start('bagre');else e161NextBite();
+ await importJSON(new File([JSON.stringify(backup)],'isolated-audit.json'));
+ const stopped=!e16Session&&!e195Pending&&e161Waiting===null&&e195ShakeTimer===null&&!e161Fishing&&e217ActiveFX.size===0;
+ await changeRoster('select',roster.characters[0].id);selectWorkspaceTab('fishing');
+ const preserved=history===snapshot(state);
+ const before=JSON.stringify([state.skills,state.inventory]);e16Finish(true);
+ await persist();return{stopped,preserved,duplicateSafe:before===JSON.stringify([state.skills,state.inventory]),name:state.name,gold:state.gold};
+ },phase);
+ assert.equal(result.stopped,true);assert.equal(result.preserved,true,JSON.stringify(result));assert.equal(result.duplicateSafe,true);assert.equal(result.name,'Importado');assert.equal(result.gold,98765);
+ await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.deepEqual(await page.evaluate(()=>state.ui.historicalUnknownField),{keep:'intacto'});assert.equal(await page.evaluate(()=>e218Record('bagre').categories.large),7.2);
+ }finally{await context.close();}
+});
+
+test('Audit 19: leaving for DEV and deleting the active character clean runtime; cancelling import keeps fishing',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);
+ const result=await page.evaluate(async()=>{
+ const confirmBefore=window.confirm;window.confirm=()=>false;
+ e161Fishing=true;e195OriginalStart('bagre');cancelAnimationFrame(e16Frame);const active=e16Session;
+ await importJSON(new File([JSON.stringify(makeRosterRecord())],'cancel.json'));const cancelled=e16Session===active;
+ window.confirm=()=>true;
+ try{await switchEnvironment();const devStopped=!e16Session&&!e195Pending&&!e161Fishing&&e161Waiting===null;
+ await changeRoster('create');e16Finish(true);const devInventory=JSON.stringify(state.inventory);await switchEnvironment();await changeRoster('select',roster.characters[0].id);selectWorkspaceTab('fishing');
+ e161Fishing=true;e195OriginalStart('bagre');cancelAnimationFrame(e16Frame);await changeRoster('delete',roster.activeId);
+ return{cancelled,devStopped,devInventory,deletedStopped:state===null&&!e16Session&&!e195Pending&&!e161Fishing&&e161Waiting===null,remaining:roster.characters.length};
+ }finally{window.confirm=confirmBefore;}
+ });assert.deepEqual(result,{cancelled:true,devStopped:true,devInventory:'{}',deletedStopped:true,remaining:0});
+ }finally{await context.close();}
+});
+
+test('Audit 19: an aborted real IndexedDB transaction settles, falls back to localStorage and does not block later saves',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);
+ const result=await page.evaluate(async()=>{
+ const db=await openDB(),transaction=db.transaction.bind(db);let aborts=0;
+ db.transaction=function(...args){const tx=transaction(...args);if(args[1]==='readwrite'){aborts++;queueMicrotask(()=>tx.abort());}return tx;};
+ state.gold=54321;
+ let saved;
+ try{saved=await Promise.race([persist(),new Promise((_,reject)=>setTimeout(()=>reject(Error('Save queue stalled on abort')),1500))]);}finally{delete db.transaction;}
+ const local=JSON.parse(localStorage.getItem(LS_KEY));const localGold=local.characters.find(c=>c.id===local.activeId).state.gold;
+ state.gold=54322;const next=await persist(),idb=await idbGet();
+ return{saved,aborts,localGold,next,idbGold:idb.characters.find(c=>c.id===idb.activeId).state.gold,version:idb.version};
+ });assert.equal(result.saved,true);assert.ok(result.aborts>=1);assert.equal(result.localGold,54321);assert.equal(result.next,true);assert.equal(result.idbGold,54322);assert.equal(result.version,7);
+ await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await page.evaluate(()=>state.gold),54322);
+ }finally{await context.close();}
+});
+
+test('Audit 19: unchanged inventory keeps nodes and focus; real sales and reorder still update',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);
+ const report=await page.evaluate(async()=>{
+ state.inventory={pez_bagre:3,pez_atun__large:2,material_rata:4};selectWorkspaceTab('inventory');e193Inventory();
+ const panel=document.getElementById('e164Inventory'),button=panel.querySelector('button');button.focus();let mutations=0;
+ const observer=new MutationObserver(ms=>mutations+=ms.length);observer.observe(panel,{childList:true,subtree:true});
+ for(let i=0;i<40;i++)updateInv();await new Promise(requestAnimationFrame);observer.disconnect();
+ return{mutations,preserved:button.isConnected&&document.activeElement===button,rows:panel.querySelectorAll('.e164Item').length};
+ });assert.deepEqual(report,{mutations:0,preserved:true,rows:3});
+ const gold=await page.evaluate(()=>state.gold);await page.locator('#e164Inventory [data-e16-sell="bagre"]').first().click();assert.equal(await page.evaluate(()=>state.inventory.pez_bagre),2);assert.equal(await page.evaluate(()=>state.gold),gold+await page.evaluate(()=>E16_FISH.find(f=>f.id==='bagre').price));
+ const before=await page.locator('#e164Inventory .e164Item').first().innerText();await page.locator('#e164Inventory [data-e193-move="down"]').first().click();assert.notEqual(await page.locator('#e164Inventory .e164Item').first().innerText(),before);
+ }finally{await context.close();}
+});
+
+test('Audit 19: a late XP award gets its own full effect; pending effects cannot leak to another character',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);
+ await page.evaluate(()=>{sklXp(state,'pesca',5);e16Page();e188UpdateHud();});await page.waitForSelector('.e217XpDrop');
+ await page.waitForTimeout(700);
+ await page.evaluate(()=>{sklXp(state,'pesca',7);e16Page();e188UpdateHud();});
+ await page.waitForFunction(()=>document.querySelector('.e217XpDrop')?.textContent==='+7 XP');
+ await page.waitForTimeout(200);assert.ok(await page.locator('.e217XpDrop').evaluate(n=>Number(getComputedStyle(n).opacity)>.5));
+ const clean=await page.evaluate(async()=>{await changeRoster('leave');return{pending:e217PendingXP.size,active:e217ActiveFX.size,root:!!document.getElementById('e217XpEffects'),flush:e217FlushFrame,frame:e217EffectFrame};});assert.deepEqual(clean,{pending:0,active:0,root:false,flush:0,frame:0});
+ }finally{await context.close();}
+});
+
+test('Audit 19: repeated screen renders do not register more global listeners',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);const client=await context.newCDPSession(page);
+ const count=async expression=>{const {result}=await client.send('Runtime.evaluate',{expression});const {listeners}=await client.send('DOMDebugger.getEventListeners',{objectId:result.objectId});return listeners.map(l=>l.type+':'+l.useCapture).sort();};
+ const before={document:await count('document'),window:await count('window')};
+ await page.evaluate(()=>{for(let i=0;i<12;i++){selectWorkspaceTab(i%2?'fishing':'combat',false);renderGame();}});
+ assert.deepEqual({document:await count('document'),window:await count('window')},before);
+ await page.locator('#tab_combat').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.evaluate(()=>document.activeElement.id),'tab_magic');
+ await page.keyboard.press('End');assert.equal(await page.evaluate(()=>document.activeElement.id),'tab_fishing');await page.keyboard.press('Home');assert.equal(await page.evaluate(()=>document.activeElement.id),'tab_combat');await client.detach();
+ }finally{await context.close();}
+});
+
+test('Audit 19: secondary HTML download preserves all scripts, excludes transient UI and boots with XP feedback',async()=>{
+ const {context,page}=await fresh();let exportedContext;
+ try{
+ await character(page,40,false);await page.locator('#combatDock .e194DockRod').click();
+ const pending=page.waitForEvent('download');await page.evaluate(()=>downloadCompactStable());const download=await pending;
+ assert.equal(download.suggestedFilename(),'index.html');const html=readFileSync(await download.path(),'utf8');
+ exportedContext=await browser.newContext();const exported=await exportedContext.newPage();exported.on('pageerror',e=>errors.push(e.message));
+ await exported.route('**/*',r=>r.request().url()===url+'/'?r.fulfill({contentType:'text/html',body:html}):r.abort());await exported.goto(url);await exported.waitForFunction(()=>storageReady);
+ assert.equal(await exported.locator('.e1120Menu,#e217XpEffects').count(),0);await character(exported,40,false);assert.equal(await exported.evaluate(()=>typeof progressThreshold),'function');
+ await exported.evaluate(()=>{sklXp(state,'pesca',9);e16Page();e188UpdateHud();});await exported.waitForSelector('.e217XpDrop');assert.equal(await exported.locator('.e217XpDrop').innerText(),'+9 XP');await exported.evaluate(()=>persist());
+ }finally{await exportedContext?.close();await context.close();}
+});
+
+test('Audit 19: all five v7 characters survive actual JSON export/import, storage fallback and reload',async()=>{
+ const {context,page}=await fresh();
+ try{
+ const expected=await page.evaluate(async()=>{
+ for(let i=0;i<5;i++){
+ draft={name:'Personaje '+i,race:'humano',cls:'guerrero'};await changeRoster('create');
+ state.gold=1000+i*100;state.skills.pesca={xp:10*i*i};state.owned.e161_rod_bamboo=true;state.ui.fishingRodId='e161_rod_bamboo';state.inventory.pez_bagre=i+1;state.ui.e187Rewards={laguna:i%2===0};state.ui.fishingWeights={bySpecies:{bagre:{bestKg:7+i,bestCategory:'large',categoryBestKg:{large:7+i},catches:i+1}},byZone:{}};state.ui.historicalExtra={value:i};
+ await changeRoster('leave');
+ }
+ return roster.characters.map(c=>({id:c.id,name:c.state.name,gold:c.state.gold,xp:c.state.skills.pesca.xp,rod:c.state.ui.fishingRodId,owned:c.state.owned,inventory:c.state.inventory,weights:c.state.ui.fishingWeights,rewards:c.state.ui.e187Rewards,extra:c.state.ui.historicalExtra}));
+ });
+ const pending=page.waitForEvent('download');await page.evaluate(()=>exportJSON());const download=await pending;const backup=readFileSync(await download.path(),'utf8');assert.equal(JSON.parse(backup).version,7);assert.equal(JSON.parse(backup).characters.length,5);
+ page.on('dialog',d=>d.accept());await page.evaluate(async text=>{await importJSON(new File([text],'actual-export.json'));},backup);
+ const actual=()=>page.evaluate(()=>roster.characters.map(c=>({id:c.id,name:c.state.name,gold:c.state.gold,xp:c.state.skills.pesca.xp,rod:c.state.ui.fishingRodId,owned:c.state.owned,inventory:c.state.inventory,weights:c.state.ui.fishingWeights,rewards:c.state.ui.e187Rewards,extra:c.state.ui.historicalExtra})));
+ assert.deepEqual(await actual(),expected);
+ await page.evaluate(async()=>{const set=Storage.prototype.setItem;try{Storage.prototype.setItem=function(){throw new DOMException('Injected quota','QuotaExceededError');};if(!await persist())throw Error('IDB fallback failed');const idb=await idbGet(),local=JSON.parse(localStorage.getItem(LS_KEY));if(!(idb.revision>local.revision))throw Error('IDB did not receive the newer save');}finally{Storage.prototype.setItem=set;}});
+ await page.reload();await page.waitForFunction(()=>storageReady);assert.deepEqual(await actual(),expected);assert.equal(await page.evaluate(()=>roster.activeId),null);assert.equal(await page.locator('#characterList [data-act="selectCharacter"]').count(),5);
+ }finally{await context.close();}
+});
+
+test('Audit 19: successful catches rebuild the illustrated journal once, after all records settle',async()=>{
+ const {context,page}=await fresh();
+ try{
+ await character(page,40,false);
+ const result=await page.evaluate(()=>{
+ e161Fishing=true;e195OriginalStart('bagre');cancelAnimationFrame(e16Frame);
+ const original=e218Journal;let renders=0;e218Journal=function(){renders++;return original();};
+ try{
+ const before=Number(e18Record().bySpecies.bagre?.total)||0;e16Finish(true);e161StopWait();
+ const card=document.querySelector('[data-journal-fish="bagre"]'),record=e218Record('bagre');
+ return{renders,count:record.count,expected:before+1,text:card.textContent,best:record.best,categories:Object.keys(record.categories)};
+ }finally{e218Journal=original;e210StopFishing();}
+ });assert.equal(result.renders,1);assert.equal(result.count,result.expected);assert.match(result.text,new RegExp(result.expected+' capturas'));assert.ok(result.best>0);assert.equal(result.categories.length,1);
  }finally{await context.close();}
 });
