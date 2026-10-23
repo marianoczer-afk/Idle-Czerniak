@@ -282,8 +282,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.match(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-12">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 12<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-13">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 13<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -302,7 +302,7 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
  }finally{await downloadedContext?.close();await context.close();if(directory)rmSync(directory,{recursive:true,force:true});}
 });
 
-for(const width of [1366,390])test(`Estable 12: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 13: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -310,7 +310,7 @@ for(const width of [1366,390])test(`Estable 12: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 12/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 13/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -331,7 +331,7 @@ for(const width of [1366,390])test(`Estable 12: empty last-catch panel and rods 
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 12: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 13: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -726,7 +726,7 @@ test('Legacy Coralina ownership is recognized without inventing perk flags or co
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 12: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 13: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -747,7 +747,7 @@ for(const width of [1366,390])test(`Estable 12: collapsed catalog follows missio
  }finally{await context.close();}
 });
 
-test('Estable 12: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
+test('Estable 13: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -773,7 +773,7 @@ test('Estable 12: new challenge is claimable in its zone; owned rods lead both t
  }finally{await context.close();}
 });
 
-test('Estable 12: sidebar scrolls independently and switching character stays accessible',async()=>{
+test('Estable 13: sidebar scrolls independently and switching character stays accessible',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -793,7 +793,7 @@ test('Estable 12: sidebar scrolls independently and switching character stays ac
  }finally{await context.close();}
 });
 
-test('Estable 12: finish renders and saves once; escape never awards a fish',async()=>{
+test('Estable 13: finish renders and saves once; escape never awards a fish',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -819,7 +819,7 @@ test('Estable 12: finish renders and saves once; escape never awards a fish',asy
  }finally{await context.close();}
 });
 
-test('Estable 12: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
+test('Estable 13: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -843,7 +843,7 @@ test('Estable 12: last catch stays through attempts, loss, time and reload witho
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 12: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 13: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.locator('#hybridSidebar').evaluate(n=>n.open=true);
@@ -855,7 +855,9 @@ for(const width of [1366,390])test(`Estable 12: sidebar headings hidden and comp
    const art=panel.querySelector('.e194DockRodArt'),svg=art.querySelector('svg'),name=panel.querySelector('.e1123RodName'),p=panel.getBoundingClientRect(),a=art.getBoundingClientRect(),s=svg.getBoundingClientRect(),n=name.getBoundingClientRect(),v=svg.viewBox.baseVal;
    return{parent:p.width,art:a.width,svg:s.width,mode:svg.getAttribute('preserveAspectRatio'),dock:document.getElementById('combatDock').getBoundingClientRect().height,nameBottom:n.bottom,artTop:a.top,background:getComputedStyle(name).backgroundImage};
   });
-  assert.ok(frame.art>=frame.parent-3,JSON.stringify(frame));closeTo(frame.svg,frame.art,.5);assert.equal(frame.mode,'xMidYMid meet');assert.ok(frame.dock<=130,JSON.stringify(frame));assert.ok(frame.nameBottom<=frame.artTop+1);assert.equal(frame.background,'none');
+  assert.ok(frame.art>=frame.parent-3,JSON.stringify(frame));closeTo(frame.svg,frame.art,.5);assert.equal(frame.mode,'xMidYMid meet');assert.ok(frame.dock<=120,JSON.stringify(frame));assert.ok(frame.nameBottom<=frame.artTop+1);assert.equal(frame.background,'none');
+  assert.equal(await page.locator('#combatDock .e1118Zone').isVisible(),true);
+  await page.locator('#combatDock .e1118Zone').click();assert.equal(await page.locator('.e1120Menu[data-type="zone"]').isVisible(),true);await page.keyboard.press('Escape');
   await page.evaluate(()=>e190ReturnToFishing());
   const xp=await page.locator('#page_fishing .e163Skill').boundingBox(),dock=await page.locator('#combatDock').boundingBox();assert.ok(xp.y>=0&&xp.y+xp.height<dock.y,JSON.stringify({xp,dock}));
   await page.setViewportSize({width,height:width>700?635:720});await page.evaluate(()=>e190ReturnToFishing());
@@ -864,7 +866,7 @@ for(const width of [1366,390])test(`Estable 12: sidebar headings hidden and comp
 });
 
 
-test('Estable 12: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
+test('Estable 13: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40);
@@ -880,7 +882,7 @@ test('Estable 12: curated offers remove close variants and preserve retired owne
  }finally{await context.close();}
 });
 
-test('Estable 12: quest goals explain all conditions and mark each completed objective',async()=>{
+test('Estable 13: quest goals explain all conditions and mark each completed objective',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -889,5 +891,24 @@ test('Estable 12: quest goals explain all conditions and mark each completed obj
   assert.match(await quest.innerText(),/tres objetivos en Río del Bosque/);assert.match(await quest.innerText(),/Capturá 12 peces en total/);assert.match(await quest.innerText(),/Capturá 2 especies distintas/);assert.match(await quest.innerText(),/Capturá un pez de 2 kg o más/);assert.match(await quest.innerText(),/No se consumen peces/);
   assert.equal(await quest.locator('.e212Goals li').count(),3);assert.equal(await quest.locator('.e212Goals .done').count(),2);assert.equal(await quest.locator('button').isDisabled(),true);
   await page.evaluate(()=>{state.ui.fishingWeights.byZone.rio.catches=12;e16Page();});assert.equal(await quest.locator('.e212Goals .done').count(),3);assert.equal(await quest.locator('button').isEnabled(),true);
+ }finally{await context.close();}
+});
+
+
+for(const width of [1366,390])test(`Estable 13: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);
+  await page.locator('#combatDock .e1118Zone').click();
+  await page.locator('.e1120Choice').filter({hasText:'Río del Bosque'}).click();
+  assert.equal(await page.evaluate(()=>state.ui.fishingZoneId),'rio');
+  assert.match(await page.locator('#combatDock .e1118Zone small').innerText(),/Río del Bosque/);
+  const image=page.locator('#combatDock .e1118Zone img');assert.equal(await image.isVisible(),true);assert.ok((await image.getAttribute('src')).startsWith('data:image/'));
+  await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;});
+  await page.locator('#combatDock .e194DockRod').click();await page.locator('.e1120Choice').filter({hasText:'Caña de bambú'}).click();
+  assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_bamboo');
+  assert.match(await page.locator('#combatDock .e1123RodName').innerText(),/bambú/);
+  assert.equal(await page.locator('.e1120Menu').count(),0);
+  assert.equal(await page.locator('#page_fishing #e16GamePanel').isVisible(),true);
  }finally{await context.close();}
 });

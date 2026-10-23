@@ -153,3 +153,9 @@ Validación: 43 pruebas aprobadas en Chromium, escritorio y móvil emulado, incl
 - El panel derecho muestra explícitamente la última captura, su ilustración, peso/calidad, XP y oro al vender. Ya no muestra una incógnita ni confunde ese resultado con el intento activo. Se guarda un registro informativo en `state.ui.lastFishingCatch`; no acredita recompensas. Se mantiene al iniciar otro intento, perder o recargar y pertenece al personaje activo. No modifica el formato v7 ni las claves existentes.
 
 Verificación Estable 12: los 45 casos de Chromium aprobados (44 en la ejecución general y descarga autónoma repetida tras actualizar su expectativa de versión a 12). Se comprobó el HUD a 1366 y 390 px y la visibilidad de XP en ventanas de 635/720 px de alto. Las 118 imágenes embebidas son idénticas a Estable 11. Las pruebas usan perfiles aislados y no acceden a partidas del jugador.
+
+## Estable 13
+
+Se recupera la tarjeta ilustrada de zona y el acceso al selector, ocultados al compactar Estable 12. El HUD conserva su altura compacta (máximo de 120 px en las pruebas), la XP, la caña con su selector y la última captura persistente. En móvil, el paisaje ocupa una columna pequeña junto a la caña. Se ajustan las reglas existentes, sin añadir otro bloque de parches. No cambian misiones, catálogo, balance, ilustraciones ni guardados.
+
+Verificación: 11 casos distintos aprobados en dos ejecuciones dirigidas de Chromium: fases sin desplazamiento, descarga autónoma, regreso a XP, HUD a 1366/390 px y ventanas bajas, selección real de zona y caña, misiones y conservación de última captura. Revisión visual de escritorio y móvil emulado.
