@@ -1,0 +1,25 @@
+/* Integration stays outside the fishing stage; lower HUD retains its canonical geometry. */
+.e229Scene{position:relative;isolation:isolate;border:1px solid #77613e;border-radius:10px;overflow:hidden;background:#102627;margin:10px 0}
+.e229Scene>.e1123ZoneBanner{margin:0;border:0;border-radius:0;min-height:150px}
+.e229Scene>.e186Book{position:relative;margin:0!important;border:0!important;border-radius:0!important;background:linear-gradient(#152625e8,#1c201bec)!important;padding:10px!important}
+.e229Scene .e186BookGrid{gap:7px}.e229Scene .e186Fish{min-width:0}
+.e229Scene .e1123ZoneBannerText{max-width:90%}
+.e229CollectionAward{display:flex;align-items:center;justify-content:flex-end;gap:6px;position:absolute;right:10px;top:8px;max-width:42%;font-size:10px;color:#dfc27e}
+.e229Scene .e186Book>summary{padding-right:42%}
+.e229CollectionAward button{font-size:10px!important;line-height:1.1;min-height:32px!important;padding:4px 6px!important}
+.e229CollectionSeal{display:inline-block;position:relative;width:36px;height:38px;clip-path:polygon(10% 0,90% 0,100% 60%,50% 100%,0 60%);background:#a58c45;border:1px solid #d8bc79;overflow:hidden;flex:none}
+.e229CollectionSeal>svg{width:100%;height:100%;filter:brightness(.8)}.e229CollectionSeal>span{position:absolute;bottom:1px;left:0;right:0;text-align:center;color:#ffdc82;font-size:17px;text-shadow:0 0 3px #000}
+.e229QuestHeaderArt{display:inline-block;width:40px;height:40px;vertical-align:middle;flex:none}.e229QuestHeaderArt>svg{width:100%;height:100%}
+.e194QuestFold>summary{display:flex!important;align-items:center;gap:8px}.e194QuestFold>summary small{display:block;font-size:10px;color:#bdb08c}
+.e229RewardArt{display:block;float:left;width:54px;height:34px;margin-right:7px}.e229RewardArt>svg{width:100%;height:100%}
+.e216Quest.e229Completed{opacity:1!important;border-color:#677a54;background:#273023}
+.e216Quest>section{padding:8px}.e216Quest ul{display:flex;flex-wrap:wrap;gap:6px 18px;padding-left:18px;margin:5px 0}.e216Quest section small{font-size:10px}.e216Quest .actions button{border-color:#ba9648;color:#f4d98d}
+.atlasZoneDetail{padding-bottom:10px}.e228AtlasRoles{padding-right:50px}.e228AtlasTravel{bottom:8px;right:8px;background:#44351e;color:#ecd397;border:1px solid #aa884c;min-height:30px;padding:4px 10px!important}
+.journalSummary button[data-journal-stat]{font:inherit;font-size:inherit;min-height:0;appearance:none;padding:0;background:transparent;border:1px solid transparent;text-align:left;color:inherit;border-radius:6px;display:flex;align-items:center;gap:5px}
+#page_fishing .journalSummary button[aria-pressed=true]{border-color:#bea35e;background:#5c4c273d;box-shadow:0 0 0 1px #bea35e33}
+#fishingRodShop>summary .e221Art>svg{width:100%;height:100%}
+@media(max-width:700px){.e229CollectionAward{max-width:44%}.e229Scene .e186Book>summary{padding-right:44%}.e229CollectionAward>span:not(.e229CollectionSeal):not(.e229AwardState){display:none}.e229CollectionSeal{width:28px;height:30px}.e229Scene>.e1123ZoneBanner{min-height:135px}.e229Scene .e1123ZoneBannerText{max-width:100%}}
+#combatDock.e188FishingMode .e229HudComposition{mask-image:none!important;width:100%;height:100%;display:block}
+#combatDock.e188FishingMode .e229HudComposition svg{mask-image:none!important}
+.e228Trophy.collection .e228AwardArt{clip-path:polygon(10% 0,90% 0,100% 65%,50% 100%,0 65%);background:#947a41}.e228Trophy.collection .e228AwardArt>svg{width:100%;height:100%}
+.e229Completed .questRowProgress{font-size:11px;line-height:14px;overflow-wrap:anywhere}

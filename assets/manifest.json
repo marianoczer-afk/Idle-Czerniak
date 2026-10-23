@@ -1710,6 +1710,26 @@
         "quality": 90
       },
       "references": 1
+    },
+    "image-7ffc64094da08377": {
+      "id": "image-7ffc64094da08377",
+      "mime": "image/png",
+      "source": "assets/originals/image-7ffc64094da08377.png",
+      "runtime": "assets/runtime/image-7ffc64094da08377.webp",
+      "bytes": 2299511,
+      "sha256": "7ffc64094da083771acb270f69742a4c2b47a428dcb4b7e70a0eaed0be074a60",
+      "originalPrefix": "data:image/png;base64,",
+      "encoding": "base64",
+      "runtimeMime": "image/webp",
+      "runtimeBytes": 311684,
+      "runtimeSha256": "295267f0214f494e7c5d20c747d40f0e8069a36f9ab47b077453df9ba2831921",
+      "width": 2172,
+      "height": 724,
+      "compression": {
+        "type": "WebP lossy",
+        "quality": 90
+      },
+      "references": 1
     }
   }
 }

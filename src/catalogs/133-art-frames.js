@@ -664,19 +664,24 @@ const E227_ART={
   "width": 627,
   "height": 632
  },
- "ui:trophy-header": {
-  "symbol": "art28-ui-trophy-header",
-  "width": 627,
-  "height": 632
- },
- "ui:shop-header": {
-  "symbol": "art28-ui-shop-header",
-  "width": 627,
-  "height": 622
- },
  "ui:record-award": {
   "symbol": "art28-ui-record-award",
   "width": 627,
   "height": 622
+ },
+ "ui:trophy-header": {
+  "symbol": "art29-ui-trophy-header",
+  "width": 724,
+  "height": 724
+ },
+ "ui:shop-header": {
+  "symbol": "art29-ui-shop-header",
+  "width": 724,
+  "height": 724
+ },
+ "ui:quests-header": {
+  "symbol": "art29-ui-quests-header",
+  "width": 724,
+  "height": 724
  }
 };

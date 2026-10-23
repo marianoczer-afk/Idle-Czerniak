@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "build": "estable-28",
+  "build": "estable-29",
   "runtimeInput": false,
-  "source": "inventario-estable28.json + produccion-estable28.json",
+  "source": "inventario-estable29.json + produccion-estable29.json",
   "measuredBoxes": {
     "hudHeight": 118,
     "desktop": {
@@ -4163,6 +4163,20 @@
       ]
     },
     {
+      "id": "ui:record-award",
+      "name": "record-award",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22d38812dda63479"
+      ]
+    },
+    {
       "id": "ui:trophy-header",
       "name": "trophy-header",
       "kind": "ui",
@@ -4173,7 +4187,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22d38812dda63479"
+        "image-7ffc64094da08377"
       ]
     },
     {
@@ -4187,12 +4201,12 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22d38812dda63479"
+        "image-7ffc64094da08377"
       ]
     },
     {
-      "id": "ui:record-award",
-      "name": "record-award",
+      "id": "ui:quests-header",
+      "name": "quests-header",
       "kind": "ui",
       "uses": [
         "trophies",
@@ -4201,7 +4215,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22d38812dda63479"
+        "image-7ffc64094da08377"
       ]
     }
   ]

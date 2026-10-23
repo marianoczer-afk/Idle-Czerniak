@@ -1,8 +1,8 @@
 
 /* Scope all layout changes to the journal, Atlas, shop and floating menus. Never style the fixed HUD. */
 #page_fishing .journalSummary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px 0}
-#page_fishing .journalSummary>span{display:grid;grid-template-columns:7px minmax(0,1fr);gap:2px 5px;border:0;border-bottom:1px solid #62563f;border-radius:0;padding:4px 3px;background:transparent;font-size:11px;color:#c8bfa8;min-width:0}
-#page_fishing .journalSummary>span>span{border:0;background:transparent;padding:0;margin:0;border-radius:0;font-size:11px}
+#page_fishing .journalSummary>:is(span,button){display:grid;grid-template-columns:7px minmax(0,1fr);gap:2px 5px;border:0;border-bottom:1px solid #62563f;border-radius:0;padding:4px 3px;background:transparent;font-size:11px;color:#c8bfa8;min-width:0}
+#page_fishing .journalSummary>:is(span,button)>span{border:0;background:transparent;padding:0;margin:0;border-radius:0;font-size:11px}
 .journalSummary b{grid-column:2;font-size:14px;color:#eadabc;font-variant-numeric:tabular-nums}.journalSummary i{width:5px;height:5px;transform:rotate(45deg);background:#928f7d;align-self:center}
 .journalSummary [data-journal-stat=large] i{background:#82a28d}.journalSummary [data-journal-stat=huge] i{background:#8b9fbe}.journalSummary [data-journal-stat=legendary] i{background:#b9a06a}
 .journalTools{display:grid;grid-template-columns:minmax(100px,1.1fr) minmax(100px,1fr) minmax(130px,1.2fr);gap:5px;margin:8px 0}

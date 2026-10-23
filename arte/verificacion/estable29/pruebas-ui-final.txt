@@ -1,0 +1,12 @@
+✔ Estable 29 integrated collection, claims and exact HUD height 1366 (2370.197208ms)
+✔ Estable 29 integrated collection, claims and exact HUD height 390 (1920.270427ms)
+✔ Estable 29 journal counters are exclusive toggles and combine with search and zone (1642.426549ms)
+✔ Estable 29 old gold claims preserve prior gold and flags, new claims award prestige only (2191.700029ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8550.898578

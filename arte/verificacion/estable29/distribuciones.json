@@ -1,0 +1,203 @@
+[
+  {
+    "zone": "ruinas_sumergidas",
+    "sum": 0.9999999999999999,
+    "entries": [
+      {
+        "id": "calamar_abismo",
+        "p": 0.28656716417910444,
+        "actual": 0.2879
+      },
+      {
+        "id": "gobio_runico",
+        "p": 0.28656716417910444,
+        "actual": 0.2826
+      },
+      {
+        "id": "nautilo_bronce",
+        "p": 0.28656716417910444,
+        "actual": 0.2862
+      },
+      {
+        "id": "congrio_archivo",
+        "p": 0.14029850746268657,
+        "actual": 0.1433
+      }
+    ],
+    "viable": [
+      "e161_rod_bamboo",
+      "e161_rod_fiber",
+      "e161_rod_steel",
+      "e192_rod_laguna",
+      "e192_rod_coral",
+      "e192_rod_abyss",
+      "e208_rod_sauce_pulso",
+      "e208_rod_sauce_fortuna",
+      "e208_rod_marea_cauce",
+      "e208_rod_marea_titan",
+      "e208_rod_nenufar_fortuna",
+      "e208_rod_nenufar_reliquia",
+      "e208_rod_coral_pulso",
+      "e208_rod_coral_cauce",
+      "e208_rod_fosa_pulso",
+      "e208_rod_fosa_titan",
+      "e208_rod_mangle_cauce",
+      "e208_rod_mangle_fortuna",
+      "e208_rod_escarcha_pulso",
+      "e208_rod_escarcha_cauce",
+      "e208_rod_obsidiana_destello",
+      "e208_rod_obsidiana_titan",
+      "e208_rod_celeste_pulso",
+      "e208_rod_celeste_reliquia",
+      "e208_rod_custodio_pulso",
+      "e208_rod_custodio_cauce",
+      "e208_rod_custodio_destello",
+      "e208_rod_custodio_fortuna",
+      "e208_rod_custodio_titan",
+      "e208_rod_custodio_reliquia",
+      "e208_rod_boreal_pulso",
+      "e208_rod_boreal_cauce",
+      "e208_rod_boreal_destello",
+      "e208_rod_boreal_fortuna",
+      "e208_rod_boreal_titan",
+      "e208_rod_boreal_reliquia",
+      "e208_rod_eterno_pulso",
+      "e208_rod_eterno_cauce",
+      "e208_rod_eterno_destello",
+      "e208_rod_eterno_fortuna",
+      "e208_rod_eterno_titan",
+      "e208_rod_eterno_reliquia"
+    ]
+  },
+  {
+    "zone": "cavernas_cristal",
+    "sum": 1,
+    "entries": [
+      {
+        "id": "pez_cristal",
+        "p": 0.1686855091969493,
+        "actual": 0.1705
+      },
+      {
+        "id": "tetra_prismatico",
+        "p": 0.43068640646029605,
+        "actual": 0.4254
+      },
+      {
+        "id": "ajolote_cuarzo",
+        "p": 0.29519964109466135,
+        "actual": 0.2965
+      },
+      {
+        "id": "esturion_geoda",
+        "p": 0.10542844324809332,
+        "actual": 0.1076
+      }
+    ],
+    "viable": [
+      "e161_rod_fiber",
+      "e161_rod_steel",
+      "e192_rod_laguna",
+      "e192_rod_coral",
+      "e192_rod_abyss",
+      "e208_rod_marea_cauce",
+      "e208_rod_marea_titan",
+      "e208_rod_nenufar_fortuna",
+      "e208_rod_nenufar_reliquia",
+      "e208_rod_coral_pulso",
+      "e208_rod_coral_cauce",
+      "e208_rod_fosa_pulso",
+      "e208_rod_fosa_titan",
+      "e208_rod_mangle_cauce",
+      "e208_rod_mangle_fortuna",
+      "e208_rod_escarcha_pulso",
+      "e208_rod_escarcha_cauce",
+      "e208_rod_obsidiana_destello",
+      "e208_rod_obsidiana_titan",
+      "e208_rod_celeste_pulso",
+      "e208_rod_celeste_reliquia",
+      "e208_rod_custodio_pulso",
+      "e208_rod_custodio_cauce",
+      "e208_rod_custodio_destello",
+      "e208_rod_custodio_fortuna",
+      "e208_rod_custodio_titan",
+      "e208_rod_custodio_reliquia",
+      "e208_rod_boreal_pulso",
+      "e208_rod_boreal_cauce",
+      "e208_rod_boreal_destello",
+      "e208_rod_boreal_fortuna",
+      "e208_rod_boreal_titan",
+      "e208_rod_boreal_reliquia",
+      "e208_rod_eterno_pulso",
+      "e208_rod_eterno_cauce",
+      "e208_rod_eterno_destello",
+      "e208_rod_eterno_fortuna",
+      "e208_rod_eterno_titan",
+      "e208_rod_eterno_reliquia"
+    ]
+  },
+  {
+    "zone": "abismo_primordial",
+    "sum": 0.9999999999999999,
+    "entries": [
+      {
+        "id": "pez_linternilla",
+        "p": 0.35677122045488324,
+        "actual": 0.3619
+      },
+      {
+        "id": "isopodo_fosil",
+        "p": 0.35677122045488324,
+        "actual": 0.3533
+      },
+      {
+        "id": "quimera_ambar",
+        "p": 0.24453694068678464,
+        "actual": 0.2435
+      },
+      {
+        "id": "titan_ammonita",
+        "p": 0.04192061840344879,
+        "actual": 0.0413
+      }
+    ],
+    "viable": [
+      "e161_rod_steel",
+      "e192_rod_laguna",
+      "e192_rod_coral",
+      "e192_rod_abyss",
+      "e208_rod_marea_titan",
+      "e208_rod_nenufar_reliquia",
+      "e208_rod_coral_pulso",
+      "e208_rod_coral_cauce",
+      "e208_rod_fosa_pulso",
+      "e208_rod_fosa_titan",
+      "e208_rod_mangle_cauce",
+      "e208_rod_mangle_fortuna",
+      "e208_rod_escarcha_pulso",
+      "e208_rod_escarcha_cauce",
+      "e208_rod_obsidiana_destello",
+      "e208_rod_obsidiana_titan",
+      "e208_rod_celeste_pulso",
+      "e208_rod_celeste_reliquia",
+      "e208_rod_custodio_pulso",
+      "e208_rod_custodio_cauce",
+      "e208_rod_custodio_destello",
+      "e208_rod_custodio_fortuna",
+      "e208_rod_custodio_titan",
+      "e208_rod_custodio_reliquia",
+      "e208_rod_boreal_pulso",
+      "e208_rod_boreal_cauce",
+      "e208_rod_boreal_destello",
+      "e208_rod_boreal_fortuna",
+      "e208_rod_boreal_titan",
+      "e208_rod_boreal_reliquia",
+      "e208_rod_eterno_pulso",
+      "e208_rod_eterno_cauce",
+      "e208_rod_eterno_destello",
+      "e208_rod_eterno_fortuna",
+      "e208_rod_eterno_titan",
+      "e208_rod_eterno_reliquia"
+    ]
+  }
+]

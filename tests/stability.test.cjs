@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-28">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 28<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-29">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 29<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -480,7 +480,7 @@ test('An under-capacity rod gives a clear zone warning; buying a capable rod res
  try{
   await character(page,85);
   await page.evaluate(()=>{state.owned.e16_rod=true;state.ui.fishingRodId='e16_rod';state.ui.fishingZoneId='santuario';e16Page();});
-  assert.match(await page.locator('.e165ZoneInfo').innerText(),/0\/1.*Equipá una caña de mayor capacidad/);
+  assert.match(await page.locator('.e1123ZoneBannerText span').innerText(),/0\/1.*Equipá una caña de mayor capacidad/);
   assert.equal(await page.locator('.e1108Toolbar [data-e161-toggle]').isDisabled(),true);
   assert.equal(await page.evaluate(()=>e161RandomFish()),null);
   await page.locator('.rodTier[data-tier="final"]').evaluate(n=>n.open=true);
@@ -682,7 +682,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
   });
   assert.equal(await page.locator('#fishingAtlas').count(),1);
   assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/37 encargos/);
-  assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),0);
+  assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),1);assert.equal(await page.locator('.e229Completed').count(),1);
   let badges=0;
   for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
    await atlasZone(page,zone);badges+=await page.locator('[data-atlas-badge]').count();
@@ -1601,13 +1601,13 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable28'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable28/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable29'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable29/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable28/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable29/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
   assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);

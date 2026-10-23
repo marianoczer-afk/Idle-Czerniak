@@ -34,7 +34,7 @@ function e218PlaceDetail(grid,id){
  const fish=E16_FISH.find(f=>f.id===id);if(fish)last.after(e218Detail(fish));
 }
 const e220JournalViews=new WeakMap();
-function e220JournalView(){if(!e220JournalViews.has(state))e220JournalViews.set(state,{search:'',zone:'all',sort:'difficulty'});return e220JournalViews.get(state);}
+function e220JournalView(){if(!e220JournalViews.has(state))e220JournalViews.set(state,{search:'',zone:'all',sort:'difficulty',category:null});return e220JournalViews.get(state);}
 function e220Normalize(text){return text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();}
 function e220FilterJournal(list){
  const v=e220JournalView(),query=e220Normalize(v.search),cards=[...list.querySelectorAll('[data-journal-fish]')];
@@ -49,11 +49,12 @@ function e220FilterJournal(list){
   return(v.sort==='least'?ra.count-rb.count:rb.count-ra.count)||tie();
  });
  let visible=0;
- for(const card of cards){const f=fish.get(card.dataset.journalFish);card.hidden=!(e220Normalize(f.name).includes(query)&&(v.zone==='all'||E165_ZONES.find(z=>z.id===v.zone)?.fish.includes(f.id)));if(!card.hidden)visible++;list.append(card);}
+ for(const card of cards){const f=fish.get(card.dataset.journalFish),r=records.get(f.id),category=v.category,matchCategory=!category||category==='species'||!!r.categories[category]||r.category===category||(r.count>0&&r.quality===category);card.hidden=!(matchCategory&&e220Normalize(f.name).includes(query)&&(v.zone==='all'||E165_ZONES.find(z=>z.id===v.zone)?.fish.includes(f.id)));if(!card.hidden)visible++;list.append(card);}
  const selected=e218Selected.get(state);if(selected&&!cards.some(c=>c.dataset.journalFish===selected&&!c.hidden))e218Selected.delete(state);
  list.querySelectorAll('[data-journal-fish]').forEach(c=>c.setAttribute('aria-expanded','false'));
  const empty=list.parentElement.querySelector('.journalEmpty');empty.hidden=visible>0;empty.textContent=cards.length?'No hay especies descubiertas con estos filtros.':'Tus especies aparecerán acá cuando captures peces.';
  list.parentElement.querySelector('[data-journal-results]').textContent=visible+' especies';
+ for(const b of list.closest('details').querySelectorAll('[data-journal-category]'))b.setAttribute('aria-pressed',String(b.dataset.journalCategory===v.category));
  if(list.closest('details').open)e218PlaceDetail(list,e218Selected.get(state));
 }
 function e218Journal(){
@@ -61,7 +62,7 @@ function e218Journal(){
  const list=journal.querySelector('.e187JournalList');if(!list)return;list.replaceChildren();list.classList.add('e218Album');
  const fishes=E16_FISH.filter(f=>e218Record(f.id).count>0),record=e18Record(),total=Number(record.total)||0,large=Number(record.large)||0,huge=Number(record.huge)||0,legendary=Number(record.legendary)||0;
  let stats=journal.querySelector('.e18Pills');stats.className='e18Pills journalSummary';
- stats.innerHTML=[['total','Capturas',total],['species','Especies',fishes.length],['normal','Comunes',Math.max(0,total-large-huge-legendary)],['large','Grandes',large],['huge','Enormes',huge],['legendary','Legendarios',legendary]].map(([key,label,value])=>'<span data-journal-stat="'+key+'"><i aria-hidden="true"></i><span>'+label+'</span><b>'+fmt(value)+'</b></span>').join('');
+ stats.innerHTML=[['total','Capturas',total],['species','Especies',fishes.length],['normal','Comunes',Math.max(0,total-large-huge-legendary)],['large','Grandes',large],['huge','Enormes',huge],['legendary','Legendarios',legendary]].map(([key,label,value])=>'<'+(key==='total'?'span':'button')+' data-journal-stat="'+key+'" '+(key==='total'?'title="Total histórico de capturas; no es una categoría"':'type="button" data-journal-category="'+key+'" aria-pressed="false" title="'+(key==='species'?'Todas las especies descubiertas':'Filtrar especies con una captura verificada de esta categoría; el número es el total histórico de capturas, no el número de especies')+'"')+'><i aria-hidden="true"></i><span>'+label+'</span><b>'+fmt(value)+'</b></'+(key==='total'?'span':'button')+'>').join('');
  const oldText=journal.querySelector('p');if(oldText)oldText.remove();journal.querySelector('.journalTools')?.remove();journal.querySelector('.journalEmpty')?.remove();
  const tools=document.createElement('div');tools.className='journalTools';tools.innerHTML='<input type="search" data-journal-search aria-label="Buscar especie del Diario" placeholder="Buscar especie…"><select data-journal-zone aria-label="Zona del Diario"><option value="all">Todas las zonas</option>'+e221ZoneOptions()+'</select><select data-journal-sort aria-label="Ordenar Diario" title="Dificultad de referencia: nivel 100, sin suerte y con capacidad suficiente; se toma la zona más favorable. No es tu probabilidad actual. Valor de venta: precio base Común por unidad"><option value="difficulty">Más fáciles de conseguir</option><option value="difficultyHigh">Más difíciles de conseguir</option><option value="most">Más capturados</option><option value="least">Menos capturados</option><option value="weightHigh">Mayor peso récord</option><option value="weightLow">Menor peso récord</option><option value="valueHigh">Mayor valor base de venta</option><option value="valueLow">Menor valor base de venta</option><option value="name">Nombre A–Z</option></select><small data-journal-results aria-live="polite"></small>';
  list.before(tools);const empty=document.createElement('p');empty.className='journalEmpty';list.after(empty);
