@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 21**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 22**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 21**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 22**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -70,3 +70,7 @@ Estable 20 conserva las dimensiones de Estable 19 del HUD fijo. Detalles de los 
 ## Preparación para expansiones y arte compacto
 
 Estable 21 comparte el catálogo de tienda y selector, reconoce contenido nuevo desde los datos y conserva el HUD. Contratos de datos, cambios visuales y pruebas en [PREPARACION_EXPANSIONES.md](PREPARACION_EXPANSIONES.md).
+
+## Navegación y obtención de cañas
+
+Estable 22 conserva el HUD y mejora el scroll del Atlas y la Tienda, el orden del Diario y los accesos a compras y encargos desde el selector. Criterio de dificultad y pruebas en [NAVEGACION_PESCA.md](NAVEGACION_PESCA.md).
