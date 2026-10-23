@@ -209,3 +209,7 @@ Auditoría técnica y regresiones: cancelación de sesiones al importar/cambiar 
 ## Estable 20
 
 Pulido solicitado del texto flotante de XP, Diario (filtros, resumen y recuperación fiable de marcas), Atlas en acordeón y ajustes de tienda/procedencia. El HUD conserva exactamente las medidas de Estable 19, comprobadas en escritorio y móvil mediante fixture previo. Sin cambios de balance o esquema v7. Véase PULIDO_INTERFAZ.md.
+
+## Estable 21
+
+Recursos ilustrados compactos y cabeceras uniformes; XP legible durante 1,7 s y Level Up con flecha SVG sin alterar el HUD. Catálogo compartido de cañas, listas de zonas derivadas de datos, imágenes opcionales de zona y recomendaciones equivalentes más eficientes. Nuevos datos no quedan ocultos por curaciones históricas. Caso real de salmón Grande sobre récord histórico sin categoría verificado hasta recarga e importación. Detalles en PREPARACION_EXPANSIONES.md.

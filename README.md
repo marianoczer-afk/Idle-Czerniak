@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 20**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 21**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 20**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 21**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -66,3 +66,7 @@ Correcciones, mediciones y límites de la revisión en [AUDITORIA_TECNICA.md](AU
 ## Pulido de Diario, Atlas y filtros
 
 Estable 20 conserva las dimensiones de Estable 19 del HUD fijo. Detalles de los filtros, recuperación de récords y verificación en [PULIDO_INTERFAZ.md](PULIDO_INTERFAZ.md).
+
+## Preparación para expansiones y arte compacto
+
+Estable 21 comparte el catálogo de tienda y selector, reconoce contenido nuevo desde los datos y conserva el HUD. Contratos de datos, cambios visuales y pruebas en [PREPARACION_EXPANSIONES.md](PREPARACION_EXPANSIONES.md).
