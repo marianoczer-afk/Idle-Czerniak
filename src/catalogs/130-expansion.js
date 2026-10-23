@@ -626,3 +626,12 @@ const E227_OLD_QUESTS=[
   "zone": "santuario"
  }
 ];
+
+const E228_REGIONAL_QUESTS=[
+ {id:'manglar_cauce28',zone:'manglar',title:'El pulso de las raíces',rodId:'e208_rod_mangle_cauce',goals:[{kind:'speciesCount',id:'pez_arquero',need:6},{kind:'speciesCount',id:'anguila_manglar',need:4}]},
+ {id:'volcan_destello28',zone:'volcan',title:'Templar la corriente',rodId:'e208_rod_obsidiana_destello',goals:[{kind:'speciesCount',id:'mero_obsidiana',need:6},{kind:'speciesCount',id:'pez_escorpion',need:4},{kind:'weight',need:90}]},
+ {id:'ruinas_ancla28',zone:'ruinas_sumergidas',title:'Ancla del archivero',rodId:'e208_rod_obsidiana_titan',goals:[{kind:'speciesCount',id:'nautilo_bronce',need:6},{kind:'speciesCount',id:'congrio_archivo',need:1}]},
+ {id:'cristal_pulso28',zone:'cavernas_cristal',title:'Afinación prismática',rodId:'e208_rod_celeste_pulso',goals:[{kind:'speciesCount',id:'tetra_prismatico',need:8},{kind:'speciesCount',id:'ajolote_cuarzo',need:4}]},
+ {id:'primordial_reliquia28',zone:'abismo_primordial',title:'Memoria de las mareas',rodId:'e208_rod_celeste_reliquia',goals:[{kind:'speciesCount',id:'isopodo_fosil',need:10},{kind:'speciesCount',id:'quimera_ambar',need:3},{kind:'weight',need:240}]}
+].map(q=>({...q,gold:0,masteryRole:'supplemental',description:'Vía alternativa a la compra: reconoce tus capturas locales ya registradas. La caña conserva sus estadísticas; si ya la tenés, recibís solamente la insignia.'}));
+E227_QUESTS.push(...E228_REGIONAL_QUESTS);

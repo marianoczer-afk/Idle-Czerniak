@@ -6,7 +6,7 @@
   document.querySelectorAll('.e1120Menu[data-type="zone"]').forEach(menu=>{
    const choices=menu.querySelectorAll('.e1120Choice');
    choices.forEach((btn,i)=>{
-    if(btn.classList.contains('e1114ScenicChoice'))return;
+    if(btn.classList.contains('e1114ScenicChoice')||btn.classList.contains('e228ZoneChoice'))return;
     const zone=ids()[i];if(!zone)return;
     const art=window.e1114ZoneImages||{};
     if(typeof e227ZoneArt==='function'&&e227ZoneArt(zone)){btn.insertAdjacentHTML('afterbegin',e227ZoneArt(zone,'e1114ZoneThumb'));btn.classList.add('e1114ScenicChoice');return;}

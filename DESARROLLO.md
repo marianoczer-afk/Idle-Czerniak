@@ -63,3 +63,11 @@ Chromium administrado bloquea `file://` con `ERR_BLOCKED_BY_ADMINISTRATOR`: no s
 Los atlas nuevos usan WebP calidad 90 con resolución original, no compresión sin pérdida. `assets:optimize` respeta esa decisión y no vuelve a convertirlos a un archivo más grande. Los originales completos permanecen intactos. El compilador exige los hashes runtime y no duplica cada atlas al insertar sus múltiples símbolos.
 
 El manifiesto artístico actual contiene 50 especies, 50 cañas activas y 13 zonas reales. Las secciones anteriores que describen las conversiones sin pérdida se refieren a las tres imágenes optimizadas en Estable 26. Para el contenido efectivamente incorporado y sus diferencias respecto de la propuesta, ver `ESTABLE_27.md`.
+
+## Fuentes vigentes de Estable 28
+
+El catálogo visual vigente es `arte/produccion-estable28.json`; `production-art.cjs`, `art:prepare` y `art:gallery` usan esa versión. La metadata y los originales de 27 permanecen archivados. `scripts/import-presentation28.py` reconstruye el lote desde los PNG originales conservados, sin generar imágenes ni recortarlas destructivamente. No ejecutarlo para el build cotidiano: basta `npm run build`. Los SVG individuales son viewports recortados explícitamente a su celda; comparten 15 atlas WebP a resolución original y calidad 90.
+
+`src/js/fishing/trophies/134-trophies.js` calcula los reconocimientos a partir de los registros existentes y mantiene los filtros en memoria por personaje (`WeakMap`). No añade bucles de animación ni observadores. `135-presentation.css` solo afecta Pesca; no cambia la geometría del HUD. La hoja canónica `117-fishing-hud-css.css` sigue idéntica. Los cinco encargos complementarios están en `E228_REGIONAL_QUESTS`, junto al catálogo de expansión; usan el mismo reclamo protegido y conceden equipo existente sin equiparlo ni compensarlo con oro.
+
+`node scripts/review-progression28.cjs` produce simulaciones aisladas. `tests/trophies28.test.cjs` compara medidas reales de HUD contra el HTML del commit 27, en 1366 y 390 px; prueba filtros, navegación, insignias y reclamos únicos. No usa perfiles de usuario ni partidas reales. Ver `PROGRESION_28.md` y `ESTABLE_28.md` para criterios, límites y resultados.

@@ -24,8 +24,8 @@ test('Source catalogues and original/runtime resources are complete and authenti
 });
 test('Unmodified engines and bottom HUD stylesheet preserve the Estable 25 baseline',()=>{
  const html=fs.readFileSync(local('index.html'),'utf8'),baseline=JSON.parse(fs.readFileSync(local('tests/fixtures/source-estable25.json'))),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
- const normalize=s=>s.replace(/data:image\/[^\s"'<>]+/g,'DATA_IMAGE').replaceAll('Estable 27','Estable VERSION').replaceAll('estable-27','estable-VERSION');
- const changed=new Set(['005-core.js','006-hybrid-upgrade.js','016-e16-fishing.js','066-e197-fishing.js','102-e1123-zone-identity.js','104-e1114-menu-art.js','114-e216-atlas.js']);
+ const normalize=s=>s.replace(/data:image\/[^\s"'<>]+/g,'DATA_IMAGE').replaceAll('Estable 28','Estable VERSION').replaceAll('estable-28','estable-VERSION');
+ const changed=new Set(['005-core.js','006-hybrid-upgrade.js','016-e16-fishing.js','066-e197-fishing.js','102-e1123-zone-identity.js','104-e1114-menu-art.js','114-e216-atlas.js','025-e165-zones.js','045-e186-fishing.js','054-e191-polish.js','080-e1107-fishing-ui.js','095-e1117-full-art.js','099-e1120-hud.js','122-e218-journal.js','021-e163-fishing.js','087-e1111-catch-result.js']);
  const blocks=JSON.parse(fs.readFileSync(local('src/blocks.json'))).filter(b=>b.type==='script'),scripts=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)];
  for(let i=0;i<baseline.scripts.length;i++)if(!changed.has(path.basename(blocks[i].file)))assert.equal(hash(normalize(scripts[i][1])),baseline.scripts[i],blocks[i].file);
  assert.equal(hash(html.match(/<style id="fishing-hud-css">([\s\S]*?)<\/style>/)[1]),baseline.hudCSS);

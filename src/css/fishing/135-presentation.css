@@ -1,0 +1,39 @@
+/* Estable 28: scoped artwork only; the authoritative 118px HUD geometry is unchanged. */
+.e228Icon{width:16px;height:16px;vertical-align:middle;color:#d8bd79;flex:none}
+.e228Habitat{display:block;position:relative;width:100%;height:100%;overflow:hidden;background:#09262c}
+.e228Habitat>.e228MysteryLandscape{width:100%;height:100%;filter:brightness(.38) saturate(.55) blur(2px);opacity:.85}
+.e228Habitat>svg:last-child{position:absolute;inset:0;width:100%;height:100%}
+.e228Habitat.variant1{filter:hue-rotate(14deg)}.e228Habitat.variant2{filter:hue-rotate(-12deg)}
+.e228LevelLocked .e228Habitat{filter:grayscale(.65) brightness(.7)}
+.e228Rarity{display:block;color:#c8b982;font-size:9px;line-height:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fishingTrophies{border:1px solid #66563a;border-radius:9px;background:#201c16;margin:12px 0;padding:10px}
+.fishingTrophies>summary{display:flex;gap:10px;align-items:center;cursor:pointer;color:#e6c782;list-style:none}
+.e228TrophyHeaderArt{width:40px;height:40px;flex:none;overflow:hidden;border-radius:5px}.e228TrophyHeaderArt>svg{width:100%;height:100%}
+.e228TrophyTools{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.e228TrophyTools select{min-width:0;max-width:100%}
+.e228TrophyGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(116px,1fr));gap:7px;max-height:440px;overflow:auto;scrollbar-width:none}
+.e228TrophyGrid::-webkit-scrollbar{display:none}
+.e228Trophy{padding:6px;background:linear-gradient(#16292b,#211e18);border:1px solid #766443;border-radius:7px;text-align:center;min-width:0;color:#e4d6af;cursor:pointer}
+.e228Trophy b,.e228Trophy small{display:block;overflow-wrap:anywhere;font-size:10px}.e228Trophy small{font-size:9px;color:#b8b09a}
+.e228AwardArt{display:block;height:96px}.e228AwardArt>svg{width:100%;height:100%;display:block}
+.e228Trophy.mastery{border-color:#cfac56;background:linear-gradient(#24323a,#322817)}
+.e228Trophy.pending{border-color:#484d45;color:#a5aaa0}.e228Trophy.pending .e228AwardArt,.e228AwardArt.pending{filter:grayscale(1) brightness(.3) blur(3px)}
+.e228TrophyDetail{display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;padding:12px;border:1px solid #a68b50;margin-top:10px;border-radius:7px;background:#27251b}
+.e228TrophyDetail .e228AwardArt{height:150px}.e228TrophyDetail h3{margin:0 0 5px;color:#ebcf88;font-size:15px}.e228TrophyDetail ul{padding-left:18px}.e228TrophyDetail small{display:block;color:#bdb49d}.e228TrophyDetail button{margin-top:8px}
+.atlasZoneDetail{position:relative;padding-bottom:42px}.atlasMedal{display:inline-flex;align-items:center}.atlasMedal>svg{width:44px;height:44px}.e228AtlasRoles{font-size:11px;color:#c7b993}.e228AtlasTravel{position:absolute;bottom:8px;right:8px}
+.rodShopRow{position:relative;isolation:isolate;overflow:hidden;background:#122326}.rodShopRow>.e228RowBackdrop{position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.3}.e228RowBackdrop>svg{width:100%;height:100%;filter:blur(3px)}
+.rodShopRow:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#09212944,#191c18dd 48%,#211d17fa 85%);pointer-events:none;z-index:-1}
+.rodShopRow .rodShopArt{background:transparent;border-color:transparent}.rodShopArt>svg{mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.e228Alternative{font-size:10px;padding:2px 6px!important;margin-top:2px;color:#bad7bd!important;border-color:#617461!important;background:#26342b!important}
+.e165ZoneBtn{position:relative;isolation:isolate;overflow:hidden;background:#172628}.e165ZoneBtn>.e228ZoneLandscape{position:absolute;inset:0;width:100%;height:100%;z-index:-2;filter:brightness(.45)}.e165ZoneBtn:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent,#101a1bed);z-index:-1}.e165ZoneBtn.active{border-color:#dbb64f;box-shadow:inset 0 0 10px #c3a74a3d}.e165ZoneBtn:disabled:not(.active){filter:saturate(.45)}
+.e197FishingSkills{position:relative;isolation:isolate;overflow:hidden;background:#172725}.e197FishingSkills>.e227SidebarArt{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;z-index:-2;filter:brightness(.25);opacity:.9;pointer-events:none}.e197FishingSkills:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#162c25bb,#17231fd9);z-index:-1;pointer-events:none}
+.e1107RodPanel{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(145deg,#26342ce8,#191e1ce8);border-radius:7px}.e1107RodPanel>.e228SidebarRod{position:absolute;inset:0;width:100%;height:100%;opacity:.12;z-index:-1;pointer-events:none}.e1107RodStats>div{background:#252b23d9}
+#combatDock.e188FishingMode .e194DockRod,#combatDock.e188FishingMode .e189Art{background:#071e25}
+#combatDock.e188FishingMode .e194DockRod svg{mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+@media(max-width:700px){.e228TrophyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.e228TrophyDetail{grid-template-columns:84px minmax(0,1fr);gap:8px;padding:8px}.e228TrophyDetail .e228AwardArt{height:110px}.e228TrophyTools select{flex:1 1 44%;width:44%}}
+
+.e228RowBackdrop>svg,.e228Habitat>svg{object-fit:contain}
+.e186Unknown .e192Sprite{filter:none}
+.e228ZoneChoice{position:relative;isolation:isolate;overflow:hidden;min-height:74px}.e228ZoneChoice>.e1120Symbol{position:absolute;inset:0;width:100%!important;height:100%!important;z-index:-2;opacity:.45;pointer-events:none}.e228PickerLandscape{width:100%;height:100%;display:block}.e228ZoneChoice:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#10202388,#101b1be8);z-index:-1;pointer-events:none}.e228ZoneChoice>span:last-child{position:relative;padding:4px 6px}.e228ZoneChoice.active{border-color:#d9b659}
+/* Clipped decorative backgrounds must not let flex rows shrink into the viewport. */
+#fishingRodShop .rodShopRow{flex-shrink:0;background:#122326}
+#fishingRodShop .rodShopArt{background:transparent;border-color:transparent}

@@ -796,5 +796,17 @@
     "file": "src/js/fishing/art/133-production-art.js",
     "type": "script",
     "attributes": " data-production-art-27"
+  },
+  {
+    "id": "block-134",
+    "file": "src/js/fishing/trophies/134-trophies.js",
+    "type": "script",
+    "attributes": " data-trophies-28"
+  },
+  {
+    "id": "block-135",
+    "file": "src/css/fishing/135-presentation.css",
+    "type": "style",
+    "attributes": " id=\"fishing-presentation-28\""
   }
 ]

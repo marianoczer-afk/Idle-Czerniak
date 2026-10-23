@@ -37,12 +37,13 @@ const e227PreviousRecord=makeRosterRecord;
 makeRosterRecord=function(){if(state&&ready)e227EarnMastery();return e227PreviousRecord();};
 function e227QuestGoal(q,goal){
  const zone=E165_ZONES.find(z=>z.id===q.zone),record=state.ui?.fishingWeights?.byZone?.[q.zone]||{};
+ if(goal.kind==='speciesCount')return{label:`Capturá ${goal.need} ${E16_FISH.find(f=>f.id===goal.id).name} en ${zone.name}`,have:Number(record.species?.[goal.id])||0,need:goal.need};
  if(goal.kind==='captures')return{label:`Conseguí ${goal.need} capturas en ${zone.name}`,have:Number(record.catches)||0,need:goal.need};
  if(goal.kind==='weight')return{label:`Récord local de al menos ${e190Kg(goal.need)}`,have:Number(record.bestKg)||0,need:goal.need};
  if(goal.kind==='speciesWeight')return{label:`Capturá ${E16_FISH.find(f=>f.id===goal.id).name} de al menos ${e190Kg(goal.need)}`,have:Number(state.ui?.fishingWeights?.bySpecies?.[goal.id]?.bestKg)||0,need:goal.need};
  const ids=goal.ids||zone.fish;return{label:goal.ids?'Descubrí '+ids.map(id=>E16_FISH.find(f=>f.id===id).name).join(' y '):`Descubrí ${goal.need} especies de ${zone.name}`,have:ids.filter(id=>e227Discovered(state,id)).length,need:goal.need};
 }
-function e227QuestDefinitions(){return E227_QUESTS.map(q=>({...q,reward:`Insignia · ${fmt(q.gold)} oro`,done:!!state.ui?.fishingQuestRewards?.[q.id],goals:q.goals.map(g=>e227QuestGoal(q,g)),note:(q.description?q.description+' ':'')+(q.masteryRole==='supplemental'?'Encargo complementario: no cambia las estrellas históricas. Cuenta el progreso guardado; no consume peces.':'Encargo principal de maestría. Cuenta el progreso guardado; no consume peces ni exige la especie mítica.')}));}
+function e227QuestDefinitions(){return E227_QUESTS.map(q=>({...q,reward:q.rodId?'Insignia · '+E161_RODS.find(r=>r.id===q.rodId).name:`Insignia · ${fmt(q.gold)} oro`,done:!!state.ui?.fishingQuestRewards?.[q.id],goals:q.goals.map(g=>e227QuestGoal(q,g)),note:(q.description?q.description+' ':'')+(q.masteryRole==='supplemental'?'Encargo complementario: no cambia las estrellas históricas. Cuenta el progreso guardado; no consume peces.':'Encargo principal de maestría. Cuenta el progreso guardado; no consume peces ni exige la especie mítica.')}));}
 function e227RenderQuests(){
  const group=document.querySelector('#page_fishing .e171Quests');if(!group||!state)return;
  const qs=e227QuestDefinitions().filter(q=>q.zone===e165Zone().id&&!q.done);if(!qs.length)return;
@@ -58,6 +59,6 @@ document.addEventListener('click',event=>{
  event.preventDefault();if(!state||!ready||busy||managing||!storageReady||simulationLocked()||e16Session||e195Pending)return;
  const q=e227QuestDefinitions().find(q=>q.id===button.dataset.expansionClaim);
  if(!q||q.done||q.zone!==e165Zone().id||!q.goals.every(g=>g.have>=g.need)||!Number.isSafeInteger(state.gold+q.gold))return;
- state.ui.fishingQuestRewards=state.ui.fishingQuestRewards||{};state.ui.fishingQuestRewards[q.id]=true;state.gold+=q.gold;
+ state.ui.fishingQuestRewards=state.ui.fishingQuestRewards||{};state.ui.fishingQuestRewards[q.id]=true;state.gold+=q.gold;if(q.rodId){state.owned=state.owned||{};state.owned[q.rodId]=true;}
  addLog('Pesca: '+q.title+' · '+q.reward);e227EarnMastery();persist();e16Page();updateLive();toast('Encargo completado: '+q.title);
 });

@@ -110,5 +110,9 @@
   {
     "file": "src/catalogs/133-art-frames.js",
     "symbol": "E227_ART"
+  },
+  {
+    "file": "src/catalogs/130-expansion.js",
+    "symbol": "E228_REGIONAL_QUESTS"
   }
 ]

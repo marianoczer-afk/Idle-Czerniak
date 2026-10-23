@@ -1,254 +1,4 @@
 const E227_ART={
- "fish:gobio_runico": {
-  "symbol": "art27-fish-gobio_runico",
-  "width": 512,
-  "height": 273
- },
- "fish:nautilo_bronce": {
-  "symbol": "art27-fish-nautilo_bronce",
-  "width": 512,
-  "height": 273
- },
- "fish:congrio_archivo": {
-  "symbol": "art27-fish-congrio_archivo",
-  "width": 512,
-  "height": 265
- },
- "fish:tetra_prismatico": {
-  "symbol": "art27-fish-tetra_prismatico",
-  "width": 512,
-  "height": 265
- },
- "fish:ajolote_cuarzo": {
-  "symbol": "art27-fish-ajolote_cuarzo",
-  "width": 512,
-  "height": 278
- },
- "fish:esturion_geoda": {
-  "symbol": "art27-fish-esturion_geoda",
-  "width": 512,
-  "height": 278
- },
- "fish:isopodo_fosil": {
-  "symbol": "art27-fish-isopodo_fosil",
-  "width": 512,
-  "height": 280
- },
- "fish:quimera_ambar": {
-  "symbol": "art27-fish-quimera_ambar",
-  "width": 512,
-  "height": 280
- },
- "fish:titan_ammonita": {
-  "symbol": "art27-fish-titan_ammonita",
-  "width": 512,
-  "height": 440
- },
- "fish:bagre": {
-  "symbol": "art27-fish-bagre",
-  "width": 512,
-  "height": 440
- },
- "fish:mojarra": {
-  "symbol": "art27-fish-mojarra",
-  "width": 512,
-  "height": 288
- },
- "fish:trucha": {
-  "symbol": "art27-fish-trucha",
-  "width": 512,
-  "height": 288
- },
- "fish:salmon": {
-  "symbol": "art27-fish-salmon",
-  "width": 512,
-  "height": 280
- },
- "fish:pez_espada": {
-  "symbol": "art27-fish-pez_espada",
-  "width": 512,
-  "height": 280
- },
- "fish:carpa_dorada": {
-  "symbol": "art27-fish-carpa_dorada",
-  "width": 512,
-  "height": 278
- },
- "fish:trucha_arcoiris": {
-  "symbol": "art27-fish-trucha_arcoiris",
-  "width": 512,
-  "height": 278
- },
- "fish:pez_fantasma": {
-  "symbol": "art27-fish-pez_fantasma",
-  "width": 512,
-  "height": 309
- },
- "fish:lucio": {
-  "symbol": "art27-fish-lucio",
-  "width": 512,
-  "height": 309
- },
- "fish:anguila": {
-  "symbol": "art27-fish-anguila",
-  "width": 512,
-  "height": 381
- },
- "fish:lubina": {
-  "symbol": "art27-fish-lubina",
-  "width": 512,
-  "height": 381
- },
- "fish:atun": {
-  "symbol": "art27-fish-atun",
-  "width": 512,
-  "height": 271
- },
- "fish:mantarraya": {
-  "symbol": "art27-fish-mantarraya",
-  "width": 512,
-  "height": 271
- },
- "fish:perca_esmeralda": {
-  "symbol": "art27-fish-perca_esmeralda",
-  "width": 512,
-  "height": 273
- },
- "fish:cangrejo_azul": {
-  "symbol": "art27-fish-cangrejo_azul",
-  "width": 512,
-  "height": 273
- },
- "fish:koi_imperial": {
-  "symbol": "art27-fish-koi_imperial",
-  "width": 512,
-  "height": 257
- },
- "fish:esturion": {
-  "symbol": "art27-fish-esturion",
-  "width": 512,
-  "height": 257
- },
- "fish:pez_luna": {
-  "symbol": "art27-fish-pez_luna",
-  "width": 512,
-  "height": 389
- },
- "fish:caballito_mar": {
-  "symbol": "art27-fish-caballito_mar",
-  "width": 512,
-  "height": 389
- },
- "fish:morena": {
-  "symbol": "art27-fish-morena",
-  "width": 512,
-  "height": 346
- },
- "fish:tiburon_arrecife": {
-  "symbol": "art27-fish-tiburon_arrecife",
-  "width": 512,
-  "height": 346
- },
- "fish:pez_linternilla": {
-  "symbol": "art27-fish-pez_linternilla",
-  "width": 512,
-  "height": 293
- },
- "fish:calamar_abismo": {
-  "symbol": "art27-fish-calamar_abismo",
-  "width": 512,
-  "height": 293
- },
- "fish:pez_cristal": {
-  "symbol": "art27-fish-pez_cristal",
-  "width": 512,
-  "height": 298
- },
- "fish:leviatan": {
-  "symbol": "art27-fish-leviatan",
-  "width": 512,
-  "height": 298
- },
- "fish:sabalo_manglar": {
-  "symbol": "art27-fish-sabalo_manglar",
-  "width": 512,
-  "height": 289
- },
- "fish:pez_arquero": {
-  "symbol": "art27-fish-pez_arquero",
-  "width": 512,
-  "height": 289
- },
- "fish:anguila_manglar": {
-  "symbol": "art27-fish-anguila_manglar",
-  "width": 512,
-  "height": 295
- },
- "fish:tarpon": {
-  "symbol": "art27-fish-tarpon",
-  "width": 512,
-  "height": 295
- },
- "fish:trucha_alpina": {
-  "symbol": "art27-fish-trucha_alpina",
-  "width": 512,
-  "height": 361
- },
- "fish:salvelino": {
-  "symbol": "art27-fish-salvelino",
-  "width": 512,
-  "height": 361
- },
- "fish:bacalao_hielo": {
-  "symbol": "art27-fish-bacalao_hielo",
-  "width": 512,
-  "height": 257
- },
- "fish:esturion_blanco": {
-  "symbol": "art27-fish-esturion_blanco",
-  "width": 512,
-  "height": 257
- },
- "fish:pez_lava": {
-  "symbol": "art27-fish-pez_lava",
-  "width": 512,
-  "height": 260
- },
- "fish:mero_obsidiana": {
-  "symbol": "art27-fish-mero_obsidiana",
-  "width": 512,
-  "height": 260
- },
- "fish:pez_escorpion": {
-  "symbol": "art27-fish-pez_escorpion",
-  "width": 512,
-  "height": 278
- },
- "fish:dragon_mar": {
-  "symbol": "art27-fish-dragon_mar",
-  "width": 512,
-  "height": 278
- },
- "fish:carpa_celeste": {
-  "symbol": "art27-fish-carpa_celeste",
-  "width": 512,
-  "height": 248
- },
- "fish:pez_cometa": {
-  "symbol": "art27-fish-pez_cometa",
-  "width": 512,
-  "height": 248
- },
- "fish:raya_aurora": {
-  "symbol": "art27-fish-raya_aurora",
-  "width": 512,
-  "height": 493
- },
- "fish:guardian_mareas": {
-  "symbol": "art27-fish-guardian_mareas",
-  "width": 512,
-  "height": 493
- },
  "rod:e16_rod": {
   "symbol": "art27-rod-e16_rod",
   "width": 1024,
@@ -578,5 +328,355 @@ const E227_ART={
   "symbol": "art27-ui-water",
   "width": 512,
   "height": 384
+ },
+ "fish:gobio_runico": {
+  "symbol": "art28-fish-gobio_runico",
+  "width": 512,
+  "height": 274
+ },
+ "fish:nautilo_bronce": {
+  "symbol": "art28-fish-nautilo_bronce",
+  "width": 512,
+  "height": 274
+ },
+ "fish:congrio_archivo": {
+  "symbol": "art28-fish-congrio_archivo",
+  "width": 512,
+  "height": 276
+ },
+ "fish:tetra_prismatico": {
+  "symbol": "art28-fish-tetra_prismatico",
+  "width": 512,
+  "height": 276
+ },
+ "fish:ajolote_cuarzo": {
+  "symbol": "art28-fish-ajolote_cuarzo",
+  "width": 512,
+  "height": 274
+ },
+ "fish:esturion_geoda": {
+  "symbol": "art28-fish-esturion_geoda",
+  "width": 512,
+  "height": 274
+ },
+ "fish:isopodo_fosil": {
+  "symbol": "art28-fish-isopodo_fosil",
+  "width": 512,
+  "height": 294
+ },
+ "fish:quimera_ambar": {
+  "symbol": "art28-fish-quimera_ambar",
+  "width": 512,
+  "height": 294
+ },
+ "fish:titan_ammonita": {
+  "symbol": "art28-fish-titan_ammonita",
+  "width": 512,
+  "height": 418
+ },
+ "fish:bagre": {
+  "symbol": "art28-fish-bagre",
+  "width": 512,
+  "height": 418
+ },
+ "fish:mojarra": {
+  "symbol": "art28-fish-mojarra",
+  "width": 512,
+  "height": 278
+ },
+ "fish:trucha": {
+  "symbol": "art28-fish-trucha",
+  "width": 512,
+  "height": 278
+ },
+ "fish:salmon": {
+  "symbol": "art28-fish-salmon",
+  "width": 512,
+  "height": 264
+ },
+ "fish:pez_espada": {
+  "symbol": "art28-fish-pez_espada",
+  "width": 512,
+  "height": 264
+ },
+ "fish:carpa_dorada": {
+  "symbol": "art28-fish-carpa_dorada",
+  "width": 512,
+  "height": 273
+ },
+ "fish:trucha_arcoiris": {
+  "symbol": "art28-fish-trucha_arcoiris",
+  "width": 512,
+  "height": 273
+ },
+ "fish:pez_fantasma": {
+  "symbol": "art28-fish-pez_fantasma",
+  "width": 512,
+  "height": 307
+ },
+ "fish:lucio": {
+  "symbol": "art28-fish-lucio",
+  "width": 512,
+  "height": 307
+ },
+ "fish:anguila": {
+  "symbol": "art28-fish-anguila",
+  "width": 512,
+  "height": 414
+ },
+ "fish:lubina": {
+  "symbol": "art28-fish-lubina",
+  "width": 512,
+  "height": 414
+ },
+ "fish:atun": {
+  "symbol": "art28-fish-atun",
+  "width": 512,
+  "height": 269
+ },
+ "fish:mantarraya": {
+  "symbol": "art28-fish-mantarraya",
+  "width": 512,
+  "height": 269
+ },
+ "fish:perca_esmeralda": {
+  "symbol": "art28-fish-perca_esmeralda",
+  "width": 512,
+  "height": 262
+ },
+ "fish:cangrejo_azul": {
+  "symbol": "art28-fish-cangrejo_azul",
+  "width": 512,
+  "height": 262
+ },
+ "fish:koi_imperial": {
+  "symbol": "art28-fish-koi_imperial",
+  "width": 512,
+  "height": 261
+ },
+ "fish:esturion": {
+  "symbol": "art28-fish-esturion",
+  "width": 512,
+  "height": 261
+ },
+ "fish:pez_luna": {
+  "symbol": "art28-fish-pez_luna",
+  "width": 512,
+  "height": 340
+ },
+ "fish:caballito_mar": {
+  "symbol": "art28-fish-caballito_mar",
+  "width": 512,
+  "height": 340
+ },
+ "fish:morena": {
+  "symbol": "art28-fish-morena",
+  "width": 512,
+  "height": 404
+ },
+ "fish:tiburon_arrecife": {
+  "symbol": "art28-fish-tiburon_arrecife",
+  "width": 512,
+  "height": 404
+ },
+ "fish:pez_linternilla": {
+  "symbol": "art28-fish-pez_linternilla",
+  "width": 512,
+  "height": 292
+ },
+ "fish:calamar_abismo": {
+  "symbol": "art28-fish-calamar_abismo",
+  "width": 512,
+  "height": 292
+ },
+ "fish:pez_cristal": {
+  "symbol": "art28-fish-pez_cristal",
+  "width": 512,
+  "height": 291
+ },
+ "fish:leviatan": {
+  "symbol": "art28-fish-leviatan",
+  "width": 512,
+  "height": 291
+ },
+ "fish:sabalo_manglar": {
+  "symbol": "art28-fish-sabalo_manglar",
+  "width": 512,
+  "height": 257
+ },
+ "fish:pez_arquero": {
+  "symbol": "art28-fish-pez_arquero",
+  "width": 512,
+  "height": 257
+ },
+ "fish:anguila_manglar": {
+  "symbol": "art28-fish-anguila_manglar",
+  "width": 512,
+  "height": 316
+ },
+ "fish:tarpon": {
+  "symbol": "art28-fish-tarpon",
+  "width": 512,
+  "height": 316
+ },
+ "fish:trucha_alpina": {
+  "symbol": "art28-fish-trucha_alpina",
+  "width": 512,
+  "height": 380
+ },
+ "fish:salvelino": {
+  "symbol": "art28-fish-salvelino",
+  "width": 512,
+  "height": 380
+ },
+ "fish:bacalao_hielo": {
+  "symbol": "art28-fish-bacalao_hielo",
+  "width": 512,
+  "height": 258
+ },
+ "fish:esturion_blanco": {
+  "symbol": "art28-fish-esturion_blanco",
+  "width": 512,
+  "height": 258
+ },
+ "fish:pez_lava": {
+  "symbol": "art28-fish-pez_lava",
+  "width": 512,
+  "height": 262
+ },
+ "fish:mero_obsidiana": {
+  "symbol": "art28-fish-mero_obsidiana",
+  "width": 512,
+  "height": 262
+ },
+ "fish:pez_escorpion": {
+  "symbol": "art28-fish-pez_escorpion",
+  "width": 512,
+  "height": 302
+ },
+ "fish:dragon_mar": {
+  "symbol": "art28-fish-dragon_mar",
+  "width": 512,
+  "height": 302
+ },
+ "fish:carpa_celeste": {
+  "symbol": "art28-fish-carpa_celeste",
+  "width": 512,
+  "height": 304
+ },
+ "fish:pez_cometa": {
+  "symbol": "art28-fish-pez_cometa",
+  "width": 512,
+  "height": 304
+ },
+ "fish:raya_aurora": {
+  "symbol": "art28-fish-raya_aurora",
+  "width": 512,
+  "height": 410
+ },
+ "fish:guardian_mareas": {
+  "symbol": "art28-fish-guardian_mareas",
+  "width": 512,
+  "height": 410
+ },
+ "medal:muelle": {
+  "symbol": "art28-medal-muelle",
+  "width": 512,
+  "height": 373
+ },
+ "medal:rio": {
+  "symbol": "art28-medal-rio",
+  "width": 512,
+  "height": 373
+ },
+ "medal:costa": {
+  "symbol": "art28-medal-costa",
+  "width": 512,
+  "height": 357
+ },
+ "medal:laguna": {
+  "symbol": "art28-medal-laguna",
+  "width": 512,
+  "height": 357
+ },
+ "medal:arrecife": {
+  "symbol": "art28-medal-arrecife",
+  "width": 512,
+  "height": 367
+ },
+ "medal:abismo": {
+  "symbol": "art28-medal-abismo",
+  "width": 512,
+  "height": 367
+ },
+ "medal:manglar": {
+  "symbol": "art28-medal-manglar",
+  "width": 512,
+  "height": 439
+ },
+ "medal:glaciar": {
+  "symbol": "art28-medal-glaciar",
+  "width": 512,
+  "height": 439
+ },
+ "medal:volcan": {
+  "symbol": "art28-medal-volcan",
+  "width": 512,
+  "height": 360
+ },
+ "medal:santuario": {
+  "symbol": "art28-medal-santuario",
+  "width": 512,
+  "height": 360
+ },
+ "medal:ruinas_sumergidas": {
+  "symbol": "art28-medal-ruinas_sumergidas",
+  "width": 512,
+  "height": 371
+ },
+ "medal:cavernas_cristal": {
+  "symbol": "art28-medal-cavernas_cristal",
+  "width": 512,
+  "height": 371
+ },
+ "medal:abismo_primordial": {
+  "symbol": "art28-medal-abismo_primordial",
+  "width": 512,
+  "height": 374
+ },
+ "ui:quest-delivery": {
+  "symbol": "art28-ui-quest-delivery",
+  "width": 512,
+  "height": 374
+ },
+ "ui:quest-weight": {
+  "symbol": "art28-ui-quest-weight",
+  "width": 512,
+  "height": 431
+ },
+ "ui:quest-exploration": {
+  "symbol": "art28-ui-quest-exploration",
+  "width": 512,
+  "height": 431
+ },
+ "ui:collection-award": {
+  "symbol": "art28-ui-collection-award",
+  "width": 627,
+  "height": 632
+ },
+ "ui:trophy-header": {
+  "symbol": "art28-ui-trophy-header",
+  "width": 627,
+  "height": 632
+ },
+ "ui:shop-header": {
+  "symbol": "art28-ui-shop-header",
+  "width": 627,
+  "height": 622
+ },
+ "ui:record-award": {
+  "symbol": "art28-ui-record-award",
+  "width": 627,
+  "height": 622
  }
 };

@@ -45,7 +45,7 @@ e16Page=function(){
  for(const f of species){
   const data=record.bySpecies[f.id],count=Number(data?.total)||0;
   const unlocked=e16FishLevel()>=f.req;
-  const card=document.createElement('div');card.className='e186Fish';
+  const card=document.createElement('div');card.className='e186Fish';card.dataset.speciesId=f.id;
   if(!count)card.classList.add('e186Unknown');
   if(data?.best==='legendary')card.classList.add('e186Legend');
   const title=document.createElement('strong');title.textContent=count?f.name:(unlocked?'Sin descubrir':'Bloqueado · nivel '+f.req);

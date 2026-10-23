@@ -38,7 +38,7 @@ function openMenu(type,anchor){
    const entry=document.createElement('div');entry.className='e222RodEntry';entry.append(b);
    if(!state.owned?.[item.id]){const link=document.createElement('button');link.type='button';link.className='small e222Obtain';link.textContent=e220RodProvenance(item).quest?'Ver encargo':'Ir a comprar';link.setAttribute('aria-label',link.textContent+': '+item.name);link.onclick=()=>{closeMenu();e222FindRod(item);};entry.append(link);}
    popup.append(entry);
-  }else popup.append(b);
+  }else{b.classList.add('e228ZoneChoice');sym.innerHTML=e227ZoneArt(item,'e228PickerLandscape');title.textContent=item.name+(active?'  ✓':'');desc.textContent=available?item.desc:'Requiere Pesca nivel '+item.req;popup.append(b);}
  });
  if(type==='rod'){e217MenuTools(popup,anchor);popup.querySelector('.e217RodTools button').onclick=closeMenu;}
  document.body.append(popup);const rect=anchor.getBoundingClientRect();const w=popup.offsetWidth,h=popup.offsetHeight;

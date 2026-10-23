@@ -1,0 +1,878 @@
+{
+  "seed": 280099,
+  "runs": 3000,
+  "assumptions": "Nivel 100, suerte 0, capacidad suficiente, todas las capturas exitosas y pesos uniformes del juego. No simula fallos, entradas humanas, traslado, XP ni tiempo de sesión. Intentos hasta objetivo desde cero.",
+  "zones": [
+    {
+      "id": "muelle",
+      "name": "Muelle del pueblo",
+      "access": 1,
+      "species": [
+        {
+          "id": "mojarra",
+          "p": 0.4879395710223066,
+          "access": 1,
+          "weight": [
+            0.1,
+            0.65
+          ]
+        },
+        {
+          "id": "bagre",
+          "p": 0.28552819115493816,
+          "access": 3,
+          "weight": [
+            1,
+            6
+          ]
+        },
+        {
+          "id": "trucha",
+          "p": 0.16190495763437793,
+          "access": 5,
+          "weight": [
+            0.6,
+            3.5
+          ]
+        },
+        {
+          "id": "carpa_dorada",
+          "p": 0.041546108692528345,
+          "access": 1,
+          "weight": [
+            1,
+            7
+          ]
+        },
+        {
+          "id": "trucha_arcoiris",
+          "p": 0.023081171495849085,
+          "access": 6,
+          "weight": [
+            0.5,
+            4
+          ]
+        }
+      ],
+      "quests": 1,
+      "main": 1,
+      "offeredRods": 4,
+      "collection": {
+        "mean": 52.5,
+        "median": 41,
+        "p90": 104
+      },
+      "alternatives": []
+    },
+    {
+      "id": "rio",
+      "name": "Río del Bosque",
+      "access": 8,
+      "species": [
+        {
+          "id": "bagre",
+          "p": 0.37687482404110006,
+          "access": 8,
+          "weight": [
+            1,
+            6
+          ]
+        },
+        {
+          "id": "trucha",
+          "p": 0.21370184909947257,
+          "access": 8,
+          "weight": [
+            0.6,
+            3.5
+          ]
+        },
+        {
+          "id": "salmon",
+          "p": 0.1462336155763814,
+          "access": 10,
+          "weight": [
+            2,
+            12
+          ]
+        },
+        {
+          "id": "trucha_arcoiris",
+          "p": 0.030465336578412796,
+          "access": 8,
+          "weight": [
+            0.5,
+            4
+          ]
+        },
+        {
+          "id": "lucio",
+          "p": 0.16570063423212492,
+          "access": 8,
+          "weight": [
+            2,
+            14
+          ]
+        },
+        {
+          "id": "anguila",
+          "p": 0.06702374047250814,
+          "access": 11,
+          "weight": [
+            0.5,
+            4
+          ]
+        }
+      ],
+      "quests": 8,
+      "main": 8,
+      "offeredRods": 12,
+      "collection": {
+        "mean": 37.5,
+        "median": 29,
+        "p90": 74
+      },
+      "alternatives": []
+    },
+    {
+      "id": "costa",
+      "name": "Costa de las Brumas",
+      "access": 18,
+      "species": [
+        {
+          "id": "salmon",
+          "p": 0.2762430939226519,
+          "access": 18,
+          "weight": [
+            2,
+            12
+          ]
+        },
+        {
+          "id": "pez_espada",
+          "p": 0.2762430939226519,
+          "access": 18,
+          "weight": [
+            18,
+            110
+          ]
+        },
+        {
+          "id": "pez_fantasma",
+          "p": 0.027624309392265192,
+          "access": 18,
+          "weight": [
+            0.3,
+            4
+          ]
+        },
+        {
+          "id": "lubina",
+          "p": 0.2762430939226519,
+          "access": 18,
+          "weight": [
+            1,
+            8
+          ]
+        },
+        {
+          "id": "atun",
+          "p": 0.1160220994475138,
+          "access": 24,
+          "weight": [
+            35,
+            160
+          ]
+        },
+        {
+          "id": "mantarraya",
+          "p": 0.027624309392265192,
+          "access": 30,
+          "weight": [
+            55,
+            320
+          ]
+        }
+      ],
+      "quests": 1,
+      "main": 1,
+      "offeredRods": 4,
+      "collection": {
+        "mean": 54.1,
+        "median": 44,
+        "p90": 103
+      },
+      "alternatives": []
+    },
+    {
+      "id": "laguna",
+      "name": "Laguna Esmeralda",
+      "access": 22,
+      "species": [
+        {
+          "id": "trucha_arcoiris",
+          "p": 0.06742455464588752,
+          "access": 22,
+          "weight": [
+            0.5,
+            4
+          ]
+        },
+        {
+          "id": "perca_esmeralda",
+          "p": 0.38410913402256686,
+          "access": 22,
+          "weight": [
+            0.4,
+            3
+          ]
+        },
+        {
+          "id": "cangrejo_azul",
+          "p": 0.35967755832306064,
+          "access": 22,
+          "weight": [
+            0.2,
+            2
+          ]
+        },
+        {
+          "id": "koi_imperial",
+          "p": 0.12136419836259751,
+          "access": 25,
+          "weight": [
+            2,
+            14
+          ]
+        },
+        {
+          "id": "esturion",
+          "p": 0.06742455464588752,
+          "access": 28,
+          "weight": [
+            12,
+            65
+          ]
+        }
+      ],
+      "quests": 1,
+      "main": 1,
+      "offeredRods": 3,
+      "collection": {
+        "mean": 24,
+        "median": 20,
+        "p90": 44
+      },
+      "alternatives": []
+    },
+    {
+      "id": "arrecife",
+      "name": "Arrecife de Coral",
+      "access": 32,
+      "species": [
+        {
+          "id": "lubina",
+          "p": 0.2376237623762376,
+          "access": 32,
+          "weight": [
+            1,
+            8
+          ]
+        },
+        {
+          "id": "pez_luna",
+          "p": 0.2376237623762376,
+          "access": 32,
+          "weight": [
+            5,
+            35
+          ]
+        },
+        {
+          "id": "caballito_mar",
+          "p": 0.2376237623762376,
+          "access": 33,
+          "weight": [
+            0.02,
+            0.15
+          ]
+        },
+        {
+          "id": "morena",
+          "p": 0.2376237623762376,
+          "access": 35,
+          "weight": [
+            3,
+            18
+          ]
+        },
+        {
+          "id": "tiburon_arrecife",
+          "p": 0.04950495049504951,
+          "access": 38,
+          "weight": [
+            40,
+            220
+          ]
+        }
+      ],
+      "quests": 1,
+      "main": 1,
+      "offeredRods": 4,
+      "collection": {
+        "mean": 22.5,
+        "median": 16,
+        "p90": 47
+      },
+      "alternatives": []
+    },
+    {
+      "id": "abismo",
+      "name": "Fosa de las Sombras",
+      "access": 43,
+      "species": [
+        {
+          "id": "mantarraya",
+          "p": 0.04270462633451957,
+          "access": 43,
+          "weight": [
+            55,
+            320
+          ]
+        },
+        {
+          "id": "pez_linternilla",
+          "p": 0.4270462633451957,
+          "access": 43,
+          "weight": [
+            0.1,
+            1.5
+          ]
+        },
+        {
+          "id": "calamar_abismo",
+          "p": 0.4270462633451957,
+          "access": 45,
+          "weight": [
+            4,
+            40
+          ]
+        },
+        {
+          "id": "pez_cristal",
+          "p": 0.07117437722419928,
+          "access": 47,
+          "weight": [
+            0.2,
+            2
+          ]
+        },
+        {
+          "id": "leviatan",
+          "p": 0.032028469750889674,
+          "access": 50,
+          "weight": [
+            180,
+            900
+          ]
+        }
+      ],
+      "quests": 1,
+      "main": 1,
+      "offeredRods": 3,
+      "collection": {
+        "mean": 43.7,
+        "median": 36,
+        "p90": 82
+      },
+      "alternatives": []
+    },
+    {
+      "id": "manglar",
+      "name": "Manglares Susurrantes",
+      "access": 52,
+      "species": [
+        {
+          "id": "sabalo_manglar",
+          "p": 0.37725984530722306,
+          "access": 52,
+          "weight": [
+            3,
+            14
+          ]
+        },
+        {
+          "id": "pez_arquero",
+          "p": 0.3297194475171273,
+          "access": 54,
+          "weight": [
+            0.2,
+            2
+          ]
+        },
+        {
+          "id": "anguila_manglar",
+          "p": 0.2204138062825683,
+          "access": 57,
+          "weight": [
+            1,
+            9
+          ]
+        },
+        {
+          "id": "tarpon",
+          "p": 0.07260690089308132,
+          "access": 60,
+          "weight": [
+            22,
+            140
+          ]
+        }
+      ],
+      "quests": 3,
+      "main": 0,
+      "offeredRods": 2,
+      "collection": {
+        "mean": 15.2,
+        "median": 11,
+        "p90": 31
+      },
+      "alternatives": [
+        {
+          "id": "manglar_cauce28",
+          "title": "El pulso de las raíces",
+          "rodId": "e208_rod_mangle_cauce",
+          "goals": [
+            {
+              "kind": "speciesCount",
+              "id": "pez_arquero",
+              "need": 6
+            },
+            {
+              "kind": "speciesCount",
+              "id": "anguila_manglar",
+              "need": 4
+            }
+          ],
+          "attempts": {
+            "mean": 22.9,
+            "median": 22,
+            "p90": 32
+          }
+        }
+      ]
+    },
+    {
+      "id": "glaciar",
+      "name": "Lago del Glaciar",
+      "access": 62,
+      "species": [
+        {
+          "id": "trucha_alpina",
+          "p": 0.3712471992411916,
+          "access": 62,
+          "weight": [
+            2,
+            12
+          ]
+        },
+        {
+          "id": "salvelino",
+          "p": 0.346102459133289,
+          "access": 65,
+          "weight": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "bacalao_hielo",
+          "p": 0.21631403695830564,
+          "access": 68,
+          "weight": [
+            8,
+            75
+          ]
+        },
+        {
+          "id": "esturion_blanco",
+          "p": 0.06633630466721373,
+          "access": 71,
+          "weight": [
+            100,
+            500
+          ]
+        }
+      ],
+      "quests": 6,
+      "main": 6,
+      "offeredRods": 8,
+      "collection": {
+        "mean": 16.6,
+        "median": 12,
+        "p90": 33
+      },
+      "alternatives": []
+    },
+    {
+      "id": "volcan",
+      "name": "Bahía Volcánica",
+      "access": 73,
+      "species": [
+        {
+          "id": "pez_lava",
+          "p": 0.38216560509554137,
+          "access": 73,
+          "weight": [
+            0.5,
+            6
+          ]
+        },
+        {
+          "id": "mero_obsidiana",
+          "p": 0.38216560509554137,
+          "access": 76,
+          "weight": [
+            30,
+            190
+          ]
+        },
+        {
+          "id": "pez_escorpion",
+          "p": 0.18471337579617836,
+          "access": 79,
+          "weight": [
+            1,
+            9
+          ]
+        },
+        {
+          "id": "dragon_mar",
+          "p": 0.050955414012738856,
+          "access": 82,
+          "weight": [
+            250,
+            1400
+          ]
+        }
+      ],
+      "quests": 3,
+      "main": 0,
+      "offeredRods": 2,
+      "collection": {
+        "mean": 20.9,
+        "median": 15,
+        "p90": 44
+      },
+      "alternatives": [
+        {
+          "id": "volcan_destello28",
+          "title": "Templar la corriente",
+          "rodId": "e208_rod_obsidiana_destello",
+          "goals": [
+            {
+              "kind": "speciesCount",
+              "id": "mero_obsidiana",
+              "need": 6
+            },
+            {
+              "kind": "speciesCount",
+              "id": "pez_escorpion",
+              "need": 4
+            },
+            {
+              "kind": "weight",
+              "need": 90
+            }
+          ],
+          "attempts": {
+            "mean": 23.8,
+            "median": 22,
+            "p90": 35
+          }
+        }
+      ]
+    },
+    {
+      "id": "santuario",
+      "name": "Santuario Celestial",
+      "access": 85,
+      "species": [
+        {
+          "id": "carpa_celeste",
+          "p": 0.5504587155963303,
+          "access": 85,
+          "weight": [
+            30,
+            160
+          ]
+        },
+        {
+          "id": "pez_cometa",
+          "p": 0.2981651376146789,
+          "access": 89,
+          "weight": [
+            1,
+            10
+          ]
+        },
+        {
+          "id": "raya_aurora",
+          "p": 0.11467889908256881,
+          "access": 93,
+          "weight": [
+            120,
+            650
+          ]
+        },
+        {
+          "id": "guardian_mareas",
+          "p": 0.03669724770642202,
+          "access": 98,
+          "weight": [
+            600,
+            2400
+          ]
+        }
+      ],
+      "quests": 6,
+      "main": 6,
+      "offeredRods": 8,
+      "collection": {
+        "mean": 29.3,
+        "median": 22,
+        "p90": 61
+      },
+      "alternatives": []
+    },
+    {
+      "id": "ruinas_sumergidas",
+      "name": "Ruinas Sumergidas",
+      "access": 88,
+      "species": [
+        {
+          "id": "calamar_abismo",
+          "p": 0.3116883116883117,
+          "access": 88,
+          "weight": [
+            4,
+            40
+          ]
+        },
+        {
+          "id": "gobio_runico",
+          "p": 0.3116883116883117,
+          "access": 88,
+          "weight": [
+            2,
+            18
+          ]
+        },
+        {
+          "id": "nautilo_bronce",
+          "p": 0.3116883116883117,
+          "access": 90,
+          "weight": [
+            8,
+            55
+          ]
+        },
+        {
+          "id": "congrio_archivo",
+          "p": 0.06493506493506494,
+          "access": 92,
+          "weight": [
+            35,
+            210
+          ]
+        }
+      ],
+      "quests": 2,
+      "main": 1,
+      "offeredRods": 0,
+      "collection": {
+        "mean": 16.6,
+        "median": 12,
+        "p90": 34
+      },
+      "alternatives": [
+        {
+          "id": "ruinas_ancla28",
+          "title": "Ancla del archivero",
+          "rodId": "e208_rod_obsidiana_titan",
+          "goals": [
+            {
+              "kind": "speciesCount",
+              "id": "nautilo_bronce",
+              "need": 6
+            },
+            {
+              "kind": "speciesCount",
+              "id": "congrio_archivo",
+              "need": 1
+            }
+          ],
+          "attempts": {
+            "mean": 24.1,
+            "median": 22,
+            "p90": 36
+          }
+        }
+      ]
+    },
+    {
+      "id": "cavernas_cristal",
+      "name": "Cavernas de Cristal",
+      "access": 94,
+      "species": [
+        {
+          "id": "pez_cristal",
+          "p": 0.10666666666666667,
+          "access": 94,
+          "weight": [
+            0.2,
+            2
+          ]
+        },
+        {
+          "id": "tetra_prismatico",
+          "p": 0.64,
+          "access": 94,
+          "weight": [
+            0.3,
+            3
+          ]
+        },
+        {
+          "id": "ajolote_cuarzo",
+          "p": 0.18666666666666668,
+          "access": 96,
+          "weight": [
+            1,
+            8
+          ]
+        },
+        {
+          "id": "esturion_geoda",
+          "p": 0.06666666666666667,
+          "access": 97,
+          "weight": [
+            90,
+            480
+          ]
+        }
+      ],
+      "quests": 2,
+      "main": 1,
+      "offeredRods": 0,
+      "collection": {
+        "mean": 19.1,
+        "median": 15,
+        "p90": 36
+      },
+      "alternatives": [
+        {
+          "id": "cristal_pulso28",
+          "title": "Afinación prismática",
+          "rodId": "e208_rod_celeste_pulso",
+          "goals": [
+            {
+              "kind": "speciesCount",
+              "id": "tetra_prismatico",
+              "need": 8
+            },
+            {
+              "kind": "speciesCount",
+              "id": "ajolote_cuarzo",
+              "need": 4
+            }
+          ],
+          "attempts": {
+            "mean": 22.6,
+            "median": 20,
+            "p90": 34
+          }
+        }
+      ]
+    },
+    {
+      "id": "abismo_primordial",
+      "name": "Abismo Primordial",
+      "access": 99,
+      "species": [
+        {
+          "id": "pez_linternilla",
+          "p": 0.4270462633451957,
+          "access": 99,
+          "weight": [
+            0.1,
+            1.5
+          ]
+        },
+        {
+          "id": "isopodo_fosil",
+          "p": 0.4270462633451957,
+          "access": 99,
+          "weight": [
+            12,
+            80
+          ]
+        },
+        {
+          "id": "quimera_ambar",
+          "p": 0.12455516014234876,
+          "access": 99,
+          "weight": [
+            50,
+            320
+          ]
+        },
+        {
+          "id": "titan_ammonita",
+          "p": 0.021352313167259784,
+          "access": 100,
+          "weight": [
+            300,
+            1800
+          ]
+        }
+      ],
+      "quests": 2,
+      "main": 1,
+      "offeredRods": 0,
+      "collection": {
+        "mean": 48.3,
+        "median": 34,
+        "p90": 105
+      },
+      "alternatives": [
+        {
+          "id": "primordial_reliquia28",
+          "title": "Memoria de las mareas",
+          "rodId": "e208_rod_celeste_reliquia",
+          "goals": [
+            {
+              "kind": "speciesCount",
+              "id": "isopodo_fosil",
+              "need": 10
+            },
+            {
+              "kind": "speciesCount",
+              "id": "quimera_ambar",
+              "need": 3
+            },
+            {
+              "kind": "weight",
+              "need": 240
+            }
+          ],
+          "attempts": {
+            "mean": 32.3,
+            "median": 29,
+            "p90": 48
+          }
+        }
+      ]
+    }
+  ]
+}

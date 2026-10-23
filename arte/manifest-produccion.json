@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "build": "estable-27",
+  "build": "estable-28",
   "runtimeInput": false,
-  "source": "inventario-estable27.json + produccion-estable27.json",
+  "source": "inventario-estable28.json + produccion-estable28.json",
   "measuredBoxes": {
     "hudHeight": 118,
     "desktop": {
@@ -109,17 +109,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-mojarra",
+        "symbol": "art28-fish-mojarra",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-061f227b0a66"
+        "key": "atlas-80b5eaf896ca"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo pequeño comprimido, plateado, escamas finas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -141,17 +141,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-bagre",
+        "symbol": "art28-fish-bagre",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-54010b796735"
+        "key": "atlas-b01b01781e0c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cabeza ancha, bigotes largos completos, piel lisa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -173,17 +173,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-trucha",
+        "symbol": "art28-fish-trucha",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-13cdf9a08320"
+        "key": "atlas-c8ac4332b009"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido moteado, aleta adiposa visible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -205,17 +205,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-salmon",
+        "symbol": "art28-fish-salmon",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-15e9e2ccbbb9"
+        "key": "atlas-23cea7adfcb2"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido cobrizo de lomo arqueado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -237,17 +237,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_espada",
+        "symbol": "art28-fish-pez_espada",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-cf844bb6282c"
+        "key": "atlas-1632ac9a42fd"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pico largo íntegro y cola falcada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -269,17 +269,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-carpa_dorada",
+        "symbol": "art28-fish-carpa_dorada",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-12bfc2c1b1af"
+        "key": "atlas-027971e0929e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa de escamas doradas y barbillones. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -301,22 +301,22 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-trucha_arcoiris",
+        "symbol": "art28-fish-trucha_arcoiris",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-513e390ff12b"
+        "key": "atlas-5b720315551f"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Franja rosada lateral y motas negras. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
       "id": "fish:pez_fantasma",
-      "name": "Pez fantasma ★",
+      "name": "Pez fantasma",
       "kind": "fish",
       "uses": [
         "collection",
@@ -333,17 +333,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_fantasma",
+        "symbol": "art28-fish-pez_fantasma",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-d3a3b6a8f13a"
+        "key": "atlas-cdbd5ce31fca"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Silueta translúcida con esqueleto insinuado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -365,17 +365,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-lucio",
+        "symbol": "art28-fish-lucio",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-277b1d6c4feb"
+        "key": "atlas-78afd2ec7e5a"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Hocico aplanado y cuerpo largo moteado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -397,17 +397,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-anguila",
+        "symbol": "art28-fish-anguila",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-ccb7788f45f9"
+        "key": "atlas-d8866eb95585"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo serpentino oscuro con destellos eléctricos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -429,17 +429,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-lubina",
+        "symbol": "art28-fish-lubina",
         "resourceIds": [
-          "image-82091950e1231823"
+          "image-a7fc23853a1928de"
         ],
-        "key": "atlas-89e582d6d54c"
+        "key": "atlas-b9d99e2aff41"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Lubina plateada de doble dorsal. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-82091950e1231823"
+        "image-a7fc23853a1928de"
       ]
     },
     {
@@ -461,17 +461,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-atun",
+        "symbol": "art28-fish-atun",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-ce7181fea306"
+        "key": "atlas-a64ea55698b7"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo fusiforme potente y aletillas amarillas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -493,17 +493,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-mantarraya",
+        "symbol": "art28-fish-mantarraya",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-54d2618c78ac"
+        "key": "atlas-206be4d90956"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Disco ancho, dos lóbulos cefálicos, cola completa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -525,17 +525,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-perca_esmeralda",
+        "symbol": "art28-fish-perca_esmeralda",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-d5993f9fc29c"
+        "key": "atlas-26b7f744cdc1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo alto esmeralda, dorsal espinosa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -557,17 +557,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-cangrejo_azul",
+        "symbol": "art28-fish-cangrejo_azul",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-327e9def3d53"
+        "key": "atlas-1c617d35fba9"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Caparazón ancho y ambas pinzas azules completas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -589,17 +589,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-koi_imperial",
+        "symbol": "art28-fish-koi_imperial",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-d4c3a809cfba"
+        "key": "atlas-d41fe3364d8b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa blanca naranja roja, aletas fluidas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -621,17 +621,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-esturion",
+        "symbol": "art28-fish-esturion",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-476e482c2ad3"
+        "key": "atlas-784fb9dac05a"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Hocico largo, escudos óseos y barbillones. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -653,17 +653,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_luna",
+        "symbol": "art28-fish-pez_luna",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-708f8bea77b2"
+        "key": "atlas-dbb5d58c83ce"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo discoidal, aletas altas, sin cola inventada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -685,17 +685,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-caballito_mar",
+        "symbol": "art28-fish-caballito_mar",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-290b26e09f77"
+        "key": "atlas-5fe14e70023c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Perfil vertical, hocico tubular y cola enrollada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -717,17 +717,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-morena",
+        "symbol": "art28-fish-morena",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-310fbb852f9a"
+        "key": "atlas-4c83e7a2260e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cabeza maciza sin aletas pectorales, cuerpo sinuoso. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -749,17 +749,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-tiburon_arrecife",
+        "symbol": "art28-fish-tiburon_arrecife",
         "resourceIds": [
-          "image-f3728b043056d027"
+          "image-a2cd505cb9c93d84"
         ],
-        "key": "atlas-bfe413110a5c"
+        "key": "atlas-92d4281e0b28"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Silueta de tiburón estilizado, todas las aletas visibles. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f3728b043056d027"
+        "image-a2cd505cb9c93d84"
       ]
     },
     {
@@ -781,17 +781,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_linternilla",
+        "symbol": "art28-fish-pez_linternilla",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-563d216a500d"
+        "key": "atlas-a04370da1daa"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez abisal oscuro, fotóforos pequeños. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -813,17 +813,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-calamar_abismo",
+        "symbol": "art28-fish-calamar_abismo",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-86453a33de8a"
+        "key": "atlas-b28615e9a213"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Manto alargado, ocho brazos y dos tentáculos completos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -845,17 +845,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_cristal",
+        "symbol": "art28-fish-pez_cristal",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-543675336645"
+        "key": "atlas-95a6ad506afa"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez translúcido con reflejos cian. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -877,17 +877,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-leviatan",
+        "symbol": "art28-fish-leviatan",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-e0ee952db242"
+        "key": "atlas-af19e193d711"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cría marina serpentina con mandíbula reconocible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -909,17 +909,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-sabalo_manglar",
+        "symbol": "art28-fish-sabalo_manglar",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-71aa167aee40"
+        "key": "atlas-771a6ff397ab"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Sábalo comprimido de escamas grandes. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -941,17 +941,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_arquero",
+        "symbol": "art28-fish-pez_arquero",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-8cdcf45e39c5"
+        "key": "atlas-20a39ba0b1d7"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo romboidal plateado con bandas negras. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -973,17 +973,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-anguila_manglar",
+        "symbol": "art28-fish-anguila_manglar",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-61dca6f74d39"
+        "key": "atlas-ef7e269a1400"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Anguila sinuosa verde pardo entre reflejos de raíces. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -1005,17 +1005,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-tarpon",
+        "symbol": "art28-fish-tarpon",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-6f6f308458fc"
+        "key": "atlas-2a4f3e22d976"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Tarpón plateado de mandíbula superior grande. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -1037,17 +1037,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-trucha_alpina",
+        "symbol": "art28-fish-trucha_alpina",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-24cfc3b5dbdf"
+        "key": "atlas-540a0c77a325"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Trucha moteada con vientre frío plateado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -1069,17 +1069,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-salvelino",
+        "symbol": "art28-fish-salvelino",
         "resourceIds": [
-          "image-f9699b6e773e6798"
+          "image-0bbe149bf4a3216a"
         ],
-        "key": "atlas-8f58f91dc116"
+        "key": "atlas-9207b8bbcd99"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido oscuro con puntos claros y vientre naranja. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-f9699b6e773e6798"
+        "image-0bbe149bf4a3216a"
       ]
     },
     {
@@ -1101,17 +1101,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-bacalao_hielo",
+        "symbol": "art28-fish-bacalao_hielo",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-635816c0b92d"
+        "key": "atlas-ef1df758a4f7"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Bacalao con barbilla y tres dorsales. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1133,17 +1133,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-esturion_blanco",
+        "symbol": "art28-fish-esturion_blanco",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-0c0ccae63c82"
+        "key": "atlas-2a92bd08f39c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Esturión pálido de escudos prominentes. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1165,17 +1165,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_lava",
+        "symbol": "art28-fish-pez_lava",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-a97d86121162"
+        "key": "atlas-009b00180ee0"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez oscuro con grietas cálidas discretas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1197,17 +1197,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-mero_obsidiana",
+        "symbol": "art28-fish-mero_obsidiana",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-80bbc7011834"
+        "key": "atlas-f5c75abbdfe2"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Mero macizo de boca ancha, escamas negras facetadas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1229,17 +1229,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_escorpion",
+        "symbol": "art28-fish-pez_escorpion",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-4272884a7abe"
+        "key": "atlas-96e01d35a5e1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Aletas radiales espinosas, patrón rojo pardo. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1261,17 +1261,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-dragon_mar",
+        "symbol": "art28-fish-dragon_mar",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-7aac9e33c203"
+        "key": "atlas-9a53f7bcc6af"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo fino con apéndices foliares completos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1293,17 +1293,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-carpa_celeste",
+        "symbol": "art28-fish-carpa_celeste",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-b5c865a08a37"
+        "key": "atlas-9d67b4ba9862"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa azul perla con escamas estelares discretas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1325,17 +1325,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-pez_cometa",
+        "symbol": "art28-fish-pez_cometa",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-285bc68be99e"
+        "key": "atlas-5ff6f7b7b1d9"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez compacto con cola larga bifurcada luminosa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1357,17 +1357,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-raya_aurora",
+        "symbol": "art28-fish-raya_aurora",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-46def85c8d6c"
+        "key": "atlas-2f35276a9e36"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Raya de disco ancho con bordes iridiscentes y cola larga. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1389,17 +1389,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-guardian_mareas",
+        "symbol": "art28-fish-guardian_mareas",
         "resourceIds": [
-          "image-efd99f37bf2e49e5"
+          "image-971850f2d089619f"
         ],
-        "key": "atlas-e9cf2cf6eb76"
+        "key": "atlas-c469d87b6f04"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Coloso marino de silueta propia, cresta de mareas y cabeza visible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-efd99f37bf2e49e5"
+        "image-971850f2d089619f"
       ]
     },
     {
@@ -1421,17 +1421,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-gobio_runico",
+        "symbol": "art28-fish-gobio_runico",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-2cff82e70a4a"
+        "key": "atlas-5be7c31a46d9"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Gobio compacto de escamas pétreas, una runa tenue en el opérculo; no joyas flotantes.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1453,17 +1453,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-nautilo_bronce",
+        "symbol": "art28-fish-nautilo_bronce",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-e891bd4260d9"
+        "key": "atlas-9dc00fbc146b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Concha espiral segmentada de bronce natural, tentáculos cortos completos.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1485,17 +1485,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-congrio_archivo",
+        "symbol": "art28-fish-congrio_archivo",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-634e16f17f5f"
+        "key": "atlas-66b3b5acd171"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Congrio alargado color pergamino, cabeza claramente distinguible y cuerpo curvado entero.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1517,17 +1517,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-tetra_prismatico",
+        "symbol": "art28-fish-tetra_prismatico",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-7ecbc4c6c948"
+        "key": "atlas-23b7c94197e5"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Tetra de cuerpo alto translúcido con reflejos prismáticos sutiles, anatomía real.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1549,17 +1549,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-ajolote_cuarzo",
+        "symbol": "art28-fish-ajolote_cuarzo",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-9eaac6ee1445"
+        "key": "atlas-9fb7f54400bc"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Ajolote pálido con seis branquias externas cristalinas, cuatro patas visibles; no pez genérico.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1581,17 +1581,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-esturion_geoda",
+        "symbol": "art28-fish-esturion_geoda",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-caf769009854"
+        "key": "atlas-1be293ea303c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Esturión robusto, placas de cuarzo azul y hocico largo; nada de letras sobre el cuerpo.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1613,17 +1613,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-isopodo_fosil",
+        "symbol": "art28-fish-isopodo_fosil",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-706111a961ba"
+        "key": "atlas-058235681f26"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Crustáceo segmentado, patas completas y caparazón oscuro con bordes ámbar.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1645,17 +1645,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-quimera_ambar",
+        "symbol": "art28-fish-quimera_ambar",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-5bbb1523e0c4"
+        "key": "atlas-2c87f59e69c6"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Quimera abisal de hocico corto, aletas amplias y cola filiforme íntegra.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -1677,17 +1677,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-fish-titan_ammonita",
+        "symbol": "art28-fish-titan_ammonita",
         "resourceIds": [
-          "image-0375b1f014dfc2b6"
+          "image-1b233a5c9ff21cc6"
         ],
-        "key": "atlas-10646e86b923"
+        "key": "atlas-0e710f63f973"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cefalópodo de gran concha espiral fósil y brazos separados legibles; no copiar al Guardián.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0375b1f014dfc2b6"
+        "image-1b233a5c9ff21cc6"
       ]
     },
     {
@@ -3923,6 +3923,286 @@
       "action": "keep-review",
       "brief": "Insignia de pergamino pequeña. Sin texto incrustado. No reservar espacio ni cambiar geometría del HUD.",
       "resourceIds": []
+    },
+    {
+      "id": "medal:muelle",
+      "name": "muelle",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:rio",
+      "name": "rio",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:costa",
+      "name": "costa",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:laguna",
+      "name": "laguna",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:arrecife",
+      "name": "arrecife",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:abismo",
+      "name": "abismo",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:manglar",
+      "name": "manglar",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:glaciar",
+      "name": "glaciar",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a3d730d4fe3e497d"
+      ]
+    },
+    {
+      "id": "medal:volcan",
+      "name": "volcan",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "medal:santuario",
+      "name": "santuario",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "medal:ruinas_sumergidas",
+      "name": "ruinas_sumergidas",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "medal:cavernas_cristal",
+      "name": "cavernas_cristal",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "medal:abismo_primordial",
+      "name": "abismo_primordial",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "ui:quest-delivery",
+      "name": "quest-delivery",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "ui:quest-weight",
+      "name": "quest-weight",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "ui:quest-exploration",
+      "name": "quest-exploration",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-06fd5cdd3eb83666"
+      ]
+    },
+    {
+      "id": "ui:collection-award",
+      "name": "collection-award",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22d38812dda63479"
+      ]
+    },
+    {
+      "id": "ui:trophy-header",
+      "name": "trophy-header",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22d38812dda63479"
+      ]
+    },
+    {
+      "id": "ui:shop-header",
+      "name": "shop-header",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22d38812dda63479"
+      ]
+    },
+    {
+      "id": "ui:record-award",
+      "name": "record-award",
+      "kind": "ui",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22d38812dda63479"
+      ]
     }
   ]
 }

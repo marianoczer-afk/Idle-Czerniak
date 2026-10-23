@@ -1,0 +1,16 @@
+✔ Generated single HTML is current, deterministic and contains no development tokens (336.662588ms)
+✔ Source catalogues and original/runtime resources are complete and authenticated (103.873192ms)
+✔ Unmodified engines and bottom HUD stylesheet preserve the Estable 25 baseline (39.106369ms)
+✔ Estable 28 exact HUD geometry, full mystery and trophy interactions 1366 (3479.397751ms)
+✔ Estable 28 exact HUD geometry, full mystery and trophy interactions 390 (2986.067631ms)
+✔ Estable 28 five alternate rod quests recognize local history, grant once and preserve gold/inventory (2515.984378ms)
+✔ Estable 28 collection claims are prestige only; historical flags/gold unchanged and no duplicate trophy IDs (1230.563254ms)
+✔ Estable 28 rarity order is stable, uses actual normalized probabilities, and medals are distinct assets (1130.029017ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11880.444696

@@ -12,11 +12,11 @@ function e1107Sync(){
   if(!info){info=document.createElement('div');info.className='e1107RodPanel';equipment.append(info);}
   if(on){
    const rod=e161Rod(),st=rod?e1101Stats(rod):null;
-   const fields=st?[['⚡ Atracción',st.speed+'%'],['🍀 Suerte',st.luck+'%'],['🎯 Control','+'+e190ControlPercent(st.control)+'% de barra'],['🛡 Resiliencia',st.resilience+'%'],['🏆 Trofeos',st.trophy+'%'],['⚖ Peso máximo',e190Kg(e190Capacity(rod))]]:[];
+   const fields=st?[['speed|Atracción',st.speed+'%'],['luck|Suerte',st.luck+'%'],['control|Control','+'+e190ControlPercent(st.control)+'% de barra'],['resilience|Resiliencia',st.resilience+'%'],['trophy|Trofeos',st.trophy+'%'],['maxKg|Peso máximo',e190Kg(e190Capacity(rod))]]:[];
    const key=JSON.stringify([rod?.name,fields]);
    if(info.dataset.renderKey!==key){info.dataset.renderKey=key;
-   info.innerHTML='<div class="e1107RodName">'+(rod?'🎣 '+rod.name:'Sin caña equipada')+'</div>'+
-    '<div class="e1107RodStats">'+fields.map(([name,value])=>'<div>'+name+'<b>'+value+'</b></div>').join('')+'</div>'+
+   info.innerHTML=(rod&&typeof e227Illustration==='function'?e227Illustration('rod',rod.id,'e228SidebarRod'):'')+'<div class="e1107RodName">'+(rod?'🎣 '+rod.name:'Sin caña equipada')+'</div>'+
+    '<div class="e1107RodStats">'+fields.map(([name,value])=>'<div>'+e228Icon(name.split('|')[0])+name.split('|')[1]+'<b>'+value+'</b></div>').join('')+'</div>'+
     '<div class="e1107RodHelp">Atracción acelera la picada y reduce los toques previos; suerte mejora la aparición de peces raros; control amplía la barra; resiliencia ayuda con peces difíciles; trofeos mejora los ejemplares especiales.</div>';}
   }
  }

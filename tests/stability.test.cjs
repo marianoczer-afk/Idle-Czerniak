@@ -77,7 +77,7 @@ for(const width of [1366,390])test(`Fishing context, mystery, invariant phases, 
   }
 
   const mystery=async()=>{
-   assert.equal(await page.locator('#e188FishingHud .e189Art img,#e188FishingHud .e189Art svg:not(.fishMysteryArt)').count(),0);
+   assert.equal(await page.locator('#e188FishingHud .e189Art img,#e188FishingHud .e189Art svg.fishIllustration').count(),0);
    assert.doesNotMatch(await page.locator('#e188FishingHud').innerText(),/Atún|atun|Grande|Legendario/);
    assert.equal(await page.locator('#e188FishingHud .fishMysteryArt').count(),0);
    assert.match(await page.locator('#e188HudTitle').innerText(),/Última captura/);
@@ -263,7 +263,7 @@ for(const width of [1366,1024,390])test(`Collection: images and full text fit ea
   }));
   assert.equal(cards.length,5);
   for(const card of cards){assert.ok(card.overflow<=1,JSON.stringify(card));assert.ok(card.imageInside&&card.textInside&&card.below,JSON.stringify(card));assert.equal(card.fit,'contain');}
-  assert.match(cards[0].text,/Trucha arcoíris/);assert.match(cards[1].text,/Perca esmeralda/);assert.match(cards[2].text,/Sin descubrir/);
+  assert.match(await page.locator('[data-species-id="trucha_arcoiris"] strong').innerText(),/Trucha arcoíris/);assert.match(await page.locator('[data-species-id="perca_esmeralda"] strong').innerText(),/Perca esmeralda/);assert.equal(await page.locator('.e186Unknown strong').evaluateAll(ns=>ns.every(n=>/Especie desconocida/.test(n.textContent))),true);
   await page.evaluate(()=>e16Page());
   assert.equal(await page.locator('.e186Book').evaluate(n=>n.open),true);
   await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-27">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 27<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-28">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 28<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -612,7 +612,7 @@ test('New gold rods have no level gate; challenge rewards cannot be bought or cl
  try{
   await character(page,1);await page.evaluate(()=>{state.gold=1000000;e16Page();selectWorkspaceTab('shop');});
   await page.locator('.rodTier[data-tier="final"]').evaluate(n=>n.open=true);
-  const buy=page.locator('[data-rod-id="e208_rod_celeste_pulso"] button');assert.equal(await buy.isEnabled(),true);
+  const buy=page.locator('[data-rod-id="e208_rod_celeste_pulso"] .rodShopAction button');assert.equal(await buy.isEnabled(),true);
   const beforeGold=await page.evaluate(()=>state.gold);await buy.click();
   assert.equal(await page.evaluate(()=>e161Rod().id),'e208_rod_celeste_pulso');
   assert.equal(await page.evaluate(()=>state.gold),beforeGold-420000);
@@ -681,7 +681,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    const before=snapshot();e16Page();return before;
   });
   assert.equal(await page.locator('#fishingAtlas').count(),1);
-  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/32 encargos/);
+  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/37 encargos/);
   assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),0);
   let badges=0;
   for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
@@ -980,7 +980,7 @@ test('Estable 23: Atlas derives independent milestones from v7 records without m
   });
   assert.deepEqual(report.empty,[false,false,false]);assert.deepEqual(report.discovery,[true,false,false]);assert.deepEqual(report.quests,[true,true,false]);assert.deepEqual(report.all,[true,true,true]);
   assert.deepEqual(report.noQuestEmpty,[false,false,false]);assert.deepEqual(report.noQuestOne,[false,true,false]);assert.deepEqual(report.noQuestAll,[true,true,true]);assert.deepEqual(report.legacy,[true,false,true]);assert.equal(report.coral[1],true);
-  assert.equal(report.definitions,32);assert.equal(report.species,50);assert.deepEqual(report.counts,[1,8,1,1,1,1,2,6,2,6,1,1,1]);
+  assert.equal(report.definitions,37);assert.equal(report.species,50);assert.deepEqual(report.counts,[1,8,1,1,1,1,3,6,3,6,2,2,2]);
  }finally{await context.close();}
 });
 
@@ -1497,7 +1497,7 @@ test('Estable 23: difficulty reference matches existing species weights, stays i
    const reference=e222DifficultyReference(),expected=new Map();
    for(const z of E165_ZONES){const pool=E16_FISH.filter(f=>z.fish.includes(f.id)&&f.req<=100),weights=pool.map(f=>(f.rarity?f.rarity:Math.max(.12,1/Math.pow(1+(100-f.req)/4,.4)/Math.pow(E161_DIFFICULTY[f.id]||1,2.3)))*(f.id==='atun'?.42:1)),sum=weights.reduce((a,b)=>a+b,0);pool.forEach((f,i)=>expected.set(f.id,Math.max(expected.get(f.id)||0,weights[i]/sum)));}
    const exact=[...expected].every(([id,p])=>reference.get(id).chance===p);state.ui.e18Fishing={total:6,bySpecies:{bagre:{total:1},salmon:{total:2},pez_fantasma:{total:3}}};e16Page();document.querySelector('.e181Journal').open=true;const order=()=>[...document.querySelectorAll('[data-journal-fish]')].map(n=>n.dataset.journalFish);const before=order();state.ui.fishingRodId='e16_rod';state.skills.pesca.xp=0;e16Page();document.querySelector('.e181Journal').open=true;return{exact,before,after:order(),sort:document.querySelector('[data-journal-sort]').value,keys:before.map(id=>reference.get(id).chance)};
-  });assert.equal(report.exact,true);assert.equal(report.sort,'difficulty');assert.deepEqual(report.before,report.after);assert.deepEqual([...report.before].sort(),['bagre','pez_fantasma','salmon']);assert.deepEqual(report.keys,[...report.keys].sort((a,b)=>a-b));
+  });assert.equal(report.exact,true);assert.equal(report.sort,'difficulty');assert.deepEqual(report.before,report.after);assert.deepEqual([...report.before].sort(),['bagre','pez_fantasma','salmon']);assert.deepEqual(report.keys,[...report.keys].sort((a,b)=>b-a));
  }finally{await context.close();}
 });
 
@@ -1601,13 +1601,13 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable27'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable27/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable28'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable28/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable27/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable28/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
   assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);

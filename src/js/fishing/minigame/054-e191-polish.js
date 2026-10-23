@@ -16,11 +16,10 @@ e16Page=function(){
  const zone=e165Zone(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id)),record=e18Record();
  const completed=fish.length>0&&fish.every(f=>Number(record.bySpecies?.[f.id]?.total)>0);
  const claimed=!!e191Achievements()[zone.id];
- const gold=200+zone.req*30;
  const box=document.createElement('div');box.className='e191Achievement';
  const info=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');
  title.textContent=claimed?'🏅 Colección completada':completed?'🏆 ¡Colección completa!':'🏅 Logro: explorador de '+zone.name;
- detail.textContent=claimed?'Recompensa reclamada · insignia permanente':completed?'Descubriste todas las especies · recompensa: '+fmt(gold)+' oro':'Capturá al menos un ejemplar de cada especie para ganar '+fmt(gold)+' oro y una insignia.';
+ detail.textContent=claimed?'Recompensa reclamada · insignia permanente':completed?'Descubriste todas las especies · insignia de colección':'Capturá al menos un ejemplar de cada especie para obtener su insignia. Premio visual, sin oro.';
  info.append(title,detail);box.append(info);
  if(completed&&!claimed){const button=document.createElement('button');button.className='small primary';button.dataset.e191Claim=zone.id;button.textContent='Reclamar premio';box.append(button);}
  book.append(box);
@@ -33,7 +32,7 @@ document.addEventListener('click',e=>{
  if(!zone||ach[zone.id])return;
  const record=e18Record(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id));
  if(!fish.length||!fish.every(f=>Number(record.bySpecies?.[f.id]?.total)>0))return;
- const gold=200+zone.req*30;if(!Number.isSafeInteger(state.gold+gold))return;
- ach[zone.id]=true;state.gold+=gold;
- addLog('Pesca: completaste la colección de '+zone.name+'. +'+gold+' oro.');persist();renderGame();
+
+ ach[zone.id]=true;
+ addLog('Pesca: completaste la colección de '+zone.name+'. Insignia de colección.');persist();renderGame();
 },true);

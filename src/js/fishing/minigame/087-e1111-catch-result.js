@@ -18,7 +18,7 @@ function e211SyncHud(){
  const title=hud.querySelector('#e188HudTitle'),result=hud.querySelector('#e188HudResult'),percent=hud.querySelector('#e188HudPercent'),art=hud.querySelector('.e189Art');
  const record=!!last?.newAbsoluteRecord;
  if(title.dataset.record!==String(record)){title.innerHTML='<span class="e225CaptureLabel">Última captura</span>'+(record?'<span class="e225LastRecord">Nuevo récord</span>':'');title.dataset.record=String(record);}
- e215SetText(result,fish?fish.name+(last.quality?' · '+last.quality:'')+(last.weightKg?' · '+e190Kg(last.weightKg):''):'Todavía no capturaste un pez');
+ e215SetText(result,fish?(typeof e228FishName==='function'?e228FishName(fish):fish.name)+(last.quality?' · '+last.quality:'')+(last.weightKg?' · '+e190Kg(last.weightKg):''):'Todavía no capturaste un pez');
  e215SetText(percent,fish?'+'+fmt(last.xp)+' XP · '+fmt(last.price)+' oro al vender':'Tu próxima captura aparecerá acá');
  const track=hud.querySelector('.e188Track'),fill=hud.querySelector('#e188HudFill');
  if(track&&fill){
@@ -30,7 +30,7 @@ function e211SyncHud(){
  }
  if(art){
   const key=fish?.id||'empty';
-  if(art.dataset.lastCatch!==key||art.querySelector('.fishMysteryArt')){art.innerHTML=fish?e189FishSVG(fish.id):'<span aria-hidden="true">🎣</span>';if(fish)e223FishBackdrop(art);art.dataset.lastCatch=key;}
+  if(art.dataset.lastCatch!==key||art.querySelector('.fishMysteryArt')){art.innerHTML=fish?e189FishSVG(fish.id):(typeof e228Icon==='function'?e228Icon('hook'):'');if(fish)e223FishBackdrop(art);art.dataset.lastCatch=key;}
   art.classList.remove('e190Mystery');art.setAttribute('aria-label','Volver a la pesca'+(fish?' · última captura: '+fish.name:''));
  }
 }
