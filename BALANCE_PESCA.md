@@ -102,3 +102,18 @@ Atracción reduce también los toques de preparación: limitar(3 + floor(max(0, 
 La tienda reserva 40 % de la fila para el arte en escritorio; las imágenes de cañas y del pez del HUD usan cover, llenando sus marcos sin deformarse. Esto puede recortar bordes del fondo según la proporción de cada ilustración; la colección conserva contain.
 
 Validación: 27 pruebas de navegador aprobadas. Se añadió una simulación de seguimiento con decisiones cada 200 ms y 40 semillas, junto con controles sin entrada y botón sostenido. Exige diferencia entre Sencilla y Brumas ante morenas, peces iniciales accesibles, dificultad final aun con Astral y comportamiento comparable a distintos anchos. No es una tasa de éxito humano: sirve como regresión mecánica. El ajuste necesita validación jugando. Guardados, capacidades, catálogo, precios, XP por captura y probabilidades de aparición no se modificaron en esta entrega.
+
+## Estable 10: comportamiento de especies del arrecife
+
+La alternancia demasiado frecuente de dirección podía encerrar el movimiento en un tramo pequeño de una barra amplia. Se extiende la duración de las corridas para cuatro especies y se ajustan sus velocidades y tiempos de progreso, sin cambiar `E161_DIFFICULTY`, el selector ni las probabilidades de aparición. Lubina conserva su comportamiento más accesible.
+
+| Especie | Velocidad de corrida | Duración entre decisiones de giro | Ganancia de captura | Pérdida fuera de barra |
+| --- | ---: | ---: | ---: | ---: |
+| Pez luna | ×1,08 | ×1,3 | ×0,96 | ×1,08 |
+| Caballito de mar | ×1,26 | ×1,4 | ×0,92 | ×1,18 |
+| Morena | ×1,34 | ×1,9 | ×0,86 | ×1,30 |
+| Tiburón de arrecife | ×1,48 | ×2,1 | ×0,82 | ×1,40 |
+
+Los multiplicadores se aplican a la física previa, después de conservar control y resiliencia efectivos. No hay saltos de posición ni rotura aleatoria adicional. Las otras 37 especies mantienen su física anterior. Los efectos se aplican por especie en cualquier zona donde esté disponible, de modo que el mismo pez no cambie de comportamiento por cambiar de pantalla.
+
+Simulación de regresión, nivel 33, 40 semillas, decisiones cada 200 ms y máximo de 60 s: la morena pasó de 14/40 con Sencilla y 40/40 con Brumas a 0/40 y 34/40 en ese controlador. Con decisiones cada 80 ms, Sencilla consiguió 11/40 y Brumas 40/40. El resultado verifica diferencias y que una caña básica todavía pueda conseguirla con mejor seguimiento; no estima tasas humanas de éxito. No se pretende obligar a fallar a un jugador experto que sigue bien al pez.

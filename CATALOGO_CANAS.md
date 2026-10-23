@@ -60,3 +60,9 @@ Una tienda larga podía reducir transitoriamente el alto del documento al desmon
 **32 pruebas aprobadas en Chromium**: catálogo sin IDs duplicados, presupuestos y objetivos alcanzables, compra sin nivel mínimo, bloqueo de compras de recompensas, reclamación única, recarga de nuevas propiedades/equipo, búsqueda sin tildes, filtros, referencias de arte embebidas, portabilidad del HTML exportado y revelación del arte de pez solo al capturar. Continúan las pruebas de guardado, fases, azar, control y resiliencia de versiones anteriores.
 
 Se verifica a niveles de Pesca 1, 33 y 100 que ninguna de las 60 cañas nuevas por oro tenga todos sus atributos iguales o peores que una alternativa de igual o menor precio, con al menos un atributo estrictamente peor. La comparación incluye las compras anteriores, incluida Astral. Esta comprobación evita opciones estrictamente dominadas; no demuestra que los precios ni las seis estadísticas tengan el mismo valor práctico para cada jugador.
+
+## Navegación desde Estable 10
+
+La tienda inicia cerrada; las misiones y su historial aparecen primero. Las cañas de misión muestran objetivos y un acceso a su encargo cuando falta completarlo. Los desafíos nuevos se muestran también en sus zonas; usan el mismo controlador de reclamación, por lo que no duplican recompensas.
+
+Los filtros y la ordenación permiten encontrar equipo propio, compras al alcance, misiones pendientes, zona o atributo. El catálogo y el selector del HUD priorizan las cañas obtenidas. El acceso «Mis cañas» evita recorrer las 90 filas.

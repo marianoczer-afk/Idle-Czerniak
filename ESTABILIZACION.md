@@ -123,3 +123,14 @@ Para partidas antiguas, poseer la Coralina acredita su encargo aunque falte la b
 Los siete PDF nuevos se usan como referencia de diseño; ver REFERENCIAS_FISCH.md. En esta versión no se añaden sistemas de objetos ni se modifica el azar o el balance de captura.
 
 Validación final Estable 09: 35 pruebas aprobadas en Chromium, incluidas tres nuevas sobre historial completo, entrega única de Coralina y compatibilidad de su propiedad histórica. Se comprobó el historial visualmente. HTML y ZIP contienen exactamente el código probado y todas las imágenes de Estable 08.
+
+## Estable 10
+
+- Catálogo cerrado inicialmente y al cambiar de zona; los encargos y completados aparecen antes de la tienda. Se recuerda la apertura dentro de la misma zona, sin desplazamientos automáticos entre fases.
+- Las 18 misiones de cañas nuevas aparecen como encargos en sus tres zonas (Río, Glaciar y Santuario). Las filas de todas las cañas de misión muestran zona, objetivos y requisitos; «Ver encargo» lleva al lugar accesible y «Reclamar» aparece al cumplir el desafío. Los requisitos de nivel corresponden a habilidad/zona, no a niveles de la caña.
+- Filtros por obtención, propiedad, pendientes, presupuesto y zona; orden por precio, control, resiliencia, atracción, suerte, trofeos o capacidad. «Mis cañas» limpia búsqueda/zona y muestra las obtenidas. Por defecto, las propias y la equipada van primero en cada categoría; el selector del HUD también pone primero las propias y la equipada.
+- Control amarillo de captura de 76 px de alto y ancho completo dentro del escenario existente; se retira el texto redundante de mouse/táctil/espacio. No cambia la altura de las fases.
+- Lateral con desplazamiento propio y botón de cambio de personaje accesible arriba, independiente del largo del catálogo.
+- Movimiento y captura de cuatro especies del arrecife ajustados mediante perfiles separados de las probabilidades. Ver BALANCE_PESCA.md. No se alteran precios, estadísticas de cañas, XP, premios, rangos de peso ni las ilustraciones.
+
+Verificación Estable 10: 39 pruebas completas aprobadas en Chromium; comprobaciones dirigidas adicionales para cancelación de captura al cambiar de personaje y presentación de requisitos ya acreditados. Se revisó visualmente a 1366 y 390 px, y se verificaron idénticas las 118 imágenes embebidas.
