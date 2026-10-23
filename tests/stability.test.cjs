@@ -263,7 +263,7 @@ for(const width of [1366,1024,390])test(`Collection: images and full text fit ea
   }));
   assert.equal(cards.length,5);
   for(const card of cards){assert.ok(card.overflow<=1,JSON.stringify(card));assert.ok(card.imageInside&&card.textInside&&card.below,JSON.stringify(card));assert.equal(card.fit,'contain');}
-  assert.match(cards[0].text,/Trucha arcoíris/);assert.match(cards[1].text,/Perca esmeralda/);assert.match(cards[2].text,/Especie sin descubrir/);
+  assert.match(cards[0].text,/Trucha arcoíris/);assert.match(cards[1].text,/Perca esmeralda/);assert.match(cards[2].text,/Sin descubrir/);
   await page.evaluate(()=>e16Page());
   assert.equal(await page.locator('.e186Book').evaluate(n=>n.open),true);
   await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);
@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-24">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 24<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-25">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 25<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -315,7 +315,7 @@ for(const width of [1366,390])test(`Estable 23: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 24/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 25/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -928,7 +928,7 @@ for(const width of [1366,390])test(`Estable 23: fish matches zone size and live 
   await character(page,40,false);
   await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('atun');cancelAnimationFrame(e16Frame);e16Finish(true);e161StopWait();e195OriginalStart('lubina');cancelAnimationFrame(e16Frame);e16Session.progress=.47;e16Paint();});
   const geometry=await page.evaluate(()=>{const rect=q=>{const r=document.querySelector(q).getBoundingClientRect();return{w:r.width,h:r.height};};return{zone:rect('#combatDock .e1118Zone'),fish:rect('#e188FishingHud .e189Art'),dock:rect('#combatDock')};});
-  closeTo(geometry.zone.w-geometry.fish.w,width>700?24:12);closeTo(geometry.zone.h,geometry.fish.h);assert.ok(geometry.dock.h<=120,JSON.stringify(geometry));
+  closeTo(geometry.zone.w-geometry.fish.w,width>700?24:12);closeTo(geometry.zone.h,102);closeTo(geometry.fish.h,width>700?102:72);assert.ok(geometry.dock.h<=120,JSON.stringify(geometry));
   assert.equal(await page.locator('#e188FishingHud .e188Track').isVisible(),true);
   assert.equal(await page.locator('#e188HudFill').evaluate(n=>n.style.width),'47%');
   assert.equal(await page.locator('#e188FishingHud [role="progressbar"]').getAttribute('aria-valuenow'),'47');
@@ -1299,7 +1299,7 @@ test('Audit 19: successful catches rebuild the illustrated journal once, after a
  const card=document.querySelector('[data-journal-fish="bagre"]'),record=e218Record('bagre');
  return{renders,count:record.count,expected:before+1,text:card.textContent,best:record.best,categories:Object.keys(record.categories)};
  }finally{e218Journal=original;e210StopFishing();}
- });assert.equal(result.renders,1);assert.equal(result.count,result.expected);assert.match(result.text,new RegExp(result.expected+' capturas'));assert.ok(result.best>0);assert.equal(result.categories.length,1);
+ });assert.equal(result.renders,1);assert.equal(result.count,result.expected);assert.match(result.text,new RegExp(result.expected+' capt\\.'));assert.ok(result.best>0);assert.equal(result.categories.length,1);
  }finally{await context.close();}
 });
 
@@ -1311,7 +1311,7 @@ for(const width of [1366,390])test(`Estable 23: fixed HUD keeps height and right
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(100);
  const baseline=JSON.parse(readFileSync(join(__dirname,'fixtures/hud-estable19.json'),'utf8'))[width];
  // Explicitly authorized in Estable 23: wider zone, same left section, right section and height.
- const delta=width>700?24:12;baseline['#combatDock .e1118Zone'].width+=delta;baseline['#combatDock .e194DockRod'].x+=delta;baseline['#combatDock .e194DockRod'].width-=delta;
+ const delta=width>700?24:12;baseline['#combatDock .e1118Zone'].width+=delta;baseline['#combatDock .e194DockRod'].x+=delta;baseline['#combatDock .e194DockRod'].width-=delta;if(width<=700){baseline['#combatDock .e1118Zone'].height=102;baseline['#combatDock .e1118Zone'].y-=30;}
  const geometry=()=>page.evaluate(selectors=>Object.fromEntries(selectors.map(s=>{const r=document.querySelector(s).getBoundingClientRect();return[s,{x:r.x,y:r.y,width:r.width,height:r.height}];})),Object.keys(baseline));
  assert.deepEqual(await geometry(),baseline,'HUD rectangles must match the old baseline plus only the requested width redistribution');
  // Hold model values constant to isolate overlay geometry; real XP awards have separate regressions.
@@ -1566,16 +1566,28 @@ for(const width of [1366,390])test(`Estable 24: hidden native scrollbars keep zo
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 24: only a live absolute weight improvement shows a temporary overlay (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 24: a live absolute record stays beside the last catch until another successful catch (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
-  await character(page,40,false);await page.evaluate(()=>{state.ui.fishingWeights={bySpecies:{salmon:{catches:1,bestKg:5,categoryBestKg:{normal:5}}},byZone:{}};});
+  page.on('dialog',d=>d.accept());await character(page,40,false);await page.evaluate(()=>{state.ui.fishingWeights={bySpecies:{salmon:{catches:1,bestKg:5,categoryBestKg:{normal:5}}},byZone:{}};});
   const height=()=>page.locator('#combatDock').evaluate(n=>n.getBoundingClientRect().height);assert.equal(await height(),118);
   await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('salmon');cancelAnimationFrame(e16Frame);e16Session.weightKg=6;e16Finish(true);e161StopWait();e161Fishing=false;});
-  const notice=page.locator('.e224RecordNotice');await notice.waitFor();assert.equal(await notice.innerText(),'¡NUEVO RÉCORD!');assert.equal(await height(),118);assert.equal(await page.evaluate(()=>e218Record('salmon').best),6);
-  assert.ok(await notice.evaluate(n=>n.getBoundingClientRect().bottom<=document.getElementById('combatDock').getBoundingClientRect().top));
-  await page.waitForTimeout(2200);assert.equal(await notice.count(),0);
+  const notice=page.locator('.e225LastRecord');await notice.waitFor();assert.equal(await notice.innerText(),'Nuevo récord');assert.equal(await height(),118);assert.equal(await page.evaluate(()=>e218Record('salmon').best),6);
+  assert.equal(await page.locator('.e224RecordNotice').count(),0);assert.equal(await page.evaluate(()=>state.ui.lastFishingCatch.newAbsoluteRecord),true);
+  await page.waitForTimeout(2200);assert.equal(await notice.count(),1);await page.evaluate(()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await notice.count(),1);await page.evaluate(async()=>{await importJSON(new File([JSON.stringify(makeRosterRecord())],'record.json'));await changeRoster('select',roster.characters[0].id);selectWorkspaceTab('fishing');});await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await notice.count(),1);await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('salmon');cancelAnimationFrame(e16Frame);e16Session.weightKg=10;e16Finish(false);e161StopWait();e161Fishing=false;});assert.equal(await notice.count(),1);
   for(const [won,weight] of [[true,6],[true,4],[false,10]]){await page.evaluate(({won,weight})=>{e161Fishing=true;e195OriginalStart('salmon');cancelAnimationFrame(e16Frame);e16Session.weightKg=weight;e16Finish(won);e161StopWait();e161Fishing=false;},{won,weight});assert.equal(await notice.count(),0);}
   await page.evaluate(()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await notice.count(),0);assert.equal(await page.evaluate(()=>e218Record('salmon').best),6);assert.equal(await height(),118);
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 25: compact fish captions and persistent record preserve fixed HUD (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);await page.evaluate(()=>{state.ui.fishingZoneId='muelle';state.ui.e18Fishing={total:3,bySpecies:{mojarra:{total:1,best:'normal'},bagre:{total:1,best:'normal'},trucha:{total:1,best:'normal'}}};state.ui.lastFishingCatch={id:'trucha',weightKg:2.24,xp:35,price:23,newAbsoluteRecord:true};e16Page();document.querySelector('.e186Book').open=true;document.querySelector('.e181Journal').open=true;});
+  const report=await page.evaluate(()=>{const box=q=>document.querySelector(q).getBoundingClientRect(),label=document.querySelector('.e225CaptureLabel'),badge=document.querySelector('.e225LastRecord');return{height:box('#combatDock').height,zone:box('.e1118Zone').height,rod:box('.e194DockRod').height,badgeRight:box('.e225LastRecord').left>=box('.e225CaptureLabel').right,labelFits:label.scrollWidth<=label.clientWidth,badgeSize:parseFloat(getComputedStyle(badge).fontSize),titleSize:parseFloat(getComputedStyle(label).fontSize),cards:[...document.querySelectorAll('.e186Fish')].map(c=>{const a=c.querySelector('.e192Sprite').getBoundingClientRect();return{art:a.width,card:c.clientWidth,small:c.querySelectorAll('small').length,name:parseFloat(getComputedStyle(c.querySelector('strong')).fontSize)};}),journal:[...document.querySelectorAll('.e218Card')].map(c=>({lines:c.querySelectorAll('.e225JournalMeta small').length,title:c.title,art:c.querySelector('.e218Art').getBoundingClientRect().height,all:c.getBoundingClientRect().height}))};});
+  assert.equal(report.height,118);assert.equal(report.zone,report.rod);assert.ok(report.badgeRight&&report.labelFits);assert.ok(report.badgeSize<=report.titleSize);
+  for(const c of report.cards){assert.ok(c.art>=c.card-14);assert.equal(c.small,0);assert.ok(c.name<=11);}
+  for(const c of report.journal){assert.equal(c.lines,2);assert.match(c.title,/Mejor categoría/);assert.ok(c.art>c.all*.55);}
+  await page.locator('[data-journal-fish="trucha"]').click();assert.equal(await page.locator('.e218Detail').count(),1);assert.match(await page.locator('.e218Detail').innerText(),/Récord absoluto/);
  }finally{await context.close();}
 });

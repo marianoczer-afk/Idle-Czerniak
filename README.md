@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 24**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 25**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 24**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 25**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -91,3 +91,13 @@ Barras de scroll ocultas en selector de zonas y listas de cañas, desplazamiento
 Se reutilizan el inventario por IDs y la organización de `arte/` de Estable 23. El inventario es una fotografía del catálogo, no una nueva fuente de datos del juego. Las futuras fuentes se asociarán a esos IDs, conservando los maestros separados y el empaquetado autónomo; no se generan ni sustituyen imágenes en esta entrega. Sin cambios de balance, misiones o guardado v7.
 
 Validación de Estable 24: 18 pruebas dirigidas aprobadas en Chromium, con escritorio y ancho móvil; sintaxis válida. La hoja de geometría del HUD permanece idéntica a Estable 23. No se repite la suite completa ni las auditorías artísticas/técnicas en esta entrega acotada.
+
+## Ajuste móvil — Estable 25
+
+Se reutiliza un único formateador numérico para los pesos y las comparaciones de cañas, en lugar de reconstruirlo para cada cifra durante la captura. Medición en Chromium a 390 px, CPU ×4 y misma secuencia aleatoria: ocho capturas por versión; mediana de cierre 355 → 233 ms. Es una medición de laboratorio, no del teléfono del jugador, y no elimina el tiempo normal de espera de la siguiente picada.
+
+La zona del HUD móvil pasa de 72 a 102 px de alto para igualar la caña; el HUD completo mantiene 118 px. «Nuevo récord» es un dato dorado de la última captura, no un efecto flotante. Persiste al recargar y tras un intento perdido; una captura exitosa posterior lo sustituye. Solo se añade el booleano opcional `newAbsoluteRecord` a `ui.lastFishingCatch`; los guardados v7 anteriores funcionan sin ese campo y no se infieren récords históricos inexistentes.
+
+Colección muestra ilustraciones a todo el ancho de su ficha y nombres secundarios; las pistas y recuentos se conservan en el texto de consulta. Diario reduce la ficha a nombre y una línea compacta de capturas/peso; conserva categoría en la descripción accesible y todos los detalles al abrir la especie. No se generan imágenes ni se cambia el balance.
+
+Verificación de Estable 25: 23 pruebas dirigidas aprobadas, incluyendo capturas, comparaciones de cañas, azar, combate/XP, cinco personajes v7, exportación/importación, recarga, geometría del HUD y revisión de Colección/Diario en escritorio y móvil. El indicador persistente también se verificó con una importación JSON real y tras un intento perdido. Las ilustraciones embebidas se conservan sin cambios.

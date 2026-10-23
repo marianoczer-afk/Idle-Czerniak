@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 24</title>
-<meta name="argentum-build" content="estable-24">
+<title>Argentum Idle Online · Estable 25</title>
+<meta name="argentum-build" content="estable-25">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 24</h1>
+  <h1>Argentum Idle Online · Estable 25</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 24</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 25</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -776,7 +776,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 24</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 25</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -3041,7 +3041,8 @@ const E190_WEIGHT_RANGES={
 function e190WeightRange(fish){return E190_WEIGHT_RANGES[fish.id];}
 function e190Capacity(rod=e161Rod()){return E1103_SPECIAL[rod?.id]?.maxKg||25;}
 function e190CanLift(fish,rod=e161Rod()){return e190WeightRange(fish)[0]<=e190Capacity(rod);}
-function e190Kg(kg){return Number(kg).toLocaleString('es-AR',{maximumFractionDigits:2})+' kg';}
+const e225StatFormat=new Intl.NumberFormat('es-AR',{maximumFractionDigits:2});
+function e190Kg(kg){return e225StatFormat.format(Number(kg))+' kg';}
 function e190SampleWeight(fish,rod=e161Rod(),random=Math.random){
  const [low,maximum]=e190WeightRange(fish),high=Math.min(maximum,e190Capacity(rod));
  if(high<low)return null;
@@ -4297,7 +4298,7 @@ e16Page=function(){
   const card=document.createElement('div');card.className='e186Fish';
   if(!count)card.classList.add('e186Unknown');
   if(data?.best==='legendary')card.classList.add('e186Legend');
-  const title=document.createElement('strong');title.textContent=count?f.icon+' '+f.name:'❔ '+(unlocked?'Especie sin descubrir':'Bloqueado · nivel '+f.req);
+  const title=document.createElement('strong');title.textContent=count?f.name:(unlocked?'Sin descubrir':'Bloqueado · nivel '+f.req);
   const info=document.createElement('small');info.textContent=count?'Capturados: '+count+' · Récord: '+(bestLabels[data.best]||'Común'):(unlocked?'¡Seguí pescando para descubrirlo!':'Disponible al alcanzar Pesca '+f.req);
   card.append(title,info);grid.append(card);
  }
@@ -5799,7 +5800,8 @@ function e211SyncHud(){
  e215PlaceXp(true);
  const last=state.ui?.lastFishingCatch,fish=last&&E16_FISH.find(f=>f.id===last.id);
  const title=hud.querySelector('#e188HudTitle'),result=hud.querySelector('#e188HudResult'),percent=hud.querySelector('#e188HudPercent'),art=hud.querySelector('.e189Art');
- e215SetText(title,'Última captura');
+ const record=!!last?.newAbsoluteRecord;
+ if(title.dataset.record!==String(record)){title.innerHTML='<span class="e225CaptureLabel">Última captura</span>'+(record?'<span class="e225LastRecord">Nuevo récord</span>':'');title.dataset.record=String(record);}
  e215SetText(result,fish?fish.name+(last.quality?' · '+last.quality:'')+(last.weightKg?' · '+e190Kg(last.weightKg):''):'Todavía no capturaste un pez');
  e215SetText(percent,fish?'+'+fmt(last.xp)+' XP · '+fmt(last.price)+' oro al vender':'Tu próxima captura aparecerá acá');
  const track=hud.querySelector('.e188Track'),fill=hud.querySelector('#e188HudFill');
@@ -5825,8 +5827,8 @@ e16Finish=function(won){
  fishingFinishDepth++;
  try{e1111PriorFinish(won);if(caught)e190RecordWeight(caught);}
  finally{fishingFinishDepth--;}
- if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0};}
- e16Page();e188UpdateHud();if(caught?.newAbsoluteRecord&&e217LiveXP(state)){e217StartFX({s:state,key:'pesca',amount:0},'record');if(!e217EffectFrame)e217EffectFrame=requestAnimationFrame(e217PositionFX);}persist();
+ if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0,newAbsoluteRecord:!!caught.newAbsoluteRecord};}
+ e16Page();e188UpdateHud();persist();
 };
 const e1111PriorPage=e16Page;
 e16Page=function(){
@@ -6679,7 +6681,7 @@ function e216CompactQuests(){
 }
 function e216RodComparison(rod){
  const current=e161Rod(),a=e1101Stats(rod),b=e1101Stats(current),fields=[['Atracción','speed','%'],['Suerte','luck','%'],['Control','control','%'],['Resiliencia','resilience','%'],['Trofeos','trophy','%'],['Capacidad','maxKg',' kg']];
- return fields.map(([label,key,unit])=>{const value=key==='control'?e190ControlPercent(a[key]):a[key],base=key==='control'?e190ControlPercent(b[key]):b[key],delta=Math.round((value-base)*100)/100,format=n=>Number(n).toLocaleString('es-AR',{maximumFractionDigits:2}),diff=delta===0?'=':(delta>0?'▲':'▼')+format(Math.abs(delta))+(key==='maxKg'?' kg':' pp');return `<span class="rodCompare ${delta>0?'better':delta<0?'worse':'same'}" data-stat="${key}" data-delta="${delta}"><span>${label} ${format(value)}${unit}</span><b title="Diferencia respecto a la caña equipada">${diff}</b></span>`;}).join('');
+ return fields.map(([label,key,unit])=>{const value=key==='control'?e190ControlPercent(a[key]):a[key],base=key==='control'?e190ControlPercent(b[key]):b[key],delta=Math.round((value-base)*100)/100,format=n=>e225StatFormat.format(Number(n)),diff=delta===0?'=':(delta>0?'▲':'▼')+format(Math.abs(delta))+(key==='maxKg'?' kg':' pp');return `<span class="rodCompare ${delta>0?'better':delta<0?'worse':'same'}" data-stat="${key}" data-delta="${delta}"><span>${label} ${format(value)}${unit}</span><b title="Diferencia respecto a la caña equipada">${diff}</b></span>`;}).join('');
 }
 
 </script>
@@ -6827,7 +6829,8 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
 #combatDock.e188FishingMode .e189Art>img,#combatDock.e188FishingMode .e189Art>svg{position:relative;z-index:1}
 #combatDock.e188FishingMode .e189Art:focus-visible{outline:2px solid #dcecb8;outline-offset:-3px}
 #combatDock.e188FishingMode .e189Data{grid-column:2;grid-row:2;min-width:0;display:flex;flex-direction:column;justify-content:center}
-#combatDock.e188FishingMode #e188HudTitle{font-size:10px;font-weight:700;line-height:12px;color:#c9bd9e}
+#combatDock.e188FishingMode #e188HudTitle{display:flex;align-items:baseline;gap:3px;white-space:nowrap;font-size:10px;font-weight:700;line-height:12px;color:#c9bd9e}
+.e225CaptureLabel{min-width:0;overflow:hidden;text-overflow:ellipsis}.e225LastRecord{flex:none;font-size:inherit;font-weight:700;color:#f0cc70;text-shadow:0 0 5px #9d762255}
 #combatDock.e188FishingMode #e188HudResult{font-size:12px;font-weight:700;line-height:15px;color:#f7dda1;overflow-wrap:anywhere}
 #combatDock.e188FishingMode #e188HudSub,#combatDock.e188FishingMode #e188HudZone,#combatDock.e188FishingMode .e189Rod{display:none}
 #combatDock.e188FishingMode .e188Meta{display:block;margin-top:2px;color:#bfb7a9;font-size:10px;line-height:12px}
@@ -6838,7 +6841,7 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
  #combatDock.e188FishingMode{--fishing-zone-width:60px;--fishing-fish-width:48px;--fishing-zone-height:102px}
  #combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
  #combatDock.e188FishingMode .dockInner>.dockVitals{gap:5px!important}
- #combatDock.e188FishingMode .e1118Zone{height:72px;align-self:end}
+ #combatDock.e188FishingMode .e1118Zone{height:var(--fishing-zone-height);align-self:end}
  #combatDock.e188FishingMode .e1118Zone small{font-size:8px;padding:0 3px 4px}
  #combatDock.e188FishingMode .e1118Zone .e1120RodLabel{display:none}
  #combatDock.e188FishingMode #e188FishingHud{grid-template-rows:27px 72px;gap:3px 5px}
@@ -6847,6 +6850,7 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
  #combatDock.e188FishingMode #dockPlayerLevel{font-size:9px}
  #combatDock.e188FishingMode #dockPlayerXpText{font-size:8px}
  #combatDock.e188FishingMode #e188HudTitle{font-size:9px;line-height:10px}
+ #combatDock.e188FishingMode .e225LastRecord{font-size:8px}
  #combatDock.e188FishingMode #e188HudResult{font-size:10px;line-height:11px}
  #combatDock.e188FishingMode .e188Meta{font-size:9px;line-height:10px;margin-top:1px}
  #combatDock.e188FishingMode .e214CaptureStatus{font-size:9px;line-height:10px;margin-top:2px}
@@ -6990,8 +6994,8 @@ function e217StartFX(event,kind){
   return;
  }
  if(previous)e217RemoveFX(id);
- const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':kind==='record'?'e224RecordNotice':'e217LevelNotice';node.dataset.xpSkill=event.key;
- node.textContent=kind==='record'?'¡NUEVO RÉCORD!':kind==='drop'?'+'+e217FormatXP(amount)+' XP':'¡'+e217SkillLabel(event.key).toLocaleUpperCase('es-AR')+' NIVEL '+event.after+'!';
+ const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':'e217LevelNotice';node.dataset.xpSkill=event.key;
+ node.textContent=kind==='drop'?'+'+e217FormatXP(amount)+' XP':'¡'+e217SkillLabel(event.key).toLocaleUpperCase('es-AR')+' NIVEL '+event.after+'!';
  let arrow=null;if(kind==='level'){arrow=document.createElement('span');arrow.className='e221LevelArrow';arrow.innerHTML='<svg viewBox="0 0 16 20" aria-hidden="true"><path d="M8 1 1 9h4v10h6V9h4Z" fill="#f0cc70" stroke="#8e6028" stroke-width="1"/></svg>';e217EffectRoot().append(arrow);}
  e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,arrow,amount,kind,started:now,updated:now,until:now+(kind==='drop'?1700:2000),bar:null});
 }
@@ -7035,8 +7039,7 @@ function e217PositionFX(){
   if(f.kind==='drop'&&f.anchor!==target.node){const style=getComputedStyle(target.node);f.node.style.fontFamily=style.fontFamily;f.node.style.fontSize=(parseFloat(style.fontSize)*.96)+'px';f.node.style.fontWeight=style.fontWeight;f.node.style.lineHeight=style.lineHeight;f.anchor=target.node;}
   const range=document.createRange();range.selectNodeContents(target.node);const r=range.getBoundingClientRect(),b=target.bar.getBoundingClientRect(),w=f.node.getBoundingClientRect().width;
   const celebration=f.kind==='level'?e221LevelPosition(f,target):null;
-  const recordRect=f.kind==='record'?document.querySelector('#e188FishingHud .e189Art')?.getBoundingClientRect():null;
-  const left=f.kind==='record'?(recordRect?recordRect.left+(recordRect.width-w)/2:b.left):f.kind==='drop'?r.left-w-6:celebration.left,top=f.kind==='record'?(document.getElementById('combatDock').getBoundingClientRect().top-24):f.kind==='drop'?r.top:celebration.top;
+  const left=f.kind==='drop'?r.left-w-6:celebration.left,top=f.kind==='drop'?r.top:celebration.top;
   f.node.style.left=Math.max(6,Math.min(innerWidth-w-6,left))+'px';f.node.style.top=Math.max(6,top)+'px';
   if(f.kind==='level'&&f.bar!==target.bar){f.bar?.classList.remove('e217LevelGlow');f.bar=target.bar;f.bar.classList.add('e217LevelGlow');}
  }
@@ -7066,15 +7069,15 @@ function e217CleanClone(page){page.querySelectorAll('#e217XpEffects,.e1120Menu')
 #fishingRodShop .rodShopStats .rodCompare{display:block;font-size:10px;line-height:13px}
 #fishingRodShop .rodShopStats .rodCompare b{font-size:10px!important;margin-left:3px;color:inherit}
 #e217XpEffects{position:fixed;inset:0;z-index:110000;pointer-events:none}
-.e217XpDrop,.e217LevelNotice,.e224RecordNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
+.e217XpDrop,.e217LevelNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
 .e217XpDrop{font-size:11px;font-weight:400;line-height:normal;font-variant-numeric:tabular-nums;text-shadow:none;color:#bad5a4;animation:e217XPDrop 1.7s ease-out both}
-.e217LevelNotice,.e224RecordNotice{font-size:13px;color:#ffe1a0;background:none;border:0;padding:0;text-shadow:0 0 7px #7a541d,0 1px 2px #000;font-weight:700;animation:e217LevelNotice 2s ease-out both}
+.e217LevelNotice{font-size:13px;color:#ffe1a0;background:none;border:0;padding:0;text-shadow:0 0 7px #7a541d,0 1px 2px #000;font-weight:700;animation:e217LevelNotice 2s ease-out both}
 .e217LevelGlow{outline:1px solid #e3c16b;box-shadow:0 0 13px 3px #e2bd5666;animation:e217LevelPulse 2s ease-out both}
 @keyframes e217XPDrop{0%{opacity:.85;transform:translateY(0)}5%,60%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-4px)}}
 @keyframes e217LevelNotice{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
 @keyframes e217LevelPulse{0%,100%{box-shadow:0 0 0 0 #e2bd5600}20%,60%{box-shadow:0 0 13px 3px #e2bd5677}}
 @media(max-width:420px){.e217RodTools{grid-template-columns:minmax(0,1fr) 30px;gap:4px}.e217RodTools input{grid-column:1;grid-row:1}.e217RodTools select{grid-column:1 / -1;grid-row:2}.e217RodTools button{grid-column:2;grid-row:1}#fishingRodShop .rodShopStats{grid-template-columns:repeat(2,minmax(0,1fr))}.e217LevelNotice{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e224RecordNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
+@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
 </style>
 
 <script data-e218-journal>
@@ -7147,17 +7150,25 @@ function e218Journal(){
  const view=e220JournalView();tools.querySelector('input').value=view.search;tools.querySelector('[data-journal-zone]').value=view.zone;tools.querySelector('[data-journal-sort]').value=view.sort;
  const filter=()=>{const search=tools.querySelector('input').value,zone=tools.querySelector('[data-journal-zone]').value,sort=tools.querySelector('[data-journal-sort]').value;if(search===view.search&&zone===view.zone&&sort===view.sort)return;view.search=search;view.zone=zone;view.sort=sort;e220FilterJournal(list);};tools.addEventListener('input',filter);tools.addEventListener('change',filter);
  for(const f of fishes){const r=e218Record(f.id),card=document.createElement('button');card.type='button';card.className='e218Card';card.dataset.journalFish=f.id;card.setAttribute('aria-expanded','false');card.setAttribute('aria-controls','fishingSpeciesDetail');
- card.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><b>'+f.name+'</b><small>'+fmt(r.count)+' capturas</small><small>🏆 '+(r.best?e190Kg(r.best):'Sin peso registrado')+'</small><small>'+E218_CATEGORIES[r.quality]+'</small>';
+ card.title=f.name+' · '+fmt(r.count)+' capturas · Récord: '+(r.best?e190Kg(r.best):'Sin peso registrado')+' · Mejor categoría: '+E218_CATEGORIES[r.quality];card.setAttribute('aria-label',card.title);
+ card.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><div class="e225JournalCaption"><b>'+f.name+'</b><div class="e225JournalMeta"><small>'+fmt(r.count)+' capt.</small><small>'+(r.best?e190Kg(r.best):'Sin récord')+'</small></div></div>';
  card.onclick=()=>{const next=e218Selected.get(state)===f.id?null:f.id;e218Selected.set(state,next);e218PlaceDetail(list,next);};list.append(card);}
  e220FilterJournal(list);
  journal.addEventListener('toggle',()=>{if(journal.open)e218PlaceDetail(list,e218Selected.get(state));});
- document.querySelectorAll('#page_fishing .e186Fish:not(.e186Unknown)').forEach(card=>{card.querySelectorAll('small').forEach(n=>n.remove());});
+ document.querySelectorAll('#page_fishing .e186Fish').forEach(card=>{card.title=[...card.querySelectorAll('strong,small')].map(n=>n.textContent.trim()).filter(Boolean).join(' · ');card.querySelectorAll('small').forEach(n=>n.remove());});
 }
 const e218PriorPage=e16Page;
 e16Page=function(){if(fishingFinishDepth)return;const result=e218PriorPage();e218Journal();return result;};
 window.addEventListener('resize',()=>{const grid=document.querySelector('.e218Album');if(grid&&state)e218PlaceDetail(grid,e218Selected.get(state));});
 </script>
 <style id="fishing-journal-css">
+#page_fishing .e186Book .e186Fish{gap:4px;padding:6px;min-height:0}
+#page_fishing .e186Book .e186Fish>.e192Sprite{width:100%!important;min-width:0!important;max-width:none!important;height:auto!important;aspect-ratio:1.8;flex:none;margin:0;border:0;background:#0b1e22}
+#page_fishing .e186Book .e186Fish>div:last-child{font-size:11px;line-height:14px}
+#page_fishing .e186Book .e186Fish strong{font-size:inherit;font-weight:500;color:#d3c5a6}
+#page_fishing .e218Card>.e218Art{height:auto;aspect-ratio:1.8;min-height:80px;max-height:110px}
+.e225JournalCaption{min-width:0}.e225JournalCaption>b{display:block;font-size:11px;line-height:14px;font-weight:600;overflow-wrap:anywhere}.e225JournalMeta{display:flex;justify-content:space-between;gap:5px;flex-wrap:wrap;line-height:13px}
+
 #page_fishing .e218Album{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;position:relative}
 #page_fishing .e218Card{display:flex;flex-direction:column;gap:3px;align-items:stretch;text-align:left;min-width:0;padding:7px;border:1px solid #62563f;background:#211e18;border-radius:7px;color:#ecdcb6;font-size:12px}
 #page_fishing .e218Card[aria-expanded=true]{border-color:#d4b15f;background:#343023}
