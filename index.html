@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 10</title>
-<meta name="argentum-build" content="estable-10">
+<title>Argentum Idle Online · Estable 11</title>
+<meta name="argentum-build" content="estable-11">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 10</h1>
+  <h1>Argentum Idle Online · Estable 11</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 10</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 11</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -775,7 +775,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 10</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 11</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -853,7 +853,7 @@ function renderGame(){
     <div class="log" id="logBox"></div>`;
   organizeWorkspace(); renderDock(); updateLive(); updateInv();
 }
-let fishingRenderDepth=0;
+let fishingRenderDepth=0,fishingFinishDepth=0;
 function measureDock(){
   if(fishingRenderDepth)return; // Measure only the completed fishing layout, never intermediate DOM.
   const dock = document.getElementById("combatDock");
@@ -2423,7 +2423,7 @@ saveRoster=function(){
   const r=currentSimulation();if(r&&simulationLocked())updateSimFinal(r);
   return baseSaveProgression();
 };
-persist=function(){if(simulationLocked()){runtimeAt=Date.now();return saveRoster();}return basePersist();};
+persist=function(){if(fishingFinishDepth)return Promise.resolve(true);if(simulationLocked()){runtimeAt=Date.now();return saveRoster();}return basePersist();};
 async function simulationCheckpoint(){
   if(simSaving)return false;
   simSaving=true;
@@ -3280,7 +3280,7 @@ e16Page=function(){
  <div class="fishPanel"><b>Progreso de Pesca · Nv ${lvl}</b><div class="fishMuted">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP hacia nivel ${lvl+1}</div><div class="bar xp"><div style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div>
  <p class="fishMuted">Cada 3 niveles ganás +2 de zona de captura (máximo +22). Las cañas amplían la zona y desbloquean especies más difíciles. Pesca no sube tu nivel de combate.</p></div>
  <details class="fishPanel" ${rod?'':'open'}><summary><b>🎣 Cañas y mejoras</b> · ${rod?rod.name:'Sin caña'}</summary>
- ${E161_RODS.map((r,i)=>`<div class="fishRod"><div><b>${i<=e161RodIndex()?'✓ ':''}${r.name}</b><div class="fishMuted">Pesca ${r.req} · ${r.desc} · ${fmt(r.price)} oro</div></div>${state.owned?.[r.id]?'<span class="fishMuted">Adquirida</span>':`<button class="small" data-e161-buy="${i}" ${lvl<r.req||state.gold<r.price||i>e161RodIndex()+1?'disabled':''}>Comprar</button>`}</div>`).join('')}
+ <div class="fishRod" hidden><div><b>${E161_RODS[0].name}</b></div></div>
  ${next?`<p class="fishMuted">Próxima caña: ${next.name}, nivel ${next.req}.</p>`:'<p class="fishMuted">¡Tenés la mejor caña!</p>'}</details>
  <details class="fishPanel"><summary><b>🐠 Peces y desbloqueos</b></summary><div class="fishSpecies">${E16_FISH.map(f=>`<div class="${lvl<f.req?'fishLocked':''}">${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Desbloqueado':'🔒 Pesca '+f.req} · ${f.price} oro al vender · ${f.xp} XP</div></div>`).join('')}</div></details>`;
  if(retainedShop)page.append(retainedShop);
@@ -3326,7 +3326,7 @@ document.addEventListener('click',e=>{
  const buy=e.target.closest('[data-e161-buy]'),toggle=e.target.closest('[data-e161-toggle]');if(!buy&&!toggle)return;
  e.preventDefault();e.stopImmediatePropagation();if(!state||!ready||busy||managing||!storageReady||simulationLocked())return;
  if(buy){const i=Number(buy.dataset.e161Buy),r=E161_RODS[i];if(!r||i!==e161RodIndex()+1||e16FishLevel()<r.req||state.gold<r.price)return;state.gold-=r.price;state.owned=state.owned||{};state.owned[r.id]=true;persist();renderGame();toast('¡Compraste '+r.name+'!');}
- if(toggle){if(e161Fishing){e195Reset();e161Fishing=false;e161StopWait();if(e16Session){cancelAnimationFrame(e16Frame);e16Session=null;e16Holding=false;}e16Result='Guardaste la caña.';e16Page();}else{if(!e161Rod()||!e161CanFish())return;e161Fishing=true;e16Result='';e161NextBite();}}
+ if(toggle){if(e161Fishing){e195Reset();e161Fishing=false;e161StopWait();if(e16Session){cancelAnimationFrame(e16Frame);e16Session=null;e16Holding=false;}e16Result='Guardaste la caña.';e16Page();}else{if(!e161Rod()||!e161CanFish())return;e161Fishing=true;e182LastCatch=null;e16Result='';e161NextBite();}}
 },true);
 </script>
 
@@ -5120,6 +5120,7 @@ function e210StopFishing(){
  e16Session=null;e16Holding=false;e16Result='';
  if(e1111ResultTimer){clearTimeout(e1111ResultTimer);e1111ResultTimer=null;}
  e1111ResultUntil=0;
+ if(e211FeedbackTimer)clearTimeout(e211FeedbackTimer);e211FeedbackTimer=null;e211Outcome=null;e182LastCatch=null;
 }
 function e210RodRequirement(rod){
  if(rod.unlock)return state.owned?.[rod.id]?`${E165_ZONES.find(z=>z.id===rod.unlock.zone).name} · Desafío completado · ${rod.unlock.catches} capturas · ${rod.unlock.species} especies · récord mínimo ${e190Kg(rod.unlock.bestKg)}`:e208QuestText(rod);
@@ -5270,6 +5271,7 @@ function e195DrawShake(){
 e16Start=function(id){
  if(!e161Fishing||!e161OnPage())return e195OriginalStart(id);
  if(e195Pending)return;
+ e182LastCatch=null;
  const fish=E16_FISH.find(f=>f.id===id);if(!fish)return;
  const left=e195ShakeCount(fish);
  if(!left)return e195OriginalStart(id);
@@ -5380,7 +5382,7 @@ function e197Sync(){
  document.body.classList.toggle('e197Fishing',on);
  if(page)page.classList.toggle('e197ShakeActive',!!(on&&e195Pending&&e161Fishing&&!e16Session));
  const heading=document.querySelector('.hybridSidebarBody details[data-ui-panel="skills"] > summary');
- if(heading)heading.textContent=on?'🎣 Habilidad de Pesca':'✦ Habilidades';
+ if(heading){heading.textContent=on?'':'✦ Habilidades';heading.hidden=on;if(on)heading.parentElement.open=true;}
  if(!on||!state)return;
  const box=document.getElementById('skillsBox');if(!box)return;
  let card=box.parentElement?.querySelector('.e197FishingSkills');
@@ -5620,10 +5622,8 @@ e161NextBite=function(){
  e1103OldNext();
  if(!e161Fishing||!e161OnPage()||e16Session||e195Pending||e161Waiting===null)return;
  const rod=e161Rod(),id=String(rod?.id||'').toLowerCase();
- const auto=/astral|nacar|abisal|abyss/.test(id);
  const speed=e1101Stats(rod).speed;
- const base=auto?1500:1700;
- const delay=Math.max(650,Math.round(base*(1-speed/100)));
+ const delay=Math.max(450,Math.round(900*(1-speed/100)));
  clearTimeout(e161Waiting);
  e161CatchAt=Date.now()+delay;
  e161Waiting=setTimeout(()=>{
@@ -5774,7 +5774,7 @@ function e1107Sync(){
  const equipment=document.querySelector('.hybridSidebarBody details[data-ui-panel="equipment"]');
  if(equipment){
   const summary=equipment.querySelector('summary');
-  if(summary)summary.textContent=on?'🎣 Caña equipada y estadísticas':'🛡 Equipamiento actual';
+  if(summary){summary.textContent=on?'':'🛡 Equipamiento actual';summary.hidden=on;if(on)summary.parentElement.open=true;}
   let info=equipment.querySelector('.e1107RodPanel');
   if(!info){info=document.createElement('div');info.className='e1107RodPanel';equipment.append(info);}
   if(on){
@@ -5962,31 +5962,44 @@ e16Page=function(){
 </style>
 <script data-e1111-catch-result>
 "use strict";
-/* La próxima picada espera a que se pueda leer el pez capturado.
-   No afecta el tiempo de atracción propio de cada caña. */
+/* A catch is one transaction: run the existing award rules once, then render and save once.
+   Feedback remains readable in the HUD without delaying the next attempt. */
 let e1111ResultUntil=0,e1111ResultTimer=null;
-const e1111PriorNextBite=e161NextBite;
-e161NextBite=function(){
- if(e1111ResultTimer){clearTimeout(e1111ResultTimer);e1111ResultTimer=null;}
- const remaining=e1111ResultUntil-Date.now();
- if(remaining>0&&e161Fishing&&e161OnPage()&&!e16Session){
-  e161StopWait();
-  e1111ResultTimer=setTimeout(()=>{
-   e1111ResultTimer=null;
-   if(e161Fishing&&e161OnPage()&&!e16Session)e1111PriorNextBite();
-  },remaining);
-  return;
- }
- return e1111PriorNextBite();
-};
+let e211Outcome=null,e211FeedbackTimer=null;
+function e211SyncHud(){
+ if(!state||!e161OnPage())return;
+ const hud=document.getElementById('e188FishingHud');if(!hud)return;
+ const title=hud.querySelector('#e188HudTitle'),result=hud.querySelector('#e188HudResult'),fill=hud.querySelector('#e188HudFill'),percent=hud.querySelector('#e188HudPercent');
+ const pending=!!e195Pending,session=e16Session,age=e211Outcome?Date.now()-e211Outcome.at:Infinity,recent=e211Outcome?.zone===e165Zone().id&&age<2200;
+ if(pending){if(title)title.textContent='🎣 Preparando la picada';if(fill)fill.style.width='0%';if(percent)percent.textContent='Toques restantes: '+e195Pending.left;}
+ else if(session){if(percent)percent.textContent='Captura '+Math.round(session.progress*100)+'%';if(fill)fill.style.width=Math.round(session.progress*100)+'%';}
+ else if(recent&&!e211Outcome.won){if(title)title.textContent='💨 El pez escapó';if(result)result.textContent='Podés intentarlo en la próxima picada';if(fill)fill.style.width='0%';if(percent)percent.textContent='Sin captura';}
+ else if(!e182LastCatch){if(fill)fill.style.width='0%';if(percent)percent.textContent=e161Fishing?'Buscando peces':'Listo';}
+ else if(percent&&e182LastCatch){percent.textContent='Guardado en el inventario';}
+ let bonus=hud.querySelector('.e211XpFeedback');
+ if(recent&&e211Outcome.won){
+  if(!bonus){bonus=document.createElement('span');bonus.className='e211XpFeedback';hud.querySelector('.e188Meta').append(bonus);}
+  const key=String(e211Outcome.at);
+  if(bonus.dataset.key!==key){bonus.dataset.key=key;bonus.textContent='Última captura: +'+fmt(e211Outcome.xp)+' XP';bonus.style.animationDelay='-'+Math.max(0,age)+'ms';}
+ }else bonus?.remove();
+ const panel=document.querySelector('#combatDock .e194DockRod'),svg=panel?.querySelector('svg.rodIllustration');
+ if(panel&&svg){const box=svg.viewBox.baseVal;panel.style.setProperty('--e211-rod-ratio',String(box.width/box.height));}
+}
+function e211ScheduleFeedback(){
+ if(e211FeedbackTimer)clearTimeout(e211FeedbackTimer);
+ e211FeedbackTimer=setTimeout(()=>{e211FeedbackTimer=null;if(state&&ready&&e161OnPage())e188UpdateHud();},2250);
+}
 const e1111PriorFinish=e16Finish;
 e16Finish=function(won){
- if(!e16Session)return;
+ if(!e16Session||fishingFinishDepth)return;
  const caught=won?{fish:e16Session.fish,weightKg:e16Session.weightKg,rodId:e16Session.rodId,zone:e165Zone().id,legacyRiverTrophy:!!state.ui?.e18Fishing?.riverHuge}:null;
- e1111ResultUntil=Date.now()+(won?1600:1000);
- const result=e1111PriorFinish(won);
- if(caught){e190RecordWeight(caught);e16Page();e188UpdateHud();persist();}
- return result;
+ if(!won){e182LastCatch=null;e183LastQuality=null;}
+ e1111ResultUntil=Date.now()+1400;
+ fishingFinishDepth++;
+ try{e1111PriorFinish(won);if(caught)e190RecordWeight(caught);}
+ finally{fishingFinishDepth--;}
+ e211Outcome={won:!!won,zone:e165Zone().id,at:Date.now(),xp:won?e182LastCatch?.xp||0:0};
+ e16Page();e188UpdateHud();persist();e211ScheduleFeedback();
 };
 const e1111PriorPage=e16Page;
 e16Page=function(){
@@ -6579,7 +6592,7 @@ function sync(){
 }
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
 const previousPage=e16Page;e16Page=function(){const r=previousPage();sync();return r;};
-const previousHud=e188UpdateHud;e188UpdateHud=function(){const r=previousHud();sync();return r;};
+const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
 })();
 </script>
@@ -7021,6 +7034,7 @@ e189FishSVG=function(id){
   return `<article class="rodShopRow${isQuest?' questRod':''}${equipped?' equipped':''}" data-rod-id="${rod.id}" data-source="${isQuest?'quest':'gold'}" data-zone="${e210RodZone(rod)}" data-price="${rod.price||0}" data-control="${st.control}" data-resilience="${st.resilience}" data-speed="${st.speed}" data-luck="${st.luck}" data-trophy="${st.trophy}" data-max-kg="${st.maxKg}"><div class="rodShopArt">${e194RodArt(rod.id)}</div><div class="rodShopInfo"><div class="rodShopTitle"><b>${esc(rod.name)}</b>${stars}<span class="rodSource${isQuest?' quest':''}">${isQuest?'📜 Misión':'🪙 Compra'}</span></div><div class="rodShopStats">${stats}</div><small>${esc(requirement)}${rod.unlock?'':' · '+esc(E1103_SPECIAL[rod.id]?.role||rod.desc)}</small></div><div class="rodShopAction"><span>${!isQuest?fmt(rod.price)+' oro':'Premio de misión'}</span><button class="small" ${action} ${disabled?'disabled':''}>${equipped?'✓ Equipada':owned?'Equipar':rod.unlock?(e208QuestProgress(rod).ready?'Reclamar':'Ver encargo'):isQuest?'Ver encargo':'Comprar'}</button></div></article>`;
  }
  e16Page=function(){
+  if(fishingFinishDepth)return;
   fishingRenderDepth++;
   try {
    remember();
@@ -7081,5 +7095,20 @@ e189FishSVG=function(id){
 </script>
 
 
+<style id="e211-feedback-and-rod-frame">
+/* Keep native wheel/touch/keyboard scrolling; only the sidebar scrollbars are hidden. */
+.hybridSidebar,.hybridSidebarBody{scrollbar-width:none;-ms-overflow-style:none}
+.hybridSidebar::-webkit-scrollbar,.hybridSidebarBody::-webkit-scrollbar{display:none;width:0;height:0}
+body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidden],body.e197Fishing .hybridSidebarBody details[data-ui-panel="equipment"]>summary[hidden]{display:none!important}
+.e211XpFeedback{color:#bde7a5;font-size:11px;animation:e211Feedback 2.2s ease-out forwards}
+@keyframes e211Feedback{0%,60%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.e211XpFeedback{animation:none}}
+#combatDock.e188FishingMode .dockVitals{grid-template-rows:31px auto!important}
+#combatDock.e188FishingMode .e194DockRod{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:18px auto!important;justify-content:stretch!important;justify-items:stretch!important;align-items:stretch!important;gap:0!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0!important;align-self:start!important}
+#combatDock.e188FishingMode .e194DockRod .e1123RodName{position:static!important;grid-row:1!important;display:block!important;inset:auto!important;padding:1px 22px 1px 6px!important;background:#061b23!important;font-size:11px!important;line-height:16px!important;white-space:nowrap!important}
+#combatDock.e188FishingMode .e194DockRodArt{position:relative!important;inset:auto!important;grid-row:2!important;display:block!important;width:100%!important;height:auto!important;aspect-ratio:var(--e211-rod-ratio,3.86)!important;padding:0!important;margin:0!important;background:#061b23!important}
+#combatDock.e188FishingMode .e1118Zone{height:100%!important}
+#combatDock.e188FishingMode #e188FishingHud{align-self:center!important}
+</style>
 </body>
 </html>

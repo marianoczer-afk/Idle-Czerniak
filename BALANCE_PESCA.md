@@ -117,3 +117,9 @@ La alternancia demasiado frecuente de dirección podía encerrar el movimiento e
 Los multiplicadores se aplican a la física previa, después de conservar control y resiliencia efectivos. No hay saltos de posición ni rotura aleatoria adicional. Las otras 37 especies mantienen su física anterior. Los efectos se aplican por especie en cualquier zona donde esté disponible, de modo que el mismo pez no cambie de comportamiento por cambiar de pantalla.
 
 Simulación de regresión, nivel 33, 40 semillas, decisiones cada 200 ms y máximo de 60 s: la morena pasó de 14/40 con Sencilla y 40/40 con Brumas a 0/40 y 34/40 en ese controlador. Con decisiones cada 80 ms, Sencilla consiguió 11/40 y Brumas 40/40. El resultado verifica diferencias y que una caña básica todavía pueda conseguirla con mejor seguimiento; no estima tasas humanas de éxito. No se pretende obligar a fallar a un jugador experto que sigue bien al pez.
+
+## Estable 11: ritmo entre intentos
+
+La demora posterior al resultado se eliminó. La espera hasta la siguiente picada pasa a `max(450, round(900 × (1 − atracción/100)))` milisegundos, en lugar de la base anterior de 1500/1700 ms. La atracción conserva su efecto sobre preparación y espera. Se reduce tiempo sin interacción; no se alteran los perfiles de dificultad del arrecife, la física de captura, las probabilidades, estadísticas de cañas, pesos, XP ni precios.
+
+La consolidación de render y guardado reduce además el bloqueo al terminar. La verificación de rendimiento usa Chromium móvil emulado; queda pendiente la experiencia en un teléfono físico.

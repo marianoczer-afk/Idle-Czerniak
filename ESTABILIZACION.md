@@ -134,3 +134,13 @@ Validación final Estable 09: 35 pruebas aprobadas en Chromium, incluidas tres n
 - Movimiento y captura de cuatro especies del arrecife ajustados mediante perfiles separados de las probabilidades. Ver BALANCE_PESCA.md. No se alteran precios, estadísticas de cañas, XP, premios, rangos de peso ni las ilustraciones.
 
 Verificación Estable 10: 39 pruebas completas aprobadas en Chromium; comprobaciones dirigidas adicionales para cancelación de captura al cambiar de personaje y presentación de requisitos ya acreditados. Se revisó visualmente a 1366 y 390 px, y se verificaron idénticas las 118 imágenes embebidas.
+
+## Estable 11
+
+Se eliminó la espera fija de resultado (1,6 s al ganar y 1 s al perder). Las capas de premios conservan sus reglas, pero ahora completan sus cambios antes de una única reconstrucción y un único guardado. Se retiró el render obsoleto del catálogo que se generaba para reemplazarlo inmediatamente por el actual. En Chromium móvil emulado con CPU ×4, tres capturas controladas pasaron de aproximadamente 1,9–2,5 s a 176–209 ms. No es una medición en un teléfono físico.
+
+El resultado anterior se limpia al empezar otro intento y al perder. El HUD muestra el progreso de la fase actual; la XP de la última captura aparece en un aviso independiente que se desvanece y caduca. Finalizar dos veces no duplica recompensas.
+
+El lateral mantiene su desplazamiento independiente con la barra oculta. Se retiran los dos títulos redundantes de Pesca, manteniendo su contenido abierto. La caña del HUD conserva la proporción completa de su ilustración; el nombre ocupa una franja separada, sin degradado encima del extremo.
+
+Validación: 43 pruebas aprobadas en Chromium, escritorio y móvil emulado, incluyendo guardados v7, descarga autónoma, fases sin salto, recompensa única, escape sin premio, aviso de XP, geometría de ilustraciones y desplazamiento lateral.

@@ -66,3 +66,7 @@ Se verifica a niveles de Pesca 1, 33 y 100 que ninguna de las 60 cañas nuevas p
 La tienda inicia cerrada; las misiones y su historial aparecen primero. Las cañas de misión muestran objetivos y un acceso a su encargo cuando falta completarlo. Los desafíos nuevos se muestran también en sus zonas; usan el mismo controlador de reclamación, por lo que no duplican recompensas.
 
 Los filtros y la ordenación permiten encontrar equipo propio, compras al alcance, misiones pendientes, zona o atributo. El catálogo y el selector del HUD priorizan las cañas obtenidas. El acceso «Mis cañas» evita recorrer las 90 filas.
+
+## Estable 11: render e ilustración
+
+El catálogo actual es el único que construye las filas completas: se elimina el catálogo heredado que se reemplazaba en el mismo render. No cambia el contenido de las 90 cañas. En el HUD, la ilustración usa todo el ancho con su proporción original y el nombre se presenta fuera de la imagen.
