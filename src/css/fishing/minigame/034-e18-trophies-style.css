@@ -1,0 +1,8 @@
+
+#page_fishing .e18Panel{border:1px solid #6e5835;border-radius:9px;background:rgba(55,44,30,.65);padding:12px 14px;margin:11px 0}
+#page_fishing .e18Panel h3{font-size:.98rem;margin:0 0 7px}
+#page_fishing .e18Panel p{margin:5px 0;color:var(--muted);font-size:.87rem}
+#page_fishing .e18Reward{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:9px}
+#page_fishing .e18Pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#page_fishing .e18Pills span{border:1px solid #6c5638;border-radius:7px;padding:5px 8px;font-size:.8rem}
+#page_fishing .e18Special{color:#e7bd67;font-weight:700}

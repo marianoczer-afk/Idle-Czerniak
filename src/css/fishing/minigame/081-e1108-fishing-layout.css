@@ -1,0 +1,39 @@
+
+/* Un único control de salida, en la esquina izquierda, FUERA del overlay. */
+#page_fishing .e1108Toolbar{display:flex;align-items:center;justify-content:flex-start;
+ margin:7px 0 0;padding:7px 0;border-top:1px solid #594b39;border-bottom:1px solid #594b39;
+ min-height:55px;box-sizing:border-box}
+#page_fishing .e1108Toolbar button{min-width:145px;min-height:39px;pointer-events:auto!important;opacity:1!important}
+#page_fishing .e162Dock .e1107StopShake{display:none!important}
+#page_fishing .e162Dock #e16GamePanel .e183Actions{display:none!important}
+/* Dos fases de la misma altura, sin recortar el botón de mantener. */
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ height:246px!important;min-height:246px!important;max-height:246px!important;
+ overflow:hidden!important;box-sizing:border-box!important;contain:layout!important;
+ margin-top:0!important;padding:10px 8px 8px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay{inset:0!important}
+#page_fishing .e162Dock #e16GamePanel .e162Play{
+ max-width:950px!important;width:100%!important;gap:15px!important;
+ margin:9px auto 0!important;justify-content:center!important;
+}
+#page_fishing .e162Dock #e16GamePanel .fishTank{
+ width:auto!important;max-width:none!important;flex:1 1 auto!important;
+ height:102px!important;min-height:102px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e162ProgressWrap{flex:0 0 110px!important}
+#page_fishing .e162Dock #e16GamePanel .e162Controls{
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ flex-wrap:wrap!important;gap:8px!important;margin-top:10px!important;
+ padding-bottom:4px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .fishControl{min-height:40px!important}
+#page_fishing .e162Dock #e16GamePanel .e162FightTitle{margin-bottom:5px!important}
+@media(max-width:650px){
+ #page_fishing .e162Dock #e16GamePanel,
+ #page_fishing .e162Dock #e16GamePanel.e196Shaking{height:275px!important;min-height:275px!important;max-height:275px!important}
+ #page_fishing .e162Dock #e16GamePanel .e162Play{gap:8px!important}
+ #page_fishing .e162Dock #e16GamePanel .fishTank{height:85px!important;min-height:85px!important}
+ #page_fishing .e162Dock #e16GamePanel .e162ProgressWrap{flex:0 0 75px!important}
+}

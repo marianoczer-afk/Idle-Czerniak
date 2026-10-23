@@ -1,0 +1,7 @@
+
+/* The same fixed dock serves combat and fishing, without overlapping the viewport. */
+
+#page_fishing .e182Result,#page_fishing .fishCatch{display:none!important}
+#page_fishing .e188QuestHint{font-size:.73rem;color:#bcae91;margin-top:3px}
+#page_fishing .e188RodFree{font-size:.75rem;color:#9bcfa8}
+

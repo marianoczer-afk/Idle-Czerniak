@@ -1,0 +1,15 @@
+
+/* Keep native wheel/touch/keyboard scrolling; only the sidebar scrollbars are hidden. */
+.hybridSidebar,.hybridSidebarBody{scrollbar-width:none;-ms-overflow-style:none}
+.hybridSidebar::-webkit-scrollbar,.hybridSidebarBody::-webkit-scrollbar{display:none;width:0;height:0}
+body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidden],body.e197Fishing .hybridSidebarBody details[data-ui-panel="equipment"]>summary[hidden]{display:none!important}
+/* Compact dock: keep the complete rod by limiting its width, not by cropping it. */
+
+.e212Goals{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}
+.e212Goals li{display:flex;justify-content:space-between;gap:12px;color:#e2d4b4}
+.e212Goals li.done{color:#acd99b}
+.e212Goals b{white-space:nowrap}
+@media(max-width:700px){
+
+ .e212Goals li{flex-wrap:wrap;gap:2px}
+}

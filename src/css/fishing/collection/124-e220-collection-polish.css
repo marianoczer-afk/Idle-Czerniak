@@ -1,0 +1,27 @@
+
+/* Scope all layout changes to the journal, Atlas, shop and floating menus. Never style the fixed HUD. */
+#page_fishing .journalSummary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px 0}
+#page_fishing .journalSummary>span{display:grid;grid-template-columns:7px minmax(0,1fr);gap:2px 5px;border:0;border-bottom:1px solid #62563f;border-radius:0;padding:4px 3px;background:transparent;font-size:11px;color:#c8bfa8;min-width:0}
+#page_fishing .journalSummary>span>span{border:0;background:transparent;padding:0;margin:0;border-radius:0;font-size:11px}
+.journalSummary b{grid-column:2;font-size:14px;color:#eadabc;font-variant-numeric:tabular-nums}.journalSummary i{width:5px;height:5px;transform:rotate(45deg);background:#928f7d;align-self:center}
+.journalSummary [data-journal-stat=large] i{background:#82a28d}.journalSummary [data-journal-stat=huge] i{background:#8b9fbe}.journalSummary [data-journal-stat=legendary] i{background:#b9a06a}
+.journalTools{display:grid;grid-template-columns:minmax(100px,1.1fr) minmax(100px,1fr) minmax(130px,1.2fr);gap:5px;margin:8px 0}
+.journalTools input,.journalTools select,#fishingAtlas .atlasTools input,#fishingAtlas .atlasTools select{box-sizing:border-box;width:100%;min-width:0;padding:6px;border:1px solid #62563f;border-radius:5px;background:#211e18;color:#e0d3b7;font:11px system-ui,sans-serif;min-height:32px}
+#fishingAtlas .atlasTools input{width:auto;flex:1 1 160px}#fishingAtlas .atlasTools select{width:auto;flex:0 1 auto}
+.journalTools small{grid-column:1/-1;color:#b3a78d;font-size:10px}.journalEmpty,.journalHistorical{font-size:11px;color:#b9ad94}#page_fishing .e218Detail p{font-size:11px;line-height:1.4;margin:4px 0 6px}
+#page_fishing .e218Card[hidden],.journalEmpty[hidden]{display:none}
+.atlasRow b:before{content:'▸ ';color:#b9a06a}.atlasRow.selected b:before{content:'▾ '}
+#fishingAtlas .atlasSelection{margin:0 0 5px}
+#fishingAtlas .atlasZoneDetail{position:relative;isolation:isolate;overflow:hidden;padding:9px 10px;border-radius:6px;margin:0;background:#172726}
+#fishingAtlas .atlasLandscape{position:absolute;inset:0;width:100%;height:100%;max-height:none;margin:0;border:0;border-radius:0;object-fit:cover;opacity:1;z-index:0}
+#fishingAtlas .atlasZoneDetail:before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,#101b1aeb,#121c1acc 65%,#101b1a88);z-index:1;pointer-events:none}
+#fishingAtlas .atlasZoneDetail>:not(.atlasLandscape){position:relative;z-index:2}
+#fishingAtlas .atlasDetailHead{gap:7px;align-items:center;margin:0 0 5px}#fishingAtlas .atlasDetailHead h3{font-size:13px;margin:0}
+#fishingAtlas .atlasMilestones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:0;margin:6px 0;list-style:none}
+#fishingAtlas .atlasMilestones li{font-size:11px;line-height:1.4;margin:0;padding:5px 6px;background:#18201f70;border:1px solid #77705266;border-radius:4px}
+.atlasCounts{display:flex;gap:5px 14px;flex-wrap:wrap;font-size:11px;color:#d3c9b2}.atlasCounts b{color:#f0dfb1}
+#fishingAtlas .atlasBadges{gap:4px;margin-top:6px}#fishingAtlas .atlasBadge{font-size:10px;min-height:25px;padding:3px 6px}#fishingAtlas .atlasMedal{font-size:10px;padding:3px 5px}
+#fishingRodShop>summary small{font-size:11px;font-weight:400;margin-left:7px;color:#bfb091}
+#fishingRodShop [data-rod-mine][aria-pressed=true]{background:#394332;border-color:#a4b585;color:#e0e9c8}
+.e1120Menu[data-type=rod] .rodProvenance{color:#c0c9b2;font-size:9px;line-height:12px;border-left:2px solid #8b916d;padding-left:4px;margin-top:3px}
+@media(max-width:600px){#page_fishing .journalSummary{grid-template-columns:repeat(3,minmax(0,1fr))}.journalTools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.journalTools input{grid-column:1/-1}#fishingAtlas .atlasMilestones{grid-template-columns:1fr;gap:3px}#fishingAtlas .atlasMilestones li{padding:3px 5px}#fishingRodShop>summary small{display:block;margin:3px 0 0}}

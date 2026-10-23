@@ -1,0 +1,22 @@
+
+/* E1.6.4: horizontal, compact fishing UI */
+#page_fishing .e162Dock{padding:14px 16px}
+#page_fishing .e162DockHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#page_fishing .e162DockHead h3{margin:0 0 4px}
+#page_fishing .e162DockHead p{margin:0 0 10px}
+#page_fishing .fishWaiting{min-height:0;padding:8px 10px;margin-top:8px}
+#page_fishing .e162Game{margin-top:12px;border-top:1px solid #544536;padding-top:12px}
+#page_fishing .e162FightTitle{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;font-weight:700;margin-bottom:12px}
+#page_fishing .e162FightTitle span{font-weight:400}
+#page_fishing .e162Play{display:flex;align-items:center;justify-content:center;gap:16px;max-width:650px;margin:0 auto}
+#page_fishing .fishTank{position:relative;width:min(100%,520px);height:94px;min-width:0;flex:1;background:#183b4a;border:3px solid #7fa6b1;border-radius:12px;overflow:hidden;touch-action:none}
+#page_fishing .fishZone{position:absolute;bottom:5px;top:5px;height:auto!important;width:95px;border:2px solid #66ed8a;border-radius:9px;background:rgba(63,185,103,.35)}
+#page_fishing .fishTarget{position:absolute;bottom:auto!important;top:50%;transform:translateY(-50%);font-size:25px;white-space:nowrap}
+#page_fishing .e162ProgressWrap{min-width:110px;flex:0 0 110px}
+#page_fishing .fishMeter{height:16px;width:110px;border-radius:7px;margin-top:5px}
+#page_fishing .fishMeterFill{top:0;bottom:0;left:0;right:auto;height:100%!important;width:30%}
+#page_fishing .e162Controls{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+#page_fishing .fishControl{min-height:40px;min-width:190px}
+#page_fishing details.fishPanel summary{cursor:pointer;padding:4px 0}
+#page_fishing details.fishPanel[open] summary{margin-bottom:12px}
+@media(max-width:560px){#page_fishing .e162Play{gap:8px}#page_fishing .fishTank{height:80px}#page_fishing .e162ProgressWrap{min-width:75px;flex-basis:75px}#page_fishing .fishMeter{width:75px}#page_fishing .e162FightTitle{font-size:.9rem}}

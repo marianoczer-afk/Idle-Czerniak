@@ -1,0 +1,22 @@
+
+/* Compact picker tools; the existing rod selection buttons keep their handlers. */
+.e217RodTools{display:grid;grid-template-columns:minmax(90px,1fr) minmax(120px,1.2fr) 30px;gap:5px;align-items:center;position:sticky;top:-10px;z-index:3;background:#171d1d;padding:5px 0 7px;border-bottom:1px solid #564a37;margin-bottom:4px}
+.e217RodTools input,.e217RodTools select{box-sizing:border-box;width:100%;min-width:0;font:11px/16px system-ui,sans-serif;padding:5px;border:1px solid #6c604a;border-radius:5px;background:#24271f;color:#eadabc;min-height:30px}
+.e217RodTools button{padding:2px;min-height:30px;font-size:14px}
+.e1120Menu[data-type=rod] .e1120Choice{margin:3px 0;padding:5px 6px;gap:7px}
+.e1120Menu[data-type=rod] .e1120Choice[hidden]{display:none!important}
+.e1120Menu[data-type=rod] .rodComparisons{gap:2px 6px;margin-top:3px}
+.e1120Menu[data-type=rod] .e1120Choice>b,.e1120Menu[data-type=rod] .e1120Choice>span>b{font-size:12px;line-height:14px}
+#fishingRodShop .rodShopStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 5px;line-height:1.25;margin-top:4px}
+#fishingRodShop .rodShopStats .rodCompare{display:block;font-size:10px;line-height:13px}
+#fishingRodShop .rodShopStats .rodCompare b{font-size:10px!important;margin-left:3px;color:inherit}
+#e217XpEffects{position:fixed;inset:0;z-index:110000;pointer-events:none}
+.e217XpDrop,.e217LevelNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
+.e217XpDrop{font-size:11px;font-weight:400;line-height:normal;font-variant-numeric:tabular-nums;text-shadow:none;color:#bad5a4;animation:e217XPDrop 1.7s ease-out both}
+.e217LevelNotice{font-size:13px;color:#ffe1a0;background:none;border:0;padding:0;text-shadow:0 0 7px #7a541d,0 1px 2px #000;font-weight:700;animation:e217LevelNotice 2s ease-out both}
+.e217LevelGlow{outline:1px solid #e3c16b;box-shadow:0 0 13px 3px #e2bd5666;animation:e217LevelPulse 2s ease-out both}
+@keyframes e217XPDrop{0%{opacity:.85;transform:translateY(0)}5%,60%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-4px)}}
+@keyframes e217LevelNotice{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
+@keyframes e217LevelPulse{0%,100%{box-shadow:0 0 0 0 #e2bd5600}20%,60%{box-shadow:0 0 13px 3px #e2bd5677}}
+@media(max-width:420px){.e217RodTools{grid-template-columns:minmax(0,1fr) 30px;gap:4px}.e217RodTools input{grid-column:1;grid-row:1}.e217RodTools select{grid-column:1 / -1;grid-row:2}.e217RodTools button{grid-column:2;grid-row:1}#fishingRodShop .rodShopStats{grid-template-columns:repeat(2,minmax(0,1fr))}.e217LevelNotice{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}

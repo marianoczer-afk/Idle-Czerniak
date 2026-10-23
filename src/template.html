@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argentum Idle Online · Estable 26</title>
+<meta name="argentum-build" content="estable-26">
+<style>@@BLOCK:block-001@@</style>
+<style data-hybrid-upgrade>@@BLOCK:block-002@@</style>
+
+<style data-e13>@@BLOCK:block-003@@</style>
+<style data-e14-hud-fix>@@BLOCK:block-004@@</style>
+</head>
+<body>
+<header>
+  <h1>Argentum Idle Online · Estable 26</h1>
+  <div id="saveStatus">Cargando...</div>
+</header>
+
+<main>
+  <section id="characterScreen" class="hidden">
+    <div class="panel" style="max-width:820px;margin:auto">
+      <h2>Tus personajes · <span id="characterCount">0</span> / 5</h2>
+      <p class="muted">Solo el personaje activo progresa. Desde esta pantalla nadie combate, navega ni acumula tiempo offline.</p>
+      <div id="characterList" class="list"></div>
+      <div class="actions">
+        <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
+        <button data-act="export">Exportar todos los personajes</button>
+        <button data-act="importRoster">Importar JSON</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 26</button>
+      </div>
+      <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
+      <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
+    </div>
+  </section>
+  <section id="createScreen" class="hidden">
+    <div class="panel" style="max-width:820px;margin:0 auto">
+      <h2>Crear personaje</h2>
+      <label class="muted" for="charName">Nombre</label>
+      <input type="text" id="charName" maxlength="18" placeholder="Ej: Aldric">
+      <h2 style="margin-top:14px">Raza</h2>
+      <div class="opts" id="raceOpts"></div>
+      <h2>Clase</h2>
+      <div class="opts" id="classOpts"></div>
+      <div class="muted" id="preview" style="margin-bottom:12px"></div>
+      <button class="primary wide" id="createBtn" disabled>Comenzar aventura</button>
+      <button data-act="cancelCreate" style="margin-top:8px">Volver a personajes</button>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="hidden">
+    <div class="grid">
+      <div class="panel" id="pChar"></div>
+      <div class="panel" id="pCombat"></div>
+    </div>
+  </section>
+</main>
+<aside id="combatDock" class="combatDock hidden" aria-label="Accesos rápidos de combate">
+  <div class="dockInner">
+    <div class="dockVitals">
+      <div class="dockProgress"><div class="dockProgressLine"><b id="dockPlayerLevel">Nv —</b><span id="dockPlayerGold">🪙 —</span><span id="dockPlayerXpText">XP —</span></div><div class="bar xp"><div id="dockPlayerXpBar"></div></div></div>
+      <div><div class="row"><b>HP</b><span id="dockHpText"></span></div><div class="bar hp"><div id="dockHpBar"></div></div></div>
+      <div><div class="row"><b>MP</b><span id="dockMpText"></span></div><div class="bar mp"><div id="dockMpBar"></div></div></div>
+      <div class="dockEnemy">
+        <div class="row"><b id="dockEnemyName" class="enemyName"></b><span class="enemyMeta">Nv <span id="dockEnemyLevel"></span> · <span id="dockCombatState"></span></span></div>
+        <div class="dockEnemyReward"><span id="dockEnemyHpText" class="enemyHp"></span><span id="dockEnemyRewards"></span></div>
+        <div id="dockEnemyMeter" class="bar en" role="progressbar" aria-label="Vida del enemigo" aria-valuemin="0"><div id="dockEnemyHpBar"></div></div>
+      </div>
+    </div>
+    <div id="dockQuick" class="dockQuick" aria-label="Hechizos favoritos"></div>
+  </div>
+</aside>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script>@@BLOCK:block-005@@</script>
+<script data-hybrid-upgrade>@@BLOCK:block-006@@</script>
+<style data-dev-environment>@@BLOCK:block-007@@</style>
+<script data-dev-environment>@@BLOCK:block-008@@</script>
+<style data-dev-progression>@@BLOCK:block-009@@</style>
+<script data-dev-progression>@@BLOCK:block-010@@</script>
+<script data-dev-diagnostics>@@BLOCK:block-011@@</script>
+<style data-progression-lab>@@BLOCK:block-012@@</style>
+<script data-progression-lab>@@BLOCK:block-013@@</script>
+<script data-e15-merchant>@@BLOCK:block-014@@</script>
+<style id="e16-fishing-css">@@BLOCK:block-015@@</style>
+<script data-e16-fishing>@@BLOCK:block-016@@</script>
+<style id="e161-style">@@BLOCK:block-017@@</style>
+<script data-e161-fishing>@@BLOCK:block-018@@</script>
+
+<style data-e162-fishing>@@BLOCK:block-019@@</style>
+
+<style id="e163-style">@@BLOCK:block-020@@</style>
+<script data-e163-fishing>@@BLOCK:block-021@@</script>
+
+<style id="e164-style">@@BLOCK:block-022@@</style>
+<script data-e164-update>@@BLOCK:block-023@@</script>
+
+<style id="e165-zones-css">@@BLOCK:block-024@@</style>
+<script data-e165-zones>@@BLOCK:block-025@@</script>
+
+<style id="e17-quests-style">@@BLOCK:block-026@@</style>
+<script data-e17-quests>@@BLOCK:block-027@@</script>
+<style id="e171-style">@@BLOCK:block-028@@</style>
+<script data-e171-improvements>@@BLOCK:block-029@@</script>
+
+<style id="e172-css">@@BLOCK:block-030@@</style>
+<script data-e172-fixes>@@BLOCK:block-031@@</script>
+<style id="e173-fishing-css">@@BLOCK:block-032@@</style>
+<script data-e173-fishing>@@BLOCK:block-033@@</script>
+
+<style id="e18-trophies-style">@@BLOCK:block-034@@</style>
+<script data-e18-trophies>@@BLOCK:block-035@@</script>
+
+
+<style id="e181-style">@@BLOCK:block-036@@</style>
+<script data-e181-balance>@@BLOCK:block-037@@</script>
+
+<style id="e182-fishing-compact">@@BLOCK:block-038@@</style>
+<script data-e182-fishing>@@BLOCK:block-039@@</script>
+
+<style id="e183-style">@@BLOCK:block-040@@</style>
+<script data-e183-fishing>@@BLOCK:block-041@@</script>
+
+<style id="e185-polish-css">@@BLOCK:block-042@@</style>
+<script data-e185-fishing>@@BLOCK:block-043@@</script>
+
+<style id="e186-style">@@BLOCK:block-044@@</style>
+<script data-e186-fishing>@@BLOCK:block-045@@</script>
+
+<style id="e187-css">@@BLOCK:block-046@@</style>
+<script data-e187-expansion>@@BLOCK:block-047@@</script>
+
+<style id="e188-css">@@BLOCK:block-048@@</style>
+<script data-e188-fishing>@@BLOCK:block-049@@</script>
+
+
+<script data-e189-visual-hud>@@BLOCK:block-050@@</script>
+
+<style id="e190-polish">@@BLOCK:block-051@@</style>
+<script data-e190-polish>@@BLOCK:block-052@@</script>
+
+<style id="e191-style">@@BLOCK:block-053@@</style>
+<script data-e191-polish>@@BLOCK:block-054@@</script>
+
+<style id="e192-style">@@BLOCK:block-055@@</style>
+<script data-e192-collection>@@BLOCK:block-056@@</script>
+
+<style id="e193-style">@@BLOCK:block-057@@</style>
+<script data-e193-improvements>@@BLOCK:block-058@@</script>
+
+<style id="e194-style">@@BLOCK:block-059@@</style>
+<script data-e194-polish>@@BLOCK:block-060@@</script>
+
+<style id="e195-style">@@BLOCK:block-061@@</style>
+<script data-e195-fishing>@@BLOCK:block-062@@</script>
+
+<style id="e196-style">@@BLOCK:block-063@@</style>
+<script data-e196-fishing>@@BLOCK:block-064@@</script>
+
+
+<style id="fishing-sidebar-css">@@BLOCK:block-065@@</style>
+<script data-e197-fishing>@@BLOCK:block-066@@</script>
+
+<style id="e198-style">@@BLOCK:block-067@@</style>
+<script data-e198-fishing>@@BLOCK:block-068@@</script>
+
+<style id="e199-scroll-stability">@@BLOCK:block-069@@</style>
+
+<style id="e1101-balance-css">@@BLOCK:block-070@@</style>
+<script data-e1101-balance>@@BLOCK:block-071@@</script>
+
+<style id="e1102-quest-stats">@@BLOCK:block-072@@</style>
+<script data-e1102-quest-balance>@@BLOCK:block-073@@</script>
+
+<style id="e1103-progression">@@BLOCK:block-074@@</style>
+<script data-e1103-progression>@@BLOCK:block-075@@</script>
+
+<style id="e1105-clean-fishing">@@BLOCK:block-076@@</style>
+<script data-e1105-clean-fishing>@@BLOCK:block-077@@</script>
+
+<script data-e1106-stable-game>@@BLOCK:block-078@@</script>
+
+<style id="e1107-fishing-ui">@@BLOCK:block-079@@</style>
+<script data-e1107-fishing-ui>@@BLOCK:block-080@@</script>
+
+
+<style id="e1108-fishing-layout">@@BLOCK:block-081@@</style>
+<script data-e1108-fishing-layout>@@BLOCK:block-082@@</script>
+<style id="e1109-final-polish">@@BLOCK:block-083@@</style>
+<script data-e1109-final-polish>@@BLOCK:block-084@@</script>
+
+<style id="e1110-simplified-fishing">@@BLOCK:block-085@@</style>
+
+<style id="e1111-catch-result">@@BLOCK:block-086@@</style>
+<script data-e1111-catch-result>@@BLOCK:block-087@@</script>
+
+<style id="e1113-art-style">@@BLOCK:block-088@@</style>
+<script data-e1113-art>@@BLOCK:block-089@@</script>
+
+<style id="e1114-hd-styles">@@BLOCK:block-090@@</style>
+<script data-e1114-hd-art>@@BLOCK:block-091@@</script>
+
+<style id="e1115-hd-fit">@@BLOCK:block-092@@</style>
+
+<style id="e1116-full-art">@@BLOCK:block-093@@</style>
+
+<style id="e1117-layout">@@BLOCK:block-094@@</style>
+
+<script data-e1117-full-art>@@BLOCK:block-095@@</script>
+
+<style id="e1118-compact-fishing-hud">@@BLOCK:block-096@@</style>
+<script data-e1118-compact-fishing-hud>@@BLOCK:block-097@@</script>
+
+
+<style id="e1120-hud">@@BLOCK:block-098@@</style>
+<script data-e1120-hud>@@BLOCK:block-099@@</script>
+
+
+<script data-e1122-definitive-fishing-hud>@@BLOCK:block-100@@</script>
+<style id="e1123-zone-identity">@@BLOCK:block-101@@</style>
+<script data-e1123-zone-identity>@@BLOCK:block-102@@</script>
+<style id="e1114-visual-stability">@@BLOCK:block-103@@</style>
+<script data-e1114-menu-art>@@BLOCK:block-104@@</script>
+
+<style id="e1115-viewport-and-fish">@@BLOCK:block-105@@</style>
+<style id="e1116-hud-layout-and-stable-phases">@@BLOCK:block-106@@</style>
+
+
+<style id="e1119-clean-fishing-layout">@@BLOCK:block-107@@</style>
+
+<!-- E1.11.20: primera ampliación de contenido, sin tocar el minijuego estable. -->
+<script data-e1120-fishing-expansion>@@BLOCK:block-108@@</script>
+<style id="e1120-fish-art">@@BLOCK:block-109@@</style>
+
+<script data-e208-catalog>@@BLOCK:block-110@@</script>
+<svg id="argentum-art-library" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none"><defs><image id="argentum-rod-master" width="1536" height="1024" href="@@ASSET:image-bf7e06e296f865ae@@"/><image id="argentum-fish-master" width="1536" height="1024" href="@@ASSET:image-ebebe706b41fac35@@"/><symbol id="argentum-rod-0" viewBox="0 0 768 199" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-1" viewBox="768 0 768 199" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-2" viewBox="0 199 768 198" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-3" viewBox="768 199 768 198" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-4" viewBox="0 397 768 197" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-5" viewBox="768 397 768 197" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-6" viewBox="0 594 768 192" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-7" viewBox="768 594 768 192" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-8" viewBox="0 786 768 238" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-rod-9" viewBox="768 786 768 238" overflow="hidden"><use href="#argentum-rod-master"/></symbol><symbol id="argentum-fish-0" viewBox="0 0 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol><symbol id="argentum-fish-1" viewBox="512 0 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol><symbol id="argentum-fish-2" viewBox="1024 0 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol><symbol id="argentum-fish-3" viewBox="0 512 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol><symbol id="argentum-fish-4" viewBox="512 512 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol><symbol id="argentum-fish-5" viewBox="1024 512 512 512" overflow="hidden"><use href="#argentum-fish-master"/></symbol></defs></svg>
+<script data-e208-art>@@BLOCK:block-111@@</script>
+<style id="e208-illustration-frames">@@BLOCK:block-112@@</style>
+<style id="e1121-rod-shop">@@BLOCK:block-113@@</style>
+<script data-e216-atlas>@@BLOCK:block-114@@</script>
+<script data-e1121-rod-shop>@@BLOCK:block-115@@</script>
+
+
+<style id="fishing-sidebar-and-quest-css">@@BLOCK:block-116@@</style>
+<style id="fishing-hud-css">@@BLOCK:block-117@@</style>
+<style id="fishing-atlas-css">@@BLOCK:block-118@@</style>
+<script data-e217-rod-ux>@@BLOCK:block-119@@</script>
+<script data-e217-xp-effects>@@BLOCK:block-120@@</script>
+<style id="rod-selection-and-xp-feedback-css">@@BLOCK:block-121@@</style>
+
+<script data-e218-journal>@@BLOCK:block-122@@</script>
+<style id="fishing-journal-css">@@BLOCK:block-123@@</style>
+
+<style id="e220-collection-polish">@@BLOCK:block-124@@</style>
+
+<script data-e221-compact-art>@@BLOCK:block-125@@</script>
+<style id="e221-art-and-overlays">@@BLOCK:block-126@@</style>
+
+<script data-e222-navigation>@@BLOCK:block-127@@</script>
+<style id="e222-navigation-css">@@BLOCK:block-128@@</style>
+
+<script data-e223-art-presentation>@@BLOCK:block-129@@</script>
+</body>
+</html>

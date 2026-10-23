@@ -1,0 +1,38 @@
+
+/* Igualar el espacio entre sacudida y captura, sin recortar los controles. */
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ height:270px!important;min-height:270px!important;max-height:none!important;
+ box-sizing:border-box!important;overflow:visible!important;
+ position:relative!important;margin-top:7px!important;padding:12px 8px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay{
+ inset:0!important;overflow:hidden!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e162Controls{
+ display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+ gap:6px!important;margin-top:10px!important;padding-bottom:8px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e162Controls button{flex-shrink:0}
+#page_fishing .e162Dock #e16GamePanel .e162FightTitle{margin:0 0 8px!important}
+#page_fishing .e162Dock #e16GamePanel .e162Play{margin:0!important}
+#page_fishing .e162Dock .e1107Quiet{display:none!important}
+#page_fishing .e1105Details{display:none!important}
+#page_fishing .e162Dock .e1107StopShake{
+ position:absolute;top:8px;right:9px;z-index:20;padding:6px 9px;
+ font-size:.73rem;border-radius:7px;background:#392a1c;border:1px solid #c7a358;color:#f5db9c;cursor:pointer;
+}
+body.e1107Fishing .hybridSidebarBody details[data-ui-panel="equipment"] .sectionBody{display:none!important}
+body.e1107Fishing .hybridSidebarBody details[data-ui-panel="equipment"] .e1107RodPanel{display:block!important}
+.e1107RodPanel{display:none;padding:9px 10px;color:#ddd5c5}
+.e1107RodName{font-weight:750;color:#f3d891;margin-bottom:7px}
+.e1107RodStats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.e1107RodStats>div{border:1px solid #5b5140;background:#29251f;border-radius:7px;padding:7px 5px;font-size:.73rem}
+.e1107RodStats b{display:block;color:#b9e5cb;font-size:.88rem;margin-top:2px}
+.e1107RodHelp{font-size:.71rem;color:#bcb2a1;line-height:1.45;margin-top:8px}
+@media(max-width:650px){
+ #page_fishing .e162Dock #e16GamePanel,
+ #page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ height:300px!important;min-height:300px!important;max-height:none!important;
+ }
+}

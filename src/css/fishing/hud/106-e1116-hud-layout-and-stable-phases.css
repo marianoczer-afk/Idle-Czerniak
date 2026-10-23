@@ -1,0 +1,13 @@
+
+/* Invariant fishing stage geometry across preparation and capture. */
+/* E1.11.19: phase-dependent external layout rule removed */
+
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ display:block!important;height:272px!important;min-height:272px!important;
+ max-height:272px!important;box-sizing:border-box!important;
+ margin:0!important;padding:12px 8px!important;overflow:hidden!important;
+ contain:layout!important;
+}
+#page_fishing .e162Dock .e1108Toolbar{height:55px!important;min-height:55px!important;max-height:55px!important;box-sizing:border-box!important}
+#page_fishing .e162DockHead{min-height:0!important}

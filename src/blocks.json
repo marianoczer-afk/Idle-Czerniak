@@ -1,0 +1,776 @@
+[
+  {
+    "id": "block-001",
+    "file": "src/css/core/001-core.css",
+    "type": "style",
+    "attributes": ""
+  },
+  {
+    "id": "block-002",
+    "file": "src/css/layout/002-hybrid-upgrade.css",
+    "type": "style",
+    "attributes": " data-hybrid-upgrade"
+  },
+  {
+    "id": "block-003",
+    "file": "src/css/layout/003-e13.css",
+    "type": "style",
+    "attributes": " data-e13"
+  },
+  {
+    "id": "block-004",
+    "file": "src/css/layout/004-e14-hud-fix.css",
+    "type": "style",
+    "attributes": " data-e14-hud-fix"
+  },
+  {
+    "id": "block-005",
+    "file": "src/js/core/005-core.js",
+    "type": "script",
+    "attributes": ""
+  },
+  {
+    "id": "block-006",
+    "file": "src/js/layout/006-hybrid-upgrade.js",
+    "type": "script",
+    "attributes": " data-hybrid-upgrade"
+  },
+  {
+    "id": "block-007",
+    "file": "src/css/dev/007-dev-environment.css",
+    "type": "style",
+    "attributes": " data-dev-environment"
+  },
+  {
+    "id": "block-008",
+    "file": "src/js/dev/008-dev-environment.js",
+    "type": "script",
+    "attributes": " data-dev-environment"
+  },
+  {
+    "id": "block-009",
+    "file": "src/css/dev/009-dev-progression.css",
+    "type": "style",
+    "attributes": " data-dev-progression"
+  },
+  {
+    "id": "block-010",
+    "file": "src/js/dev/010-dev-progression.js",
+    "type": "script",
+    "attributes": " data-dev-progression"
+  },
+  {
+    "id": "block-011",
+    "file": "src/js/dev/011-dev-diagnostics.js",
+    "type": "script",
+    "attributes": " data-dev-diagnostics"
+  },
+  {
+    "id": "block-012",
+    "file": "src/css/dev/012-progression-lab.css",
+    "type": "style",
+    "attributes": " data-progression-lab"
+  },
+  {
+    "id": "block-013",
+    "file": "src/js/dev/013-progression-lab.js",
+    "type": "script",
+    "attributes": " data-progression-lab"
+  },
+  {
+    "id": "block-014",
+    "file": "src/js/shop/014-e15-merchant.js",
+    "type": "script",
+    "attributes": " data-e15-merchant"
+  },
+  {
+    "id": "block-015",
+    "file": "src/css/fishing/minigame/015-e16-fishing-css.css",
+    "type": "style",
+    "attributes": " id=\"e16-fishing-css\""
+  },
+  {
+    "id": "block-016",
+    "file": "src/js/fishing/minigame/016-e16-fishing.js",
+    "type": "script",
+    "attributes": " data-e16-fishing"
+  },
+  {
+    "id": "block-017",
+    "file": "src/css/fishing/minigame/017-e161-style.css",
+    "type": "style",
+    "attributes": " id=\"e161-style\""
+  },
+  {
+    "id": "block-018",
+    "file": "src/js/fishing/minigame/018-e161-fishing.js",
+    "type": "script",
+    "attributes": " data-e161-fishing"
+  },
+  {
+    "id": "block-019",
+    "file": "src/css/fishing/minigame/019-e162-fishing.css",
+    "type": "style",
+    "attributes": " data-e162-fishing"
+  },
+  {
+    "id": "block-020",
+    "file": "src/css/fishing/minigame/020-e163-style.css",
+    "type": "style",
+    "attributes": " id=\"e163-style\""
+  },
+  {
+    "id": "block-021",
+    "file": "src/js/fishing/minigame/021-e163-fishing.js",
+    "type": "script",
+    "attributes": " data-e163-fishing"
+  },
+  {
+    "id": "block-022",
+    "file": "src/css/fishing/minigame/022-e164-style.css",
+    "type": "style",
+    "attributes": " id=\"e164-style\""
+  },
+  {
+    "id": "block-023",
+    "file": "src/js/fishing/minigame/023-e164-update.js",
+    "type": "script",
+    "attributes": " data-e164-update"
+  },
+  {
+    "id": "block-024",
+    "file": "src/css/fishing/minigame/024-e165-zones-css.css",
+    "type": "style",
+    "attributes": " id=\"e165-zones-css\""
+  },
+  {
+    "id": "block-025",
+    "file": "src/js/fishing/minigame/025-e165-zones.js",
+    "type": "script",
+    "attributes": " data-e165-zones"
+  },
+  {
+    "id": "block-026",
+    "file": "src/css/fishing/minigame/026-e17-quests-style.css",
+    "type": "style",
+    "attributes": " id=\"e17-quests-style\""
+  },
+  {
+    "id": "block-027",
+    "file": "src/js/fishing/minigame/027-e17-quests.js",
+    "type": "script",
+    "attributes": " data-e17-quests"
+  },
+  {
+    "id": "block-028",
+    "file": "src/css/fishing/minigame/028-e171-style.css",
+    "type": "style",
+    "attributes": " id=\"e171-style\""
+  },
+  {
+    "id": "block-029",
+    "file": "src/js/fishing/minigame/029-e171-improvements.js",
+    "type": "script",
+    "attributes": " data-e171-improvements"
+  },
+  {
+    "id": "block-030",
+    "file": "src/css/fishing/minigame/030-e172-css.css",
+    "type": "style",
+    "attributes": " id=\"e172-css\""
+  },
+  {
+    "id": "block-031",
+    "file": "src/js/fishing/minigame/031-e172-fixes.js",
+    "type": "script",
+    "attributes": " data-e172-fixes"
+  },
+  {
+    "id": "block-032",
+    "file": "src/css/fishing/minigame/032-e173-fishing-css.css",
+    "type": "style",
+    "attributes": " id=\"e173-fishing-css\""
+  },
+  {
+    "id": "block-033",
+    "file": "src/js/fishing/minigame/033-e173-fishing.js",
+    "type": "script",
+    "attributes": " data-e173-fishing"
+  },
+  {
+    "id": "block-034",
+    "file": "src/css/fishing/minigame/034-e18-trophies-style.css",
+    "type": "style",
+    "attributes": " id=\"e18-trophies-style\""
+  },
+  {
+    "id": "block-035",
+    "file": "src/js/fishing/minigame/035-e18-trophies.js",
+    "type": "script",
+    "attributes": " data-e18-trophies"
+  },
+  {
+    "id": "block-036",
+    "file": "src/css/fishing/minigame/036-e181-style.css",
+    "type": "style",
+    "attributes": " id=\"e181-style\""
+  },
+  {
+    "id": "block-037",
+    "file": "src/js/fishing/minigame/037-e181-balance.js",
+    "type": "script",
+    "attributes": " data-e181-balance"
+  },
+  {
+    "id": "block-038",
+    "file": "src/css/fishing/minigame/038-e182-fishing-compact.css",
+    "type": "style",
+    "attributes": " id=\"e182-fishing-compact\""
+  },
+  {
+    "id": "block-039",
+    "file": "src/js/fishing/minigame/039-e182-fishing.js",
+    "type": "script",
+    "attributes": " data-e182-fishing"
+  },
+  {
+    "id": "block-040",
+    "file": "src/css/fishing/minigame/040-e183-style.css",
+    "type": "style",
+    "attributes": " id=\"e183-style\""
+  },
+  {
+    "id": "block-041",
+    "file": "src/js/fishing/minigame/041-e183-fishing.js",
+    "type": "script",
+    "attributes": " data-e183-fishing"
+  },
+  {
+    "id": "block-042",
+    "file": "src/css/fishing/minigame/042-e185-polish-css.css",
+    "type": "style",
+    "attributes": " id=\"e185-polish-css\""
+  },
+  {
+    "id": "block-043",
+    "file": "src/js/fishing/minigame/043-e185-fishing.js",
+    "type": "script",
+    "attributes": " data-e185-fishing"
+  },
+  {
+    "id": "block-044",
+    "file": "src/css/fishing/minigame/044-e186-style.css",
+    "type": "style",
+    "attributes": " id=\"e186-style\""
+  },
+  {
+    "id": "block-045",
+    "file": "src/js/fishing/minigame/045-e186-fishing.js",
+    "type": "script",
+    "attributes": " data-e186-fishing"
+  },
+  {
+    "id": "block-046",
+    "file": "src/css/fishing/minigame/046-e187-css.css",
+    "type": "style",
+    "attributes": " id=\"e187-css\""
+  },
+  {
+    "id": "block-047",
+    "file": "src/js/fishing/feedback/047-e187-expansion.js",
+    "type": "script",
+    "attributes": " data-e187-expansion"
+  },
+  {
+    "id": "block-048",
+    "file": "src/css/fishing/minigame/048-e188-css.css",
+    "type": "style",
+    "attributes": " id=\"e188-css\""
+  },
+  {
+    "id": "block-049",
+    "file": "src/js/fishing/minigame/049-e188-fishing.js",
+    "type": "script",
+    "attributes": " data-e188-fishing"
+  },
+  {
+    "id": "block-050",
+    "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+    "type": "script",
+    "attributes": " data-e189-visual-hud"
+  },
+  {
+    "id": "block-051",
+    "file": "src/css/fishing/minigame/051-e190-polish.css",
+    "type": "style",
+    "attributes": " id=\"e190-polish\""
+  },
+  {
+    "id": "block-052",
+    "file": "src/js/fishing/minigame/052-e190-polish.js",
+    "type": "script",
+    "attributes": " data-e190-polish"
+  },
+  {
+    "id": "block-053",
+    "file": "src/css/fishing/minigame/053-e191-style.css",
+    "type": "style",
+    "attributes": " id=\"e191-style\""
+  },
+  {
+    "id": "block-054",
+    "file": "src/js/fishing/minigame/054-e191-polish.js",
+    "type": "script",
+    "attributes": " data-e191-polish"
+  },
+  {
+    "id": "block-055",
+    "file": "src/css/fishing/minigame/055-e192-style.css",
+    "type": "style",
+    "attributes": " id=\"e192-style\""
+  },
+  {
+    "id": "block-056",
+    "file": "src/js/fishing/collection/056-e192-collection.js",
+    "type": "script",
+    "attributes": " data-e192-collection"
+  },
+  {
+    "id": "block-057",
+    "file": "src/css/fishing/minigame/057-e193-style.css",
+    "type": "style",
+    "attributes": " id=\"e193-style\""
+  },
+  {
+    "id": "block-058",
+    "file": "src/js/fishing/minigame/058-e193-improvements.js",
+    "type": "script",
+    "attributes": " data-e193-improvements"
+  },
+  {
+    "id": "block-059",
+    "file": "src/css/fishing/minigame/059-e194-style.css",
+    "type": "style",
+    "attributes": " id=\"e194-style\""
+  },
+  {
+    "id": "block-060",
+    "file": "src/js/fishing/minigame/060-e194-polish.js",
+    "type": "script",
+    "attributes": " data-e194-polish"
+  },
+  {
+    "id": "block-061",
+    "file": "src/css/fishing/minigame/061-e195-style.css",
+    "type": "style",
+    "attributes": " id=\"e195-style\""
+  },
+  {
+    "id": "block-062",
+    "file": "src/js/fishing/minigame/062-e195-fishing.js",
+    "type": "script",
+    "attributes": " data-e195-fishing"
+  },
+  {
+    "id": "block-063",
+    "file": "src/css/fishing/minigame/063-e196-style.css",
+    "type": "style",
+    "attributes": " id=\"e196-style\""
+  },
+  {
+    "id": "block-064",
+    "file": "src/js/fishing/minigame/064-e196-fishing.js",
+    "type": "script",
+    "attributes": " data-e196-fishing"
+  },
+  {
+    "id": "block-065",
+    "file": "src/css/fishing/hud/065-fishing-sidebar-css.css",
+    "type": "style",
+    "attributes": " id=\"fishing-sidebar-css\""
+  },
+  {
+    "id": "block-066",
+    "file": "src/js/fishing/minigame/066-e197-fishing.js",
+    "type": "script",
+    "attributes": " data-e197-fishing"
+  },
+  {
+    "id": "block-067",
+    "file": "src/css/fishing/minigame/067-e198-style.css",
+    "type": "style",
+    "attributes": " id=\"e198-style\""
+  },
+  {
+    "id": "block-068",
+    "file": "src/js/fishing/minigame/068-e198-fishing.js",
+    "type": "script",
+    "attributes": " data-e198-fishing"
+  },
+  {
+    "id": "block-069",
+    "file": "src/css/fishing/minigame/069-e199-scroll-stability.css",
+    "type": "style",
+    "attributes": " id=\"e199-scroll-stability\""
+  },
+  {
+    "id": "block-070",
+    "file": "src/css/fishing/minigame/070-e1101-balance-css.css",
+    "type": "style",
+    "attributes": " id=\"e1101-balance-css\""
+  },
+  {
+    "id": "block-071",
+    "file": "src/js/fishing/minigame/071-e1101-balance.js",
+    "type": "script",
+    "attributes": " data-e1101-balance"
+  },
+  {
+    "id": "block-072",
+    "file": "src/css/fishing/minigame/072-e1102-quest-stats.css",
+    "type": "style",
+    "attributes": " id=\"e1102-quest-stats\""
+  },
+  {
+    "id": "block-073",
+    "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+    "type": "script",
+    "attributes": " data-e1102-quest-balance"
+  },
+  {
+    "id": "block-074",
+    "file": "src/css/fishing/minigame/074-e1103-progression.css",
+    "type": "style",
+    "attributes": " id=\"e1103-progression\""
+  },
+  {
+    "id": "block-075",
+    "file": "src/js/fishing/minigame/075-e1103-progression.js",
+    "type": "script",
+    "attributes": " data-e1103-progression"
+  },
+  {
+    "id": "block-076",
+    "file": "src/css/fishing/minigame/076-e1105-clean-fishing.css",
+    "type": "style",
+    "attributes": " id=\"e1105-clean-fishing\""
+  },
+  {
+    "id": "block-077",
+    "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+    "type": "script",
+    "attributes": " data-e1105-clean-fishing"
+  },
+  {
+    "id": "block-078",
+    "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+    "type": "script",
+    "attributes": " data-e1106-stable-game"
+  },
+  {
+    "id": "block-079",
+    "file": "src/css/fishing/minigame/079-e1107-fishing-ui.css",
+    "type": "style",
+    "attributes": " id=\"e1107-fishing-ui\""
+  },
+  {
+    "id": "block-080",
+    "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+    "type": "script",
+    "attributes": " data-e1107-fishing-ui"
+  },
+  {
+    "id": "block-081",
+    "file": "src/css/fishing/minigame/081-e1108-fishing-layout.css",
+    "type": "style",
+    "attributes": " id=\"e1108-fishing-layout\""
+  },
+  {
+    "id": "block-082",
+    "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+    "type": "script",
+    "attributes": " data-e1108-fishing-layout"
+  },
+  {
+    "id": "block-083",
+    "file": "src/css/fishing/minigame/083-e1109-final-polish.css",
+    "type": "style",
+    "attributes": " id=\"e1109-final-polish\""
+  },
+  {
+    "id": "block-084",
+    "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+    "type": "script",
+    "attributes": " data-e1109-final-polish"
+  },
+  {
+    "id": "block-085",
+    "file": "src/css/fishing/minigame/085-e1110-simplified-fishing.css",
+    "type": "style",
+    "attributes": " id=\"e1110-simplified-fishing\""
+  },
+  {
+    "id": "block-086",
+    "file": "src/css/fishing/minigame/086-e1111-catch-result.css",
+    "type": "style",
+    "attributes": " id=\"e1111-catch-result\""
+  },
+  {
+    "id": "block-087",
+    "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+    "type": "script",
+    "attributes": " data-e1111-catch-result"
+  },
+  {
+    "id": "block-088",
+    "file": "src/css/fishing/art/088-e1113-art-style.css",
+    "type": "style",
+    "attributes": " id=\"e1113-art-style\""
+  },
+  {
+    "id": "block-089",
+    "file": "src/js/fishing/art/089-e1113-art.js",
+    "type": "script",
+    "attributes": " data-e1113-art"
+  },
+  {
+    "id": "block-090",
+    "file": "src/css/fishing/art/090-e1114-hd-styles.css",
+    "type": "style",
+    "attributes": " id=\"e1114-hd-styles\""
+  },
+  {
+    "id": "block-091",
+    "file": "src/js/fishing/art/091-e1114-hd-art.js",
+    "type": "script",
+    "attributes": " data-e1114-hd-art"
+  },
+  {
+    "id": "block-092",
+    "file": "src/css/fishing/art/092-e1115-hd-fit.css",
+    "type": "style",
+    "attributes": " id=\"e1115-hd-fit\""
+  },
+  {
+    "id": "block-093",
+    "file": "src/css/fishing/art/093-e1116-full-art.css",
+    "type": "style",
+    "attributes": " id=\"e1116-full-art\""
+  },
+  {
+    "id": "block-094",
+    "file": "src/css/fishing/minigame/094-e1117-layout.css",
+    "type": "style",
+    "attributes": " id=\"e1117-layout\""
+  },
+  {
+    "id": "block-095",
+    "file": "src/js/fishing/art/095-e1117-full-art.js",
+    "type": "script",
+    "attributes": " data-e1117-full-art"
+  },
+  {
+    "id": "block-096",
+    "file": "src/css/fishing/hud/096-e1118-compact-fishing-hud.css",
+    "type": "style",
+    "attributes": " id=\"e1118-compact-fishing-hud\""
+  },
+  {
+    "id": "block-097",
+    "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+    "type": "script",
+    "attributes": " data-e1118-compact-fishing-hud"
+  },
+  {
+    "id": "block-098",
+    "file": "src/css/fishing/hud/098-e1120-hud.css",
+    "type": "style",
+    "attributes": " id=\"e1120-hud\""
+  },
+  {
+    "id": "block-099",
+    "file": "src/js/fishing/hud/099-e1120-hud.js",
+    "type": "script",
+    "attributes": " data-e1120-hud"
+  },
+  {
+    "id": "block-100",
+    "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+    "type": "script",
+    "attributes": " data-e1122-definitive-fishing-hud"
+  },
+  {
+    "id": "block-101",
+    "file": "src/css/fishing/minigame/101-e1123-zone-identity.css",
+    "type": "style",
+    "attributes": " id=\"e1123-zone-identity\""
+  },
+  {
+    "id": "block-102",
+    "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+    "type": "script",
+    "attributes": " data-e1123-zone-identity"
+  },
+  {
+    "id": "block-103",
+    "file": "src/css/fishing/minigame/103-e1114-visual-stability.css",
+    "type": "style",
+    "attributes": " id=\"e1114-visual-stability\""
+  },
+  {
+    "id": "block-104",
+    "file": "src/js/fishing/art/104-e1114-menu-art.js",
+    "type": "script",
+    "attributes": " data-e1114-menu-art"
+  },
+  {
+    "id": "block-105",
+    "file": "src/css/fishing/minigame/105-e1115-viewport-and-fish.css",
+    "type": "style",
+    "attributes": " id=\"e1115-viewport-and-fish\""
+  },
+  {
+    "id": "block-106",
+    "file": "src/css/fishing/hud/106-e1116-hud-layout-and-stable-phases.css",
+    "type": "style",
+    "attributes": " id=\"e1116-hud-layout-and-stable-phases\""
+  },
+  {
+    "id": "block-107",
+    "file": "src/css/fishing/minigame/107-e1119-clean-fishing-layout.css",
+    "type": "style",
+    "attributes": " id=\"e1119-clean-fishing-layout\""
+  },
+  {
+    "id": "block-108",
+    "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+    "type": "script",
+    "attributes": " data-e1120-fishing-expansion"
+  },
+  {
+    "id": "block-109",
+    "file": "src/css/fishing/art/109-e1120-fish-art.css",
+    "type": "style",
+    "attributes": " id=\"e1120-fish-art\""
+  },
+  {
+    "id": "block-110",
+    "file": "src/js/fishing/minigame/110-e208-catalog.js",
+    "type": "script",
+    "attributes": " data-e208-catalog"
+  },
+  {
+    "id": "block-111",
+    "file": "src/js/fishing/art/111-e208-art.js",
+    "type": "script",
+    "attributes": " data-e208-art"
+  },
+  {
+    "id": "block-112",
+    "file": "src/css/fishing/art/112-e208-illustration-frames.css",
+    "type": "style",
+    "attributes": " id=\"e208-illustration-frames\""
+  },
+  {
+    "id": "block-113",
+    "file": "src/css/fishing/shop/113-e1121-rod-shop.css",
+    "type": "style",
+    "attributes": " id=\"e1121-rod-shop\""
+  },
+  {
+    "id": "block-114",
+    "file": "src/js/fishing/atlas/114-e216-atlas.js",
+    "type": "script",
+    "attributes": " data-e216-atlas"
+  },
+  {
+    "id": "block-115",
+    "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+    "type": "script",
+    "attributes": " data-e1121-rod-shop"
+  },
+  {
+    "id": "block-116",
+    "file": "src/css/fishing/hud/116-fishing-sidebar-and-quest-css.css",
+    "type": "style",
+    "attributes": " id=\"fishing-sidebar-and-quest-css\""
+  },
+  {
+    "id": "block-117",
+    "file": "src/css/fishing/hud/117-fishing-hud-css.css",
+    "type": "style",
+    "attributes": " id=\"fishing-hud-css\""
+  },
+  {
+    "id": "block-118",
+    "file": "src/css/fishing/atlas/118-fishing-atlas-css.css",
+    "type": "style",
+    "attributes": " id=\"fishing-atlas-css\""
+  },
+  {
+    "id": "block-119",
+    "file": "src/js/fishing/shop/119-e217-rod-ux.js",
+    "type": "script",
+    "attributes": " data-e217-rod-ux"
+  },
+  {
+    "id": "block-120",
+    "file": "src/js/fishing/feedback/120-e217-xp-effects.js",
+    "type": "script",
+    "attributes": " data-e217-xp-effects"
+  },
+  {
+    "id": "block-121",
+    "file": "src/css/fishing/feedback/121-rod-selection-and-xp-feedback-css.css",
+    "type": "style",
+    "attributes": " id=\"rod-selection-and-xp-feedback-css\""
+  },
+  {
+    "id": "block-122",
+    "file": "src/js/fishing/collection/122-e218-journal.js",
+    "type": "script",
+    "attributes": " data-e218-journal"
+  },
+  {
+    "id": "block-123",
+    "file": "src/css/fishing/collection/123-fishing-journal-css.css",
+    "type": "style",
+    "attributes": " id=\"fishing-journal-css\""
+  },
+  {
+    "id": "block-124",
+    "file": "src/css/fishing/collection/124-e220-collection-polish.css",
+    "type": "style",
+    "attributes": " id=\"e220-collection-polish\""
+  },
+  {
+    "id": "block-125",
+    "file": "src/js/fishing/art/125-e221-compact-art.js",
+    "type": "script",
+    "attributes": " data-e221-compact-art"
+  },
+  {
+    "id": "block-126",
+    "file": "src/css/fishing/art/126-e221-art-and-overlays.css",
+    "type": "style",
+    "attributes": " id=\"e221-art-and-overlays\""
+  },
+  {
+    "id": "block-127",
+    "file": "src/js/fishing/minigame/127-e222-navigation.js",
+    "type": "script",
+    "attributes": " data-e222-navigation"
+  },
+  {
+    "id": "block-128",
+    "file": "src/css/fishing/minigame/128-e222-navigation-css.css",
+    "type": "style",
+    "attributes": " id=\"e222-navigation-css\""
+  },
+  {
+    "id": "block-129",
+    "file": "src/js/fishing/art/129-e223-art-presentation.js",
+    "type": "script",
+    "attributes": " data-e223-art-presentation"
+  }
+]

@@ -1,0 +1,159 @@
+{
+  "catalogue": "estable-25",
+  "runtimeInput": false,
+  "purpose": "Frozen reference for a future compatible mastery extension; not applied to gameplay",
+  "newQuestDefault": "supplemental",
+  "zones": [
+    {
+      "zoneId": "muelle",
+      "speciesIds": [
+        "mojarra",
+        "bagre",
+        "trucha",
+        "carpa_dorada",
+        "trucha_arcoiris"
+      ],
+      "mainQuestIds": [
+        "e17_viejo"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "rio",
+      "speciesIds": [
+        "bagre",
+        "trucha",
+        "salmon",
+        "trucha_arcoiris",
+        "lucio",
+        "anguila"
+      ],
+      "mainQuestIds": [
+        "e171_rio",
+        "coleccionista",
+        "e208_rod_custodio_pulso",
+        "e208_rod_custodio_cauce",
+        "e208_rod_custodio_destello",
+        "e208_rod_custodio_fortuna",
+        "e208_rod_custodio_titan",
+        "e208_rod_custodio_reliquia"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "costa",
+      "speciesIds": [
+        "salmon",
+        "pez_espada",
+        "pez_fantasma",
+        "lubina",
+        "atun",
+        "mantarraya"
+      ],
+      "mainQuestIds": [
+        "e171_costa"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "laguna",
+      "speciesIds": [
+        "trucha_arcoiris",
+        "perca_esmeralda",
+        "cangrejo_azul",
+        "koi_imperial",
+        "esturion"
+      ],
+      "mainQuestIds": [
+        "laguna"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "arrecife",
+      "speciesIds": [
+        "lubina",
+        "pez_luna",
+        "caballito_mar",
+        "morena",
+        "tiburon_arrecife"
+      ],
+      "mainQuestIds": [
+        "arrecife"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "abismo",
+      "speciesIds": [
+        "mantarraya",
+        "pez_linternilla",
+        "calamar_abismo",
+        "pez_cristal",
+        "leviatan"
+      ],
+      "mainQuestIds": [
+        "abismo"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "manglar",
+      "speciesIds": [
+        "sabalo_manglar",
+        "pez_arquero",
+        "anguila_manglar",
+        "tarpon"
+      ],
+      "mainQuestIds": [],
+      "noQuestRule": "first-discovery"
+    },
+    {
+      "zoneId": "glaciar",
+      "speciesIds": [
+        "trucha_alpina",
+        "salvelino",
+        "bacalao_hielo",
+        "esturion_blanco"
+      ],
+      "mainQuestIds": [
+        "e208_rod_boreal_pulso",
+        "e208_rod_boreal_cauce",
+        "e208_rod_boreal_destello",
+        "e208_rod_boreal_fortuna",
+        "e208_rod_boreal_titan",
+        "e208_rod_boreal_reliquia"
+      ],
+      "noQuestRule": null
+    },
+    {
+      "zoneId": "volcan",
+      "speciesIds": [
+        "pez_lava",
+        "mero_obsidiana",
+        "pez_escorpion",
+        "dragon_mar"
+      ],
+      "mainQuestIds": [],
+      "noQuestRule": "first-discovery"
+    },
+    {
+      "zoneId": "santuario",
+      "speciesIds": [
+        "carpa_celeste",
+        "pez_cometa",
+        "raya_aurora",
+        "guardian_mareas"
+      ],
+      "mainQuestIds": [
+        "e208_rod_eterno_pulso",
+        "e208_rod_eterno_cauce",
+        "e208_rod_eterno_destello",
+        "e208_rod_eterno_fortuna",
+        "e208_rod_eterno_titan",
+        "e208_rod_eterno_reliquia"
+      ],
+      "noQuestRule": null
+    }
+  ]
+}

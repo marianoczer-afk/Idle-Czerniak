@@ -1,0 +1,6 @@
+
+#page_fishing .e162Dock>.e185Summary{display:none!important}
+#page_fishing .e1105Details{margin:9px 0;border:1px solid #66533a;border-radius:9px;background:#211c17;padding:8px 12px}
+#page_fishing .e1105Details>summary{cursor:pointer;color:#e6c979;font-size:.81rem;font-weight:650}
+#page_fishing .e1105Details .e185Summary{margin:10px 0 2px;display:flex;flex-wrap:wrap;gap:5px}
+#page_fishing .e1105Details .e185Summary>*{font-size:.75rem}

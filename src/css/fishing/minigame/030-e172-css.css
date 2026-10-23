@@ -1,0 +1,5 @@
+
+/* Las misiones y las cañas no deben tapar la acción principal. */
+#page_fishing .e172State{margin:8px 0 0;padding:8px 11px;border-radius:7px;border:1px solid #715a33;background:#30281e;color:#f4dba8;font-size:.88rem}
+#page_fishing .e172Equipped{border-color:#d9b24d!important;background:rgba(180,137,45,.13)}
+#page_fishing .e172Equipped button{opacity:.85}

@@ -1,3 +1,4 @@
+require('./build.cjs').build({check:true});
 'use strict';
 // Parse every inline script without executing game code or touching browser saves.
 const assert=require('node:assert/strict');

@@ -1,0 +1,49 @@
+
+  main { max-width:1360px; }
+  .hybridLayout { display:grid; grid-template-columns:300px minmax(0,1fr); gap:14px; align-items:start; }
+  .hybridSidebar { position:sticky; top:12px; min-width:0; background:var(--panel); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .hybridSidebar > summary { display:none; }
+  .hybridSidebarBody { padding:12px; }
+.sidebarQuickActions{position:sticky;top:0;z-index:3;background:var(--panel);padding:4px 0 9px}
+.sidebarQuickActions button{width:100%;min-height:40px}
+@media(min-width:851px){.hybridSidebar{max-height:calc(100dvh - var(--dock-space,135px) - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}}
+@media(max-width:850px){.hybridSidebarBody{max-height:calc(85dvh - var(--dock-space,135px));overflow-y:auto;overscroll-behavior:contain}}
+
+  .hybridSidebarBody > details { border:0; border-top:1px solid var(--border); padding:10px 0 0; margin-top:12px; }
+  .hybridSidebarBody > details:first-child { border-top:0; padding-top:0; margin-top:0; }
+  .hybridSidebarBody > details > summary { color:var(--gold); font-weight:600; cursor:pointer; min-height:38px; align-content:center; }
+  .hybridSidebarBody .sectionBody { margin-top:8px; }
+  .hybridSidebarBody .row { flex-wrap:wrap; }
+  .hybridSidebarBody .actions button { flex:1; min-width:105px; padding:8px; font-size:.82rem; }
+  .hybridSidebarBody .bar { height:11px; }
+  .hybridMain { min-width:0; }
+  .hybridMain .workspacePage { max-width:none; }
+  .hybridMain .workspaceHeader { background:var(--panel); border:1px solid var(--border); padding:10px; border-radius:10px; }
+  .skillCard { background:var(--panel2); border:1px solid #453626; border-radius:8px; padding:7px 8px; margin-top:7px; }
+  .skillCard .row { margin-top:0; font-size:.81rem; }
+  .skillCard .bar { margin:5px 0 3px; height:7px; }
+  .skillCard small { display:block; color:var(--muted); font-size:.7rem; }
+  .dockControls { display:flex; flex-direction:column; gap:4px; flex-shrink:0; }
+  .dockControls button { padding:5px 9px; min-height:36px; font-size:.78rem; }
+  .hybridIdentity { font-size:.9rem; }
+  .hybridIdentity strong { color:var(--gold); }
+  .hybridSidebar .hybridProfileLabel { display:none; }
+  @media(max-width:850px) {
+    .hybridLayout { display:block; }
+    .hybridSidebar { position:static; margin-bottom:10px; }
+    .hybridSidebar > summary { display:block; list-style:none; cursor:pointer; padding:10px 12px; min-height:48px; }
+    .hybridSidebar > summary::-webkit-details-marker { display:none; }
+    .hybridSidebar .hybridProfileLabel { display:inline; color:var(--muted); font-size:.75rem; }
+    .hybridSidebarBody { border-top:1px solid var(--border); }
+    .hybridSidebarBody .skillCard { margin-top:5px; }
+    .dockControls { flex-direction:row; }
+    .dockVitals { width:280px; }
+  }
+  @media(max-width:600px) {
+    .dockVitals { width:100%; }
+    .dockControls { width:100%; }
+    .dockControls button { flex:1; min-height:36px; }
+    .hybridMain .workspaceHeader .identity { display:none; }
+    .hybridMain .workspaceHeader { padding:6px; margin-bottom:5px; }
+    .hybridMain .workspaceTabs { padding-bottom:6px; }
+  }

@@ -1,0 +1,9 @@
+
+/* El fondo del pez pertenece a la zona, no a un azul universal. */
+
+@keyframes e191GoldPulse{50%{box-shadow:inset 0 0 22px #ffdf7360,0 0 24px #f2c452aa}}
+
+#page_fishing .e191Achievement{margin-top:9px;border:1px solid #9b864d66;background:#bd99451a;border-radius:8px;padding:9px;display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+#page_fishing .e191Achievement b{font-size:.82rem;color:var(--gold)}
+#page_fishing .e191Achievement small{display:block;font-size:.74rem;color:var(--muted);margin-top:3px}
+#page_fishing .e191Achievement button{white-space:nowrap}

@@ -1,0 +1,18 @@
+
+#page_fishing .e186Book .e186Fish{gap:4px;padding:6px;min-height:0}
+#page_fishing .e186Book .e186Fish>.e192Sprite{width:100%!important;min-width:0!important;max-width:none!important;height:auto!important;aspect-ratio:1.8;flex:none;margin:0;border:0;background:#0b1e22}
+#page_fishing .e186Book .e186Fish>div:last-child{font-size:11px;line-height:14px}
+#page_fishing .e186Book .e186Fish strong{font-size:inherit;font-weight:500;color:#d3c5a6}
+#page_fishing .e218Card>.e218Art{height:auto;aspect-ratio:1.8;min-height:80px;max-height:110px}
+.e225JournalCaption{min-width:0}.e225JournalCaption>b{display:block;font-size:11px;line-height:14px;font-weight:600;overflow-wrap:anywhere}.e225JournalMeta{display:flex;justify-content:space-between;gap:5px;flex-wrap:wrap;line-height:13px}
+
+#page_fishing .e218Album{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;position:relative}
+#page_fishing .e218Card{display:flex;flex-direction:column;gap:3px;align-items:stretch;text-align:left;min-width:0;padding:7px;border:1px solid #62563f;background:#211e18;border-radius:7px;color:#ecdcb6;font-size:12px}
+#page_fishing .e218Card[aria-expanded=true]{border-color:#d4b15f;background:#343023}
+#page_fishing .e218Card small{color:#bdb49c;font-size:11px}
+.e218Art{height:75px;overflow:hidden;background:#0b1e22;border-radius:5px}
+.e218Art img,.e218Art svg{width:100%;height:100%;object-fit:contain;display:block}
+#page_fishing .e218Detail{grid-column:1/-1;display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px;border:1px solid #b39757;border-radius:7px;background:#28251d;padding:10px;min-width:0}
+.e218Detail h3{font-size:14px;margin:0 0 4px}.e218Detail p{font-size:11px;margin:3px 0 7px;color:#c4baa2}.e218Detail strong{font-size:12px}.e218Detail .e218Art{height:120px}
+.e218Records{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-top:8px}.e218Records div{border:1px solid #696856;border-radius:5px;padding:5px;font-size:11px;display:flex;flex-direction:column;gap:3px}.e218Records [data-category=large]{border-color:#508879;color:#a4d1b5}.e218Records [data-category=huge]{border-color:#647cac;color:#b6cced}.e218Records [data-category=legendary]{border-color:#b18c43;color:#eed48b}
+@media(max-width:600px){#page_fishing .e218Album{grid-template-columns:repeat(2,minmax(0,1fr))}#page_fishing .e218Detail{grid-template-columns:75px minmax(0,1fr);gap:7px;padding:7px}.e218Detail .e218Art{height:90px}.e218Records{grid-template-columns:repeat(2,minmax(0,1fr))}}

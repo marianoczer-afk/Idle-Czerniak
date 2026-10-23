@@ -1,0 +1,1 @@
+const E187_ROD={id:'e187_rod_coral',name:'Caña Coralina',req:32,bonus:46,desc:'Control +11,5% de barra · picadas 16% más rápidas · hasta 550 kg'};

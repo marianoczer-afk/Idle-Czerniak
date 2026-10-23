@@ -1,0 +1,19 @@
+
+/* Sacudida superpuesta al minijuego, nunca como un panel adicional. */
+#page_fishing .e162Game.e196Shaking{position:relative;isolation:isolate;min-height:174px;box-sizing:border-box}
+#page_fishing .e162Game.e196Shaking>.e162FightTitle,
+#page_fishing .e162Game.e196Shaking>.e162Play,
+#page_fishing .e162Game.e196Shaking>.e162Controls{visibility:hidden!important;pointer-events:none!important}
+#page_fishing .e162Game.e196Shaking .e196ShakeOverlay{position:absolute;inset:0;z-index:8;display:block;overflow:hidden;border-radius:9px;background:radial-gradient(ellipse at 50% 45%,var(--e185-water,rgba(33,97,114,.45)),rgba(15,27,35,.91) 90%);border:1px solid var(--e185-accent,#7e9fa0);box-sizing:border-box;touch-action:manipulation}
+#page_fishing .e196ShakeOverlay .e196Header{position:absolute;left:10px;right:10px;top:7px;text-align:center;font-size:.85rem;font-weight:750;color:#d5f6f4;pointer-events:none}
+#page_fishing .e196ShakeOverlay .e196Counter{position:absolute;left:10px;right:10px;bottom:6px;text-align:center;color:#c8dce0;font-size:.74rem;pointer-events:none}
+#page_fishing .e196ShakeOverlay .e196Bubble{position:absolute;width:76px;height:76px;box-sizing:border-box;transform:translate(-50%,-50%);border:2px solid #c1fff8;border-radius:50%;background:radial-gradient(circle at 30% 20%,#d8fff44d 0 8%,transparent 10%),radial-gradient(circle at 50% 35%,#2b7a86,#143e52 68%,#0c2839);box-shadow:inset 0 0 14px #82eee633,0 0 0 5px #7df2e31c,0 5px 18px #0006;color:#f1fffa;font-size:14px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;animation:e196Pulse 1.8s ease-in-out infinite;touch-action:manipulation;text-shadow:0 1px 3px #0009}
+#page_fishing .e196Bubble small{font-size:10px;font-weight:500;letter-spacing:.5px;color:#bce8e5;pointer-events:none}
+#page_fishing .e196Bubble>*{pointer-events:none}
+#page_fishing .e196Bubble:focus-visible{outline:3px solid #f5d889;outline-offset:7px}
+#page_fishing .e196Bubble:hover{filter:brightness(1.15)}
+#page_fishing .e196Bubble:active{filter:brightness(1.3)}
+@keyframes e196Pulse{50%{box-shadow:inset 0 0 14px #82eee644,0 0 0 11px #7df2e30b,0 5px 22px #0006}}
+@media(max-width:650px){#page_fishing .e162Game.e196Shaking{min-height:177px}#page_fishing .e196ShakeOverlay .e196Bubble{width:70px;height:70px}}
+
+@media(prefers-reduced-motion:reduce){#page_fishing .e196ShakeOverlay .e196Bubble{animation:none}}

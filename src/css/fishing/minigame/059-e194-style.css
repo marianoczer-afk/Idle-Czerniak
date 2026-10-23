@@ -1,0 +1,22 @@
+
+/* El bloque izquierdo conserva vida, maná, oro y XP, pero muestra la caña en lugar del enemigo. */
+
+#combatDock .e194DockRod{display:none}
+
+/* No duplicar la mini caña en la mitad derecha del HUD. */
+
+/* Encargos plegables, igual que los completados. */
+#page_fishing .e194QuestFold{margin:8px 0 12px;border:1px solid #6e614b;border-radius:10px;background:#2c2b2417;padding:0 10px}
+#page_fishing .e194QuestFold>summary{cursor:pointer;font-weight:750;padding:11px 3px;color:#e5d4ae}
+#page_fishing .e194QuestFold>.e194QuestBody{padding:0 0 7px}
+#page_fishing .e194QuestFold .e17Quest,#page_fishing .e194QuestFold .e171Quest,#page_fishing .e194QuestFold .e187Quest{margin:6px 0;padding:10px}
+/* Tarjetas más compactas y cañas realmente extendidas de lado a lado. */
+#page_fishing .fishRod.e193Rod{padding:8px 10px!important;gap:8px!important}
+#page_fishing .fishRod.e193Rod>div:first-child{min-width:0;flex:1}
+#page_fishing .e193RodBadge{margin:3px 0;gap:5px}
+#page_fishing .e193RodImage{min-height:54px;margin-top:4px;background:linear-gradient(90deg,#1a2027,#303e4555,#1a2027);justify-content:stretch;padding:1px 5px}
+#page_fishing .e193RodImage svg{display:block;width:100%;height:53px;max-width:none}
+#page_fishing .e193Rod .fishMuted{font-size:.76rem}
+#page_fishing .e194QuestRodArt{margin:6px 0;border-radius:8px;background:linear-gradient(90deg,#202a2b,#29323c,#202a2b);border:1px solid #7d7c6b66;padding:3px 7px}
+#page_fishing .e194QuestRodArt svg{width:100%;max-width:520px;height:55px;display:block}
+

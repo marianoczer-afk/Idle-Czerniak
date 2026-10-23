@@ -1,0 +1,9 @@
+
+#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{min-height:104px!important;height:auto!important;overflow:hidden!important;background:#101c24!important}
+#page_fishing .e193RodImage .e1114Rod,#page_fishing .e194QuestRodArt .e1114Rod{display:block;width:100%;height:118px;object-fit:cover;object-position:center 43%;border-radius:7px}
+#page_fishing .e192Sprite{width:110px!important;min-width:110px!important;height:83px!important;overflow:hidden;border-radius:8px;border:1px solid #5d858c66;background:#10202b}
+#page_fishing .e192Sprite .e1114Fish{width:100%;height:100%;object-fit:cover;display:block}
+#page_fishing .e186Fish.e186Unknown .e1114Fish{filter:grayscale(1) brightness(.18)!important}
+
+#page_fishing .e1114Fish,#page_fishing .e1114Rod{image-rendering:auto}
+@media(max-width:650px){#page_fishing .e192Sprite{width:78px!important;min-width:78px!important;height:70px!important}}

@@ -1,0 +1,19 @@
+
+.dockProgress {grid-column:1/-1;min-width:0;margin-bottom:2px}
+.dockProgressLine {display:flex;gap:9px;align-items:center;justify-content:space-between;font-size:.77rem;white-space:nowrap}
+#dockPlayerGold {color:var(--gold)} #dockPlayerXpText {color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.dockProgress .bar {margin:2px 0 4px;height:7px}
+.dockEnemyReward {display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.72rem}
+#dockEnemyRewards {color:var(--gold)}
+.enemyChoice {display:flex;gap:5px;align-items:stretch}
+.enemyChoice > button:first-child {flex:1;min-width:0}
+.enemyChoice .enemyInfoBtn {flex-shrink:0;min-width:42px}
+.e13Session {margin:10px 0}.e13Session summary {cursor:pointer;color:var(--gold);font-weight:600}
+.e13SessionGrid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0}
+.e13SessionGrid > div {background:var(--panel2);padding:7px;border-radius:6px;font-size:.85rem}
+.e13SessionGrid small {display:block;color:var(--muted)}
+.e13Economy article {padding:8px;margin:7px 0;background:var(--panel2);border-radius:7px}
+.e13Economy .bar {height:7px}
+#e13EnemyDialog {max-width:min(440px,94vw);background:var(--panel);color:var(--text);border:1px solid var(--gold);border-radius:10px;padding:18px}
+#e13EnemyDialog::backdrop {background:#000a}
+@media(max-width:600px){.dockProgressLine{font-size:.69rem;gap:5px}.dockEnemyReward{font-size:.67rem}.dockProgress .bar{height:6px}}

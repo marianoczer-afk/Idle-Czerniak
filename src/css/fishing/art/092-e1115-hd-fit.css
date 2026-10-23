@@ -1,0 +1,30 @@
+
+/* Las ilustraciones deben entrar ENTERAS en cada tarjeta; nunca recortarse. */
+#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:100%!important;max-width:100%!important;height:96px!important;
+ min-height:0!important;box-sizing:border-box!important;padding:6px 10px!important;
+ overflow:hidden!important;
+}
+#page_fishing .e193RodImage .e1114Rod,#page_fishing .e194QuestRodArt .e1114Rod{
+ display:block!important;width:100%!important;height:100%!important;
+ max-width:100%!important;max-height:100%!important;min-width:0!important;
+ object-fit:contain!important;object-position:center!important;
+ border-radius:5px!important;flex:0 1 auto!important;
+}
+#page_fishing .e192Sprite{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:100px!important;min-width:0!important;max-width:100%!important;
+ height:78px!important;box-sizing:border-box!important;padding:3px!important;overflow:hidden!important;
+}
+#page_fishing .e192Sprite .e1114Fish{
+ display:block!important;width:100%!important;height:100%!important;
+ max-width:100%!important;max-height:100%!important;min-width:0!important;
+ object-fit:contain!important;object-position:center!important;
+}
+
+@media(max-width:650px){
+ #page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{height:76px!important;padding:4px!important}
+ #page_fishing .e192Sprite{width:72px!important;height:65px!important}
+
+}

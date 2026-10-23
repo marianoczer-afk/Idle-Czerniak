@@ -1,6 +1,6 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 25**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 26**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
 ## Jugar como una página web
 
@@ -14,7 +14,7 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 25**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. El encabezado del juego debe decir **Estable 26**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
@@ -101,3 +101,7 @@ La zona del HUD móvil pasa de 72 a 102 px de alto para igualar la caña; el HUD
 Colección muestra ilustraciones a todo el ancho de su ficha y nombres secundarios; las pistas y recuentos se conservan en el texto de consulta. Diario reduce la ficha a nombre y una línea compacta de capturas/peso; conserva categoría en la descripción accesible y todos los detalles al abrir la especie. No se generan imágenes ni se cambia el balance.
 
 Verificación de Estable 25: 23 pruebas dirigidas aprobadas, incluyendo capturas, comparaciones de cañas, azar, combate/XP, cinco personajes v7, exportación/importación, recarga, geometría del HUD y revisión de Colección/Diario en escritorio y móvil. El indicador persistente también se verificó con una importación JSON real y tras un intento perdido. Las ilustraciones embebidas se conservan sin cambios.
+
+## Fuentes separadas — Estable 26
+
+El HTML completo sigue en la raíz. Las fuentes editables y los recursos están separados; `npm run build` reconstruye el juego offline. Ver [instrucciones de desarrollo](DESARROLLO.md), [verificación de esta entrega](ESTABLE_26.md), [expansión propuesta](EXPANSION_PESCA_26.md) y [manifiesto artístico](arte/manifest-produccion.json). No se agrega contenido ni se modifica balance.

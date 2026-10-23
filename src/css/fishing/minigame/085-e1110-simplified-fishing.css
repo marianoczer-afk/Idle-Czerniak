@@ -1,0 +1,23 @@
+
+/* Un solo fondo acuático para ambas fases, sin cambio de color al picar. */
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ background:radial-gradient(ellipse at 50% 45%,var(--e185-water,rgba(33,97,114,.45)),rgba(15,27,35,.91) 90%)!important;
+ border:1px solid var(--e185-accent,#7e9fa0)!important;
+ border-radius:9px!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay{
+ background:transparent!important;border:0!important;border-radius:9px!important;
+}
+/* Colección = única lista de especies. Se evita repetir "Peces de esta zona". */
+#page_fishing .e162Dock .e173Species{display:none!important}
+/* Las especies no descubiertas deben leerse claramente como siluetas. */
+#page_fishing .e186Book .e186Fish.e186Unknown{
+ opacity:1!important;background:rgba(95,102,110,.13)!important;
+ border-color:rgba(142,149,158,.33)!important;color:#a6adb4!important;
+}
+#page_fishing .e186Book .e186Fish.e186Unknown strong,
+#page_fishing .e186Book .e186Fish.e186Unknown small{color:#969fa7!important}
+#page_fishing .e186Book .e186Fish.e186Unknown .e192Sprite svg{
+ filter:grayscale(1) brightness(.4)!important;opacity:.65!important;
+}

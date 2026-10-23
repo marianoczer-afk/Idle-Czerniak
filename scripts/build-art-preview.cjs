@@ -1,3 +1,4 @@
+require('./build.cjs').build({check:true});
 'use strict';
 // Read-only art proposal: share the real HUD CSS; never boot the game or touch saves.
 const fs=require('node:fs'),path=require('node:path');

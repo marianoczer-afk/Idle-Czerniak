@@ -1,0 +1,31 @@
+
+/* El mismo marco visual y la misma altura para ambas etapas. */
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ height:272px!important;min-height:272px!important;max-height:272px!important;
+ padding:13px 12px 12px!important;overflow:hidden!important;
+ box-sizing:border-box!important;margin-top:0!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay{
+ inset:0!important;border-radius:9px!important;
+}
+/* Centrar la barra y los controles en el mismo espacio de las burbujas. */
+#page_fishing .e162Dock #e16GamePanel .e162FightTitle{text-align:center!important;margin:9px 0 18px!important}
+#page_fishing .e162Dock #e16GamePanel .e162Play{margin:0 auto!important;max-width:900px!important}
+#page_fishing .e162Dock #e16GamePanel .e162Controls{margin:14px auto 0!important;padding:0!important;gap:0!important;width:100%!important}
+#page_fishing .e162Dock #e16GamePanel #e16Hold{
+ height:76px!important;min-height:76px!important;min-width:0!important;width:100%!important;flex:1!important;padding:13px 16px!important;
+ font-size:1.06rem!important;font-weight:850!important;letter-spacing:.25px!important;
+ color:#1d1708!important;background:linear-gradient(180deg,#ffe18c,#e9a83c)!important;
+ border:2px solid #ffe69d!important;border-radius:11px!important;
+ box-shadow:0 3px 0 #8b551c,0 0 20px #ffcb5640!important;
+ cursor:pointer!important;touch-action:none!important;
+}
+#page_fishing .e162Dock #e16GamePanel #e16Hold:active{transform:translateY(2px)!important;box-shadow:0 1px 0 #8b551c!important}
+#page_fishing .e162Dock #e16GamePanel [data-e16-cancel]{display:none!important}
+@media(max-width:650px){
+ #page_fishing .e162Dock #e16GamePanel,
+ #page_fishing .e162Dock #e16GamePanel.e196Shaking{height:295px!important;min-height:295px!important;max-height:295px!important}
+ #page_fishing .e162Dock #e16GamePanel #e16Hold{min-width:210px!important;max-width:100%!important;font-size:.95rem!important}
+ #page_fishing .e162Dock #e16GamePanel .e162Controls{margin-top:17px!important}
+}

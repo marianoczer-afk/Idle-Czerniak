@@ -1,0 +1,8 @@
+
+/* Control principal integrado al mismo panel que la barra de pesca. */
+#page_fishing .e183Actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:9px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+#page_fishing .e183Actions .primary{min-width:148px;min-height:39px}
+#page_fishing .e183Actions .fishMuted{font-size:.85rem}
+#page_fishing .e162DockHead{padding-bottom:4px}
+#page_fishing .e182Idle .e183Actions{visibility:visible;pointer-events:auto}
+@media(max-width:600px){#page_fishing .e183Actions{align-items:stretch}#page_fishing .e183Actions .primary{width:100%}}

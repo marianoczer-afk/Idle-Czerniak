@@ -1,0 +1,34 @@
+
+/* E1.4.1: El dock debe acomodar todos sus módulos sin salirse de la pantalla. */
+#combatDock { box-sizing:border-box; max-width:100vw; }
+#combatDock .dockInner { display:grid; grid-template-columns:minmax(260px,360px) minmax(0,1fr) auto; grid-template-rows:auto auto; align-items:center; column-gap:12px; row-gap:5px; width:100%; max-width:1100px; }
+#combatDock .dockVitals { grid-column:1; grid-row:1 / span 2; width:100%; min-width:0; }
+#combatDock .dockQuick { grid-column:2; grid-row:1; width:100%; min-width:0; max-width:100%; overflow-x:auto; }
+#combatDock .dockControls { grid-column:3; grid-row:1 / span 2; min-width:0; }
+#combatDock .dockPotions { grid-column:2; grid-row:2; min-width:0; max-width:100%; margin:0; padding:3px 0 0; gap:5px; overflow:hidden; }
+#combatDock .dockPotions button { min-width:0; padding:5px 7px; font-size:.72rem; white-space:nowrap; }
+#combatDock .dockPotions .potionHint { flex-basis:100%; min-width:0; font-size:.66rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (max-width:1000px) {
+ #combatDock .dockInner { grid-template-columns:minmax(230px,340px) minmax(0,1fr) auto; column-gap:8px; }
+ #combatDock .dockPotions { grid-column:1 / -1; grid-row:3; justify-content:center; flex-wrap:nowrap; border-top:1px solid var(--border); }
+ #combatDock .dockPotions .potionHint { flex:0 1 auto; min-width:0; }
+ #combatDock .dockVitals { grid-row:1 / span 2; }
+ #combatDock .dockControls { grid-row:1 / span 2; }
+}
+@media (max-width:700px) {
+ #combatDock .dockInner { grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto auto; gap:5px 8px; }
+ #combatDock .dockVitals { grid-column:1; grid-row:1; width:100%; }
+ #combatDock .dockControls { grid-column:2; grid-row:1; width:auto; flex-direction:column; }
+ #combatDock .dockControls button { flex:none; }
+ #combatDock .dockQuick { grid-column:1 / -1; grid-row:2; }
+ #combatDock .dockPotions { grid-column:1 / -1; grid-row:3; justify-content:flex-start; }
+}
+@media (max-width:440px) {
+ #combatDock .dockInner { grid-template-columns:minmax(0,1fr); }
+ #combatDock .dockVitals { grid-column:1; grid-row:1; }
+ #combatDock .dockControls { grid-column:1; grid-row:2; flex-direction:row; width:100%; }
+ #combatDock .dockControls button { flex:1; }
+ #combatDock .dockQuick { grid-column:1; grid-row:3; }
+ #combatDock .dockPotions { grid-column:1; grid-row:4; flex-wrap:wrap; }
+ #combatDock .dockPotions .potionHint { flex-basis:100%; }
+}

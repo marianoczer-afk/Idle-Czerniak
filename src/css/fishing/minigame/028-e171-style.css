@@ -1,0 +1,13 @@
+
+/* La acción principal queda inmediatamente bajo el encabezado, antes de las misiones. */
+#page_fishing .e171Quests{margin:12px 0}
+#page_fishing .e171Quest{padding:12px;border:1px solid #806b46;border-radius:10px;background:rgba(117,84,38,.10);margin:9px 0}
+#page_fishing .e171Quest h3{font-size:1rem;margin:0 0 7px}
+#page_fishing .e171Quest .e171Needs{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0}
+#page_fishing .e171Quest .e171Needs span{font-size:.85rem;border:1px solid #665337;border-radius:7px;padding:7px}
+#page_fishing .e171Quest .e171Footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#page_fishing .e171Completed{font-size:.85rem;color:#9cc89c;margin-top:6px}
+#page_fishing .e17Quest{margin:9px 0}
+#page_fishing .e171QuestGroup{margin-top:10px}
+#page_fishing .e171QuestGroup>summary{cursor:pointer;color:#dec38a}
+#page_fishing .e171RodNote{font-size:.8rem;color:#cbb58e;margin-top:5px}

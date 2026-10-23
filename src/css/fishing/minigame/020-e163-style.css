@@ -1,0 +1,12 @@
+
+#page_fishing .e163Skill{margin:7px 0 10px;padding:10px 12px;border:1px solid #80652d;background:rgba(172,123,32,.12);border-radius:9px}
+#page_fishing .e163SkillHead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.91rem;margin-bottom:7px}
+#page_fishing .e163SkillHead span{color:#e7c27a;font-variant-numeric:tabular-nums}
+#page_fishing .e163XpTrack{height:15px;background:#282521;border:1px solid #6e5833;border-radius:10px;overflow:hidden}
+#page_fishing .e163XpTrack>div{height:100%;background:linear-gradient(90deg,#65b954,#b3e77b);transition:width .25s}
+#page_fishing .fishTank{background:linear-gradient(90deg,#143543,#1e4e60);}
+#page_inventory .e163InvSummary{border:1px solid #80632f;background:rgba(139,104,41,.11);border-radius:9px;padding:12px;margin-bottom:10px}
+#page_inventory .e163InvSummary strong{color:#f2c66c}
+#page_inventory #e15Merchant,#page_inventory #e16FishMerchant{margin-top:8px!important}
+#page_inventory details[data-ui-panel="inventory"]{display:none}
+#page_fishing .fishCatch{border-color:#b88b38}

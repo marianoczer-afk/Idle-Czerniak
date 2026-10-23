@@ -1,0 +1,14 @@
+
+/* Panoramic rod viewports preserve every handle, reel and tip. Atlas images are embedded once. */
+#fishingRodShop .rodShopArt{background:#061b23!important}
+#fishingRodShop .rodShopRow[hidden],#fishingRodShop .rodTier[hidden]{display:none!important}
+#fishingRodShop .rodCatalogTools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+#fishingRodShop .rodCatalogTools input{flex:1;min-width:170px}
+#fishingRodShop .rodCatalogTools input,#fishingRodShop .rodCatalogTools select{color:#ecdab8;background:#211d18;border:1px solid #6e5a3d;border-radius:6px;padding:8px;font:inherit;font-size:.8rem}
+#fishingRodShop .rodCatalogTools input:focus-visible,#fishingRodShop .rodCatalogTools select:focus-visible{outline:2px solid #d5b46a;outline-offset:2px}
+#fishingRodShop .rodShopInfo small{font-size:.69rem;line-height:1.35}
+#fishingRodShop .rodCatalogTools small{color:var(--muted)}
+
+#page_fishing .e192Sprite svg.fishIllustration{width:100%!important;height:100%!important;transform:none!important;filter:none!important;display:block!important}
+
+#page_fishing .e193RodImage svg.rodIllustration,#page_fishing .e194QuestRodArt svg.rodIllustration{width:100%;height:100%;display:block}

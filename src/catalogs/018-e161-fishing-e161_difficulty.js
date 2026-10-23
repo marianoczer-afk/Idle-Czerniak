@@ -1,0 +1,1 @@
+const E161_DIFFICULTY={mojarra:.75,bagre:.95,trucha:1.22,salmon:1.52,pez_espada:1.85};

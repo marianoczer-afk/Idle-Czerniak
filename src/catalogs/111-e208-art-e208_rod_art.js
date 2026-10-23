@@ -1,0 +1,1 @@
+const E208_ROD_ART={e16_rod:0,e161_rod_bamboo:1,e161_rod_fiber:2,e161_rod_steel:2,e17_rod_viejo:0,e171_rod_rio:1,e171_rod_costa:3,e18_rod_trofeo:3,e187_rod_coral:4,e192_rod_laguna:5,e192_rod_coral:4,e192_rod_abyss:9};

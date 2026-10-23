@@ -1,0 +1,34 @@
+
+/* Imágenes protagonistas, sin las estampitas centradas de E1.11.5. */
+#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{
+ width:100%!important;max-width:none!important;height:176px!important;min-height:176px!important;
+ padding:0!important;display:block!important;overflow:hidden!important;
+ background:#10202a!important;position:relative!important;border-radius:10px!important;
+ box-shadow:inset 0 0 0 1px #7db9c24d,0 4px 14px #0004!important;
+}
+#page_fishing .e193RodImage .e1114Rod,#page_fishing .e194QuestRodArt .e1114Rod{
+ display:block!important;width:100%!important;height:100%!important;
+ min-width:100%!important;max-width:none!important;max-height:none!important;
+ object-fit:cover!important;object-position:center 52%!important;
+ border-radius:9px!important;filter:saturate(1.16) contrast(1.08)!important;
+}
+/* Mantener la fotografía llena de borde a borde en el inventario de peces. */
+#page_fishing .e192Sprite{
+ width:145px!important;min-width:145px!important;max-width:145px!important;
+ height:92px!important;padding:0!important;display:block!important;
+ background:#10202a!important;border-radius:9px!important;overflow:hidden!important;
+}
+#page_fishing .e192Sprite .e1114Fish{
+ display:block!important;width:100%!important;height:100%!important;
+ min-width:100%!important;max-width:none!important;max-height:none!important;
+ object-fit:cover!important;object-position:center!important;
+ filter:saturate(1.12) contrast(1.06);
+}
+#page_fishing .e186Fish.e186Unknown .e1114Fish{filter:grayscale(1) brightness(.18)!important}
+/* HUD: ilustración de caña a lo largo de la tarjeta, no miniatura cuadrada. */
+
+@media(max-width:650px){
+ #page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{height:132px!important;min-height:132px!important}
+ #page_fishing .e192Sprite{width:100px!important;min-width:100px!important;max-width:100px!important;height:78px!important}
+
+}

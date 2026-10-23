@@ -1,0 +1,4 @@
+
+#page_fishing .e181Journal{padding:8px 12px!important;background:rgba(35,29,24,.55)!important;border-color:var(--border)!important}
+#page_fishing .e181Journal summary{cursor:pointer;font-size:.86rem;color:var(--muted);font-weight:600;list-style-position:inside}
+#page_fishing .e181Journal[open] summary{margin-bottom:8px;color:var(--gold)}

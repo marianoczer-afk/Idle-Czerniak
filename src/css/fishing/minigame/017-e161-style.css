@@ -1,0 +1,8 @@
+
+#page_fishing .fishTank{height:300px;width:112px}
+#page_fishing .fishZone{background:rgba(63,185,103,.38)}
+#page_fishing .fishPanel .fishRod{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #57462e;border-radius:9px;padding:10px;margin:8px 0}
+#page_fishing .fishCatch{font-size:1.03rem;color:#eac36f;padding:12px;border:1px solid #84612d;border-radius:8px;background:rgba(133,99,39,.12);margin:10px 0}
+#page_fishing .fishWaiting{min-height:45px;padding:12px;border-radius:8px;background:rgba(30,93,115,.2)}
+#page_fishing .fishSpecies>div{opacity:.88}
+#page_fishing .fishSpecies>div.fishLocked{opacity:.5}

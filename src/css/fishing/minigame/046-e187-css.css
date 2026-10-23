@@ -1,0 +1,15 @@
+
+#page_fishing .e163XpTrack{height:25px!important;position:relative;overflow:hidden;border:1px solid #a18348}
+#page_fishing .e187XpLabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff8e3;font-size:12px;font-weight:800;text-shadow:0 1px 3px #000,0 0 5px #000;letter-spacing:.1px;pointer-events:none;z-index:2;font-variant-numeric:tabular-nums}
+#page_fishing .e163SkillHead #e163XpText{display:none}
+#page_fishing .e187Quest{border:1px solid #675a38;background:rgba(65,52,27,.25);border-radius:9px;padding:9px 11px;margin:8px 0;font-size:.85rem}
+#page_fishing .e187QuestHead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+#page_fishing .e187Quest p{margin:5px 0;color:var(--muted);font-size:.81rem}
+#page_fishing .e187QuestNeeds{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+#page_fishing .e187QuestNeeds span{border:1px solid var(--border);padding:4px 7px;border-radius:6px;font-size:.78rem}
+#page_fishing .e187JournalList{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:5px;margin-top:9px}
+#page_fishing .e187JournalItem{border:1px solid var(--border);border-radius:6px;padding:6px 8px;background:rgba(0,0,0,.1);font-size:.79rem}
+#page_fishing .e187JournalItem small{display:block;color:var(--muted);margin-top:2px}
+#page_fishing .e165Zones{max-height:118px;overflow-y:auto;align-content:start}
+#page_fishing .e187Perk{font-size:.77rem;color:#cce8aa}
+@media(max-width:600px){#page_fishing .e187XpLabel{font-size:11px}#page_fishing .e165Zones{max-height:154px}}

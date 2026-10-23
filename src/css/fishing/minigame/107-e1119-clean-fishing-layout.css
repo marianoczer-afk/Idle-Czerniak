@@ -1,0 +1,35 @@
+
+/* One invariant layout for idle, bubbles, and capture; no phase-specific changes outside the stage. */
+html,body{scroll-behavior:auto!important;overflow-anchor:none!important}
+#page_fishing,#page_fishing *{overflow-anchor:none!important}
+#page_fishing .e162Dock{position:relative!important}
+#page_fishing .e162Dock .e162DockHead{padding-bottom:0!important;margin-bottom:0!important}
+#page_fishing .e162Dock .e162DockHead p{display:block!important;visibility:visible!important}
+#page_fishing .e162Dock .e165Zones,
+#page_fishing .e162Dock .e165ZoneInfo{visibility:visible!important}
+/* Collection and species remain hidden for every active fishing phase, not just bubbles. */
+body.e197Fishing #page_fishing .e186Collection,
+body.e197Fishing #page_fishing .e173Species{display:none!important}
+#page_fishing .e162Dock .e1108Toolbar{
+ height:55px!important;min-height:55px!important;max-height:55px!important;
+ margin-top:7px!important;box-sizing:border-box!important;
+}
+#page_fishing .e162Dock #e161WaitingText{
+ height:0!important;min-height:0!important;max-height:0!important;
+ padding:0!important;margin:0!important;overflow:hidden!important;
+}
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ display:block!important;position:relative!important;
+ height:272px!important;min-height:272px!important;max-height:272px!important;
+ margin:0!important;padding:12px 8px!important;
+ box-sizing:border-box!important;overflow:hidden!important;
+ contain:layout!important;
+}
+#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay{inset:0!important}
+@media(max-width:650px){
+ #page_fishing .e162Dock #e16GamePanel,
+ #page_fishing .e162Dock #e16GamePanel.e196Shaking{
+ height:295px!important;min-height:295px!important;max-height:295px!important;
+ }
+}

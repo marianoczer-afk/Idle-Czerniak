@@ -1,0 +1,17 @@
+
+/* Menos altura: oro y progreso del personaje siguen visibles, HP/MP no distraen. */
+
+/* Tarjetas con dibujos que aprovechan toda la anchura, incluso cañas de encargos. */
+#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{width:100%;box-sizing:border-box;overflow:hidden}
+#page_fishing .e193RodImage svg,#page_fishing .e194QuestRodArt svg{width:100%;max-width:none;height:63px;transform:scaleX(1.13);transform-origin:center}
+/* Fase de atraer la picada: círculos pequeños y móviles, solo cuando se necesitan. */
+#page_fishing .e162Dock{position:relative}
+#page_fishing .e195Shake{position:relative;min-height:150px;margin:9px 0;border:1px solid #7e9fa077;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#426c7360,#1b313a90 70%);touch-action:manipulation}
+#page_fishing .e195ShakeTitle{text-align:center;padding:12px 12px 0;font-weight:750;color:#d5f6f4;font-size:.89rem}
+#page_fishing .e195ShakeSub{text-align:center;color:#b9d2d5;font-size:.74rem;padding:2px 8px}
+#page_fishing .e195Bubble{position:absolute;width:51px;height:51px;border-radius:50%;border:2px solid #a9f9f0;background:radial-gradient(circle at 35% 30%,#b5fff5aa,#188a9299 48%,#15465c);color:white;font-size:24px;font-weight:800;box-shadow:0 0 0 6px #73eee525,0 0 18px #66e6e899;cursor:pointer;animation:e195Pulse 1.3s ease-in-out infinite;z-index:2;display:grid;place-items:center;padding:0}
+#page_fishing .e195Bubble:hover{filter:brightness(1.22)}
+@keyframes e195Pulse{50%{box-shadow:0 0 0 11px #73eee511,0 0 25px #66e6e8aa;transform:scale(1.08)}}
+#page_fishing .e195ShakeCount{text-align:center;font-size:.73rem;color:#c5dbd8;margin-top:4px}
+@media(max-width:650px){#page_fishing .e195Shake{min-height:130px}}
+@media(prefers-reduced-motion:reduce){#page_fishing .e195Bubble{animation:none}}

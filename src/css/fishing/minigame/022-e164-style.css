@@ -1,0 +1,10 @@
+
+/* E1.6.4: listado de ventas único y compacto. */
+#page_inventory #invBox,#page_inventory #e15Merchant,#page_inventory #e16FishMerchant{display:none!important}
+#page_inventory #e164Inventory{margin-top:8px;padding:10px 12px}
+#page_inventory #e164Inventory .e164Item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 2px;border-bottom:1px solid #4b3c2c;flex-wrap:wrap}
+#page_inventory #e164Inventory .e164Item:last-child{border-bottom:0}
+#page_inventory #e164Inventory .e164Buttons{display:flex;gap:6px;flex-wrap:wrap}
+#page_inventory #e164Inventory h3{margin:0 0 6px}
+#page_fishing .e164RodStat{font-size:.83rem;color:#d7b87b;margin-top:3px}
+#page_fishing .e164RodActive{border-color:#a88736!important;background:rgba(180,137,45,.12)}

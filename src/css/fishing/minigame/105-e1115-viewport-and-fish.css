@@ -1,0 +1,19 @@
+
+/* Never let native scroll anchoring select changing minigame nodes. */
+html,body,body *,#page_fishing,#combatDock{overflow-anchor:none!important}
+html{scroll-behavior:auto!important}
+/* Same exact box geometry for the shake and catch phases. */
+#page_fishing .e162Dock #e16GamePanel,
+#page_fishing .e162Dock #e16GamePanel.e196Shaking{
+height:272px!important;min-height:272px!important;max-height:272px!important;
+margin:0!important;box-sizing:border-box!important;overflow:hidden!important;
+}
+/* A fish must fill the frame, rather than being reduced to a small sticker. */
+
+#page_fishing .e192Sprite img.e1117Fish,
+#page_fishing .e192Sprite img.e1114Fish{
+width:100%!important;height:100%!important;object-fit:contain!important;
+object-position:center!important;transform:none!important;
+}
+#page_fishing .e186Unknown img.e1117Fish{filter:grayscale(1) brightness(.15)!important}
+

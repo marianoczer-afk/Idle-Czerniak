@@ -1,0 +1,7 @@
+
+#page_fishing .e1101Stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:9px 0;font-size:.73rem}
+#page_fishing .e1101Stat{background:#10232b;border:1px solid #46616b;border-radius:7px;padding:6px 4px;text-align:center}
+#page_fishing .e1101Stat b{display:block;color:#a9e5ce;font-size:.83rem}
+#page_fishing .e1101Compare{font-size:.76rem;color:#c8d6cd;line-height:1.4;margin-top:5px}
+#page_fishing .e1101Active{color:#e9d38e;font-size:.76rem;margin-top:7px}
+@media(max-width:650px){#page_fishing .e1101Stats{grid-template-columns:repeat(3,minmax(0,1fr))}}

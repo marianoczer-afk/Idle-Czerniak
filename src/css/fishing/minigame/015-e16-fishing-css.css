@@ -1,0 +1,12 @@
+
+#page_fishing .fishPanel{background:var(--panel2);border:1px solid #745b34;border-radius:10px;padding:15px;margin:12px 0}
+#page_fishing .fishGrid{display:flex;gap:22px;flex-wrap:wrap;align-items:center;justify-content:center}
+#page_fishing .fishTank{position:relative;width:100px;height:300px;border:3px solid #7b9da5;border-radius:12px;overflow:hidden;background:linear-gradient(#183d4b,#102632);touch-action:none;user-select:none}
+#page_fishing .fishZone{position:absolute;left:5px;right:5px;height:68px;background:rgba(81,194,108,.48);border:2px solid #87ef9b;border-radius:8px;pointer-events:none}
+#page_fishing .fishTarget{position:absolute;left:29px;width:35px;height:25px;text-align:center;line-height:25px;font-size:23px;pointer-events:none;filter:drop-shadow(0 0 4px #fff)}
+#page_fishing .fishMeter{width:18px;height:300px;background:#312b28;border:1px solid #6d5d49;border-radius:8px;overflow:hidden;position:relative}
+#page_fishing .fishMeterFill{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(#90e38d,#389654);height:30%}
+#page_fishing .fishControl{min-height:55px;min-width:190px;touch-action:none;user-select:none}
+#page_fishing .fishMuted{font-size:.86rem;color:var(--muted);line-height:1.5}
+#page_fishing .fishSpecies{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+#page_fishing .fishSpecies>div{border:1px solid #554532;border-radius:8px;padding:9px}

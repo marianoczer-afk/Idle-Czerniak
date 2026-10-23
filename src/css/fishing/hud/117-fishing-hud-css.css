@@ -1,0 +1,62 @@
+
+/* Fishing HUD: one layout, one desktop/mobile breakpoint. Combat keeps its own styles. */
+#e188FishingHud{display:none}
+#combatDock.e188FishingMode{--fishing-zone-width:128px;--fishing-fish-width:104px;--fishing-zone-height:102px;padding:7px 12px!important}
+#combatDock.e188FishingMode .dockInner{display:grid!important;grid-template-columns:minmax(0,470px) minmax(0,1fr)!important;grid-template-rows:auto!important;gap:14px!important;max-width:1100px;margin:auto;align-items:center}
+#combatDock.e188FishingMode .dockInner>.dockVitals{display:grid!important;width:100%!important;min-width:0;grid-column:1!important;grid-row:1!important;grid-template-columns:var(--fishing-zone-width) minmax(0,1fr)!important;grid-template-rows:var(--fishing-zone-height)!important;gap:9px!important}
+#combatDock.e188FishingMode .dockQuick,#combatDock.e188FishingMode .dockControls,#combatDock.e188FishingMode .dockPotions,#combatDock.e188FishingMode .dockEnemy,#combatDock.e188FishingMode .dockVitals>div:has(#dockHpText),#combatDock.e188FishingMode .dockVitals>div:has(#dockMpText){display:none!important}
+#combatDock.e188FishingMode .e1118Zone{display:flex;grid-column:1;grid-row:1;position:relative;isolation:isolate;box-sizing:border-box;width:var(--fishing-zone-width);height:var(--fishing-zone-height);border:1px solid #6a795e;border-radius:9px;overflow:hidden;background:#142b30;flex-direction:column;justify-content:flex-end;align-items:stretch;padding:0;cursor:pointer}
+#combatDock.e188FishingMode .e1123ZoneLandscape{position:absolute;inset:0;width:100%;height:100%;z-index:-1;object-fit:cover;object-position:center;pointer-events:none}
+#combatDock.e188FishingMode .e1118Zone:before{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#071418ed);pointer-events:none}
+#combatDock.e188FishingMode .e1118Scene{display:none}
+#combatDock.e188FishingMode .e1118Zone small{position:relative;z-index:1;width:100%;box-sizing:border-box;padding:0 4px 5px;text-align:center;font-size:9px;font-weight:700;line-height:1.1;color:#f4dfaa;text-shadow:0 2px 4px #000}
+#combatDock.e188FishingMode .e1120RodLabel{position:absolute;bottom:0;left:0;right:0;z-index:2;background:#07151cbb;padding:2px 3px 3px;text-align:center;font-size:9px;font-weight:700;color:#ffe0a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+#combatDock.e188FishingMode .e1118Zone:after,#combatDock.e188FishingMode .e194DockRod:after{content:'⌄';position:absolute;right:7px;top:3px;color:#e6c77c;font-size:14px;z-index:3;pointer-events:none}
+#combatDock.e188FishingMode .e1118Zone:hover,#combatDock.e188FishingMode .e194DockRod:hover{border-color:#e7bc5b;box-shadow:0 0 0 1px #e7bc5b44}
+#combatDock.e188FishingMode .e194DockRod{display:block;grid-column:2;grid-row:1;box-sizing:border-box;position:relative;isolation:isolate;min-width:0;height:var(--fishing-zone-height);min-height:0;padding:0;gap:0;border:1px solid #52665a;border-radius:9px;overflow:hidden;background:#061b23;cursor:pointer}
+#combatDock.e188FishingMode .e1123RodName{position:absolute;left:0;right:0;top:0;z-index:2;display:block;box-sizing:border-box;padding:2px 20px 8px 6px;background:linear-gradient(#061b23e8 0%,#061b2380 65%,transparent);color:#fff0bd;font:700 10px/14px system-ui,sans-serif;white-space:normal;overflow-wrap:anywhere;pointer-events:none}
+#combatDock.e188FishingMode .e194DockRodArt{position:absolute;inset:0;display:block;min-width:0;width:100%;height:100%;padding:0;margin:0;overflow:hidden;background:#061b23}
+#combatDock.e188FishingMode .e194DockRodArt svg,#combatDock.e188FishingMode .e194DockRodArt img{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform:none;filter:none}
+#combatDock.e188FishingMode .e194DockRodText,#combatDock.e188FishingMode .e194DockRod .e1120RodLabel{display:none}
+#combatDock.e188FishingMode #e188FishingHud{display:grid;grid-column:2;grid-row:1;grid-template-columns:var(--fishing-fish-width) minmax(0,1fr);grid-template-rows:27px minmax(0,1fr);align-items:stretch;gap:3px 9px;min-width:0;height:var(--fishing-zone-height)}
+#combatDock.e188FishingMode #e188FishingHud .dockProgress{grid-column:2!important;grid-row:1!important;display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:0;width:100%;margin:0}
+#combatDock.e188FishingMode .dockProgressLine{display:flex;justify-content:space-between;align-items:center;gap:6px;min-width:0;line-height:12px}
+#combatDock.e188FishingMode #dockPlayerLevel{font-size:11px;color:#f2d48e;white-space:nowrap}
+#combatDock.e188FishingMode #dockPlayerXpText{display:block;font-size:10px;color:#d9d0b5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#combatDock.e188FishingMode #dockPlayerGold{display:none}
+#combatDock.e188FishingMode .dockProgress .bar{height:7px;margin:0;border:1px solid #7c6b46;background:#101713}
+#combatDock.e188FishingMode #dockPlayerXpBar{background:linear-gradient(90deg,#408f67,#9fe27c);transition:width .3s ease}
+#combatDock.e188FishingMode .e189Art{grid-column:1;grid-row:1 / span 2;position:relative;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--fishing-fish-width);height:var(--fishing-zone-height);border:1px solid #6a997d;border-radius:10px;overflow:hidden;padding:0;background:#061b23;cursor:pointer}
+#combatDock.e188FishingMode .e189Art img,#combatDock.e188FishingMode .e189Art svg{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:center;transform:none;filter:none}
+#combatDock.e188FishingMode .e189Art>.e223FishBackdrop{position:absolute;inset:-8px;z-index:0;pointer-events:none;background-size:cover;background-position:center;filter:blur(10px) brightness(.55);opacity:.8}
+#combatDock.e188FishingMode .e189Art>img,#combatDock.e188FishingMode .e189Art>svg{position:relative;z-index:1}
+#combatDock.e188FishingMode .e189Art:focus-visible{outline:2px solid #dcecb8;outline-offset:-3px}
+#combatDock.e188FishingMode .e189Data{grid-column:2;grid-row:2;min-width:0;display:flex;flex-direction:column;justify-content:center}
+#combatDock.e188FishingMode #e188HudTitle{display:flex;align-items:baseline;gap:3px;white-space:nowrap;font-size:10px;font-weight:700;line-height:12px;color:#c9bd9e}
+.e225CaptureLabel{min-width:0;overflow:hidden;text-overflow:ellipsis}.e225LastRecord{flex:none;font-size:inherit;font-weight:700;color:#f0cc70;text-shadow:0 0 5px #9d762255}
+#combatDock.e188FishingMode #e188HudResult{font-size:12px;font-weight:700;line-height:15px;color:#f7dda1;overflow-wrap:anywhere}
+#combatDock.e188FishingMode #e188HudSub,#combatDock.e188FishingMode #e188HudZone,#combatDock.e188FishingMode .e189Rod{display:none}
+#combatDock.e188FishingMode .e188Meta{display:block;margin-top:2px;color:#bfb7a9;font-size:10px;line-height:12px}
+#combatDock.e188FishingMode .e214CaptureStatus{font-size:10px;line-height:12px;color:#d9cfb8;margin-top:3px}
+#combatDock.e188FishingMode .e188Track{display:block;width:100%;height:7px;margin-top:2px;border:1px solid #66533a;border-radius:12px;overflow:hidden;background:#332b23;box-sizing:border-box}
+#combatDock.e188FishingMode .e188Fill{height:100%;width:0;background:linear-gradient(90deg,#5fba94,#b6e8ae);transition:width .1s linear}
+@media(max-width:700px){
+ #combatDock.e188FishingMode{--fishing-zone-width:60px;--fishing-fish-width:48px;--fishing-zone-height:102px}
+ #combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
+ #combatDock.e188FishingMode .dockInner>.dockVitals{gap:5px!important}
+ #combatDock.e188FishingMode .e1118Zone{height:var(--fishing-zone-height);align-self:end}
+ #combatDock.e188FishingMode .e1118Zone small{font-size:8px;padding:0 3px 4px}
+ #combatDock.e188FishingMode .e1118Zone .e1120RodLabel{display:none}
+ #combatDock.e188FishingMode #e188FishingHud{grid-template-rows:27px 72px;gap:3px 5px}
+ #combatDock.e188FishingMode #e188FishingHud .dockProgress{grid-column:1 / -1!important}
+ #combatDock.e188FishingMode .e189Art{grid-row:2;height:72px}
+ #combatDock.e188FishingMode #dockPlayerLevel{font-size:9px}
+ #combatDock.e188FishingMode #dockPlayerXpText{font-size:8px}
+ #combatDock.e188FishingMode #e188HudTitle{font-size:9px;line-height:10px}
+ #combatDock.e188FishingMode .e225LastRecord{font-size:8px}
+ #combatDock.e188FishingMode #e188HudResult{font-size:10px;line-height:11px}
+ #combatDock.e188FishingMode .e188Meta{font-size:9px;line-height:10px;margin-top:1px}
+ #combatDock.e188FishingMode .e214CaptureStatus{font-size:9px;line-height:10px;margin-top:2px}
+ #combatDock.e188FishingMode .e188Track{height:6px}
+}
+@media(prefers-reduced-motion:reduce){#combatDock.e188FishingMode #dockPlayerXpBar,#combatDock.e188FishingMode .e188Fill{transition:none}}

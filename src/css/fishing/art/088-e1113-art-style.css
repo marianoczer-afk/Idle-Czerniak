@@ -1,0 +1,5 @@
+
+#page_fishing .e193RodImage,#page_fishing .e194QuestRodArt{background:linear-gradient(115deg,#111d28,#1d3033 52%,#161d2b)!important;border:1px solid #677b7766;border-radius:9px;overflow:hidden}
+#page_fishing .e193RodImage svg,#page_fishing .e194QuestRodArt svg{height:77px!important;transform:none!important;filter:drop-shadow(0 3px 4px #0009)}
+
+#page_fishing .e1113ArtNote{color:#a8c3b8;font-size:.74rem;margin:7px 0}

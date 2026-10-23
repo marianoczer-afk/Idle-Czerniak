@@ -1,0 +1,11 @@
+
+/* Evita que el navegador cambie el punto de lectura cuando aparece el minijuego. */
+#page_fishing, #page_fishing .e162Dock{overflow-anchor:none}
+#page_fishing .e173Species{margin:10px 0 2px;border:1px solid #625037;border-radius:9px;background:rgba(35,44,42,.38)}
+#page_fishing .e173Species>summary{cursor:pointer;padding:10px 12px;color:#e8cb8d;font-weight:600;font-size:.91rem}
+#page_fishing .e173SpeciesGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:7px;padding:0 10px 11px}
+#page_fishing .e173Fish{padding:9px 10px;border:1px solid #5b4a37;border-radius:8px;background:#28231e;font-size:.85rem}
+#page_fishing .e173Fish small{display:block;color:#c6ae87;margin-top:3px}
+#page_fishing .e173Fish.locked{opacity:.55}
+#page_fishing .e173Waiting{border:1px solid #547363;background:#24362e;border-radius:7px;padding:10px 12px;color:#bce0c1!important}
+#page_fishing .e173CatchNote{font-size:.82rem;color:#d2b77f;margin:5px 0 0}

@@ -1,0 +1,12 @@
+
+#page_fishing .e17Quest{margin:12px 0;border:1px solid #a17b38;border-radius:10px;background:rgba(126,91,34,.11);padding:14px}
+#page_fishing .e17Quest h3{margin:0 0 6px;font-size:1.02rem}
+#page_fishing .e17Quest p{margin:5px 0 9px}
+#page_fishing .e17QuestGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;margin:10px 0}
+#page_fishing .e17QuestFish{border:1px solid #665337;border-radius:7px;padding:9px;font-size:.87rem}
+#page_fishing .e17QuestFish b{display:block;margin-bottom:4px}
+#page_fishing .e17QuestBar{height:7px;background:#32291e;border-radius:9px;overflow:hidden;margin-top:6px}
+#page_fishing .e17QuestBar>div{height:100%;background:#80bf67}
+#page_fishing .e17QuestReward{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:10px}
+#page_fishing .e17QuestReward button{white-space:normal}
+#page_fishing .e17SpecialRod{border-color:#c09a4b!important}

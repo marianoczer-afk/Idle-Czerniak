@@ -1,0 +1,1 @@
+const E208_FISH_ART={leviatan:0,guardian_mareas:1,dragon_mar:2,raya_aurora:3,esturion_blanco:4,mantarraya:5};

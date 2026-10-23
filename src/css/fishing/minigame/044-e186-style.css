@@ -1,0 +1,11 @@
+
+#page_fishing .e186Book{border:1px solid var(--border);border-radius:9px;padding:9px 12px;margin:9px 0;background:rgba(0,0,0,.10)}
+#page_fishing .e186Book>summary{cursor:pointer;font-size:.88rem;font-weight:700;color:var(--gold)}
+#page_fishing .e186BookGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:6px;margin-top:9px}
+#page_fishing .e186Fish{padding:8px 9px;border-radius:7px;border:1px solid var(--border);font-size:.82rem;background:rgba(0,0,0,.12)}
+#page_fishing .e186Fish small{display:block;color:var(--muted);margin-top:3px}
+#page_fishing .e186Fish.e186Unknown{opacity:.62}
+#page_fishing .e186Fish.e186Legend{border-color:#d6a64d;background:rgba(176,120,27,.13)}
+#page_fishing .e186Progress{height:5px;border-radius:8px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:8px}
+#page_fishing .e186Progress>div{height:100%;background:var(--e185-accent,#75c9a4)}
+#page_fishing .e186Luck{color:#e4c888!important}

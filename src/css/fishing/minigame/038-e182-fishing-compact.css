@@ -1,0 +1,28 @@
+
+/* E1.8.4: el área de juego mantiene su altura durante espera y captura.
+   No desplaza la página cuando un pez pica. */
+#page_fishing .e162Dock{padding:12px 14px;margin-top:6px}
+#page_fishing .e162DockHead{gap:8px}
+#page_fishing .e162DockHead h3{font-size:1rem}
+#page_fishing .e162DockHead p{font-size:.8rem;margin:0}
+#page_fishing .e165Zones{margin:7px 0 2px;gap:6px}
+#page_fishing .e165ZoneBtn{padding:6px 9px;min-width:135px;font-size:.85rem}
+#page_fishing .e165ZoneInfo{margin:5px 0;font-size:.79rem}
+#page_fishing .e173Species{margin:5px 0}
+#page_fishing .e173Species>summary{padding:7px 10px;font-size:.84rem}
+#page_fishing .e163Skill{margin:7px 0;padding:7px 10px}
+#page_fishing .e163SkillHead{margin-bottom:4px}
+#page_fishing .e163XpTrack{height:12px}
+#page_fishing .fishWaiting{margin-top:6px;padding:6px 9px;font-size:.83rem}
+#page_fishing .e162Game{margin-top:7px;padding-top:7px;min-height:162px}
+#page_fishing .e162FightTitle{margin-bottom:6px;font-size:.88rem;gap:6px}
+#page_fishing .fishTank{height:76px}
+#page_fishing .e162Controls{margin-top:7px;gap:7px}
+#page_fishing .fishControl{min-height:35px}
+#page_fishing .e182Idle .e162Play,#page_fishing .e182Idle .e162Controls{visibility:hidden;pointer-events:none}
+#page_fishing .e182Idle .e162FightTitle{visibility:hidden}
+#page_fishing .e182Result{margin:7px 0 0;padding:9px 12px;border:1px solid #ad863d;border-radius:8px;background:rgba(110,77,30,.2);color:#f5d389;font-size:.91rem}
+#page_fishing .e182Result b{color:#ffe5a4}
+#page_fishing .e182Result small{display:block;color:#d1bd99;margin-top:3px}
+#page_fishing .e182Result[hidden]{display:none}
+@media(max-width:650px){#page_fishing .e162Game{min-height:177px}#page_fishing .e165ZoneBtn{min-width:105px}#page_fishing .e162DockHead{align-items:start}}

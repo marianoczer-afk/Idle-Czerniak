@@ -1,0 +1,4 @@
+
+/* Desactivar anclaje automático: el contenido de pesca se reconstruye en cada picada. */
+html,body,#app,#page_fishing,#page_fishing * {scroll-behavior:auto!important}
+html,body,#page_fishing,#page_fishing .e162Dock {overflow-anchor:none!important}

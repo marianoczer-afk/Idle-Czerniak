@@ -1,0 +1,1 @@
+const E18_ROD={id:'e18_rod_trofeo',name:'Caña del Coleccionista',req:12,bonus:35,desc:'Control +8,75% de barra · trofeos 16% de base · hasta 320 kg'};

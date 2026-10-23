@@ -1,0 +1,11 @@
+
+/* Panel de habilidades de pesca exclusivo para la pestaña; sin barras de combate innecesarias. */
+body.e197Fishing #skillsBox,
+body.e197Fishing .hybridSidebarBody details[data-ui-panel="attributes"]{display:none!important}
+body.e197Fishing #skillsBox~.e197FishingSkills{display:block}
+.e197FishingSkills{display:none;background:linear-gradient(150deg,#243a33,#201d19);border:1px solid #6a855a;border-radius:10px;padding:11px;margin:8px 0;color:#e9e1c7}
+.e197FishingSkills .e197Line{display:flex;justify-content:space-between;gap:8px;margin:7px 0;font-size:.82rem}
+.e197FishingSkills .e197Track{height:11px;background:#161715;border:1px solid #6d674a;border-radius:8px;overflow:hidden}
+.e197FishingSkills .e197Fill{height:100%;background:#70a954}
+.e197FishingSkills small{color:#b9b69d;display:block;margin-top:7px;line-height:1.4}
+@media(max-width:650px){.e197FishingSkills{padding:8px}}

@@ -1,0 +1,16 @@
+
+/* The rod fills the HUD artwork again; its name is an OVERLAY, not reserved space. */
+
+/* Fish images have their own breathing room and never touch the card edges. */
+
+#page_fishing .e192Sprite img.e1117Fish,#page_fishing .e192Sprite img.e1114Fish{object-fit:contain!important;object-position:center!important;transform:scale(.9)!important;transform-origin:center!important}
+/* Compact landscape thumbnails in the zone chooser. */
+.e1120Menu .e1120Choice.e1114ScenicChoice{display:grid!important;grid-template-columns:88px minmax(0,1fr)!important;align-items:center!important;gap:10px!important;min-height:73px!important;padding:6px 9px!important}
+.e1120Menu .e1114ScenicChoice .e1120Symbol{display:none!important}
+.e1120Menu .e1114ScenicChoice .e1114ZoneThumb{width:88px;height:55px;object-fit:cover;border:1px solid #658078;border-radius:7px;display:block;filter:saturate(.96)}
+.e1120Menu .e1114ScenicChoice:disabled .e1114ZoneThumb{filter:grayscale(.7) brightness(.57)}
+.e1120Menu .e1114ScenicChoice b{font-size:12px;line-height:1.3}
+.e1120Menu .e1114ScenicChoice small{font-size:10px;line-height:1.35}
+/* Prevent native scroll anchoring as the minigame swaps phases. */
+html,body,#page_fishing,#page_fishing .e162Dock,#page_fishing #e16GamePanel{overflow-anchor:none!important}
+@media(max-width:650px){.e1120Menu .e1120Choice.e1114ScenicChoice{grid-template-columns:72px minmax(0,1fr)!important}.e1120Menu .e1114ScenicChoice .e1114ZoneThumb{width:72px;height:49px}}

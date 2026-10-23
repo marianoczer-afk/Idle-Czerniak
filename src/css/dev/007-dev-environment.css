@@ -1,0 +1,11 @@
+
+  #devModeToggle { position:static; min-height:36px; padding:5px 10px; font-size:.8rem; }
+  #devModeBanner { background:#47244f; border-bottom:2px solid #cf8ce4; padding:8px 16px; color:#ffe5ff; font-weight:600; }
+  body.devEnvironment header { border-color:#cf8ce4; }
+  #devAdminPanel { border:2px solid #b67bc7; margin:12px 0; }
+  #devAdminPanel summary { color:#e7b5fa; cursor:pointer; font-weight:700; min-height:40px; }
+  .devFields { display:flex; flex-wrap:wrap; align-items:end; gap:8px; margin:10px 0; }
+  .devFields label { display:flex; flex-direction:column; gap:4px; color:var(--muted); font-size:.85rem; }
+  .devFields input,.devFields select { background:#120e0b; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:8px; font:inherit; max-width:100%; min-height:40px; }
+  .devFields input { width:130px; }
+  #devTestOutput { white-space:pre-wrap; font-size:.8rem; }

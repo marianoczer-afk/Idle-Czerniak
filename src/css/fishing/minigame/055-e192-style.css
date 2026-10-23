@@ -1,0 +1,15 @@
+
+#page_fishing .e192Sprite{width:66px;height:50px;flex:0 0 66px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:radial-gradient(ellipse at 50% 40%,#b0c6be1c,transparent 70%)}
+#page_fishing .e192Sprite svg{width:64px;height:48px;filter:drop-shadow(0 3px 3px #0008)}
+#page_fishing .e186Fish{display:flex;flex-direction:column;align-items:stretch;gap:8px;min-height:66px;min-width:0}
+#page_fishing .e186Fish>.e192Sprite{margin:0 auto}
+#page_fishing .e186Fish>div:last-child{min-width:0;width:100%;overflow-wrap:anywhere}
+#page_fishing .e186Book .e186Fish.e186Unknown .e192Sprite .fishMysteryArt{filter:none!important;opacity:1!important;object-fit:contain}
+#page_fishing .e186Fish.e186Unknown .e192Sprite svg{filter:grayscale(1) brightness(.16);opacity:.75}
+#page_fishing .e186Fish.e186Legend .e192Sprite{background:radial-gradient(ellipse,#d8b35755,transparent 75%)}
+#page_fishing .e192RodShowcase{display:flex;align-items:center;gap:10px;margin-top:5px;padding:5px 8px;background:#080e1680;border-radius:8px;border:1px solid #84735455}
+#page_fishing .e192RodShowcase svg{width:130px;max-width:42%;height:43px;flex:0 0 auto;filter:drop-shadow(0 3px 3px #0009)}
+#page_fishing .e192RodShowcase span{font-size:.75rem;color:var(--muted)}
+#page_fishing .e192RodTitle{color:#ead2a1;font-weight:700;font-size:.82rem}
+
+@media(max-width:700px){#page_fishing .e186BookGrid{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}#page_fishing .e192Sprite{width:48px;flex-basis:48px}#page_fishing .e192Sprite svg{width:48px}}

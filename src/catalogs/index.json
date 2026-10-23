@@ -1,0 +1,90 @@
+[
+  {
+    "file": "src/catalogs/016-e16-fishing-e16_fish.js",
+    "symbol": "E16_FISH"
+  },
+  {
+    "file": "src/catalogs/016-e16-fishing-e190_weight_ranges.js",
+    "symbol": "E190_WEIGHT_RANGES"
+  },
+  {
+    "file": "src/catalogs/018-e161-fishing-e161_rods.js",
+    "symbol": "E161_RODS"
+  },
+  {
+    "file": "src/catalogs/018-e161-fishing-e161_difficulty.js",
+    "symbol": "E161_DIFFICULTY"
+  },
+  {
+    "file": "src/catalogs/021-e163-fishing-e16_fish-additions-1.js",
+    "symbol": "E16_FISH"
+  },
+  {
+    "file": "src/catalogs/025-e165-zones-e165_zones.js",
+    "symbol": "E165_ZONES"
+  },
+  {
+    "file": "src/catalogs/025-e165-zones-e16_fish-additions-1.js",
+    "symbol": "E16_FISH"
+  },
+  {
+    "file": "src/catalogs/027-e17-quests-e17_quest.js",
+    "symbol": "E17_QUEST"
+  },
+  {
+    "file": "src/catalogs/027-e17-quests-e17_rod.js",
+    "symbol": "E17_ROD"
+  },
+  {
+    "file": "src/catalogs/029-e171-improvements-e171_quests.js",
+    "symbol": "E171_QUESTS"
+  },
+  {
+    "file": "src/catalogs/035-e18-trophies-e18_rod.js",
+    "symbol": "E18_ROD"
+  },
+  {
+    "file": "src/catalogs/047-e187-expansion-e187_fish.js",
+    "symbol": "E187_FISH"
+  },
+  {
+    "file": "src/catalogs/047-e187-expansion-e187_zones.js",
+    "symbol": "E187_ZONES"
+  },
+  {
+    "file": "src/catalogs/047-e187-expansion-e187_quests.js",
+    "symbol": "E187_QUESTS"
+  },
+  {
+    "file": "src/catalogs/047-e187-expansion-e187_rod.js",
+    "symbol": "E187_ROD"
+  },
+  {
+    "file": "src/catalogs/052-e190-polish-e210_capture_profiles.js",
+    "symbol": "E210_CAPTURE_PROFILES"
+  },
+  {
+    "file": "src/catalogs/075-e1103-progression-e1103_special.js",
+    "symbol": "E1103_SPECIAL"
+  },
+  {
+    "file": "src/catalogs/110-e208-catalog-e208_families.js",
+    "symbol": "E208_FAMILIES"
+  },
+  {
+    "file": "src/catalogs/110-e208-catalog-e208_specialties.js",
+    "symbol": "E208_SPECIALTIES"
+  },
+  {
+    "file": "src/catalogs/110-e208-catalog-e212_offers.js",
+    "symbol": "E212_OFFERS"
+  },
+  {
+    "file": "src/catalogs/111-e208-art-e208_rod_art.js",
+    "symbol": "E208_ROD_ART"
+  },
+  {
+    "file": "src/catalogs/111-e208-art-e208_fish_art.js",
+    "symbol": "E208_FISH_ART"
+  }
+]

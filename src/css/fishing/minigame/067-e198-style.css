@@ -1,0 +1,3 @@
+
+/* Mantener el panel anclado sin saltos durante las transiciones. */
+#page_fishing,#page_fishing .e162Dock,#page_fishing .e162Game{overflow-anchor:none}

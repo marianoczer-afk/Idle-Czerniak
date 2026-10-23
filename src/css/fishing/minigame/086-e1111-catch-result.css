@@ -1,0 +1,6 @@
+
+#page_fishing .e1111CatchNotice{
+ border:1px solid #b79b55;background:linear-gradient(100deg,#2e291d,#20342c);
+ color:#ffe5a5;border-radius:9px;padding:11px 14px;
+ font-weight:700;font-size:.88rem;margin:7px 0;
+}
