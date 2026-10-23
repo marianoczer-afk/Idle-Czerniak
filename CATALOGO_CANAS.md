@@ -89,3 +89,7 @@ Se conservan dos especialidades de compra por familia, elegidas por su función,
 | Celeste | Control, trofeos |
 
 Las 18 recompensas de desafíos permanecen. Cada misión muestra tres objetivos separados, progreso y marca individual de cumplimiento. Se distingue entre desafíos históricos (no consumen peces) y entregas de inventario (consumen peces, cualquier tamaño cuenta).
+
+## Estable 15: caña protagonista en el HUD
+
+El nombre y el arte de la caña aprovechan la altura completa del bloque, manteniendo la ilustración sin recortes ni deformaciones. La XP aparece en el bloque derecho. El catálogo, sus 50 ofertas y el equipo histórico adquirido no cambian; se reutiliza la misma ilustración mientras no se cambie de caña.

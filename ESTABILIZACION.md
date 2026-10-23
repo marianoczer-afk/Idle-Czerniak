@@ -165,3 +165,15 @@ Verificación: 11 casos distintos aprobados en dos ejecuciones dirigidas de Chro
 El recuadro del último pez iguala las dimensiones del paisaje de zona: 104 × 102 px en escritorio y 48 × 72 px en móvil. Se recupera la barra de progreso de captura en el HUD, con porcentaje actualizado por el render de la física y etiqueta independiente de los datos de la última captura. Fuera de una captura activa vuelve a cero y explica si está preparando, esperando picada o sin captura en curso; no reutiliza el 100 % anterior. Incluye atributos accesibles de progreso. Se mantiene la altura compacta y no cambian física, recompensas, catálogo ni guardados.
 
 Validación: 10 pruebas dirigidas aprobadas en Chromium, incluyendo escritorio/móvil, dimensiones iguales, progreso al 47 %, pérdida sin nueva recompensa, reinicio a cero, última captura persistente, fases sin salto, selectores, XP visible y descarga autónoma. Revisión visual de móvil y escritorio emulados.
+
+## Estable 15
+
+La caña utiliza la altura completa del HUD y la experiencia pasa al bloque derecho, junto a la última captura y su progreso. El arte conserva su proporción y encuadre: en escritorio ocupa más del 85 % del ancho del recuadro y al menos 300 px de ancho efectivo en la prueba de 1366 px. El HUD sigue por debajo de 120 px de alto. El elemento original de XP se mueve entre Pesca y Combate, sin duplicar IDs ni confundir ambas experiencias.
+
+Revisión estática de todos los bloques JavaScript y CSS. Se consolidan las reglas del HUD de Pesca en `fishing-hud-css`: de 241 reglas/834 declaraciones a 54 reglas/268 declaraciones, incluyendo el cambio móvil y movimiento reducido. Se retiran selectores antiguos de los bloques anteriores conservando sus reglas de tienda, colección, minijuego y Combate.
+
+Se elimina el actualizador duplicado de XP y se retiran los cálculos antiguos en la tarjeta de zona y su menú. Se conserva el cálculo de progresión que respeta el máximo de 100. La caña del HUD tiene un único render con caché por equipo; no se reconstruye desde los actualizadores de ilustraciones de página. Se retiran los renderizadores de resultado anteriores, reemplazados por el panel de última captura, y se conservan la barra en vivo y su accesibilidad. Las tarjetas laterales reutilizan su DOM cuando XP, equipo, atributos y mejoras no cambiaron. Las imágenes de zona dejan de reasignar el mismo recurso en cada actualización.
+
+La limpieza reduce aproximadamente 33 KB de fuente. Las 118 imágenes originales permanecen idénticas y siguen representando la mayor parte del archivo autónomo. No se agregan dependencias al juego. Las capas históricas de mecánicas y premios se conservan; la consolidación realizada corresponde a presentación y actualizaciones redundantes.
+
+Validación: 51 pruebas completas aprobadas en Chromium. Incluyen guardados v7, azar, balance, misiones, premios únicos, descarga autónoma, fases sin desplazamiento, dimensiones del HUD, caña completa, XP a la derecha, reutilización del arte/estadísticas y retorno correcto a Combate sin duplicar la barra. Revisión visual en escritorio y móvil emulado.
