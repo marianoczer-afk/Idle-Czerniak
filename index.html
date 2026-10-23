@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 16</title>
-<meta name="argentum-build" content="estable-16">
+<title>Argentum Idle Online · Estable 17</title>
+<meta name="argentum-build" content="estable-17">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 16</h1>
+  <h1>Argentum Idle Online · Estable 17</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 16</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 17</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -775,7 +775,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 16</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 17</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -877,7 +877,7 @@ function toggleFavorite(id){
 }
 function downloadHTML(){
   // Exporta el documento completo, no una vista previa ni un acceso externo.
-  const page = document.documentElement.cloneNode(true);
+  const page = document.documentElement.cloneNode(true);e217CleanClone(page);
   page.querySelector("#uiWorkspace")?.remove();
   page.querySelector("#balanceLabPanel")?.remove();
   page.querySelector("#devBalancePanel")?.remove();
@@ -2024,7 +2024,7 @@ document.addEventListener('keydown',e=>{
   selectWorkspaceTab(tabs[next].dataset.uiTab);tabs[next].focus();
 },true);
 function downloadCompactStable(){
-  const page=document.documentElement.cloneNode(true);
+  const page=document.documentElement.cloneNode(true);e217CleanClone(page);
   // Copia anterior a progresión visible/laboratorio, manteniendo Entrega 3.
   page.querySelectorAll('[data-progression-lab]').forEach(el=>el.remove());
   page.querySelector('#balanceLabPanel')?.remove();
@@ -2818,16 +2818,16 @@ function progressNotice(s,before,after,label){
  const rows=k?PROGRESS_MILESTONES[k]:DUNGEONS.map(d=>[d.minLevel,d.name+(d.navReq?' (además Navegación '+d.navReq+')':''),true]);
  const u=rows.filter(r=>r[2]&&r[0]>a&&r[0]<=b).map(r=>r[1]);
  s.ui.lastProgressNotice={label,text:progressStatsText(before,after)+(u.length?' · Requisitos alcanzados: '+u.join('; ')+'. Revisá compra y requisitos adicionales.':'')};
- toast('¡'+label+'!'+(u.length?' · '+u.join(' · '):''));
+ if(u.length||!e217HasLevelFeedback(s))toast('¡'+label+'!'+(u.length?' · '+u.join(' · '):''));
 }
 const progressGains=new WeakMap();
 function showProgressGain(s,label,n){if(OFF.active||s!==state||!(n>0))return;progressGains.set(s,{at:Date.now(),text:'+'+Number(n.toFixed(2)).toLocaleString('es-AR')+' XP · '+label});}
 const visibleGainXP=gainCharacterXP;
-gainCharacterXP=function(s,n){const a=derive(s),value=visibleGainXP(s,n),b=derive(s);showProgressGain(s,'Personaje',value);if(b.L>a.L)progressNotice(s,a,b,`Nivel ${a.L} → ${b.L}`);return value;};
+gainCharacterXP=function(s,n){const a=derive(s),value=visibleGainXP(s,n),b=derive(s);showProgressGain(s,'Personaje',value);e217XPEvent(s,'character',value,a.L,b.L);if(b.L>a.L)progressNotice(s,a,b,`Nivel ${a.L} → ${b.L}`);return value;};
 const visibleSkillXP=sklXp;
-sklXp=function(s,key,n){const level=skl(s,key),a=derive(s),value=visibleSkillXP(s,key,n),end=skl(s,key);showProgressGain(s,progressSkillName(key),value);if(end>level)progressNotice(s,a,derive(s),`${progressSkillName(key)} ${level} → ${end}`);return value;};
+sklXp=function(s,key,n){const level=skl(s,key),a=derive(s),value=visibleSkillXP(s,key,n),end=skl(s,key);showProgressGain(s,progressSkillName(key),value);e217XPEvent(s,key,value,level,end);if(end>level)progressNotice(s,a,derive(s),`${progressSkillName(key)} ${level} → ${end}`);return value;};
 const visiblePlayerSwing=playerSwing;
-playerSwing=function(d,en){const a=derive(state),x=state.skill.xp;visiblePlayerSwing(d,en);const b=derive(state);showProgressGain(state,'Armas',state.skill.xp-x);if(b.sk>a.sk)progressNotice(state,a,b,`Combate con Armas ${a.sk} → ${b.sk}`);};
+playerSwing=function(d,en){const a=derive(state),x=state.skill.xp;visiblePlayerSwing(d,en);const b=derive(state);showProgressGain(state,'Armas',state.skill.xp-x);e217XPEvent(state,'weapon',state.skill.xp-x,a.sk,b.sk);if(b.sk>a.sk)progressNotice(state,a,b,`Combate con Armas ${a.sk} → ${b.sk}`);};
 function visibleSkillCard(name,xp,weapon=false){
  const level=weapon?levelFromXp(xp):skillLvl(xp),lo=weapon?xpFor(level):10*(level-1)**2,hi=weapon?xpFor(level+1):10*level**2;
  const pct=clamp(100*(xp-lo)/(hi-lo),0,100);
@@ -6183,13 +6183,12 @@ function sync(){
 function openMenu(type,anchor){
  if(popup?.dataset.type===type){closeMenu();return;}closeMenu();
  const lv=fishingLevel();popup=document.createElement('div');popup.className='e1120Menu';popup.dataset.type=type;
- const head=document.createElement('div');head.className='e1120MenuHeader';head.innerHTML='<span>'+(type==='zone'?'Elegir zona de pesca':'Equipar caña')+'</span>';
- const x=document.createElement('button');x.textContent='✕';x.onclick=closeMenu;head.append(x);popup.append(head);if(type==='rod'){const note=document.createElement('p');note.className='rodCompareNote';note.textContent='Comparado con '+(e161Rod()?.name||'tu equipo actual')+'. Verde: suma; terracota: resta.';popup.append(note);}
+ if(type==='zone'){const head=document.createElement('div');head.className='e1120MenuHeader';head.innerHTML='<span>Elegir zona de pesca</span>';const x=document.createElement('button');x.textContent='✕';x.onclick=closeMenu;head.append(x);popup.append(head);}
  const entries=type==='zone'?E165_ZONES:[...new Map([...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].filter(r=>r&&(e212Offered(r)||state?.owned?.[r.id])).map(r=>[r.id,r])).values()].sort((a,b)=>Number(!!state?.owned?.[b.id])-Number(!!state?.owned?.[a.id])||Number(b.id===e161Rod()?.id)-Number(a.id===e161Rod()?.id));
  entries.forEach((item,i)=>{
   const available=type==='zone'?lv>=item.req:!!state?.owned?.[item.id];
   const active=type==='zone'?e165Zone().id===item.id:e161Rod()?.id===item.id;
-  const b=document.createElement('button');b.className='e1120Choice'+(active?' active':'');b.disabled=!available;
+  const b=document.createElement('button');b.className='e1120Choice'+(active?' active':'');b.disabled=!available;if(type==='rod')b.dataset.rodId=item.id;
   const sym=document.createElement('span');sym.className='e1120Symbol';sym.textContent=type==='zone'?(item.icon||'🌲'):'';if(type==='zone')b.append(sym);else{const art=document.createElement('span');art.className='e216RodThumb';art.innerHTML=e194RodArt(item.id);b.append(art);}
   const info=document.createElement('span');const title=document.createElement('b');title.textContent=item.name+(active?'  ✓':'');info.append(title);
   const desc=document.createElement('small');desc.textContent=type==='zone'?(available?item.desc:'🔒 Requiere Pesca nivel '+item.req):(available?(item.desc||'Caña disponible'):'🔒 No obtenida');if(type==='zone')info.append(desc);else{const compare=document.createElement('span');compare.className='rodComparisons';compare.innerHTML=e216RodComparison(item);info.append(compare);const status=document.createElement('small');status.textContent=active?'✓ Equipada':available?'Disponible para equipar':'No obtenida';info.append(status);}b.append(info);
@@ -6203,6 +6202,7 @@ function openMenu(type,anchor){
    closeMenu();persist();e16Page();sync();toast(type==='zone'?'Nueva zona: '+item.name:'Caña equipada: '+item.name);
   };popup.append(b);
  });
+ if(type==='rod'){e217MenuTools(popup,anchor);popup.querySelector('.e217RodTools button').onclick=closeMenu;}
  document.body.append(popup);const rect=anchor.getBoundingClientRect();const w=popup.offsetWidth,h=popup.offsetHeight;
  popup.style.left=Math.max(10,Math.min(window.innerWidth-w-10,rect.left))+'px';
  popup.style.top=(rect.top>h+10?rect.top-h-7:Math.min(window.innerHeight-h-10,rect.bottom+7))+'px';
@@ -6536,6 +6536,7 @@ function e208FilterShop(shop,expand=false){
    const owned=r=>Number(!!state.owned?.[r.dataset.rodId]);
    if(sort==='owned')return owned(b)-owned(a)||Number(b.classList.contains('equipped'))-Number(a.classList.contains('equipped'))||Number(a.dataset.price)-Number(b.dataset.price);
    if(sort==='price')return Number(a.dataset.price)-Number(b.dataset.price);
+   if(sort==='levelAsc'||sort==='levelDesc'){const x=a.dataset.requiredLevel,y=b.dataset.requiredLevel;return x===''||y===''?(x===y?a.dataset.rodId.localeCompare(b.dataset.rodId):x===''?1:-1):(sort==='levelDesc'?Number(y)-Number(x):Number(x)-Number(y))||a.dataset.rodId.localeCompare(b.dataset.rodId);}
    return Number(b.dataset[sort])-Number(a.dataset[sort])||owned(b)-owned(a);
   }).forEach(row=>container.append(row));
   for(const row of rows){
@@ -6703,7 +6704,7 @@ function e216CompactQuests(){
 }
 function e216RodComparison(rod){
  const current=e161Rod(),a=e1101Stats(rod),b=e1101Stats(current),fields=[['Atracción','speed','%'],['Suerte','luck','%'],['Control','control','%'],['Resiliencia','resilience','%'],['Trofeos','trophy','%'],['Capacidad','maxKg',' kg']];
- return fields.map(([label,key,unit])=>{const value=key==='control'?e190ControlPercent(a[key]):a[key],base=key==='control'?e190ControlPercent(b[key]):b[key],delta=Math.round((value-base)*100)/100,format=n=>Number(n).toLocaleString('es-AR',{maximumFractionDigits:2}),diff=delta===0?'=':(delta>0?'+':'−')+format(Math.abs(delta))+unit;return `<span class="rodCompare ${delta>0?'better':delta<0?'worse':'same'}" data-stat="${key}" data-delta="${delta}"><span>${label} ${format(value)}${unit}</span><b>${diff}</b></span>`;}).join('');
+ return fields.map(([label,key,unit])=>{const value=key==='control'?e190ControlPercent(a[key]):a[key],base=key==='control'?e190ControlPercent(b[key]):b[key],delta=Math.round((value-base)*100)/100,format=n=>Number(n).toLocaleString('es-AR',{maximumFractionDigits:2}),diff=delta===0?'=':(delta>0?'▲':'▼')+format(Math.abs(delta))+(key==='maxKg'?' kg':' pp');return `<span class="rodCompare ${delta>0?'better':delta<0?'worse':'same'}" data-stat="${key}" data-delta="${delta}"><span>${label} ${format(value)}${unit}</span><b title="Diferencia respecto a la caña equipada">${diff}</b></span>`;}).join('');
 }
 
 </script>
@@ -6731,7 +6732,7 @@ function e216RodComparison(rod){
  }
  function rodRow(rod){
   const index=E161_RODS.findIndex(r=>r.id===rod.id),owned=!!state.owned?.[rod.id],equipped=e161Rod()?.id===rod.id;
-  const st=e1101Stats(rod),stats=`⚡ Atracción ${st.speed}% · 🍀 Suerte ${st.luck}% · 🎯 Control +${e190ControlPercent(st.control)}% · 🛡 Resiliencia ${st.resilience}% · 🏆 Trofeos ${st.trophy}% · ⚖ Hasta ${e190Kg(st.maxKg)}`;
+  const st=e1101Stats(rod),stats=e216RodComparison(rod);
   let action;
   if(rod.unlock&&!owned)action=e208QuestProgress(rod).ready?`data-catalog-claim="${rod.id}"`:`data-rod-quest="${rod.id}"`;
   else if(index>=0)action=owned?`data-e164-equip="${index}"`:`data-e161-buy="${index}"`;
@@ -6745,7 +6746,7 @@ function e216RodComparison(rod){
   const requirement=isQuest?e210RodRequirement(rod):'Disponible por oro';
   const score=e193RodScore(rod),stars=`<span class="rodShopStars" role="img" aria-label="Valoración general: ${score} de 10 estrellas" title="Valoración orientativa: ${score}/10. Compará cada atributo según el pez."><span aria-hidden="true">${'★'.repeat(score)}<span class="emptyStars">${'☆'.repeat(10-score)}</span></span> ${score}/10</span>`;
   const disabled=equipped||!!e16Session||!!e195Pending||(!owned&&(!isQuest&&state.gold<rod.price));
-  return `<article class="rodShopRow${isQuest?' questRod':''}${equipped?' equipped':''}" data-rod-id="${rod.id}" data-source="${isQuest?'quest':'gold'}" data-zone="${e210RodZone(rod)}" data-price="${rod.price||0}" data-control="${st.control}" data-resilience="${st.resilience}" data-speed="${st.speed}" data-luck="${st.luck}" data-trophy="${st.trophy}" data-max-kg="${st.maxKg}"><div class="rodShopArt">${e194RodArt(rod.id)}</div><div class="rodShopInfo"><div class="rodShopTitle"><b>${esc(rod.name)}</b>${stars}<span class="rodSource${isQuest?' quest':''}">${isQuest?'📜 Misión':'🪙 Compra'}</span></div><div class="rodShopStats">${stats}</div><small>${esc(requirement)}${rod.unlock?'':' · '+esc(E1103_SPECIAL[rod.id]?.role||rod.desc)}</small></div><div class="rodShopAction"><span>${!isQuest?fmt(rod.price)+' oro':'Premio de misión'}</span><button class="small" ${action} ${disabled?'disabled':''}>${equipped?'✓ Equipada':owned?'Equipar':rod.unlock?(e208QuestProgress(rod).ready?'Reclamar':'Ver encargo'):isQuest?'Ver encargo':'Comprar'}</button></div></article>`;
+  return `<article class="rodShopRow${isQuest?' questRod':''}${equipped?' equipped':''}" data-rod-id="${rod.id}" data-source="${isQuest?'quest':'gold'}" data-zone="${e210RodZone(rod)}" data-price="${rod.price||0}" data-required-level="${e217RequiredLevel(rod)??''}" data-control="${st.control}" data-resilience="${st.resilience}" data-speed="${st.speed}" data-luck="${st.luck}" data-trophy="${st.trophy}" data-max-kg="${st.maxKg}"><div class="rodShopArt">${e194RodArt(rod.id)}</div><div class="rodShopInfo"><div class="rodShopTitle"><b>${esc(rod.name)}</b>${stars}<span class="rodSource${isQuest?' quest':''}">${isQuest?'📜 Misión':'🪙 Compra'}</span></div><div class="rodShopStats">${stats}</div><small>${esc(requirement)}${rod.unlock?'':' · '+esc(E1103_SPECIAL[rod.id]?.role||rod.desc)}</small></div><div class="rodShopAction"><span>${!isQuest?fmt(rod.price)+' oro':'Premio de misión'}</span><button class="small" ${action} ${disabled?'disabled':''}>${equipped?'✓ Equipada':owned?'Equipar':rod.unlock?(e208QuestProgress(rod).ready?'Reclamar':'Ver encargo'):isQuest?'Ver encargo':'Comprar'}</button></div></article>`;
  }
  e16Page=function(){
   if(fishingFinishDepth)return;
@@ -6768,7 +6769,7 @@ function e216RodComparison(rod){
     detail.innerHTML=`<summary>${tier.name}<small>${tier.range} · ${rods.length} cañas</small></summary><div class="rodRows">${rods.map(rodRow).join('')||'<p class="rodShopEmpty">Todavía no hay cañas en esta categoría.</p>'}</div>`;
     shop.append(detail);
    }
-   shop.insertAdjacentHTML('afterbegin',`<div class="rodCatalogTools"><input type="search" data-rod-search aria-label="Buscar cañas por nombre, especialidad o zona" placeholder="Buscar caña, especialidad o zona…"><select data-rod-filter aria-label="Filtrar cañas"><option value="all">Todas</option><option value="gold">Por oro</option><option value="quest">De misión</option><option value="owned">Mis cañas</option><option value="locked">Por desbloquear</option><option value="affordable">Puedo comprar</option></select><select data-rod-zone aria-label="Filtrar por zona"><option value="all">Todas las zonas</option>${E165_ZONES.map(z=>`<option value="${z.id}">${esc(z.name)}</option>`).join('')}</select><select data-rod-sort aria-label="Ordenar cañas"><option value="owned">Mis cañas primero</option><option value="price">Precio: menor a mayor</option><option value="control">Mayor control</option><option value="resilience">Mayor resiliencia</option><option value="speed">Mayor atracción</option><option value="luck">Mayor suerte</option><option value="trophy">Más trofeos</option><option value="maxKg">Mayor capacidad</option></select><button type="button" class="small" data-rod-mine>Mis cañas</button><small data-rod-results aria-live="polite"></small></div>`);
+   shop.insertAdjacentHTML('afterbegin',`<div class="rodCatalogTools"><input type="search" data-rod-search aria-label="Buscar cañas por nombre, especialidad o zona" placeholder="Buscar caña, especialidad o zona…"><select data-rod-filter aria-label="Filtrar cañas"><option value="all">Todas</option><option value="gold">Por oro</option><option value="quest">De misión</option><option value="owned">Mis cañas</option><option value="locked">Por desbloquear</option><option value="affordable">Puedo comprar</option></select><select data-rod-zone aria-label="Filtrar por zona"><option value="all">Todas las zonas</option>${E165_ZONES.map(z=>`<option value="${z.id}">${esc(z.name)}</option>`).join('')}</select><select data-rod-sort aria-label="Ordenar cañas"><option value="owned">Mis cañas primero</option><option value="price">Precio: menor a mayor</option><option value="levelAsc">Nivel requerido: menor a mayor</option><option value="levelDesc">Nivel requerido: mayor a menor</option><option value="control">Mayor control</option><option value="resilience">Mayor resiliencia</option><option value="speed">Mayor atracción</option><option value="luck">Mayor suerte</option><option value="trophy">Más trofeos</option><option value="maxKg">Mayor capacidad</option></select><button type="button" class="small" data-rod-mine>Mis cañas</button><small data-rod-results aria-live="polite"></small></div>`);
    // Keep summary first for native details semantics.
    shop.prepend(shop.querySelector('summary'));
    shop.querySelector('[data-rod-search]').value=view?.search||'';
@@ -6915,8 +6916,144 @@ body.e197Fishing .hybridSidebarBody details[data-ui-panel="skills"]>summary[hidd
 .e1120Menu[data-type=rod] .e1120Choice{display:grid;grid-template-columns:105px minmax(0,1fr);gap:8px;align-items:center;padding:7px;box-sizing:border-box}.e1120Menu[data-type=rod] .e1120Choice:disabled{opacity:.7}
 .e216RodThumb{display:block;width:105px;height:37px;background:#071b23;border-radius:4px;overflow:hidden}.e216RodThumb svg,.e216RodThumb img{display:block;width:100%;height:100%;object-fit:contain;max-width:none;transform:none}
 .e1120Menu[data-type=rod] .e1120Choice b{white-space:normal;overflow-wrap:anywhere;font-size:12px}.e1120Menu[data-type=rod] .e1120Choice small{font-size:10px}
-.rodComparisons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 7px;margin-top:5px}.rodCompare{font-size:9px;line-height:1.25;display:flex;flex-wrap:wrap;gap:3px;justify-content:space-between}.rodCompare b{font-size:9px!important;font-weight:700}.rodCompare.better{color:#a9ce9d}.rodCompare.worse{color:#d5a194}.rodCompare.same{color:#c2b8a3}
+.rodComparisons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 7px;margin-top:5px}.rodCompare{font-size:11px;line-height:1.25;display:flex;flex-wrap:wrap;gap:3px;justify-content:space-between}.rodCompare b{font-size:11px!important;font-weight:700}.rodCompare.better{color:#a9ce9d}.rodCompare.worse{color:#d5a194}.rodCompare.same{color:#c2b8a3}
 @media(max-width:700px){.atlasRow{grid-template-columns:minmax(0,1fr) 64px;gap:3px 7px;padding:5px 7px}.atlasRow small{grid-column:1 / -1;text-align:left}.fishingAtlas>summary small{display:block;margin:3px 0 0}.e1120Menu[data-type=rod] .e1120Choice{grid-template-columns:78px minmax(0,1fr);gap:6px}.e216RodThumb{width:78px;height:32px}.e216Quest>summary{grid-template-columns:minmax(0,1fr) 82px!important}.atlasBadge{max-width:100%}}
+</style>
+<script data-e217-rod-ux>
+'use strict';
+const E217_STAT_KEYS=['speed','luck','control','resilience','trophy','maxKg'];
+const E217_SORT_OPTIONS=[['recommended','Recomendadas'],['levelAsc','Nivel requerido: menor a mayor'],['levelDesc','Nivel requerido: mayor a menor'],['speed','Mayor atracción'],['luck','Mayor suerte'],['control','Mayor control'],['resilience','Mayor resiliencia'],['maxKg','Mayor capacidad de peso']];
+function e217RequiredLevel(rod){
+ // req on catalog rods is a display tier, NOT a purchase/equipment requirement.
+ if(rod.id===E17_ROD.id)return E17_QUEST.level;
+ const quest=E171_QUESTS.find(q=>q.rod.id===rod.id);if(quest)return quest.level;
+ if(rod.id===E187_ROD.id)return E187_QUESTS.find(q=>q.kind==='rod').req;
+ return null;
+}
+function e217LevelCompare(a,b,descending=false){
+ const x=e217RequiredLevel(a),y=e217RequiredLevel(b);
+ if(x===null||y===null)return x===y?0:x===null?1:-1;
+ return descending?y-x:x-y;
+}
+function e217Dominates(a,b){return E217_STAT_KEYS.every(k=>a[k]>=b[k])&&E217_STAT_KEYS.some(k=>a[k]>b[k]);}
+function e217Recommended(rods){
+ const current=e161Rod(),stats=new Map(rods.map(r=>[r.id,e1101Stats(r)])),result=[];
+ // Pareto layers preserve specialized tradeoffs; no invented weighted power score.
+ for(const owned of [true,false]){
+  let pending=rods.filter(r=>!!state.owned?.[r.id]===owned);
+  while(pending.length){
+   const front=pending.filter(r=>!pending.some(other=>other!==r&&e217Dominates(stats.get(other.id),stats.get(r.id))));
+   front.sort((a,b)=>Number(b.id===current?.id)-Number(a.id===current?.id));
+   result.push(...front);const ids=new Set(front.map(r=>r.id));pending=pending.filter(r=>!ids.has(r.id));
+  }
+ }
+ return result;
+}
+function e217SortRods(rods,sort='recommended'){
+ if(sort==='recommended')return e217Recommended(rods);
+ const position=new Map(rods.map((r,i)=>[r.id,i]));
+ return [...rods].sort((a,b)=>(sort==='levelAsc'||sort==='levelDesc'?e217LevelCompare(a,b,sort==='levelDesc'):e1101Stats(b)[sort]-e1101Stats(a)[sort])||position.get(a.id)-position.get(b.id));
+}
+function e217MenuTools(popup,anchor){
+ const toolbar=document.createElement('div');toolbar.className='e217RodTools';
+ toolbar.innerHTML=`<input type="search" aria-label="Buscar caña" placeholder="Buscar caña…"><select aria-label="Ordenar cañas" title="Nivel: requisito explícito de obtención. Sin requisito al final; no es nivel de la caña ni una condición nueva para equiparla.">${E217_SORT_OPTIONS.map(([id,label])=>`<option value="${id}">${label}</option>`).join('')}</select><button type="button" aria-label="Cerrar selector de cañas">✕</button>`;
+ popup.prepend(toolbar);popup.setAttribute('aria-label','Seleccionar caña');
+ const search=toolbar.querySelector('input'),sort=toolbar.querySelector('select');
+ const normalize=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+ const rods=[...new Map([...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].map(r=>[r.id,r])).values()];
+ const update=()=>{
+  const choices=new Map([...popup.querySelectorAll('.e1120Choice')].map(row=>[row.dataset.rodId,row]));
+  for(const rod of e217SortRods(rods.filter(r=>choices.has(r.id)),sort.value)){
+   const row=choices.get(rod.id);row.hidden=!normalize(rod.name).includes(normalize(search.value.trim()));popup.append(row);
+  }
+  popup.scrollTop=0;
+ };
+ search.addEventListener('input',update);sort.addEventListener('change',update);update();
+}
+
+</script>
+<script data-e217-xp-effects>
+'use strict';
+// Presentation events only: never poll saved XP to infer gains.
+const e217PendingXP=new Map(),e217ActiveFX=new Map();let e217FlushFrame=0,e217EffectFrame=0;
+function e217LiveXP(s){return s===state&&ready&&storageReady&&!busy&&!managing&&!OFF.active&&!simulationLocked()&&!labFrame&&!document.hidden;}
+function e217XPEvent(s,key,amount,before,after){
+ if(!Number.isFinite(amount)||!(amount>0)||!e217LiveXP(s))return;
+ if(key==='pesca'){before=Math.min(100,before);after=Math.min(100,after);}
+ const event=e217PendingXP.get(key);
+ if(event&&event.s===s){event.amount+=amount;event.after=Math.max(event.after,after);}
+ else e217PendingXP.set(key,{s,key,amount,before,after});
+ if(!e217FlushFrame)e217FlushFrame=requestAnimationFrame(e217FlushXP);
+}
+function e217HasLevelFeedback(s){return e217LiveXP(s)&&[...e217PendingXP.values()].some(e=>e.s===s&&e.after>e.before&&e217XPTarget(e.key));}
+function e217Visible(node){
+ if(!node||!node.isConnected||!node.getClientRects().length||getComputedStyle(node).visibility==='hidden')return false;
+ const r=node.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth;
+}
+function e217XPTarget(key){
+ const selectors=key==='pesca'?['#page_fishing .e187XpLabel','#e188FishingHud #dockPlayerXpText','.e197FishingSkills .e197Line b']:
+ key==='character'?['#combatDock:not(.e188FishingMode) #dockPlayerXpText','#xpText']:[`#skillsBox [data-skill-key="${key}"] small`];
+ for(const selector of selectors){const node=document.querySelector(selector);if(!e217Visible(node))continue;
+  const bar=key==='pesca'?(node.closest('.e163XpTrack')||document.querySelector(node.closest('#combatDock')?'#combatDock .dockProgress .bar':'.e197Track')):
+   key==='character'?(node.closest('.dockProgress')?.querySelector('.bar')||document.getElementById('xpBar')?.parentElement):node.closest('.skillCard')?.querySelector('.bar');
+  if(bar&&e217Visible(bar))return{node,bar};
+ }
+ return null;
+}
+function e217EffectRoot(){let root=document.getElementById('e217XpEffects');if(!root){root=document.createElement('div');root.id='e217XpEffects';root.setAttribute('aria-hidden','true');document.body.append(root);}return root;}
+function e217FormatXP(n){return Number(n.toFixed(2)).toLocaleString('es-AR');}
+function e217SkillLabel(key){return key==='pesca'?'Pesca':key==='character'?'Personaje':key==='weapon'?'Armas':SKILLS.find(s=>s.key===key)?.name||key;}
+function e217RemoveFX(id){const f=e217ActiveFX.get(id);if(!f)return;f.node.remove();f.bar?.classList.remove('e217LevelGlow');e217ActiveFX.delete(id);}
+function e217StartFX(event,kind){
+ const id=event.key+':'+kind,now=performance.now(),previous=e217ActiveFX.get(id);
+ const amount=kind==='drop'&&previous&&now-previous.updated<160?previous.amount+event.amount:event.amount;
+ if(previous)e217RemoveFX(id);
+ const node=document.createElement('span');node.className=kind==='drop'?'e217XpDrop':'e217LevelNotice';node.dataset.xpSkill=event.key;
+ node.textContent=kind==='drop'?'+'+e217FormatXP(amount)+' XP':'✦ ¡'+e217SkillLabel(event.key)+' nivel '+event.after+'!';
+ e217EffectRoot().append(node);e217ActiveFX.set(id,{...event,node,amount,kind,updated:now,until:now+(kind==='drop'?850:1800),bar:null});
+}
+function e217FlushXP(){
+ e217FlushFrame=0;
+ for(const event of e217PendingXP.values())if(e217LiveXP(event.s)&&e217XPTarget(event.key)){e217StartFX(event,'drop');if(event.after>event.before)e217StartFX(event,'level');}
+ e217PendingXP.clear();if(e217ActiveFX.size&&!e217EffectFrame)e217EffectFrame=requestAnimationFrame(e217PositionFX);
+}
+function e217PositionFX(){
+ e217EffectFrame=0;const now=performance.now();
+ for(const [id,f] of e217ActiveFX){
+  const target=e217LiveXP(f.s)?e217XPTarget(f.key):null;
+  if(now>=f.until||!target){e217RemoveFX(id);continue;}
+  const range=document.createRange();range.selectNodeContents(target.node);const r=range.getBoundingClientRect(),b=target.bar.getBoundingClientRect(),w=f.node.getBoundingClientRect().width;
+  const left=f.kind==='drop'?r.left-w-6:b.right-w,top=f.kind==='drop'?r.top:b.top-22;
+  f.node.style.left=Math.max(6,Math.min(innerWidth-w-6,left))+'px';f.node.style.top=Math.max(6,top)+'px';
+  if(f.kind==='level'&&f.bar!==target.bar){f.bar?.classList.remove('e217LevelGlow');f.bar=target.bar;f.bar.classList.add('e217LevelGlow');}
+ }
+ if(e217ActiveFX.size)e217EffectFrame=requestAnimationFrame(e217PositionFX);else document.getElementById('e217XpEffects')?.remove();
+}
+function e217CleanClone(page){page.querySelector('#e217XpEffects')?.remove();page.querySelectorAll('.e217LevelGlow').forEach(n=>n.classList.remove('e217LevelGlow'));}
+
+</script>
+<style id="rod-selection-and-xp-feedback-css">
+/* Compact picker tools; the existing rod selection buttons keep their handlers. */
+.e217RodTools{display:grid;grid-template-columns:minmax(90px,1fr) minmax(120px,1.2fr) 30px;gap:5px;align-items:center;position:sticky;top:-10px;z-index:3;background:#171d1d;padding:5px 0 7px;border-bottom:1px solid #564a37;margin-bottom:4px}
+.e217RodTools input,.e217RodTools select{box-sizing:border-box;width:100%;min-width:0;font:11px/16px system-ui,sans-serif;padding:5px;border:1px solid #6c604a;border-radius:5px;background:#24271f;color:#eadabc;min-height:30px}
+.e217RodTools button{padding:2px;min-height:30px;font-size:14px}
+.e1120Menu[data-type=rod] .e1120Choice{margin:3px 0;padding:5px 6px;gap:7px}
+.e1120Menu[data-type=rod] .e1120Choice[hidden]{display:none!important}
+.e1120Menu[data-type=rod] .rodComparisons{gap:2px 6px;margin-top:3px}
+.e1120Menu[data-type=rod] .e1120Choice>b,.e1120Menu[data-type=rod] .e1120Choice>span>b{font-size:12px;line-height:14px}
+#fishingRodShop .rodShopStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 5px;line-height:1.25;margin-top:4px}
+#fishingRodShop .rodShopStats .rodCompare{display:block;font-size:10px;line-height:13px}
+#fishingRodShop .rodShopStats .rodCompare b{font-size:10px!important;margin-left:3px;color:inherit}
+#e217XpEffects{position:fixed;inset:0;z-index:110000;pointer-events:none}
+.e217XpDrop,.e217LevelNotice{position:fixed;pointer-events:none;white-space:nowrap;font-family:system-ui,sans-serif;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #0009;line-height:18px}
+.e217XpDrop{font-size:12px;color:#c8ebaa;animation:e217XPDrop .85s ease-out both}
+.e217LevelNotice{font-size:13px;color:#ffe1a0;background:#282116e8;border:1px solid #c4a257;border-radius:6px;padding:2px 7px;animation:e217LevelNotice 1.8s ease-out both}
+.e217LevelGlow{outline:1px solid #e3c16b;box-shadow:0 0 13px 3px #e2bd5666;animation:e217LevelPulse 1.8s ease-out both}
+@keyframes e217XPDrop{0%,12%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(-5px,-14px)}}
+@keyframes e217LevelNotice{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
+@keyframes e217LevelPulse{0%,100%{box-shadow:0 0 0 0 #e2bd5600}20%,60%{box-shadow:0 0 13px 3px #e2bd5677}}
+@media(max-width:420px){.e217RodTools{grid-template-columns:minmax(0,1fr) 30px;gap:4px}.e217RodTools input{grid-column:1;grid-row:1}.e217RodTools select{grid-column:1 / -1;grid-row:2}.e217RodTools button{grid-column:2;grid-row:1}#fishingRodShop .rodShopStats{grid-template-columns:repeat(2,minmax(0,1fr))}.e217LevelNotice{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.e217XpDrop,.e217LevelNotice,.e217LevelGlow{animation:none}.e217LevelGlow{box-shadow:0 0 8px 1px #e2bd5644}}
 </style>
 </body>
 </html>

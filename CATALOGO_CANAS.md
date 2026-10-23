@@ -93,3 +93,7 @@ Las 18 recompensas de desafíos permanecen. Cada misión muestra tres objetivos 
 ## Estable 15: caña protagonista en el HUD
 
 El nombre y el arte de la caña aprovechan la altura completa del bloque, manteniendo la ilustración sin recortes ni deformaciones. La XP aparece en el bloque derecho. El catálogo, sus 50 ofertas y el equipo histórico adquirido no cambian; se reutiliza la misma ilustración mientras no se cambie de caña.
+
+## Estable 17: selección y diferencias
+
+La lista emergente añade búsqueda y Recomendadas mediante capas de Pareto de los seis atributos reales, manteniendo primero el equipo poseído y reconociendo alternativas especializadas. Tienda y selector muestran ▲/▼/= junto a los valores, en pp o kg. Los dos órdenes por nivel usan solo requisitos explícitos de obtención; no se emplea el `req` de agrupación como condición nueva. Ver UX_CANAS_XP.md.

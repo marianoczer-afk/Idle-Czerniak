@@ -187,3 +187,13 @@ El selector de caña incluye arte horizontal fino, seis atributos efectivos y di
 Una prueba de recarga detectó una carrera de arranque: el render de una partida activa podía ejecutarse antes de analizar todas las extensiones inline. `bootRoster` espera ahora a `DOMContentLoaded` antes de restaurar/renderizar. No cambia decodificación, claves ni progreso offline; permite que el código de todas las extensiones esté disponible al usarlo.
 
 Validación Estable 16: 56 pruebas completas aprobadas en Chromium, incluyendo hitos independientes, zonas sin encargos, insignias antiguas, apertura de recompensas, filtros/búsqueda, modelos de solo lectura, recarga de partidas activas, objetivos originales desplegados, diferencias de atributos, nombres completos, HUD, fases, guardados v7, premios únicos y probabilidades. Las 118 imágenes embebidas permanecen idénticas. Revisión visual del Atlas, ficha y selector a 1366 y 390 px.
+
+## Estable 17
+
+Selector de cañas compacto con búsqueda y ordenamientos, Recomendadas por defecto y orden por capas de Pareto entre atributos efectivos. Las poseídas tienen prioridad, las especialidades mantienen sus compromisos y una caña dominada no adelanta a su dominadora dentro del mismo grupo de disponibilidad. La referencia equipada se prioriza dentro de su capa.
+
+Tienda y selector comparten comparación automática en pp/kg con flechas y colores. Se añaden órdenes por requisitos explícitos de obtención; el `req` usado como agrupación de catálogo no se convierte en un requisito inventado. Se conservan propiedad, precios, reglas y filtros.
+
+XP Drops y brillo/aviso de nivel nacen de concesiones reales, con agrupación y límite por habilidad, caducidad y movimiento reducido. No se reproducen por cargar, importar o simular offline. Los efectos usan una capa fija sin ocupar espacio y se excluyen del HTML descargado. Se conservan las fórmulas y el diseño general del HUD. Ver UX_CANAS_XP.md para criterios y casos especiales.
+
+Validación Estable 17: 65 pruebas completas aprobadas en Chromium. Se comprueban todos los órdenes, recomendaciones estables y sin dominadas por delante dentro del mismo grupo de propiedad, búsqueda, diferencias correctas y actualización al equipar, requisitos reales, guardados, importación, simulación offline, todas las habilidades y golpes de arma, subida de varios niveles, movimiento reducido y estabilidad geométrica. Se conservan las 118 imágenes embebidas. Revisión visual de selector/tienda y feedback XP; escritorio y móvil emulado.

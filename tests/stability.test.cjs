@@ -286,8 +286,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.match(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-16">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 16<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-17">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 17<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -306,7 +306,7 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
  }finally{await downloadedContext?.close();await context.close();if(directory)rmSync(directory,{recursive:true,force:true});}
 });
 
-for(const width of [1366,390])test(`Estable 16: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: empty last-catch panel and rods purchasable from Fishing (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -314,7 +314,7 @@ for(const width of [1366,390])test(`Estable 16: empty last-catch panel and rods 
    for(const id of ['e17_rod_viejo','e171_rod_rio','e171_rod_costa'])state.owned[id]=true;
    state.ui.fishingRodId='e171_rod_costa';state.ui.fishingZoneId='laguna';e16Page();
   });
-  assert.match(await page.locator('header h1').innerText(),/Estable 16/);
+  assert.match(await page.locator('header h1').innerText(),/Estable 17/);
   assert.equal(await page.locator('#page_fishing #fishingRodShop').isVisible(),true);
   assert.equal(await page.locator('#fishingRodShop').count(),1);
   assert.equal(await page.locator('#fishingRodShop .rodShopRow').count(),50);
@@ -335,7 +335,7 @@ for(const width of [1366,390])test(`Estable 16: empty last-catch panel and rods 
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 16: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: larger rod art, provenance, stars and explicit quest rewards (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,33);
@@ -732,7 +732,7 @@ test('Legacy Coralina ownership is recognized without inventing perk flags or co
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 16: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: collapsed catalog follows missions, requirements are visible and capture control is large (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -753,7 +753,7 @@ for(const width of [1366,390])test(`Estable 16: collapsed catalog follows missio
  }finally{await context.close();}
 });
 
-test('Estable 16: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
+test('Estable 17: new challenge is claimable in its zone; owned rods lead both the catalog and HUD selector',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -779,7 +779,7 @@ test('Estable 16: new challenge is claimable in its zone; owned rods lead both t
  }finally{await context.close();}
 });
 
-test('Estable 16: sidebar scrolls independently and switching character stays accessible',async()=>{
+test('Estable 17: sidebar scrolls independently and switching character stays accessible',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -799,7 +799,7 @@ test('Estable 16: sidebar scrolls independently and switching character stays ac
  }finally{await context.close();}
 });
 
-test('Estable 16: finish renders and saves once; escape never awards a fish',async()=>{
+test('Estable 17: finish renders and saves once; escape never awards a fish',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -825,7 +825,7 @@ test('Estable 16: finish renders and saves once; escape never awards a fish',asy
  }finally{await context.close();}
 });
 
-test('Estable 16: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
+test('Estable 17: last catch stays through attempts, loss, time and reload without duplicating rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -849,7 +849,7 @@ test('Estable 16: last catch stays through attempts, loss, time and reload witho
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 16: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: sidebar headings hidden and compact HUD preserves XP view and uncropped rod (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.locator('#hybridSidebar').evaluate(n=>n.open=true);
@@ -872,7 +872,7 @@ for(const width of [1366,390])test(`Estable 16: sidebar headings hidden and comp
 });
 
 
-test('Estable 16: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
+test('Estable 17: curated offers remove close variants and preserve retired owned rods after reload',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40);
@@ -888,7 +888,7 @@ test('Estable 16: curated offers remove close variants and preserve retired owne
  }finally{await context.close();}
 });
 
-test('Estable 16: quest goals explain all conditions and mark each completed objective',async()=>{
+test('Estable 17: quest goals explain all conditions and mark each completed objective',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,40,false);
@@ -901,7 +901,7 @@ test('Estable 16: quest goals explain all conditions and mark each completed obj
 });
 
 
-for(const width of [1366,390])test(`Estable 16: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: restored zone and rod shortcuts work within the compact HUD (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -920,7 +920,7 @@ for(const width of [1366,390])test(`Estable 16: restored zone and rod shortcuts 
 });
 
 
-for(const width of [1366,390])test(`Estable 16: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: fish matches zone size and live capture progress stays separate from last catch (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -938,7 +938,7 @@ for(const width of [1366,390])test(`Estable 16: fish matches zone size and live 
 });
 
 
-for(const width of [1366,390])test(`Estable 16: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: larger full-height rod, XP on the right and stable artwork (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);
@@ -962,7 +962,7 @@ for(const width of [1366,390])test(`Estable 16: larger full-height rod, XP on th
  }finally{await context.close();}
 });
 
-test('Estable 16: Atlas derives independent milestones from v7 records without modifying saves or rewards',async()=>{
+test('Estable 17: Atlas derives independent milestones from v7 records without modifying saves or rewards',async()=>{
  const {context,page}=await fresh();
  try{
   await character(page,100,false);
@@ -982,7 +982,7 @@ test('Estable 16: Atlas derives independent milestones from v7 records without m
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 16: Atlas search, mastery, accessible badges and compact quest details (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: Atlas search, mastery, accessible badges and compact quest details (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,100,false);
@@ -1001,7 +1001,7 @@ for(const width of [1366,390])test(`Estable 16: Atlas search, mastery, accessibl
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 16: thin rod art, signed attribute comparisons and full names (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 17: thin rod art, signed attribute comparisons and full names (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
   await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_titan=true;state.ui.fishingRodId='e208_rod_custodio_titan';e16Page();});
@@ -1012,5 +1012,109 @@ for(const width of [1366,390])test(`Estable 16: thin rod art, signed attribute c
   const actual=await choice.locator('[data-stat="control"]').getAttribute('data-delta'),expected=await page.evaluate(()=>Math.round((e1101Stats(E161_RODS.find(r=>r.id==='e161_rod_fiber')).control-e1101Stats(e161Rod()).control)/4*100)/100);assert.equal(Number(actual),expected);
   const deltas=await page.locator('.rodCompare').evaluateAll(ns=>ns.map(n=>({delta:Number(n.dataset.delta),better:n.classList.contains('better'),worse:n.classList.contains('worse'),same:n.classList.contains('same')})));for(const d of deltas){assert.equal(d.better,d.delta>0);assert.equal(d.worse,d.delta<0);assert.equal(d.same,d.delta===0);}assert.ok(deltas.some(d=>d.better)&&deltas.some(d=>d.worse));
   assert.ok(await page.locator('.e1120Menu').evaluate(n=>n.scrollWidth<=n.clientWidth+1));
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 17: compact picker search, all sorts, honest levels and Pareto recommendations (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);await page.evaluate(()=>{for(const id of ['e16_rod','e161_rod_bamboo','e161_rod_fiber','e171_rod_rio','e208_rod_celeste_pulso'])state.owned[id]=true;e16Page();});
+  const report=await page.evaluate(()=>{
+   const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].filter(r=>e212Offered(r)||state.owned[r.id]),order=e217Recommended(all),ids=order.map(r=>r.id);
+   for(let i=0;i<order.length;i++)for(let j=i+1;j<order.length;j++)if(!!state.owned[order[i].id]===!!state.owned[order[j].id]&&e217Dominates(e1101Stats(order[j]),e1101Stats(order[i])))throw Error('Dominated rod ordered first');
+   const own=order.map(r=>!!state.owned[r.id]);if(own.some((v,i)=>v&&own.slice(0,i).includes(false)))throw Error('Unavailable rod ahead of owned');
+   return{ids,repeat:e217Recommended(all).map(r=>r.id),gold:E161_RODS.filter(r=>!r.unlock).map(e217RequiredLevel),collector:e217RequiredLevel(E18_ROD),old:e217RequiredLevel(E17_ROD)};
+  });
+  assert.deepEqual(report.ids,report.repeat);assert.ok(report.gold.every(x=>x===null));assert.equal(report.collector,null);assert.equal(report.old,6);
+  await page.locator('#combatDock .e194DockRod').click();assert.equal(await page.locator('.e217RodTools select').inputValue(),'recommended');assert.equal(await page.locator('.rodCompareNote,.e1120Menu[data-type="rod"] .e1120MenuHeader').count(),0);
+  assert.deepEqual(await page.locator('.e1120Choice').evaluateAll(ns=>ns.map(n=>n.dataset.rodId)),report.ids);
+  await page.locator('.e217RodTools input').fill('boveda celestial');assert.equal(await page.locator('.e1120Choice:visible').count(),2);await page.locator('.e217RodTools input').fill('');
+  for(const sort of ['levelAsc','levelDesc','speed','luck','control','resilience','maxKg']){
+   await page.locator('.e217RodTools select').selectOption(sort);
+   assert.equal(await page.locator('.e1120Choice').evaluateAll(ns=>ns.length),report.ids.length);
+   const result=await page.evaluate(sort=>{const rows=[...document.querySelectorAll('.e1120Choice')],all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];return rows.map(n=>{const r=all.find(r=>r.id===n.dataset.rodId);return sort.startsWith('level')?e217RequiredLevel(r):e1101Stats(r)[sort];});},sort);
+   const values=result.filter(x=>x!==null);assert.deepEqual(values,[...values].sort((a,b)=>sort==='levelAsc'?a-b:b-a));if(sort.startsWith('level'))assert.ok(result.slice(0,values.length).every(x=>x!==null));
+  }
+  assert.ok(await page.locator('.e1120Menu').evaluate(n=>n.scrollWidth<=n.clientWidth+1));await page.locator('.e217RodTools button').click();assert.equal(await page.locator('.e1120Menu').count(),0);
+ }finally{await context.close();}
+});
+
+test('Estable 17: catalog comparisons use pp/kg, recalculate on equip and preserve filters while sorting by real requirements',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,40);await page.locator('[data-rod-shop-open]').click();await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
+  const row=page.locator('.rodShopRow[data-rod-id="e161_rod_fiber"]');assert.equal(await row.locator('.rodCompare').count(),6);assert.match(await row.locator('[data-stat="control"]').innerText(),/▼2,5 pp/);assert.match(await row.locator('[data-stat="maxKg"]').innerText(),/▼220 kg/);
+  const gold=await page.evaluate(()=>state.gold);await row.locator('button').click();assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_fiber');assert.equal(await page.evaluate(()=>state.gold),gold-700);
+  assert.ok(await row.locator('.rodCompare').evaluateAll(ns=>ns.every(n=>Number(n.dataset.delta)===0&&n.textContent.includes('='))));
+  await page.locator('[data-rod-filter]').selectOption('quest');await page.locator('[data-rod-search]').fill('');
+  for(const order of ['levelAsc','levelDesc']){await page.locator('[data-rod-sort]').selectOption(order);const levels=await page.locator('.rodTier[data-tier="inicio"] .rodShopRow:not([hidden])').evaluateAll(ns=>ns.map(n=>n.dataset.requiredLevel));const values=levels.filter(v=>v!=='').map(Number);assert.deepEqual(values,[...values].sort((a,b)=>order==='levelAsc'?a-b:b-a));assert.equal(await page.locator('[data-rod-filter]').inputValue(),'quest');}
+ }finally{await context.close();}
+});
+
+for(const width of [1366,390])test(`Estable 17: real fishing XP groups drops, shows final level and preserves layout (${width}px)`,async()=>{
+ const {context,page}=await fresh(width);
+ try{
+  await character(page,40,false);await page.bringToFront();await page.evaluate(()=>{state.skills.pesca.xp=15995;e16Page();e190ReturnToFishing();});
+  const report=await page.evaluate(async()=>{
+   const geometry=()=>{const r=document.querySelector('#page_fishing .e163XpTrack').getBoundingClientRect(),s=document.getElementById('e16GamePanel').getBoundingClientRect();return{xpY:r.y,xpH:r.height,stageY:s.y,stageH:s.height};};const before=geometry(),xp=state.skills.pesca.xp;
+   const a=sklXp(state,'pesca',3),b=sklXp(state,'pesca',7);e16Page();
+   await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);
+   return{before,after:geometry(),delta:state.skills.pesca.xp-xp,awarded:a+b,drop:[...document.querySelectorAll('.e217XpDrop')].map(n=>({text:n.textContent,key:n.dataset.xpSkill})),level:[...document.querySelectorAll('.e217LevelNotice')].map(n=>n.textContent),glow:document.querySelectorAll('.e217LevelGlow').length};
+  });
+  assert.deepEqual(report.before,report.after);assert.equal(report.delta,report.awarded);assert.deepEqual(report.drop,[{text:'+10 XP',key:'pesca'}]);assert.deepEqual(report.level,['✦ ¡Pesca nivel 41!']);assert.equal(report.glow,1);
+  await page.waitForFunction(()=>!document.querySelector('.e217XpDrop'));assert.equal(await page.locator('.e217LevelNotice').count(),1);await page.waitForFunction(()=>!document.querySelector('.e217LevelNotice'));assert.equal(await page.locator('.e217LevelGlow').count(),0);
+ }finally{await context.close();}
+});
+
+test('Estable 17: XP routes to the actual skill and suppresses offline, load and background-state awards',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,40,false);await page.evaluate(()=>selectWorkspaceTab('combat'));await page.locator('#hybridSidebar').evaluate(n=>n.open=true);await page.locator('[data-skill-key="magia"]').scrollIntoViewIfNeeded();await page.bringToFront();
+  const report=await page.evaluate(async()=>{
+   sklXp(state,'magia',2);gainCharacterXP(state,3);updateLive();await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);return[...document.querySelectorAll('.e217XpDrop')].map(n=>n.dataset.xpSkill).sort();
+  });assert.deepEqual(report,['character','magia']);assert.equal(await page.locator('.e217XpDrop[data-xp-skill="pesca"]').count(),0);
+  await page.waitForFunction(()=>!document.querySelector('.e217XpDrop'));
+  const silent=await page.evaluate(async()=>{OFF.active=true;try{sklXp(state,'magia',5);gainCharacterXP(state,7);}finally{OFF.active=false;}const copy=copyJSON(state);sklXp(copy,'magia',9);state.nav={id:'costa',left:30,totalMs:30000,remainingMs:30000,elapsedMs:0,paused:false,legacy:false,earnedGold:0,earnedXp:0};await simulateOffline(10);state.nav.id=null;state.nav.remainingMs=0;await new Promise(requestAnimationFrame);return{pending:e217PendingXP.size,visible:document.querySelectorAll('.e217XpDrop,.e217LevelNotice').length};});assert.deepEqual(silent,{pending:0,visible:0});
+  await page.evaluate(async()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);assert.equal(await page.locator('.e217XpDrop,.e217LevelNotice').count(),0);
+ }finally{await context.close();}
+});
+
+test('Estable 17: reduced motion keeps brief feedback without animation; multi-level gains show one final level',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,40,false);await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>{state.skills.pesca.xp=0;e16Page();e190ReturnToFishing();});await page.bringToFront();
+  const result=await page.evaluate(async()=>{sklXp(state,'pesca',90);e16Page();await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);const drop=document.querySelector('.e217XpDrop'),level=document.querySelector('.e217LevelNotice');const clone=document.documentElement.cloneNode(true);e217CleanClone(clone);return{drop:drop.textContent,level:level.textContent,levelCount:document.querySelectorAll('.e217LevelNotice').length,animation:getComputedStyle(drop).animationName,transform:getComputedStyle(drop).transform,cloned:clone.querySelectorAll('#e217XpEffects,.e217LevelGlow').length};});
+  assert.equal(result.drop,'+90 XP');assert.match(result.level,/Pesca nivel 4/);assert.equal(result.levelCount,1);assert.equal(result.animation,'none');assert.equal(result.transform,'none');assert.equal(result.cloned,0);
+ }finally{await context.close();}
+});
+
+test('Estable 17: every existing skill bar receives only its live award, including weapon hits',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,40,false);await page.evaluate(()=>selectWorkspaceTab('combat'));await page.locator('#hybridSidebar').evaluate(n=>n.open=true);await page.bringToFront();
+  for(const key of ['weapon','magia','resMagica','escudos','armaduras','navegacion']){
+   await page.locator(`[data-skill-key="${key}"]`).scrollIntoViewIfNeeded();
+   const report=await page.evaluate(async key=>{
+    let delta;
+    if(key==='weapon'){const before=state.skill.xp,random=rng;try{rng=()=>0;playerSwing(derive(state),enemyById(state.combat.enemyId));}finally{rng=random;}delta=state.skill.xp-before;}
+    else delta=sklXp(state,key,1);
+    updateLive();await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);
+    return{delta,keys:[...document.querySelectorAll('.e217XpDrop')].map(n=>n.dataset.xpSkill),target:!!e217XPTarget(key)};
+   },key);
+   assert.ok(report.delta>0);assert.equal(report.target,true);assert.deepEqual(report.keys,[key]);await page.waitForFunction(()=>!document.querySelector('.e217XpDrop'));
+  }
+ }finally{await context.close();}
+});
+
+test('Estable 17: importing and selecting a high-level backup does not replay XP drops or level-ups',async()=>{
+ const {context,page}=await fresh();
+ try{
+  await character(page,40,false);page.on('dialog',dialog=>dialog.accept());
+  const result=await page.evaluate(async()=>{
+   const raw=makeRosterRecord();raw.characters[0].state.xp=xpFor(50);raw.characters[0].state.skills.pesca.xp=98010;
+   await importJSON(new File([JSON.stringify(raw)],'isolated-v7.json',{type:'application/json'}));
+   const selected=roster.activeId;await changeRoster('select',roster.characters[0].id);selectWorkspaceTab('fishing');await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);
+   return{selected,level:e16FishLevel(),characterLevel:levelFromXp(state.xp),pending:e217PendingXP.size,effects:document.querySelectorAll('.e217XpDrop,.e217LevelNotice').length};
+  });assert.equal(result.selected,null);assert.equal(result.level,100);assert.equal(result.characterLevel,50);assert.equal(result.pending,0);assert.equal(result.effects,0);
  }finally{await context.close();}
 });
