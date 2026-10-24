@@ -1,36 +1,36 @@
 {
   "version": 1,
-  "build": "estable-29",
+  "build": "estable-30",
   "runtimeInput": false,
-  "source": "inventario-estable29.json + produccion-estable29.json",
+  "source": "inventario-estable30.json + produccion-estable30.json",
   "measuredBoxes": {
     "hudHeight": 118,
     "desktop": {
       "zone": [
-        128,
+        148,
         102
       ],
       "rod": [
-        333,
+        513,
         102
       ],
       "fish": [
-        104,
+        156,
         102
       ]
     },
     "mobile": {
       "zone": [
-        60,
+        68,
         102
       ],
       "rod": [
-        114,
+        83,
         102
       ],
       "fish": [
-        48,
-        72
+        64,
+        79
       ]
     },
     "collection": {
@@ -3925,188 +3925,6 @@
       "resourceIds": []
     },
     {
-      "id": "medal:muelle",
-      "name": "muelle",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:rio",
-      "name": "rio",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:costa",
-      "name": "costa",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:laguna",
-      "name": "laguna",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:arrecife",
-      "name": "arrecife",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:abismo",
-      "name": "abismo",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:manglar",
-      "name": "manglar",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:glaciar",
-      "name": "glaciar",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-a3d730d4fe3e497d"
-      ]
-    },
-    {
-      "id": "medal:volcan",
-      "name": "volcan",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-06fd5cdd3eb83666"
-      ]
-    },
-    {
-      "id": "medal:santuario",
-      "name": "santuario",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-06fd5cdd3eb83666"
-      ]
-    },
-    {
-      "id": "medal:ruinas_sumergidas",
-      "name": "ruinas_sumergidas",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-06fd5cdd3eb83666"
-      ]
-    },
-    {
-      "id": "medal:cavernas_cristal",
-      "name": "cavernas_cristal",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-06fd5cdd3eb83666"
-      ]
-    },
-    {
-      "id": "medal:abismo_primordial",
-      "name": "abismo_primordial",
-      "kind": "medal",
-      "uses": [
-        "trophies",
-        "atlas"
-      ],
-      "currentStatus": "generated-integrated-review-pending",
-      "action": "keep-review",
-      "resourceIds": [
-        "image-06fd5cdd3eb83666"
-      ]
-    },
-    {
       "id": "ui:quest-delivery",
       "name": "quest-delivery",
       "kind": "ui",
@@ -4216,6 +4034,2288 @@
       "action": "keep-review",
       "resourceIds": [
         "image-7ffc64094da08377"
+      ]
+    },
+    {
+      "id": "hud-rod:e16_rod",
+      "name": "e16_rod",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e161_rod_bamboo",
+      "name": "e161_rod_bamboo",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e161_rod_fiber",
+      "name": "e161_rod_fiber",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e161_rod_steel",
+      "name": "e161_rod_steel",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e192_rod_laguna",
+      "name": "e192_rod_laguna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e192_rod_coral",
+      "name": "e192_rod_coral",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e192_rod_abyss",
+      "name": "e192_rod_abyss",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_junco_cauce",
+      "name": "e208_rod_junco_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_junco_destello",
+      "name": "e208_rod_junco_destello",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_sauce_pulso",
+      "name": "e208_rod_sauce_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-22bf5d85909dcefa"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_sauce_fortuna",
+      "name": "e208_rod_sauce_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_marea_cauce",
+      "name": "e208_rod_marea_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_marea_titan",
+      "name": "e208_rod_marea_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_nenufar_fortuna",
+      "name": "e208_rod_nenufar_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_nenufar_reliquia",
+      "name": "e208_rod_nenufar_reliquia",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_coral_pulso",
+      "name": "e208_rod_coral_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_coral_cauce",
+      "name": "e208_rod_coral_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_fosa_pulso",
+      "name": "e208_rod_fosa_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_fosa_titan",
+      "name": "e208_rod_fosa_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_mangle_cauce",
+      "name": "e208_rod_mangle_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f5f9af9db8598259"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_mangle_fortuna",
+      "name": "e208_rod_mangle_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_escarcha_pulso",
+      "name": "e208_rod_escarcha_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_escarcha_cauce",
+      "name": "e208_rod_escarcha_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_obsidiana_destello",
+      "name": "e208_rod_obsidiana_destello",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_obsidiana_titan",
+      "name": "e208_rod_obsidiana_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_celeste_pulso",
+      "name": "e208_rod_celeste_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_celeste_reliquia",
+      "name": "e208_rod_celeste_reliquia",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_pulso",
+      "name": "e208_rod_custodio_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_cauce",
+      "name": "e208_rod_custodio_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_destello",
+      "name": "e208_rod_custodio_destello",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-8b6bf14e0da26dc6"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_fortuna",
+      "name": "e208_rod_custodio_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_titan",
+      "name": "e208_rod_custodio_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_custodio_reliquia",
+      "name": "e208_rod_custodio_reliquia",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_pulso",
+      "name": "e208_rod_boreal_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_cauce",
+      "name": "e208_rod_boreal_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_destello",
+      "name": "e208_rod_boreal_destello",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_fortuna",
+      "name": "e208_rod_boreal_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_titan",
+      "name": "e208_rod_boreal_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_boreal_reliquia",
+      "name": "e208_rod_boreal_reliquia",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_pulso",
+      "name": "e208_rod_eterno_pulso",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e19ff103f3f00067"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_cauce",
+      "name": "e208_rod_eterno_cauce",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_destello",
+      "name": "e208_rod_eterno_destello",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_fortuna",
+      "name": "e208_rod_eterno_fortuna",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_titan",
+      "name": "e208_rod_eterno_titan",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e208_rod_eterno_reliquia",
+      "name": "e208_rod_eterno_reliquia",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e17_rod_viejo",
+      "name": "e17_rod_viejo",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e171_rod_rio",
+      "name": "e171_rod_rio",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e171_rod_costa",
+      "name": "e171_rod_costa",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e18_rod_trofeo",
+      "name": "e18_rod_trofeo",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-rod:e187_rod_coral",
+      "name": "e187_rod_coral",
+      "kind": "hud-rod",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-1161a87afb234b32"
+      ]
+    },
+    {
+      "id": "hud-fish:gobio_runico",
+      "name": "gobio_runico",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:nautilo_bronce",
+      "name": "nautilo_bronce",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:congrio_archivo",
+      "name": "congrio_archivo",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:tetra_prismatico",
+      "name": "tetra_prismatico",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:ajolote_cuarzo",
+      "name": "ajolote_cuarzo",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:esturion_geoda",
+      "name": "esturion_geoda",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:isopodo_fosil",
+      "name": "isopodo_fosil",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:quimera_ambar",
+      "name": "quimera_ambar",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:titan_ammonita",
+      "name": "titan_ammonita",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:bagre",
+      "name": "bagre",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-e930b32675a04cdc"
+      ]
+    },
+    {
+      "id": "hud-fish:mojarra",
+      "name": "mojarra",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:trucha",
+      "name": "trucha",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:salmon",
+      "name": "salmon",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_espada",
+      "name": "pez_espada",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:carpa_dorada",
+      "name": "carpa_dorada",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:trucha_arcoiris",
+      "name": "trucha_arcoiris",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_fantasma",
+      "name": "pez_fantasma",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:lucio",
+      "name": "lucio",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:anguila",
+      "name": "anguila",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:lubina",
+      "name": "lubina",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d140f7ce9d2e6aa6"
+      ]
+    },
+    {
+      "id": "hud-fish:atun",
+      "name": "atun",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:mantarraya",
+      "name": "mantarraya",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:perca_esmeralda",
+      "name": "perca_esmeralda",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:cangrejo_azul",
+      "name": "cangrejo_azul",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:koi_imperial",
+      "name": "koi_imperial",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:esturion",
+      "name": "esturion",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_luna",
+      "name": "pez_luna",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:caballito_mar",
+      "name": "caballito_mar",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:morena",
+      "name": "morena",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:tiburon_arrecife",
+      "name": "tiburon_arrecife",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-f19270fd0fde5546"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_linternilla",
+      "name": "pez_linternilla",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:calamar_abismo",
+      "name": "calamar_abismo",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_cristal",
+      "name": "pez_cristal",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:leviatan",
+      "name": "leviatan",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:sabalo_manglar",
+      "name": "sabalo_manglar",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_arquero",
+      "name": "pez_arquero",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:anguila_manglar",
+      "name": "anguila_manglar",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:tarpon",
+      "name": "tarpon",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:trucha_alpina",
+      "name": "trucha_alpina",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:salvelino",
+      "name": "salvelino",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-ff670c13ce9a819b"
+      ]
+    },
+    {
+      "id": "hud-fish:bacalao_hielo",
+      "name": "bacalao_hielo",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:esturion_blanco",
+      "name": "esturion_blanco",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_lava",
+      "name": "pez_lava",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:mero_obsidiana",
+      "name": "mero_obsidiana",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_escorpion",
+      "name": "pez_escorpion",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:dragon_mar",
+      "name": "dragon_mar",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:carpa_celeste",
+      "name": "carpa_celeste",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:pez_cometa",
+      "name": "pez_cometa",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:raya_aurora",
+      "name": "raya_aurora",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "hud-fish:guardian_mareas",
+      "name": "guardian_mareas",
+      "kind": "hud-fish",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-6f63758c627506e8"
+      ]
+    },
+    {
+      "id": "quest:e17_viejo",
+      "name": "e17_viejo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:e171_rio",
+      "name": "e171_rio",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:e171_costa",
+      "name": "e171_costa",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:laguna",
+      "name": "laguna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:arrecife",
+      "name": "arrecife",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:abismo",
+      "name": "abismo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:coleccionista",
+      "name": "coleccionista",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_pulso",
+      "name": "e208_rod_custodio_pulso",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c4996894b17953ed"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_cauce",
+      "name": "e208_rod_custodio_cauce",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_destello",
+      "name": "e208_rod_custodio_destello",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_fortuna",
+      "name": "e208_rod_custodio_fortuna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_titan",
+      "name": "e208_rod_custodio_titan",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_custodio_reliquia",
+      "name": "e208_rod_custodio_reliquia",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_pulso",
+      "name": "e208_rod_boreal_pulso",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_cauce",
+      "name": "e208_rod_boreal_cauce",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_destello",
+      "name": "e208_rod_boreal_destello",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-31da0ee7e374be16"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_fortuna",
+      "name": "e208_rod_boreal_fortuna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_titan",
+      "name": "e208_rod_boreal_titan",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_boreal_reliquia",
+      "name": "e208_rod_boreal_reliquia",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_pulso",
+      "name": "e208_rod_eterno_pulso",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_cauce",
+      "name": "e208_rod_eterno_cauce",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_destello",
+      "name": "e208_rod_eterno_destello",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_fortuna",
+      "name": "e208_rod_eterno_fortuna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_titan",
+      "name": "e208_rod_eterno_titan",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c8b558d1c19581a3"
+      ]
+    },
+    {
+      "id": "quest:e208_rod_eterno_reliquia",
+      "name": "e208_rod_eterno_reliquia",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:manglar_cartografo",
+      "name": "manglar_cartografo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:manglar_salto",
+      "name": "manglar_salto",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:volcan_cuaderno",
+      "name": "volcan_cuaderno",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:volcan_guardian",
+      "name": "volcan_guardian",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:ruinas_censo",
+      "name": "ruinas_censo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:cristal_bitacora",
+      "name": "cristal_bitacora",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:primordial_sondeo",
+      "name": "primordial_sondeo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-357b968fd50ea2de"
+      ]
+    },
+    {
+      "id": "quest:manglar_cauce28",
+      "name": "manglar_cauce28",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-dea31350982ee1b7"
+      ]
+    },
+    {
+      "id": "quest:volcan_destello28",
+      "name": "volcan_destello28",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-dea31350982ee1b7"
+      ]
+    },
+    {
+      "id": "quest:ruinas_ancla28",
+      "name": "ruinas_ancla28",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-dea31350982ee1b7"
+      ]
+    },
+    {
+      "id": "quest:cristal_pulso28",
+      "name": "cristal_pulso28",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-dea31350982ee1b7"
+      ]
+    },
+    {
+      "id": "quest:primordial_reliquia28",
+      "name": "primordial_reliquia28",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-dea31350982ee1b7"
+      ]
+    },
+    {
+      "id": "collection:muelle",
+      "name": "muelle",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:rio",
+      "name": "rio",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:costa",
+      "name": "costa",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:laguna",
+      "name": "laguna",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:arrecife",
+      "name": "arrecife",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:abismo",
+      "name": "abismo",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:manglar",
+      "name": "manglar",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:glaciar",
+      "name": "glaciar",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-0af4bc5a34d4f2ea"
+      ]
+    },
+    {
+      "id": "collection:volcan",
+      "name": "volcan",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-26e5d156f7cbb5f2"
+      ]
+    },
+    {
+      "id": "collection:santuario",
+      "name": "santuario",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-26e5d156f7cbb5f2"
+      ]
+    },
+    {
+      "id": "collection:ruinas_sumergidas",
+      "name": "ruinas_sumergidas",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-26e5d156f7cbb5f2"
+      ]
+    },
+    {
+      "id": "collection:cavernas_cristal",
+      "name": "cavernas_cristal",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-26e5d156f7cbb5f2"
+      ]
+    },
+    {
+      "id": "collection:abismo_primordial",
+      "name": "abismo_primordial",
+      "kind": "collection",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-26e5d156f7cbb5f2"
+      ]
+    },
+    {
+      "id": "medal:muelle",
+      "name": "muelle",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:rio",
+      "name": "rio",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:costa",
+      "name": "costa",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:laguna",
+      "name": "laguna",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:arrecife",
+      "name": "arrecife",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:abismo",
+      "name": "abismo",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:manglar",
+      "name": "manglar",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:glaciar",
+      "name": "glaciar",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d27a6aa131ed75df"
+      ]
+    },
+    {
+      "id": "medal:volcan",
+      "name": "volcan",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d5fedb64d121643f"
+      ]
+    },
+    {
+      "id": "medal:santuario",
+      "name": "santuario",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d5fedb64d121643f"
+      ]
+    },
+    {
+      "id": "medal:ruinas_sumergidas",
+      "name": "ruinas_sumergidas",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d5fedb64d121643f"
+      ]
+    },
+    {
+      "id": "medal:cavernas_cristal",
+      "name": "cavernas_cristal",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d5fedb64d121643f"
+      ]
+    },
+    {
+      "id": "medal:abismo_primordial",
+      "name": "abismo_primordial",
+      "kind": "medal",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-d5fedb64d121643f"
       ]
     }
   ]

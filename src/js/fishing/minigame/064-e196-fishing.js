@@ -17,6 +17,7 @@ e195DrawShake=function(){
  if(!active)return;
  game.style.display='block';game.classList.remove('e182Idle');game.setAttribute('aria-hidden','false');
  const wrap=document.createElement('div');wrap.className='e196ShakeOverlay';wrap.setAttribute('aria-label','Atraer la picada');
+ if(typeof e227Illustration==='function')wrap.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e230ShakeWater',true));
  const title=document.createElement('div');title.className='e196Header';title.textContent='¡Hay pique! Tocá la burbuja';
  const count=document.createElement('div');count.className='e196Counter';count.textContent='Toques restantes: '+e195Pending.left;
  const bubble=document.createElement('button');bubble.type='button';bubble.className='e196Bubble';

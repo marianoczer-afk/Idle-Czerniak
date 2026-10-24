@@ -7,7 +7,7 @@
 .e229CollectionAward{display:flex;align-items:center;justify-content:flex-end;gap:6px;position:absolute;right:10px;top:8px;max-width:42%;font-size:10px;color:#dfc27e}
 .e229Scene .e186Book>summary{padding-right:42%}
 .e229CollectionAward button{font-size:10px!important;line-height:1.1;min-height:32px!important;padding:4px 6px!important}
-.e229CollectionSeal{display:inline-block;position:relative;width:36px;height:38px;clip-path:polygon(10% 0,90% 0,100% 60%,50% 100%,0 60%);background:#a58c45;border:1px solid #d8bc79;overflow:hidden;flex:none}
+.e229CollectionSeal{display:inline-block;position:relative;width:36px;height:38px;background:transparent;border:0;overflow:visible;flex:none}
 .e229CollectionSeal>svg{width:100%;height:100%;filter:brightness(.8)}.e229CollectionSeal>span{position:absolute;bottom:1px;left:0;right:0;text-align:center;color:#ffdc82;font-size:17px;text-shadow:0 0 3px #000}
 .e229QuestHeaderArt{display:inline-block;width:40px;height:40px;vertical-align:middle;flex:none}.e229QuestHeaderArt>svg{width:100%;height:100%}
 .e194QuestFold>summary{display:flex!important;align-items:center;gap:8px}.e194QuestFold>summary small{display:block;font-size:10px;color:#bdb08c}
@@ -19,7 +19,5 @@
 #page_fishing .journalSummary button[aria-pressed=true]{border-color:#bea35e;background:#5c4c273d;box-shadow:0 0 0 1px #bea35e33}
 #fishingRodShop>summary .e221Art>svg{width:100%;height:100%}
 @media(max-width:700px){.e229CollectionAward{max-width:44%}.e229Scene .e186Book>summary{padding-right:44%}.e229CollectionAward>span:not(.e229CollectionSeal):not(.e229AwardState){display:none}.e229CollectionSeal{width:28px;height:30px}.e229Scene>.e1123ZoneBanner{min-height:135px}.e229Scene .e1123ZoneBannerText{max-width:100%}}
-#combatDock.e188FishingMode .e229HudComposition{mask-image:none!important;width:100%;height:100%;display:block}
-#combatDock.e188FishingMode .e229HudComposition svg{mask-image:none!important}
-.e228Trophy.collection .e228AwardArt{clip-path:polygon(10% 0,90% 0,100% 65%,50% 100%,0 65%);background:#947a41}.e228Trophy.collection .e228AwardArt>svg{width:100%;height:100%}
+.e228Trophy.collection .e228AwardArt>svg{width:100%;height:100%}
 .e229Completed .questRowProgress{font-size:11px;line-height:14px;overflow-wrap:anywhere}

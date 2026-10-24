@@ -1,6 +1,7 @@
 
 'use strict';
 function e223FishBackdrop(art){
+ if(typeof e230HudArt==='function')return;
  const source=art.querySelector(':scope>img,:scope>svg');if(!source)return;
  const backdrop=document.createElement('span');backdrop.className='e223FishBackdrop';backdrop.setAttribute('aria-hidden','true');
  if(source.tagName==='IMG')backdrop.style.backgroundImage='url("'+source.getAttribute('src')+'")';

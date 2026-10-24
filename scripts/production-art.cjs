@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path');const root=path.join(__dirname,'..');
-function data(){return JSON.parse(fs.readFileSync(path.join(root,'arte/produccion-estable29.json'),'utf8'));}
+function data(){return JSON.parse(fs.readFileSync(path.join(root,'arte/produccion-estable30.json'),'utf8'));}
 function library(){const p=data(),frames=JSON.parse(fs.readFileSync(path.join(root,'src/catalogs/133-art-frames.js'),'utf8').replace(/^const E227_ART=/,'').replace(/;\s*$/,'')),expected={};
  const seen=new Set();for(const e of p.entries){const key=e.kind+':'+e.id,sheet=p.sheets.find(s=>s.id===e.sheetId),[x,y,w,h]=e.bounds;if(seen.has(key)||!sheet||x<0||y<0||w<=0||h<=0||x+w>sheet.width||y+h>sheet.height)throw Error('Invalid production illustration '+key);seen.add(key);expected[key]={symbol:e.symbol,width:w,height:h};}
  if(JSON.stringify(frames)!==JSON.stringify(expected))throw Error('Stale art frames: run npm run art:prepare before building');

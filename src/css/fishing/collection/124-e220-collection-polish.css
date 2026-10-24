@@ -15,7 +15,7 @@
 #fishingAtlas .atlasZoneDetail{position:relative;isolation:isolate;overflow:hidden;padding:9px 10px;border-radius:6px;margin:0;background:#172726}
 #fishingAtlas .atlasLandscape{position:absolute;inset:0;width:100%;height:100%;max-height:none;margin:0;border:0;border-radius:0;object-fit:cover;opacity:1;z-index:0}
 #fishingAtlas .atlasZoneDetail:before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,#101b1aeb,#121c1acc 65%,#101b1a88);z-index:1;pointer-events:none}
-#fishingAtlas .atlasZoneDetail>:not(.atlasLandscape){position:relative;z-index:2}
+#fishingAtlas .atlasZoneDetail>:not(.atlasLandscape):not(.e228AtlasTravel){position:relative;z-index:2}
 #fishingAtlas .atlasDetailHead{gap:7px;align-items:center;margin:0 0 5px}#fishingAtlas .atlasDetailHead h3{font-size:13px;margin:0}
 #fishingAtlas .atlasMilestones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:0;margin:6px 0;list-style:none}
 #fishingAtlas .atlasMilestones li{font-size:11px;line-height:1.4;margin:0;padding:5px 6px;background:#18201f70;border:1px solid #77705266;border-radius:4px}

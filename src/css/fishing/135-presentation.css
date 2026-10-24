@@ -28,7 +28,6 @@
 .e197FishingSkills{position:relative;isolation:isolate;overflow:hidden;background:#172725}.e197FishingSkills>.e227SidebarArt{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;z-index:-2;filter:brightness(.25);opacity:.9;pointer-events:none}.e197FishingSkills:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#162c25bb,#17231fd9);z-index:-1;pointer-events:none}
 .e1107RodPanel{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(145deg,#26342ce8,#191e1ce8);border-radius:7px}.e1107RodPanel>.e228SidebarRod{position:absolute;inset:0;width:100%;height:100%;opacity:.12;z-index:-1;pointer-events:none}.e1107RodStats>div{background:#252b23d9}
 #combatDock.e188FishingMode .e194DockRod,#combatDock.e188FishingMode .e189Art{background:#071e25}
-#combatDock.e188FishingMode .e194DockRod svg{mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 @media(max-width:700px){.e228TrophyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.e228TrophyDetail{grid-template-columns:84px minmax(0,1fr);gap:8px;padding:8px}.e228TrophyDetail .e228AwardArt{height:110px}.e228TrophyTools select{flex:1 1 44%;width:44%}}
 
 .e228RowBackdrop>svg,.e228Habitat>svg{object-fit:contain}

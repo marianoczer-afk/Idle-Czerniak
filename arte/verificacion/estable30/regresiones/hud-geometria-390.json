@@ -1,0 +1,66 @@
+{
+  "before": {
+    "#combatDock": {
+      "x": 0,
+      "y": 782,
+      "width": 390,
+      "height": 118
+    },
+    "#combatDock .e1118Zone": {
+      "x": 12,
+      "y": 791,
+      "width": 60,
+      "height": 102
+    },
+    "#combatDock .e194DockRod": {
+      "x": 77,
+      "y": 791,
+      "width": 114,
+      "height": 102
+    },
+    "#combatDock .e189Art": {
+      "x": 199,
+      "y": 821,
+      "width": 48,
+      "height": 72
+    },
+    "#combatDock #e188FishingHud .dockProgress": {
+      "x": 199,
+      "y": 791,
+      "width": 179,
+      "height": 27
+    }
+  },
+  "after": {
+    "#combatDock": {
+      "x": 0,
+      "y": 782,
+      "width": 390,
+      "height": 118
+    },
+    "#combatDock .e1118Zone": {
+      "x": 12,
+      "y": 791,
+      "width": 68,
+      "height": 102
+    },
+    "#combatDock .e194DockRod": {
+      "x": 85,
+      "y": 791,
+      "width": 82.640625,
+      "height": 102
+    },
+    "#combatDock .e189Art": {
+      "x": 175.640625,
+      "y": 814,
+      "width": 64,
+      "height": 79
+    },
+    "#combatDock #e188FishingHud .dockProgress": {
+      "x": 175.640625,
+      "y": 791,
+      "width": 202.359375,
+      "height": 20
+    }
+  }
+}

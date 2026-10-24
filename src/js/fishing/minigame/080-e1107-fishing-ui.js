@@ -15,9 +15,9 @@ function e1107Sync(){
    const fields=st?[['speed|Atracción',st.speed+'%'],['luck|Suerte',st.luck+'%'],['control|Control','+'+e190ControlPercent(st.control)+'% de barra'],['resilience|Resiliencia',st.resilience+'%'],['trophy|Trofeos',st.trophy+'%'],['maxKg|Peso máximo',e190Kg(e190Capacity(rod))]]:[];
    const key=JSON.stringify([rod?.name,fields]);
    if(info.dataset.renderKey!==key){info.dataset.renderKey=key;
-   info.innerHTML=(rod&&typeof e227Illustration==='function'?e227Illustration('rod',rod.id,'e228SidebarRod'):'')+'<div class="e1107RodName">'+(rod?'🎣 '+rod.name:'Sin caña equipada')+'</div>'+
-    '<div class="e1107RodStats">'+fields.map(([name,value])=>'<div>'+e228Icon(name.split('|')[0])+name.split('|')[1]+'<b>'+value+'</b></div>').join('')+'</div>'+
-    '<div class="e1107RodHelp">Atracción acelera la picada y reduce los toques previos; suerte mejora la aparición de peces raros; control amplía la barra; resiliencia ayuda con peces difíciles; trofeos mejora los ejemplares especiales.</div>';}
+   info.innerHTML='<div class="e1107RodName">'+(rod?'🎣 '+rod.name:'Sin caña equipada')+'</div>'+
+    (rod?'<div class="e230RodHero">'+e230HudArt('rod',rod.id,250,84)+'</div>':'')+'<div class="e1107RodStats">'+fields.map(([name,value])=>'<div>'+e228Icon(name.split('|')[0])+name.split('|')[1]+'<b>'+value+'</b></div>').join('')+'</div>'+
+    '<details class="e230StatHelp"><summary>Qué mejora cada atributo</summary><div class="e1107RodHelp">Atracción acelera la picada y reduce los toques previos; suerte mejora la aparición de peces raros; control amplía la barra; resiliencia ayuda con peces difíciles; trofeos mejora los ejemplares especiales.</div></details>';}
   }
  }
  if(!on)return;

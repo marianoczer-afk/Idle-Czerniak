@@ -14,7 +14,7 @@ e16Page=function(){
  const page=document.getElementById('page_fishing');if(!page||!state)return;
  const book=page.querySelector('.e186Book');if(!book)return;
  const zone=e165Zone(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id)),record=e18Record();
- const completed=fish.length>0&&fish.every(f=>Number(record.bySpecies?.[f.id]?.total)>0);
+ const completed=fish.length>0&&fish.every(f=>typeof e227Discovered==='function'?e227Discovered(state,f.id):Number(record.bySpecies?.[f.id]?.total)>0);
  const claimed=!!e191Achievements()[zone.id];
  const box=document.createElement('div');box.className='e191Achievement';
  const info=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');
@@ -31,7 +31,7 @@ document.addEventListener('click',e=>{
  const zone=E165_ZONES.find(z=>z.id===btn.dataset.e191Claim),ach=e191Achievements();
  if(!zone||ach[zone.id])return;
  const record=e18Record(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id));
- if(!fish.length||!fish.every(f=>Number(record.bySpecies?.[f.id]?.total)>0))return;
+ if(!fish.length||!fish.every(f=>typeof e227Discovered==='function'?e227Discovered(state,f.id):Number(record.bySpecies?.[f.id]?.total)>0))return;
 
  ach[zone.id]=true;
  addLog('Pesca: completaste la colección de '+zone.name+'. Insignia de colección.');persist();renderGame();

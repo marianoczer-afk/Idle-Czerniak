@@ -1,8 +1,8 @@
 
 /* Fishing HUD: one layout, one desktop/mobile breakpoint. Combat keeps its own styles. */
 #e188FishingHud{display:none}
-#combatDock.e188FishingMode{--fishing-zone-width:128px;--fishing-fish-width:104px;--fishing-zone-height:102px;padding:7px 12px!important}
-#combatDock.e188FishingMode .dockInner{display:grid!important;grid-template-columns:minmax(0,470px) minmax(0,1fr)!important;grid-template-rows:auto!important;gap:14px!important;max-width:1100px;margin:auto;align-items:center}
+#combatDock.e188FishingMode{--fishing-zone-width:148px;--fishing-fish-width:156px;--fishing-zone-height:102px;padding:7px 12px!important}
+#combatDock.e188FishingMode .dockInner{display:grid!important;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr)!important;grid-template-rows:auto!important;gap:14px!important;max-width:1320px;margin:auto;align-items:center}
 #combatDock.e188FishingMode .dockInner>.dockVitals{display:grid!important;width:100%!important;min-width:0;grid-column:1!important;grid-row:1!important;grid-template-columns:var(--fishing-zone-width) minmax(0,1fr)!important;grid-template-rows:var(--fishing-zone-height)!important;gap:9px!important}
 #combatDock.e188FishingMode .dockQuick,#combatDock.e188FishingMode .dockControls,#combatDock.e188FishingMode .dockPotions,#combatDock.e188FishingMode .dockEnemy,#combatDock.e188FishingMode .dockVitals>div:has(#dockHpText),#combatDock.e188FishingMode .dockVitals>div:has(#dockMpText){display:none!important}
 #combatDock.e188FishingMode .e1118Zone{display:flex;grid-column:1;grid-row:1;position:relative;isolation:isolate;box-sizing:border-box;width:var(--fishing-zone-width);height:var(--fishing-zone-height);border:1px solid #6a795e;border-radius:9px;overflow:hidden;background:#142b30;flex-direction:column;justify-content:flex-end;align-items:stretch;padding:0;cursor:pointer}
@@ -41,15 +41,15 @@
 #combatDock.e188FishingMode .e188Track{display:block;width:100%;height:7px;margin-top:2px;border:1px solid #66533a;border-radius:12px;overflow:hidden;background:#332b23;box-sizing:border-box}
 #combatDock.e188FishingMode .e188Fill{height:100%;width:0;background:linear-gradient(90deg,#5fba94,#b6e8ae);transition:width .1s linear}
 @media(max-width:700px){
- #combatDock.e188FishingMode{--fishing-zone-width:60px;--fishing-fish-width:48px;--fishing-zone-height:102px}
- #combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
+ #combatDock.e188FishingMode{--fishing-zone-width:68px;--fishing-fish-width:64px;--fishing-zone-height:102px}
+ #combatDock.e188FishingMode .dockInner{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)!important;gap:8px!important}
  #combatDock.e188FishingMode .dockInner>.dockVitals{gap:5px!important}
  #combatDock.e188FishingMode .e1118Zone{height:var(--fishing-zone-height);align-self:end}
  #combatDock.e188FishingMode .e1118Zone small{font-size:8px;padding:0 3px 4px}
  #combatDock.e188FishingMode .e1118Zone .e1120RodLabel{display:none}
- #combatDock.e188FishingMode #e188FishingHud{grid-template-rows:27px 72px;gap:3px 5px}
+ #combatDock.e188FishingMode #e188FishingHud{grid-template-rows:20px 79px;gap:3px 5px}
  #combatDock.e188FishingMode #e188FishingHud .dockProgress{grid-column:1 / -1!important}
- #combatDock.e188FishingMode .e189Art{grid-row:2;height:72px}
+ #combatDock.e188FishingMode .e189Art{grid-row:2;height:79px}
  #combatDock.e188FishingMode #dockPlayerLevel{font-size:9px}
  #combatDock.e188FishingMode #dockPlayerXpText{font-size:8px}
  #combatDock.e188FishingMode #e188HudTitle{font-size:9px;line-height:10px}

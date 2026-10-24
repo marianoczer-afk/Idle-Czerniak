@@ -24,6 +24,7 @@ function e218Detail(f){
  const r=e218Record(f.id),panel=document.createElement('section');panel.className='e218Detail';panel.id='fishingSpeciesDetail';
  const zones=E165_ZONES.filter(z=>z.fish.includes(f.id)&&e16FishLevel()>=(z.req||1));
  panel.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><div><h3>'+(typeof e228FishName==='function'?e228FishName(f):f.name)+'</h3><p>'+fmt(r.count)+' capturas · '+zones.map(z=>z.name).join(' · ')+'</p><strong>Récord absoluto: '+(r.best?e190Kg(r.best):'Sin peso registrado')+(r.best?' · '+(E218_CATEGORIES[r.category]||'Categoría histórica no registrada'):'')+'</strong>'+(!r.category&&r.best?'<p class="journalHistorical">Peso histórico conservado. Su categoría no quedó registrada; las nuevas capturas completan las marcas por categoría.</p>':'')+'<div class="e218Records">'+Object.entries(E218_CATEGORIES).map(([key,label])=>'<div data-category="'+key+'"><b>'+label+'</b><span>'+(r.categories[key]?e190Kg(r.categories[key]):'Sin récord')+'</span></div>').join('')+'</div></div>';
+ if(typeof e230StyleJournalCard==='function')e230StyleJournalCard(panel,f.id);
  return panel;
 }
 function e218PlaceDetail(grid,id){
@@ -55,6 +56,7 @@ function e220FilterJournal(list){
  const empty=list.parentElement.querySelector('.journalEmpty');empty.hidden=visible>0;empty.textContent=cards.length?'No hay especies descubiertas con estos filtros.':'Tus especies aparecerán acá cuando captures peces.';
  list.parentElement.querySelector('[data-journal-results]').textContent=visible+' especies';
  for(const b of list.closest('details').querySelectorAll('[data-journal-category]'))b.setAttribute('aria-pressed',String(b.dataset.journalCategory===v.category));
+ if(typeof e230StyleJournal==='function')e230StyleJournal(list);
  if(list.closest('details').open)e218PlaceDetail(list,e218Selected.get(state));
 }
 function e218Journal(){

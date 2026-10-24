@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-29">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 29<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-30">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 30<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -746,7 +746,7 @@ for(const width of [1366,390])test(`Estable 23: collapsed catalog follows missio
   await page.evaluate(()=>{state.ui.fishingZoneId='rio';e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   assert.equal(await page.locator('.e194QuestBody [data-catalog-claim]').count(),6);
   const quest=page.locator('.e194QuestBody [data-quest-id="e208_rod_custodio_pulso"]');
-  assert.match(await quest.innerText(),/12 peces en total.*0 de 12.*2 especies distintas.*0 de 2.*récord/is);
+  assert.match(await quest.innerText(),/Conseguí 12 capturas.*0\/12.*Descubrí 2 especies.*0\/2.*Capturá un pez/is);
   await page.evaluate(()=>{state.ui.fishingZoneId='costa';e16Page();e161Fishing=true;e195OriginalStart('atun');cancelAnimationFrame(e16Frame);});
   const geometry=await page.locator('#e16Hold').evaluate(n=>{const b=n.getBoundingClientRect(),p=document.getElementById('e16GamePanel').getBoundingClientRect();return{width:b.width,height:b.height,stageWidth:p.width,bottom:b.bottom,stageBottom:p.bottom};});
   assert.ok(geometry.width>=geometry.stageWidth*.90,JSON.stringify(geometry));assert.ok(geometry.height>=72);assert.ok(geometry.bottom<=geometry.stageBottom);
@@ -896,9 +896,9 @@ test('Estable 23: quest goals explain all conditions and mark each completed obj
   await character(page,40,false);
   await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:3,species:{mojarra:2,lubina:1},bestKg:7.35}}};e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   const quest=page.locator('.e194QuestBody [data-quest-id="e208_rod_custodio_pulso"]');
-  assert.match(await quest.innerText(),/tres objetivos en Río del Bosque/);assert.match(await quest.innerText(),/Capturá 12 peces en total/);assert.match(await quest.innerText(),/Capturá 2 especies distintas/);assert.match(await quest.innerText(),/Capturá un pez de 2 kg o más/);assert.match(await quest.innerText(),/No se consumen peces/);
-  assert.equal(await quest.locator('.e212Goals li').count(),3);assert.equal(await quest.locator('.e212Goals .done').count(),2);assert.equal(await quest.locator('button').isDisabled(),true);
-  await page.evaluate(()=>{state.ui.fishingWeights.byZone.rio.catches=12;e16Page();});assert.equal(await quest.locator('.e212Goals .done').count(),3);assert.equal(await quest.locator('button').isEnabled(),true);
+  assert.match(await quest.innerText(),/Conseguí 12 capturas/);assert.match(await quest.innerText(),/Descubrí 2 especies distintas/);assert.match(await quest.innerText(),/Capturá un pez de al menos 2 kg/);assert.equal(await quest.locator('.e230Delivery').count(),0);
+  assert.equal(await quest.locator('.e230Goal').count(),3);assert.equal(await quest.locator('.e230Goal.done').count(),2);assert.equal(await quest.locator('button').isDisabled(),true);
+  await page.evaluate(()=>{state.ui.fishingWeights.byZone.rio.catches=12;e16Page();});assert.equal(await quest.locator('.e230Goal.done').count(),3);assert.equal(await quest.locator('button').isEnabled(),true);
  }finally{await context.close();}
 });
 
@@ -928,7 +928,7 @@ for(const width of [1366,390])test(`Estable 23: fish matches zone size and live 
   await character(page,40,false);
   await page.evaluate(()=>{e161Fishing=true;e195OriginalStart('atun');cancelAnimationFrame(e16Frame);e16Finish(true);e161StopWait();e195OriginalStart('lubina');cancelAnimationFrame(e16Frame);e16Session.progress=.47;e16Paint();});
   const geometry=await page.evaluate(()=>{const rect=q=>{const r=document.querySelector(q).getBoundingClientRect();return{w:r.width,h:r.height};};return{zone:rect('#combatDock .e1118Zone'),fish:rect('#e188FishingHud .e189Art'),dock:rect('#combatDock')};});
-  closeTo(geometry.zone.w-geometry.fish.w,width>700?24:12);closeTo(geometry.zone.h,102);closeTo(geometry.fish.h,width>700?102:72);assert.ok(geometry.dock.h<=120,JSON.stringify(geometry));
+  closeTo(geometry.zone.w-geometry.fish.w,width>700?-8:4);closeTo(geometry.zone.h,102);closeTo(geometry.fish.h,width>700?102:79);assert.ok(geometry.dock.h<=120,JSON.stringify(geometry));
   assert.equal(await page.locator('#e188FishingHud .e188Track').isVisible(),true);
   assert.equal(await page.locator('#e188HudFill').evaluate(n=>n.style.width),'47%');
   assert.equal(await page.locator('#e188FishingHud [role="progressbar"]').getAttribute('aria-valuenow'),'47');
@@ -991,14 +991,14 @@ for(const width of [1366,390])test(`Estable 23: Atlas search, mastery, accessibl
   await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.owned.e187_rod_coral=true;state.ui.e18Fishing={bySpecies:Object.fromEntries(E165_ZONES.find(z=>z.id==='manglar').fish.map(id=>[id,{total:1}]))};e16Page();});
   assert.equal(await page.locator('#fishingAtlas').count(),1);assert.equal(await page.locator('.atlasZoneDetail').count(),0);assert.equal(await page.locator('.e216Quest').count(),8);assert.equal(await page.locator('.e216Quest[open]').count(),0);
   await page.locator('.e194QuestFold').evaluate(n=>n.open=true);
-  const first=page.locator('.e216Quest').first();assert.equal(await first.locator('.e171Quest').isVisible(),false);await first.locator('summary').click();assert.equal(await first.locator('.e171Quest').isVisible(),true);assert.match(await first.innerText(),/Cualquier tamaño cuenta/);
-  await page.evaluate(()=>e16Page());assert.equal(await first.evaluate(n=>n.open),true);
+  const first=page.locator('.e216Quest').first();assert.equal(await first.locator('summary').count(),0);assert.equal(await first.locator('.e230Goal').evaluateAll(ns=>ns.every(n=>n.getBoundingClientRect().height>0)),true);assert.match(await first.innerText(),/Entrega: consume peces del inventario/);
+  await page.evaluate(()=>e16Page());assert.equal(await page.locator('.e194QuestFold').evaluate(n=>n.open),true);
   await page.locator('#fishingAtlas').evaluate(n=>n.open=true);assert.equal(await page.locator('.atlasRow:visible').count(),13);
   await page.locator('[data-atlas-search]').fill('rio del');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-search]').fill('');
   await page.locator('[data-atlas-filter]').selectOption('complete');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-zone="manglar"]').click();assert.equal(await page.locator('.atlasMedal').count(),1);assert.match(await page.locator('.atlasZoneDetail').innerText(),/sin encargos principales/);
   await page.locator('[data-atlas-filter]').selectOption('pending');assert.equal(await page.locator('.atlasRow:visible').count(),12);await page.locator('[data-atlas-zone="arrecife"]').click();
   const before=await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId}));const badge=page.locator('[data-atlas-badge="arrecife"]');assert.match(await badge.getAttribute('title'),/secreto del arrecife.*Entregá.*Caña Coralina/is);await badge.click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),/Recompensa ya obtenida/);assert.equal(await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId})),before);
-  const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,rows:[...document.querySelectorAll('.atlasRow:not([hidden])')].map(n=>n.getBoundingClientRect().height),quests:[...document.querySelectorAll('.e216Quest>summary')].map(n=>n.getBoundingClientRect().height)}));assert.ok(geometry.overflow<=1,JSON.stringify(geometry));assert.ok(geometry.rows.every(h=>h<=65));assert.ok(geometry.quests.every(h=>h<=85));
+  const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,rows:[...document.querySelectorAll('.atlasRow:not([hidden])')].map(n=>n.getBoundingClientRect().height),quests:[...document.querySelectorAll('.e230Quest')].map(n=>n.getBoundingClientRect().height)}));assert.ok(geometry.overflow<=1,JSON.stringify(geometry));assert.ok(geometry.rows.every(h=>h<=65));assert.ok(geometry.quests.every(h=>h<=(width<700?280:180)));
   await page.evaluate(async()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);await page.evaluate(()=>selectWorkspaceTab('fishing'));await atlasZone(page,'manglar');assert.equal(await page.locator('.atlasMedal').count(),1);assert.equal(await page.evaluate(()=>state.owned.e187_rod_coral),true);
  }finally{await context.close();}
 });
@@ -1303,17 +1303,16 @@ test('Audit 19: successful catches rebuild the illustrated journal once, after a
  }finally{await context.close();}
 });
 
-for(const width of [1366,390])test(`Estable 23: fixed HUD keeps height and right section; only approved zone and rod widths change (${width}px)`,async()=>{
+for(const width of [1366,390])test(`Estable 23: fixed 118px HUD preserves the approved Estable 30 layout during overlays (${width}px)`,async()=>{
  const {context,page}=await fresh(width);
  try{
  await character(page,40,false);
  await page.evaluate(()=>{state.skills.pesca.xp=15210;state.ui.fishingZoneId='rio';state.ui.lastFishingCatch={id:'bagre',weightKg:3.25,quality:'Grande',xp:81,price:99};e16Page();e188UpdateHud();});
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(100);
- const baseline=JSON.parse(readFileSync(join(__dirname,'fixtures/hud-estable19.json'),'utf8'))[width];
- // Explicitly authorized in Estable 23: wider zone, same left section, right section and height.
- const delta=width>700?24:12;baseline['#combatDock .e1118Zone'].width+=delta;baseline['#combatDock .e194DockRod'].x+=delta;baseline['#combatDock .e194DockRod'].width-=delta;if(width<=700){baseline['#combatDock .e1118Zone'].height=102;baseline['#combatDock .e1118Zone'].y-=30;}
+ const baseline=JSON.parse(readFileSync(join(__dirname,'fixtures/hud-estable30.json'),'utf8'))[width];
+ assert.equal(baseline['#combatDock'].height,118);assert.equal(baseline['#combatDock .e1118Zone'].width,width>700?148:68);assert.equal(baseline['#e188FishingHud .e189Art'].width,width>700?156:64);
  const geometry=()=>page.evaluate(selectors=>Object.fromEntries(selectors.map(s=>{const r=document.querySelector(s).getBoundingClientRect();return[s,{x:r.x,y:r.y,width:r.width,height:r.height}];})),Object.keys(baseline));
- assert.deepEqual(await geometry(),baseline,'HUD rectangles must match the old baseline plus only the requested width redistribution');
+ assert.deepEqual(await geometry(),baseline,'HUD rectangles must match the reviewed Estable 30 layout');
  // Hold model values constant to isolate overlay geometry; real XP awards have separate regressions.
  await page.evaluate(()=>{e217XPEvent(state,'pesca',81,40,40);e188UpdateHud();});await page.waitForSelector('.e217XpDrop');await page.waitForTimeout(200);
  assert.deepEqual(await geometry(),baseline,'Overlay must not move or resize any HUD element');
@@ -1601,13 +1600,13 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable29'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable29/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable30/regresiones'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable30/regresiones/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable29/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable30/regresiones/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
   assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);
