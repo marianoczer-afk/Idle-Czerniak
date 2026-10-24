@@ -1,0 +1,16 @@
+✔ Fishing34 multi-fish goals are horizontal and HUD stays fixed 1366 (2218.644343ms)
+✔ Fishing34 multi-fish goals are horizontal and HUD stays fixed 390 (1827.313214ms)
+✔ Fishing34 unique zone species and historical credit without rewriting records (1071.607039ms)
+✔ Fishing34 regional capture and v7 import preserve original inventory, records and rewards (2176.614459ms)
+✔ Fishing34 crisp motion needs reactions and differentiates equipment (1301.402604ms)
+✔ Fishing34 painted targeted variants use distinct images without brush overlays (2187.677463ms)
+✔ Fishing34 new portraits and last-catch variants fit the existing containers (1492.136941ms)
+✔ Fishing34 legacy credit is frozen once, without fabricating new catches (1110.070709ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13895.221483

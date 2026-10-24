@@ -1,0 +1,158 @@
+✖ Unmodified engines and bottom HUD stylesheet preserve the Estable 25 baseline (82.187515ms)
+✖ Estable 27 header/settings and unchanged HUD (1366) (2044.923558ms)
+✖ Estable 27 header/settings and unchanged HUD (390) (1603.828796ms)
+✖ Polish33 static anatomy effects keep journal dimensions 1366 (1898.673996ms)
+✖ Polish33 static anatomy effects keep journal dimensions 390 (1576.047763ms)
+✖ Progression32 real category statistics and distinct static body surfaces 1366 (2206.104575ms)
+✖ Progression32 real category statistics and distinct static body surfaces 390 (1819.075813ms)
+✖ Progression32 real category statistics and distinct static body surfaces 360 (1588.842854ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14148.852985
+
+✖ failing tests:
+
+test at tests/build.test.cjs:25:1
+✖ Unmodified engines and bottom HUD stylesheet preserve the Estable 25 baseline (82.187515ms)
+  AssertionError [ERR_ASSERTION]: src/js/fishing/minigame/075-e1103-progression.js
+  + actual - expected
+
+  + 'cf4e4664c7ddb8b05f0f67e57aa07dfdfca2fd9a9b68c4458dd116034b6e585e'
+  - '792efc679099267ffcc73e9686ba7e3d6b0f5e69fbecb9787bb8f7abadf47ee1'
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/build.test.cjs:30:98)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'cf4e4664c7ddb8b05f0f67e57aa07dfdfca2fd9a9b68c4458dd116034b6e585e',
+    expected: '792efc679099267ffcc73e9686ba7e3d6b0f5e69fbecb9787bb8f7abadf47ee1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/expansion27.test.cjs:7:31
+✖ Estable 27 header/settings and unchanged HUD (1366) (2044.923558ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Estable 33/. Input:
+
+  'Descargar index.html · Estable 34'
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/expansion27.test.cjs:16:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Descargar index.html · Estable 34',
+    expected: /Estable 33/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/expansion27.test.cjs:7:31
+✖ Estable 27 header/settings and unchanged HUD (390) (1603.828796ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Estable 33/. Input:
+
+  'Descargar index.html · Estable 34'
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/expansion27.test.cjs:16:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Descargar index.html · Estable 34',
+    expected: /Estable 33/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/polish33.test.cjs:9:30
+✖ Polish33 static anatomy effects keep journal dimensions 1366 (1898.673996ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/polish33.test.cjs:9:1340)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/polish33.test.cjs:9:30
+✖ Polish33 static anatomy effects keep journal dimensions 390 (1576.047763ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/polish33.test.cjs:9:1340)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/progression32.test.cjs:5:34
+✖ Progression32 real category statistics and distinct static body surfaces 1366 (2206.104575ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/progression32.test.cjs:8:393)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/progression32.test.cjs:5:34
+✖ Progression32 real category statistics and distinct static body surfaces 390 (1819.075813ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/progression32.test.cjs:8:393)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/progression32.test.cjs:5:34
+✖ Progression32 real category statistics and distinct static body surfaces 360 (1588.842854ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (/tmp/argentum-audit/bench/tests/progression32.test.cjs:8:393)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

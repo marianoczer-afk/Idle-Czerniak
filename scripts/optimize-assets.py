@@ -6,11 +6,19 @@ from pathlib import Path
 from PIL import Image
 root=Path(__file__).resolve().parent.parent
 file=root/'assets/manifest.json'
-m=json.loads(file.read_text());saved=0
+m=json.loads(file.read_text());saved=0;skipped=0
 for a in m['resources'].values():
     source=root/a['source']
     if a['mime']!='image/png' or a.get('compression'):continue
     raw=source.read_bytes()
+    # Reuse only a pixel-verified runtime whose source AND output still match.
+    # Changed sources or missing/corrupt outputs must pass conversion again.
+    runtime=root/a['runtime']
+    if (a['runtime']!=a['source'] and a.get('pixelEquality') is True
+        and hashlib.sha256(raw).hexdigest()==a['sha256'] and runtime.is_file()
+        and hashlib.sha256(runtime.read_bytes()).hexdigest()==a.get('runtimeSha256')):
+        skipped+=1
+        continue
     with Image.open(io.BytesIO(raw)) as image:
         original=image.convert('RGBA');out=io.BytesIO()
         original.save(out,format='WEBP',lossless=True,exact=True,method=6)
@@ -23,5 +31,6 @@ for a in m['resources'].values():
         (root/target).write_bytes(data)
         a.update(runtime=target,runtimeMime='image/webp',runtimeBytes=len(data),runtimeSha256=hashlib.sha256(data).hexdigest(),pixelEquality=True,width=original.width,height=original.height)
         saved+=len(raw)-len(data)
-file.write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+if saved:file.write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+print('Verified existing variants skipped:',skipped)
 print('Lossless bytes saved:',saved)

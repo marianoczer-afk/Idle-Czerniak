@@ -1,0 +1,21 @@
+
+> build:profile
+> node scripts/build.cjs --check --profile
+
+Verified index.html: 25910428 bytes, 143 ordered blocks, SHA-256 a421edea9d4d2e61100ade402f43fe1b1cade573cb3af66cff6c89f9d475623e
+{
+  "timingsMs": {
+    "metadata": 0.6912919999999971,
+    "artLibrary": 4.258251000000001,
+    "expandAndParseBlocks": 82.75089399999999,
+    "embedAssets": 87.348107,
+    "validateCombinedSyntax": 35.259551000000016
+  },
+  "counts": {
+    "uniqueAssets": 136,
+    "assetReferences": 137,
+    "cacheHits": 136,
+    "runtimeBytesRead": 18805452
+  },
+  "totalMs": 356.40094999999997
+}

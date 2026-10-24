@@ -1,0 +1,30 @@
+[
+  {
+    "label": "cold",
+    "seconds": 0.634959301998606,
+    "exit": 0,
+    "stdout": "Verified index.html: 25910428 bytes, 143 ordered blocks, SHA-256 a421edea9d4d2e61100ade402f43fe1b1cade573cb3af66cff6c89f9d475623e\n",
+    "stderr": ""
+  },
+  {
+    "label": "warm1",
+    "seconds": 0.600524683999538,
+    "exit": 0,
+    "stdout": "Verified index.html: 25910428 bytes, 143 ordered blocks, SHA-256 a421edea9d4d2e61100ade402f43fe1b1cade573cb3af66cff6c89f9d475623e\n",
+    "stderr": ""
+  },
+  {
+    "label": "warm2",
+    "seconds": 0.40157584300322924,
+    "exit": 0,
+    "stdout": "Verified index.html: 25910428 bytes, 143 ordered blocks, SHA-256 a421edea9d4d2e61100ade402f43fe1b1cade573cb3af66cff6c89f9d475623e\n",
+    "stderr": ""
+  },
+  {
+    "label": "warm3",
+    "seconds": 0.6050119470019126,
+    "exit": 0,
+    "stdout": "Verified index.html: 25910428 bytes, 143 ordered blocks, SHA-256 a421edea9d4d2e61100ade402f43fe1b1cade573cb3af66cff6c89f9d475623e\n",
+    "stderr": ""
+  }
+]
