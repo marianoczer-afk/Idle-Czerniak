@@ -16,7 +16,7 @@ for(const family of E208_FAMILIES)for(const specialty of E208_SPECIALTIES){
 }
 function e208QuestProgress(rod){
  const q=rod.unlock,record=state?.ui?.fishingWeights?.byZone?.[q?.zone]||{};
- const catches=Number(record.catches||0),species=Object.keys(record.species||{}).filter(id=>record.species[id]>0).length,bestKg=Number(record.bestKg||0);
+ const catches=Number(record.catches||0),species=e234SpeciesCount(record,q?.zone),bestKg=Number(record.bestKg||0);
  return {catches,species,bestKg,ready:!!q&&e16FishLevel()>=rod.req&&catches>=q.catches&&species>=q.species&&bestKg>=q.bestKg};
 }
 function e208QuestText(rod){

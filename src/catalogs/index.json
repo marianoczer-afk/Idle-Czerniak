@@ -122,5 +122,9 @@
   {
     "file": "src/catalogs/142-progression32.js",
     "symbol": "E232_ROD_NAMES"
+  },
+  {
+    "file": "src/catalogs/130-regional34.js",
+    "symbol": "E234_REGIONAL"
   }
 ]

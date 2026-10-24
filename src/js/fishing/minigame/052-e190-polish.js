@@ -39,29 +39,30 @@ function e190FishingStep(g,holding,dt,width,random=Math.random){
  // attempt-local; the smooth velocity/acceleration limits prevent teleporting.
  if(g===e16Session&&!Number.isFinite(g.qualityRoll)){g.qualityRoll=e186QualityRoll();g.qualityRank=g.qualityRoll<.018?3:g.qualityRoll<.115?2:g.qualityRoll<.34?1:0;}
  if(!g.motionRng)g.motionRng=((Math.floor((g.seed||1)*1e7)^g.fish.id.split('').reduce((n,c)=>Math.imul(n,31)+c.charCodeAt(0),7))>>>0)||1;
- const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),pressure=capture.pressure,rank=g.qualityRank||0;
+ const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),rank=g.qualityRank||0;
  g.time+=dt;
- if(!Number.isFinite(g.roamAt)||g.time>=g.roamAt){
-  g.roamCount=(g.roamCount||0)+1;
-  if(!Number.isFinite(g.roamCenter)||g.roamCount%3===1){const old=g.roamCenter??(g.target+12)/width;g.roamCenter=old<.5?.78+e233MotionRandom(g)*.10:.12+e233MotionRandom(g)*.10;}
-  const reversal=e233MotionRandom(g)<(.64+Math.min(.18,g.fish.wiggle*.15));g.roamDir=reversal?-(g.roamDir||g.dir||1):(g.roamDir||g.dir||1);
-  const long=g.roamCount%3===1,reach=long?.19+e233MotionRandom(g)*.12:.065+e233MotionRandom(g)*(.065+.012*rank);
-  g.roamAim=clamp(g.roamCenter+(long?0:g.roamDir*reach),.08,.92)*width-12;
-  if(Math.abs(g.roamAim-g.target)<width*.055)g.roamAim=clamp((g.target+12)/width-g.roamDir*(.12+.04*e233MotionRandom(g)),.08,.92)*width-12;
-  // Brief feints vary by species and specimen; a cue still shows momentum.
-  const feint=e233MotionRandom(g)<(.10+.045*Math.min(4,diff)+rank*.035);
-  g.roamAt=g.time+(feint?.25+e233MotionRandom(g)*.16:.55+e233MotionRandom(g)*.50)*Math.pow(motion.interval,.55)/(1+.045*diff+.07*rank);
-  if(long){const cruise=Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance)*Math.sqrt(profile.speed)*(1+.045*rank));g.roamAt=Math.max(g.roamAt,g.time+Math.abs(g.roamAim-g.target)/(width*cruise)+.45);}
+ // Restore the older heading/burst model. There is no distant waypoint that
+ // keeps pulling the fish in the same direction after it decides to reverse.
+ if(g.time>=(g.turnAt||0)){
+  const reverse=e233MotionRandom(g)<.66+Math.min(.18,g.fish.wiggle*.2);if(reverse)g.dir=-(g.dir||1);
+  const feint=e233MotionRandom(g)<.12+rank*.06;
+  g.turnAt=g.time+(feint?.18+.12*e233MotionRandom(g):.35+.55*e233MotionRandom(g))*Math.pow(motion.interval,.65)/Math.sqrt(diff)/(1+rank*.10);
  }
- const desired=g.roamAim+Math.sin(g.time*(2.5+g.fish.wiggle*3)+(g.seed||0))*width*.008;
- const maxVelocity=width*Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance)*Math.sqrt(profile.speed)*(1+.045*rank));
- const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*6))*Math.sqrt(motion.distance);
- g.targetVelocity=Math.max(-maxVelocity,Math.min(maxVelocity,(g.targetVelocity||0)+acceleration*dt));
+ if(g.time>=(g.burstAt||0)){g.burst=.72+e233MotionRandom(g)*.55;g.burstAt=g.time+(.28+e233MotionRandom(g)*.48)*Math.pow(motion.interval,.4);}
+ const speed=Math.min(.40,(.18+g.fish.speed*.12)*Math.sqrt(diff)*Math.sqrt(profile.speed)*capture.pressure*(1+rank*.06))*Math.pow(motion.distance,1.25);
+ g.travelMin=Math.min(g.travelMin??g.target,g.target);g.travelMax=Math.max(g.travelMax??g.target,g.target);
+ if(g.time>=(g.travelAt??1.7)&&g.time>=(g.escapeUntil||0)){
+  if(g.travelMax-g.travelMin<width*.28){g.escapeDir=g.target+12<width*.5?1:-1;g.escapeGoal=width*(g.escapeDir>0?.88:.12)-12;g.escapeUntil=g.time+Math.abs(g.escapeGoal-g.target)/(width*Math.max(.12,speed))+.2;}
+  g.travelMin=g.travelMax=g.target;g.travelAt=g.time+1.7;
+ }
+ const direction=g.time<(g.escapeUntil||0)?g.escapeDir:g.dir;
+
+ const desiredVelocity=direction*speed*width*(g.burst||1)+Math.sin(g.time*(4+g.fish.wiggle*5)+(g.seed||0))*g.fish.wiggle*width*.025;
+ const ceiling=width*.42*Math.pow(motion.distance,1.25),capped=Math.max(-ceiling,Math.min(ceiling,desiredVelocity));
+ const response=width*3.8*Math.sqrt(motion.distance);
+ g.targetVelocity=(g.targetVelocity||0)+Math.max(-response*dt,Math.min(response*dt,capped-(g.targetVelocity||0)));
  g.target=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*dt));
- if(g.target===3||g.target===width-30)g.targetVelocity=0;
- g.dir=g.targetVelocity>=0?1:-1;
- // A short, non-interactive tell indicates current momentum; no hidden species.
- g.anticipation=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*.32));
+ if(g.target===3||g.target===width-30){g.dir=g.target===3?1:-1;g.escapeDir=g.dir;g.targetVelocity=Math.abs(g.targetVelocity)*g.dir;}
  const inside=g.target+12>=g.pos&&g.target+12<=g.pos+g.fish.zone;
  const endurance=1+Math.max(0,(g.fish.req||1)-32)*.003;
  const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain/capture.endurance,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*capture.loss*(g.time<.9?.4:1);

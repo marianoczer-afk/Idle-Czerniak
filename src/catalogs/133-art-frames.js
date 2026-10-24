@@ -1538,5 +1538,175 @@ const E227_ART={
   "symbol": "art31-quest-e231_estratos_abismo_primordial",
   "width": 512,
   "height": 384
+ },
+ "fish:barbo_bronce": {
+  "symbol": "art34-fish-barbo_bronce",
+  "width": 447,
+  "height": 230
+ },
+ "hud-fish:barbo_bronce": {
+  "symbol": "art34-hud-fish-barbo_bronce",
+  "width": 447,
+  "height": 230
+ },
+ "fish:pez_hoja": {
+  "symbol": "art34-fish-pez_hoja",
+  "width": 445,
+  "height": 259
+ },
+ "hud-fish:pez_hoja": {
+  "symbol": "art34-hud-fish-pez_hoja",
+  "width": 445,
+  "height": 259
+ },
+ "fish:gurami_jade": {
+  "symbol": "art34-fish-gurami_jade",
+  "width": 655,
+  "height": 474
+ },
+ "hud-fish:gurami_jade": {
+  "symbol": "art34-hud-fish-gurami_jade",
+  "width": 655,
+  "height": 474
+ },
+ "fish:raya_onice": {
+  "symbol": "art34-fish-raya_onice",
+  "width": 689,
+  "height": 436
+ },
+ "hud-fish:raya_onice": {
+  "symbol": "art34-hud-fish-raya_onice",
+  "width": 689,
+  "height": 436
+ },
+ "fish:medusa_cuarzo": {
+  "symbol": "art34-fish-medusa_cuarzo",
+  "width": 738,
+  "height": 475
+ },
+ "hud-fish:medusa_cuarzo": {
+  "symbol": "art34-hud-fish-medusa_cuarzo",
+  "width": 738,
+  "height": 475
+ },
+ "fish:dorado_bosque": {
+  "symbol": "art34-fish-dorado_bosque",
+  "width": 462,
+  "height": 221
+ },
+ "hud-fish:dorado_bosque": {
+  "symbol": "art34-hud-fish-dorado_bosque",
+  "width": 462,
+  "height": 221
+ },
+ "fish:bonito_bruma": {
+  "symbol": "art34-fish-bonito_bruma",
+  "width": 466,
+  "height": 230
+ },
+ "hud-fish:bonito_bruma": {
+  "symbol": "art34-hud-fish-bonito_bruma",
+  "width": 466,
+  "height": 230
+ },
+ "fish:doncella_coral": {
+  "symbol": "art34-fish-doncella_coral",
+  "width": 470,
+  "height": 280
+ },
+ "hud-fish:doncella_coral": {
+  "symbol": "art34-hud-fish-doncella_coral",
+  "width": 470,
+  "height": 280
+ },
+ "fish:sepia_archivo": {
+  "symbol": "art34-fish-sepia_archivo",
+  "width": 473,
+  "height": 287
+ },
+ "hud-fish:sepia_archivo": {
+  "symbol": "art34-hud-fish-sepia_archivo",
+  "width": 473,
+  "height": 287
+ },
+ "fish:vibora_primordial": {
+  "symbol": "art34-fish-vibora_primordial",
+  "width": 750,
+  "height": 443
+ },
+ "hud-fish:vibora_primordial": {
+  "symbol": "art34-hud-fish-vibora_primordial",
+  "width": 750,
+  "height": 443
+ },
+ "specimen-huge:mojarra": {
+  "symbol": "art34-specimen-huge-mojarra",
+  "width": 431,
+  "height": 268
+ },
+ "specimen-huge:calamar_abismo": {
+  "symbol": "art34-specimen-huge-calamar_abismo",
+  "width": 436,
+  "height": 269
+ },
+ "specimen-huge:bagre": {
+  "symbol": "art34-specimen-huge-bagre",
+  "width": 395,
+  "height": 284
+ },
+ "specimen-huge:cangrejo_azul": {
+  "symbol": "art34-specimen-huge-cangrejo_azul",
+  "width": 466,
+  "height": 258
+ },
+ "specimen-huge:pez_linternilla": {
+  "symbol": "art34-specimen-huge-pez_linternilla",
+  "width": 421,
+  "height": 276
+ },
+ "specimen-huge:sabalo_manglar": {
+  "symbol": "art34-specimen-huge-sabalo_manglar",
+  "width": 440,
+  "height": 260
+ },
+ "specimen-huge:pez_arquero": {
+  "symbol": "art34-specimen-huge-pez_arquero",
+  "width": 428,
+  "height": 275
+ },
+ "specimen-legendary:mojarra": {
+  "symbol": "art34-specimen-legendary-mojarra",
+  "width": 547,
+  "height": 326
+ },
+ "specimen-legendary:calamar_abismo": {
+  "symbol": "art34-specimen-legendary-calamar_abismo",
+  "width": 572,
+  "height": 328
+ },
+ "specimen-legendary:bagre": {
+  "symbol": "art34-specimen-legendary-bagre",
+  "width": 436,
+  "height": 328
+ },
+ "specimen-legendary:cangrejo_azul": {
+  "symbol": "art34-specimen-legendary-cangrejo_azul",
+  "width": 598,
+  "height": 322
+ },
+ "specimen-legendary:pez_linternilla": {
+  "symbol": "art34-specimen-legendary-pez_linternilla",
+  "width": 547,
+  "height": 325
+ },
+ "specimen-legendary:sabalo_manglar": {
+  "symbol": "art34-specimen-legendary-sabalo_manglar",
+  "width": 596,
+  "height": 309
+ },
+ "specimen-legendary:pez_arquero": {
+  "symbol": "art34-specimen-legendary-pez_arquero",
+  "width": 559,
+  "height": 333
  }
 };

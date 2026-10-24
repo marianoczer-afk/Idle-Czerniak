@@ -14,6 +14,7 @@ e1101Stats=function(rod){
 /* Distribución efectiva: pesos relativos, normalizados por zona y nivel.
    El factor 0.42 del atún ya existía en data-e1122-fishing-fixes; se conserva sin rebalancear. */
 function e222SpeciesWeight(fish,level,luck){
+ const legacy=E234_BY_ID.get(fish.id);if(legacy)fish=E16_FISH.find(f=>f.id===legacy.from);
  const base=fish.rarity?fish.rarity*(1+luck/20):Math.max(.12,1/Math.pow(1+(level-fish.req)/4,.4)/Math.pow(E161_DIFFICULTY[fish.id]||1,2.3));
  return base*(fish.id==='atun'?.42:1);
 }

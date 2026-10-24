@@ -2,6 +2,7 @@
 /* @include src/catalogs/130-expansion.js */
 for(const row of E227_FISH){const {difficulty,weight,...fish}=row;E16_FISH.push(fish);E161_DIFFICULTY[row.id]=difficulty;E190_WEIGHT_RANGES[row.id]=weight;}
 E165_ZONES.push(...E227_ZONES);
+/* @include src/catalogs/130-regional34.js */
 // Behaviour profiles only for new species. Existing capture/rarity formulas are untouched.
 Object.assign(E210_CAPTURE_PROFILES,{
  congrio_archivo:{speed:1.06,run:1.35,gain:.98,loss:1.04},tetra_prismatico:{speed:1.18,run:1.10,gain:1,loss:1.06},
@@ -9,6 +10,7 @@ Object.assign(E210_CAPTURE_PROFILES,{
  quimera_ambar:{speed:1.12,run:1.25,gain:.97,loss:1.08},titan_ammonita:{speed:.98,run:1.4,gain:.94,loss:1.10}
 });
 function e227Discovered(s,id){
+ const legacy=E234_BY_ID.get(id);if(legacy&&(s.ui?.fishingRegionalLegacy34?.discovered?.[id]||Number(s.ui?.fishingWeights?.byZone?.[legacy.zone]?.species?.[legacy.from])>0))return true;
  const inv=s.inventory||{},base='pez_'+id;
  return Number(s.ui?.e18Fishing?.bySpecies?.[id]?.total)>0||Number(s.ui?.fishingWeights?.bySpecies?.[id]?.catches)>0||E188_QUALITY.some(q=>Number(inv[q==='normal'?base:base+'__'+q])>0);
 }
@@ -37,11 +39,11 @@ const e227PreviousRecord=makeRosterRecord;
 makeRosterRecord=function(){if(state&&ready)e227EarnMastery();return e227PreviousRecord();};
 function e227QuestGoal(q,goal){
  const zone=E165_ZONES.find(z=>z.id===q.zone),record=state.ui?.fishingWeights?.byZone?.[q.zone]||{};
- if(goal.kind==='speciesCount')return{label:`Capturá ${goal.need} ${E16_FISH.find(f=>f.id===goal.id).name} en ${zone.name}`,have:Number(record.species?.[goal.id])||0,need:goal.need};
+ if(goal.kind==='speciesCount')return{label:`Capturá ${goal.need} ${E16_FISH.find(f=>f.id===goal.id).name} en ${zone.name}`,have:e234LocalCount(record,goal.id),need:goal.need};
  if(goal.kind==='captures')return{label:`Conseguí ${goal.need} capturas en ${zone.name}`,have:Number(record.catches)||0,need:goal.need};
  if(goal.kind==='weight')return{label:`Récord local de al menos ${e190Kg(goal.need)}`,have:Number(record.bestKg)||0,need:goal.need};
- if(goal.kind==='speciesWeight')return{label:`Capturá ${E16_FISH.find(f=>f.id===goal.id).name} de al menos ${e190Kg(goal.need)}`,have:Number(state.ui?.fishingWeights?.bySpecies?.[goal.id]?.bestKg)||0,need:goal.need};
- const ids=goal.ids||zone.fish;return{label:goal.ids?'Descubrí '+ids.map(id=>E16_FISH.find(f=>f.id===id).name).join(' y '):`Descubrí ${goal.need} especies de ${zone.name}`,have:ids.filter(id=>e227Discovered(state,id)).length,need:goal.need};
+ if(goal.kind==='speciesWeight')return{label:`Capturá ${E16_FISH.find(f=>f.id===goal.id).name} de al menos ${e190Kg(goal.need)}`,have:e234BestWeight(state,goal.id),need:goal.need};
+ const ids=goal.ids||zone.fish;return{label:goal.ids?'Descubrí '+ids.map(id=>E16_FISH.find(f=>f.id===id).name).join(' y '):`Descubrí ${goal.need} especies de ${zone.name}`,have:ids.filter(id=>e234QuestDiscovered(state,id)).length,need:goal.need};
 }
 function e227QuestDefinitions(){return E227_QUESTS.map(q=>({...q,reward:q.rodId?'Caña · '+E161_RODS.find(r=>r.id===q.rodId).name:e232BadgeReward(q),done:!!state.ui?.fishingQuestRewards?.[q.id],goals:q.goals.map(g=>({...e227QuestGoal(q,g),kind:g.kind,fishIds:g.id?[g.id]:g.ids||[]})),note:(q.description?q.description+' ':'')+(q.masteryRole==='supplemental'?'Encargo complementario: no cambia las estrellas históricas. Cuenta el progreso guardado; no consume peces.':'Encargo principal de maestría. Cuenta el progreso guardado; no consume peces ni exige la especie mítica.')}));}
 function e227RenderQuests(){

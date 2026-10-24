@@ -1,0 +1,92 @@
+ARGENTUM IDLE ONLINE — ESTADO ACTUAL PARA CLAUDE
+
+Repositorio: https://github.com/marianoczer-afk/Idle-Czerniak
+Rama: main
+Base anterior: Estable 33, commit 59e988e.
+Punto actual: Estable 34, build generado y probado. Se guarda este punto en GitHub para compartir el código real.
+
+QUÉ QUIERE EL USUARIO
+1. Miniaturas de varios peces juntas en los encargos, no apiladas verticalmente.
+2. Peces propios de cada zona, con nuevas ilustraciones en los puestos repetidos.
+3. Enormes y Legendarios con detalles pintados en el animal, no pinceladas SVG.
+4. Recuperar la pesca anterior: giros rápidos, zigzags, ráfagas y dificultad que dependa realmente de la caña. El movimiento de Estable 33 tenía demasiado arrastre.
+5. Quitar la pequeña flecha de dirección sobre el punto que representa al pez.
+6. Reducir el tiempo de trabajo. NO volver a auditar todo ni regenerar todo el arte.
+
+ALCANCE ARTÍSTICO ACORDADO EXPLÍCITAMENTE
+Renovar los peces repetidos y las variantes de los ejemplos afectados. Completar las demás variantes después. La prioridad del usuario es la mecánica.
+Se renovaron 7 especies en Enorme/Legendario: Mojarra, Pez linternilla, Calamar abisal, Sábalo del manglar, Bagre, Pez arquero y Cangrejo azul. Son 14 pinturas, no capas de trazos.
+
+CAMBIOS YA IMPLEMENTADOS
+- Encargos: grupo flex horizontal de miniaturas dentro del objetivo. Adaptación específica a móvil.
+- Movimiento: se eliminó la atracción amortiguada a puntos lejanos; volvió el modelo de rumbo/ráfagas con giros aleatorios y respuesta rápida. Aceleración y posición siguen acotadas. La barra del jugador conserva su entrada anterior.
+- Resiliencia: modera la velocidad efectiva después del tope, para que la caña buena no pierda su ventaja al saturar la velocidad. También modera la frecuencia de cambios.
+- Hay una salida de la zona de deambulación si el animal permanece en un rango demasiado pequeño. No usa la posición del jugador para hacer trampa.
+- Se quitó la flecha y su actualización por frame.
+- Hay 10 especies regionales nuevas: Barbo de bronce, Dorado del bosque, Pez hoja, Bonito de las brumas, Gurami de jade, Doncella de coral, Raya de ónice, Sepia del archivo, Medusa de cuarzo y Víbora del primer mar.
+- Quedan 60 puestos de pesca con IDs únicos entre las 13 zonas. Los 50 IDs antiguos siguen en el catálogo; no se borraron capturas, peces del inventario ni récords históricos.
+- Los pesos de selección de los puestos sustituidos se calculan con su especie anterior como referencia. Las especies nuevas tienen exigencia regional propia; se mantienen XP, precios y rangos de peso del puesto para no rehacer toda la economía.
+- Las pinturas nuevas se comparten en cuatro láminas WebP. Se conservan los PNG originales.
+- El HUD usa la pintura correspondiente al último ejemplar en las especies renovadas. Conserva 118 px y su distribución.
+
+COMPATIBILIDAD V7
+No se cambia roster.version=7.
+Se agregan únicamente ui.fishingRegionalVersion=34 y ui.fishingRegionalLegacy34.
+El segundo campo congela una vez los créditos de descubrimiento y pesos históricos para objetivos anteriores. No crea entradas falsas en fishingWeights.bySpecies de las nuevas especies.
+Una captura futura del pez original en otra región NO debe desbloquear la nueva especie regional. Hay una prueba específica de este caso.
+Los conteos locales deduplican el ID viejo y su sustituto, para que no cuenten como dos especies del mismo puesto.
+No se modifican las entregas de inventario de los encargos existentes: sus especies siguen disponibles en su zona correspondiente.
+No se borran personajes, XP, oro, inventario, pesos ni premios reclamados.
+
+ARCHIVOS PRINCIPALES DE ESTA ENTREGA
+src/catalogs/130-regional34.js: especies nuevas, correspondencias, créditos históricos.
+src/js/fishing/expansion/130-expansion.js: descubrimientos y objetivos compatibles.
+src/js/fishing/minigame/052-e190-polish.js: movimiento activo del pez.
+src/js/fishing/minigame/075-e1103-progression.js: pesos de selección de los puestos regionales.
+src/js/fishing/minigame/016-e16-fishing.js: conteo canónico del encargo del río.
+src/js/fishing/atlas/114-e216-atlas.js: descubrimiento/conteo centralizado.
+src/js/fishing/138-presentation30.js: miniaturas de objetivos y selección artística.
+src/js/fishing/140-world31.js: elección de variantes pintadas; ya no dibuja la flecha.
+src/js/fishing/136-polish29.js: variante y caché del último pez en HUD.
+src/css/fishing/139-presentation30.css: fila de miniaturas.
+src/css/fishing/141-world31.css: retirada de estilos de la flecha.
+arte/produccion-estable34.json: solo las adiciones artísticas nuevas.
+scripts/production-art.cjs: comparte base artística 31 + adiciones 34; admite contorno de recorte.
+
+ARQUITECTURA Y BUILD
+index.html es el producto compilado, NO la fuente que se debe editar.
+src/template.html + src/blocks.json dan el orden de HTML/CSS/JS.
+Los comentarios /* @include ... */ insertan catálogos en su posición real.
+scripts/build.cjs genera el HTML único con imágenes embebidas.
+assets/manifest.json mantiene originales, WebP y hashes.
+El libro artístico contiene recortes SVG que reutilizan las láminas, sin duplicar los binarios por pez.
+Comandos: npm run build; npm run build:check; npm run test:fishing34; python3 scripts/package-release.py.
+
+VERIFICACIÓN REALIZADA
+8 pruebas específicas aprobadas:
+- Objetivos horizontales a 1366 y 390 px, HUD de 118 px, flecha ausente.
+- Especies por zona sin IDs compartidos.
+- Crédito histórico y deduplicación sin reescribir registros.
+- Captura de especie nueva y exportación/importación JSON v7 con recarga.
+- Comparación de cañas inicial/apropiada/avanzada, movimiento acotado y casos de barra fija.
+- Variantes pintadas distintas, sin la capa de pinceladas.
+- Retratos nuevos y cambio de variante en el último pez sin cambiar el HUD.
+- Crédito histórico congelado: no reaplicarlo al cargar ni extenderlo a nuevas capturas del pez viejo.
+Se revalidó el caso de importación incluyendo XP y oro.
+Se revisaron visualmente los retratos y los recortes nuevos; no quedan píxeles opacos tocando sus bordes.
+No se ejecutó de nuevo la batería general. Las suites históricas contienen expectativas de catálogos anteriores; no afirmar que toda esa batería está verde.
+La simulación NO demuestra por sí sola que la pesca sea divertida: falta la valoración del usuario jugando. Móvil probado con Chromium simulado, no hardware físico.
+
+TAMAÑO Y ARCHIVOS PARA COMPARTIR
+HTML actual: unos 25,9 MB, principalmente imágenes embebidas.
+ZIP del juego: unos 19,2 MB; contiene solo index.html.
+El TXT de fuentes adjunto contiene los archivos fuente y herramientas de build, SIN los binarios gráficos ni el HTML compilado. No es ejecutable por sí solo: usa los recursos del repositorio para reconstruir el juego.
+
+CÓMO AYUDAR A ACHICAR SIN ROMPER
+- Distinguir reducción del tamaño del HTML, reducción del código y reducción del alcance de una entrega.
+- Empezar por el objetivo concreto que necesite el usuario, no por una reescritura completa.
+- Eliminar código solo después de comprobar la cadena real de wrappers y listeners: el proyecto conserva extensiones históricas que aún se invocan.
+- No recortar ilustraciones ni quitar detalles para ganar bytes sin medir el resultado.
+- No modificar fórmulas, requisitos, recompensas o progreso solo para simplificar.
+- No volver a generar 50 cañas, 60 peces o los paisajes. Las variantes restantes están pospuestas.
+- Separar en próximas entregas la jugabilidad del trabajo artístico para reducir iteraciones.

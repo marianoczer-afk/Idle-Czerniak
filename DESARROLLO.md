@@ -98,3 +98,10 @@ Ejecutar `node scripts/simulate-fishing31.cjs index.html /tmp/balance31.json` pa
 Control se muestra con `e190ControlPercent` y aporta `control/500` a la cobertura. Calcular `e232CaptureProfile` al comenzar cada intento, nunca en cada RAF; conservar el recorrido continuo y sus límites. Las tres mejoras regionales se leen desde banderas existentes, sin sumar valores persistidos en carga. Los encargos de familia verifican habilidad del personaje; nunca agregar niveles a las cañas ni bloquear equipo histórico poseído.
 
 Pruebas: `npm test`, `node scripts/simulate-fishing32.cjs index.html /tmp/balance32.json`, `node scripts/measure-finish32.cjs`, `node scripts/capture-progression32.cjs`. El modelo de comparación ampliado está en `scripts/balance32-model.cjs`, compartido con `tests/progression32.test.cjs`. Descargas: `python3 scripts/package-release.py`. La altura y el CSS del HUD inferior no se modifican.
+
+
+## Estable 34
+
+`130-regional34.js` define diez sustituciones regionales y el crédito histórico compatible, separado de las capturas reales. No volver a otorgar crédito al cargar: `fishingRegionalVersion` congela el corte histórico. La selección usa los pesos anteriores, mientras la captura utiliza el perfil regional nuevo.
+
+El catálogo artístico combina `produccion-estable31.json` con las adiciones de `produccion-estable34.json`; se comparten láminas y se admiten contornos de recorte para tentáculos entre celdas. Las variantes `specimen-huge/legendary` reemplazan las capas dibujadas solo en las especies renovadas. `npm run test:fishing34` ejecuta las pruebas acotadas de esta entrega.

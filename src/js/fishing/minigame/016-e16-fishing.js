@@ -71,7 +71,7 @@ function e190RecordWeight(catchInfo){
 }
 function e190CollectorProgress(){
  const river=state?.ui?.fishingWeights?.byZone?.rio||{};
- return {catches:river.catches||0,species:Object.keys(river.species||{}).length,bestKg:river.bestKg||0,legacy:state?.ui?.fishingWeights?!!state.ui.fishingWeights.legacyRiverTrophy:!!state?.ui?.e18Fishing?.riverHuge};
+ return {catches:river.catches||0,species:e234SpeciesCount(river,'rio'),bestKg:river.bestKg||0,legacy:state?.ui?.fishingWeights?!!state.ui.fishingWeights.legacyRiverTrophy:!!state?.ui?.e18Fishing?.riverHuge};
 }
 function e190CollectorReady(){const p=e190CollectorProgress();return p.legacy||(p.catches>=5&&p.species>=3&&p.bestKg>=8);}
 function e190CollectorQuestHtml(){

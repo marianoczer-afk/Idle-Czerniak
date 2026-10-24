@@ -1,8 +1,8 @@
 # Argentum Idle Online
 
-La versión completa actual es **Estable 33**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
+La versión completa actual es **Estable 34**, guardada en [`index.html`](index.html). El juego incluye todas sus ilustraciones y funciona sin compilación.
 
-Estable 33 ajusta los filtros y el detalle por fila de Trofeos, diferencia los reflejos del Diario por anatomía y recupera zigzags y amagues en la captura. Conserva guardados v7, premios, ilustraciones y HUD de 118 px. [Cambios y pruebas dirigidas](ESTABLE_33.md) · [Capturas](https://marianoczer-afk.github.io/Idle-Czerniak/arte/verificacion/estable33/).
+Estable 34 recupera la respuesta rápida del pez sin la flecha de dirección, compacta los objetivos con varios peces y da especies propias a las zonas. Renueva las variantes pintadas de siete especies. Conserva el HUD de 118 px y el historial v7. [Cambios y pruebas](ESTABLE_34.md) · [Capturas](https://marianoczer-afk.github.io/Idle-Czerniak/arte/verificacion/estable34/).
 
 ## Jugar como una página web
 
@@ -16,14 +16,14 @@ La dirección estará disponible cuando el propietario active GitHub Pages. Si a
 2. En **Build and deployment → Source**, elegí **Deploy from a branch**.
 3. En **Branch**, seleccioná **main** y **/ (root)**. Presioná **Save**.
 4. Esperá a que termine la publicación. Podés seguirla en [Actions](https://github.com/marianoczer-afk/Idle-Czerniak/actions).
-5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. Abrí el engranaje de Configuración: debe indicar **Estable 33**.
+5. Volvé a **Settings → Pages** y hacé clic en **Visit site**, o abrí la dirección anterior. Abrí el engranaje de Configuración: debe indicar **Estable 34**.
 
 Después de esa activación, las actualizaciones de `index.html` subidas a `main` se publican automáticamente.
 
 ## Descargar desde GitHub
 
 - **Solo el juego:** abrí [`index.html` en GitHub](https://github.com/marianoczer-afk/Idle-Czerniak/blob/main/index.html) y hacé clic en **Download raw file**, el botón con flecha hacia abajo de la barra del archivo. Guardalo como `index.html` y abrilo con Chrome o Edge. Si GitHub avisa que el archivo es demasiado grande para mostrarlo, la descarga sigue disponible.
-- **ZIP solo del juego:** abrí [`argentum-idle-estable33.zip`](https://github.com/marianoczer-afk/Idle-Czerniak/blob/main/descargas/argentum-idle-estable33.zip) y hacé clic en **Download raw file**. Contiene únicamente el `index.html` completo.
+- **ZIP solo del juego:** abrí [`argentum-idle-estable34.zip`](https://github.com/marianoczer-afk/Idle-Czerniak/blob/main/descargas/argentum-idle-estable34.zip) y hacé clic en **Download raw file**. Contiene únicamente el `index.html` completo.
 - **Repositorio completo:** en la pestaña **Code**, hacé clic en el botón verde **Code → Download ZIP**. Extraé el ZIP y abrí `index.html` en Chrome o Edge.
 
 La vista de código de GitHub y el visor de archivos del chat muestran el contenido del HTML; para jugar usá GitHub Pages o abrí el archivo descargado con el navegador.
