@@ -1,10 +1,7 @@
 // Ordered presentation work; blocks isolate locals and early exits. No captured predecessors.
 function fishingRenderZoneAndQuests(){
- rodRows: { // 023-e164-update.js
-e164RenderRods();
- }
- zoneChoices: { // 025-e165-zones.js
 
+ zoneChoices: { // 025-e165-zones.js
 
  const page=document.getElementById('page_fishing');if(!page||!state)break zoneChoices;
  const z=e165Zone(),lvl=e16FishLevel();
@@ -28,7 +25,6 @@ e164RenderRods();
  }
  dockQuest: { // 027-e17-quests.js
 
-
  const page=document.getElementById('page_fishing');if(!page||!state)break dockQuest;
  const zone=e165Zone();
  if(zone.id==='muelle'){
@@ -47,7 +43,6 @@ e164RenderRods();
 
  }
  regionalQuests: { // 029-e171-improvements.js
-
 
  const page=document.getElementById('page_fishing');if(!page||!state)break regionalQuests;
  const dock=page.querySelector('.e162Dock');
@@ -87,29 +82,7 @@ e164RenderRods();
  }
  equipmentState: { // 031-e172-fixes.js
 
-
  const page=document.getElementById('page_fishing');if(!page||!state)break equipmentState;
- const activeId=e172RodId();
- const rods=page.querySelector('details:has(.fishRod)');
- if(rods){
-  // Reconstruir solo los estados de equipamiento, incluidos los premios de quest.
-  rods.querySelectorAll('.fishRod').forEach(row=>{
-   const b=row.querySelector('b');if(!b)return;
-   const name=b.textContent.replace(/^[✓🏆\s]+/u,'').trim();
-   const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod)].find(r=>r.name===name);
-   if(!rod)return;
-   const equipped=rod.id===activeId;
-   b.textContent=(equipped?'✓ ':'')+rod.name;
-   row.classList.toggle('e164RodActive',equipped);
-   row.classList.toggle('e172Equipped',equipped);
-   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
-   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
-   row.querySelectorAll('.e172Label').forEach(el=>el.remove());
-   if(equipped&&!btn){const label=document.createElement('span');label.className='e172Label';label.textContent='✓ Equipada';row.append(label);}
-  });
-  const summary=rods.querySelector('summary');
-  if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
- }
  const dock=page.querySelector('.e162Dock');
  if(dock){
   const waiting=dock.querySelector('#e161WaitingText');
@@ -151,7 +124,6 @@ e164RenderRods();
  }
  journalShell: { // 035-e18-trophies.js
 
-
  const page=document.getElementById('page_fishing');if(!page||!state)break journalShell;
  const dock=page.querySelector('.e162Dock');if(!dock)break journalShell;
  const r=e18Record(),lvl=e16FishLevel(),done=!!state.owned?.[E18_ROD.id],eligible=lvl>=12;
@@ -170,7 +142,6 @@ e164RenderRods();
 
  }
  captureResult: { // 039-e182-fishing.js
-
 
  const current=document.getElementById('page_fishing');if(!current||!state)break captureResult;
  const dock=current.querySelector('.e162Dock'),game=current.querySelector('#e16GamePanel');if(!dock||!game)break captureResult;
@@ -197,7 +168,6 @@ e164RenderRods();
  }
  captureActions: { // 041-e183-fishing.js
 
-
  const page=document.getElementById('page_fishing');if(!page||!state)break captureActions;
  const game=page.querySelector('#e16GamePanel'),toggle=page.querySelector('.e162DockHead [data-e161-toggle]');
  if(game&&toggle){
@@ -221,7 +191,6 @@ e164RenderRods();
 
  }
  zoneTheme: { // 043-e185-fishing.js
-
 
  const page=document.getElementById('page_fishing');if(!page||!state)break zoneTheme;
  const zone=e165Zone(),theme=E185_THEMES[zone.id]||E185_THEMES.muelle,rod=e161Rod(),lvl=e16FishLevel();
@@ -318,7 +287,6 @@ e164RenderRods();
 
  }
  questStock: { // 049-e188-fishing.js
-
 
  const page=document.getElementById('page_fishing');if(!page||!state)break questStock;
  // Replace counts displayed by previous versions with quality-inclusive counts.

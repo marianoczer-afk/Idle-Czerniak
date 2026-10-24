@@ -3,19 +3,7 @@ function fishingRenderPageArtwork(){
  illustrations: { // 089-e1113-art.js
 e1113RefreshArt();break illustrations;
  }
- collectionPortraits: { // 091-e1114-hd-art.js
 
-
- const page=document.getElementById('page_fishing');if(!page)break collectionPortraits;
- // Actualizar tarjetas existentes que fueron generadas antes de este parche.
- const zone=typeof e165Zone==='function'?e165Zone():null;
- if(zone){const fishList=E16_FISH.filter(f=>zone.fish.includes(f.id));
- const cards=page.querySelectorAll('.e186Fish');cards.forEach((card,i)=>{
-  const sprite=card.querySelector('.e192Sprite');if(sprite&&fishList[i])sprite.innerHTML=e189FishSVG(fishList[i].id);
- });}
- break collectionPortraits;
-
- }
  fullArtwork: { // 095-e1117-full-art.js
 
  document.querySelectorAll('#page_fishing .e1114Rod,#combatDock .e1114Rod').forEach(el=>{
