@@ -46,16 +46,24 @@ function e190FishingStep(g,holding,dt,width,random=Math.random){
  if(g.time>=(g.turnAt||0)){
   const reverse=e233MotionRandom(g)<.66+Math.min(.18,g.fish.wiggle*.2);if(reverse)g.dir=-(g.dir||1);
   const feint=e233MotionRandom(g)<.12+rank*.06;
-  g.turnAt=g.time+(feint?.18+.12*e233MotionRandom(g):.35+.55*e233MotionRandom(g))*Math.pow(motion.interval,.65)/Math.sqrt(diff)/(1+rank*.10);
+  g.turnAt=g.time+(feint?.24+.10*e233MotionRandom(g):.32+.42*e233MotionRandom(g))*Math.pow(motion.interval,.65)/Math.sqrt(diff)/(1+rank*.10);
  }
  if(g.time>=(g.burstAt||0)){g.burst=.72+e233MotionRandom(g)*.55;g.burstAt=g.time+(.28+e233MotionRandom(g)*.48)*Math.pow(motion.interval,.4);}
  const speed=Math.min(.40,(.18+g.fish.speed*.12)*Math.sqrt(diff)*Math.sqrt(profile.speed)*capture.pressure*(1+rank*.06))*Math.pow(motion.distance,1.25);
  g.travelMin=Math.min(g.travelMin??g.target,g.target);g.travelMax=Math.max(g.travelMax??g.target,g.target);
  if(g.time>=(g.travelAt??1.7)&&g.time>=(g.escapeUntil||0)){
-  if(g.travelMax-g.travelMin<width*.28){g.escapeDir=g.target+12<width*.5?1:-1;g.escapeGoal=width*(g.escapeDir>0?.88:.12)-12;g.escapeUntil=g.time+Math.abs(g.escapeGoal-g.target)/(width*Math.max(.12,speed))+.2;}
+  if(g.travelMax-g.travelMin<width*.28){g.escapeDir=g.target+12<width*.5?1:-1;g.escapeGoal=width*(g.escapeDir>0?.88:.12)-12;g.escapeUntil=g.time+1.5*Math.abs(g.escapeGoal-g.target)/(width*Math.max(.12,speed))+.2;}
   g.travelMin=g.travelMax=g.target;g.travelAt=g.time+1.7;
  }
- const direction=g.time<(g.escapeUntil||0)?g.escapeDir:g.dir;
+ // A relocation may reverse briefly: the old controller locked the heading
+ // for the entire crossing. Feints are time-bounded and never teleport the fish.
+ const relocating=g.time<(g.escapeUntil||0);
+ if(relocating&&g.time>=(g.relocationBeat||0)){
+  const feint=e233MotionRandom(g)<.10+rank*.04;
+  g.relocationSign=feint?-1:1;
+  g.relocationBeat=g.time+(feint?.20+.06*e233MotionRandom(g):.32+.24*e233MotionRandom(g))*Math.pow(motion.interval,.35);
+ }
+ const direction=relocating?g.escapeDir*(g.relocationSign||1):g.dir;
 
  const desiredVelocity=direction*speed*width*(g.burst||1)+Math.sin(g.time*(4+g.fish.wiggle*5)+(g.seed||0))*g.fish.wiggle*width*.025;
  const ceiling=width*.42*Math.pow(motion.distance,1.25),capped=Math.max(-ceiling,Math.min(ceiling,desiredVelocity));
