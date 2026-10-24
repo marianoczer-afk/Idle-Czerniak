@@ -25,7 +25,7 @@ function e228Collection(){
 function e228Recognitions(){
  const defs=e216QuestDefinitions(),items=[];
  for(const z of E165_ZONES){const p=e216ZoneProgress(z,defs),difficulty=z.req;
-  for(const q of p.quests){const theme=q.goals.some(g=>/Entregá/.test(g.label))?'quest-delivery':q.goals.some(g=>/kg|peso|Récord/.test(g.label))?'quest-weight':'quest-exploration';items.push({id:'quest:'+q.id,kind:'quest',zone:z,title:q.title,earned:q.done,difficulty:difficulty+1,artKind:'quest',artId:q.id,goals:q.goals,reward:q.reward,note:q.note,quest:q.id});}
+  for(const q of p.quests){const theme=q.goals.some(g=>/Entregá/.test(g.label))?'quest-delivery':q.goals.some(g=>/kg|peso|Récord/.test(g.label))?'quest-weight':'quest-exploration';items.push({id:'quest:'+q.id,kind:'quest',zone:z,title:q.title,earned:q.done,difficulty:difficulty+1,artKind:E227_ART['quest:'+q.id]?'quest':'collection',artId:E227_ART['quest:'+q.id]?q.id:z.id,goals:q.goals,reward:q.reward,note:q.note,quest:q.id,permanent:!!q.permanent});}
   items.push({id:'collection:'+z.id,kind:'collection',zone:z,title:'Explorador de '+z.name,earned:p.accredited,difficulty:difficulty+2,artKind:'collection',artId:z.id,goals:[{label:'Descubrir todas las especies',have:p.discovered.length,need:p.species.length}],reward:'Insignia de colección · premio visual',note:'Se reclama en la colección de zona. Los premios históricos ya obtenidos se conservan.'});
   items.push({id:'mastery:'+z.id,kind:'mastery',zone:z,title:'Maestría de '+z.name,earned:p.complete,difficulty:difficulty+3,artKind:'medal',artId:z.id,goals:p.stars.map((yes,i)=>({label:['Descubrir '+p.threshold+' especies','Completar los encargos principales','Completar la colección'][i],have:Number(yes),need:1})),reward:'Medalla exclusiva de maestría · premio visual',note:'Tres hitos independientes. Incluye tus estrellas históricas; los encargos complementarios no las revocan.'});
  }
@@ -34,7 +34,7 @@ function e228Recognitions(){
  return items;
 }
 function e230RecognitionDate(item){const raw=state.ui?.fishingRecognitionDates?.[item.id];if(!raw)return 'Fecha no registrada';const date=new Date(raw);return Number.isFinite(date.getTime())?'Obtenida el '+date.toLocaleDateString('es-AR'):'Fecha no registrada';}
-function e228TrophyDetails(item){return '<section class="e228TrophyDetail"><div class="e228AwardArt '+(!item.earned?'pending':'')+'">'+e227Illustration(item.artKind,item.artId)+'</div><div><h3>'+esc(item.title)+'</h3><small>'+esc(item.zone.name)+' · <b class="e233RecognitionState">'+(item.earned?'✓ Obtenido':'Pendiente')+'</b></small><ul>'+item.goals.map(g=>'<li>'+esc(g.label)+'</li>').join('')+'</ul></div></section>';}
+function e228TrophyDetails(item){return '<section class="e228TrophyDetail"><div class="e228AwardArt '+(!item.earned?'pending':'')+'">'+e227Illustration(item.artKind,item.artId)+'</div><div><h3>'+esc(item.title)+'</h3><small>'+esc(item.zone.name)+' · <b class="e233RecognitionState">'+(item.earned?'✓ Obtenido':'Pendiente')+'</b></small><ul>'+item.goals.map(g=>'<li>'+esc(g.label)+'</li>').join('')+'</ul>'+(item.permanent?'<p>'+esc(item.reward)+'</p>':'')+'</div></section>';}
 function e233PlaceTrophyDetail(root){
  if(!state)return;
  const host=root.querySelector('.e228TrophySelection'),grid=root.querySelector('.e228TrophyGrid');if(!host||!grid)return;

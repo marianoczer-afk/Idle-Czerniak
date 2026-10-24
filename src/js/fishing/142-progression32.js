@@ -1,17 +1,24 @@
 'use strict';
 /* @include src/catalogs/142-progression32.js */
+/* @include src/catalogs/fishing-mastery.js */
 const e232RodAliases=new Map(e221Rods().map(r=>[r.id,r.name]));
 // IDs, ownership and rewards already granted remain authoritative. Names are display data.
 for(const rod of e221Rods())if(E232_ROD_NAMES[rod.id]){rod.name=E232_ROD_NAMES[rod.id];if(rod.desc)rod.desc=rod.desc.replace(/Control \+[\d,.]+% de barra/,'Control +'+e190ControlPercent(rod.bonus||0)+'% de barra');if(rod.unlock)rod.unlock.title='El legado de '+rod.name;e231ArtNames.set('rod:'+rod.id,rod.name);}
 E187_QUESTS.find(q=>q.id==='arrecife').reward='Caña · '+E187_ROD.name;
-function e232BadgeReward(q){const name=E232_BADGES[q.id]||q.title,perk=E232_PERKS[q.id];return 'Insignia · '+name+(perk?' · '+perk.name+': '+perk.label:'');}
+function e232BadgeReward(q){const name=E232_BADGES[q.id]||q.title,perk=q.permanent||E232_PERKS[q.id];return 'Insignia · '+name+(perk?' · '+(perk.name||'Mejora permanente')+': '+perk.label:'');}
 // Derived booleans, not additive mutations on load: one reward cannot stack twice.
 const e232NoRegionalBonus={control:0,resilience:0,names:[]};
 const e232RegionalPerks=new Map(Object.entries(E232_PERKS).map(([id,p])=>[p.zone,{id,bonus:{control:Math.min(2,p.control||0),resilience:Math.min(2,p.resilience||0),names:[p.name]}}]));
 function e232RegionalBonus(zone=e165Zone().id){const p=e232RegionalPerks.get(zone);return p&&state?.ui?.fishingQuestRewards?.[p.id]?p.bonus:e232NoRegionalBonus;}
 
 const e232BaseStats=e1101Stats;
-e1101Stats=function(rod){const base=e232BaseStats(rod),perk=e232RegionalBonus();if(!perk.control&&!perk.resilience)return base;return{...base,control:base.control+perk.control,resilience:Math.min(60,base.resilience+perk.resilience)};};
+function e232PermanentBonus(s=state){
+ const bonus={xp:0,control:0,resilience:0,speed:0,luck:0,names:[]};
+ for(const q of FISHING_MASTERY_QUESTS)if(s?.ui?.fishingQuestRewards?.[q.id]){for(const key of ['xp','control','resilience','speed','luck'])bonus[key]+=q.perk[key]||0;bonus.names.push(q.title+' · '+q.perk.label);}
+ return bonus;
+}
+e1101Stats=function(rod){const base=e232BaseStats(rod),perk=e232RegionalBonus(),global=e232PermanentBonus();if(!perk.control&&!perk.resilience&&!global.names.length)return base;return{...base,control:base.control+perk.control+global.control,resilience:Math.min(60,base.resilience+perk.resilience+global.resilience),speed:base.speed+global.speed,luck:base.luck+global.luck};};
+
 function e232CaptureProfile(fish,rod,level,weight){
  const st=e1101Stats(rod),demand=clamp((fish.req-1)/99,0,1),handling=.65*st.control/64+.35*st.resilience/60;
  const shortfall=Math.max(0,.20+.90*demand-handling),load=Number.isFinite(weight)?clamp(weight/e190Capacity(rod),0,1):0;

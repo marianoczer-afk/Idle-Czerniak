@@ -25,6 +25,12 @@
       "assetId": "image-f05cf34d4afd4461",
       "width": 1536,
       "height": 1024
+    },
+    {
+      "id": "fish-polished-collection",
+      "assetId": "image-69b32b9337880635",
+      "width": 1086,
+      "height": 1448
     }
   ],
   "entries": [
@@ -472,6 +478,45 @@
         650,
         559,
         333
+      ]
+    },
+    {
+      "kind": "specimen-legendary",
+      "id": "mantarraya",
+      "symbol": "polished-specimen-legendary-mantarraya",
+      "sheetId": "fish-polished-collection",
+      "assetId": "image-69b32b9337880635",
+      "bounds": [
+        554,
+        730,
+        526,
+        347
+      ]
+    },
+    {
+      "kind": "specimen-legendary",
+      "id": "trucha",
+      "symbol": "polished-specimen-legendary-trucha",
+      "sheetId": "fish-polished-collection",
+      "assetId": "image-69b32b9337880635",
+      "bounds": [
+        17,
+        1091,
+        521,
+        301
+      ]
+    },
+    {
+      "kind": "specimen-legendary",
+      "id": "perca_esmeralda",
+      "symbol": "polished-specimen-legendary-perca_esmeralda",
+      "sheetId": "fish-polished-collection",
+      "assetId": "image-69b32b9337880635",
+      "bounds": [
+        557,
+        1078,
+        505,
+        347
       ]
     }
   ]

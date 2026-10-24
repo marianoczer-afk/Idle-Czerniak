@@ -12,7 +12,7 @@ e194RodArt=function(id){return e227Illustration('rod',id,'rodIllustration')||e22
 function e227DecorateFishing(){
  const page=document.getElementById('page_fishing');if(!page||!state)return;
  const cast=page.querySelector('[data-e161-toggle] .e221Art');if(cast&&!cast.querySelector('svg')){cast.classList.add('e227ControlArt');cast.innerHTML=e227Illustration('ui','cast','',true);}
- const tank=page.querySelector('#e16Tank');if(tank&&!tank.querySelector('.e227WaterArt'))tank.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e227WaterArt',true));
+ const tank=page.querySelector('#e16Tank');if(tank&&!tank.querySelector('.e227WaterArt'))tank.insertAdjacentHTML('afterbegin',fishingZoneScenery('e227WaterArt'));
 }
 // Decoration is tied to the existing page lifecycle; no observer or frame loop.
 const e227PreviousDecoration=e221Decorate;

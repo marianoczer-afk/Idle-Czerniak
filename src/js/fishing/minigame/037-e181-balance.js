@@ -4,6 +4,6 @@
    A partir del nivel 16 la XP por captura disminuye gradualmente. */
 function e181XpFactor(){
  const level=e16FishLevel();
- if(level<=15)return 1;
- return Math.max(.22,1/(1+(level-15)*.095));
+ const permanent=typeof e232PermanentBonus==='function'?e232PermanentBonus().xp:0;
+ return (level<=15?1:Math.max(.22,1/(1+(level-15)*.095)))*(1+permanent);
 }

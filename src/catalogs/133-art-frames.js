@@ -386,13 +386,13 @@ const E227_ART={
  },
  "fish:trucha": {
   "symbol": "art28-fish-trucha",
-  "width": 487,
-  "height": 246
+  "width": 509,
+  "height": 290
  },
  "fish:salmon": {
   "symbol": "art28-fish-salmon",
-  "width": 483,
-  "height": 242
+  "width": 515,
+  "height": 292
  },
  "fish:pez_espada": {
   "symbol": "art28-fish-pez_espada",
@@ -416,8 +416,8 @@ const E227_ART={
  },
  "fish:lucio": {
   "symbol": "art28-fish-lucio",
-  "width": 496,
-  "height": 248
+  "width": 523,
+  "height": 278
  },
  "fish:anguila": {
   "symbol": "art28-fish-anguila",
@@ -466,8 +466,8 @@ const E227_ART={
  },
  "fish:caballito_mar": {
   "symbol": "art28-fish-caballito_mar",
-  "width": 211,
-  "height": 327
+  "width": 276,
+  "height": 380
  },
  "fish:morena": {
   "symbol": "art28-fish-morena",
@@ -491,8 +491,8 @@ const E227_ART={
  },
  "fish:pez_cristal": {
   "symbol": "art28-fish-pez_cristal",
-  "width": 485,
-  "height": 272
+  "width": 534,
+  "height": 343
  },
  "fish:leviatan": {
   "symbol": "art28-fish-leviatan",
@@ -926,13 +926,13 @@ const E227_ART={
  },
  "hud-fish:trucha": {
   "symbol": "art30-hud-fish-trucha",
-  "width": 487,
-  "height": 246
+  "width": 509,
+  "height": 290
  },
  "hud-fish:salmon": {
   "symbol": "art30-hud-fish-salmon",
-  "width": 483,
-  "height": 242
+  "width": 515,
+  "height": 292
  },
  "hud-fish:pez_espada": {
   "symbol": "art30-hud-fish-pez_espada",
@@ -956,8 +956,8 @@ const E227_ART={
  },
  "hud-fish:lucio": {
   "symbol": "art30-hud-fish-lucio",
-  "width": 496,
-  "height": 248
+  "width": 523,
+  "height": 278
  },
  "hud-fish:anguila": {
   "symbol": "art30-hud-fish-anguila",
@@ -1006,8 +1006,8 @@ const E227_ART={
  },
  "hud-fish:caballito_mar": {
   "symbol": "art30-hud-fish-caballito_mar",
-  "width": 211,
-  "height": 327
+  "width": 276,
+  "height": 380
  },
  "hud-fish:morena": {
   "symbol": "art30-hud-fish-morena",
@@ -1031,8 +1031,8 @@ const E227_ART={
  },
  "hud-fish:pez_cristal": {
   "symbol": "art30-hud-fish-pez_cristal",
-  "width": 485,
-  "height": 272
+  "width": 534,
+  "height": 343
  },
  "hud-fish:leviatan": {
   "symbol": "art30-hud-fish-leviatan",
@@ -1708,5 +1708,20 @@ const E227_ART={
   "symbol": "art34-specimen-legendary-pez_arquero",
   "width": 559,
   "height": 333
+ },
+ "specimen-legendary:mantarraya": {
+  "symbol": "polished-specimen-legendary-mantarraya",
+  "width": 526,
+  "height": 347
+ },
+ "specimen-legendary:trucha": {
+  "symbol": "polished-specimen-legendary-trucha",
+  "width": 521,
+  "height": 301
+ },
+ "specimen-legendary:perca_esmeralda": {
+  "symbol": "polished-specimen-legendary-perca_esmeralda",
+  "width": 505,
+  "height": 347
  }
 };

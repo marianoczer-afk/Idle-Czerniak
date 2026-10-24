@@ -104,7 +104,7 @@
     },
     "src/catalogs/133-art-frames.js": {
       "script": true,
-      "sha256": "924821c02c4bfe6dbabd6c8ec75f9044188783af21133fb53204bd155aadc95c"
+      "sha256": "b2ff0553268eadb21c1d53fdab54b4ecd22aef7eefd1892280bb11a4bf4a6b57"
     },
     "src/catalogs/140-regional31.js": {
       "script": true,
@@ -132,7 +132,7 @@
     },
     "src/css/fishing/135-presentation.css": {
       "script": false,
-      "sha256": "e223ca199225a8c4c94ad025b5b0968a84446e471c686101c07e48739dcb6caa"
+      "sha256": "e0f6160b502805903402fd16461a3363f1a420189fc2df476209c6c6d038b2fb"
     },
     "src/css/fishing/137-polish29.css": {
       "script": false,
@@ -140,11 +140,11 @@
     },
     "src/css/fishing/139-presentation30.css": {
       "script": false,
-      "sha256": "261f821f174e45adefdbed4add4973c21434de45e251fc449ea1f277d3593dec"
+      "sha256": "16203333899ca2446dfba9a67041e3bcc31549e052ff86228bc273bf8944cce0"
     },
     "src/css/fishing/141-world31.css": {
       "script": false,
-      "sha256": "4d3a0eeb57141ae76aab1bf421d59f868a7feaa1cf677bd3711691ca9952a21c"
+      "sha256": "1ab5a8820e9a3614a1547dca0eafeb468988f64c1f47ef30d410e3217d8892f1"
     },
     "src/css/fishing/143-progression32.css": {
       "script": false,
@@ -216,7 +216,7 @@
     },
     "src/css/fishing/hud/117-fishing-hud-css.css": {
       "script": false,
-      "sha256": "af7fadc9a6a1737f4477b93368d563399ee91d8bb73f76740efec53843f45ed8"
+      "sha256": "85df70824bee0a96f2066154cc5a22fd5e8ad83baf08474ec34a483c7de26c96"
     },
     "src/css/fishing/minigame/015-e16-fishing-css.css": {
       "script": false,
@@ -408,7 +408,7 @@
     },
     "src/js/core/005-core.js": {
       "script": true,
-      "sha256": "245260554d3161a422eef76a049da369a06977f49f9c3e49e91a29b6d0353bc5"
+      "sha256": "8fd678434a7af2d52c0c69f57b4f3cf38c8c55e0abbf4c3898232e0a2029df85"
     },
     "src/js/dev/008-dev-environment.js": {
       "script": true,
@@ -432,7 +432,7 @@
     },
     "src/js/fishing/138-presentation30.js": {
       "script": true,
-      "sha256": "77a6673d437d179f1969fdfe20a4d3094f1a59bddd75b549c977fdb727dfcfe9"
+      "sha256": "7d6473e661f56ca53c8ab48058db5a5e1d2d307f04cdcaa60bed49db05722198"
     },
     "src/js/fishing/140-world31.js": {
       "script": true,
@@ -440,7 +440,7 @@
     },
     "src/js/fishing/142-progression32.js": {
       "script": true,
-      "sha256": "41d355600870864f093ba1519c6c21e4d3ae813167116998785b0e5ff06701d1"
+      "sha256": "94467aeabadb33142f4a83460bc320a2986809bd931e29f07bf641242c3e0ad4"
     },
     "src/js/fishing/art/089-e1113-art.js": {
       "script": true,
@@ -472,7 +472,7 @@
     },
     "src/js/fishing/art/133-production-art.js": {
       "script": true,
-      "sha256": "09de92bc7966febee23c0cb654a9901391be781113b37e635d0cc2d1f9c0adb8"
+      "sha256": "3a55108fa86825ef7574b835b352afb1cc15ff66795ec68b6cc3dc6adbd81a6d"
     },
     "src/js/fishing/atlas/114-e216-atlas.js": {
       "script": true,
@@ -488,7 +488,7 @@
     },
     "src/js/fishing/expansion/130-expansion.js": {
       "script": true,
-      "sha256": "f066d415a1a624cae4af5cbc867a4be4e0ca02276266e483ad033c05e3745664"
+      "sha256": "77fed6926d7c976cf814f53f654018b20565ffd1024b717c643c3bb347481000"
     },
     "src/js/fishing/feedback/047-e187-expansion.js": {
       "script": true,
@@ -560,7 +560,7 @@
     },
     "src/js/fishing/minigame/037-e181-balance.js": {
       "script": true,
-      "sha256": "cddf7901e563e585e1bd0b24a6657986a5d565074563bb9ab5678da42bbe7a75"
+      "sha256": "04caec8cf77c02c6aa3bce409dbacc6423db54fe12930adeb0ccfbdba710f272"
     },
     "src/js/fishing/minigame/039-e182-fishing.js": {
       "script": true,
@@ -584,7 +584,7 @@
     },
     "src/js/fishing/minigame/052-e190-polish.js": {
       "script": true,
-      "sha256": "c833ca122f17243dafa859743297f2e01c66474efcda8a8493ec73f5e8d38d3e"
+      "sha256": "c3da11d59e612d646ddc7816e4130ec7375679c3e56ab1ea1a3c200c9f40c07c"
     },
     "src/js/fishing/minigame/054-e191-polish.js": {
       "script": true,
@@ -604,11 +604,11 @@
     },
     "src/js/fishing/minigame/064-e196-fishing.js": {
       "script": true,
-      "sha256": "a313a28186eb4ccb5ea50e0dd72988547173d78d8ddf8b5a21e9c349974ac0e9"
+      "sha256": "62faeacbd1bb0a347e5c32c8b473ed64966ae5ac4bc41ea2df7ead0d873eccd6"
     },
     "src/js/fishing/minigame/066-e197-fishing.js": {
       "script": true,
-      "sha256": "2dbcc725a4200b1eb5186203a7f8f04268434becbf0c71791e237be8fe3fd6b4"
+      "sha256": "357dd68af869bc4baf4fdd8e2a9df980546410f53975d01196cba448a86571d3"
     },
     "src/js/fishing/minigame/068-e198-fishing.js": {
       "script": true,
@@ -672,7 +672,7 @@
     },
     "src/js/fishing/trophies/134-trophies.js": {
       "script": true,
-      "sha256": "2c6636fa317725c049ed2a5a000c2749f610387d4fdd862e49de4d4f90e59ceb"
+      "sha256": "0e1f07fdecf73c33f02153c9faaafa7a7f79ed1476e89842cf6e49975808f97d"
     },
     "src/js/layout/006-hybrid-upgrade.js": {
       "script": true,
@@ -684,15 +684,44 @@
     },
     "src/js/ui/132-global-header.js": {
       "script": true,
-      "sha256": "ea2fce7b4890e42a5882f0afd4567daa6091314b72823c866762bda529c74d46"
+      "sha256": "cd77cfa790fb45106ef3bffae1b5c6246de9ec53f1c71e529b0198bd49f1046d"
     },
     "src/template.html": {
       "script": false,
-      "sha256": "6861255ff6ddb1777833c76014ac0a4f8d5cd7a0a119e3b7c33c20d3099ea603"
+      "sha256": "97f132745df4f351116d8b49594e048a1fba6ece9c3b82f7a4ac22d2e783cdf7"
     },
     "assets/manifest.json": {
       "script": false,
-      "sha256": "48bcf52c8e65f7e917b8d419f53bad1aa6494fe42ba9078aadfa084fd1c1d2d9"
+      "sha256": "7875d13fc5f081c0c43f0f30287de4bde8a2c5ce95f84ad4e1a89b2f4800858e"
+    },
+    "src/catalogs/fishing-mastery.js": {
+      "script": true,
+      "sha256": "3b9ac3906b0e5864973d06c988bd962b04e7b57a137b3c44f32d7a80c83b976f"
     }
+  },
+  "approvedUpdate": {
+    "base": "3d1a88a",
+    "release": "Estable 35",
+    "scope": "Requested fishing scenery/HUD styling, eight portraits, nine permanent quests and short-turn motion; core/UI changes are build labels only.",
+    "files": [
+      "assets/manifest.json",
+      "src/catalogs/133-art-frames.js",
+      "src/css/fishing/135-presentation.css",
+      "src/css/fishing/141-world31.css",
+      "src/css/fishing/hud/117-fishing-hud-css.css",
+      "src/js/fishing/138-presentation30.js",
+      "src/js/fishing/142-progression32.js",
+      "src/js/fishing/art/133-production-art.js",
+      "src/js/fishing/expansion/130-expansion.js",
+      "src/js/fishing/minigame/037-e181-balance.js",
+      "src/js/fishing/minigame/052-e190-polish.js",
+      "src/js/fishing/minigame/064-e196-fishing.js",
+      "src/js/fishing/minigame/066-e197-fishing.js",
+      "src/js/fishing/trophies/134-trophies.js",
+      "src/js/core/005-core.js",
+      "src/js/ui/132-global-header.js",
+      "src/template.html",
+      "src/css/fishing/139-presentation30.css"
+    ]
   }
 }

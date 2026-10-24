@@ -1,11 +1,11 @@
 # Mapa vigente de Argentum Idle Online
 
-Este mapa describe Estable 34 después de consolidar la presentación de Pesca. Los prefijos numéricos son históricos; el orden efectivo es `src/blocks.json` y sus marcadores en `src/template.html`. Son scripts clásicos globales, no módulos aislados. Un `const previous = fn` retiene la implementación anterior aunque `fn` vuelva a asignarse.
+Este mapa describe Estable 35 sobre la arquitectura consolidada de Pesca. Los prefijos numéricos son históricos; el orden efectivo es `src/blocks.json` y sus marcadores en `src/template.html`. Son scripts clásicos globales, no módulos aislados. Un `const previous = fn` retiene la implementación anterior aunque `fn` vuelva a asignarse.
 
 ## Compilación y distribución
 
 - `scripts/build.cjs`: expande 143 bloques (70 JS / 73 CSS), incluye catálogos en su lugar, valida sintaxis, inserta biblioteca SVG y recursos autenticados. La concatenación conserva ámbitos y orden; no minifica ni procesa píxeles.
-- `scripts/production-art.cjs`: metadata vigente = `arte/produccion-estable31.json` + `arte/produccion-estable34.json`. `library()` solo construye SVG. `prepare()` escribe encuadres y `src/catalogs/133-art-frames.js`; no es parte del build habitual.
+- `scripts/production-art.cjs`: metadata vigente = `arte/produccion-estable31.json` + `arte/produccion-estable34.json` (incluye el atlas pulido de Estable 35). `library()` solo construye SVG. `prepare()` escribe encuadres y `src/catalogs/133-art-frames.js`; no es parte del build habitual.
 - `assets/manifest.json`: fuentes y variantes runtime, hashes. `index.html`: salida autocontenida offline, nunca fuente de edición. `.build-cache/`: URI por contenido, no subir.
 
 ## Dónde trabajar
@@ -26,7 +26,7 @@ Este mapa describe Estable 34 después de consolidar la presentación de Pesca. 
 | Arte HUD y entidades | `src/js/fishing/art/133-production-art.js`, `136-polish29.js`, `138-presentation30.js`, `140-world31.js` | 140 elige arte responsive; los fallbacks previos siguen capturados. Para encuadre editar metadata artística, no binarios a ciegas. La ejecución de los pasos de página y HUD ahora está centralizada en page/render y hud/update. |
 | HUD y geometría | `src/js/fishing/hud/update.js`, `src/css/fishing/hud/117-fishing-hud-css.css` | Un único `e188UpdateHud`, sin envoltorios. El orden de arte, caña, menús, XP, zona y última captura está explícito. Callbacks privados de menú/XP conservan sus cierres en 099/100. CSS de 118px idéntico; acabado en 137/139/141/143. |
 | Especies regionales y crédito v7 | `src/catalogs/130-regional34.js`, insertado en `src/js/fishing/expansion/130-expansion.js` | Crédito histórico congelado separado de capturas reales. No quitar IDs viejos ni volver a acreditar en cada carga. |
-| Perfiles y mejoras regionales | `src/js/fishing/142-progression32.js` y catálogos 142 | Mezcla estadísticas, registros, recompensas derivadas y presentación; candidato a separación posterior con pruebas. |
+| Perfiles y mejoras permanentes | `src/js/fishing/142-progression32.js` y catálogos 142 | Mezcla estadísticas, registros, recompensas derivadas y presentación; candidato a separación posterior con pruebas. |
 
 Las rutas abreviadas 136–142 corresponden a `src/js/fishing/`. Para nombres exactos usar `rg --files src`. Los catálogos son includes en el ámbito original; no ejecutarlos ni importarlos como módulos ES.
 
@@ -42,7 +42,7 @@ No existe dependencia de los ZIP, capturas o notas históricas para ejecutar el 
 
 ## Validación de cambios de presentación
 
-`npm run test:render` compara contra `85355b4` el DOM, atributos, estado persistible y altura del HUD en todas las zonas y cinco fases, a 1366/390px. Normaliza solo seriales SVG y segundos de espera; no oculta estructura ni estilos. Necesita el historial Git de la base (también lo requieren otras pruebas históricas).
+`npm run test:render` compara contra `85355b4` la estructura de controles del minijuego, atributos, estado persistible y altura del HUD en todas las zonas y cinco fases, a 1366/390px. Normaliza seriales SVG y segundos de espera, y excluye únicamente los fondos de zona cuya sustitución se pidió en Estable 35. El nuevo aspecto, encargos y arte se verifican en `tests/fishing-experience.test.cjs`. Necesita el historial Git de la base (también lo requieren otras pruebas históricas).
 
 `tests/fixtures/gameplay-estable34.json` autentica el AST de los motores, listeners y temporizadores, y los bytes de catálogos/CSS/plantilla/manifiesto. Excluye solo los cuerpos de render movidos y sus alias/bindings; la equivalencia de esos cuerpos se comprueba en navegador. Actualizar ese contrato requiere que un cambio de mecánica/datos forme parte del alcance; no regenerarlo para esconder un fallo.
 

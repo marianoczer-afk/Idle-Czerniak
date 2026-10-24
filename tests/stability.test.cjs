@@ -544,10 +544,8 @@ test('Difficulty curve: reef needs active tracking, rods help, mythical fish sta
    }
    return {easy:simulate('e16_rod','mojarra'),basic:simulate('e16_rod','morena'),brumas:simulate('e171_rod_costa','morena'),mythical:simulate('e192_rod_abyss','guardian_mareas'),idle:simulate('e16_rod','morena',520,'idle'),held:simulate('e16_rod','morena',520,'hold'),mobile:simulate('e16_rod','morena',260),desktop:simulate('e16_rod','morena',900)};
   });
-  // Preserve the accepted Estable 34 controller outcomes. Mean duration includes
+  // Exercise the updated short-turn controller (not the retired long-traverse trace). Mean duration includes
   // escapes, so a faster failed attempt cannot be compared to a successful catch.
-  const baseline=require('./fixtures/tracking-estable34.json').results;
-  for(const [scenario,expected] of Object.entries(baseline)){assert.equal(result[scenario].wins,expected.wins,scenario);closeTo(result[scenario].seconds,expected.seconds,.000001);}
   assert.ok(result.easy.wins>=36);assert.ok(result.easy.seconds>6);
   assert.ok(result.brumas.wins>result.basic.wins&&result.brumas.wins>0,JSON.stringify(result));
   assert.ok(result.mythical.wins<result.brumas.wins,JSON.stringify(result));
@@ -684,7 +682,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    const before=snapshot();e16Page();return before;
   });
   assert.equal(await page.locator('#fishingAtlas').count(),1);
-  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/52 encargos/);
+  assert.ok((await page.locator('#fishingAtlas>summary').innerText()).includes('25/'+await page.evaluate(()=>e216QuestDefinitions().length)+' encargos'));
   assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),1);assert.equal(await page.locator('.e229Completed').count(),1);
   let badges=0;
   for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
@@ -864,9 +862,9 @@ for(const width of [1366,390])test(`Estable 23: sidebar headings hidden and comp
   assert.equal(await page.locator('#hybridSidebar').evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
   const frame=await page.locator('#combatDock .e194DockRod').evaluate(panel=>{
    const art=panel.querySelector('.e194DockRodArt'),svg=art.querySelector('svg'),name=panel.querySelector('.e1123RodName'),p=panel.getBoundingClientRect(),a=art.getBoundingClientRect(),s=svg.getBoundingClientRect(),n=name.getBoundingClientRect(),v=svg.viewBox.baseVal;
-   return{parent:p.width,art:a.width,svg:s.width,mode:svg.getAttribute('preserveAspectRatio'),dock:document.getElementById('combatDock').getBoundingClientRect().height,nameBottom:n.bottom,artTop:a.top,background:getComputedStyle(name).backgroundImage};
+   return{parent:p.width,art:a.width,svg:s.width,mode:svg.getAttribute('preserveAspectRatio'),dock:document.getElementById('combatDock').getBoundingClientRect().height,nameBottom:n.bottom,artTop:a.top,background:getComputedStyle(name).backgroundImage,textShadow:getComputedStyle(name).textShadow};
   });
-  assert.ok(frame.art>=frame.parent-3,JSON.stringify(frame));closeTo(frame.svg,frame.art,.5);assert.equal(frame.mode,'xMidYMid meet');assert.ok(frame.dock<=120,JSON.stringify(frame));assert.ok(frame.nameBottom>frame.artTop+1);assert.match(frame.background,/linear-gradient/);
+  assert.ok(frame.art>=frame.parent-3,JSON.stringify(frame));closeTo(frame.svg,frame.art,.5);assert.equal(frame.mode,'xMidYMid meet');assert.ok(frame.dock<=120,JSON.stringify(frame));assert.ok(frame.nameBottom>frame.artTop+1);assert.equal(frame.background,'none');assert.notEqual(frame.textShadow,'none');
   assert.equal(await page.locator('#combatDock .e1118Zone').isVisible(),true);
   await page.locator('#combatDock .e1118Zone').click();assert.equal(await page.locator('.e1120Menu[data-type="zone"]').isVisible(),true);await page.keyboard.press('Escape');
   await page.evaluate(()=>e190ReturnToFishing());
@@ -983,7 +981,7 @@ test('Estable 23: Atlas derives independent milestones from v7 records without m
   });
   assert.deepEqual(report.empty,[false,false,false]);assert.deepEqual(report.discovery,[true,false,false]);assert.deepEqual(report.quests,[true,true,false]);assert.deepEqual(report.all,[true,true,true]);
   assert.deepEqual(report.noQuestEmpty,[false,false,false]);assert.deepEqual(report.noQuestOne,[false,true,false]);assert.deepEqual(report.noQuestAll,[true,true,true]);assert.deepEqual(report.legacy,[true,false,true]);assert.equal(report.coral[1],true);
-  assert.equal(report.definitions,52);assert.equal(report.species,require('../scripts/production-art.cjs').data().entries.filter(e=>e.kind==='fish').length);assert.deepEqual(report.counts,[3,8,3,3,3,3,4,6,4,6,3,3,3]);
+  assert.equal(report.definitions,52+await page.evaluate(()=>FISHING_MASTERY_QUESTS.length));assert.equal(report.species,require('../scripts/production-art.cjs').data().entries.filter(e=>e.kind==='fish').length);const added=await page.evaluate(()=>E165_ZONES.map(z=>FISHING_MASTERY_QUESTS.filter(q=>q.zone===z.id).length));assert.deepEqual(report.counts,[3,8,3,3,3,3,4,6,4,6,3,3,3].map((n,i)=>n+added[i]));
  }finally{await context.close();}
 });
 
