@@ -2816,6 +2816,28 @@
           683
         ]
       }
+    },
+    "image-69b32b9337880635": {
+      "id": "image-69b32b9337880635",
+      "mime": "image/png",
+      "source": "assets/originals/image-69b32b9337880635.png",
+      "runtime": "assets/optimized/image-69b32b9337880635.webp",
+      "bytes": 1986401,
+      "sha256": "69b32b93378806353f2baace3617351e506a44c3e141796b8795aeeeff4c39c5",
+      "originalPrefix": "data:image/png;base64,",
+      "encoding": "base64",
+      "references": 1,
+      "runtimeMime": "image/webp",
+      "runtimeBytes": 564734,
+      "runtimeSha256": "56cfdba1e4d6711142e5ed22e5e8b366b9b1fe31eb8f78adc965e86fb3b31297",
+      "compression": {
+        "format": "webp",
+        "quality": 90,
+        "runtimeSize": [
+          1086,
+          1448
+        ]
+      }
     }
   }
 }

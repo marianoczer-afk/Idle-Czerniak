@@ -7,7 +7,7 @@
 .e231Attribute{width:24px;height:24px;display:inline-block;vertical-align:middle;margin-right:5px;flex:none}
 .e1107RodStats>div{position:relative;padding-left:33px}.e1107RodStats>div>.e231Attribute{position:absolute;left:4px;top:7px}
 .e1107RodStats>div>b{font-size:inherit}
-#e16GamePanel{position:relative;isolation:isolate;background:#0c2830}.e231StageScenery{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.6;pointer-events:none}
+#e16GamePanel{position:relative;isolation:isolate;background:#0c2830}.e231StageScenery{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.32;pointer-events:none}
 #page_fishing .e163XpTrack{border-color:#c4a964!important;box-shadow:inset 0 0 5px #0008,0 0 0 2px #5b4d3133;background:linear-gradient(100deg,#122b2d,#343329)!important}
 #page_fishing .e163XpTrack:before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;border:1px solid #d3bd7733;z-index:2}
 #page_fishing .e163XpTrack>div{background:linear-gradient(180deg,#d0e8a6,#86c764 52%,#57964c);box-shadow:inset 0 1px #edffcf75}

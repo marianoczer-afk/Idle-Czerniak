@@ -4,6 +4,7 @@ let fishingPageShop,fishingPageZoneSync;
 /* @include src/js/fishing/page/zone-and-quests.js */
 /* @include src/js/fishing/page/collection-and-controls.js */
 /* @include src/js/fishing/page/artwork.js */
+function fishingZoneScenery(css){return e227ZoneArt(e165Zone(),css)||e227Illustration('ui','water',css,true);}
 function e16Page(){
  if(state)e234MigrateRegional(state);
  e231RenderDepth++;
@@ -27,6 +28,6 @@ function e16Page(){
    e218Journal();e221Decorate();e227RenderQuests();e228Presentation();e229Polish();
   }
   const panel=document.getElementById('e16GamePanel');
-  if(panel&&!panel.querySelector('.e231StageScenery'))panel.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e231StageScenery',true));
+  if(panel){const zone=e165Zone().id,scene=panel.querySelector('.e231StageScenery');if(!scene||scene.dataset.zone!==zone){scene?.remove();panel.insertAdjacentHTML('afterbegin',fishingZoneScenery('e231StageScenery'));const art=panel.querySelector('.e231StageScenery');if(art)art.dataset.zone=zone;}}
  } finally {if(!--e231RenderDepth){e231QuestCache=null;e231ReferenceCache=null;}}
 }
