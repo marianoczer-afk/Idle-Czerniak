@@ -1,0 +1,38 @@
+{
+  "baseline": "85355b4",
+  "controller": "Existing 200 ms reaction controller; durations include unsuccessful attempts. Verified against the original distribution before consolidation.",
+  "results": {
+    "easy": {
+      "wins": 38,
+      "seconds": 13.465000000000197
+    },
+    "basic": {
+      "wins": 0,
+      "seconds": 4.1841666666666555
+    },
+    "brumas": {
+      "wins": 10,
+      "seconds": 20.79291666666632
+    },
+    "mythical": {
+      "wins": 0,
+      "seconds": 8.164166666666691
+    },
+    "idle": {
+      "wins": 0,
+      "seconds": 4.185416666666655
+    },
+    "held": {
+      "wins": 0,
+      "seconds": 4.046249999999988
+    },
+    "mobile": {
+      "wins": 0,
+      "seconds": 4.242916666666655
+    },
+    "desktop": {
+      "wins": 0,
+      "seconds": 4.228333333333322
+    }
+  }
+}

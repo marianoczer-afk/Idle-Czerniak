@@ -24,38 +24,8 @@ function e188Consume(needs){
 // Keep all existing quest buttons, but let rare fish count towards delivery.
 e17HasFish=function(){return E17_QUEST.needs.every(n=>e188FishStock(n.id)>=n.qty);};
 e171CanDeliver=function(q){return e16FishLevel()>=q.level&&q.needs.every(n=>e188FishStock(n.id)>=n.qty);};
-const e188PriorQuestPage=e16Page;
-e16Page=function(){
- e188PriorQuestPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- // Replace counts displayed by previous versions with quality-inclusive counts.
- const oldQuest=page.querySelector('.e17Quest');
- if(oldQuest&&!e17Done()){
-  oldQuest.querySelectorAll('.e17QuestFish').forEach((el,i)=>{const n=E17_QUEST.needs[i];if(!n)return;
-   const total=e188FishStock(n.id),f=E16_FISH.find(x=>x.id===n.id);
-   el.innerHTML='<b>'+(f?.icon||'🐟')+' '+(f?.name||n.id)+'</b> '+fmt(Math.min(total,n.qty))+' / '+n.qty+' en inventario<div class="e17QuestBar"><div style="width:'+100*Math.min(1,total/n.qty)+'%"></div></div>';
-  });
-  const btn=oldQuest.querySelector('[data-e17-deliver]');if(btn){btn.disabled=e16FishLevel()<E17_QUEST.level||!e17HasFish();btn.textContent=e17HasFish()?'Entregar peces y reclamar caña':'Faltan peces';}
- }
- for(const q of E171_QUESTS){const btn=page.querySelector('[data-e171-deliver="'+q.id+'"]');if(!btn)continue;
-  const panel=btn.closest('.e171Quest');panel?.querySelectorAll('.e171Needs span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.innerHTML=(f?.icon||'🐟')+' '+(f?.name||n.id)+': <b>'+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty+'</b>';});
-  btn.disabled=!e171CanDeliver(q);btn.textContent=e171CanDeliver(q)?'Entregar peces':'Faltan peces';
- }
- for(const q of E187_QUESTS){const btn=page.querySelector('[data-e187-claim="'+q.id+'"]');if(!btn)continue;
-  const panel=btn.closest('.e187Quest');panel?.querySelectorAll('.e187QuestNeeds span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty;});
-  btn.disabled=!q.needs.every(n=>e188FishStock(n.id)>=n.qty);btn.textContent=btn.disabled?'Faltan peces':'Completar encargo';
- }
- // Remove the level requirement from purchased rods, both visually and in the action.
- const rods=page.querySelector('details:has(.fishRod)');
- if(rods){rods.querySelectorAll('[data-e161-buy]').forEach(btn=>{const i=Number(btn.dataset.e161Buy),r=E161_RODS[i];if(!r)return;
-  btn.disabled=state.gold<r.price;const row=btn.closest('.fishRod');const info=row?.querySelector('.fishMuted');if(info)info.textContent='Sin nivel mínimo · '+r.desc+' · '+fmt(r.price)+' oro';
- });
-  rods.querySelectorAll('.fishRod .fishMuted').forEach(el=>{if(/Pesca \d+/.test(el.textContent||'')&&/oro/.test(el.textContent||''))el.textContent=el.textContent.replace(/Pesca \d+\s*·\s*/,'Sin nivel mínimo · ');});
- }
- const next=page.querySelector('.fishPanel p.fishMuted');
- if(next&&next.textContent?.startsWith('Próxima caña:'))next.textContent='Podés comprar cualquier caña si tenés el oro necesario.';
- e188UpdateHud();
-};
+
+
 // The previous click handlers run at capture phase. Intercept only the actions we replace.
 window.addEventListener('click',e=>{
  const buy=e.target.closest('[data-e161-buy]'),quest=e.target.closest('[data-e17-deliver],[data-e171-deliver],[data-e187-claim]');
@@ -110,14 +80,7 @@ function e188HudNode(){
  }
  return node;
 }
-function e188UpdateHud(){
- const dock=document.getElementById('combatDock');if(!dock)return;
- const active=!!(state&&ready&&e161OnPage()&&!document.getElementById('gameScreen')?.classList.contains('hidden'));
- dock.classList.toggle('e188FishingMode',active);
- if(!active){e215PlaceXp(false);measureDock();return;}
- const node=e188HudNode();if(!node)return;
- measureDock();
-}
+/* @include src/js/fishing/hud/update.js */
 const e188PriorFinish=e16Finish;
 e16Finish=function(won){e188PriorFinish(won);e188UpdateHud();};
 const e188PriorTab=selectWorkspaceTab;

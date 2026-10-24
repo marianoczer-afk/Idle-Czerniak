@@ -17,8 +17,8 @@ function e229Polish(){
  const shop=document.querySelector('#fishingRodShop>summary .e221Art');if(shop)shop.innerHTML=e227Illustration('ui','shop-header','',true);
  e228RemoveDecorativeEmoji(page);
 }
-const e229PreviousPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e229PreviousPage();e229Polish();return result;};
+
+
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-journal-category]');if(button){const view=e220JournalView();view.category=view.category===button.dataset.journalCategory?null:button.dataset.journalCategory;e220FilterJournal(document.querySelector('.e218Album'));}
  const claim=event.target.closest('.e229CollectionAward');if(claim&&!event.target.closest('button')){event.preventDefault();event.stopPropagation();}
@@ -26,5 +26,3 @@ document.addEventListener('click',event=>{
 // Transparent foregrounds replace the old blurred/masked source-strip simulation.
 function e229HudArt(kind,id,width,height){const cat=kind==='fish'?e220QualityKey(state?.ui?.lastFishingCatch?.quality)||'normal':'normal';return e230HudArt(kind,id,width,height,E227_ART['specimen-'+cat+':'+id]?cat:'normal');}
 function e229Hud(){if(!state||!e161OnPage())return;for(const [kind,id,selector] of [['rod',e161Rod()?.id,'#combatDock .e194DockRodArt'],['fish',state.ui?.lastFishingCatch?.id,'#combatDock .e189Art']]){const node=document.querySelector(selector);if(!node||!id)continue;const r=node.getBoundingClientRect(),height=r.height-(kind==='fish'?12:0),key=id+':'+(kind==='fish'?state.ui?.lastFishingCatch?.quality||'normal':'')+':'+Math.round(r.width)+':'+Math.round(height);if(node.dataset.hudComposition===key&&node.querySelector('.e229HudComposition'))continue;const art=e229HudArt(kind,id,r.width,height);if(art){node.innerHTML=art;node.dataset.hudComposition=key;}}if(typeof e231RarityHud==='function')e231RarityHud();}
-const e229PreviousHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e229PreviousHud();e229Hud();return result;};

@@ -19,35 +19,3 @@ function e1101View(r){
  ['🛡 Resiliencia',st.resilience+'%'],['🏆 Trofeos',st.trophy+'%']
  ].map(([k,v])=>'<div class="e1101Stat">'+k+'<b>'+v+'</b></div>').join('')+'</div>';
 }
-const e1101OldPage=e16Page;
-e16Page=function(){
- const result=e1101OldPage();
- const page=document.getElementById('page_fishing');
- if(!page||!state)return result;
- const panel=page.querySelector('details:has(.fishRod)');
- if(panel)panel.querySelectorAll('.fishRod').forEach(row=>{
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=E161_RODS.find(r=>r.name===name);
-  if(!rod||row.querySelector('.e1101Stats'))return;
-  const stats=document.createElement('div');stats.innerHTML=e1101View(rod);
-  const info=row.querySelector('div');if(info)info.append(stats);
-  const equipped=e161Rod(),a=e1101Stats(rod),b=e1101Stats(equipped);
-  const diff=document.createElement('div');diff.className='e1101Compare';
-  diff.textContent=equipped&&rod.id!==equipped.id?
-    'Vs. tu caña: Atracción '+(a.speed-b.speed>=0?'+':'')+(a.speed-b.speed)+'% · Suerte '+(a.luck-b.luck>=0?'+':'')+(a.luck-b.luck)+'% · Control '+(a.control-b.control>=0?'+':'')+(a.control-b.control):
-    'Estadísticas de tu caña actual';
-  if(info)info.append(diff);
- });
- // Una sola referencia al estado de la picada dentro del HUD.
- const hud=document.getElementById('e188FishingHud');
- if(hud){
-  const labels=hud.querySelectorAll('small,.fishMuted,.e188Status');
-  let seen=false;
-  labels.forEach(el=>{
-   if(/pescando|esperando.*picada|pez.*luchando/i.test(el.textContent||'')){
-    if(seen)el.style.display='none';else seen=true;
-   }
-  });
- }
- return result;
-};

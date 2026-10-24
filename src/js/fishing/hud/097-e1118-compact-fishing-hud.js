@@ -14,7 +14,7 @@ function e1118SyncHud(){
  e215SetText(tile.querySelector('small'),zoneName);
 
 }
-const e1118PrevHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e1118PrevHud();e1118SyncHud();return result;};
+
+
 const e1118PrevRender=renderGame;
 renderGame=function(){const result=e1118PrevRender();e1118SyncHud();return result;};

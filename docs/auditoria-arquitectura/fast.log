@@ -1,0 +1,16 @@
+
+> test:fast
+> node --test --test-name-pattern="Generated single HTML|Source catalogues|Build profiling|Architecture inventory" tests/build.test.cjs tests/workflow.test.cjs
+
+✔ Generated single HTML is current, deterministic and contains no development tokens (456.941323ms)
+✔ Source catalogues and original/runtime resources are complete and authenticated (190.689671ms)
+✔ Build profiling preserves the offline distribution byte for byte (290.085763ms)
+✔ Architecture inventory follows the actual ordered blocks and captured aliases (220.264478ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 709.206573

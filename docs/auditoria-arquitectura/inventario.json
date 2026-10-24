@@ -1,0 +1,7586 @@
+{
+  "schema": 1,
+  "note": "Syntactic candidates; same-named locals and captured function references require manual/runtime verification. Block order is authoritative; declaration hoisting and deferred callbacks matter.",
+  "counts": {
+    "blocks": 143,
+    "scripts": 70,
+    "styles": 73,
+    "reachableFiles": 170,
+    "definitions": 626
+  },
+  "blocks": [
+    {
+      "order": 1,
+      "id": "block-001",
+      "file": "src/css/core/001-core.css",
+      "type": "style",
+      "attributes": ""
+    },
+    {
+      "order": 2,
+      "id": "block-002",
+      "file": "src/css/layout/002-hybrid-upgrade.css",
+      "type": "style",
+      "attributes": " data-hybrid-upgrade"
+    },
+    {
+      "order": 3,
+      "id": "block-003",
+      "file": "src/css/layout/003-e13.css",
+      "type": "style",
+      "attributes": " data-e13"
+    },
+    {
+      "order": 4,
+      "id": "block-004",
+      "file": "src/css/layout/004-e14-hud-fix.css",
+      "type": "style",
+      "attributes": " data-e14-hud-fix"
+    },
+    {
+      "order": 5,
+      "id": "block-005",
+      "file": "src/js/core/005-core.js",
+      "type": "script",
+      "attributes": ""
+    },
+    {
+      "order": 6,
+      "id": "block-006",
+      "file": "src/js/layout/006-hybrid-upgrade.js",
+      "type": "script",
+      "attributes": " data-hybrid-upgrade"
+    },
+    {
+      "order": 7,
+      "id": "block-007",
+      "file": "src/css/dev/007-dev-environment.css",
+      "type": "style",
+      "attributes": " data-dev-environment"
+    },
+    {
+      "order": 8,
+      "id": "block-008",
+      "file": "src/js/dev/008-dev-environment.js",
+      "type": "script",
+      "attributes": " data-dev-environment"
+    },
+    {
+      "order": 9,
+      "id": "block-009",
+      "file": "src/css/dev/009-dev-progression.css",
+      "type": "style",
+      "attributes": " data-dev-progression"
+    },
+    {
+      "order": 10,
+      "id": "block-010",
+      "file": "src/js/dev/010-dev-progression.js",
+      "type": "script",
+      "attributes": " data-dev-progression"
+    },
+    {
+      "order": 11,
+      "id": "block-011",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "type": "script",
+      "attributes": " data-dev-diagnostics"
+    },
+    {
+      "order": 12,
+      "id": "block-012",
+      "file": "src/css/dev/012-progression-lab.css",
+      "type": "style",
+      "attributes": " data-progression-lab"
+    },
+    {
+      "order": 13,
+      "id": "block-013",
+      "file": "src/js/dev/013-progression-lab.js",
+      "type": "script",
+      "attributes": " data-progression-lab"
+    },
+    {
+      "order": 14,
+      "id": "block-014",
+      "file": "src/js/shop/014-e15-merchant.js",
+      "type": "script",
+      "attributes": " data-e15-merchant"
+    },
+    {
+      "order": 15,
+      "id": "block-015",
+      "file": "src/css/fishing/minigame/015-e16-fishing-css.css",
+      "type": "style",
+      "attributes": " id=\"e16-fishing-css\""
+    },
+    {
+      "order": 16,
+      "id": "block-016",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "type": "script",
+      "attributes": " data-e16-fishing"
+    },
+    {
+      "order": 17,
+      "id": "block-017",
+      "file": "src/css/fishing/minigame/017-e161-style.css",
+      "type": "style",
+      "attributes": " id=\"e161-style\""
+    },
+    {
+      "order": 18,
+      "id": "block-018",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "type": "script",
+      "attributes": " data-e161-fishing"
+    },
+    {
+      "order": 19,
+      "id": "block-019",
+      "file": "src/css/fishing/minigame/019-e162-fishing.css",
+      "type": "style",
+      "attributes": " data-e162-fishing"
+    },
+    {
+      "order": 20,
+      "id": "block-020",
+      "file": "src/css/fishing/minigame/020-e163-style.css",
+      "type": "style",
+      "attributes": " id=\"e163-style\""
+    },
+    {
+      "order": 21,
+      "id": "block-021",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "type": "script",
+      "attributes": " data-e163-fishing"
+    },
+    {
+      "order": 22,
+      "id": "block-022",
+      "file": "src/css/fishing/minigame/022-e164-style.css",
+      "type": "style",
+      "attributes": " id=\"e164-style\""
+    },
+    {
+      "order": 23,
+      "id": "block-023",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "type": "script",
+      "attributes": " data-e164-update"
+    },
+    {
+      "order": 24,
+      "id": "block-024",
+      "file": "src/css/fishing/minigame/024-e165-zones-css.css",
+      "type": "style",
+      "attributes": " id=\"e165-zones-css\""
+    },
+    {
+      "order": 25,
+      "id": "block-025",
+      "file": "src/js/fishing/minigame/025-e165-zones.js",
+      "type": "script",
+      "attributes": " data-e165-zones"
+    },
+    {
+      "order": 26,
+      "id": "block-026",
+      "file": "src/css/fishing/minigame/026-e17-quests-style.css",
+      "type": "style",
+      "attributes": " id=\"e17-quests-style\""
+    },
+    {
+      "order": 27,
+      "id": "block-027",
+      "file": "src/js/fishing/minigame/027-e17-quests.js",
+      "type": "script",
+      "attributes": " data-e17-quests"
+    },
+    {
+      "order": 28,
+      "id": "block-028",
+      "file": "src/css/fishing/minigame/028-e171-style.css",
+      "type": "style",
+      "attributes": " id=\"e171-style\""
+    },
+    {
+      "order": 29,
+      "id": "block-029",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "type": "script",
+      "attributes": " data-e171-improvements"
+    },
+    {
+      "order": 30,
+      "id": "block-030",
+      "file": "src/css/fishing/minigame/030-e172-css.css",
+      "type": "style",
+      "attributes": " id=\"e172-css\""
+    },
+    {
+      "order": 31,
+      "id": "block-031",
+      "file": "src/js/fishing/minigame/031-e172-fixes.js",
+      "type": "script",
+      "attributes": " data-e172-fixes"
+    },
+    {
+      "order": 32,
+      "id": "block-032",
+      "file": "src/css/fishing/minigame/032-e173-fishing-css.css",
+      "type": "style",
+      "attributes": " id=\"e173-fishing-css\""
+    },
+    {
+      "order": 33,
+      "id": "block-033",
+      "file": "src/js/fishing/minigame/033-e173-fishing.js",
+      "type": "script",
+      "attributes": " data-e173-fishing"
+    },
+    {
+      "order": 34,
+      "id": "block-034",
+      "file": "src/css/fishing/minigame/034-e18-trophies-style.css",
+      "type": "style",
+      "attributes": " id=\"e18-trophies-style\""
+    },
+    {
+      "order": 35,
+      "id": "block-035",
+      "file": "src/js/fishing/minigame/035-e18-trophies.js",
+      "type": "script",
+      "attributes": " data-e18-trophies"
+    },
+    {
+      "order": 36,
+      "id": "block-036",
+      "file": "src/css/fishing/minigame/036-e181-style.css",
+      "type": "style",
+      "attributes": " id=\"e181-style\""
+    },
+    {
+      "order": 37,
+      "id": "block-037",
+      "file": "src/js/fishing/minigame/037-e181-balance.js",
+      "type": "script",
+      "attributes": " data-e181-balance"
+    },
+    {
+      "order": 38,
+      "id": "block-038",
+      "file": "src/css/fishing/minigame/038-e182-fishing-compact.css",
+      "type": "style",
+      "attributes": " id=\"e182-fishing-compact\""
+    },
+    {
+      "order": 39,
+      "id": "block-039",
+      "file": "src/js/fishing/minigame/039-e182-fishing.js",
+      "type": "script",
+      "attributes": " data-e182-fishing"
+    },
+    {
+      "order": 40,
+      "id": "block-040",
+      "file": "src/css/fishing/minigame/040-e183-style.css",
+      "type": "style",
+      "attributes": " id=\"e183-style\""
+    },
+    {
+      "order": 41,
+      "id": "block-041",
+      "file": "src/js/fishing/minigame/041-e183-fishing.js",
+      "type": "script",
+      "attributes": " data-e183-fishing"
+    },
+    {
+      "order": 42,
+      "id": "block-042",
+      "file": "src/css/fishing/minigame/042-e185-polish-css.css",
+      "type": "style",
+      "attributes": " id=\"e185-polish-css\""
+    },
+    {
+      "order": 43,
+      "id": "block-043",
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "type": "script",
+      "attributes": " data-e185-fishing"
+    },
+    {
+      "order": 44,
+      "id": "block-044",
+      "file": "src/css/fishing/minigame/044-e186-style.css",
+      "type": "style",
+      "attributes": " id=\"e186-style\""
+    },
+    {
+      "order": 45,
+      "id": "block-045",
+      "file": "src/js/fishing/minigame/045-e186-fishing.js",
+      "type": "script",
+      "attributes": " data-e186-fishing"
+    },
+    {
+      "order": 46,
+      "id": "block-046",
+      "file": "src/css/fishing/minigame/046-e187-css.css",
+      "type": "style",
+      "attributes": " id=\"e187-css\""
+    },
+    {
+      "order": 47,
+      "id": "block-047",
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "type": "script",
+      "attributes": " data-e187-expansion"
+    },
+    {
+      "order": 48,
+      "id": "block-048",
+      "file": "src/css/fishing/minigame/048-e188-css.css",
+      "type": "style",
+      "attributes": " id=\"e188-css\""
+    },
+    {
+      "order": 49,
+      "id": "block-049",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "type": "script",
+      "attributes": " data-e188-fishing"
+    },
+    {
+      "order": 50,
+      "id": "block-050",
+      "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+      "type": "script",
+      "attributes": " data-e189-visual-hud"
+    },
+    {
+      "order": 51,
+      "id": "block-051",
+      "file": "src/css/fishing/minigame/051-e190-polish.css",
+      "type": "style",
+      "attributes": " id=\"e190-polish\""
+    },
+    {
+      "order": 52,
+      "id": "block-052",
+      "file": "src/js/fishing/minigame/052-e190-polish.js",
+      "type": "script",
+      "attributes": " data-e190-polish"
+    },
+    {
+      "order": 53,
+      "id": "block-053",
+      "file": "src/css/fishing/minigame/053-e191-style.css",
+      "type": "style",
+      "attributes": " id=\"e191-style\""
+    },
+    {
+      "order": 54,
+      "id": "block-054",
+      "file": "src/js/fishing/minigame/054-e191-polish.js",
+      "type": "script",
+      "attributes": " data-e191-polish"
+    },
+    {
+      "order": 55,
+      "id": "block-055",
+      "file": "src/css/fishing/minigame/055-e192-style.css",
+      "type": "style",
+      "attributes": " id=\"e192-style\""
+    },
+    {
+      "order": 56,
+      "id": "block-056",
+      "file": "src/js/fishing/collection/056-e192-collection.js",
+      "type": "script",
+      "attributes": " data-e192-collection"
+    },
+    {
+      "order": 57,
+      "id": "block-057",
+      "file": "src/css/fishing/minigame/057-e193-style.css",
+      "type": "style",
+      "attributes": " id=\"e193-style\""
+    },
+    {
+      "order": 58,
+      "id": "block-058",
+      "file": "src/js/fishing/minigame/058-e193-improvements.js",
+      "type": "script",
+      "attributes": " data-e193-improvements"
+    },
+    {
+      "order": 59,
+      "id": "block-059",
+      "file": "src/css/fishing/minigame/059-e194-style.css",
+      "type": "style",
+      "attributes": " id=\"e194-style\""
+    },
+    {
+      "order": 60,
+      "id": "block-060",
+      "file": "src/js/fishing/minigame/060-e194-polish.js",
+      "type": "script",
+      "attributes": " data-e194-polish"
+    },
+    {
+      "order": 61,
+      "id": "block-061",
+      "file": "src/css/fishing/minigame/061-e195-style.css",
+      "type": "style",
+      "attributes": " id=\"e195-style\""
+    },
+    {
+      "order": 62,
+      "id": "block-062",
+      "file": "src/js/fishing/minigame/062-e195-fishing.js",
+      "type": "script",
+      "attributes": " data-e195-fishing"
+    },
+    {
+      "order": 63,
+      "id": "block-063",
+      "file": "src/css/fishing/minigame/063-e196-style.css",
+      "type": "style",
+      "attributes": " id=\"e196-style\""
+    },
+    {
+      "order": 64,
+      "id": "block-064",
+      "file": "src/js/fishing/minigame/064-e196-fishing.js",
+      "type": "script",
+      "attributes": " data-e196-fishing"
+    },
+    {
+      "order": 65,
+      "id": "block-065",
+      "file": "src/css/fishing/hud/065-fishing-sidebar-css.css",
+      "type": "style",
+      "attributes": " id=\"fishing-sidebar-css\""
+    },
+    {
+      "order": 66,
+      "id": "block-066",
+      "file": "src/js/fishing/minigame/066-e197-fishing.js",
+      "type": "script",
+      "attributes": " data-e197-fishing"
+    },
+    {
+      "order": 67,
+      "id": "block-067",
+      "file": "src/css/fishing/minigame/067-e198-style.css",
+      "type": "style",
+      "attributes": " id=\"e198-style\""
+    },
+    {
+      "order": 68,
+      "id": "block-068",
+      "file": "src/js/fishing/minigame/068-e198-fishing.js",
+      "type": "script",
+      "attributes": " data-e198-fishing"
+    },
+    {
+      "order": 69,
+      "id": "block-069",
+      "file": "src/css/fishing/minigame/069-e199-scroll-stability.css",
+      "type": "style",
+      "attributes": " id=\"e199-scroll-stability\""
+    },
+    {
+      "order": 70,
+      "id": "block-070",
+      "file": "src/css/fishing/minigame/070-e1101-balance-css.css",
+      "type": "style",
+      "attributes": " id=\"e1101-balance-css\""
+    },
+    {
+      "order": 71,
+      "id": "block-071",
+      "file": "src/js/fishing/minigame/071-e1101-balance.js",
+      "type": "script",
+      "attributes": " data-e1101-balance"
+    },
+    {
+      "order": 72,
+      "id": "block-072",
+      "file": "src/css/fishing/minigame/072-e1102-quest-stats.css",
+      "type": "style",
+      "attributes": " id=\"e1102-quest-stats\""
+    },
+    {
+      "order": 73,
+      "id": "block-073",
+      "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+      "type": "script",
+      "attributes": " data-e1102-quest-balance"
+    },
+    {
+      "order": 74,
+      "id": "block-074",
+      "file": "src/css/fishing/minigame/074-e1103-progression.css",
+      "type": "style",
+      "attributes": " id=\"e1103-progression\""
+    },
+    {
+      "order": 75,
+      "id": "block-075",
+      "file": "src/js/fishing/minigame/075-e1103-progression.js",
+      "type": "script",
+      "attributes": " data-e1103-progression"
+    },
+    {
+      "order": 76,
+      "id": "block-076",
+      "file": "src/css/fishing/minigame/076-e1105-clean-fishing.css",
+      "type": "style",
+      "attributes": " id=\"e1105-clean-fishing\""
+    },
+    {
+      "order": 77,
+      "id": "block-077",
+      "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+      "type": "script",
+      "attributes": " data-e1105-clean-fishing"
+    },
+    {
+      "order": 78,
+      "id": "block-078",
+      "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+      "type": "script",
+      "attributes": " data-e1106-stable-game"
+    },
+    {
+      "order": 79,
+      "id": "block-079",
+      "file": "src/css/fishing/minigame/079-e1107-fishing-ui.css",
+      "type": "style",
+      "attributes": " id=\"e1107-fishing-ui\""
+    },
+    {
+      "order": 80,
+      "id": "block-080",
+      "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+      "type": "script",
+      "attributes": " data-e1107-fishing-ui"
+    },
+    {
+      "order": 81,
+      "id": "block-081",
+      "file": "src/css/fishing/minigame/081-e1108-fishing-layout.css",
+      "type": "style",
+      "attributes": " id=\"e1108-fishing-layout\""
+    },
+    {
+      "order": 82,
+      "id": "block-082",
+      "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+      "type": "script",
+      "attributes": " data-e1108-fishing-layout"
+    },
+    {
+      "order": 83,
+      "id": "block-083",
+      "file": "src/css/fishing/minigame/083-e1109-final-polish.css",
+      "type": "style",
+      "attributes": " id=\"e1109-final-polish\""
+    },
+    {
+      "order": 84,
+      "id": "block-084",
+      "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+      "type": "script",
+      "attributes": " data-e1109-final-polish"
+    },
+    {
+      "order": 85,
+      "id": "block-085",
+      "file": "src/css/fishing/minigame/085-e1110-simplified-fishing.css",
+      "type": "style",
+      "attributes": " id=\"e1110-simplified-fishing\""
+    },
+    {
+      "order": 86,
+      "id": "block-086",
+      "file": "src/css/fishing/minigame/086-e1111-catch-result.css",
+      "type": "style",
+      "attributes": " id=\"e1111-catch-result\""
+    },
+    {
+      "order": 87,
+      "id": "block-087",
+      "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+      "type": "script",
+      "attributes": " data-e1111-catch-result"
+    },
+    {
+      "order": 88,
+      "id": "block-088",
+      "file": "src/css/fishing/art/088-e1113-art-style.css",
+      "type": "style",
+      "attributes": " id=\"e1113-art-style\""
+    },
+    {
+      "order": 89,
+      "id": "block-089",
+      "file": "src/js/fishing/art/089-e1113-art.js",
+      "type": "script",
+      "attributes": " data-e1113-art"
+    },
+    {
+      "order": 90,
+      "id": "block-090",
+      "file": "src/css/fishing/art/090-e1114-hd-styles.css",
+      "type": "style",
+      "attributes": " id=\"e1114-hd-styles\""
+    },
+    {
+      "order": 91,
+      "id": "block-091",
+      "file": "src/js/fishing/art/091-e1114-hd-art.js",
+      "type": "script",
+      "attributes": " data-e1114-hd-art"
+    },
+    {
+      "order": 92,
+      "id": "block-092",
+      "file": "src/css/fishing/art/092-e1115-hd-fit.css",
+      "type": "style",
+      "attributes": " id=\"e1115-hd-fit\""
+    },
+    {
+      "order": 93,
+      "id": "block-093",
+      "file": "src/css/fishing/art/093-e1116-full-art.css",
+      "type": "style",
+      "attributes": " id=\"e1116-full-art\""
+    },
+    {
+      "order": 94,
+      "id": "block-094",
+      "file": "src/css/fishing/minigame/094-e1117-layout.css",
+      "type": "style",
+      "attributes": " id=\"e1117-layout\""
+    },
+    {
+      "order": 95,
+      "id": "block-095",
+      "file": "src/js/fishing/art/095-e1117-full-art.js",
+      "type": "script",
+      "attributes": " data-e1117-full-art"
+    },
+    {
+      "order": 96,
+      "id": "block-096",
+      "file": "src/css/fishing/hud/096-e1118-compact-fishing-hud.css",
+      "type": "style",
+      "attributes": " id=\"e1118-compact-fishing-hud\""
+    },
+    {
+      "order": 97,
+      "id": "block-097",
+      "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+      "type": "script",
+      "attributes": " data-e1118-compact-fishing-hud"
+    },
+    {
+      "order": 98,
+      "id": "block-098",
+      "file": "src/css/fishing/hud/098-e1120-hud.css",
+      "type": "style",
+      "attributes": " id=\"e1120-hud\""
+    },
+    {
+      "order": 99,
+      "id": "block-099",
+      "file": "src/js/fishing/hud/099-e1120-hud.js",
+      "type": "script",
+      "attributes": " data-e1120-hud"
+    },
+    {
+      "order": 100,
+      "id": "block-100",
+      "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+      "type": "script",
+      "attributes": " data-e1122-definitive-fishing-hud"
+    },
+    {
+      "order": 101,
+      "id": "block-101",
+      "file": "src/css/fishing/minigame/101-e1123-zone-identity.css",
+      "type": "style",
+      "attributes": " id=\"e1123-zone-identity\""
+    },
+    {
+      "order": 102,
+      "id": "block-102",
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "type": "script",
+      "attributes": " data-e1123-zone-identity"
+    },
+    {
+      "order": 103,
+      "id": "block-103",
+      "file": "src/css/fishing/minigame/103-e1114-visual-stability.css",
+      "type": "style",
+      "attributes": " id=\"e1114-visual-stability\""
+    },
+    {
+      "order": 104,
+      "id": "block-104",
+      "file": "src/js/fishing/art/104-e1114-menu-art.js",
+      "type": "script",
+      "attributes": " data-e1114-menu-art"
+    },
+    {
+      "order": 105,
+      "id": "block-105",
+      "file": "src/css/fishing/minigame/105-e1115-viewport-and-fish.css",
+      "type": "style",
+      "attributes": " id=\"e1115-viewport-and-fish\""
+    },
+    {
+      "order": 106,
+      "id": "block-106",
+      "file": "src/css/fishing/hud/106-e1116-hud-layout-and-stable-phases.css",
+      "type": "style",
+      "attributes": " id=\"e1116-hud-layout-and-stable-phases\""
+    },
+    {
+      "order": 107,
+      "id": "block-107",
+      "file": "src/css/fishing/minigame/107-e1119-clean-fishing-layout.css",
+      "type": "style",
+      "attributes": " id=\"e1119-clean-fishing-layout\""
+    },
+    {
+      "order": 108,
+      "id": "block-108",
+      "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+      "type": "script",
+      "attributes": " data-e1120-fishing-expansion"
+    },
+    {
+      "order": 109,
+      "id": "block-109",
+      "file": "src/css/fishing/art/109-e1120-fish-art.css",
+      "type": "style",
+      "attributes": " id=\"e1120-fish-art\""
+    },
+    {
+      "order": 110,
+      "id": "block-110",
+      "file": "src/js/fishing/minigame/110-e208-catalog.js",
+      "type": "script",
+      "attributes": " data-e208-catalog"
+    },
+    {
+      "order": 111,
+      "id": "block-111",
+      "file": "src/js/fishing/art/111-e208-art.js",
+      "type": "script",
+      "attributes": " data-e208-art"
+    },
+    {
+      "order": 112,
+      "id": "block-112",
+      "file": "src/css/fishing/art/112-e208-illustration-frames.css",
+      "type": "style",
+      "attributes": " id=\"e208-illustration-frames\""
+    },
+    {
+      "order": 113,
+      "id": "block-113",
+      "file": "src/css/fishing/shop/113-e1121-rod-shop.css",
+      "type": "style",
+      "attributes": " id=\"e1121-rod-shop\""
+    },
+    {
+      "order": 114,
+      "id": "block-114",
+      "file": "src/js/fishing/atlas/114-e216-atlas.js",
+      "type": "script",
+      "attributes": " data-e216-atlas"
+    },
+    {
+      "order": 115,
+      "id": "block-115",
+      "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+      "type": "script",
+      "attributes": " data-e1121-rod-shop"
+    },
+    {
+      "order": 116,
+      "id": "block-116",
+      "file": "src/css/fishing/hud/116-fishing-sidebar-and-quest-css.css",
+      "type": "style",
+      "attributes": " id=\"fishing-sidebar-and-quest-css\""
+    },
+    {
+      "order": 117,
+      "id": "block-117",
+      "file": "src/css/fishing/hud/117-fishing-hud-css.css",
+      "type": "style",
+      "attributes": " id=\"fishing-hud-css\""
+    },
+    {
+      "order": 118,
+      "id": "block-118",
+      "file": "src/css/fishing/atlas/118-fishing-atlas-css.css",
+      "type": "style",
+      "attributes": " id=\"fishing-atlas-css\""
+    },
+    {
+      "order": 119,
+      "id": "block-119",
+      "file": "src/js/fishing/shop/119-e217-rod-ux.js",
+      "type": "script",
+      "attributes": " data-e217-rod-ux"
+    },
+    {
+      "order": 120,
+      "id": "block-120",
+      "file": "src/js/fishing/feedback/120-e217-xp-effects.js",
+      "type": "script",
+      "attributes": " data-e217-xp-effects"
+    },
+    {
+      "order": 121,
+      "id": "block-121",
+      "file": "src/css/fishing/feedback/121-rod-selection-and-xp-feedback-css.css",
+      "type": "style",
+      "attributes": " id=\"rod-selection-and-xp-feedback-css\""
+    },
+    {
+      "order": 122,
+      "id": "block-122",
+      "file": "src/js/fishing/collection/122-e218-journal.js",
+      "type": "script",
+      "attributes": " data-e218-journal"
+    },
+    {
+      "order": 123,
+      "id": "block-123",
+      "file": "src/css/fishing/collection/123-fishing-journal-css.css",
+      "type": "style",
+      "attributes": " id=\"fishing-journal-css\""
+    },
+    {
+      "order": 124,
+      "id": "block-124",
+      "file": "src/css/fishing/collection/124-e220-collection-polish.css",
+      "type": "style",
+      "attributes": " id=\"e220-collection-polish\""
+    },
+    {
+      "order": 125,
+      "id": "block-125",
+      "file": "src/js/fishing/art/125-e221-compact-art.js",
+      "type": "script",
+      "attributes": " data-e221-compact-art"
+    },
+    {
+      "order": 126,
+      "id": "block-126",
+      "file": "src/css/fishing/art/126-e221-art-and-overlays.css",
+      "type": "style",
+      "attributes": " id=\"e221-art-and-overlays\""
+    },
+    {
+      "order": 127,
+      "id": "block-127",
+      "file": "src/js/fishing/minigame/127-e222-navigation.js",
+      "type": "script",
+      "attributes": " data-e222-navigation"
+    },
+    {
+      "order": 128,
+      "id": "block-128",
+      "file": "src/css/fishing/minigame/128-e222-navigation-css.css",
+      "type": "style",
+      "attributes": " id=\"e222-navigation-css\""
+    },
+    {
+      "order": 129,
+      "id": "block-129",
+      "file": "src/js/fishing/art/129-e223-art-presentation.js",
+      "type": "script",
+      "attributes": " data-e223-art-presentation"
+    },
+    {
+      "order": 130,
+      "id": "block-130",
+      "file": "src/js/fishing/expansion/130-expansion.js",
+      "type": "script",
+      "attributes": " data-expansion-27"
+    },
+    {
+      "order": 131,
+      "id": "block-131",
+      "file": "src/css/ui/131-global-header.css",
+      "type": "style",
+      "attributes": " id=\"global-header-css\""
+    },
+    {
+      "order": 132,
+      "id": "block-132",
+      "file": "src/js/ui/132-global-header.js",
+      "type": "script",
+      "attributes": " data-global-header-27"
+    },
+    {
+      "order": 133,
+      "id": "block-133",
+      "file": "src/js/fishing/art/133-production-art.js",
+      "type": "script",
+      "attributes": " data-production-art-27"
+    },
+    {
+      "order": 134,
+      "id": "block-134",
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "type": "script",
+      "attributes": " data-trophies-28"
+    },
+    {
+      "order": 135,
+      "id": "block-135",
+      "file": "src/css/fishing/135-presentation.css",
+      "type": "style",
+      "attributes": " id=\"fishing-presentation-28\""
+    },
+    {
+      "order": 136,
+      "id": "block-136",
+      "file": "src/js/fishing/136-polish29.js",
+      "type": "script",
+      "attributes": " data-polish-29"
+    },
+    {
+      "order": 137,
+      "id": "block-137",
+      "file": "src/css/fishing/137-polish29.css",
+      "type": "style",
+      "attributes": " id=\"polish-29\""
+    },
+    {
+      "order": 138,
+      "id": "block-138",
+      "file": "src/js/fishing/138-presentation30.js",
+      "type": "script",
+      "attributes": " data-presentation-30"
+    },
+    {
+      "order": 139,
+      "id": "block-139",
+      "file": "src/css/fishing/139-presentation30.css",
+      "type": "style",
+      "attributes": " id=\"presentation-30\""
+    },
+    {
+      "order": 140,
+      "id": "block-140",
+      "type": "script",
+      "file": "src/js/fishing/140-world31.js"
+    },
+    {
+      "order": 141,
+      "id": "block-141",
+      "type": "style",
+      "file": "src/css/fishing/141-world31.css"
+    },
+    {
+      "order": 142,
+      "id": "block-142",
+      "file": "src/js/fishing/142-progression32.js",
+      "type": "script",
+      "attributes": " data-progression-32"
+    },
+    {
+      "order": 143,
+      "id": "block-143",
+      "file": "src/css/fishing/143-progression32.css",
+      "type": "style",
+      "attributes": " id=\"progression-32\""
+    }
+  ],
+  "includes": [
+    {
+      "from": "src/js/fishing/minigame/016-e16-fishing.js",
+      "to": "src/catalogs/016-e16-fishing-e16_fish.js",
+      "block": 16
+    },
+    {
+      "from": "src/js/fishing/minigame/016-e16-fishing.js",
+      "to": "src/catalogs/016-e16-fishing-e190_weight_ranges.js",
+      "block": 16
+    },
+    {
+      "from": "src/js/fishing/minigame/018-e161-fishing.js",
+      "to": "src/catalogs/018-e161-fishing-e161_rods.js",
+      "block": 18
+    },
+    {
+      "from": "src/js/fishing/minigame/018-e161-fishing.js",
+      "to": "src/catalogs/018-e161-fishing-e161_difficulty.js",
+      "block": 18
+    },
+    {
+      "from": "src/js/fishing/minigame/021-e163-fishing.js",
+      "to": "src/catalogs/021-e163-fishing-e16_fish-additions-1.js",
+      "block": 21
+    },
+    {
+      "from": "src/js/fishing/minigame/025-e165-zones.js",
+      "to": "src/catalogs/025-e165-zones-e165_zones.js",
+      "block": 25
+    },
+    {
+      "from": "src/js/fishing/minigame/025-e165-zones.js",
+      "to": "src/catalogs/025-e165-zones-e16_fish-additions-1.js",
+      "block": 25
+    },
+    {
+      "from": "src/js/fishing/minigame/027-e17-quests.js",
+      "to": "src/catalogs/027-e17-quests-e17_quest.js",
+      "block": 27
+    },
+    {
+      "from": "src/js/fishing/minigame/027-e17-quests.js",
+      "to": "src/catalogs/027-e17-quests-e17_rod.js",
+      "block": 27
+    },
+    {
+      "from": "src/js/fishing/minigame/029-e171-improvements.js",
+      "to": "src/catalogs/029-e171-improvements-e171_quests.js",
+      "block": 29
+    },
+    {
+      "from": "src/js/fishing/minigame/035-e18-trophies.js",
+      "to": "src/catalogs/035-e18-trophies-e18_rod.js",
+      "block": 35
+    },
+    {
+      "from": "src/js/fishing/feedback/047-e187-expansion.js",
+      "to": "src/catalogs/047-e187-expansion-e187_fish.js",
+      "block": 47
+    },
+    {
+      "from": "src/js/fishing/feedback/047-e187-expansion.js",
+      "to": "src/catalogs/047-e187-expansion-e187_zones.js",
+      "block": 47
+    },
+    {
+      "from": "src/js/fishing/feedback/047-e187-expansion.js",
+      "to": "src/catalogs/047-e187-expansion-e187_quests.js",
+      "block": 47
+    },
+    {
+      "from": "src/js/fishing/feedback/047-e187-expansion.js",
+      "to": "src/catalogs/047-e187-expansion-e187_rod.js",
+      "block": 47
+    },
+    {
+      "from": "src/js/fishing/minigame/052-e190-polish.js",
+      "to": "src/catalogs/052-e190-polish-e210_capture_profiles.js",
+      "block": 52
+    },
+    {
+      "from": "src/js/fishing/minigame/075-e1103-progression.js",
+      "to": "src/catalogs/075-e1103-progression-e1103_special.js",
+      "block": 75
+    },
+    {
+      "from": "src/js/fishing/minigame/110-e208-catalog.js",
+      "to": "src/catalogs/110-e208-catalog-e208_families.js",
+      "block": 110
+    },
+    {
+      "from": "src/js/fishing/minigame/110-e208-catalog.js",
+      "to": "src/catalogs/110-e208-catalog-e208_specialties.js",
+      "block": 110
+    },
+    {
+      "from": "src/js/fishing/minigame/110-e208-catalog.js",
+      "to": "src/catalogs/110-e208-catalog-e212_offers.js",
+      "block": 110
+    },
+    {
+      "from": "src/js/fishing/art/111-e208-art.js",
+      "to": "src/catalogs/111-e208-art-e208_rod_art.js",
+      "block": 111
+    },
+    {
+      "from": "src/js/fishing/art/111-e208-art.js",
+      "to": "src/catalogs/111-e208-art-e208_fish_art.js",
+      "block": 111
+    },
+    {
+      "from": "src/js/fishing/expansion/130-expansion.js",
+      "to": "src/catalogs/130-expansion.js",
+      "block": 130
+    },
+    {
+      "from": "src/js/fishing/expansion/130-expansion.js",
+      "to": "src/catalogs/130-regional34.js",
+      "block": 130
+    },
+    {
+      "from": "src/js/fishing/art/133-production-art.js",
+      "to": "src/catalogs/133-art-frames.js",
+      "block": 133
+    },
+    {
+      "from": "src/js/fishing/140-world31.js",
+      "to": "src/catalogs/140-regional31.js",
+      "block": 140
+    },
+    {
+      "from": "src/js/fishing/142-progression32.js",
+      "to": "src/catalogs/142-progression32.js",
+      "block": 142
+    }
+  ],
+  "files": [
+    {
+      "file": "src/js/core/005-core.js",
+      "bytes": 99215,
+      "lines": 1633,
+      "block": 5
+    },
+    {
+      "file": "src/catalogs/133-art-frames.js",
+      "bytes": 37058,
+      "lines": 1713,
+      "block": 133
+    },
+    {
+      "file": "src/js/dev/010-dev-progression.js",
+      "bytes": 27987,
+      "lines": 325,
+      "block": 10
+    },
+    {
+      "file": "src/js/dev/013-progression-lab.js",
+      "bytes": 23263,
+      "lines": 175,
+      "block": 13
+    },
+    {
+      "file": "src/js/dev/008-dev-environment.js",
+      "bytes": 18557,
+      "lines": 266,
+      "block": 8
+    },
+    {
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "bytes": 16704,
+      "lines": 155,
+      "block": 16
+    },
+    {
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "bytes": 15729,
+      "lines": 87,
+      "block": 134
+    },
+    {
+      "file": "src/js/fishing/atlas/114-e216-atlas.js",
+      "bytes": 13566,
+      "lines": 78,
+      "block": 114
+    },
+    {
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "bytes": 12702,
+      "lines": 135,
+      "block": 11
+    },
+    {
+      "file": "src/js/fishing/collection/122-e218-journal.js",
+      "bytes": 12039,
+      "lines": 86,
+      "block": 122
+    },
+    {
+      "file": "src/catalogs/130-expansion.js",
+      "bytes": 12002,
+      "lines": 638,
+      "block": 130
+    },
+    {
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "bytes": 10703,
+      "lines": 105,
+      "block": 18
+    },
+    {
+      "file": "src/js/fishing/minigame/060-e194-polish.js",
+      "bytes": 9267,
+      "lines": 98,
+      "block": 60
+    },
+    {
+      "file": "src/js/ui/132-global-header.js",
+      "bytes": 9153,
+      "lines": 72,
+      "block": 132
+    },
+    {
+      "file": "src/js/fishing/art/089-e1113-art.js",
+      "bytes": 9065,
+      "lines": 83,
+      "block": 89
+    },
+    {
+      "file": "src/css/fishing/hud/117-fishing-hud-css.css",
+      "bytes": 8762,
+      "lines": 63,
+      "block": 117
+    },
+    {
+      "file": "src/js/fishing/collection/056-e192-collection.js",
+      "bytes": 8726,
+      "lines": 52,
+      "block": 56
+    },
+    {
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "bytes": 8693,
+      "lines": 129,
+      "block": 49
+    },
+    {
+      "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+      "bytes": 8433,
+      "lines": 92,
+      "block": 115
+    },
+    {
+      "file": "src/js/fishing/feedback/120-e217-xp-effects.js",
+      "bytes": 8407,
+      "lines": 104,
+      "block": 120
+    },
+    {
+      "file": "src/css/core/001-core.css",
+      "bytes": 8124,
+      "lines": 97,
+      "block": 1
+    },
+    {
+      "file": "src/js/fishing/minigame/110-e208-catalog.js",
+      "bytes": 7957,
+      "lines": 81,
+      "block": 110
+    },
+    {
+      "file": "src/js/fishing/minigame/052-e190-polish.js",
+      "bytes": 7905,
+      "lines": 79,
+      "block": 52
+    },
+    {
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "bytes": 7543,
+      "lines": 101,
+      "block": 47
+    },
+    {
+      "file": "src/js/fishing/142-progression32.js",
+      "bytes": 7223,
+      "lines": 53,
+      "block": 142
+    },
+    {
+      "file": "src/js/layout/006-hybrid-upgrade.js",
+      "bytes": 6967,
+      "lines": 119,
+      "block": 6
+    },
+    {
+      "file": "src/js/fishing/minigame/058-e193-improvements.js",
+      "bytes": 6825,
+      "lines": 97,
+      "block": 58
+    },
+    {
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "bytes": 6740,
+      "lines": 30,
+      "block": 102
+    },
+    {
+      "file": "src/catalogs/140-regional31.js",
+      "bytes": 6649,
+      "lines": 318,
+      "block": 140
+    },
+    {
+      "file": "src/js/fishing/expansion/130-expansion.js",
+      "bytes": 6617,
+      "lines": 67,
+      "block": 130
+    },
+    {
+      "file": "src/css/fishing/139-presentation30.css",
+      "bytes": 6607,
+      "lines": 51,
+      "block": 139
+    },
+    {
+      "file": "src/css/fishing/135-presentation.css",
+      "bytes": 6534,
+      "lines": 48,
+      "block": 135
+    },
+    {
+      "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+      "bytes": 6497,
+      "lines": 64,
+      "block": 108
+    },
+    {
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "bytes": 6402,
+      "lines": 83,
+      "block": 43
+    },
+    {
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "bytes": 5934,
+      "lines": 107,
+      "block": 29
+    },
+    {
+      "file": "src/js/fishing/hud/099-e1120-hud.js",
+      "bytes": 5467,
+      "lines": 58,
+      "block": 99
+    },
+    {
+      "file": "src/css/fishing/atlas/118-fishing-atlas-css.css",
+      "bytes": 5405,
+      "lines": 33,
+      "block": 118
+    },
+    {
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "bytes": 5393,
+      "lines": 82,
+      "block": 23
+    },
+    {
+      "file": "src/js/fishing/minigame/027-e17-quests.js",
+      "bytes": 5298,
+      "lines": 79,
+      "block": 27
+    },
+    {
+      "file": "src/js/fishing/136-polish29.js",
+      "bytes": 4939,
+      "lines": 31,
+      "block": 136
+    },
+    {
+      "file": "src/css/fishing/art/126-e221-art-and-overlays.css",
+      "bytes": 4813,
+      "lines": 38,
+      "block": 126
+    },
+    {
+      "file": "src/css/ui/131-global-header.css",
+      "bytes": 4799,
+      "lines": 34,
+      "block": 131
+    },
+    {
+      "file": "src/js/fishing/shop/119-e217-rod-ux.js",
+      "bytes": 4726,
+      "lines": 62,
+      "block": 119
+    },
+    {
+      "file": "src/js/fishing/138-presentation30.js",
+      "bytes": 4673,
+      "lines": 30,
+      "block": 138
+    },
+    {
+      "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+      "bytes": 4210,
+      "lines": 62,
+      "block": 87
+    },
+    {
+      "file": "src/js/fishing/minigame/035-e18-trophies.js",
+      "bytes": 4197,
+      "lines": 70,
+      "block": 35
+    },
+    {
+      "file": "src/js/fishing/140-world31.js",
+      "bytes": 4085,
+      "lines": 35,
+      "block": 140
+    },
+    {
+      "file": "src/js/fishing/art/095-e1117-full-art.js",
+      "bytes": 4029,
+      "lines": 29,
+      "block": 95
+    },
+    {
+      "file": "src/css/fishing/collection/124-e220-collection-polish.css",
+      "bytes": 3974,
+      "lines": 28,
+      "block": 124
+    },
+    {
+      "file": "src/catalogs/142-progression32.js",
+      "bytes": 3884,
+      "lines": 95,
+      "block": 142
+    },
+    {
+      "file": "src/js/fishing/minigame/075-e1103-progression.js",
+      "bytes": 3791,
+      "lines": 82,
+      "block": 75
+    },
+    {
+      "file": "src/catalogs/130-regional34.js",
+      "bytes": 3708,
+      "lines": 48,
+      "block": 130
+    },
+    {
+      "file": "src/js/fishing/minigame/045-e186-fishing.js",
+      "bytes": 3658,
+      "lines": 62,
+      "block": 45
+    },
+    {
+      "file": "src/js/fishing/minigame/127-e222-navigation.js",
+      "bytes": 3436,
+      "lines": 31,
+      "block": 127
+    },
+    {
+      "file": "src/js/fishing/minigame/025-e165-zones.js",
+      "bytes": 3370,
+      "lines": 59,
+      "block": 25
+    },
+    {
+      "file": "src/js/shop/014-e15-merchant.js",
+      "bytes": 3369,
+      "lines": 52,
+      "block": 14
+    },
+    {
+      "file": "src/js/fishing/art/091-e1114-hd-art.js",
+      "bytes": 3265,
+      "lines": 23,
+      "block": 91
+    },
+    {
+      "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+      "bytes": 3257,
+      "lines": 24,
+      "block": 50
+    },
+    {
+      "file": "src/js/fishing/minigame/031-e172-fixes.js",
+      "bytes": 3211,
+      "lines": 66,
+      "block": 31
+    },
+    {
+      "file": "src/css/layout/002-hybrid-upgrade.css",
+      "bytes": 3167,
+      "lines": 50,
+      "block": 2
+    },
+    {
+      "file": "src/js/fishing/minigame/062-e195-fishing.js",
+      "bytes": 3166,
+      "lines": 57,
+      "block": 62
+    },
+    {
+      "file": "src/css/fishing/137-polish29.css",
+      "bytes": 3160,
+      "lines": 24,
+      "block": 137
+    },
+    {
+      "file": "src/css/fishing/141-world31.css",
+      "bytes": 3135,
+      "lines": 25,
+      "block": 141
+    },
+    {
+      "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+      "bytes": 3124,
+      "lines": 50,
+      "block": 80
+    },
+    {
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "bytes": 3058,
+      "lines": 50,
+      "block": 21
+    },
+    {
+      "file": "src/js/fishing/minigame/033-e173-fishing.js",
+      "bytes": 2834,
+      "lines": 51,
+      "block": 33
+    },
+    {
+      "file": "src/css/fishing/feedback/121-rod-selection-and-xp-feedback-css.css",
+      "bytes": 2829,
+      "lines": 23,
+      "block": 121
+    },
+    {
+      "file": "src/css/fishing/shop/113-e1121-rod-shop.css",
+      "bytes": 2801,
+      "lines": 33,
+      "block": 113
+    },
+    {
+      "file": "src/js/fishing/minigame/066-e197-fishing.js",
+      "bytes": 2796,
+      "lines": 32,
+      "block": 66
+    },
+    {
+      "file": "src/js/fishing/minigame/054-e191-polish.js",
+      "bytes": 2730,
+      "lines": 39,
+      "block": 54
+    },
+    {
+      "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+      "bytes": 2673,
+      "lines": 54,
+      "block": 73
+    },
+    {
+      "file": "src/js/fishing/minigame/071-e1101-balance.js",
+      "bytes": 2582,
+      "lines": 54,
+      "block": 71
+    },
+    {
+      "file": "src/js/fishing/art/125-e221-compact-art.js",
+      "bytes": 2574,
+      "lines": 22,
+      "block": 125
+    },
+    {
+      "file": "src/js/fishing/minigame/039-e182-fishing.js",
+      "bytes": 2569,
+      "lines": 52,
+      "block": 39
+    },
+    {
+      "file": "src/css/fishing/collection/123-fishing-journal-css.css",
+      "bytes": 2508,
+      "lines": 19,
+      "block": 123
+    },
+    {
+      "file": "src/css/layout/004-e14-hud-fix.css",
+      "bytes": 2453,
+      "lines": 35,
+      "block": 4
+    },
+    {
+      "file": "src/css/fishing/minigame/063-e196-style.css",
+      "bytes": 2439,
+      "lines": 20,
+      "block": 63
+    },
+    {
+      "file": "src/js/fishing/minigame/064-e196-fishing.js",
+      "bytes": 2312,
+      "lines": 37,
+      "block": 64
+    },
+    {
+      "file": "src/css/fishing/minigame/081-e1108-fishing-layout.css",
+      "bytes": 2304,
+      "lines": 40,
+      "block": 81
+    },
+    {
+      "file": "src/css/fishing/minigame/057-e193-style.css",
+      "bytes": 2152,
+      "lines": 23,
+      "block": 57
+    },
+    {
+      "file": "src/css/fishing/minigame/079-e1107-fishing-ui.css",
+      "bytes": 2141,
+      "lines": 39,
+      "block": 79
+    },
+    {
+      "file": "src/js/fishing/minigame/041-e183-fishing.js",
+      "bytes": 2140,
+      "lines": 41,
+      "block": 41
+    },
+    {
+      "file": "src/css/fishing/minigame/019-e162-fishing.css",
+      "bytes": 2053,
+      "lines": 23,
+      "block": 19
+    },
+    {
+      "file": "src/css/fishing/minigame/083-e1109-final-polish.css",
+      "bytes": 2039,
+      "lines": 32,
+      "block": 83
+    },
+    {
+      "file": "src/css/fishing/art/093-e1116-full-art.css",
+      "bytes": 1897,
+      "lines": 35,
+      "block": 93
+    },
+    {
+      "file": "src/css/fishing/minigame/061-e195-style.css",
+      "bytes": 1808,
+      "lines": 18,
+      "block": 61
+    },
+    {
+      "file": "src/css/fishing/minigame/107-e1119-clean-fishing-layout.css",
+      "bytes": 1782,
+      "lines": 36,
+      "block": 107
+    },
+    {
+      "file": "src/css/fishing/minigame/038-e182-fishing-compact.css",
+      "bytes": 1776,
+      "lines": 29,
+      "block": 38
+    },
+    {
+      "file": "src/js/fishing/art/133-production-art.js",
+      "bytes": 1580,
+      "lines": 20,
+      "block": 133
+    },
+    {
+      "file": "src/css/fishing/minigame/046-e187-css.css",
+      "bytes": 1575,
+      "lines": 16,
+      "block": 46
+    },
+    {
+      "file": "src/css/fishing/minigame/055-e192-style.css",
+      "bytes": 1550,
+      "lines": 16,
+      "block": 55
+    },
+    {
+      "file": "src/css/fishing/minigame/059-e194-style.css",
+      "bytes": 1515,
+      "lines": 23,
+      "block": 59
+    },
+    {
+      "file": "src/css/fishing/art/092-e1115-hd-fit.css",
+      "bytes": 1500,
+      "lines": 31,
+      "block": 92
+    },
+    {
+      "file": "src/css/fishing/minigame/103-e1114-visual-stability.css",
+      "bytes": 1472,
+      "lines": 17,
+      "block": 103
+    },
+    {
+      "file": "src/css/layout/003-e13.css",
+      "bytes": 1457,
+      "lines": 20,
+      "block": 3
+    },
+    {
+      "file": "src/css/fishing/minigame/015-e16-fishing-css.css",
+      "bytes": 1423,
+      "lines": 13,
+      "block": 15
+    },
+    {
+      "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+      "bytes": 1416,
+      "lines": 23,
+      "block": 100
+    },
+    {
+      "file": "src/catalogs/110-e208-catalog-e208_families.js",
+      "bytes": 1410,
+      "lines": 15,
+      "block": 110
+    },
+    {
+      "file": "src/catalogs/047-e187-expansion-e187_fish.js",
+      "bytes": 1390,
+      "lines": 14,
+      "block": 47
+    },
+    {
+      "file": "src/css/fishing/minigame/101-e1123-zone-identity.css",
+      "bytes": 1303,
+      "lines": 16,
+      "block": 101
+    },
+    {
+      "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+      "bytes": 1276,
+      "lines": 38,
+      "block": 77
+    },
+    {
+      "file": "src/css/fishing/minigame/094-e1117-layout.css",
+      "bytes": 1259,
+      "lines": 18,
+      "block": 94
+    },
+    {
+      "file": "src/catalogs/075-e1103-progression-e1103_special.js",
+      "bytes": 1206,
+      "lines": 14,
+      "block": 75
+    },
+    {
+      "file": "src/css/fishing/minigame/042-e185-polish-css.css",
+      "bytes": 1205,
+      "lines": 12,
+      "block": 42
+    },
+    {
+      "file": "src/css/fishing/art/112-e208-illustration-frames.css",
+      "bytes": 1197,
+      "lines": 15,
+      "block": 112
+    },
+    {
+      "file": "src/css/fishing/minigame/085-e1110-simplified-fishing.css",
+      "bytes": 1186,
+      "lines": 24,
+      "block": 85
+    },
+    {
+      "file": "src/js/fishing/art/111-e208-art.js",
+      "bytes": 1161,
+      "lines": 20,
+      "block": 111
+    },
+    {
+      "file": "src/js/fishing/art/104-e1114-menu-art.js",
+      "bytes": 1159,
+      "lines": 23,
+      "block": 104
+    },
+    {
+      "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+      "bytes": 1116,
+      "lines": 27,
+      "block": 82
+    },
+    {
+      "file": "src/js/fishing/minigame/068-e198-fishing.js",
+      "bytes": 1110,
+      "lines": 26,
+      "block": 68
+    },
+    {
+      "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+      "bytes": 1096,
+      "lines": 21,
+      "block": 97
+    },
+    {
+      "file": "src/css/fishing/minigame/020-e163-style.css",
+      "bytes": 1057,
+      "lines": 13,
+      "block": 20
+    },
+    {
+      "file": "src/css/fishing/hud/098-e1120-hud.css",
+      "bytes": 1007,
+      "lines": 10,
+      "block": 98
+    },
+    {
+      "file": "src/css/fishing/minigame/032-e173-fishing-css.css",
+      "bytes": 959,
+      "lines": 12,
+      "block": 32
+    },
+    {
+      "file": "src/css/fishing/minigame/044-e186-style.css",
+      "bytes": 958,
+      "lines": 12,
+      "block": 44
+    },
+    {
+      "file": "src/css/fishing/minigame/028-e171-style.css",
+      "bytes": 945,
+      "lines": 14,
+      "block": 28
+    },
+    {
+      "file": "src/css/fishing/minigame/026-e17-quests-style.css",
+      "bytes": 939,
+      "lines": 13,
+      "block": 26
+    },
+    {
+      "file": "src/css/dev/007-dev-environment.css",
+      "bytes": 908,
+      "lines": 12,
+      "block": 7
+    },
+    {
+      "file": "src/css/fishing/art/090-e1114-hd-styles.css",
+      "bytes": 900,
+      "lines": 10,
+      "block": 90
+    },
+    {
+      "file": "src/css/fishing/hud/065-fishing-sidebar-css.css",
+      "bytes": 891,
+      "lines": 12,
+      "block": 65
+    },
+    {
+      "file": "src/css/fishing/minigame/105-e1115-viewport-and-fish.css",
+      "bytes": 881,
+      "lines": 20,
+      "block": 105
+    },
+    {
+      "file": "src/js/fishing/art/129-e223-art-presentation.js",
+      "bytes": 860,
+      "lines": 13,
+      "block": 129
+    },
+    {
+      "file": "src/catalogs/016-e16-fishing-e190_weight_ranges.js",
+      "bytes": 843,
+      "lines": 10,
+      "block": 16
+    },
+    {
+      "file": "src/css/fishing/hud/116-fishing-sidebar-and-quest-css.css",
+      "bytes": 842,
+      "lines": 16,
+      "block": 116
+    },
+    {
+      "file": "src/css/fishing/minigame/128-e222-navigation-css.css",
+      "bytes": 834,
+      "lines": 4,
+      "block": 128
+    },
+    {
+      "file": "src/catalogs/110-e208-catalog-e208_specialties.js",
+      "bytes": 820,
+      "lines": 8,
+      "block": 110
+    },
+    {
+      "file": "src/css/fishing/minigame/022-e164-style.css",
+      "bytes": 771,
+      "lines": 11,
+      "block": 22
+    },
+    {
+      "file": "src/css/dev/009-dev-progression.css",
+      "bytes": 689,
+      "lines": 3,
+      "block": 9
+    },
+    {
+      "file": "src/css/fishing/hud/106-e1116-hud-layout-and-stable-phases.css",
+      "bytes": 661,
+      "lines": 14,
+      "block": 106
+    },
+    {
+      "file": "src/css/fishing/minigame/017-e161-style.css",
+      "bytes": 660,
+      "lines": 9,
+      "block": 17
+    },
+    {
+      "file": "src/catalogs/047-e187-expansion-e187_quests.js",
+      "bytes": 655,
+      "lines": 5,
+      "block": 47
+    },
+    {
+      "file": "src/catalogs/047-e187-expansion-e187_zones.js",
+      "bytes": 652,
+      "lines": 5,
+      "block": 47
+    },
+    {
+      "file": "src/css/fishing/minigame/024-e165-zones-css.css",
+      "bytes": 643,
+      "lines": 9,
+      "block": 24
+    },
+    {
+      "file": "src/css/fishing/minigame/034-e18-trophies-style.css",
+      "bytes": 632,
+      "lines": 9,
+      "block": 34
+    },
+    {
+      "file": "src/css/fishing/minigame/040-e183-style.css",
+      "bytes": 632,
+      "lines": 9,
+      "block": 40
+    },
+    {
+      "file": "src/css/dev/012-progression-lab.css",
+      "bytes": 619,
+      "lines": 3,
+      "block": 12
+    },
+    {
+      "file": "src/css/fishing/minigame/053-e191-style.css",
+      "bytes": 597,
+      "lines": 10,
+      "block": 53
+    },
+    {
+      "file": "src/css/fishing/minigame/070-e1101-balance-css.css",
+      "bytes": 583,
+      "lines": 8,
+      "block": 70
+    },
+    {
+      "file": "src/catalogs/025-e165-zones-e165_zones.js",
+      "bytes": 564,
+      "lines": 5,
+      "block": 25
+    },
+    {
+      "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+      "bytes": 550,
+      "lines": 16,
+      "block": 78
+    },
+    {
+      "file": "src/catalogs/025-e165-zones-e16_fish-additions-1.js",
+      "bytes": 547,
+      "lines": 7,
+      "block": 25
+    },
+    {
+      "file": "src/catalogs/029-e171-improvements-e171_quests.js",
+      "bytes": 533,
+      "lines": 4,
+      "block": 29
+    },
+    {
+      "file": "src/catalogs/018-e161-fishing-e161_rods.js",
+      "bytes": 506,
+      "lines": 6,
+      "block": 18
+    },
+    {
+      "file": "src/catalogs/016-e16-fishing-e16_fish.js",
+      "bytes": 499,
+      "lines": 7,
+      "block": 16
+    },
+    {
+      "file": "src/css/fishing/minigame/076-e1105-clean-fishing.css",
+      "bytes": 439,
+      "lines": 7,
+      "block": 76
+    },
+    {
+      "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+      "bytes": 420,
+      "lines": 13,
+      "block": 84
+    },
+    {
+      "file": "src/css/fishing/art/088-e1113-art-style.css",
+      "bytes": 420,
+      "lines": 6,
+      "block": 88
+    },
+    {
+      "file": "src/catalogs/021-e163-fishing-e16_fish-additions-1.js",
+      "bytes": 385,
+      "lines": 5,
+      "block": 21
+    },
+    {
+      "file": "src/css/fishing/minigame/030-e172-css.css",
+      "bytes": 361,
+      "lines": 6,
+      "block": 30
+    },
+    {
+      "file": "src/css/fishing/minigame/036-e181-style.css",
+      "bytes": 341,
+      "lines": 5,
+      "block": 36
+    },
+    {
+      "file": "src/js/fishing/minigame/037-e181-balance.js",
+      "bytes": 300,
+      "lines": 10,
+      "block": 37
+    },
+    {
+      "file": "src/css/fishing/minigame/048-e188-css.css",
+      "bytes": 300,
+      "lines": 8,
+      "block": 48
+    },
+    {
+      "file": "src/css/fishing/143-progression32.css",
+      "bytes": 298,
+      "lines": 6,
+      "block": 143
+    },
+    {
+      "file": "src/catalogs/110-e208-catalog-e212_offers.js",
+      "bytes": 289,
+      "lines": 1,
+      "block": 110
+    },
+    {
+      "file": "src/css/fishing/minigame/069-e199-scroll-stability.css",
+      "bytes": 251,
+      "lines": 5,
+      "block": 69
+    },
+    {
+      "file": "src/css/fishing/minigame/051-e190-polish.css",
+      "bytes": 250,
+      "lines": 9,
+      "block": 51
+    },
+    {
+      "file": "src/css/fishing/minigame/074-e1103-progression.css",
+      "bytes": 248,
+      "lines": 5,
+      "block": 74
+    },
+    {
+      "file": "src/catalogs/052-e190-polish-e210_capture_profiles.js",
+      "bytes": 246,
+      "lines": 6,
+      "block": 52
+    },
+    {
+      "file": "src/catalogs/111-e208-art-e208_rod_art.js",
+      "bytes": 217,
+      "lines": 1,
+      "block": 111
+    },
+    {
+      "file": "src/css/fishing/minigame/086-e1111-catch-result.css",
+      "bytes": 214,
+      "lines": 7,
+      "block": 86
+    },
+    {
+      "file": "src/catalogs/027-e17-quests-e17_rod.js",
+      "bytes": 204,
+      "lines": 2,
+      "block": 27
+    },
+    {
+      "file": "src/css/fishing/art/109-e1120-fish-art.css",
+      "bytes": 182,
+      "lines": 5,
+      "block": 109
+    },
+    {
+      "file": "src/catalogs/027-e17-quests-e17_quest.js",
+      "bytes": 175,
+      "lines": 3,
+      "block": 27
+    },
+    {
+      "file": "src/css/fishing/minigame/067-e198-style.css",
+      "bytes": 154,
+      "lines": 4,
+      "block": 67
+    },
+    {
+      "file": "src/catalogs/035-e18-trophies-e18_rod.js",
+      "bytes": 153,
+      "lines": 1,
+      "block": 35
+    },
+    {
+      "file": "src/catalogs/047-e187-expansion-e187_rod.js",
+      "bytes": 151,
+      "lines": 1,
+      "block": 47
+    },
+    {
+      "file": "src/css/fishing/minigame/072-e1102-quest-stats.css",
+      "bytes": 135,
+      "lines": 4,
+      "block": 72
+    },
+    {
+      "file": "src/css/fishing/hud/096-e1118-compact-fishing-hud.css",
+      "bytes": 113,
+      "lines": 5,
+      "block": 96
+    },
+    {
+      "file": "src/catalogs/111-e208-art-e208_fish_art.js",
+      "bytes": 109,
+      "lines": 1,
+      "block": 111
+    },
+    {
+      "file": "src/catalogs/018-e161-fishing-e161_difficulty.js",
+      "bytes": 86,
+      "lines": 1,
+      "block": 18
+    }
+  ],
+  "redefinitions": [
+    {
+      "name": "e16Page",
+      "sites": [
+        {
+          "name": "e16Page",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 104,
+          "block": 16
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 38,
+          "block": 18
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 69,
+          "block": 23
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/025-e165-zones.js",
+          "line": 27,
+          "block": 25
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 39,
+          "block": 27
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 53,
+          "block": 29
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/031-e172-fixes.js",
+          "line": 11,
+          "block": 31
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/033-e173-fishing.js",
+          "line": 7,
+          "block": 33
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 41,
+          "block": 35
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/039-e182-fishing.js",
+          "line": 6,
+          "block": 39
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/041-e183-fishing.js",
+          "line": 5,
+          "block": 41
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 29,
+          "block": 43
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/045-e186-fishing.js",
+          "line": 25,
+          "block": 45
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 50,
+          "block": 47
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 28,
+          "block": 49
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/052-e190-polish.js",
+          "line": 24,
+          "block": 52
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/054-e191-polish.js",
+          "line": 12,
+          "block": 54
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 46,
+          "block": 56
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/058-e193-improvements.js",
+          "line": 11,
+          "block": 58
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 54,
+          "block": 60
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 40,
+          "block": 62
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 24,
+          "block": 66
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/071-e1101-balance.js",
+          "line": 23,
+          "block": 71
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+          "line": 24,
+          "block": 73
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 61,
+          "block": 75
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+          "line": 6,
+          "block": 77
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+          "line": 6,
+          "block": 78
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+          "line": 40,
+          "block": 80
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+          "line": 6,
+          "block": 82
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+          "line": 6,
+          "block": 84
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+          "line": 50,
+          "block": 87
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/089-e1113-art.js",
+          "line": 82,
+          "block": 89
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/091-e1114-hd-art.js",
+          "line": 12,
+          "block": 91
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 16,
+          "block": 95
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 25,
+          "block": 102
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+          "line": 41,
+          "block": 115
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/collection/122-e218-journal.js",
+          "line": 84,
+          "block": 122
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/125-e221-compact-art.js",
+          "line": 19,
+          "block": 125
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 58,
+          "block": 130
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 85,
+          "block": 134
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/136-polish29.js",
+          "line": 21,
+          "block": 136
+        },
+        {
+          "name": "e16Page",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 34,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e164OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 68,
+          "block": 23
+        },
+        {
+          "alias": "e165PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/025-e165-zones.js",
+          "line": 26,
+          "block": 25
+        },
+        {
+          "alias": "e17PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 38,
+          "block": 27
+        },
+        {
+          "alias": "e171PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 52,
+          "block": 29
+        },
+        {
+          "alias": "e172PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/031-e172-fixes.js",
+          "line": 10,
+          "block": 31
+        },
+        {
+          "alias": "e173PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/033-e173-fishing.js",
+          "line": 6,
+          "block": 33
+        },
+        {
+          "alias": "e18OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 40,
+          "block": 35
+        },
+        {
+          "alias": "e182BeforePage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/039-e182-fishing.js",
+          "line": 5,
+          "block": 39
+        },
+        {
+          "alias": "e183PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/041-e183-fishing.js",
+          "line": 4,
+          "block": 41
+        },
+        {
+          "alias": "e185PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 28,
+          "block": 43
+        },
+        {
+          "alias": "e186PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/045-e186-fishing.js",
+          "line": 24,
+          "block": 45
+        },
+        {
+          "alias": "e187PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 49,
+          "block": 47
+        },
+        {
+          "alias": "e188PriorQuestPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 27,
+          "block": 49
+        },
+        {
+          "alias": "e190PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/052-e190-polish.js",
+          "line": 23,
+          "block": 52
+        },
+        {
+          "alias": "e191PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/054-e191-polish.js",
+          "line": 11,
+          "block": 54
+        },
+        {
+          "alias": "e192PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 45,
+          "block": 56
+        },
+        {
+          "alias": "e193PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/058-e193-improvements.js",
+          "line": 10,
+          "block": 58
+        },
+        {
+          "alias": "e194PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 53,
+          "block": 60
+        },
+        {
+          "alias": "e195PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 39,
+          "block": 62
+        },
+        {
+          "alias": "e197PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 23,
+          "block": 66
+        },
+        {
+          "alias": "e1101OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/071-e1101-balance.js",
+          "line": 22,
+          "block": 71
+        },
+        {
+          "alias": "e1102PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+          "line": 23,
+          "block": 73
+        },
+        {
+          "alias": "e1103OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 60,
+          "block": 75
+        },
+        {
+          "alias": "e1105PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+          "line": 5,
+          "block": 77
+        },
+        {
+          "alias": "e1106OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+          "line": 5,
+          "block": 78
+        },
+        {
+          "alias": "e1107OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+          "line": 39,
+          "block": 80
+        },
+        {
+          "alias": "e1108OldPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+          "line": 5,
+          "block": 82
+        },
+        {
+          "alias": "e1109PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+          "line": 5,
+          "block": 84
+        },
+        {
+          "alias": "e1111PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+          "line": 49,
+          "block": 87
+        },
+        {
+          "alias": "e1113PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/art/089-e1113-art.js",
+          "line": 81,
+          "block": 89
+        },
+        {
+          "alias": "e1114PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/art/091-e1114-hd-art.js",
+          "line": 11,
+          "block": 91
+        },
+        {
+          "alias": "e1117PageOld",
+          "target": "e16Page",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 15,
+          "block": 95
+        },
+        {
+          "alias": "previousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 25,
+          "block": 102
+        },
+        {
+          "alias": "old",
+          "target": "e16Page",
+          "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+          "line": 4,
+          "block": 115
+        },
+        {
+          "alias": "e218PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/collection/122-e218-journal.js",
+          "line": 83,
+          "block": 122
+        },
+        {
+          "alias": "e221PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/art/125-e221-compact-art.js",
+          "line": 18,
+          "block": 125
+        },
+        {
+          "alias": "e227PriorPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 57,
+          "block": 130
+        },
+        {
+          "alias": "e228PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 84,
+          "block": 134
+        },
+        {
+          "alias": "e229PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/136-polish29.js",
+          "line": 20,
+          "block": 136
+        },
+        {
+          "alias": "e231PreviousPage",
+          "target": "e16Page",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 33,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "renderGame",
+      "sites": [
+        {
+          "name": "renderGame",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 471,
+          "block": 5
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1496,
+          "block": 5
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1624,
+          "block": 5
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 114,
+          "block": 8
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/shop/014-e15-merchant.js",
+          "line": 30,
+          "block": 14
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 137,
+          "block": 16
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 37,
+          "block": 18
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 49,
+          "block": 21
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 71,
+          "block": 23
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 70,
+          "block": 43
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 126,
+          "block": 49
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/058-e193-improvements.js",
+          "line": 78,
+          "block": 58
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 97,
+          "block": 60
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 28,
+          "block": 66
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+          "line": 20,
+          "block": 97
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/099-e1120-hud.js",
+          "line": 56,
+          "block": 99
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 19,
+          "block": 100
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 24,
+          "block": 102
+        },
+        {
+          "name": "renderGame",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 59,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e13PreviousRender",
+          "target": "renderGame",
+          "file": "src/js/core/005-core.js",
+          "line": 1495,
+          "block": 5
+        },
+        {
+          "alias": "e14RenderGame",
+          "target": "renderGame",
+          "file": "src/js/core/005-core.js",
+          "line": 1623,
+          "block": 5
+        },
+        {
+          "alias": "normalRenderGame",
+          "target": "renderGame",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 12,
+          "block": 8
+        },
+        {
+          "alias": "e15OldRenderGame",
+          "target": "renderGame",
+          "file": "src/js/shop/014-e15-merchant.js",
+          "line": 29,
+          "block": 14
+        },
+        {
+          "alias": "e16OldRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 136,
+          "block": 16
+        },
+        {
+          "alias": "e161PreviousRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 36,
+          "block": 18
+        },
+        {
+          "alias": "e163Render",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 48,
+          "block": 21
+        },
+        {
+          "alias": "e164OldRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 70,
+          "block": 23
+        },
+        {
+          "alias": "e185PriorRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 69,
+          "block": 43
+        },
+        {
+          "alias": "e188PriorRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 125,
+          "block": 49
+        },
+        {
+          "alias": "e193PriorRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/058-e193-improvements.js",
+          "line": 77,
+          "block": 58
+        },
+        {
+          "alias": "e194PriorRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 96,
+          "block": 60
+        },
+        {
+          "alias": "e197PreviousRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 27,
+          "block": 66
+        },
+        {
+          "alias": "e1118PrevRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+          "line": 19,
+          "block": 97
+        },
+        {
+          "alias": "oldRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/hud/099-e1120-hud.js",
+          "line": 56,
+          "block": 99
+        },
+        {
+          "alias": "priorRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 18,
+          "block": 100
+        },
+        {
+          "alias": "previousRender",
+          "target": "renderGame",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 24,
+          "block": 102
+        },
+        {
+          "alias": "e227PreviousRender",
+          "target": "renderGame",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 58,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "e16Finish",
+      "sites": [
+        {
+          "name": "e16Finish",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 120,
+          "block": 16
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 89,
+          "block": 18
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 24,
+          "block": 21
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 17,
+          "block": 35
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/039-e182-fishing.js",
+          "line": 31,
+          "block": 39
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/041-e183-fishing.js",
+          "line": 30,
+          "block": 41
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 12,
+          "block": 43
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 28,
+          "block": 47
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 122,
+          "block": 49
+        },
+        {
+          "name": "e16Finish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+          "line": 38,
+          "block": 87
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e163Finish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 23,
+          "block": 21
+        },
+        {
+          "alias": "e18OldFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 16,
+          "block": 35
+        },
+        {
+          "alias": "e182BeforeFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/039-e182-fishing.js",
+          "line": 30,
+          "block": 39
+        },
+        {
+          "alias": "e183PreviousFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/041-e183-fishing.js",
+          "line": 29,
+          "block": 41
+        },
+        {
+          "alias": "e185PriorFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 11,
+          "block": 43
+        },
+        {
+          "alias": "e187PreviousFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 27,
+          "block": 47
+        },
+        {
+          "alias": "e188PriorFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 121,
+          "block": 49
+        },
+        {
+          "alias": "e1111PriorFinish",
+          "target": "e16Finish",
+          "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+          "line": 37,
+          "block": 87
+        }
+      ]
+    },
+    {
+      "name": "e188UpdateHud",
+      "sites": [
+        {
+          "name": "e188UpdateHud",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 113,
+          "block": 49
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 21,
+          "block": 50
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 95,
+          "block": 60
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+          "line": 42,
+          "block": 80
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+          "line": 18,
+          "block": 97
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/099-e1120-hud.js",
+          "line": 55,
+          "block": 99
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 17,
+          "block": 100
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 26,
+          "block": 102
+        },
+        {
+          "name": "e188UpdateHud",
+          "kind": "assignment",
+          "file": "src/js/fishing/136-polish29.js",
+          "line": 30,
+          "block": 136
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e189PrevHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 20,
+          "block": 50
+        },
+        {
+          "alias": "e194PriorHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 94,
+          "block": 60
+        },
+        {
+          "alias": "e1107OldHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+          "line": 41,
+          "block": 80
+        },
+        {
+          "alias": "e1118PrevHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+          "line": 17,
+          "block": 97
+        },
+        {
+          "alias": "old",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/hud/099-e1120-hud.js",
+          "line": 55,
+          "block": 99
+        },
+        {
+          "alias": "priorHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 16,
+          "block": 100
+        },
+        {
+          "alias": "previousHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 26,
+          "block": 102
+        },
+        {
+          "alias": "e229PreviousHud",
+          "target": "e188UpdateHud",
+          "file": "src/js/fishing/136-polish29.js",
+          "line": 29,
+          "block": 136
+        }
+      ]
+    },
+    {
+      "name": "e189FishSVG",
+      "sites": [
+        {
+          "name": "e189FishSVG",
+          "kind": "declaration",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 4,
+          "block": 50
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 14,
+          "block": 56
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "declaration",
+          "file": "src/js/fishing/art/089-e1113-art.js",
+          "line": 65,
+          "block": 89
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/091-e1114-hd-art.js",
+          "line": 10,
+          "block": 91
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 11,
+          "block": 95
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+          "line": 46,
+          "block": 108
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/111-e208-art.js",
+          "line": 15,
+          "block": 111
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 9,
+          "block": 133
+        },
+        {
+          "name": "e189FishSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 14,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e1117FishOld",
+          "target": "e189FishSVG",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 10,
+          "block": 95
+        },
+        {
+          "alias": "oldFishArt",
+          "target": "e189FishSVG",
+          "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+          "line": 44,
+          "block": 108
+        },
+        {
+          "alias": "e208PreviousFishArt",
+          "target": "e189FishSVG",
+          "file": "src/js/fishing/art/111-e208-art.js",
+          "line": 14,
+          "block": 111
+        },
+        {
+          "alias": "e227PreviousFishArt",
+          "target": "e189FishSVG",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 8,
+          "block": 133
+        },
+        {
+          "alias": "e231OldFishArt",
+          "target": "e189FishSVG",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 6,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "e161NextBite",
+      "sites": [
+        {
+          "name": "e161NextBite",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 12,
+          "block": 18
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 19,
+          "block": 23
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 13,
+          "block": 27
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 31,
+          "block": 29
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/033-e173-fishing.js",
+          "line": 47,
+          "block": 33
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 40,
+          "block": 47
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/068-e198-fishing.js",
+          "line": 6,
+          "block": 68
+        },
+        {
+          "name": "e161NextBite",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 39,
+          "block": 75
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e164NextBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 18,
+          "block": 23
+        },
+        {
+          "alias": "e17PreviousBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 12,
+          "block": 27
+        },
+        {
+          "alias": "e171PreviousNextBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 30,
+          "block": 29
+        },
+        {
+          "alias": "e173PriorNextBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/033-e173-fishing.js",
+          "line": 46,
+          "block": 33
+        },
+        {
+          "alias": "e187PreviousBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 39,
+          "block": 47
+        },
+        {
+          "alias": "e198PreviousNextBite",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/068-e198-fishing.js",
+          "line": 5,
+          "block": 68
+        },
+        {
+          "alias": "e1103OldNext",
+          "target": "e161NextBite",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 38,
+          "block": 75
+        }
+      ]
+    },
+    {
+      "name": "updateLive",
+      "sites": [
+        {
+          "name": "updateLive",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 663,
+          "block": 5
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1494,
+          "block": 5
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1626,
+          "block": 5
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/layout/006-hybrid-upgrade.js",
+          "line": 95,
+          "block": 6
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 48,
+          "block": 13
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 15,
+          "block": 100
+        },
+        {
+          "name": "updateLive",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 61,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e13PreviousLive",
+          "target": "updateLive",
+          "file": "src/js/core/005-core.js",
+          "line": 1493,
+          "block": 5
+        },
+        {
+          "alias": "e14UpdateLive",
+          "target": "updateLive",
+          "file": "src/js/core/005-core.js",
+          "line": 1625,
+          "block": 5
+        },
+        {
+          "alias": "compactLiveStable",
+          "target": "updateLive",
+          "file": "src/js/layout/006-hybrid-upgrade.js",
+          "line": 5,
+          "block": 6
+        },
+        {
+          "alias": "progressLive",
+          "target": "updateLive",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 47,
+          "block": 13
+        },
+        {
+          "alias": "priorLive",
+          "target": "updateLive",
+          "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+          "line": 14,
+          "block": 100
+        },
+        {
+          "alias": "e227PreviousLive",
+          "target": "updateLive",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 60,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "selectWorkspaceTab",
+      "sites": [
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1194,
+          "block": 5
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 31,
+          "block": 18
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 124,
+          "block": 49
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 56,
+          "block": 62
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 26,
+          "block": 66
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+          "line": 82,
+          "block": 115
+        },
+        {
+          "name": "selectWorkspaceTab",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/125-e221-compact-art.js",
+          "line": 21,
+          "block": 125
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e161PreviousTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 30,
+          "block": 18
+        },
+        {
+          "alias": "e188PriorTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 123,
+          "block": 49
+        },
+        {
+          "alias": "e195PriorTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 55,
+          "block": 62
+        },
+        {
+          "alias": "e197PreviousTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/minigame/066-e197-fishing.js",
+          "line": 25,
+          "block": 66
+        },
+        {
+          "alias": "previousTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+          "line": 81,
+          "block": 115
+        },
+        {
+          "alias": "e221PriorTab",
+          "target": "selectWorkspaceTab",
+          "file": "src/js/fishing/art/125-e221-compact-art.js",
+          "line": 20,
+          "block": 125
+        }
+      ]
+    },
+    {
+      "name": "e161RandomFish",
+      "sites": [
+        {
+          "name": "e161RandomFish",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 22,
+          "block": 18
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 7,
+          "block": 21
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 30,
+          "block": 23
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/025-e165-zones.js",
+          "line": 13,
+          "block": 25
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 11,
+          "block": 47
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 93,
+          "block": 49
+        },
+        {
+          "name": "e161RandomFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 29,
+          "block": 75
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e164RandomFish",
+          "target": "e161RandomFish",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 29,
+          "block": 23
+        },
+        {
+          "alias": "e188PreviousRandom",
+          "target": "e161RandomFish",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 92,
+          "block": 49
+        }
+      ]
+    },
+    {
+      "name": "e194RodArt",
+      "sites": [
+        {
+          "name": "e194RodArt",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/060-e194-polish.js",
+          "line": 4,
+          "block": 60
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "declaration",
+          "file": "src/js/fishing/art/089-e1113-art.js",
+          "line": 22,
+          "block": 89
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/091-e1114-hd-art.js",
+          "line": 9,
+          "block": 91
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 6,
+          "block": 95
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/111-e208-art.js",
+          "line": 9,
+          "block": 111
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 11,
+          "block": 133
+        },
+        {
+          "name": "e194RodArt",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 13,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e1117RodOld",
+          "target": "e194RodArt",
+          "file": "src/js/fishing/art/095-e1117-full-art.js",
+          "line": 5,
+          "block": 95
+        },
+        {
+          "alias": "e208PreviousRodArt",
+          "target": "e194RodArt",
+          "file": "src/js/fishing/art/111-e208-art.js",
+          "line": 8,
+          "block": 111
+        },
+        {
+          "alias": "e227PreviousRodArt",
+          "target": "e194RodArt",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 10,
+          "block": 133
+        },
+        {
+          "alias": "e231OldRodArt",
+          "target": "e194RodArt",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 6,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "e161Rod",
+      "sites": [
+        {
+          "name": "e161Rod",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 8,
+          "block": 18
+        },
+        {
+          "name": "e161Rod",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 16,
+          "block": 23
+        },
+        {
+          "name": "e161Rod",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 11,
+          "block": 27
+        },
+        {
+          "name": "e161Rod",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 10,
+          "block": 29
+        },
+        {
+          "name": "e161Rod",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 15,
+          "block": 35
+        },
+        {
+          "name": "e161Rod",
+          "kind": "assignment",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 26,
+          "block": 47
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e17PreviousRod",
+          "target": "e161Rod",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 10,
+          "block": 27
+        },
+        {
+          "alias": "e171PriorRod",
+          "target": "e161Rod",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 9,
+          "block": 29
+        },
+        {
+          "alias": "e18OldRod",
+          "target": "e161Rod",
+          "file": "src/js/fishing/minigame/035-e18-trophies.js",
+          "line": 14,
+          "block": 35
+        },
+        {
+          "alias": "e187PreviousRod",
+          "target": "e161Rod",
+          "file": "src/js/fishing/feedback/047-e187-expansion.js",
+          "line": 25,
+          "block": 47
+        }
+      ]
+    },
+    {
+      "name": "e16Paint",
+      "sites": [
+        {
+          "name": "e16Paint",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 119,
+          "block": 16
+        },
+        {
+          "name": "e16Paint",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 63,
+          "block": 18
+        },
+        {
+          "name": "e16Paint",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 17,
+          "block": 21
+        },
+        {
+          "name": "e16Paint",
+          "kind": "assignment",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 23,
+          "block": 50
+        },
+        {
+          "name": "e16Paint",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 27,
+          "block": 102
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e163Paint",
+          "target": "e16Paint",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 16,
+          "block": 21
+        },
+        {
+          "alias": "e189PrevPaint",
+          "target": "e16Paint",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 22,
+          "block": 50
+        },
+        {
+          "alias": "previousPaint",
+          "target": "e16Paint",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 27,
+          "block": 102
+        }
+      ]
+    },
+    {
+      "name": "updateInv",
+      "sites": [
+        {
+          "name": "updateInv",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 635,
+          "block": 5
+        },
+        {
+          "name": "updateInv",
+          "kind": "assignment",
+          "file": "src/js/shop/014-e15-merchant.js",
+          "line": 32,
+          "block": 14
+        },
+        {
+          "name": "updateInv",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 73,
+          "block": 23
+        },
+        {
+          "name": "updateInv",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/058-e193-improvements.js",
+          "line": 83,
+          "block": 58
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e15OldUpdateInv",
+          "target": "updateInv",
+          "file": "src/js/shop/014-e15-merchant.js",
+          "line": 31,
+          "block": 14
+        },
+        {
+          "alias": "e164OldUpdate",
+          "target": "updateInv",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 72,
+          "block": 23
+        }
+      ]
+    },
+    {
+      "name": "enemySwing",
+      "sites": [
+        {
+          "name": "enemySwing",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 728,
+          "block": 5
+        },
+        {
+          "name": "enemySwing",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 41,
+          "block": 8
+        },
+        {
+          "name": "enemySwing",
+          "kind": "assignment",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 8,
+          "block": 11
+        },
+        {
+          "name": "enemySwing",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 80,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalEnemySwing",
+          "target": "enemySwing",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 14,
+          "block": 8
+        },
+        {
+          "alias": "diagnosticsEnemySwing",
+          "target": "enemySwing",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 7,
+          "block": 11
+        },
+        {
+          "alias": "labEnemySwing",
+          "target": "enemySwing",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 79,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "onDeath",
+      "sites": [
+        {
+          "name": "onDeath",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 767,
+          "block": 5
+        },
+        {
+          "name": "onDeath",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 73,
+          "block": 10
+        },
+        {
+          "name": "onDeath",
+          "kind": "assignment",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 14,
+          "block": 11
+        },
+        {
+          "name": "onDeath",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 82,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseSimDeath",
+          "target": "onDeath",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 21,
+          "block": 10
+        },
+        {
+          "alias": "diagnosticsDeath",
+          "target": "onDeath",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 13,
+          "block": 11
+        },
+        {
+          "alias": "labDeath",
+          "target": "onDeath",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 81,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "makeRosterRecord",
+      "sites": [
+        {
+          "name": "makeRosterRecord",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1289,
+          "block": 5
+        },
+        {
+          "name": "makeRosterRecord",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 36,
+          "block": 8
+        },
+        {
+          "name": "makeRosterRecord",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 86,
+          "block": 10
+        },
+        {
+          "name": "makeRosterRecord",
+          "kind": "assignment",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 39,
+          "block": 130
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalMakeRosterRecord",
+          "target": "makeRosterRecord",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 11,
+          "block": 8
+        },
+        {
+          "alias": "baseRecord",
+          "target": "makeRosterRecord",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 14,
+          "block": 10
+        },
+        {
+          "alias": "e227PreviousRecord",
+          "target": "makeRosterRecord",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 38,
+          "block": 130
+        }
+      ]
+    },
+    {
+      "name": "appendDevPanel",
+      "sites": [
+        {
+          "name": "appendDevPanel",
+          "kind": "declaration",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 83,
+          "block": 8
+        },
+        {
+          "name": "appendDevPanel",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 208,
+          "block": 10
+        },
+        {
+          "name": "appendDevPanel",
+          "kind": "assignment",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 22,
+          "block": 11
+        },
+        {
+          "name": "appendDevPanel",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 90,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseAppendDev",
+          "target": "appendDevPanel",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 15,
+          "block": 10
+        },
+        {
+          "alias": "diagnosticsAppend",
+          "target": "appendDevPanel",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 21,
+          "block": 11
+        },
+        {
+          "alias": "labAppend",
+          "target": "appendDevPanel",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 89,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "e16Start",
+      "sites": [
+        {
+          "name": "e16Start",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 132,
+          "block": 16
+        },
+        {
+          "name": "e16Start",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 65,
+          "block": 18
+        },
+        {
+          "name": "e16Start",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 16,
+          "block": 29
+        },
+        {
+          "name": "e16Start",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 29,
+          "block": 62
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e171PreviousStart",
+          "target": "e16Start",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 15,
+          "block": 29
+        },
+        {
+          "alias": "e195OriginalStart",
+          "target": "e16Start",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 5,
+          "block": 62
+        }
+      ]
+    },
+    {
+      "name": "e1101Stats",
+      "sites": [
+        {
+          "name": "e1101Stats",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/071-e1101-balance.js",
+          "line": 4,
+          "block": 71
+        },
+        {
+          "name": "e1101Stats",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+          "line": 13,
+          "block": 73
+        },
+        {
+          "name": "e1101Stats",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 7,
+          "block": 75
+        },
+        {
+          "name": "e1101Stats",
+          "kind": "assignment",
+          "file": "src/js/fishing/142-progression32.js",
+          "line": 14,
+          "block": 142
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e1102PreviousStats",
+          "target": "e1101Stats",
+          "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+          "line": 12,
+          "block": 73
+        },
+        {
+          "alias": "e1103PrevStats",
+          "target": "e1101Stats",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 6,
+          "block": 75
+        },
+        {
+          "alias": "e232BaseStats",
+          "target": "e1101Stats",
+          "file": "src/js/fishing/142-progression32.js",
+          "line": 13,
+          "block": 142
+        }
+      ]
+    },
+    {
+      "name": "gainCharacterXP",
+      "sites": [
+        {
+          "name": "gainCharacterXP",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 216,
+          "block": 5
+        },
+        {
+          "name": "gainCharacterXP",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 27,
+          "block": 13
+        },
+        {
+          "name": "gainCharacterXP",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 55,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "visibleGainXP",
+          "target": "gainCharacterXP",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 26,
+          "block": 13
+        },
+        {
+          "alias": "e227PreviousXP",
+          "target": "gainCharacterXP",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 54,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "derive",
+      "sites": [
+        {
+          "name": "derive",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 227,
+          "block": 5
+        },
+        {
+          "name": "derive",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 61,
+          "block": 13
+        },
+        {
+          "name": "derive",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 72,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "labOriginalDerive",
+          "target": "derive",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 51,
+          "block": 13
+        },
+        {
+          "alias": "labDeriveCandidate",
+          "target": "derive",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 71,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "migrateState",
+      "sites": [
+        {
+          "name": "migrateState",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 331,
+          "block": 5
+        },
+        {
+          "name": "migrateState",
+          "kind": "assignment",
+          "file": "src/catalogs/130-regional34.js",
+          "line": 47,
+          "block": 130
+        },
+        {
+          "name": "migrateState",
+          "kind": "assignment",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 37,
+          "block": 130
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e234BeforeRegionalMigration",
+          "target": "migrateState",
+          "file": "src/catalogs/130-regional34.js",
+          "line": 46,
+          "block": 130
+        },
+        {
+          "alias": "e227PreviousMigration",
+          "target": "migrateState",
+          "file": "src/js/fishing/expansion/130-expansion.js",
+          "line": 36,
+          "block": 130
+        }
+      ]
+    },
+    {
+      "name": "playerSwing",
+      "sites": [
+        {
+          "name": "playerSwing",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 717,
+          "block": 5
+        },
+        {
+          "name": "playerSwing",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 31,
+          "block": 13
+        },
+        {
+          "name": "playerSwing",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 78,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "visiblePlayerSwing",
+          "target": "playerSwing",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 30,
+          "block": 13
+        },
+        {
+          "alias": "labPlayerSwing",
+          "target": "playerSwing",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 77,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "castSpell",
+      "sites": [
+        {
+          "name": "castSpell",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 923,
+          "block": 5
+        },
+        {
+          "name": "castSpell",
+          "kind": "assignment",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 16,
+          "block": 11
+        },
+        {
+          "name": "castSpell",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 84,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "diagnosticsCast",
+          "target": "castSpell",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 15,
+          "block": 11
+        },
+        {
+          "alias": "labCast",
+          "target": "castSpell",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 83,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "importJSON",
+      "sites": [
+        {
+          "name": "importJSON",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1025,
+          "block": 5
+        },
+        {
+          "name": "importJSON",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 116,
+          "block": 8
+        },
+        {
+          "name": "importJSON",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 227,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalImportJSON",
+          "target": "importJSON",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 15,
+          "block": 8
+        },
+        {
+          "alias": "baseImportProgression",
+          "target": "importJSON",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 19,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "showCharacters",
+      "sites": [
+        {
+          "name": "showCharacters",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1318,
+          "block": 5
+        },
+        {
+          "name": "showCharacters",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 115,
+          "block": 8
+        },
+        {
+          "name": "showCharacters",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 65,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalShowCharacters",
+          "target": "showCharacters",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 13,
+          "block": 8
+        },
+        {
+          "alias": "e227PreviousCharacters",
+          "target": "showCharacters",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 64,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "changeRoster",
+      "sites": [
+        {
+          "name": "changeRoster",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1329,
+          "block": 5
+        },
+        {
+          "name": "changeRoster",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 125,
+          "block": 8
+        },
+        {
+          "name": "changeRoster",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 213,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalChangeRoster",
+          "target": "changeRoster",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 16,
+          "block": 8
+        },
+        {
+          "alias": "baseChangeRoster",
+          "target": "changeRoster",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 18,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "rng",
+      "sites": [
+        {
+          "name": "rng",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 78,
+          "block": 10
+        },
+        {
+          "name": "rng",
+          "kind": "assignment",
+          "file": "src/js/dev/011-dev-diagnostics.js",
+          "line": 86,
+          "block": 11
+        },
+        {
+          "name": "rng",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 121,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "previous",
+          "target": "rng",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 78,
+          "block": 10
+        },
+        {
+          "alias": "original",
+          "target": "rng",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 313,
+          "block": 10
+        },
+        {
+          "alias": "old",
+          "target": "rng",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 163,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "e15MerchantPanel",
+      "sites": [
+        {
+          "name": "e15MerchantPanel",
+          "kind": "declaration",
+          "file": "src/js/shop/014-e15-merchant.js",
+          "line": 7,
+          "block": 14
+        },
+        {
+          "name": "e15MerchantPanel",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 141,
+          "block": 16
+        },
+        {
+          "name": "e15MerchantPanel",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 45,
+          "block": 21
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e16OldMerchant",
+          "target": "e15MerchantPanel",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 140,
+          "block": 16
+        },
+        {
+          "alias": "e163Merchant",
+          "target": "e15MerchantPanel",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 44,
+          "block": 21
+        }
+      ]
+    },
+    {
+      "name": "e16Animate",
+      "sites": [
+        {
+          "name": "e16Animate",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 121,
+          "block": 16
+        },
+        {
+          "name": "e16Animate",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/018-e161-fishing.js",
+          "line": 75,
+          "block": 18
+        },
+        {
+          "name": "e16Animate",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/052-e190-polish.js",
+          "line": 72,
+          "block": 52
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "e186LuckPercent",
+      "sites": [
+        {
+          "name": "e186LuckPercent",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/045-e186-fishing.js",
+          "line": 6,
+          "block": 45
+        },
+        {
+          "name": "e186LuckPercent",
+          "kind": "assignment",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 11,
+          "block": 56
+        },
+        {
+          "name": "e186LuckPercent",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/075-e1103-progression.js",
+          "line": 55,
+          "block": 75
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e192OldLuck",
+          "target": "e186LuckPercent",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 10,
+          "block": 56
+        }
+      ]
+    },
+    {
+      "name": "e189RodSVG",
+      "sites": [
+        {
+          "name": "e189RodSVG",
+          "kind": "declaration",
+          "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+          "line": 14,
+          "block": 50
+        },
+        {
+          "name": "e189RodSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/052-e190-polish.js",
+          "line": 4,
+          "block": 52
+        },
+        {
+          "name": "e189RodSVG",
+          "kind": "assignment",
+          "file": "src/js/fishing/collection/056-e192-collection.js",
+          "line": 38,
+          "block": 56
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "xpFor",
+      "sites": [
+        {
+          "name": "xpFor",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 200,
+          "block": 5
+        },
+        {
+          "name": "xpFor",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 60,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "labOriginalXP",
+          "target": "xpFor",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 51,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "hitChance",
+      "sites": [
+        {
+          "name": "hitChance",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 205,
+          "block": 5
+        },
+        {
+          "name": "hitChance",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 73,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "labOriginalHit",
+          "target": "hitChance",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 51,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "xpActivityFactor",
+      "sites": [
+        {
+          "name": "xpActivityFactor",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 215,
+          "block": 5
+        },
+        {
+          "name": "xpActivityFactor",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 40,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseActivityFactor",
+          "target": "xpActivityFactor",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 10,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "sklXp",
+      "sites": [
+        {
+          "name": "sklXp",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 217,
+          "block": 5
+        },
+        {
+          "name": "sklXp",
+          "kind": "assignment",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 29,
+          "block": 13
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "visibleSkillXP",
+          "target": "sklXp",
+          "file": "src/js/dev/013-progression-lab.js",
+          "line": 28,
+          "block": 13
+        }
+      ]
+    },
+    {
+      "name": "syncRuntime",
+      "sites": [
+        {
+          "name": "syncRuntime",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 273,
+          "block": 5
+        },
+        {
+          "name": "syncRuntime",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 84,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseSyncRuntime",
+          "target": "syncRuntime",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 11,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "newState",
+      "sites": [
+        {
+          "name": "newState",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 306,
+          "block": 5
+        },
+        {
+          "name": "newState",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 31,
+          "block": 8
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalNewState",
+          "target": "newState",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 10,
+          "block": 8
+        }
+      ]
+    },
+    {
+      "name": "persist",
+      "sites": [
+        {
+          "name": "persist",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 404,
+          "block": 5
+        },
+        {
+          "name": "persist",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 95,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "basePersist",
+          "target": "persist",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 13,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "setStatus",
+      "sites": [
+        {
+          "name": "setStatus",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 409,
+          "block": 5
+        },
+        {
+          "name": "setStatus",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 57,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e227PreviousStatus",
+          "target": "setStatus",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 56,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "renderDock",
+      "sites": [
+        {
+          "name": "renderDock",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 593,
+          "block": 5
+        },
+        {
+          "name": "renderDock",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1622,
+          "block": 5
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e14RenderDock",
+          "target": "renderDock",
+          "file": "src/js/core/005-core.js",
+          "line": 1621,
+          "block": 5
+        }
+      ]
+    },
+    {
+      "name": "itemNameOf",
+      "sites": [
+        {
+          "name": "itemNameOf",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 643,
+          "block": 5
+        },
+        {
+          "name": "itemNameOf",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 139,
+          "block": 16
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e16OldItemName",
+          "target": "itemNameOf",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 138,
+          "block": 16
+        }
+      ]
+    },
+    {
+      "name": "onKill",
+      "sites": [
+        {
+          "name": "onKill",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 748,
+          "block": 5
+        },
+        {
+          "name": "onKill",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1472,
+          "block": 5
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e13OriginalKill",
+          "target": "onKill",
+          "file": "src/js/core/005-core.js",
+          "line": 1471,
+          "block": 5
+        }
+      ]
+    },
+    {
+      "name": "step",
+      "sites": [
+        {
+          "name": "step",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 778,
+          "block": 5
+        },
+        {
+          "name": "step",
+          "kind": "assignment",
+          "file": "src/js/core/005-core.js",
+          "line": 1466,
+          "block": 5
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e13OriginalStep",
+          "target": "step",
+          "file": "src/js/core/005-core.js",
+          "line": 1465,
+          "block": 5
+        }
+      ]
+    },
+    {
+      "name": "tick",
+      "sites": [
+        {
+          "name": "tick",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 826,
+          "block": 5
+        },
+        {
+          "name": "tick",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 85,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseTick",
+          "target": "tick",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 12,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "exportJSON",
+      "sites": [
+        {
+          "name": "exportJSON",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1017,
+          "block": 5
+        },
+        {
+          "name": "exportJSON",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 228,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseExportProgression",
+          "target": "exportJSON",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 20,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "showGame",
+      "sites": [
+        {
+          "name": "showGame",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1131,
+          "block": 5
+        },
+        {
+          "name": "showGame",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 63,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e227PreviousShowGame",
+          "target": "showGame",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 62,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "organizeWorkspace",
+      "sites": [
+        {
+          "name": "organizeWorkspace",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1149,
+          "block": 5
+        },
+        {
+          "name": "organizeWorkspace",
+          "kind": "assignment",
+          "file": "src/js/layout/006-hybrid-upgrade.js",
+          "line": 33,
+          "block": 6
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "compactWorkspaceStable",
+          "target": "organizeWorkspace",
+          "file": "src/js/layout/006-hybrid-upgrade.js",
+          "line": 4,
+          "block": 6
+        }
+      ]
+    },
+    {
+      "name": "decodeRoster",
+      "sites": [
+        {
+          "name": "decodeRoster",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1251,
+          "block": 5
+        },
+        {
+          "name": "decodeRoster",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 30,
+          "block": 8
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalDecodeRoster",
+          "target": "decodeRoster",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 9,
+          "block": 8
+        },
+        {
+          "alias": "previous",
+          "target": "decodeRoster",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 251,
+          "block": 8
+        }
+      ]
+    },
+    {
+      "name": "saveRoster",
+      "sites": [
+        {
+          "name": "saveRoster",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1299,
+          "block": 5
+        },
+        {
+          "name": "saveRoster",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 91,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseSaveProgression",
+          "target": "saveRoster",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 22,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "runRosterTests",
+      "sites": [
+        {
+          "name": "runRosterTests",
+          "kind": "declaration",
+          "file": "src/js/core/005-core.js",
+          "line": 1390,
+          "block": 5
+        },
+        {
+          "name": "runRosterTests",
+          "kind": "assignment",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 250,
+          "block": 8
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "normalRunRosterTests",
+          "target": "runRosterTests",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 17,
+          "block": 8
+        }
+      ]
+    },
+    {
+      "name": "refreshModeChrome",
+      "sites": [
+        {
+          "name": "refreshModeChrome",
+          "kind": "declaration",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 71,
+          "block": 8
+        },
+        {
+          "name": "refreshModeChrome",
+          "kind": "assignment",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 67,
+          "block": 132
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e227PreviousModeChrome",
+          "target": "refreshModeChrome",
+          "file": "src/js/ui/132-global-header.js",
+          "line": 66,
+          "block": 132
+        }
+      ]
+    },
+    {
+      "name": "switchEnvironment",
+      "sites": [
+        {
+          "name": "switchEnvironment",
+          "kind": "declaration",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 139,
+          "block": 8
+        },
+        {
+          "name": "switchEnvironment",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 219,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseSwitchEnvironment",
+          "target": "switchEnvironment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 17,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "devAdminAction",
+      "sites": [
+        {
+          "name": "devAdminAction",
+          "kind": "declaration",
+          "file": "src/js/dev/008-dev-environment.js",
+          "line": 188,
+          "block": 8
+        },
+        {
+          "name": "devAdminAction",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 212,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "baseDevAdmin",
+          "target": "devAdminAction",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 16,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "recoverSimulation",
+      "sites": [
+        {
+          "name": "recoverSimulation",
+          "kind": "declaration",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 163,
+          "block": 10
+        },
+        {
+          "name": "recoverSimulation",
+          "kind": "assignment",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 211,
+          "block": 10
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "originalRecoverSimulation",
+          "target": "recoverSimulation",
+          "file": "src/js/dev/010-dev-progression.js",
+          "line": 210,
+          "block": 10
+        }
+      ]
+    },
+    {
+      "name": "e16FishMerchant",
+      "sites": [
+        {
+          "name": "e16FishMerchant",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/016-e16-fishing.js",
+          "line": 142,
+          "block": 16
+        },
+        {
+          "name": "e16FishMerchant",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 47,
+          "block": 21
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e163FishMerchant",
+          "target": "e16FishMerchant",
+          "file": "src/js/fishing/minigame/021-e163-fishing.js",
+          "line": 46,
+          "block": 21
+        }
+      ]
+    },
+    {
+      "name": "e164Inventory",
+      "sites": [
+        {
+          "name": "e164Inventory",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/023-e164-update.js",
+          "line": 54,
+          "block": 23
+        },
+        {
+          "name": "e164Inventory",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 72,
+          "block": 43
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e185PriorInventory",
+          "target": "e164Inventory",
+          "file": "src/js/fishing/minigame/043-e185-fishing.js",
+          "line": 71,
+          "block": 43
+        }
+      ]
+    },
+    {
+      "name": "e17HasFish",
+      "sites": [
+        {
+          "name": "e17HasFish",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/027-e17-quests.js",
+          "line": 7,
+          "block": 27
+        },
+        {
+          "name": "e17HasFish",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 25,
+          "block": 49
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "e171CanDeliver",
+      "sites": [
+        {
+          "name": "e171CanDeliver",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/029-e171-improvements.js",
+          "line": 6,
+          "block": 29
+        },
+        {
+          "name": "e171CanDeliver",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/049-e188-fishing.js",
+          "line": 26,
+          "block": 49
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "e195ShakeCount",
+      "sites": [
+        {
+          "name": "e195ShakeCount",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 7,
+          "block": 62
+        },
+        {
+          "name": "e195ShakeCount",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/064-e196-fishing.js",
+          "line": 4,
+          "block": 64
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "e195DrawShake",
+      "sites": [
+        {
+          "name": "e195DrawShake",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/062-e195-fishing.js",
+          "line": 15,
+          "block": 62
+        },
+        {
+          "name": "e195DrawShake",
+          "kind": "assignment",
+          "file": "src/js/fishing/minigame/064-e196-fishing.js",
+          "line": 11,
+          "block": 64
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "sync",
+      "sites": [
+        {
+          "name": "sync",
+          "kind": "declaration",
+          "file": "src/js/fishing/hud/099-e1120-hud.js",
+          "line": 7,
+          "block": 99
+        },
+        {
+          "name": "sync",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+          "line": 12,
+          "block": 102
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "name": "e216QuestDefinitions",
+      "sites": [
+        {
+          "name": "e216QuestDefinitions",
+          "kind": "declaration",
+          "file": "src/js/fishing/atlas/114-e216-atlas.js",
+          "line": 6,
+          "block": 114
+        },
+        {
+          "name": "e216QuestDefinitions",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 31,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e231Definitions",
+          "target": "e216QuestDefinitions",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 30,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "e216ZoneDetails",
+      "sites": [
+        {
+          "name": "e216ZoneDetails",
+          "kind": "declaration",
+          "file": "src/js/fishing/atlas/114-e216-atlas.js",
+          "line": 24,
+          "block": 114
+        },
+        {
+          "name": "e216ZoneDetails",
+          "kind": "assignment",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 70,
+          "block": 134
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e228PreviousZoneDetails",
+          "target": "e216ZoneDetails",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 69,
+          "block": 134
+        }
+      ]
+    },
+    {
+      "name": "e216RenderAtlas",
+      "sites": [
+        {
+          "name": "e216RenderAtlas",
+          "kind": "declaration",
+          "file": "src/js/fishing/atlas/114-e216-atlas.js",
+          "line": 36,
+          "block": 114
+        },
+        {
+          "name": "e216RenderAtlas",
+          "kind": "assignment",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 76,
+          "block": 134
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e228PreviousAtlasRender",
+          "target": "e216RenderAtlas",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 75,
+          "block": 134
+        }
+      ]
+    },
+    {
+      "name": "e220RodProvenance",
+      "sites": [
+        {
+          "name": "e220RodProvenance",
+          "kind": "declaration",
+          "file": "src/js/fishing/shop/119-e217-rod-ux.js",
+          "line": 3,
+          "block": 119
+        },
+        {
+          "name": "e220RodProvenance",
+          "kind": "assignment",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 73,
+          "block": 134
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e228PreviousProvenance",
+          "target": "e220RodProvenance",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 72,
+          "block": 134
+        }
+      ]
+    },
+    {
+      "name": "e218Detail",
+      "sites": [
+        {
+          "name": "e218Detail",
+          "kind": "declaration",
+          "file": "src/js/fishing/collection/122-e218-journal.js",
+          "line": 23,
+          "block": 122
+        },
+        {
+          "name": "e218Detail",
+          "kind": "assignment",
+          "file": "src/js/fishing/142-progression32.js",
+          "line": 32,
+          "block": 142
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e232OldDetail",
+          "target": "e218Detail",
+          "file": "src/js/fishing/142-progression32.js",
+          "line": 31,
+          "block": 142
+        }
+      ]
+    },
+    {
+      "name": "e221Decorate",
+      "sites": [
+        {
+          "name": "e221Decorate",
+          "kind": "declaration",
+          "file": "src/js/fishing/art/125-e221-compact-art.js",
+          "line": 8,
+          "block": 125
+        },
+        {
+          "name": "e221Decorate",
+          "kind": "assignment",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 19,
+          "block": 133
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e227PreviousDecoration",
+          "target": "e221Decorate",
+          "file": "src/js/fishing/art/133-production-art.js",
+          "line": 18,
+          "block": 133
+        }
+      ]
+    },
+    {
+      "name": "e222DifficultyReference",
+      "sites": [
+        {
+          "name": "e222DifficultyReference",
+          "kind": "declaration",
+          "file": "src/js/fishing/minigame/127-e222-navigation.js",
+          "line": 4,
+          "block": 127
+        },
+        {
+          "name": "e222DifficultyReference",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 32,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e231Reference",
+          "target": "e222DifficultyReference",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 30,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "e228Icon",
+      "sites": [
+        {
+          "name": "e228Icon",
+          "kind": "declaration",
+          "file": "src/js/fishing/trophies/134-trophies.js",
+          "line": 6,
+          "block": 134
+        },
+        {
+          "name": "e228Icon",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 15,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e231OldIcon",
+          "target": "e228Icon",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 6,
+          "block": 140
+        }
+      ]
+    },
+    {
+      "name": "e230StyleJournalCard",
+      "sites": [
+        {
+          "name": "e230StyleJournalCard",
+          "kind": "declaration",
+          "file": "src/js/fishing/138-presentation30.js",
+          "line": 24,
+          "block": 138
+        },
+        {
+          "name": "e230StyleJournalCard",
+          "kind": "assignment",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 25,
+          "block": 140
+        }
+      ],
+      "aliases": [
+        {
+          "alias": "e231PreviousJournal",
+          "target": "e230StyleJournalCard",
+          "file": "src/js/fishing/140-world31.js",
+          "line": 24,
+          "block": 140
+        }
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "alias": "excess",
+      "target": "secs",
+      "file": "src/js/core/005-core.js",
+      "line": 291,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 472,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 645,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 665,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 729,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 749,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 768,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 779,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 837,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 914,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 924,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 956,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 964,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 972,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 981,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 990,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1007,
+      "block": 5
+    },
+    {
+      "alias": "prev",
+      "target": "draft",
+      "file": "src/js/core/005-core.js",
+      "line": 1394,
+      "block": 5
+    },
+    {
+      "alias": "e13OriginalStep",
+      "target": "step",
+      "file": "src/js/core/005-core.js",
+      "line": 1465,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1467,
+      "block": 5
+    },
+    {
+      "alias": "e13OriginalKill",
+      "target": "onKill",
+      "file": "src/js/core/005-core.js",
+      "line": 1471,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1473,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1481,
+      "block": 5
+    },
+    {
+      "alias": "e13PreviousLive",
+      "target": "updateLive",
+      "file": "src/js/core/005-core.js",
+      "line": 1493,
+      "block": 5
+    },
+    {
+      "alias": "e13PreviousRender",
+      "target": "renderGame",
+      "file": "src/js/core/005-core.js",
+      "line": 1495,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1514,
+      "block": 5
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/core/005-core.js",
+      "line": 1572,
+      "block": 5
+    },
+    {
+      "alias": "e14RenderDock",
+      "target": "renderDock",
+      "file": "src/js/core/005-core.js",
+      "line": 1621,
+      "block": 5
+    },
+    {
+      "alias": "e14RenderGame",
+      "target": "renderGame",
+      "file": "src/js/core/005-core.js",
+      "line": 1623,
+      "block": 5
+    },
+    {
+      "alias": "e14UpdateLive",
+      "target": "updateLive",
+      "file": "src/js/core/005-core.js",
+      "line": 1625,
+      "block": 5
+    },
+    {
+      "alias": "compactWorkspaceStable",
+      "target": "organizeWorkspace",
+      "file": "src/js/layout/006-hybrid-upgrade.js",
+      "line": 4,
+      "block": 6
+    },
+    {
+      "alias": "compactLiveStable",
+      "target": "updateLive",
+      "file": "src/js/layout/006-hybrid-upgrade.js",
+      "line": 5,
+      "block": 6
+    },
+    {
+      "alias": "next",
+      "target": "index",
+      "file": "src/js/layout/006-hybrid-upgrade.js",
+      "line": 106,
+      "block": 6
+    },
+    {
+      "alias": "normalDecodeRoster",
+      "target": "decodeRoster",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 9,
+      "block": 8
+    },
+    {
+      "alias": "normalNewState",
+      "target": "newState",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 10,
+      "block": 8
+    },
+    {
+      "alias": "normalMakeRosterRecord",
+      "target": "makeRosterRecord",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 11,
+      "block": 8
+    },
+    {
+      "alias": "normalRenderGame",
+      "target": "renderGame",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 12,
+      "block": 8
+    },
+    {
+      "alias": "normalShowCharacters",
+      "target": "showCharacters",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 13,
+      "block": 8
+    },
+    {
+      "alias": "normalEnemySwing",
+      "target": "enemySwing",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 14,
+      "block": 8
+    },
+    {
+      "alias": "normalImportJSON",
+      "target": "importJSON",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 15,
+      "block": 8
+    },
+    {
+      "alias": "normalChangeRoster",
+      "target": "changeRoster",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 16,
+      "block": 8
+    },
+    {
+      "alias": "normalRunRosterTests",
+      "target": "runRosterTests",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 17,
+      "block": 8
+    },
+    {
+      "alias": "previous",
+      "target": "draft",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 67,
+      "block": 8
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 93,
+      "block": 8
+    },
+    {
+      "alias": "originMode",
+      "target": "gameMode",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 146,
+      "block": 8
+    },
+    {
+      "alias": "originalDb",
+      "target": "dbP",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 147,
+      "block": 8
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 195,
+      "block": 8
+    },
+    {
+      "alias": "previous",
+      "target": "draft",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 215,
+      "block": 8
+    },
+    {
+      "alias": "previous",
+      "target": "decodeRoster",
+      "file": "src/js/dev/008-dev-environment.js",
+      "line": 251,
+      "block": 8
+    },
+    {
+      "alias": "baseActivityFactor",
+      "target": "xpActivityFactor",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 10,
+      "block": 10
+    },
+    {
+      "alias": "baseSyncRuntime",
+      "target": "syncRuntime",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 11,
+      "block": 10
+    },
+    {
+      "alias": "baseTick",
+      "target": "tick",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 12,
+      "block": 10
+    },
+    {
+      "alias": "basePersist",
+      "target": "persist",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 13,
+      "block": 10
+    },
+    {
+      "alias": "baseRecord",
+      "target": "makeRosterRecord",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 14,
+      "block": 10
+    },
+    {
+      "alias": "baseAppendDev",
+      "target": "appendDevPanel",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 15,
+      "block": 10
+    },
+    {
+      "alias": "baseDevAdmin",
+      "target": "devAdminAction",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 16,
+      "block": 10
+    },
+    {
+      "alias": "baseSwitchEnvironment",
+      "target": "switchEnvironment",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 17,
+      "block": 10
+    },
+    {
+      "alias": "baseChangeRoster",
+      "target": "changeRoster",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 18,
+      "block": 10
+    },
+    {
+      "alias": "baseImportProgression",
+      "target": "importJSON",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 19,
+      "block": 10
+    },
+    {
+      "alias": "baseExportProgression",
+      "target": "exportJSON",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 20,
+      "block": 10
+    },
+    {
+      "alias": "baseSimDeath",
+      "target": "onDeath",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 21,
+      "block": 10
+    },
+    {
+      "alias": "baseSaveProgression",
+      "target": "saveRoster",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 22,
+      "block": 10
+    },
+    {
+      "alias": "previous",
+      "target": "rng",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 78,
+      "block": 10
+    },
+    {
+      "alias": "originalRecoverSimulation",
+      "target": "recoverSimulation",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 210,
+      "block": 10
+    },
+    {
+      "alias": "original",
+      "target": "rng",
+      "file": "src/js/dev/010-dev-progression.js",
+      "line": 313,
+      "block": 10
+    },
+    {
+      "alias": "diagnosticsEnemySwing",
+      "target": "enemySwing",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 7,
+      "block": 11
+    },
+    {
+      "alias": "diagnosticsDeath",
+      "target": "onDeath",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 13,
+      "block": 11
+    },
+    {
+      "alias": "diagnosticsCast",
+      "target": "castSpell",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 15,
+      "block": 11
+    },
+    {
+      "alias": "diagnosticsAppend",
+      "target": "appendDevPanel",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 21,
+      "block": 11
+    },
+    {
+      "alias": "previousDraft",
+      "target": "draft",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 52,
+      "block": 11
+    },
+    {
+      "alias": "realState",
+      "target": "state",
+      "file": "src/js/dev/011-dev-diagnostics.js",
+      "line": 73,
+      "block": 11
+    },
+    {
+      "alias": "visibleGainXP",
+      "target": "gainCharacterXP",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 26,
+      "block": 13
+    },
+    {
+      "alias": "visibleSkillXP",
+      "target": "sklXp",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 28,
+      "block": 13
+    },
+    {
+      "alias": "visiblePlayerSwing",
+      "target": "playerSwing",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 30,
+      "block": 13
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 41,
+      "block": 13
+    },
+    {
+      "alias": "progressLive",
+      "target": "updateLive",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 47,
+      "block": 13
+    },
+    {
+      "alias": "labOriginalXP",
+      "target": "xpFor",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 51,
+      "block": 13
+    },
+    {
+      "alias": "labOriginalDerive",
+      "target": "derive",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 51,
+      "block": 13
+    },
+    {
+      "alias": "labOriginalHit",
+      "target": "hitChance",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 51,
+      "block": 13
+    },
+    {
+      "alias": "f",
+      "target": "labFrame",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 62,
+      "block": 13
+    },
+    {
+      "alias": "labDeriveCandidate",
+      "target": "derive",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 71,
+      "block": 13
+    },
+    {
+      "alias": "labPlayerSwing",
+      "target": "playerSwing",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 77,
+      "block": 13
+    },
+    {
+      "alias": "labEnemySwing",
+      "target": "enemySwing",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 79,
+      "block": 13
+    },
+    {
+      "alias": "labDeath",
+      "target": "onDeath",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 81,
+      "block": 13
+    },
+    {
+      "alias": "labCast",
+      "target": "castSpell",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 83,
+      "block": 13
+    },
+    {
+      "alias": "labAppend",
+      "target": "appendDevPanel",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 89,
+      "block": 13
+    },
+    {
+      "alias": "previous",
+      "target": "draft",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 101,
+      "block": 13
+    },
+    {
+      "alias": "s",
+      "target": "state",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 104,
+      "block": 13
+    },
+    {
+      "alias": "real",
+      "target": "state",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 129,
+      "block": 13
+    },
+    {
+      "alias": "old",
+      "target": "rng",
+      "file": "src/js/dev/013-progression-lab.js",
+      "line": 163,
+      "block": 13
+    },
+    {
+      "alias": "e15OldRenderGame",
+      "target": "renderGame",
+      "file": "src/js/shop/014-e15-merchant.js",
+      "line": 29,
+      "block": 14
+    },
+    {
+      "alias": "e15OldUpdateInv",
+      "target": "updateInv",
+      "file": "src/js/shop/014-e15-merchant.js",
+      "line": 31,
+      "block": 14
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 119,
+      "block": 16
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 120,
+      "block": 16
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 121,
+      "block": 16
+    },
+    {
+      "alias": "e16OldRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 136,
+      "block": 16
+    },
+    {
+      "alias": "e16OldItemName",
+      "target": "itemNameOf",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 138,
+      "block": 16
+    },
+    {
+      "alias": "e16OldMerchant",
+      "target": "e15MerchantPanel",
+      "file": "src/js/fishing/minigame/016-e16-fishing.js",
+      "line": 140,
+      "block": 16
+    },
+    {
+      "alias": "e161PreviousTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "line": 30,
+      "block": 18
+    },
+    {
+      "alias": "e161PreviousRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "line": 36,
+      "block": 18
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "line": 63,
+      "block": 18
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "line": 76,
+      "block": 18
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/018-e161-fishing.js",
+      "line": 90,
+      "block": 18
+    },
+    {
+      "alias": "e163Paint",
+      "target": "e16Paint",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "line": 16,
+      "block": 21
+    },
+    {
+      "alias": "e163Finish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "line": 23,
+      "block": 21
+    },
+    {
+      "alias": "e163Merchant",
+      "target": "e15MerchantPanel",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "line": 44,
+      "block": 21
+    },
+    {
+      "alias": "e163FishMerchant",
+      "target": "e16FishMerchant",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "line": 46,
+      "block": 21
+    },
+    {
+      "alias": "e163Render",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/021-e163-fishing.js",
+      "line": 48,
+      "block": 21
+    },
+    {
+      "alias": "e164NextBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "line": 18,
+      "block": 23
+    },
+    {
+      "alias": "e164RandomFish",
+      "target": "e161RandomFish",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "line": 29,
+      "block": 23
+    },
+    {
+      "alias": "e164OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "line": 68,
+      "block": 23
+    },
+    {
+      "alias": "e164OldRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "line": 70,
+      "block": 23
+    },
+    {
+      "alias": "e164OldUpdate",
+      "target": "updateInv",
+      "file": "src/js/fishing/minigame/023-e164-update.js",
+      "line": 72,
+      "block": 23
+    },
+    {
+      "alias": "e165PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/025-e165-zones.js",
+      "line": 26,
+      "block": 25
+    },
+    {
+      "alias": "e17PreviousRod",
+      "target": "e161Rod",
+      "file": "src/js/fishing/minigame/027-e17-quests.js",
+      "line": 10,
+      "block": 27
+    },
+    {
+      "alias": "e17PreviousBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/027-e17-quests.js",
+      "line": 12,
+      "block": 27
+    },
+    {
+      "alias": "e17PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/027-e17-quests.js",
+      "line": 38,
+      "block": 27
+    },
+    {
+      "alias": "e171PriorRod",
+      "target": "e161Rod",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "line": 9,
+      "block": 29
+    },
+    {
+      "alias": "e171PreviousStart",
+      "target": "e16Start",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "line": 15,
+      "block": 29
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "line": 19,
+      "block": 29
+    },
+    {
+      "alias": "e171PreviousNextBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "line": 30,
+      "block": 29
+    },
+    {
+      "alias": "e171PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/029-e171-improvements.js",
+      "line": 52,
+      "block": 29
+    },
+    {
+      "alias": "e172PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/031-e172-fixes.js",
+      "line": 10,
+      "block": 31
+    },
+    {
+      "alias": "e173PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/033-e173-fishing.js",
+      "line": 6,
+      "block": 33
+    },
+    {
+      "alias": "e173PriorNextBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/033-e173-fishing.js",
+      "line": 46,
+      "block": 33
+    },
+    {
+      "alias": "e18OldRod",
+      "target": "e161Rod",
+      "file": "src/js/fishing/minigame/035-e18-trophies.js",
+      "line": 14,
+      "block": 35
+    },
+    {
+      "alias": "e18OldFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/035-e18-trophies.js",
+      "line": 16,
+      "block": 35
+    },
+    {
+      "alias": "e18OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/035-e18-trophies.js",
+      "line": 40,
+      "block": 35
+    },
+    {
+      "alias": "e182BeforePage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/039-e182-fishing.js",
+      "line": 5,
+      "block": 39
+    },
+    {
+      "alias": "c",
+      "target": "e182LastCatch",
+      "file": "src/js/fishing/minigame/039-e182-fishing.js",
+      "line": 21,
+      "block": 39
+    },
+    {
+      "alias": "e182BeforeFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/039-e182-fishing.js",
+      "line": 30,
+      "block": 39
+    },
+    {
+      "alias": "e183PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/041-e183-fishing.js",
+      "line": 4,
+      "block": 41
+    },
+    {
+      "alias": "c",
+      "target": "e182LastCatch",
+      "file": "src/js/fishing/minigame/041-e183-fishing.js",
+      "line": 19,
+      "block": 41
+    },
+    {
+      "alias": "e183PreviousFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/041-e183-fishing.js",
+      "line": 29,
+      "block": 41
+    },
+    {
+      "alias": "e185PriorFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "line": 11,
+      "block": 43
+    },
+    {
+      "alias": "e185PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "line": 28,
+      "block": 43
+    },
+    {
+      "alias": "e185PriorRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "line": 69,
+      "block": 43
+    },
+    {
+      "alias": "e185PriorInventory",
+      "target": "e164Inventory",
+      "file": "src/js/fishing/minigame/043-e185-fishing.js",
+      "line": 71,
+      "block": 43
+    },
+    {
+      "alias": "e186PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/045-e186-fishing.js",
+      "line": 24,
+      "block": 45
+    },
+    {
+      "alias": "e187PreviousRod",
+      "target": "e161Rod",
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "line": 25,
+      "block": 47
+    },
+    {
+      "alias": "e187PreviousFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "line": 27,
+      "block": 47
+    },
+    {
+      "alias": "e187PreviousBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "line": 39,
+      "block": 47
+    },
+    {
+      "alias": "e187PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/feedback/047-e187-expansion.js",
+      "line": 49,
+      "block": 47
+    },
+    {
+      "alias": "e188PriorQuestPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "line": 27,
+      "block": 49
+    },
+    {
+      "alias": "e188PreviousRandom",
+      "target": "e161RandomFish",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "line": 92,
+      "block": 49
+    },
+    {
+      "alias": "e188PriorFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "line": 121,
+      "block": 49
+    },
+    {
+      "alias": "e188PriorTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "line": 123,
+      "block": 49
+    },
+    {
+      "alias": "e188PriorRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/049-e188-fishing.js",
+      "line": 125,
+      "block": 49
+    },
+    {
+      "alias": "e189PrevHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+      "line": 20,
+      "block": 50
+    },
+    {
+      "alias": "e189PrevPaint",
+      "target": "e16Paint",
+      "file": "src/js/fishing/hud/050-e189-visual-hud.js",
+      "line": 22,
+      "block": 50
+    },
+    {
+      "alias": "e190PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/052-e190-polish.js",
+      "line": 23,
+      "block": 52
+    },
+    {
+      "alias": "g",
+      "target": "e16Session",
+      "file": "src/js/fishing/minigame/052-e190-polish.js",
+      "line": 74,
+      "block": 52
+    },
+    {
+      "alias": "e191PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/054-e191-polish.js",
+      "line": 11,
+      "block": 54
+    },
+    {
+      "alias": "e192OldLuck",
+      "target": "e186LuckPercent",
+      "file": "src/js/fishing/collection/056-e192-collection.js",
+      "line": 10,
+      "block": 56
+    },
+    {
+      "alias": "e192PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/collection/056-e192-collection.js",
+      "line": 45,
+      "block": 56
+    },
+    {
+      "alias": "e193PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/058-e193-improvements.js",
+      "line": 10,
+      "block": 58
+    },
+    {
+      "alias": "e193PriorRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/058-e193-improvements.js",
+      "line": 77,
+      "block": 58
+    },
+    {
+      "alias": "e194PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/060-e194-polish.js",
+      "line": 53,
+      "block": 60
+    },
+    {
+      "alias": "e194PriorHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/minigame/060-e194-polish.js",
+      "line": 94,
+      "block": 60
+    },
+    {
+      "alias": "e194PriorRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/060-e194-polish.js",
+      "line": 96,
+      "block": 60
+    },
+    {
+      "alias": "e195OriginalStart",
+      "target": "e16Start",
+      "file": "src/js/fishing/minigame/062-e195-fishing.js",
+      "line": 5,
+      "block": 62
+    },
+    {
+      "alias": "e195PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/062-e195-fishing.js",
+      "line": 39,
+      "block": 62
+    },
+    {
+      "alias": "e195PriorTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/minigame/062-e195-fishing.js",
+      "line": 55,
+      "block": 62
+    },
+    {
+      "alias": "e197PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/066-e197-fishing.js",
+      "line": 23,
+      "block": 66
+    },
+    {
+      "alias": "e197PreviousTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/minigame/066-e197-fishing.js",
+      "line": 25,
+      "block": 66
+    },
+    {
+      "alias": "e197PreviousRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/066-e197-fishing.js",
+      "line": 27,
+      "block": 66
+    },
+    {
+      "alias": "e198PreviousNextBite",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/068-e198-fishing.js",
+      "line": 5,
+      "block": 68
+    },
+    {
+      "alias": "e1101OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/071-e1101-balance.js",
+      "line": 22,
+      "block": 71
+    },
+    {
+      "alias": "e1102PreviousStats",
+      "target": "e1101Stats",
+      "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+      "line": 12,
+      "block": 73
+    },
+    {
+      "alias": "e1102PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/073-e1102-quest-balance.js",
+      "line": 23,
+      "block": 73
+    },
+    {
+      "alias": "e1103PrevStats",
+      "target": "e1101Stats",
+      "file": "src/js/fishing/minigame/075-e1103-progression.js",
+      "line": 6,
+      "block": 75
+    },
+    {
+      "alias": "e1103OldNext",
+      "target": "e161NextBite",
+      "file": "src/js/fishing/minigame/075-e1103-progression.js",
+      "line": 38,
+      "block": 75
+    },
+    {
+      "alias": "e1103OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/075-e1103-progression.js",
+      "line": 60,
+      "block": 75
+    },
+    {
+      "alias": "e1105PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/077-e1105-clean-fishing.js",
+      "line": 5,
+      "block": 77
+    },
+    {
+      "alias": "e1106OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/078-e1106-stable-game.js",
+      "line": 5,
+      "block": 78
+    },
+    {
+      "alias": "e1107OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+      "line": 39,
+      "block": 80
+    },
+    {
+      "alias": "e1107OldHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/minigame/080-e1107-fishing-ui.js",
+      "line": 41,
+      "block": 80
+    },
+    {
+      "alias": "e1108OldPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/082-e1108-fishing-layout.js",
+      "line": 5,
+      "block": 82
+    },
+    {
+      "alias": "e1109PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/084-e1109-final-polish.js",
+      "line": 5,
+      "block": 84
+    },
+    {
+      "alias": "e1111PriorFinish",
+      "target": "e16Finish",
+      "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+      "line": 37,
+      "block": 87
+    },
+    {
+      "alias": "e1111PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/087-e1111-catch-result.js",
+      "line": 49,
+      "block": 87
+    },
+    {
+      "alias": "e1113PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/art/089-e1113-art.js",
+      "line": 81,
+      "block": 89
+    },
+    {
+      "alias": "e1114PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/art/091-e1114-hd-art.js",
+      "line": 11,
+      "block": 91
+    },
+    {
+      "alias": "e1117RodOld",
+      "target": "e194RodArt",
+      "file": "src/js/fishing/art/095-e1117-full-art.js",
+      "line": 5,
+      "block": 95
+    },
+    {
+      "alias": "e1117FishOld",
+      "target": "e189FishSVG",
+      "file": "src/js/fishing/art/095-e1117-full-art.js",
+      "line": 10,
+      "block": 95
+    },
+    {
+      "alias": "e1117PageOld",
+      "target": "e16Page",
+      "file": "src/js/fishing/art/095-e1117-full-art.js",
+      "line": 15,
+      "block": 95
+    },
+    {
+      "alias": "e1118PrevHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+      "line": 17,
+      "block": 97
+    },
+    {
+      "alias": "e1118PrevRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/hud/097-e1118-compact-fishing-hud.js",
+      "line": 19,
+      "block": 97
+    },
+    {
+      "alias": "old",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/hud/099-e1120-hud.js",
+      "line": 55,
+      "block": 99
+    },
+    {
+      "alias": "oldRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/hud/099-e1120-hud.js",
+      "line": 56,
+      "block": 99
+    },
+    {
+      "alias": "priorLive",
+      "target": "updateLive",
+      "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+      "line": 14,
+      "block": 100
+    },
+    {
+      "alias": "priorHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+      "line": 16,
+      "block": 100
+    },
+    {
+      "alias": "priorRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/hud/100-e1122-definitive-fishing-hud.js",
+      "line": 18,
+      "block": 100
+    },
+    {
+      "alias": "previousRender",
+      "target": "renderGame",
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "line": 24,
+      "block": 102
+    },
+    {
+      "alias": "previousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "line": 25,
+      "block": 102
+    },
+    {
+      "alias": "previousHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "line": 26,
+      "block": 102
+    },
+    {
+      "alias": "previousPaint",
+      "target": "e16Paint",
+      "file": "src/js/fishing/minigame/102-e1123-zone-identity.js",
+      "line": 27,
+      "block": 102
+    },
+    {
+      "alias": "oldFishArt",
+      "target": "e189FishSVG",
+      "file": "src/js/fishing/feedback/108-e1120-fishing-expansion.js",
+      "line": 44,
+      "block": 108
+    },
+    {
+      "alias": "e208PreviousRodArt",
+      "target": "e194RodArt",
+      "file": "src/js/fishing/art/111-e208-art.js",
+      "line": 8,
+      "block": 111
+    },
+    {
+      "alias": "e208PreviousFishArt",
+      "target": "e189FishSVG",
+      "file": "src/js/fishing/art/111-e208-art.js",
+      "line": 14,
+      "block": 111
+    },
+    {
+      "alias": "old",
+      "target": "e16Page",
+      "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+      "line": 4,
+      "block": 115
+    },
+    {
+      "alias": "previousTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/shop/115-e1121-rod-shop.js",
+      "line": 81,
+      "block": 115
+    },
+    {
+      "alias": "e218PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/collection/122-e218-journal.js",
+      "line": 83,
+      "block": 122
+    },
+    {
+      "alias": "e221PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/art/125-e221-compact-art.js",
+      "line": 18,
+      "block": 125
+    },
+    {
+      "alias": "e221PriorTab",
+      "target": "selectWorkspaceTab",
+      "file": "src/js/fishing/art/125-e221-compact-art.js",
+      "line": 20,
+      "block": 125
+    },
+    {
+      "alias": "e234BeforeRegionalMigration",
+      "target": "migrateState",
+      "file": "src/catalogs/130-regional34.js",
+      "line": 46,
+      "block": 130
+    },
+    {
+      "alias": "e227PreviousMigration",
+      "target": "migrateState",
+      "file": "src/js/fishing/expansion/130-expansion.js",
+      "line": 36,
+      "block": 130
+    },
+    {
+      "alias": "e227PreviousRecord",
+      "target": "makeRosterRecord",
+      "file": "src/js/fishing/expansion/130-expansion.js",
+      "line": 38,
+      "block": 130
+    },
+    {
+      "alias": "e227PriorPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/expansion/130-expansion.js",
+      "line": 57,
+      "block": 130
+    },
+    {
+      "alias": "value",
+      "target": "e227GeneralPending",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 51,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousXP",
+      "target": "gainCharacterXP",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 54,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousStatus",
+      "target": "setStatus",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 56,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousRender",
+      "target": "renderGame",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 58,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousLive",
+      "target": "updateLive",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 60,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousShowGame",
+      "target": "showGame",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 62,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousCharacters",
+      "target": "showCharacters",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 64,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousModeChrome",
+      "target": "refreshModeChrome",
+      "file": "src/js/ui/132-global-header.js",
+      "line": 66,
+      "block": 132
+    },
+    {
+      "alias": "e227PreviousFishArt",
+      "target": "e189FishSVG",
+      "file": "src/js/fishing/art/133-production-art.js",
+      "line": 8,
+      "block": 133
+    },
+    {
+      "alias": "e227PreviousRodArt",
+      "target": "e194RodArt",
+      "file": "src/js/fishing/art/133-production-art.js",
+      "line": 10,
+      "block": 133
+    },
+    {
+      "alias": "e227PreviousDecoration",
+      "target": "e221Decorate",
+      "file": "src/js/fishing/art/133-production-art.js",
+      "line": 18,
+      "block": 133
+    },
+    {
+      "alias": "e228PreviousZoneDetails",
+      "target": "e216ZoneDetails",
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "line": 69,
+      "block": 134
+    },
+    {
+      "alias": "e228PreviousProvenance",
+      "target": "e220RodProvenance",
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "line": 72,
+      "block": 134
+    },
+    {
+      "alias": "e228PreviousAtlasRender",
+      "target": "e216RenderAtlas",
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "line": 75,
+      "block": 134
+    },
+    {
+      "alias": "e228PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/trophies/134-trophies.js",
+      "line": 84,
+      "block": 134
+    },
+    {
+      "alias": "e229PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/136-polish29.js",
+      "line": 20,
+      "block": 136
+    },
+    {
+      "alias": "e229PreviousHud",
+      "target": "e188UpdateHud",
+      "file": "src/js/fishing/136-polish29.js",
+      "line": 29,
+      "block": 136
+    },
+    {
+      "alias": "e231OldRodArt",
+      "target": "e194RodArt",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 6,
+      "block": 140
+    },
+    {
+      "alias": "e231OldFishArt",
+      "target": "e189FishSVG",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 6,
+      "block": 140
+    },
+    {
+      "alias": "e231OldIcon",
+      "target": "e228Icon",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 6,
+      "block": 140
+    },
+    {
+      "alias": "e231PreviousJournal",
+      "target": "e230StyleJournalCard",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 24,
+      "block": 140
+    },
+    {
+      "alias": "e231Definitions",
+      "target": "e216QuestDefinitions",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 30,
+      "block": 140
+    },
+    {
+      "alias": "e231Reference",
+      "target": "e222DifficultyReference",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 30,
+      "block": 140
+    },
+    {
+      "alias": "e231PreviousPage",
+      "target": "e16Page",
+      "file": "src/js/fishing/140-world31.js",
+      "line": 33,
+      "block": 140
+    },
+    {
+      "alias": "e232BaseStats",
+      "target": "e1101Stats",
+      "file": "src/js/fishing/142-progression32.js",
+      "line": 13,
+      "block": 142
+    },
+    {
+      "alias": "e232OldDetail",
+      "target": "e218Detail",
+      "file": "src/js/fishing/142-progression32.js",
+      "line": 31,
+      "block": 142
+    }
+  ]
+}

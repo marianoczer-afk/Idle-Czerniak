@@ -80,6 +80,6 @@ function e218Journal(){
  if(!journal.dataset.detailToggle){journal.dataset.detailToggle='true';journal.addEventListener('toggle',()=>{if(journal.open&&state){const grid=journal.querySelector('.e218Album');if(grid)e218PlaceDetail(grid,e218Selected.get(state));}});}
  document.querySelectorAll('#page_fishing .e186Fish').forEach(card=>{card.title=[...card.querySelectorAll('strong,small')].map(n=>n.textContent.trim()).filter(Boolean).join(' · ');card.querySelectorAll('small').forEach(n=>n.remove());});
 }
-const e218PriorPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e218PriorPage();e218Journal();return result;};
+
+
 window.addEventListener('resize',()=>{const grid=document.querySelector('.e218Album');if(grid&&state)e218PlaceDetail(grid,e218Selected.get(state));});

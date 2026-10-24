@@ -57,25 +57,3 @@ e186LuckPercent=function(){
  return e1101Stats(e161Rod()).trophy;
 };
 /* Mostrar rol y ventajas claras en la tienda. */
-const e1103OldPage=e16Page;
-e16Page=function(){
- const result=e1103OldPage();
- const panel=document.querySelector('#page_fishing details:has(.fishRod)');
- if(!panel||!state)return result;
- if(!panel.querySelector('.e1103Note')){
-  const note=document.createElement('p');note.className='e1103Note';
-  note.textContent='Atracción = menos espera · Suerte = peces raros · Control = barra más ancha · Resiliencia = pez más lento · Trofeos = mejores ejemplares. Cada caña tiene un rol distinto.';
-  panel.prepend(note);
- }
- const rods=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
- for(const row of panel.querySelectorAll('.fishRod')){
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=rods.find(r=>r.name===name);
-  if(!rod||row.querySelector('.e1103Identity'))continue;
-  const target=row.querySelector('div');if(!target)continue;
-  const role=document.createElement('div');role.className='e1103Identity';
-  role.textContent='✦ '+(E1103_SPECIAL[rod.id]?.role||'Caña especializada');
-  target.append(role);
- }
- return result;
-};

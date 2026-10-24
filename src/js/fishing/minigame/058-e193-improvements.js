@@ -7,33 +7,8 @@ function e193RodScore(r){
  const score=.30*st.control/64+.25*st.resilience/45+.15*st.speed/40+.10*st.luck/43+.10*trophy/45+.10*Math.log1p(e190Capacity(r))/Math.log1p(3000);
  return clamp(Math.round(1+9*score),1,10);
 }
-const e193PreviousPage=e16Page;
-e16Page=function(){
- e193PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const panel=page.querySelector('details:has(.fishRod)');if(!panel)return;
- panel.querySelectorAll('.fishRod').forEach(row=>{
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/, '').trim();
-  const rod=E161_RODS.find(r=>r.name===name);
-  if(!rod)return;
-  row.classList.add('e193Rod');
-  const muted=row.querySelector('.fishMuted');
-  if(muted)muted.textContent=(muted.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'').replace(/\s*·\s*[\d.,]+\s*oro\s*$/i,'');
-  row.querySelectorAll('.e164RodStat').forEach(el=>{el.textContent=(el.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'');});
-  const info=row.querySelector('div');if(!info)return;
-  const score=e193RodScore(rod);
-  const badge=document.createElement('div');badge.className='e193RodBadge';
-  badge.innerHTML='<span class="e193Stars" title="Valoración orientativa de estadísticas">'+('★'.repeat(score))+'<span style="opacity:.22">'+('☆'.repeat(10-score))+'</span></span><span class="e193Tier">'+score+'/10 · Valoración general</span>';
-  info.append(badge);
-  const art=document.createElement('div');art.className='e193RodImage';art.innerHTML=e189RodSVG(rod.id);info.append(art);
-  const buy=row.querySelector('[data-e161-buy]');
-  if(buy){
-   const controls=document.createElement('div');controls.className='e193Buy';
-   const price=document.createElement('span');price.className='e193Price';price.textContent='🪙 '+fmt(rod.price)+' oro';
-   controls.append(price);buy.textContent='Comprar';controls.append(buy);row.append(controls);
-  }
- });
-};
+
+
 /* Inventario único: objetos y todos los grados de peces; orden personalizable. */
 function e193InvRows(){
  const inv=state?.inventory||{};

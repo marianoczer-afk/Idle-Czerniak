@@ -30,5 +30,3 @@ let e231RenderDepth=0,e231QuestCache=null,e231ReferenceCache=null;
 const e231Definitions=e216QuestDefinitions,e231Reference=e222DifficultyReference;
 e216QuestDefinitions=function(){if(!e231RenderDepth)return e231Definitions();return e231QuestCache||(e231QuestCache=e231Definitions());};
 e222DifficultyReference=function(){if(!e231RenderDepth)return e231Reference();return e231ReferenceCache||(e231ReferenceCache=e231Reference());};
-const e231PreviousPage=e16Page;
-e16Page=function(){if(state)e234MigrateRegional(state);e231RenderDepth++;try{const r=e231PreviousPage();const panel=document.getElementById('e16GamePanel');if(panel&&!panel.querySelector('.e231StageScenery'))panel.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e231StageScenery',true));return r;}finally{if(!--e231RenderDepth){e231QuestCache=null;e231ReferenceCache=null;}}};

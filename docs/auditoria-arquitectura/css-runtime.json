@@ -1,0 +1,725 @@
+{
+  "fishTankDeclarations": [],
+  "repeatedSelectors": [
+    [
+      "#page_fishing .e162Dock #e16GamePanel, #page_fishing .e162Dock #e16GamePanel.e196Shaking",
+      [
+        {
+          "sheet": 39,
+          "context": [],
+          "style": "height: 270px !important; min-height: 270px !important; max-height: none !important; box-sizing: border-box !important; overflow: visible !important; position: relative !important; margin-top: 7px !important; padding: 12px 8px !important;"
+        },
+        {
+          "sheet": 39,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 300px !important; min-height: 300px !important; max-height: none !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [],
+          "style": "height: 246px !important; min-height: 246px !important; max-height: 246px !important; overflow: hidden !important; box-sizing: border-box !important; contain: layout !important; margin-top: 0px !important; padding: 10px 8px 8px !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 275px !important; min-height: 275px !important; max-height: 275px !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [],
+          "style": "height: 272px !important; min-height: 272px !important; max-height: 272px !important; padding: 13px 12px 12px !important; overflow: hidden !important; box-sizing: border-box !important; margin-top: 0px !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 295px !important; min-height: 295px !important; max-height: 295px !important;"
+        },
+        {
+          "sheet": 42,
+          "context": [],
+          "style": "background: radial-gradient(ellipse at 50% 45%,var(--e185-water,rgba(33,97,114,.45)),rgba(15,27,35,.91) 90%) !important; border: 1px solid var(--e185-accent,#7e9fa0) !important; border-radius: 9px !important;"
+        },
+        {
+          "sheet": 53,
+          "context": [],
+          "style": "height: 272px !important; min-height: 272px !important; max-height: 272px !important; margin: 0px !important; box-sizing: border-box !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 54,
+          "context": [],
+          "style": "display: block !important; height: 272px !important; min-height: 272px !important; max-height: 272px !important; box-sizing: border-box !important; margin: 0px !important; padding: 12px 8px !important; overflow: hidden !important; contain: layout !important;"
+        },
+        {
+          "sheet": 55,
+          "context": [],
+          "style": "display: block !important; position: relative !important; height: 272px !important; min-height: 272px !important; max-height: 272px !important; margin: 0px !important; padding: 12px 8px !important; box-sizing: border-box !important; overflow: hidden !important; contain: layout !important;"
+        },
+        {
+          "sheet": 55,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 295px !important; min-height: 295px !important; max-height: 295px !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e192Sprite",
+      [
+        {
+          "sheet": 27,
+          "context": [],
+          "style": "width: 66px; height: 50px; flex: 0 0 66px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: radial-gradient(at 50% 40%, rgba(176, 198, 190, 0.11), transparent 70%);"
+        },
+        {
+          "sheet": 27,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "width: 48px; flex-basis: 48px;"
+        },
+        {
+          "sheet": 45,
+          "context": [],
+          "style": "overflow: hidden; border-radius: 8px; border: 1px solid rgba(93, 133, 140, 0.4); background: rgb(16, 32, 43); width: 110px !important; min-width: 110px !important; height: 83px !important;"
+        },
+        {
+          "sheet": 45,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "width: 78px !important; min-width: 78px !important; height: 70px !important;"
+        },
+        {
+          "sheet": 46,
+          "context": [],
+          "style": "display: flex !important; align-items: center !important; justify-content: center !important; width: 100px !important; min-width: 0px !important; max-width: 100% !important; height: 78px !important; box-sizing: border-box !important; padding: 3px !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 46,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "width: 72px !important; height: 65px !important;"
+        },
+        {
+          "sheet": 47,
+          "context": [],
+          "style": "width: 145px !important; min-width: 145px !important; max-width: 145px !important; height: 92px !important; padding: 0px !important; display: block !important; background: rgb(16, 32, 42) !important; border-radius: 9px !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 47,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "width: 100px !important; min-width: 100px !important; max-width: 100px !important; height: 78px !important;"
+        },
+        {
+          "sheet": 48,
+          "context": [],
+          "style": "width: 150px !important; min-width: 150px !important; height: 90px !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 48,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "width: 100px !important; min-width: 100px !important; height: 75px !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e193RodImage, #page_fishing .e194QuestRodArt",
+      [
+        {
+          "sheet": 30,
+          "context": [],
+          "style": "width: 100%; box-sizing: border-box; overflow: hidden;"
+        },
+        {
+          "sheet": 44,
+          "context": [],
+          "style": "border: 1px solid rgba(103, 123, 119, 0.4); border-radius: 9px; overflow: hidden; background: linear-gradient(115deg, rgb(17, 29, 40), rgb(29, 48, 51) 52%, rgb(22, 29, 43)) !important;"
+        },
+        {
+          "sheet": 45,
+          "context": [],
+          "style": "min-height: 104px !important; height: auto !important; overflow: hidden !important; background: rgb(16, 28, 36) !important;"
+        },
+        {
+          "sheet": 46,
+          "context": [],
+          "style": "display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; max-width: 100% !important; height: 96px !important; min-height: 0px !important; box-sizing: border-box !important; padding: 6px 10px !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 46,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 76px !important; padding: 4px !important;"
+        },
+        {
+          "sheet": 47,
+          "context": [],
+          "style": "width: 100% !important; max-width: none !important; height: 176px !important; min-height: 176px !important; padding: 0px !important; display: block !important; overflow: hidden !important; background: rgb(16, 32, 42) !important; position: relative !important; border-radius: 10px !important; box-shadow: rgba(125, 185, 194, 0.3) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.267) 0px 4px 14px !important;"
+        },
+        {
+          "sheet": 47,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "height: 132px !important; min-height: 132px !important;"
+        },
+        {
+          "sheet": 48,
+          "context": [],
+          "style": "display: block !important; position: relative !important; width: 100% !important; height: auto !important; min-height: 0px !important; aspect-ratio: 900 / 320 !important; max-height: none !important; padding: 0px !important; margin: 0px !important; overflow: hidden !important; background: rgb(16, 35, 42) !important; border: 1px solid rgba(106, 139, 140, 0.533) !important; border-radius: 9px !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .fishTank",
+      [
+        {
+          "sheet": 7,
+          "context": [],
+          "style": "position: relative; width: 100px; height: 300px; border: 3px solid rgb(123, 157, 165); border-radius: 12px; overflow: hidden; background: linear-gradient(rgb(24, 61, 75), rgb(16, 38, 50)); touch-action: none; user-select: none;"
+        },
+        {
+          "sheet": 8,
+          "context": [],
+          "style": "height: 300px; width: 112px;"
+        },
+        {
+          "sheet": 9,
+          "context": [],
+          "style": "position: relative; width: min(100%, 520px); height: 94px; min-width: 0px; flex: 1 1 0%; background: rgb(24, 59, 74); border: 3px solid rgb(127, 166, 177); border-radius: 12px; overflow: hidden; touch-action: none;"
+        },
+        {
+          "sheet": 9,
+          "context": [
+            "(max-width: 560px)"
+          ],
+          "style": "height: 80px;"
+        },
+        {
+          "sheet": 10,
+          "context": [],
+          "style": "background: linear-gradient(90deg, rgb(20, 53, 67), rgb(30, 78, 96));"
+        },
+        {
+          "sheet": 19,
+          "context": [],
+          "style": "height: 76px;"
+        },
+        {
+          "sheet": 21,
+          "context": [],
+          "style": "background: linear-gradient(105deg,var(--e185-deep,#113949),var(--e185-shallow,#24728a)); border-color: var(--e185-accent,#56c2d8); box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 25px inset;"
+        }
+      ]
+    ],
+    [
+      ".dockVitals",
+      [
+        {
+          "sheet": 0,
+          "context": [],
+          "style": "width: 360px; flex-shrink: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0px 12px;"
+        },
+        {
+          "sheet": 0,
+          "context": [
+            "(min-width: 601px) and (max-width: 850px)"
+          ],
+          "style": "width: 290px;"
+        },
+        {
+          "sheet": 0,
+          "context": [
+            "(max-width: 600px)"
+          ],
+          "style": "width: 100%; grid-template-columns: 1fr 1fr; gap: 0px 10px;"
+        },
+        {
+          "sheet": 1,
+          "context": [
+            "(max-width: 850px)"
+          ],
+          "style": "width: 280px;"
+        },
+        {
+          "sheet": 1,
+          "context": [
+            "(max-width: 600px)"
+          ],
+          "style": "width: 100%;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .fishZone",
+      [
+        {
+          "sheet": 7,
+          "context": [],
+          "style": "position: absolute; left: 5px; right: 5px; height: 68px; background: rgba(81, 194, 108, 0.48); border: 2px solid rgb(135, 239, 155); border-radius: 8px; pointer-events: none;"
+        },
+        {
+          "sheet": 8,
+          "context": [],
+          "style": "background: rgba(63, 185, 103, 0.38);"
+        },
+        {
+          "sheet": 9,
+          "context": [],
+          "style": "position: absolute; bottom: 5px; top: 5px; width: 95px; border: 2px solid rgb(102, 237, 138); border-radius: 9px; background: rgba(63, 185, 103, 0.35); height: auto !important;"
+        },
+        {
+          "sheet": 21,
+          "context": [],
+          "style": "background: var(--e185-zone,rgba(57,208,122,.35)); border-color: var(--e185-zone-edge,#8beaab); box-shadow: 0 0 12px var(--e185-glow,rgba(57,208,122,.3));"
+        },
+        {
+          "sheet": 70,
+          "context": [],
+          "style": "box-shadow: rgba(165, 230, 174, 0.208) 0px 0px 12px inset, rgba(121, 202, 163, 0.196) 0px 0px 5px;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e162Dock",
+      [
+        {
+          "sheet": 9,
+          "context": [],
+          "style": "padding: 14px 16px;"
+        },
+        {
+          "sheet": 19,
+          "context": [],
+          "style": "padding: 12px 14px; margin-top: 6px;"
+        },
+        {
+          "sheet": 21,
+          "context": [],
+          "style": "border-top: 4px solid var(--e185-accent,#56c2d8); background: linear-gradient(155deg,var(--e185-water,rgba(20,77,98,.22)),transparent 65%),var(--panel2);"
+        },
+        {
+          "sheet": 30,
+          "context": [],
+          "style": "position: relative;"
+        },
+        {
+          "sheet": 55,
+          "context": [],
+          "style": "position: relative !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e162DockHead",
+      [
+        {
+          "sheet": 9,
+          "context": [],
+          "style": "display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;"
+        },
+        {
+          "sheet": 19,
+          "context": [],
+          "style": "gap: 8px;"
+        },
+        {
+          "sheet": 19,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "align-items: start;"
+        },
+        {
+          "sheet": 20,
+          "context": [],
+          "style": "padding-bottom: 4px;"
+        },
+        {
+          "sheet": 54,
+          "context": [],
+          "style": "min-height: 0px !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e163XpTrack",
+      [
+        {
+          "sheet": 10,
+          "context": [],
+          "style": "height: 15px; background: rgb(40, 37, 33); border: 1px solid rgb(110, 88, 51); border-radius: 10px; overflow: hidden;"
+        },
+        {
+          "sheet": 19,
+          "context": [],
+          "style": "height: 12px;"
+        },
+        {
+          "sheet": 23,
+          "context": [],
+          "style": "position: relative; overflow: hidden; border: 1px solid rgb(161, 131, 72); height: 25px !important;"
+        },
+        {
+          "sheet": 70,
+          "context": [],
+          "style": "box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 5px inset;"
+        },
+        {
+          "sheet": 71,
+          "context": [],
+          "style": "box-shadow: rgba(0, 0, 0, 0.533) 0px 0px 5px inset, rgba(91, 77, 49, 0.2) 0px 0px 0px 2px; border-color: rgb(196, 169, 100) !important; background: linear-gradient(100deg, rgb(18, 43, 45), rgb(52, 51, 41)) !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e162Dock #e16GamePanel .e196ShakeOverlay",
+      [
+        {
+          "sheet": 39,
+          "context": [],
+          "style": "inset: 0px !important; overflow: hidden !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [],
+          "style": "inset: 0px !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [],
+          "style": "inset: 0px !important; border-radius: 9px !important;"
+        },
+        {
+          "sheet": 42,
+          "context": [],
+          "style": "background: transparent !important; border: 0px !important; border-radius: 9px !important;"
+        },
+        {
+          "sheet": 55,
+          "context": [],
+          "style": "inset: 0px !important;"
+        }
+      ]
+    ],
+    [
+      "#fishingRodShop .rodShopArt",
+      [
+        {
+          "sheet": 57,
+          "context": [],
+          "style": "background: rgb(6, 27, 35) !important;"
+        },
+        {
+          "sheet": 58,
+          "context": [],
+          "style": "width: 100%; height: 104px; display: flex; align-items: center; justify-content: center; background: rgb(16, 35, 42); border-radius: 6px; overflow: hidden;"
+        },
+        {
+          "sheet": 58,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "grid-column: 1 / -1;"
+        },
+        {
+          "sheet": 58,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "width: 100%; height: 75px;"
+        },
+        {
+          "sheet": 68,
+          "context": [],
+          "style": "background: transparent; border-color: transparent;"
+        }
+      ]
+    ],
+    [
+      "#combatDock .dockInner",
+      [
+        {
+          "sheet": 3,
+          "context": [],
+          "style": "display: grid; grid-template-columns: minmax(260px, 360px) minmax(0px, 1fr) auto; grid-template-rows: auto auto; align-items: center; gap: 5px 12px; width: 100%; max-width: 1100px;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 1000px)"
+          ],
+          "style": "grid-template-columns: minmax(230px, 340px) minmax(0px, 1fr) auto; column-gap: 8px;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "grid-template-columns: minmax(0px, 1fr) auto; grid-template-rows: auto auto auto; gap: 5px 8px;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 440px)"
+          ],
+          "style": "grid-template-columns: minmax(0px, 1fr);"
+        }
+      ]
+    ],
+    [
+      "#combatDock .dockVitals",
+      [
+        {
+          "sheet": 3,
+          "context": [],
+          "style": "grid-area: 1 / 1 / span 2; width: 100%; min-width: 0px;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 1000px)"
+          ],
+          "style": "grid-row: 1 / span 2;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "grid-area: 1 / 1; width: 100%;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 440px)"
+          ],
+          "style": "grid-area: 1 / 1;"
+        }
+      ]
+    ],
+    [
+      "#combatDock .dockControls",
+      [
+        {
+          "sheet": 3,
+          "context": [],
+          "style": "grid-area: 1 / 3 / span 2; min-width: 0px;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 1000px)"
+          ],
+          "style": "grid-row: 1 / span 2;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "grid-area: 1 / 2; width: auto; flex-direction: column;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 440px)"
+          ],
+          "style": "grid-area: 2 / 1; flex-direction: row; width: 100%;"
+        }
+      ]
+    ],
+    [
+      "#combatDock .dockPotions",
+      [
+        {
+          "sheet": 3,
+          "context": [],
+          "style": "grid-area: 2 / 2; min-width: 0px; max-width: 100%; margin: 0px; padding: 3px 0px 0px; gap: 5px; overflow: hidden;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 1000px)"
+          ],
+          "style": "grid-area: 3 / 1 / auto / -1; justify-content: center; flex-wrap: nowrap; border-top: 1px solid var(--border);"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "grid-area: 3 / 1 / auto / -1; justify-content: flex-start;"
+        },
+        {
+          "sheet": 3,
+          "context": [
+            "(max-width: 440px)"
+          ],
+          "style": "grid-area: 4 / 1; flex-wrap: wrap;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e165Zones",
+      [
+        {
+          "sheet": 12,
+          "context": [],
+          "style": "display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0px 4px;"
+        },
+        {
+          "sheet": 19,
+          "context": [],
+          "style": "margin: 7px 0px 2px; gap: 6px;"
+        },
+        {
+          "sheet": 23,
+          "context": [],
+          "style": "max-height: 118px; overflow-y: auto; align-content: start;"
+        },
+        {
+          "sheet": 23,
+          "context": [
+            "(max-width: 600px)"
+          ],
+          "style": "max-height: 154px;"
+        }
+      ]
+    ],
+    [
+      ".e197FishingSkills",
+      [
+        {
+          "sheet": 32,
+          "context": [],
+          "style": "display: none; background: linear-gradient(150deg, rgb(36, 58, 51), rgb(32, 29, 25)); border: 1px solid rgb(106, 133, 90); border-radius: 10px; padding: 11px; margin: 8px 0px; color: rgb(233, 225, 199);"
+        },
+        {
+          "sheet": 32,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "padding: 8px;"
+        },
+        {
+          "sheet": 68,
+          "context": [],
+          "style": "position: relative; isolation: isolate; overflow: hidden; background: rgb(23, 39, 37);"
+        },
+        {
+          "sheet": 70,
+          "context": [],
+          "style": "text-shadow: rgb(0, 0, 0) 0px 1px 3px; background: linear-gradient(90deg, rgba(7, 29, 31, 0.61), rgba(9, 25, 23, 0.14)) !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e162Dock #e16GamePanel .e162Controls",
+      [
+        {
+          "sheet": 39,
+          "context": [],
+          "style": "display: flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 6px !important; margin-top: 10px !important; padding-bottom: 8px !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [],
+          "style": "display: flex !important; justify-content: center !important; align-items: center !important; flex-wrap: wrap !important; gap: 8px !important; margin-top: 10px !important; padding-bottom: 4px !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [],
+          "style": "margin: 14px auto 0px !important; padding: 0px !important; gap: 0px !important; width: 100% !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "margin-top: 17px !important;"
+        }
+      ]
+    ],
+    [
+      "#page_fishing .e162Dock #e16GamePanel .e162Play",
+      [
+        {
+          "sheet": 39,
+          "context": [],
+          "style": "margin: 0px !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [],
+          "style": "max-width: 950px !important; width: 100% !important; gap: 15px !important; margin: 9px auto 0px !important; justify-content: center !important;"
+        },
+        {
+          "sheet": 40,
+          "context": [
+            "(max-width: 650px)"
+          ],
+          "style": "gap: 8px !important;"
+        },
+        {
+          "sheet": 41,
+          "context": [],
+          "style": "margin: 0px auto !important; max-width: 900px !important;"
+        }
+      ]
+    ],
+    [
+      ".e1107RodStats > div",
+      [
+        {
+          "sheet": 39,
+          "context": [],
+          "style": "border: 1px solid rgb(91, 81, 64); background: rgb(41, 37, 31); border-radius: 7px; padding: 7px 5px; font-size: 0.73rem;"
+        },
+        {
+          "sheet": 68,
+          "context": [],
+          "style": "background: rgba(37, 43, 35, 0.85);"
+        },
+        {
+          "sheet": 71,
+          "context": [],
+          "style": "position: relative; padding-left: 33px;"
+        },
+        {
+          "sheet": 71,
+          "context": [
+            "(max-width: 700px)"
+          ],
+          "style": "padding-left: 33px;"
+        }
+      ]
+    ]
+  ],
+  "pageCallMs": [
+    42,
+    37.100000001490116,
+    37.600000001490116,
+    37.79999999701977,
+    34.5,
+    34.600000001490116,
+    46.69999999552965,
+    33.900000005960464,
+    32.899999998509884,
+    33.29999999701977
+  ],
+  "hudHeight": 118
+}

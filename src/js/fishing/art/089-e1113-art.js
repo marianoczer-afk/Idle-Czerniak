@@ -78,5 +78,3 @@ function e1113RefreshArt(){
   if(rod)node.innerHTML=e194RodArt(rod.id);
  });
 }
-const e1113PriorPage=e16Page;
-e16Page=function(){const r=e1113PriorPage();e1113RefreshArt();return r;};

@@ -65,8 +65,8 @@ function e164Inventory(){
  }).join(''):'<p class="muted">Todavía no tenés materiales ni peces para vender.</p>');
  const summary=document.getElementById('e163InvSummary');if(summary)summary.replaceWith(panel);else page.prepend(panel);
 }
-const e164OldPage=e16Page;
-e16Page=function(){e164OldPage();e164RenderRods();};
+
+
 const e164OldRender=renderGame;
 renderGame=function(){e164OldRender();e164Inventory();e164RenderRods();};
 const e164OldUpdate=updateInv;

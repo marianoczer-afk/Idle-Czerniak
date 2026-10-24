@@ -1,0 +1,9 @@
+
+> test:assets
+> python3 tests/optimize-assets.test.py
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.566s
+
+OK

@@ -52,6 +52,6 @@ document.addEventListener('click',e=>{
  if(popup&&!e.target.closest('.e1120Menu'))closeMenu();
 },true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();if((e.key==='Enter'||e.key===' ')&&e.target.matches('#combatDock.e188FishingMode .e1118Zone,#combatDock.e188FishingMode .e194DockRod')){e.preventDefault();openMenu(e.target.classList.contains('e1118Zone')?'zone':'rod',e.target);}});
-const old=e188UpdateHud;e188UpdateHud=function(){const result=old();sync();return result;};
+fishingHudMenuSync=sync;
 const oldRender=renderGame;renderGame=function(){const result=oldRender();sync();return result;};
 })();

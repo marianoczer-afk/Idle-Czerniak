@@ -20,8 +20,8 @@ function e189UpdateArt(){
  if(!data){data=document.createElement('div');data.className='e189Data';[...hud.children].filter(n=>n!==art&&!n.classList.contains('dockProgress')).forEach(n=>data.append(n));hud.append(data);}
 }
 /* Reemplazar el texto que muestra el nombre en el panel mientras está picando. */
-const e190PreviousPage=e16Page;
-e16Page=function(){e190PreviousPage();if(!e16Session)return;const page=document.getElementById('page_fishing');if(!page)return;const waiting=page.querySelector('#e161WaitingText');if(waiting)waiting.textContent='🐟 ¡Picó un pez misterioso!';const status=page.querySelector('#e16Status');if(status)status.textContent='🐟 ¡Picó un pez misterioso!';};
+
+
 /* Recorridos continuos y anticipación de impulso. La dificultad, control y resiliencia
    se miden por separado de la selección aleatoria y las recompensas. */
 // Capture behavior is separate from rarity weights: demanding fish need sustained tracking.

@@ -15,7 +15,7 @@ function e221Decorate(){
  const cast=document.querySelector('#page_fishing [data-e161-toggle]');if(cast&&!e161Fishing&&!cast.querySelector('.e221Art')){const r=cast.getBoundingClientRect();if(r.width){cast.style.width=r.width+'px';cast.style.height=r.height+'px';cast.classList.add('e221Cast');cast.innerHTML=e221Art('cast')+'<span>Tirar la caña</span>';}}
  document.querySelectorAll('#page_fishing .e218Card img,#page_fishing .e218Detail img,#fishingRodShop img').forEach(img=>{img.loading='lazy';img.decoding='async';});
 }
-const e221PriorPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e221PriorPage();e221Decorate();return result;};
+
+
 const e221PriorTab=selectWorkspaceTab;
 selectWorkspaceTab=function(){const result=e221PriorTab.apply(this,arguments);e221Decorate();return result;};

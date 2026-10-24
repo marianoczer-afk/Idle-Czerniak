@@ -36,8 +36,8 @@ e16Start=function(id){
  e195Pending={id,left};e16Result='';e16Page();
  e195ShakeTimer=setTimeout(()=>{if(!e195Pending)return;e195Reset();if(e161Fishing&&e161OnPage())e161NextBite();},18000);
 };
-const e195PriorPage=e16Page;
-e16Page=function(){e195PriorPage();e195DrawShake();};
+
+
 document.addEventListener('click',e=>{
  const b=e.target.closest('.e195Bubble');if(!b)return;
  e.preventDefault();e.stopImmediatePropagation();

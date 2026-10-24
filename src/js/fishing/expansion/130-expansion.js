@@ -54,8 +54,8 @@ function e227RenderQuests(){
  for(const q of qs){const section=document.createElement('section');section.className='e227Quest';section.dataset.questId=q.id;section.innerHTML=`<b>${esc(q.title)}</b><ul>${q.goals.map(g=>`<li>${esc(g.label)} · ${fmt(Math.min(g.have,g.need))}/${fmt(g.need)}</li>`).join('')}</ul><small>${esc(q.note)}</small><div class="actions"><span>${esc(q.reward)}</span><button data-expansion-claim="${q.id}" ${q.goals.every(g=>g.have>=g.need)?'':'disabled'}>Reclamar recompensa</button></div>`;body.append(section);}
  fold.querySelector(':scope>summary').textContent='Encargos de esta zona ('+body.children.length+')';e216CompactQuests();
 }
-const e227PriorPage=e16Page;
-e16Page=function(){if(state)e227MigrateMastery(state);const result=e227PriorPage();e227RenderQuests();return result;};
+
+
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-expansion-claim]');if(!button)return;
  event.preventDefault();if(!state||!ready||busy||managing||!storageReady||simulationLocked()||e16Session||e195Pending)return;

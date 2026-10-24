@@ -22,8 +22,8 @@ function sync(){
  if(page&&!page.classList.contains('hidden')&&!document.getElementById('gameScreen').classList.contains('hidden')){let banner=page.querySelector('.e1123ZoneBanner');if(!banner){banner=document.createElement('div');banner.className='e1123ZoneBanner';banner.innerHTML='<img alt="Paisaje de la zona de pesca"><div class="e1123ZoneBannerText"><strong></strong><span></span></div>';const anchor=page.querySelector('.e162DockHead')||page.querySelector('h2');if(anchor)anchor.after(banner);else page.prepend(banner);}if(typeof e227ZoneArt==='function'&&e227ZoneArt(zone)){if(banner.dataset.artZone!==zone.id){banner.querySelector('img,svg')?.remove();banner.insertAdjacentHTML('afterbegin',e227ZoneArt(zone));banner.dataset.artZone=zone.id;}}else banner.querySelector('img').src=e221ZoneImage(zone)||data.muelle;banner.querySelector('strong').textContent=zone.name;banner.querySelector('span').textContent=zone.desc||'Explorá las aguas y descubrí nuevas especies.';}
 }
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
-const previousPage=e16Page;e16Page=function(){const r=previousPage();sync();return r;};
-const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
+fishingPageZoneSync=sync;
+
 const previousPaint=e16Paint;e16Paint=function(){const r=previousPaint();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
 })();

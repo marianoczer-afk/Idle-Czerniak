@@ -8,15 +8,3 @@ function e1114RodIndex(id){const s=String(id||'').toLowerCase();for(const [k,n] 
 function e1114FishIndex(id){const s=String(id||'').toLowerCase();for(const [k,n] of Object.entries(E1114_FISH_KEYS))if(s.includes(k))return n;return e1113Hash(s)%E1114_FISH_IMAGES.length;}
 e194RodArt=function(id){return '<img class="e1114Rod" alt="Ilustración detallada de caña de pesca" draggable="false" src="'+E1114_ROD_IMAGES[e1114RodIndex(id)]+'">';};
 e189FishSVG=function(id){return '<img class="e1114Fish" alt="Ilustración de pez" draggable="false" src="'+E1114_FISH_IMAGES[e1114FishIndex(id)]+'">';};
-const e1114PreviousPage=e16Page;
-e16Page=function(){
- const result=e1114PreviousPage();
- const page=document.getElementById('page_fishing');if(!page)return result;
- // Actualizar tarjetas existentes que fueron generadas antes de este parche.
- const zone=typeof e165Zone==='function'?e165Zone():null;
- if(zone){const fishList=E16_FISH.filter(f=>zone.fish.includes(f.id));
- const cards=page.querySelectorAll('.e186Fish');cards.forEach((card,i)=>{
-  const sprite=card.querySelector('.e192Sprite');if(sprite&&fishList[i])sprite.innerHTML=e189FishSVG(fishList[i].id);
- });}
- return result;
-};

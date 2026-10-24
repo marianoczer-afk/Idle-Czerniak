@@ -50,39 +50,8 @@ function e209CompletedQuests(){
  return rows;
 }
 let e194QuestOpen=false;
-const e194PreviousPage=e16Page;
-e16Page=function(){
- const old=document.querySelector('#page_fishing .e194QuestFold');if(old)e194QuestOpen=old.open;
- e194PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const quests=page.querySelector('.e171Quests');
- if(quests){
-  e210ZoneChallenges(quests);
-  const active=[...quests.children].filter(el=>!el.matches('.e171QuestGroup'));
-  if(active.length){const fold=document.createElement('details');fold.className='e194QuestFold';fold.open=e194QuestOpen;
-   const sum=document.createElement('summary');sum.textContent='📜 Encargos de esta zona ('+active.length+')';
-   const body=document.createElement('div');body.className='e194QuestBody';active.forEach(el=>body.append(el));fold.append(sum,body);quests.prepend(fold);
-   fold.addEventListener('toggle',()=>{e194QuestOpen=fold.open;});
-  }
-  quests.querySelectorAll('.e171QuestGroup').forEach(n=>n.remove());
-  quests.append(e216AtlasNode());quests.querySelector('.atlasRows').scrollTop=e216View().scrollTop||0;
- }
- // Todas las cañas (compradas o ganadas en quests) reciben ilustración.
- const list=page.querySelector('details:has(.fishRod)');
- if(list)list.querySelectorAll('.fishRod').forEach(row=>{
-  const label=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[])].find(r=>r?.name===label);
-  const id=rod?.id||(/brumas/i.test(label)?'bruma':/guardarr/i.test(label)?'guardarr':/viejo/i.test(label)?'viejo':/coral/i.test(label)?'coral':null);
-  if(!id)return;
-  const existing=row.querySelector('.e193RodImage');
-  if(existing){existing.innerHTML=e194RodArt(id);return;}
-  if(row.querySelector('.e194QuestRodArt'))return;
-  const art=document.createElement('div');art.className='e194QuestRodArt';art.innerHTML=e194RodArt(id);
-  const info=row.querySelector('div');if(info)info.append(art);
- });
- const next=[...page.querySelectorAll('*')].find(el=>el.children.length===0&&/Próxima caña:\s*.*nivel\s*\d+/i.test(el.textContent||''));
- if(next)next.textContent='';
-};
+
+
 function e194UpdateDockRod(){
  const dock=document.getElementById('combatDock'),vitals=dock?.querySelector('.dockVitals');if(!vitals)return;
  let panel=vitals.querySelector('.e194DockRod');if(!panel){panel=document.createElement('div');panel.className='e194DockRod';panel.innerHTML='<div class="e194DockRodArt"></div><div class="e194DockRodText"></div>';vitals.append(panel);}
@@ -91,7 +60,7 @@ function e194UpdateDockRod(){
  panel.dataset.key=key;panel.querySelector('.e194DockRodArt').innerHTML=e194RodArt(id);
  panel.querySelector('.e194DockRodText').innerHTML='🎣 '+(rod?.name||'Caña equipada')+'<small>Tu caña equipada</small>';
 }
-const e194PriorHud=e188UpdateHud;
-e188UpdateHud=function(){e194PriorHud();e194UpdateDockRod();};
+
+
 const e194PriorRender=renderGame;
 renderGame=function(){e194PriorRender();e194UpdateDockRod();};

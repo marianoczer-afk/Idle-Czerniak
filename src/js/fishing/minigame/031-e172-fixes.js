@@ -7,41 +7,8 @@ function e172RodId(){
  const valid=all.find(r=>r.id===id && (state?.owned?.[r.id]||r.id===E17_ROD.id&&e17Done()));
  return valid?.id||e161Rod()?.id||null;
 }
-const e172PriorPage=e16Page;
-e16Page=function(){
- e172PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const activeId=e172RodId();
- const rods=page.querySelector('details:has(.fishRod)');
- if(rods){
-  // Reconstruir solo los estados de equipamiento, incluidos los premios de quest.
-  rods.querySelectorAll('.fishRod').forEach(row=>{
-   const b=row.querySelector('b');if(!b)return;
-   const name=b.textContent.replace(/^[✓🏆\s]+/u,'').trim();
-   const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod)].find(r=>r.name===name);
-   if(!rod)return;
-   const equipped=rod.id===activeId;
-   b.textContent=(equipped?'✓ ':'')+rod.name;
-   row.classList.toggle('e164RodActive',equipped);
-   row.classList.toggle('e172Equipped',equipped);
-   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
-   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
-   row.querySelectorAll('.e172Label').forEach(el=>el.remove());
-   if(equipped&&!btn){const label=document.createElement('span');label.className='e172Label';label.textContent='✓ Equipada';row.append(label);}
-  });
-  const summary=rods.querySelector('summary');
-  if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
- }
- const dock=page.querySelector('.e162Dock');
- if(dock){
-  const waiting=dock.querySelector('#e161WaitingText');
-  if(waiting&&!e161Fishing&&!e16Session){
-   waiting.textContent='Elegí una zona y empezá a pescar con el botón «Tirar la caña».';
-  }
-  // La notificación de captura ya aparece en un recuadro: evitar duplicarla.
-  if(dock.querySelector('.fishCatch')&&waiting&&!e161Fishing&&!e16Session)waiting.style.display='none';
- }
-};
+
+
 /* Cambiar de zona es una acción directa: prepara la caña y comienza la espera automáticamente.
    Se mantienen las restricciones existentes (combate, descanso, navegación). */
 document.addEventListener('click',function(e){

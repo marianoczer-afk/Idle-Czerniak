@@ -37,25 +37,8 @@ e16Finish=function(won){
   persist();e16Page();
  }
 };
-const e18OldPage=e16Page;
-e16Page=function(){
- e18OldPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- const r=e18Record(),lvl=e16FishLevel(),done=!!state.owned?.[E18_ROD.id],eligible=lvl>=12;
- const q=document.createElement('details');q.className='e18Panel e181Journal';
- q.innerHTML=`<summary>📖 Diario de pesca · ${r.total||0} capturas · ${Object.keys(r.bySpecies).length||0} especies</summary>
- <div class="e18Pills"><span>🐟 Grandes: ${r.large||0}</span><span>🏆 Enormes: ${r.huge||0}</span><span>✨ Legendarios: ${r.legendary||0}</span></div>
- <p>Tu colección de trofeos. Los tamaños no modifican el valor de venta.</p>`;
- const quests=page.querySelector('.e171Quests');if(quests)quests.after(q);else dock.after(q);
- if(done){
-  const rods=page.querySelector('details:has(.fishRod)');
-  if(rods){const equipped=e18RodSelected(),row=document.createElement('div');row.className='fishRod';row.classList.toggle('e172Equipped',equipped);
-   row.innerHTML=`<div><b>${equipped?'✓ ':''}${E18_ROD.name}</b><div class="fishMuted">Premio de Pesca · ${E18_ROD.desc}</div></div><button class="small" data-e18-equip ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
-   rods.append(row);const summary=rods.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
-  }
- }
-};
+
+
 document.addEventListener('click',e=>{
  const claim=e.target.closest('[data-e18-claim]'),equip=e.target.closest('[data-e18-equip]');if(!claim&&!equip)return;
  e.preventDefault();e.stopImmediatePropagation();

@@ -13,8 +13,8 @@
  // Actualización final tras el render normal: el HUD de combate escribe el nivel general.
  const priorLive=updateLive;
  updateLive=function(){const result=priorLive.apply(this,arguments);e197Sync();updateFishingXp();return result;};
- const priorHud=e188UpdateHud;
- e188UpdateHud=function(){const result=priorHud.apply(this,arguments);updateFishingXp();return result;};
+
+ fishingHudXpSync=updateFishingXp;
  const priorRender=renderGame;
  renderGame=function(){const result=priorRender.apply(this,arguments);updateFishingXp();return result;};
  document.addEventListener('pointerup',()=>queueMicrotask(updateFishingXp),true);
