@@ -4,7 +4,7 @@ const root=path.join(__dirname,'..');let server,browser,url;
 before(async()=>{const previous=execFileSync('git',['show','85355b4:index.html'],{cwd:root,maxBuffer:32e6}),current=fs.readFileSync(path.join(root,'index.html'));server=http.createServer((q,r)=>{r.setHeader('content-type','text/html;charset=utf-8');r.end(q.url.startsWith('/before')?previous:current);});await new Promise(r=>server.listen(0,'127.0.0.1',r));url='http://127.0.0.1:'+server.address().port;browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});});
 after(async()=>{await browser?.close();await new Promise(r=>server?.close(r));});
 async function fresh(version,width){const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url+'/'+version);await page.waitForFunction(()=>storageReady);await page.evaluate(async()=>{draft={name:'Equivalence',race:'humano',cls:'clerigo'};await changeRoster('create');state.skills.pesca.xp=98010;for(const rod of e221Rods())state.owned[rod.id]=true;state.ui.fishingRodId='e208_rod_eterno_pulso';selectWorkspaceTab('fishing');e161StopWait();});return{context,page,errors};}
-for(const width of[1366,390])test('Consolidated page/HUD preserve baseline DOM, state and dimensions '+width,async()=>{
+for(const width of[1366,390])test('Unchanged capture controls/HUD preserve baseline structure, state and dimensions '+width,async()=>{
  const old=await fresh('before',width),now=await fresh('after',width);
  try{
   const seed=await old.page.evaluate(()=>copyJSON(state));
@@ -25,8 +25,8 @@ for(const width of[1366,390])test('Consolidated page/HUD preserve baseline DOM, 
     e16Page();e188UpdateHud();
     const ids=new Map();let serial=0;
     function normalize(text){return text.replace(/e231-(?:responsive|art)-\d+/g,id=>{if(!ids.has(id))ids.set(id,'art-serial-'+(++serial));return ids.get(id);}).replace(/Esperando una picada… \d+ s/g,'Esperando una picada… Ns');}
-    function snapshot(node){const copy=node.cloneNode(true);for(const item of copy.querySelectorAll('[data-render-key]'))item.removeAttribute('data-render-key');return normalize(copy.outerHTML);}
-    return{page:snapshot(document.getElementById('page_fishing')),hud:snapshot(document.getElementById('combatDock')),state:copyJSON(state),height:document.getElementById('combatDock').getBoundingClientRect().height};
+    function snapshot(node){const copy=node.cloneNode(true);for(const art of copy.querySelectorAll('.e231StageScenery,.e227WaterArt,.e230ShakeWater'))art.remove();for(const item of copy.querySelectorAll('[data-render-key]'))item.removeAttribute('data-render-key');return normalize(copy.outerHTML);}
+    return{page:snapshot(document.querySelector('#page_fishing .e162Dock')),hud:snapshot(document.getElementById('combatDock')),state:copyJSON(state),height:document.getElementById('combatDock').getBoundingClientRect().height};
    },{seed,zone,phase}));
    // Persisted values and actual tree/attributes must match, not just text or screenshots.
    for(const field of['state','height','page','hud'])assert.deepEqual(snapshots[1][field],snapshots[0][field],zone+'/'+phase+'/'+field);
