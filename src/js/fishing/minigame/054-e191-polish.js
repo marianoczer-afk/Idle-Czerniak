@@ -8,22 +8,8 @@ const E191_THEMES={
 /* Logro por descubrimiento completo: se reclama una sola vez por zona.
    No exige que todos sean legendarios; cada especie debe haberse capturado al menos una vez. */
 function e191Achievements(){if(!state)return {};state.ui=state.ui||{};const v=state.ui.e191Achievements;return v&&typeof v==='object'?v:(state.ui.e191Achievements={});}
-const e191PriorPage=e16Page;
-e16Page=function(){
- e191PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const book=page.querySelector('.e186Book');if(!book)return;
- const zone=e165Zone(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id)),record=e18Record();
- const completed=fish.length>0&&fish.every(f=>typeof e227Discovered==='function'?e227Discovered(state,f.id):Number(record.bySpecies?.[f.id]?.total)>0);
- const claimed=!!e191Achievements()[zone.id];
- const box=document.createElement('div');box.className='e191Achievement';
- const info=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');
- title.textContent=claimed?'🏅 Colección completada':completed?'🏆 ¡Colección completa!':'🏅 Logro: explorador de '+zone.name;
- detail.textContent=claimed?'Recompensa reclamada · insignia permanente':completed?'Descubriste todas las especies · insignia de colección':'Capturá al menos un ejemplar de cada especie para obtener su insignia. Premio visual, sin oro.';
- info.append(title,detail);box.append(info);
- if(completed&&!claimed){const button=document.createElement('button');button.className='small primary';button.dataset.e191Claim=zone.id;button.textContent='Reclamar premio';box.append(button);}
- book.append(box);
-};
+
+
 document.addEventListener('click',e=>{
  const btn=e.target.closest('[data-e191-claim]');if(!btn)return;
  e.preventDefault();e.stopImmediatePropagation();

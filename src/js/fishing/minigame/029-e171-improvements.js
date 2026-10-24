@@ -49,44 +49,8 @@ function e171QuestMarkup(q){
  <div class="e171Needs">${items}</div><div class="e171Footer"><div><b>🎁 ${q.rod.name}</b><div class="fishMuted">${q.rod.desc}</div></div>
  <button class="small primary" data-e171-deliver="${q.id}" ${e171CanDeliver(q)||done?'':'disabled'}>${done?'✓ Completada':e16FishLevel()<q.level?'🔒 Pesca '+q.level:e171CanDeliver(q)?'Entregar peces':'Faltan peces'}</button></div></section>`;
 }
-const e171PreviousPage=e16Page;
-e16Page=function(){
- e171PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');
- /* El muelle, la barra y el botón Tirar caña son lo primero que se ve. */
- if(dock){page.prepend(dock);}
- const current=e165Zone();
- const originalQuest=page.querySelector('.e17Quest');
- if(originalQuest&&e17Done())originalQuest.remove();
- const available=E171_QUESTS.filter(q=>q.zone===current.id);
- const group=document.createElement('div');group.className='e171Quests';
- const firstQuest=originalQuest&&!e17Done()?originalQuest.outerHTML:'';
- group.innerHTML=firstQuest+available.filter(q=>!e171Done(q)).map(e171QuestMarkup).join('');
- if(originalQuest)originalQuest.remove();
- if(dock)dock.after(group);else page.prepend(group);
- /* En el listado de cañas, indicar claramente una sola equipada. */
- const rodDetails=page.querySelector('details:has(.fishRod)');
- if(rodDetails){
-  const active=e161Rod();
-  rodDetails.querySelectorAll('.fishRod').forEach(row=>{
-   const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim()||'';
-   const equipped=name===active?.name;
-   row.classList.toggle('e164RodActive',equipped);
-   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
-   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
-   const title=row.querySelector('b');if(title)title.textContent=(equipped?'✓ ':'')+name;
-  });
-  for(const q of E171_QUESTS.filter(e171Done)){
-   const row=document.createElement('div');row.className='fishRod';
-   const equipped=e171RodSelected(q);
-   row.classList.toggle('e164RodActive',equipped);
-   row.innerHTML=`<div><b>${equipped?'✓ ':''}${q.rod.name}</b><div class="fishMuted">Recompensa de misión · ${q.rod.desc}</div></div><button class="small" data-e171-equip="${q.id}" ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
-   rodDetails.append(row);
-  }
-  const summary=rodDetails.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(active?.name||'Sin caña');
- }
-};
+
+
 document.addEventListener('click',e=>{
  const deliver=e.target.closest('[data-e171-deliver]'),equip=e.target.closest('[data-e171-equip]');
  if(!deliver&&!equip)return;

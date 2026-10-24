@@ -25,30 +25,8 @@ e16Finish=function(won){
  }
  e16Page();
 };
-const e185PriorPage=e16Page;
-e16Page=function(){
- e185PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const zone=e165Zone(),theme=E185_THEMES[zone.id]||E185_THEMES.muelle,rod=e161Rod(),lvl=e16FishLevel();
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- dock.style.setProperty('--e185-accent',theme.accent);dock.style.setProperty('--e185-deep',theme.deep);dock.style.setProperty('--e185-shallow',theme.shallow);dock.style.setProperty('--e185-zone',theme.zone);dock.style.setProperty('--e185-zone-edge',theme.edge);dock.style.setProperty('--e185-glow',theme.glow);
- dock.style.setProperty('--e185-water',zone.id==='costa'?'rgba(89,65,135,.23)':zone.id==='rio'?'rgba(36,101,59,.2)':'rgba(20,77,98,.22)');
- const current=dock.querySelector('.e185Summary');if(current)current.remove();
- const bonus=Math.min(22,Math.floor((lvl-1)/3)*2);
- const base=rod?.bonus||0;
- const st=E164_ROD_STATS[E161_RODS.findIndex(r=>r.id===rod?.id)];
- const stats=document.createElement('div');stats.className='e185Summary';
- const entries=[['🌊',theme.name],['🎣',rod?.name||'Sin caña'],['📈','Nivel +'+bonus+' px'],['🎯','Caña +'+base+' px']];
- if(st?.wait)entries.push(['⏱','Picada −'+st.wait+'%']);
- if(st?.rare)entries.push(['✨','Raros +'+st.rare+'%']);
- for(const [emoji,value] of entries){const item=document.createElement('span');item.textContent=emoji+' '+value;stats.append(item);}
- const action=dock.querySelector('.e183Actions');if(action)action.after(stats);else dock.prepend(stats);
- const result=dock.querySelector('.e182Result');
- if(result&&!result.hidden&&e182LastCatch?.quality){
-  const text=result.querySelector('b');if(text)text.textContent='🏆 ¡Capturaste '+e182LastCatch.name+' · '+e182LastCatch.quality+'!';
-  const values=result.querySelector('span');if(values)values.textContent=' · +'+fmt(e182LastCatch.xp)+' XP de Pesca · '+fmt(e182LastCatch.price)+' oro al vender';
- }
-};
+
+
 /* Los peces especiales ocupan entradas propias: no se mezclan con ejemplares normales al vender. */
 function e185Inventory(){
  const page=document.getElementById('page_inventory');if(!page||!state)return;

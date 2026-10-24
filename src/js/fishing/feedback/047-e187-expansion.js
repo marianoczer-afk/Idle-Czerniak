@@ -46,43 +46,8 @@ e161NextBite=function(){
  }
 };
 let e187JournalOpen=false;
-const e187PreviousPage=e16Page;
-e16Page=function(){
- const previous=document.querySelector('#page_fishing .e181Journal');if(previous)e187JournalOpen=previous.open;
- e187PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const xp=e16FishSkill().xp,lvl=e16FishLevel(),lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
- const bar=page.querySelector('.e163XpTrack');if(bar){const label=document.createElement('span');label.className='e187XpLabel';label.textContent=lvl===100?'Nivel máximo · Pesca 100 · '+fmt(xp)+' XP acumulada':fmt(Math.floor(xp-lo))+' / '+fmt(hi-lo)+' XP  ·  '+Math.floor(100*(xp-lo)/(hi-lo))+'%';bar.append(label);}
- const journal=page.querySelector('.e181Journal');if(journal){
-  journal.open=e187JournalOpen;
-  const old=journal.querySelector('.e187JournalList');if(old)old.remove();
-  const list=document.createElement('div');list.className='e187JournalList';
-  journal.append(list);
-  const oldText=journal.querySelector('p');if(oldText)oldText.textContent='Registro de todas tus especies y sus mejores ejemplares.';
- }
- const zone=e165Zone(),quests=E187_QUESTS.filter(q=>q.zone===zone.id);
- const group=page.querySelector('.e171Quests');
- if(group){for(const q of quests){const done=e187QuestDone(q);
-  const section=document.createElement('section');section.className='e187Quest';section.dataset.questId=q.id;
-  if(done)continue;
-  const head=document.createElement('div');head.className='e187QuestHead';const name=document.createElement('b');name.textContent='📜 '+q.title;head.append(name);section.append(head);
-  const p=document.createElement('p');p.textContent='Guardá estos peces en tu inventario y entregalos juntos. Cualquier tamaño cuenta; se consumen al reclamar:';section.append(p);
-  const needs=document.createElement('div');needs.className='e187QuestNeeds';let can=lvl>=q.req;
-  for(const n of q.needs){const f=E16_FISH.find(f=>f.id===n.id),owned=state.inventory?.['pez_'+n.id]||0;can=can&&owned>=n.qty;
-   const span=document.createElement('span');span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(owned,n.qty)+'/'+n.qty;needs.append(span);}
-  section.append(needs);const foot=document.createElement('div');foot.className='e187QuestHead';const reward=document.createElement('span');reward.textContent='🎁 '+q.reward;foot.append(reward);
-  const btn=document.createElement('button');btn.className='small primary';btn.dataset.e187Claim=q.id;btn.disabled=!can;btn.textContent=can?'Completar encargo':'Faltan peces';foot.append(btn);section.append(foot);group.append(section);
- }}
- if(group&&zone.id==='rio'&&!state.owned?.[E18_ROD.id])group.insertAdjacentHTML('beforeend',e190CollectorQuestHtml());
- const rods=page.querySelector('details:has(.fishRod)');if(rods&&state.owned?.[E187_ROD.id]){
-  const active=state.ui?.fishingRodId===E187_ROD.id,row=document.createElement('div');row.className='fishRod';
-  row.innerHTML='<div><b>'+(active?'✓ ':'')+E187_ROD.name+'</b><div class="fishMuted">Premio del arrecife · '+E187_ROD.desc+'</div></div><button class="small" data-e187-equip '+(active?'disabled':'')+'>'+(active?'✓ Equipada':'Equipar')+'</button>';rods.append(row);
- }
- const dock=page.querySelector('.e162Dock'),summary=dock?.querySelector('.e185Summary');if(summary){const rewards=e187Rewards();
-  if(rewards.laguna){const x=document.createElement('span');x.textContent='🌿 +5% XP por misión';summary.append(x);}
-  if(rewards.abismo){const x=document.createElement('span');x.textContent='🌌 +8 px permanentes';summary.append(x);}
- }
-};
+
+
 document.addEventListener('click',e=>{
  const claim=e.target.closest('[data-e187-claim]'),equip=e.target.closest('[data-e187-equip]');if(!claim&&!equip)return;
  e.preventDefault();e.stopImmediatePropagation();

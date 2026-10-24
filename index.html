@@ -3124,21 +3124,732 @@ function e190ReturnToFishing(){
  window.scrollTo({top:Math.max(0,top),behavior:'auto'});
 }
 function e16Rod(){return !!state?.owned?.e16_rod;}
-function e16Page(){
+// Single page lifecycle. Presentation phases never call a previous e16Page.
+let fishingPageShop,fishingPageZoneSync;
+// Base structure shared by the explicit presentation phases.
+function fishingRenderBase(){
  const page=document.getElementById('page_fishing');if(!page||!state)return;
  const lvl=e16FishLevel(),xp=e16FishSkill().xp,lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
- page.innerHTML=`<h2>🎣 Pesca · Nivel ${lvl}</h2>
- <div class="fishPanel"><b>Progreso de Pesca</b><div class="fishMuted">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP hacia nivel ${lvl+1}</div><div class="bar xp"><div style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div>
- <p class="fishMuted">La pesca es una profesión independiente del nivel de personaje. Mantené presionado el botón o la barra espaciadora para subir la zona verde; soltá para que baje. Mantené al pez dentro hasta completar la captura.</p></div>
- <div class="fishPanel"><h3>Equipo de pesca</h3>${e16Rod()?'<p>✅ Caña sencilla equipada. Ya podés pescar.</p>':`<p>Comprá una caña sencilla por <b>${E16_ROD_PRICE} oro</b>. Es una compra permanente, pensada para el inicio.</p><button data-e16-buyrod ${state.gold<E16_ROD_PRICE?'disabled':''}>Comprar caña · ${E16_ROD_PRICE} oro</button>`}</div>
- <div class="fishPanel"><h3>Zona de pesca · Muelle del pueblo</h3><div class="fishSpecies">${E16_FISH.map(f=>`<div>${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Disponible':'🔒 Pesca '+f.req} · ${f.price} oro · ${f.xp} XP</div></div>`).join('')}</div>
- <p class="fishMuted">Seleccioná una especie disponible para intentar pescarla. Los peces difíciles se mueven más y requieren mejor control. Los peces capturados se guardan en el inventario y se pueden vender al mercader.</p>
- <div class="actions">${E16_FISH.map(f=>`<button class="small" data-e16-cast="${f.id}" ${!e16Rod()||lvl<f.req||!!e16Session?'disabled':''}>${f.icon} ${f.name}</button>`).join('')}</div></div>
- <div class="fishPanel" id="e16GamePanel"><h3>Minijuego de pesca</h3><div id="e16Status" class="fishMuted" aria-live="polite">${e16Session?'¡El pez está picando!':e16Result||'Comprá tu caña y elegí un pez para empezar.'}</div>
- <div class="fishGrid" style="margin:12px 0"><div class="fishTank" id="e16Tank"><div class="fishZone" id="e16Zone" style="bottom:0"></div><div class="fishTarget" id="e16Target" style="bottom:150px">🐟</div></div><div><div class="fishMuted">Captura</div><div class="fishMeter"><div class="fishMeterFill" id="e16Progress"></div></div></div></div>
- <div style="text-align:center"><button class="primary fishControl" id="e16Hold" ${e16Session?'':'disabled'}>MANTENER PARA SUBIR ↑</button><p class="fishMuted">Mouse, pantalla táctil o barra espaciadora. Si el pez se escapa, podés volver a intentar sin gastar oro.</p><button class="small" data-e16-cancel ${e16Session?'':'disabled'}>Cancelar intento</button></div></div>`;
+ const rod=e161Rod(),next=E161_RODS[e161RodIndex()+1];
+ // Keep the live catalog until its replacement is ready; intermediate layout
+ // reads must not shrink the scroll range of a long, open shop.
+ const retainedShop=page.querySelector('#fishingRodShop');
+ page.innerHTML=`<h2>🎣 ${esc(e165Zone().name)} <span class="fishMuted">· Pesca nivel ${lvl}</span></h2>
+ <div class="fishPanel e162Dock"><div class="e162DockHead"><div><h3>🌊 Zona de pesca</h3><p class="fishMuted">${rod?'Caña equipada: '+rod.name:'Necesitás comprar tu primera caña para empezar.'} · Los peces pican solos cuando tirás la caña.</p></div><button class="primary" data-e161-toggle ${!rod||(!e161Fishing&&!e161CanFish())?'disabled':''}>${e161Fishing?'Dejar de pescar':'🎣 Tirar la caña'}</button></div>
+ <div class="e163Skill"><div class="e163SkillHead"><b>🎣 Pesca · Nv ${lvl}</b><span id="e163XpText">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP · ${Math.floor(100*(xp-lo)/(hi-lo))}%</span></div><div class="e163XpTrack"><div id="e163XpFill" style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div></div>
+ <div id="e161WaitingText" class="fishWaiting fishMuted">${e16Session?'¡Picó un pez misterioso!':e161Fishing?'Esperando una picada… '+Math.max(0,Math.ceil((e161CatchAt-Date.now())/1000))+' s':e16Result||'Comprá una caña y empezá a pescar.'}</div>
+ <div id="e16GamePanel" class="e162Game" ${e16Session?'':'style="display:none"'}>
+ <div class="e162FightTitle">🐟 ¡Un pez está luchando! <span class="fishMuted">Mantené apretado para mover la zona verde a la derecha; soltá para llevarla a la izquierda.</span></div>
+ <div class="e162Play"><div class="fishTank" id="e16Tank"><div class="fishZone" id="e16Zone" style="left:0"></div><div class="fishTarget" id="e16Target" style="left:150px">🐟</div></div><div class="e162ProgressWrap"><span class="fishMuted">Captura</span><div class="fishMeter"><div class="fishMeterFill" id="e16Progress"></div></div></div></div>
+ <div class="e162Controls"><button class="primary fishControl" id="e16Hold" ${e16Session?'':'disabled'}>MANTENER PARA MOVER →</button><button class="small" data-e16-cancel ${e16Session?'':'disabled'}>Cancelar</button></div></div>
+ ${e16Result?`<div class="fishCatch" aria-live="polite">${e16Result}</div>`:''}</div>
+ <div class="fishPanel"><b>Progreso de Pesca · Nv ${lvl}</b><div class="fishMuted">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP hacia nivel ${lvl+1}</div><div class="bar xp"><div style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div>
+ <p class="fishMuted">Cada 3 niveles ganás +2 de zona de captura (máximo +22). Las cañas amplían la zona y desbloquean especies más difíciles. Pesca no sube tu nivel de combate.</p></div>
+ <details class="fishPanel" ${rod?'':'open'}><summary><b>🎣 Cañas y mejoras</b> · ${rod?rod.name:'Sin caña'}</summary>
+ <div class="fishRod" hidden><div><b>${E161_RODS[0].name}</b></div></div>
+ ${next?`<p class="fishMuted">Próxima caña: ${next.name}, nivel ${next.req}.</p>`:'<p class="fishMuted">¡Tenés la mejor caña!</p>'}</details>
+ <details class="fishPanel"><summary><b>🐠 Peces y desbloqueos</b></summary><div class="fishSpecies">${E16_FISH.map(f=>`<div class="${lvl<f.req?'fishLocked':''}">${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Desbloqueado':'🔒 Pesca '+f.req} · ${f.price} oro al vender · ${f.xp} XP</div></div>`).join('')}</div></details>`;
+ if(retainedShop)page.append(retainedShop);
  if(e16Session)e16Paint();
 }
+
+// Ordered presentation work; blocks isolate locals and early exits. No captured predecessors.
+function fishingRenderZoneAndQuests(){
+ rodRows: { // 023-e164-update.js
+e164RenderRods();
+ }
+ zoneChoices: { // 025-e165-zones.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break zoneChoices;
+ const z=e165Zone(),lvl=e16FishLevel();
+ const header=page.querySelector('.e162DockHead');
+ if(header){
+  const title=header.querySelector('h3');if(title)title.textContent=z.icon+' '+z.name;
+  const zones=document.createElement('div');zones.className='e165Zones';
+  zones.innerHTML=E165_ZONES.map(a=>`<button class="e165ZoneBtn ${a.id===z.id?'active':''}" data-e165-zone="${a.id}" ${lvl<a.req||!!e16Session?'disabled':''}>${a.icon} ${a.name}<small>${lvl<a.req?'🔒 Pesca nivel '+a.req:a.id===z.id?'✓ Zona actual':'Entrar a la zona'}</small></button>`).join('');
+  header.after(zones);
+  const info=document.createElement('div');info.className='e165ZoneInfo';
+  const eligible=E16_FISH.filter(f=>z.fish.includes(f.id));
+  info.textContent=z.desc+' · '+eligible.filter(f=>lvl>=f.req).length+' especies desbloqueadas de '+eligible.length+'.';
+  zones.after(info);
+ }
+ /* Una sola barra de progreso visible, junto a la acción principal. */
+ const panels=page.querySelectorAll('.fishPanel');
+ for(const p of panels){if(p!==page.querySelector('.e162Dock')&&p.textContent.includes('Cada 3 niveles ganás +2 de zona'))p.remove();}
+ const species=page.querySelector('.fishSpecies');
+ if(species){species.innerHTML=E16_FISH.filter(f=>z.fish.includes(f.id)).map(f=>`<div class="${lvl<f.req?'fishLocked':''}">${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Disponible':'🔒 Pesca '+f.req} · ${fmt(f.price)} oro al vender · ${fmt(f.xp)} XP</div></div>`).join('');}
+
+ }
+ dockQuest: { // 027-e17-quests.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break dockQuest;
+ const zone=e165Zone();
+ if(zone.id==='muelle'){
+  const section=document.createElement('div');section.innerHTML=e17QuestHtml();
+  const quest=section.firstElementChild;
+  const anchor=page.querySelector('.e165ZoneInfo')||page.querySelector('.e162Dock');
+  if(anchor)anchor.after(quest);else page.append(quest);
+ }
+ const details=page.querySelector('details:has(.fishRod)');
+ if(details&&e17Done()){
+  const row=document.createElement('div');row.className='fishRod e17SpecialRod';
+  row.innerHTML=`<div><b>🏆 ${E17_ROD.name}</b><div class="fishMuted">Misión del Muelle · Pesca 6 · ${E17_ROD.desc}</div></div><button class="small" data-e17-equip ${e17Selected()?'disabled':''}>${e17Selected()?'✓ Equipada':'Equipar'}</button>`;
+  details.append(row);
+  if(e17Selected()){const summary=details.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+E17_ROD.name;}
+ }
+
+ }
+ regionalQuests: { // 029-e171-improvements.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break regionalQuests;
+ const dock=page.querySelector('.e162Dock');
+ /* El muelle, la barra y el botón Tirar caña son lo primero que se ve. */
+ if(dock){page.prepend(dock);}
+ const current=e165Zone();
+ const originalQuest=page.querySelector('.e17Quest');
+ if(originalQuest&&e17Done())originalQuest.remove();
+ const available=E171_QUESTS.filter(q=>q.zone===current.id);
+ const group=document.createElement('div');group.className='e171Quests';
+ const firstQuest=originalQuest&&!e17Done()?originalQuest.outerHTML:'';
+ group.innerHTML=firstQuest+available.filter(q=>!e171Done(q)).map(e171QuestMarkup).join('');
+ if(originalQuest)originalQuest.remove();
+ if(dock)dock.after(group);else page.prepend(group);
+ /* En el listado de cañas, indicar claramente una sola equipada. */
+ const rodDetails=page.querySelector('details:has(.fishRod)');
+ if(rodDetails){
+  const active=e161Rod();
+  rodDetails.querySelectorAll('.fishRod').forEach(row=>{
+   const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim()||'';
+   const equipped=name===active?.name;
+   row.classList.toggle('e164RodActive',equipped);
+   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
+   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
+   const title=row.querySelector('b');if(title)title.textContent=(equipped?'✓ ':'')+name;
+  });
+  for(const q of E171_QUESTS.filter(e171Done)){
+   const row=document.createElement('div');row.className='fishRod';
+   const equipped=e171RodSelected(q);
+   row.classList.toggle('e164RodActive',equipped);
+   row.innerHTML=`<div><b>${equipped?'✓ ':''}${q.rod.name}</b><div class="fishMuted">Recompensa de misión · ${q.rod.desc}</div></div><button class="small" data-e171-equip="${q.id}" ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
+   rodDetails.append(row);
+  }
+  const summary=rodDetails.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(active?.name||'Sin caña');
+ }
+
+ }
+ equipmentState: { // 031-e172-fixes.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break equipmentState;
+ const activeId=e172RodId();
+ const rods=page.querySelector('details:has(.fishRod)');
+ if(rods){
+  // Reconstruir solo los estados de equipamiento, incluidos los premios de quest.
+  rods.querySelectorAll('.fishRod').forEach(row=>{
+   const b=row.querySelector('b');if(!b)return;
+   const name=b.textContent.replace(/^[✓🏆\s]+/u,'').trim();
+   const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod)].find(r=>r.name===name);
+   if(!rod)return;
+   const equipped=rod.id===activeId;
+   b.textContent=(equipped?'✓ ':'')+rod.name;
+   row.classList.toggle('e164RodActive',equipped);
+   row.classList.toggle('e172Equipped',equipped);
+   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
+   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
+   row.querySelectorAll('.e172Label').forEach(el=>el.remove());
+   if(equipped&&!btn){const label=document.createElement('span');label.className='e172Label';label.textContent='✓ Equipada';row.append(label);}
+  });
+  const summary=rods.querySelector('summary');
+  if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
+ }
+ const dock=page.querySelector('.e162Dock');
+ if(dock){
+  const waiting=dock.querySelector('#e161WaitingText');
+  if(waiting&&!e161Fishing&&!e16Session){
+   waiting.textContent='Elegí una zona y empezá a pescar con el botón «Tirar la caña».';
+  }
+  // La notificación de captura ya aparece en un recuadro: evitar duplicarla.
+  if(dock.querySelector('.fishCatch')&&waiting&&!e161Fishing&&!e16Session)waiting.style.display='none';
+ }
+
+ }
+ speciesList: { // 033-e173-fishing.js
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break speciesList;
+ const dock=page.querySelector('.e162Dock');if(!dock)break speciesList;
+ const z=e165Zone(),lvl=e16FishLevel();
+ const waiting=dock.querySelector('#e161WaitingText');
+ const catchBox=dock.querySelector('.fishCatch');
+ if(e173ZoneChanged){
+  if(catchBox)catchBox.remove();
+  e173ZoneChanged=false;
+ }
+ // Mientras espera una nueva picada, un resultado viejo no puede confundirse con el estado actual.
+ if(e161Fishing&&!e16Session){
+  if(waiting){waiting.style.display='block';waiting.classList.add('e173Waiting');waiting.textContent='🎣 Pescando en '+z.name+' · Esperando una picada… '+Math.max(0,Math.ceil((e161CatchAt-Date.now())/1000))+' s';}
+  if(catchBox)catchBox.remove();
+ }
+ // Listado compacto y contextual: únicamente peces presentes en la zona seleccionada.
+ const list=E16_FISH.filter(f=>z.fish.includes(f.id));
+ const details=document.createElement('details');details.className='e173Species';details.open=e173SpeciesOpen;
+ const count=list.filter(f=>lvl>=f.req).length;
+ details.innerHTML='<summary>🐠 Peces de esta zona · '+count+'/'+list.length+' disponibles</summary><div class="e173SpeciesGrid">'+list.map(f=>'<div class="e173Fish '+(lvl<f.req?'locked':'')+'"><b>'+f.icon+' '+f.name+'</b><small>'+(lvl>=f.req?'✓ Disponible':'🔒 Pesca '+f.req)+' · '+fmt(f.price)+' oro · '+fmt(f.xp)+' XP</small></div>').join('')+'</div>';
+ const info=dock.querySelector('.e165ZoneInfo');if(info)info.after(details);
+ // Quitar el listado duplicado: queda un único catálogo compacto junto al muelle.
+ const oldSpecies=page.querySelector('.fishSpecies');
+ if(oldSpecies){const oldPanel=oldSpecies.closest('details');if(oldPanel)oldPanel.remove();}
+ /* no programmatic scrolling */
+
+ }
+ journalShell: { // 035-e18-trophies.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break journalShell;
+ const dock=page.querySelector('.e162Dock');if(!dock)break journalShell;
+ const r=e18Record(),lvl=e16FishLevel(),done=!!state.owned?.[E18_ROD.id],eligible=lvl>=12;
+ const q=document.createElement('details');q.className='e18Panel e181Journal';
+ q.innerHTML=`<summary>📖 Diario de pesca · ${r.total||0} capturas · ${Object.keys(r.bySpecies).length||0} especies</summary>
+ <div class="e18Pills"><span>🐟 Grandes: ${r.large||0}</span><span>🏆 Enormes: ${r.huge||0}</span><span>✨ Legendarios: ${r.legendary||0}</span></div>
+ <p>Tu colección de trofeos. Los tamaños no modifican el valor de venta.</p>`;
+ const quests=page.querySelector('.e171Quests');if(quests)quests.after(q);else dock.after(q);
+ if(done){
+  const rods=page.querySelector('details:has(.fishRod)');
+  if(rods){const equipped=e18RodSelected(),row=document.createElement('div');row.className='fishRod';row.classList.toggle('e172Equipped',equipped);
+   row.innerHTML=`<div><b>${equipped?'✓ ':''}${E18_ROD.name}</b><div class="fishMuted">Premio de Pesca · ${E18_ROD.desc}</div></div><button class="small" data-e18-equip ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
+   rods.append(row);const summary=rods.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
+  }
+ }
+
+ }
+ captureResult: { // 039-e182-fishing.js
+
+
+ const current=document.getElementById('page_fishing');if(!current||!state)break captureResult;
+ const dock=current.querySelector('.e162Dock'),game=current.querySelector('#e16GamePanel');if(!dock||!game)break captureResult;
+ // Reserva siempre el mismo espacio para que una picada no empuje el documento.
+ game.style.display='block';
+ game.classList.toggle('e182Idle',!e16Session);
+ game.setAttribute('aria-hidden',e16Session?'false':'true');
+ const previous=current.querySelector('.fishCatch');
+ if(previous)previous.remove();
+ let result=dock.querySelector('.e182Result');
+ if(!result){result=document.createElement('div');result.className='e182Result';dock.append(result);}
+ const recent=e182LastCatch&&Date.now()-e182LastCatch.at<7500&&e182LastCatch.zone===e165Zone().id;
+ result.hidden=!recent;
+ if(recent){
+  const c=e182LastCatch;
+  result.innerHTML=`<b>🎉 ¡Capturaste ${c.name}!</b> · +${fmt(c.xp)} XP de Pesca · <b>${fmt(c.price)} oro</b> al vender<small>El pez se guardó en tu inventario. Podés venderlo en el mercader.</small>`;
+ }
+ // No duplicar el panel de progreso; el principal ya está junto al minijuego.
+ const extra=[...current.querySelectorAll('.fishPanel')].find(p=>p!==dock&&p.textContent?.includes('Cada 3 niveles ganás'));
+ if(extra)extra.remove();
+ // Al recrear los controles, el navegador puede intentar desplazar la página al foco.
+ /* no programmatic scrolling */
+
+ }
+ captureActions: { // 041-e183-fishing.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break captureActions;
+ const game=page.querySelector('#e16GamePanel'),toggle=page.querySelector('.e162DockHead [data-e161-toggle]');
+ if(game&&toggle){
+  let actions=game.querySelector('.e183Actions');
+  if(!actions){actions=document.createElement('div');actions.className='e183Actions';game.prepend(actions);}
+  const caption=document.createElement('span');caption.className='fishMuted';
+  caption.textContent=e16Session?'🐟 ¡Picó un pez!':e161Fishing?'🎣 Caña lanzada · esperando picada':'🎣 Prepará tu caña para pescar';
+  actions.replaceChildren(caption,toggle);
+ }
+ // El aviso es único y usa la recompensa efectiva, incluso en ejemplares enormes/legendarios.
+ const result=page.querySelector('.e182Result');
+ if(result&&!result.hidden&&e182LastCatch){
+  const c=e182LastCatch;
+  const size=e183LastQuality&&e183LastQuality.fish===c.name&&e183LastQuality.at>=c.at-1500?e183LastQuality.label:'';
+  result.replaceChildren();
+  const title=document.createElement('b');title.textContent='🎉 ¡Capturaste '+c.name+(size?' · '+size:'')+'!';
+  const values=document.createElement('span');values.textContent=' · +'+fmt(c.xp)+' XP de Pesca · '+fmt(c.price)+' oro al vender';
+  const note=document.createElement('small');note.textContent='Guardado en tu inventario. El oro se obtiene al venderlo.';
+  result.append(title,values,note);
+ }
+
+ }
+ zoneTheme: { // 043-e185-fishing.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break zoneTheme;
+ const zone=e165Zone(),theme=E185_THEMES[zone.id]||E185_THEMES.muelle,rod=e161Rod(),lvl=e16FishLevel();
+ const dock=page.querySelector('.e162Dock');if(!dock)break zoneTheme;
+ dock.style.setProperty('--e185-accent',theme.accent);dock.style.setProperty('--e185-deep',theme.deep);dock.style.setProperty('--e185-shallow',theme.shallow);dock.style.setProperty('--e185-zone',theme.zone);dock.style.setProperty('--e185-zone-edge',theme.edge);dock.style.setProperty('--e185-glow',theme.glow);
+ dock.style.setProperty('--e185-water',zone.id==='costa'?'rgba(89,65,135,.23)':zone.id==='rio'?'rgba(36,101,59,.2)':'rgba(20,77,98,.22)');
+ const current=dock.querySelector('.e185Summary');if(current)current.remove();
+ const bonus=Math.min(22,Math.floor((lvl-1)/3)*2);
+ const base=rod?.bonus||0;
+ const st=E164_ROD_STATS[E161_RODS.findIndex(r=>r.id===rod?.id)];
+ const stats=document.createElement('div');stats.className='e185Summary';
+ const entries=[['🌊',theme.name],['🎣',rod?.name||'Sin caña'],['📈','Nivel +'+bonus+' px'],['🎯','Caña +'+base+' px']];
+ if(st?.wait)entries.push(['⏱','Picada −'+st.wait+'%']);
+ if(st?.rare)entries.push(['✨','Raros +'+st.rare+'%']);
+ for(const [emoji,value] of entries){const item=document.createElement('span');item.textContent=emoji+' '+value;stats.append(item);}
+ const action=dock.querySelector('.e183Actions');if(action)action.after(stats);else dock.prepend(stats);
+ const result=dock.querySelector('.e182Result');
+ if(result&&!result.hidden&&e182LastCatch?.quality){
+  const text=result.querySelector('b');if(text)text.textContent='🏆 ¡Capturaste '+e182LastCatch.name+' · '+e182LastCatch.quality+'!';
+  const values=result.querySelector('span');if(values)values.textContent=' · +'+fmt(e182LastCatch.xp)+' XP de Pesca · '+fmt(e182LastCatch.price)+' oro al vender';
+ }
+
+ }
+ collection: { // 045-e186-fishing.js
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break collection;
+ const dock=page.querySelector('.e162Dock');if(!dock)break collection;
+ const summary=dock.querySelector('.e185Summary');
+ if(summary){
+  const badge=document.createElement('span');badge.className='e186Luck';
+  badge.textContent='✨ Trofeos +'+e186LuckPercent()+'% de probabilidad';
+  summary.append(badge);
+ }
+ const zone=e165Zone(),record=e18Record(),species=E16_FISH.filter(f=>zone.fish.includes(f.id));
+ const found=species.filter(f=>(record.bySpecies[f.id]?.total||0)>0).length;
+ const book=document.createElement('details');book.className='e186Book';book.open=e186BookOpen;
+ const header=document.createElement('summary');header.textContent='📘 Colección de '+zone.name+' · '+found+'/'+species.length+' especies descubiertas';book.append(header);
+ const progress=document.createElement('div');progress.className='e186Progress';
+ const fill=document.createElement('div');fill.style.width=(species.length?100*found/species.length:0)+'%';progress.append(fill);book.append(progress);
+ const grid=document.createElement('div');grid.className='e186BookGrid';
+ const bestLabels={normal:'Común',large:'Grande',huge:'Enorme',legendary:'Legendario'};
+ for(const f of species){
+  const data=record.bySpecies[f.id],count=Number(data?.total)||0;
+  const unlocked=e16FishLevel()>=f.req;
+  const card=document.createElement('div');card.className='e186Fish';card.dataset.speciesId=f.id;
+  if(!count)card.classList.add('e186Unknown');
+  if(data?.best==='legendary')card.classList.add('e186Legend');
+  const title=document.createElement('strong');title.textContent=count?f.name:(unlocked?'Sin descubrir':'Bloqueado · nivel '+f.req);
+  const info=document.createElement('small');info.textContent=count?'Capturados: '+count+' · Récord: '+(bestLabels[data.best]||'Común'):(unlocked?'¡Seguí pescando para descubrirlo!':'Disponible al alcanzar Pesca '+f.req);
+  card.append(title,info);grid.append(card);
+ }
+ book.append(grid);
+ const old=page.querySelector('.e186Book');if(old)old.remove();
+ const speciesDetails=dock.querySelector('.e173Species');
+ if(speciesDetails)speciesDetails.after(book);else if(summary)summary.after(book);else dock.append(book);
+
+ }
+ permanentQuests: { // 047-e187-expansion.js
+
+ const previous=document.querySelector('#page_fishing .e181Journal');if(previous)e187JournalOpen=previous.open;
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break permanentQuests;
+ const xp=e16FishSkill().xp,lvl=e16FishLevel(),lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
+ const bar=page.querySelector('.e163XpTrack');if(bar){const label=document.createElement('span');label.className='e187XpLabel';label.textContent=lvl===100?'Nivel máximo · Pesca 100 · '+fmt(xp)+' XP acumulada':fmt(Math.floor(xp-lo))+' / '+fmt(hi-lo)+' XP  ·  '+Math.floor(100*(xp-lo)/(hi-lo))+'%';bar.append(label);}
+ const journal=page.querySelector('.e181Journal');if(journal){
+  journal.open=e187JournalOpen;
+  const old=journal.querySelector('.e187JournalList');if(old)old.remove();
+  const list=document.createElement('div');list.className='e187JournalList';
+  journal.append(list);
+  const oldText=journal.querySelector('p');if(oldText)oldText.textContent='Registro de todas tus especies y sus mejores ejemplares.';
+ }
+ const zone=e165Zone(),quests=E187_QUESTS.filter(q=>q.zone===zone.id);
+ const group=page.querySelector('.e171Quests');
+ if(group){for(const q of quests){const done=e187QuestDone(q);
+  const section=document.createElement('section');section.className='e187Quest';section.dataset.questId=q.id;
+  if(done)continue;
+  const head=document.createElement('div');head.className='e187QuestHead';const name=document.createElement('b');name.textContent='📜 '+q.title;head.append(name);section.append(head);
+  const p=document.createElement('p');p.textContent='Guardá estos peces en tu inventario y entregalos juntos. Cualquier tamaño cuenta; se consumen al reclamar:';section.append(p);
+  const needs=document.createElement('div');needs.className='e187QuestNeeds';let can=lvl>=q.req;
+  for(const n of q.needs){const f=E16_FISH.find(f=>f.id===n.id),owned=state.inventory?.['pez_'+n.id]||0;can=can&&owned>=n.qty;
+   const span=document.createElement('span');span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(owned,n.qty)+'/'+n.qty;needs.append(span);}
+  section.append(needs);const foot=document.createElement('div');foot.className='e187QuestHead';const reward=document.createElement('span');reward.textContent='🎁 '+q.reward;foot.append(reward);
+  const btn=document.createElement('button');btn.className='small primary';btn.dataset.e187Claim=q.id;btn.disabled=!can;btn.textContent=can?'Completar encargo':'Faltan peces';foot.append(btn);section.append(foot);group.append(section);
+ }}
+ if(group&&zone.id==='rio'&&!state.owned?.[E18_ROD.id])group.insertAdjacentHTML('beforeend',e190CollectorQuestHtml());
+ const rods=page.querySelector('details:has(.fishRod)');if(rods&&state.owned?.[E187_ROD.id]){
+  const active=state.ui?.fishingRodId===E187_ROD.id,row=document.createElement('div');row.className='fishRod';
+  row.innerHTML='<div><b>'+(active?'✓ ':'')+E187_ROD.name+'</b><div class="fishMuted">Premio del arrecife · '+E187_ROD.desc+'</div></div><button class="small" data-e187-equip '+(active?'disabled':'')+'>'+(active?'✓ Equipada':'Equipar')+'</button>';rods.append(row);
+ }
+ const dock=page.querySelector('.e162Dock'),summary=dock?.querySelector('.e185Summary');if(summary){const rewards=e187Rewards();
+  if(rewards.laguna){const x=document.createElement('span');x.textContent='🌿 +5% XP por misión';summary.append(x);}
+  if(rewards.abismo){const x=document.createElement('span');x.textContent='🌌 +8 px permanentes';summary.append(x);}
+ }
+
+ }
+ questStock: { // 049-e188-fishing.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break questStock;
+ // Replace counts displayed by previous versions with quality-inclusive counts.
+ const oldQuest=page.querySelector('.e17Quest');
+ if(oldQuest&&!e17Done()){
+  oldQuest.querySelectorAll('.e17QuestFish').forEach((el,i)=>{const n=E17_QUEST.needs[i];if(!n)return;
+   const total=e188FishStock(n.id),f=E16_FISH.find(x=>x.id===n.id);
+   el.innerHTML='<b>'+(f?.icon||'🐟')+' '+(f?.name||n.id)+'</b> '+fmt(Math.min(total,n.qty))+' / '+n.qty+' en inventario<div class="e17QuestBar"><div style="width:'+100*Math.min(1,total/n.qty)+'%"></div></div>';
+  });
+  const btn=oldQuest.querySelector('[data-e17-deliver]');if(btn){btn.disabled=e16FishLevel()<E17_QUEST.level||!e17HasFish();btn.textContent=e17HasFish()?'Entregar peces y reclamar caña':'Faltan peces';}
+ }
+ for(const q of E171_QUESTS){const btn=page.querySelector('[data-e171-deliver="'+q.id+'"]');if(!btn)continue;
+  const panel=btn.closest('.e171Quest');panel?.querySelectorAll('.e171Needs span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.innerHTML=(f?.icon||'🐟')+' '+(f?.name||n.id)+': <b>'+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty+'</b>';});
+  btn.disabled=!e171CanDeliver(q);btn.textContent=e171CanDeliver(q)?'Entregar peces':'Faltan peces';
+ }
+ for(const q of E187_QUESTS){const btn=page.querySelector('[data-e187-claim="'+q.id+'"]');if(!btn)continue;
+  const panel=btn.closest('.e187Quest');panel?.querySelectorAll('.e187QuestNeeds span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty;});
+  btn.disabled=!q.needs.every(n=>e188FishStock(n.id)>=n.qty);btn.textContent=btn.disabled?'Faltan peces':'Completar encargo';
+ }
+ // Remove the level requirement from purchased rods, both visually and in the action.
+ const rods=page.querySelector('details:has(.fishRod)');
+ if(rods){rods.querySelectorAll('[data-e161-buy]').forEach(btn=>{const i=Number(btn.dataset.e161Buy),r=E161_RODS[i];if(!r)return;
+  btn.disabled=state.gold<r.price;const row=btn.closest('.fishRod');const info=row?.querySelector('.fishMuted');if(info)info.textContent='Sin nivel mínimo · '+r.desc+' · '+fmt(r.price)+' oro';
+ });
+  rods.querySelectorAll('.fishRod .fishMuted').forEach(el=>{if(/Pesca \d+/.test(el.textContent||'')&&/oro/.test(el.textContent||''))el.textContent=el.textContent.replace(/Pesca \d+\s*·\s*/,'Sin nivel mínimo · ');});
+ }
+ const next=page.querySelector('.fishPanel p.fishMuted');
+ if(next&&next.textContent?.startsWith('Próxima caña:'))next.textContent='Podés comprar cualquier caña si tenés el oro necesario.';
+ e188UpdateHud();
+
+ }
+}
+
+// Ordered presentation work; blocks isolate locals and early exits. No captured predecessors.
+function fishingRenderCollectionAndControls(){
+ mysteryCaption: { // 052-e190-polish.js
+if(!e16Session)break mysteryCaption;const page=document.getElementById('page_fishing');if(!page)break mysteryCaption;const waiting=page.querySelector('#e161WaitingText');if(waiting)waiting.textContent='🐟 ¡Picó un pez misterioso!';const status=page.querySelector('#e16Status');if(status)status.textContent='🐟 ¡Picó un pez misterioso!';
+ }
+ collectionReward: { // 054-e191-polish.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break collectionReward;
+ const book=page.querySelector('.e186Book');if(!book)break collectionReward;
+ const zone=e165Zone(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id)),record=e18Record();
+ const completed=fish.length>0&&fish.every(f=>typeof e227Discovered==='function'?e227Discovered(state,f.id):Number(record.bySpecies?.[f.id]?.total)>0);
+ const claimed=!!e191Achievements()[zone.id];
+ const box=document.createElement('div');box.className='e191Achievement';
+ const info=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');
+ title.textContent=claimed?'🏅 Colección completada':completed?'🏆 ¡Colección completa!':'🏅 Logro: explorador de '+zone.name;
+ detail.textContent=claimed?'Recompensa reclamada · insignia permanente':completed?'Descubriste todas las especies · insignia de colección':'Capturá al menos un ejemplar de cada especie para obtener su insignia. Premio visual, sin oro.';
+ info.append(title,detail);box.append(info);
+ if(completed&&!claimed){const button=document.createElement('button');button.className='small primary';button.dataset.e191Claim=zone.id;button.textContent='Reclamar premio';box.append(button);}
+ book.append(box);
+
+ }
+ collectionArt: { // 056-e192-collection.js
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break collectionArt;
+ const book=page.querySelector('.e186Book'),zone=e165Zone();
+ if(book){const cards=[...book.querySelectorAll('.e186Fish')],species=E16_FISH.filter(f=>zone.fish.includes(f.id));cards.forEach((card,i)=>{const f=species[i];if(!f||card.querySelector('.e192Sprite'))return;const icon=document.createElement('div');icon.className='e192Sprite';icon.innerHTML=e189FishSVG(f.id);const info=document.createElement('div');while(card.firstChild)info.append(card.firstChild);card.append(icon,info);});}
+ const rods=page.querySelector('details:has(.fishRod)');if(rods){rods.querySelectorAll('.fishRod').forEach((row,i)=>{const r=E161_RODS[i];if(!r||row.querySelector('.e192RodShowcase'))return;const showcase=document.createElement('div');showcase.className='e192RodShowcase';showcase.innerHTML=e189RodSVG(r.id)+'<span>'+r.desc+'</span>';const parent=row.querySelector('div');if(parent)parent.append(showcase);});}
+
+ }
+ rodRatings: { // 058-e193-improvements.js
+
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break rodRatings;
+ const panel=page.querySelector('details:has(.fishRod)');if(!panel)break rodRatings;
+ panel.querySelectorAll('.fishRod').forEach(row=>{
+  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/, '').trim();
+  const rod=E161_RODS.find(r=>r.name===name);
+  if(!rod)return;
+  row.classList.add('e193Rod');
+  const muted=row.querySelector('.fishMuted');
+  if(muted)muted.textContent=(muted.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'').replace(/\s*·\s*[\d.,]+\s*oro\s*$/i,'');
+  row.querySelectorAll('.e164RodStat').forEach(el=>{el.textContent=(el.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'');});
+  const info=row.querySelector('div');if(!info)return;
+  const score=e193RodScore(rod);
+  const badge=document.createElement('div');badge.className='e193RodBadge';
+  badge.innerHTML='<span class="e193Stars" title="Valoración orientativa de estadísticas">'+('★'.repeat(score))+'<span style="opacity:.22">'+('☆'.repeat(10-score))+'</span></span><span class="e193Tier">'+score+'/10 · Valoración general</span>';
+  info.append(badge);
+  const art=document.createElement('div');art.className='e193RodImage';art.innerHTML=e189RodSVG(rod.id);info.append(art);
+  const buy=row.querySelector('[data-e161-buy]');
+  if(buy){
+   const controls=document.createElement('div');controls.className='e193Buy';
+   const price=document.createElement('span');price.className='e193Price';price.textContent='🪙 '+fmt(rod.price)+' oro';
+   controls.append(price);buy.textContent='Comprar';controls.append(buy);row.append(controls);
+  }
+ });
+
+ }
+ atlasAndQuestFold: { // 060-e194-polish.js
+
+ const page=document.getElementById('page_fishing');if(!page||!state)break atlasAndQuestFold;
+ const quests=page.querySelector('.e171Quests');
+ if(quests){
+  e210ZoneChallenges(quests);
+  const active=[...quests.children].filter(el=>!el.matches('.e171QuestGroup'));
+  if(active.length){const fold=document.createElement('details');fold.className='e194QuestFold';fold.open=e194QuestOpen;
+   const sum=document.createElement('summary');sum.textContent='📜 Encargos de esta zona ('+active.length+')';
+   const body=document.createElement('div');body.className='e194QuestBody';active.forEach(el=>body.append(el));fold.append(sum,body);quests.prepend(fold);
+   fold.addEventListener('toggle',()=>{e194QuestOpen=fold.open;});
+  }
+  quests.querySelectorAll('.e171QuestGroup').forEach(n=>n.remove());
+  quests.append(e216AtlasNode());quests.querySelector('.atlasRows').scrollTop=e216View().scrollTop||0;
+ }
+ // Todas las cañas (compradas o ganadas en quests) reciben ilustración.
+ const list=page.querySelector('details:has(.fishRod)');
+ if(list)list.querySelectorAll('.fishRod').forEach(row=>{
+  const label=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
+  const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[])].find(r=>r?.name===label);
+  const id=rod?.id||(/brumas/i.test(label)?'bruma':/guardarr/i.test(label)?'guardarr':/viejo/i.test(label)?'viejo':/coral/i.test(label)?'coral':null);
+  if(!id)return;
+  const existing=row.querySelector('.e193RodImage');
+  if(existing){existing.innerHTML=e194RodArt(id);return;}
+  if(row.querySelector('.e194QuestRodArt'))return;
+  const art=document.createElement('div');art.className='e194QuestRodArt';art.innerHTML=e194RodArt(id);
+  const info=row.querySelector('div');if(info)info.append(art);
+ });
+ const next=[...page.querySelectorAll('*')].find(el=>el.children.length===0&&/Próxima caña:\s*.*nivel\s*\d+/i.test(el.textContent||''));
+ if(next)next.textContent='';
+
+ }
+ biteBubbles: { // 062-e195-fishing.js
+e195DrawShake();
+ }
+ sidebar: { // 066-e197-fishing.js
+e197Sync();
+ }
+ rodStats: { // 071-e1101-balance.js
+
+
+ const page=document.getElementById('page_fishing');
+ if(!page||!state)break rodStats;
+ const panel=page.querySelector('details:has(.fishRod)');
+ if(panel)panel.querySelectorAll('.fishRod').forEach(row=>{
+  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
+  const rod=E161_RODS.find(r=>r.name===name);
+  if(!rod||row.querySelector('.e1101Stats'))return;
+  const stats=document.createElement('div');stats.innerHTML=e1101View(rod);
+  const info=row.querySelector('div');if(info)info.append(stats);
+  const equipped=e161Rod(),a=e1101Stats(rod),b=e1101Stats(equipped);
+  const diff=document.createElement('div');diff.className='e1101Compare';
+  diff.textContent=equipped&&rod.id!==equipped.id?
+    'Vs. tu caña: Atracción '+(a.speed-b.speed>=0?'+':'')+(a.speed-b.speed)+'% · Suerte '+(a.luck-b.luck>=0?'+':'')+(a.luck-b.luck)+'% · Control '+(a.control-b.control>=0?'+':'')+(a.control-b.control):
+    'Estadísticas de tu caña actual';
+  if(info)info.append(diff);
+ });
+ // Una sola referencia al estado de la picada dentro del HUD.
+ const hud=document.getElementById('e188FishingHud');
+ if(hud){
+  const labels=hud.querySelectorAll('small,.fishMuted,.e188Status');
+  let seen=false;
+  labels.forEach(el=>{
+   if(/pescando|esperando.*picada|pez.*luchando/i.test(el.textContent||'')){
+    if(seen)el.style.display='none';else seen=true;
+   }
+  });
+ }
+ break rodStats;
+
+ }
+ questStats: { // 073-e1102-quest-balance.js
+
+
+ const page=document.getElementById('page_fishing');
+ const panel=page?.querySelector('details:has(.fishRod)');
+ if(!panel||!state)break questStats;
+ const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
+ const active=e161Rod();
+ for(const row of panel.querySelectorAll('.fishRod')){
+  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
+  const rod=all.find(r=>r.name===name);
+  if(!rod)continue;
+  row.querySelectorAll('.e1101Stats,.e1101Compare,.e1102QuestTag').forEach(el=>el.remove());
+  const target=row.querySelector('div');if(!target)continue;
+  const wrapper=document.createElement('div');wrapper.innerHTML=e1101View(rod);
+  target.append(wrapper.firstElementChild);
+  const a=e1101Stats(rod),b=e1101Stats(active);
+  const names=[['Atracción','speed','%'],['Suerte','luck','%'],['Control','control',' px'],['Resiliencia','resilience','%'],['Trofeos','trophy','%']];
+  const cmp=document.createElement('div');cmp.className='e1101Compare';
+  cmp.textContent=rod.id===active?.id?'✓ Caña equipada':
+   'Vs. equipada: '+names.map(([name,key,unit])=>{const delta=a[key]-b[key];return name+' '+(delta>0?'+':'')+delta+unit}).join(' · ');
+  target.append(cmp);
+  if(E1102_QUEST_VALUES[rod.id]){
+   row.classList.add('e1102Quest');
+   const tag=document.createElement('div');tag.className='e1102QuestTag';
+   tag.textContent='🏆 Caña de misión · Estadísticas incluidas en la comparación';
+   target.append(tag);
+  }
+ }
+ break questStats;
+
+ }
+ rodRoles: { // 075-e1103-progression.js
+
+
+ const panel=document.querySelector('#page_fishing details:has(.fishRod)');
+ if(!panel||!state)break rodRoles;
+ if(!panel.querySelector('.e1103Note')){
+  const note=document.createElement('p');note.className='e1103Note';
+  note.textContent='Atracción = menos espera · Suerte = peces raros · Control = barra más ancha · Resiliencia = pez más lento · Trofeos = mejores ejemplares. Cada caña tiene un rol distinto.';
+  panel.prepend(note);
+ }
+ const rods=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
+ for(const row of panel.querySelectorAll('.fishRod')){
+  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
+  const rod=rods.find(r=>r.name===name);
+  if(!rod||row.querySelector('.e1103Identity'))continue;
+  const target=row.querySelector('div');if(!target)continue;
+  const role=document.createElement('div');role.className='e1103Identity';
+  role.textContent='✦ '+(E1103_SPECIAL[rod.id]?.role||'Caña especializada');
+  target.append(role);
+ }
+ break rodRoles;
+
+ }
+ zoneDetails: { // 077-e1105-clean-fishing.js
+
+
+ const page=document.getElementById('page_fishing');
+ const dock=page?.querySelector('.e162Dock');
+ if(!dock)break zoneDetails;
+ const stats=dock.querySelector('.e185Summary');
+ if(stats){
+  let details=page.querySelector('.e1105Details');
+  if(!details){
+   details=document.createElement('details');
+   details.className='e1105Details';
+   const title=document.createElement('summary');
+   title.textContent='🎣 Ver datos de zona, caña y bonificaciones';
+   details.append(title);
+   dock.insertAdjacentElement('afterend',details);
+  }
+  details.querySelector('.e185Summary')?.remove();
+  details.append(stats);
+ }
+ // Una sola línea de estado antes del minijuego, sin mensajes duplicados.
+ const status=page.querySelector('.e162DockHead');
+ if(status){
+  const nodes=[...status.querySelectorAll('*')].filter(n=>n.children.length===0);
+  let seen=false;
+  for(const n of nodes){
+   if(/esperando picada|caña lanzada/i.test(n.textContent||'')){
+    if(seen)n.style.visibility='hidden';else seen=true;
+   }
+  }
+ }
+ break zoneDetails;
+
+ }
+ phaseVisibility: { // 078-e1106-stable-game.js
+
+
+ const page=document.getElementById('page_fishing');
+ if(!page)break phaseVisibility;
+ const waiting=page.querySelector('#e161WaitingText');
+ if(waiting)waiting.classList.toggle('e1106Quiet',!!(e16Session||e195Pending));
+ const game=page.querySelector('#e16GamePanel');
+ if(game&&e161Fishing)game.style.display='block';
+ break phaseVisibility;
+
+ }
+ fishingControls: { // 080-e1107-fishing-ui.js
+e1107Sync();break fishingControls;
+ }
+ toolbar: { // 082-e1108-fishing-layout.js
+
+
+ const page=document.getElementById('page_fishing');
+ const dock=page?.querySelector('.e162Dock');
+ const game=dock?.querySelector('#e16GamePanel');
+ if(!dock||!game)break toolbar;
+ game.querySelectorAll('.e1107StopShake').forEach(n=>n.remove());
+ let toolbar=dock.querySelector('.e1108Toolbar');
+ if(!toolbar){toolbar=document.createElement('div');toolbar.className='e1108Toolbar';game.before(toolbar);}
+ const toggle=dock.querySelector('[data-e161-toggle]');
+ if(toggle){
+  toolbar.append(toggle);
+  toggle.disabled=!(e161Fishing||e161Rod()&&e161CanFish());
+  toggle.textContent=e161Fishing?'Dejar de pescar':'🎣 Tirar la caña';
+ }
+ const actions=game.querySelector('.e183Actions');
+ if(actions)actions.remove();
+ // El mismo espacio del minijuego se mantiene durante la espera, los círculos y la captura.
+ if(e161Fishing)game.style.display='block';
+ break toolbar;
+
+ }
+ cancelControl: { // 084-e1109-final-polish.js
+
+
+ const game=document.querySelector('#page_fishing .e162Dock #e16GamePanel');
+ if(!game)break cancelControl;
+ game.querySelectorAll('[data-e16-cancel]').forEach(b=>b.remove());
+ break cancelControl;
+
+ }
+ resultNotice: { // 087-e1111-catch-result.js
+
+
+ const page=document.getElementById('page_fishing');
+ const dock=page?.querySelector('.e162Dock');
+ if(!dock)break resultNotice;
+ // Durante la pausa, resultado único y bien visible sobre el minijuego.
+ if(Date.now()<e1111ResultUntil&&!e16Session&&!e195Pending&&e16Result){
+  const existing=dock.querySelector('.fishCatch');
+  if(existing){existing.classList.add('e1111CatchNotice');existing.setAttribute('role','status');}
+ }
+ break resultNotice;
+
+ }
+}
+
+// Ordered presentation work; blocks isolate locals and early exits. No captured predecessors.
+function fishingRenderPageArtwork(){
+ illustrations: { // 089-e1113-art.js
+e1113RefreshArt();break illustrations;
+ }
+ collectionPortraits: { // 091-e1114-hd-art.js
+
+
+ const page=document.getElementById('page_fishing');if(!page)break collectionPortraits;
+ // Actualizar tarjetas existentes que fueron generadas antes de este parche.
+ const zone=typeof e165Zone==='function'?e165Zone():null;
+ if(zone){const fishList=E16_FISH.filter(f=>zone.fish.includes(f.id));
+ const cards=page.querySelectorAll('.e186Fish');cards.forEach((card,i)=>{
+  const sprite=card.querySelector('.e192Sprite');if(sprite&&fishList[i])sprite.innerHTML=e189FishSVG(fishList[i].id);
+ });}
+ break collectionPortraits;
+
+ }
+ fullArtwork: { // 095-e1117-full-art.js
+
+ document.querySelectorAll('#page_fishing .e1114Rod,#combatDock .e1114Rod').forEach(el=>{
+  const box=el.closest('.fishRod,.e17Quest,.e171Quest,.e187Quest');
+  const name=box?.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
+  const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
+  const rod=all.find(x=>x.name===name)||e161Rod();
+  if(rod)el.outerHTML=e194RodArt(rod.id);
+ });
+ const zone=e165Zone();if(zone){const list=E16_FISH.filter(f=>zone.fish.includes(f.id));
+  document.querySelectorAll('#page_fishing .e186Fish').forEach((card,i)=>{
+   const sprite=card.querySelector('.e192Sprite');if(sprite&&list[i])sprite.innerHTML=card.classList.contains('e186Unknown')?e190MysteryArt():e189FishSVG(list[i].id);
+  });}
+ break fullArtwork;
+ }
+}
+
+function e16Page(){
+ if(state)e234MigrateRegional(state);
+ e231RenderDepth++;
+ try {
+  if(!fishingFinishDepth){
+   if(state)e227MigrateMastery(state);
+   fishingRenderDepth++;
+   try {
+    e216Remember();fishingPageShop.remember();
+    const previousShop=document.getElementById('fishingRodShop');
+    const fold=document.querySelector('#page_fishing .e194QuestFold');if(fold)e194QuestOpen=fold.open;
+    const book=document.querySelector('#page_fishing .e186Book');if(book)e186BookOpen=book.open;
+    const species=document.querySelector('#page_fishing .e173Species');if(species)e173SpeciesOpen=species.open;
+    fishingRenderBase();
+    fishingRenderZoneAndQuests();
+    fishingRenderCollectionAndControls();
+    fishingRenderPageArtwork();
+    fishingPageZoneSync();
+    fishingPageShop.render(previousShop);
+   } finally {fishingRenderDepth--;if(!fishingRenderDepth){e16Paint();measureDock();}}
+   e218Journal();e221Decorate();e227RenderQuests();e228Presentation();e229Polish();
+  }
+  const panel=document.getElementById('e16GamePanel');
+  if(panel&&!panel.querySelector('.e231StageScenery'))panel.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e231StageScenery',true));
+ } finally {if(!--e231RenderDepth){e231QuestCache=null;e231ReferenceCache=null;}}
+}
+
 function e16Paint(){if(!e16Session)return;const g=e16Session;const zone=document.getElementById('e16Zone'),target=document.getElementById('e16Target'),meter=document.getElementById('e16Progress');if(zone){zone.style.bottom=g.pos+'px';zone.style.height=g.fish.zone+'px';}if(target)target.style.bottom=g.target+'px';if(meter)meter.style.height=Math.round(g.progress*100)+'%';}
 function e16Finish(won){const g=e16Session;if(!g)return;e16Session=null;e16Holding=false;cancelAnimationFrame(e16Frame);if(won){const id='pez_'+g.fish.id;state.inventory[id]=(state.inventory[id]||0)+1;const gained=sklXp(state,'pesca',g.fish.xp);e16Result=`¡Capturaste ${g.fish.name}! +${Math.floor(gained)} XP de Pesca. Vendelo en Inventario.`;addLog('Pesca: '+e16Result);persist();updateInv();}else e16Result='El pez escapó. ¡Volvé a intentarlo!';e16Page();}
 function e16Animate(now){if(!e16Session)return;const g=e16Session,dt=Math.min(.05,Math.max(0,(now-e16Last)/1000));e16Last=now;
@@ -3227,31 +3938,7 @@ selectWorkspaceTab=function(id,save=true){
 };
 const e161PreviousRender=renderGame;
 renderGame=function(){e161StopWait();e161PreviousRender();if(e161Fishing&&!e16Session&&e161OnPage())e161NextBite();};
-e16Page=function(){
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const lvl=e16FishLevel(),xp=e16FishSkill().xp,lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
- const rod=e161Rod(),next=E161_RODS[e161RodIndex()+1];
- // Keep the live catalog until its replacement is ready; intermediate layout
- // reads must not shrink the scroll range of a long, open shop.
- const retainedShop=page.querySelector('#fishingRodShop');
- page.innerHTML=`<h2>🎣 ${esc(e165Zone().name)} <span class="fishMuted">· Pesca nivel ${lvl}</span></h2>
- <div class="fishPanel e162Dock"><div class="e162DockHead"><div><h3>🌊 Zona de pesca</h3><p class="fishMuted">${rod?'Caña equipada: '+rod.name:'Necesitás comprar tu primera caña para empezar.'} · Los peces pican solos cuando tirás la caña.</p></div><button class="primary" data-e161-toggle ${!rod||(!e161Fishing&&!e161CanFish())?'disabled':''}>${e161Fishing?'Dejar de pescar':'🎣 Tirar la caña'}</button></div>
- <div class="e163Skill"><div class="e163SkillHead"><b>🎣 Pesca · Nv ${lvl}</b><span id="e163XpText">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP · ${Math.floor(100*(xp-lo)/(hi-lo))}%</span></div><div class="e163XpTrack"><div id="e163XpFill" style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div></div>
- <div id="e161WaitingText" class="fishWaiting fishMuted">${e16Session?'¡Picó un pez misterioso!':e161Fishing?'Esperando una picada… '+Math.max(0,Math.ceil((e161CatchAt-Date.now())/1000))+' s':e16Result||'Comprá una caña y empezá a pescar.'}</div>
- <div id="e16GamePanel" class="e162Game" ${e16Session?'':'style="display:none"'}>
- <div class="e162FightTitle">🐟 ¡Un pez está luchando! <span class="fishMuted">Mantené apretado para mover la zona verde a la derecha; soltá para llevarla a la izquierda.</span></div>
- <div class="e162Play"><div class="fishTank" id="e16Tank"><div class="fishZone" id="e16Zone" style="left:0"></div><div class="fishTarget" id="e16Target" style="left:150px">🐟</div></div><div class="e162ProgressWrap"><span class="fishMuted">Captura</span><div class="fishMeter"><div class="fishMeterFill" id="e16Progress"></div></div></div></div>
- <div class="e162Controls"><button class="primary fishControl" id="e16Hold" ${e16Session?'':'disabled'}>MANTENER PARA MOVER →</button><button class="small" data-e16-cancel ${e16Session?'':'disabled'}>Cancelar</button></div></div>
- ${e16Result?`<div class="fishCatch" aria-live="polite">${e16Result}</div>`:''}</div>
- <div class="fishPanel"><b>Progreso de Pesca · Nv ${lvl}</b><div class="fishMuted">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP hacia nivel ${lvl+1}</div><div class="bar xp"><div style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div>
- <p class="fishMuted">Cada 3 niveles ganás +2 de zona de captura (máximo +22). Las cañas amplían la zona y desbloquean especies más difíciles. Pesca no sube tu nivel de combate.</p></div>
- <details class="fishPanel" ${rod?'':'open'}><summary><b>🎣 Cañas y mejoras</b> · ${rod?rod.name:'Sin caña'}</summary>
- <div class="fishRod" hidden><div><b>${E161_RODS[0].name}</b></div></div>
- ${next?`<p class="fishMuted">Próxima caña: ${next.name}, nivel ${next.req}.</p>`:'<p class="fishMuted">¡Tenés la mejor caña!</p>'}</details>
- <details class="fishPanel"><summary><b>🐠 Peces y desbloqueos</b></summary><div class="fishSpecies">${E16_FISH.map(f=>`<div class="${lvl<f.req?'fishLocked':''}">${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Desbloqueado':'🔒 Pesca '+f.req} · ${f.price} oro al vender · ${f.xp} XP</div></div>`).join('')}</div></details>`;
- if(retainedShop)page.append(retainedShop);
- if(e16Session)e16Paint();
-};
+
 e16Paint=function(){if(!e16Session)return;const g=e16Session,zone=document.getElementById('e16Zone'),target=document.getElementById('e16Target'),meter=document.getElementById('e16Progress');if(zone){zone.style.left=g.pos+'px';zone.style.width=g.fish.zone+'px';}if(target)target.style.left=g.target+'px';if(meter)meter.style.width=Math.round(g.progress*100)+'%';};
 
 e16Start=function(id){
@@ -3466,8 +4153,8 @@ function e164Inventory(){
  }).join(''):'<p class="muted">Todavía no tenés materiales ni peces para vender.</p>');
  const summary=document.getElementById('e163InvSummary');if(summary)summary.replaceWith(panel);else page.prepend(panel);
 }
-const e164OldPage=e16Page;
-e16Page=function(){e164OldPage();e164RenderRods();};
+
+
 const e164OldRender=renderGame;
 renderGame=function(){e164OldRender();e164Inventory();e164RenderRods();};
 const e164OldUpdate=updateInv;
@@ -3526,28 +4213,8 @@ e161RandomFish=function(){
  for(let i=0;i<pool.length;i++){roll-=weights[i];if(roll<=0)return pool[i];}
  return pool[pool.length-1];
 };
-const e165PreviousPage=e16Page;
-e16Page=function(){
- e165PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const z=e165Zone(),lvl=e16FishLevel();
- const header=page.querySelector('.e162DockHead');
- if(header){
-  const title=header.querySelector('h3');if(title)title.textContent=z.icon+' '+z.name;
-  const zones=document.createElement('div');zones.className='e165Zones';
-  zones.innerHTML=E165_ZONES.map(a=>`<button class="e165ZoneBtn ${a.id===z.id?'active':''}" data-e165-zone="${a.id}" ${lvl<a.req||!!e16Session?'disabled':''}>${a.icon} ${a.name}<small>${lvl<a.req?'🔒 Pesca nivel '+a.req:a.id===z.id?'✓ Zona actual':'Entrar a la zona'}</small></button>`).join('');
-  header.after(zones);
-  const info=document.createElement('div');info.className='e165ZoneInfo';
-  const eligible=E16_FISH.filter(f=>z.fish.includes(f.id));
-  info.textContent=z.desc+' · '+eligible.filter(f=>lvl>=f.req).length+' especies desbloqueadas de '+eligible.length+'.';
-  zones.after(info);
- }
- /* Una sola barra de progreso visible, junto a la acción principal. */
- const panels=page.querySelectorAll('.fishPanel');
- for(const p of panels){if(p!==page.querySelector('.e162Dock')&&p.textContent.includes('Cada 3 niveles ganás +2 de zona'))p.remove();}
- const species=page.querySelector('.fishSpecies');
- if(species){species.innerHTML=E16_FISH.filter(f=>z.fish.includes(f.id)).map(f=>`<div class="${lvl<f.req?'fishLocked':''}">${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Disponible':'🔒 Pesca '+f.req} · ${fmt(f.price)} oro al vender · ${fmt(f.xp)} XP</div></div>`).join('');}
-};
+
+
 document.addEventListener('click',e=>{
  const btn=e.target.closest('[data-e165-zone]');if(!btn)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -3614,25 +4281,8 @@ function e17QuestHtml(){
  <p class="fishMuted">Los peces entregados se consumen. Podés venderlos en Inventario, pero entonces no contarán para el encargo.</p>`}
  </section>`;
 }
-const e17PreviousPage=e16Page;
-e16Page=function(){
- e17PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const zone=e165Zone();
- if(zone.id==='muelle'){
-  const section=document.createElement('div');section.innerHTML=e17QuestHtml();
-  const quest=section.firstElementChild;
-  const anchor=page.querySelector('.e165ZoneInfo')||page.querySelector('.e162Dock');
-  if(anchor)anchor.after(quest);else page.append(quest);
- }
- const details=page.querySelector('details:has(.fishRod)');
- if(details&&e17Done()){
-  const row=document.createElement('div');row.className='fishRod e17SpecialRod';
-  row.innerHTML=`<div><b>🏆 ${E17_ROD.name}</b><div class="fishMuted">Misión del Muelle · Pesca 6 · ${E17_ROD.desc}</div></div><button class="small" data-e17-equip ${e17Selected()?'disabled':''}>${e17Selected()?'✓ Equipada':'Equipar'}</button>`;
-  details.append(row);
-  if(e17Selected()){const summary=details.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+E17_ROD.name;}
- }
-};
+
+
 document.addEventListener('click',event=>{
  const deliver=event.target.closest('[data-e17-deliver]');
  const equip=event.target.closest('[data-e17-equip]');
@@ -3724,44 +4374,8 @@ function e171QuestMarkup(q){
  <div class="e171Needs">${items}</div><div class="e171Footer"><div><b>🎁 ${q.rod.name}</b><div class="fishMuted">${q.rod.desc}</div></div>
  <button class="small primary" data-e171-deliver="${q.id}" ${e171CanDeliver(q)||done?'':'disabled'}>${done?'✓ Completada':e16FishLevel()<q.level?'🔒 Pesca '+q.level:e171CanDeliver(q)?'Entregar peces':'Faltan peces'}</button></div></section>`;
 }
-const e171PreviousPage=e16Page;
-e16Page=function(){
- e171PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');
- /* El muelle, la barra y el botón Tirar caña son lo primero que se ve. */
- if(dock){page.prepend(dock);}
- const current=e165Zone();
- const originalQuest=page.querySelector('.e17Quest');
- if(originalQuest&&e17Done())originalQuest.remove();
- const available=E171_QUESTS.filter(q=>q.zone===current.id);
- const group=document.createElement('div');group.className='e171Quests';
- const firstQuest=originalQuest&&!e17Done()?originalQuest.outerHTML:'';
- group.innerHTML=firstQuest+available.filter(q=>!e171Done(q)).map(e171QuestMarkup).join('');
- if(originalQuest)originalQuest.remove();
- if(dock)dock.after(group);else page.prepend(group);
- /* En el listado de cañas, indicar claramente una sola equipada. */
- const rodDetails=page.querySelector('details:has(.fishRod)');
- if(rodDetails){
-  const active=e161Rod();
-  rodDetails.querySelectorAll('.fishRod').forEach(row=>{
-   const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim()||'';
-   const equipped=name===active?.name;
-   row.classList.toggle('e164RodActive',equipped);
-   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
-   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
-   const title=row.querySelector('b');if(title)title.textContent=(equipped?'✓ ':'')+name;
-  });
-  for(const q of E171_QUESTS.filter(e171Done)){
-   const row=document.createElement('div');row.className='fishRod';
-   const equipped=e171RodSelected(q);
-   row.classList.toggle('e164RodActive',equipped);
-   row.innerHTML=`<div><b>${equipped?'✓ ':''}${q.rod.name}</b><div class="fishMuted">Recompensa de misión · ${q.rod.desc}</div></div><button class="small" data-e171-equip="${q.id}" ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
-   rodDetails.append(row);
-  }
-  const summary=rodDetails.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(active?.name||'Sin caña');
- }
-};
+
+
 document.addEventListener('click',e=>{
  const deliver=e.target.closest('[data-e171-deliver]'),equip=e.target.closest('[data-e171-equip]');
  if(!deliver&&!equip)return;
@@ -3796,41 +4410,8 @@ function e172RodId(){
  const valid=all.find(r=>r.id===id && (state?.owned?.[r.id]||r.id===E17_ROD.id&&e17Done()));
  return valid?.id||e161Rod()?.id||null;
 }
-const e172PriorPage=e16Page;
-e16Page=function(){
- e172PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const activeId=e172RodId();
- const rods=page.querySelector('details:has(.fishRod)');
- if(rods){
-  // Reconstruir solo los estados de equipamiento, incluidos los premios de quest.
-  rods.querySelectorAll('.fishRod').forEach(row=>{
-   const b=row.querySelector('b');if(!b)return;
-   const name=b.textContent.replace(/^[✓🏆\s]+/u,'').trim();
-   const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod)].find(r=>r.name===name);
-   if(!rod)return;
-   const equipped=rod.id===activeId;
-   b.textContent=(equipped?'✓ ':'')+rod.name;
-   row.classList.toggle('e164RodActive',equipped);
-   row.classList.toggle('e172Equipped',equipped);
-   const btn=row.querySelector('[data-e164-equip],[data-e17-equip],[data-e171-equip]');
-   if(btn){btn.textContent=equipped?'✓ Equipada':'Equipar';btn.disabled=equipped;}
-   row.querySelectorAll('.e172Label').forEach(el=>el.remove());
-   if(equipped&&!btn){const label=document.createElement('span');label.className='e172Label';label.textContent='✓ Equipada';row.append(label);}
-  });
-  const summary=rods.querySelector('summary');
-  if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
- }
- const dock=page.querySelector('.e162Dock');
- if(dock){
-  const waiting=dock.querySelector('#e161WaitingText');
-  if(waiting&&!e161Fishing&&!e16Session){
-   waiting.textContent='Elegí una zona y empezá a pescar con el botón «Tirar la caña».';
-  }
-  // La notificación de captura ya aparece en un recuadro: evitar duplicarla.
-  if(dock.querySelector('.fishCatch')&&waiting&&!e161Fishing&&!e16Session)waiting.style.display='none';
- }
-};
+
+
 /* Cambiar de zona es una acción directa: prepara la caña y comienza la espera automáticamente.
    Se mantienen las restricciones existentes (combate, descanso, navegación). */
 document.addEventListener('click',function(e){
@@ -3870,37 +4451,8 @@ document.addEventListener('click',function(e){
 /* E1.8: solo presentación y estabilidad de Pesca; guardados v7 intactos. */
 let e173ZoneChanged=false;
 let e173SpeciesOpen=false;
-const e173PreviousPage=e16Page;
-e16Page=function(){
- const pageBefore=document.getElementById('page_fishing');
- const oldDetails=pageBefore?.querySelector('.e173Species');
- if(oldDetails)e173SpeciesOpen=oldDetails.open;
- e173PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- const z=e165Zone(),lvl=e16FishLevel();
- const waiting=dock.querySelector('#e161WaitingText');
- const catchBox=dock.querySelector('.fishCatch');
- if(e173ZoneChanged){
-  if(catchBox)catchBox.remove();
-  e173ZoneChanged=false;
- }
- // Mientras espera una nueva picada, un resultado viejo no puede confundirse con el estado actual.
- if(e161Fishing&&!e16Session){
-  if(waiting){waiting.style.display='block';waiting.classList.add('e173Waiting');waiting.textContent='🎣 Pescando en '+z.name+' · Esperando una picada… '+Math.max(0,Math.ceil((e161CatchAt-Date.now())/1000))+' s';}
-  if(catchBox)catchBox.remove();
- }
- // Listado compacto y contextual: únicamente peces presentes en la zona seleccionada.
- const list=E16_FISH.filter(f=>z.fish.includes(f.id));
- const details=document.createElement('details');details.className='e173Species';details.open=e173SpeciesOpen;
- const count=list.filter(f=>lvl>=f.req).length;
- details.innerHTML='<summary>🐠 Peces de esta zona · '+count+'/'+list.length+' disponibles</summary><div class="e173SpeciesGrid">'+list.map(f=>'<div class="e173Fish '+(lvl<f.req?'locked':'')+'"><b>'+f.icon+' '+f.name+'</b><small>'+(lvl>=f.req?'✓ Disponible':'🔒 Pesca '+f.req)+' · '+fmt(f.price)+' oro · '+fmt(f.xp)+' XP</small></div>').join('')+'</div>';
- const info=dock.querySelector('.e165ZoneInfo');if(info)info.after(details);
- // Quitar el listado duplicado: queda un único catálogo compacto junto al muelle.
- const oldSpecies=page.querySelector('.fishSpecies');
- if(oldSpecies){const oldPanel=oldSpecies.closest('details');if(oldPanel)oldPanel.remove();}
- /* no programmatic scrolling */
-};
+
+
 // Reiniciar inmediatamente el estado visual al cambiar de zona, sin mensajes de la anterior.
 // El listener existente E1.7.2 maneja el cambio y la espera; aquí limpiamos el mensaje ANTES.
 document.addEventListener('click',e=>{
@@ -3965,25 +4517,8 @@ e16Finish=function(won){
   persist();e16Page();
  }
 };
-const e18OldPage=e16Page;
-e16Page=function(){
- e18OldPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- const r=e18Record(),lvl=e16FishLevel(),done=!!state.owned?.[E18_ROD.id],eligible=lvl>=12;
- const q=document.createElement('details');q.className='e18Panel e181Journal';
- q.innerHTML=`<summary>📖 Diario de pesca · ${r.total||0} capturas · ${Object.keys(r.bySpecies).length||0} especies</summary>
- <div class="e18Pills"><span>🐟 Grandes: ${r.large||0}</span><span>🏆 Enormes: ${r.huge||0}</span><span>✨ Legendarios: ${r.legendary||0}</span></div>
- <p>Tu colección de trofeos. Los tamaños no modifican el valor de venta.</p>`;
- const quests=page.querySelector('.e171Quests');if(quests)quests.after(q);else dock.after(q);
- if(done){
-  const rods=page.querySelector('details:has(.fishRod)');
-  if(rods){const equipped=e18RodSelected(),row=document.createElement('div');row.className='fishRod';row.classList.toggle('e172Equipped',equipped);
-   row.innerHTML=`<div><b>${equipped?'✓ ':''}${E18_ROD.name}</b><div class="fishMuted">Premio de Pesca · ${E18_ROD.desc}</div></div><button class="small" data-e18-equip ${equipped?'disabled':''}>${equipped?'✓ Equipada':'Equipar'}</button>`;
-   rods.append(row);const summary=rods.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+(e161Rod()?.name||'Sin caña');
-  }
- }
-};
+
+
 document.addEventListener('click',e=>{
  const claim=e.target.closest('[data-e18-claim]'),equip=e.target.closest('[data-e18-equip]');if(!claim&&!equip)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -4047,31 +4582,8 @@ function e181XpFactor(){
 "use strict";
 /* Sin cambiar datos guardados, XP, probabilidades, ni el balance del minijuego. */
 let e182LastCatch=null;
-const e182BeforePage=e16Page;
-e16Page=function(){
- e182BeforePage();
- const current=document.getElementById('page_fishing');if(!current||!state)return;
- const dock=current.querySelector('.e162Dock'),game=current.querySelector('#e16GamePanel');if(!dock||!game)return;
- // Reserva siempre el mismo espacio para que una picada no empuje el documento.
- game.style.display='block';
- game.classList.toggle('e182Idle',!e16Session);
- game.setAttribute('aria-hidden',e16Session?'false':'true');
- const previous=current.querySelector('.fishCatch');
- if(previous)previous.remove();
- let result=dock.querySelector('.e182Result');
- if(!result){result=document.createElement('div');result.className='e182Result';dock.append(result);}
- const recent=e182LastCatch&&Date.now()-e182LastCatch.at<7500&&e182LastCatch.zone===e165Zone().id;
- result.hidden=!recent;
- if(recent){
-  const c=e182LastCatch;
-  result.innerHTML=`<b>🎉 ¡Capturaste ${c.name}!</b> · +${fmt(c.xp)} XP de Pesca · <b>${fmt(c.price)} oro</b> al vender<small>El pez se guardó en tu inventario. Podés venderlo en el mercader.</small>`;
- }
- // No duplicar el panel de progreso; el principal ya está junto al minijuego.
- const extra=[...current.querySelectorAll('.fishPanel')].find(p=>p!==dock&&p.textContent?.includes('Cada 3 niveles ganás'));
- if(extra)extra.remove();
- // Al recrear los controles, el navegador puede intentar desplazar la página al foco.
- /* no programmatic scrolling */
-};
+
+
 const e182BeforeFinish=e16Finish;
 e16Finish=function(won){
  const fish=won?e16Session?.fish:null;
@@ -4108,30 +4620,8 @@ document.addEventListener('click',e=>{if(e.target.closest('[data-e165-zone]'))e1
 <script data-e183-fishing>
 "use strict";
 // Esta capa no altera el motor de pesca ni los guardados v7.
-const e183PreviousPage=e16Page;
-e16Page=function(){
- e183PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const game=page.querySelector('#e16GamePanel'),toggle=page.querySelector('.e162DockHead [data-e161-toggle]');
- if(game&&toggle){
-  let actions=game.querySelector('.e183Actions');
-  if(!actions){actions=document.createElement('div');actions.className='e183Actions';game.prepend(actions);}
-  const caption=document.createElement('span');caption.className='fishMuted';
-  caption.textContent=e16Session?'🐟 ¡Picó un pez!':e161Fishing?'🎣 Caña lanzada · esperando picada':'🎣 Prepará tu caña para pescar';
-  actions.replaceChildren(caption,toggle);
- }
- // El aviso es único y usa la recompensa efectiva, incluso en ejemplares enormes/legendarios.
- const result=page.querySelector('.e182Result');
- if(result&&!result.hidden&&e182LastCatch){
-  const c=e182LastCatch;
-  const size=e183LastQuality&&e183LastQuality.fish===c.name&&e183LastQuality.at>=c.at-1500?e183LastQuality.label:'';
-  result.replaceChildren();
-  const title=document.createElement('b');title.textContent='🎉 ¡Capturaste '+c.name+(size?' · '+size:'')+'!';
-  const values=document.createElement('span');values.textContent=' · +'+fmt(c.xp)+' XP de Pesca · '+fmt(c.price)+' oro al vender';
-  const note=document.createElement('small');note.textContent='Guardado en tu inventario. El oro se obtiene al venderlo.';
-  result.append(title,values,note);
- }
-};
+
+
 let e183LastQuality=null;
 const e183PreviousFinish=e16Finish;
 e16Finish=function(won){
@@ -4186,30 +4676,8 @@ e16Finish=function(won){
  }
  e16Page();
 };
-const e185PriorPage=e16Page;
-e16Page=function(){
- e185PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const zone=e165Zone(),theme=E185_THEMES[zone.id]||E185_THEMES.muelle,rod=e161Rod(),lvl=e16FishLevel();
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- dock.style.setProperty('--e185-accent',theme.accent);dock.style.setProperty('--e185-deep',theme.deep);dock.style.setProperty('--e185-shallow',theme.shallow);dock.style.setProperty('--e185-zone',theme.zone);dock.style.setProperty('--e185-zone-edge',theme.edge);dock.style.setProperty('--e185-glow',theme.glow);
- dock.style.setProperty('--e185-water',zone.id==='costa'?'rgba(89,65,135,.23)':zone.id==='rio'?'rgba(36,101,59,.2)':'rgba(20,77,98,.22)');
- const current=dock.querySelector('.e185Summary');if(current)current.remove();
- const bonus=Math.min(22,Math.floor((lvl-1)/3)*2);
- const base=rod?.bonus||0;
- const st=E164_ROD_STATS[E161_RODS.findIndex(r=>r.id===rod?.id)];
- const stats=document.createElement('div');stats.className='e185Summary';
- const entries=[['🌊',theme.name],['🎣',rod?.name||'Sin caña'],['📈','Nivel +'+bonus+' px'],['🎯','Caña +'+base+' px']];
- if(st?.wait)entries.push(['⏱','Picada −'+st.wait+'%']);
- if(st?.rare)entries.push(['✨','Raros +'+st.rare+'%']);
- for(const [emoji,value] of entries){const item=document.createElement('span');item.textContent=emoji+' '+value;stats.append(item);}
- const action=dock.querySelector('.e183Actions');if(action)action.after(stats);else dock.prepend(stats);
- const result=dock.querySelector('.e182Result');
- if(result&&!result.hidden&&e182LastCatch?.quality){
-  const text=result.querySelector('b');if(text)text.textContent='🏆 ¡Capturaste '+e182LastCatch.name+' · '+e182LastCatch.quality+'!';
-  const values=result.querySelector('span');if(values)values.textContent=' · +'+fmt(e182LastCatch.xp)+' XP de Pesca · '+fmt(e182LastCatch.price)+' oro al vender';
- }
-};
+
+
 /* Los peces especiales ocupan entradas propias: no se mezclan con ejemplares normales al vender. */
 function e185Inventory(){
  const page=document.getElementById('page_inventory');if(!page||!state)return;
@@ -4278,42 +4746,8 @@ function e186QualityRoll(){
  if(roll<.34*boost)return .20;
  return .8;
 }
-const e186PriorPage=e16Page;
-e16Page=function(){
- const existing=document.querySelector('#page_fishing .e186Book');
- if(existing)e186BookOpen=existing.open;
- e186PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const dock=page.querySelector('.e162Dock');if(!dock)return;
- const summary=dock.querySelector('.e185Summary');
- if(summary){
-  const badge=document.createElement('span');badge.className='e186Luck';
-  badge.textContent='✨ Trofeos +'+e186LuckPercent()+'% de probabilidad';
-  summary.append(badge);
- }
- const zone=e165Zone(),record=e18Record(),species=E16_FISH.filter(f=>zone.fish.includes(f.id));
- const found=species.filter(f=>(record.bySpecies[f.id]?.total||0)>0).length;
- const book=document.createElement('details');book.className='e186Book';book.open=e186BookOpen;
- const header=document.createElement('summary');header.textContent='📘 Colección de '+zone.name+' · '+found+'/'+species.length+' especies descubiertas';book.append(header);
- const progress=document.createElement('div');progress.className='e186Progress';
- const fill=document.createElement('div');fill.style.width=(species.length?100*found/species.length:0)+'%';progress.append(fill);book.append(progress);
- const grid=document.createElement('div');grid.className='e186BookGrid';
- const bestLabels={normal:'Común',large:'Grande',huge:'Enorme',legendary:'Legendario'};
- for(const f of species){
-  const data=record.bySpecies[f.id],count=Number(data?.total)||0;
-  const unlocked=e16FishLevel()>=f.req;
-  const card=document.createElement('div');card.className='e186Fish';card.dataset.speciesId=f.id;
-  if(!count)card.classList.add('e186Unknown');
-  if(data?.best==='legendary')card.classList.add('e186Legend');
-  const title=document.createElement('strong');title.textContent=count?f.name:(unlocked?'Sin descubrir':'Bloqueado · nivel '+f.req);
-  const info=document.createElement('small');info.textContent=count?'Capturados: '+count+' · Récord: '+(bestLabels[data.best]||'Común'):(unlocked?'¡Seguí pescando para descubrirlo!':'Disponible al alcanzar Pesca '+f.req);
-  card.append(title,info);grid.append(card);
- }
- book.append(grid);
- const old=page.querySelector('.e186Book');if(old)old.remove();
- const speciesDetails=dock.querySelector('.e173Species');
- if(speciesDetails)speciesDetails.after(book);else if(summary)summary.after(book);else dock.append(book);
-};
+
+
 // Cambiar de zona cierra la colección, mostrando el nuevo conjunto de especies.
 document.addEventListener('click',e=>{if(e.target.closest('[data-e165-zone]'))e186BookOpen=false;},true);
 </script>
@@ -4403,43 +4837,8 @@ e161NextBite=function(){
  }
 };
 let e187JournalOpen=false;
-const e187PreviousPage=e16Page;
-e16Page=function(){
- const previous=document.querySelector('#page_fishing .e181Journal');if(previous)e187JournalOpen=previous.open;
- e187PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const xp=e16FishSkill().xp,lvl=e16FishLevel(),lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
- const bar=page.querySelector('.e163XpTrack');if(bar){const label=document.createElement('span');label.className='e187XpLabel';label.textContent=lvl===100?'Nivel máximo · Pesca 100 · '+fmt(xp)+' XP acumulada':fmt(Math.floor(xp-lo))+' / '+fmt(hi-lo)+' XP  ·  '+Math.floor(100*(xp-lo)/(hi-lo))+'%';bar.append(label);}
- const journal=page.querySelector('.e181Journal');if(journal){
-  journal.open=e187JournalOpen;
-  const old=journal.querySelector('.e187JournalList');if(old)old.remove();
-  const list=document.createElement('div');list.className='e187JournalList';
-  journal.append(list);
-  const oldText=journal.querySelector('p');if(oldText)oldText.textContent='Registro de todas tus especies y sus mejores ejemplares.';
- }
- const zone=e165Zone(),quests=E187_QUESTS.filter(q=>q.zone===zone.id);
- const group=page.querySelector('.e171Quests');
- if(group){for(const q of quests){const done=e187QuestDone(q);
-  const section=document.createElement('section');section.className='e187Quest';section.dataset.questId=q.id;
-  if(done)continue;
-  const head=document.createElement('div');head.className='e187QuestHead';const name=document.createElement('b');name.textContent='📜 '+q.title;head.append(name);section.append(head);
-  const p=document.createElement('p');p.textContent='Guardá estos peces en tu inventario y entregalos juntos. Cualquier tamaño cuenta; se consumen al reclamar:';section.append(p);
-  const needs=document.createElement('div');needs.className='e187QuestNeeds';let can=lvl>=q.req;
-  for(const n of q.needs){const f=E16_FISH.find(f=>f.id===n.id),owned=state.inventory?.['pez_'+n.id]||0;can=can&&owned>=n.qty;
-   const span=document.createElement('span');span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(owned,n.qty)+'/'+n.qty;needs.append(span);}
-  section.append(needs);const foot=document.createElement('div');foot.className='e187QuestHead';const reward=document.createElement('span');reward.textContent='🎁 '+q.reward;foot.append(reward);
-  const btn=document.createElement('button');btn.className='small primary';btn.dataset.e187Claim=q.id;btn.disabled=!can;btn.textContent=can?'Completar encargo':'Faltan peces';foot.append(btn);section.append(foot);group.append(section);
- }}
- if(group&&zone.id==='rio'&&!state.owned?.[E18_ROD.id])group.insertAdjacentHTML('beforeend',e190CollectorQuestHtml());
- const rods=page.querySelector('details:has(.fishRod)');if(rods&&state.owned?.[E187_ROD.id]){
-  const active=state.ui?.fishingRodId===E187_ROD.id,row=document.createElement('div');row.className='fishRod';
-  row.innerHTML='<div><b>'+(active?'✓ ':'')+E187_ROD.name+'</b><div class="fishMuted">Premio del arrecife · '+E187_ROD.desc+'</div></div><button class="small" data-e187-equip '+(active?'disabled':'')+'>'+(active?'✓ Equipada':'Equipar')+'</button>';rods.append(row);
- }
- const dock=page.querySelector('.e162Dock'),summary=dock?.querySelector('.e185Summary');if(summary){const rewards=e187Rewards();
-  if(rewards.laguna){const x=document.createElement('span');x.textContent='🌿 +5% XP por misión';summary.append(x);}
-  if(rewards.abismo){const x=document.createElement('span');x.textContent='🌌 +8 px permanentes';summary.append(x);}
- }
-};
+
+
 document.addEventListener('click',e=>{
  const claim=e.target.closest('[data-e187-claim]'),equip=e.target.closest('[data-e187-equip]');if(!claim&&!equip)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -4491,38 +4890,8 @@ function e188Consume(needs){
 // Keep all existing quest buttons, but let rare fish count towards delivery.
 e17HasFish=function(){return E17_QUEST.needs.every(n=>e188FishStock(n.id)>=n.qty);};
 e171CanDeliver=function(q){return e16FishLevel()>=q.level&&q.needs.every(n=>e188FishStock(n.id)>=n.qty);};
-const e188PriorQuestPage=e16Page;
-e16Page=function(){
- e188PriorQuestPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- // Replace counts displayed by previous versions with quality-inclusive counts.
- const oldQuest=page.querySelector('.e17Quest');
- if(oldQuest&&!e17Done()){
-  oldQuest.querySelectorAll('.e17QuestFish').forEach((el,i)=>{const n=E17_QUEST.needs[i];if(!n)return;
-   const total=e188FishStock(n.id),f=E16_FISH.find(x=>x.id===n.id);
-   el.innerHTML='<b>'+(f?.icon||'🐟')+' '+(f?.name||n.id)+'</b> '+fmt(Math.min(total,n.qty))+' / '+n.qty+' en inventario<div class="e17QuestBar"><div style="width:'+100*Math.min(1,total/n.qty)+'%"></div></div>';
-  });
-  const btn=oldQuest.querySelector('[data-e17-deliver]');if(btn){btn.disabled=e16FishLevel()<E17_QUEST.level||!e17HasFish();btn.textContent=e17HasFish()?'Entregar peces y reclamar caña':'Faltan peces';}
- }
- for(const q of E171_QUESTS){const btn=page.querySelector('[data-e171-deliver="'+q.id+'"]');if(!btn)continue;
-  const panel=btn.closest('.e171Quest');panel?.querySelectorAll('.e171Needs span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.innerHTML=(f?.icon||'🐟')+' '+(f?.name||n.id)+': <b>'+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty+'</b>';});
-  btn.disabled=!e171CanDeliver(q);btn.textContent=e171CanDeliver(q)?'Entregar peces':'Faltan peces';
- }
- for(const q of E187_QUESTS){const btn=page.querySelector('[data-e187-claim="'+q.id+'"]');if(!btn)continue;
-  const panel=btn.closest('.e187Quest');panel?.querySelectorAll('.e187QuestNeeds span').forEach((span,i)=>{const n=q.needs[i],f=E16_FISH.find(x=>x.id===n?.id);if(n)span.textContent=(f?.icon||'🐟')+' '+(f?.name||n.id)+' '+Math.min(e188FishStock(n.id),n.qty)+'/'+n.qty;});
-  btn.disabled=!q.needs.every(n=>e188FishStock(n.id)>=n.qty);btn.textContent=btn.disabled?'Faltan peces':'Completar encargo';
- }
- // Remove the level requirement from purchased rods, both visually and in the action.
- const rods=page.querySelector('details:has(.fishRod)');
- if(rods){rods.querySelectorAll('[data-e161-buy]').forEach(btn=>{const i=Number(btn.dataset.e161Buy),r=E161_RODS[i];if(!r)return;
-  btn.disabled=state.gold<r.price;const row=btn.closest('.fishRod');const info=row?.querySelector('.fishMuted');if(info)info.textContent='Sin nivel mínimo · '+r.desc+' · '+fmt(r.price)+' oro';
- });
-  rods.querySelectorAll('.fishRod .fishMuted').forEach(el=>{if(/Pesca \d+/.test(el.textContent||'')&&/oro/.test(el.textContent||''))el.textContent=el.textContent.replace(/Pesca \d+\s*·\s*/,'Sin nivel mínimo · ');});
- }
- const next=page.querySelector('.fishPanel p.fishMuted');
- if(next&&next.textContent?.startsWith('Próxima caña:'))next.textContent='Podés comprar cualquier caña si tenés el oro necesario.';
- e188UpdateHud();
-};
+
+
 // The previous click handlers run at capture phase. Intercept only the actions we replace.
 window.addEventListener('click',e=>{
  const buy=e.target.closest('[data-e161-buy]'),quest=e.target.closest('[data-e17-deliver],[data-e171-deliver],[data-e187-claim]');
@@ -4652,8 +5021,8 @@ function e189UpdateArt(){
  if(!data){data=document.createElement('div');data.className='e189Data';[...hud.children].filter(n=>n!==art&&!n.classList.contains('dockProgress')).forEach(n=>data.append(n));hud.append(data);}
 }
 /* Reemplazar el texto que muestra el nombre en el panel mientras está picando. */
-const e190PreviousPage=e16Page;
-e16Page=function(){e190PreviousPage();if(!e16Session)return;const page=document.getElementById('page_fishing');if(!page)return;const waiting=page.querySelector('#e161WaitingText');if(waiting)waiting.textContent='🐟 ¡Picó un pez misterioso!';const status=page.querySelector('#e16Status');if(status)status.textContent='🐟 ¡Picó un pez misterioso!';};
+
+
 /* Recorridos continuos y anticipación de impulso. La dificultad, control y resiliencia
    se miden por separado de la selección aleatoria y las recompensas. */
 // Capture behavior is separate from rarity weights: demanding fish need sustained tracking.
@@ -4735,22 +5104,8 @@ const E191_THEMES={
 /* Logro por descubrimiento completo: se reclama una sola vez por zona.
    No exige que todos sean legendarios; cada especie debe haberse capturado al menos una vez. */
 function e191Achievements(){if(!state)return {};state.ui=state.ui||{};const v=state.ui.e191Achievements;return v&&typeof v==='object'?v:(state.ui.e191Achievements={});}
-const e191PriorPage=e16Page;
-e16Page=function(){
- e191PriorPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const book=page.querySelector('.e186Book');if(!book)return;
- const zone=e165Zone(),fish=E16_FISH.filter(f=>zone.fish.includes(f.id)),record=e18Record();
- const completed=fish.length>0&&fish.every(f=>typeof e227Discovered==='function'?e227Discovered(state,f.id):Number(record.bySpecies?.[f.id]?.total)>0);
- const claimed=!!e191Achievements()[zone.id];
- const box=document.createElement('div');box.className='e191Achievement';
- const info=document.createElement('div'),title=document.createElement('b'),detail=document.createElement('small');
- title.textContent=claimed?'🏅 Colección completada':completed?'🏆 ¡Colección completa!':'🏅 Logro: explorador de '+zone.name;
- detail.textContent=claimed?'Recompensa reclamada · insignia permanente':completed?'Descubriste todas las especies · insignia de colección':'Capturá al menos un ejemplar de cada especie para obtener su insignia. Premio visual, sin oro.';
- info.append(title,detail);box.append(info);
- if(completed&&!claimed){const button=document.createElement('button');button.className='small primary';button.dataset.e191Claim=zone.id;button.textContent='Reclamar premio';box.append(button);}
- book.append(box);
-};
+
+
 document.addEventListener('click',e=>{
  const btn=e.target.closest('[data-e191-claim]');if(!btn)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -4825,13 +5180,6 @@ e189RodSVG=function(id){
  const symbol=abyss?'<path d="M95 11 l5 -8 5 8 -5 8Z" fill="#e4d1ff"/>':coral?'<path d="M90 17 l-5 -9 m5 9 l6 -12 m-6 12 l10 -4" stroke="#ffb3b0" stroke-width="3"/>':emerald?'<path d="M93 18 Q83 8 94 4 Q104 10 93 18" fill="#8df6b0"/>':mist?'<circle cx="99" cy="13" r="5" fill="#c3a8ff" opacity=".8"/>':'';
  return '<svg viewBox="0 0 145 44" role="img" aria-label="Caña '+key+'" xmlns="http://www.w3.org/2000/svg"><path d="M7 35 Q68 30 130 7" stroke="#10151b" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M7 35 Q68 30 130 7" stroke="'+core+'" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M28 33 Q74 27 130 7" stroke="'+metal+'" stroke-width="1.7" fill="none"/><path d="M8 35 L34 32" stroke="'+(old?'#6f4a2f':'#273b4a')+'" stroke-width="8" stroke-linecap="round"/><path d="M11 34 L29 32" stroke="'+metal+'" stroke-width="1.3" stroke-dasharray="3 3"/><g fill="none" stroke="'+metal+'" stroke-width="1.8"><ellipse cx="58" cy="26" rx="3" ry="5"/><ellipse cx="88" cy="18" rx="2" ry="4"/><ellipse cx="115" cy="11" rx="1.5" ry="3"/></g><circle cx="40" cy="32" r="8" fill="'+core+'" stroke="'+metal+'" stroke-width="2"/><circle cx="40" cy="32" r="3" fill="'+metal+'"/><path d="M40 32 l-6 11" stroke="'+metal+'" stroke-width="2"/><path d="M130 7 Q142 12 135 28" stroke="#c8e2e9" stroke-width=".8" stroke-dasharray="2 2" fill="none"/><path d="M135 28 l-4 5 4 5 4-5Z" fill="'+metal+'"/>'+symbol+'</svg>';
 };
-const e192PriorPage=e16Page;
-e16Page=function(){
- e192PriorPage();const page=document.getElementById('page_fishing');if(!page||!state)return;
- const book=page.querySelector('.e186Book'),zone=e165Zone();
- if(book){const cards=[...book.querySelectorAll('.e186Fish')],species=E16_FISH.filter(f=>zone.fish.includes(f.id));cards.forEach((card,i)=>{const f=species[i];if(!f||card.querySelector('.e192Sprite'))return;const icon=document.createElement('div');icon.className='e192Sprite';icon.innerHTML=e189FishSVG(f.id);const info=document.createElement('div');while(card.firstChild)info.append(card.firstChild);card.append(icon,info);});}
- const rods=page.querySelector('details:has(.fishRod)');if(rods){rods.querySelectorAll('.fishRod').forEach((row,i)=>{const r=E161_RODS[i];if(!r||row.querySelector('.e192RodShowcase'))return;const showcase=document.createElement('div');showcase.className='e192RodShowcase';showcase.innerHTML=e189RodSVG(r.id)+'<span>'+r.desc+'</span>';const parent=row.querySelector('div');if(parent)parent.append(showcase);});}
-};
 </script>
 
 <style id="e193-style">
@@ -4866,33 +5214,8 @@ function e193RodScore(r){
  const score=.30*st.control/64+.25*st.resilience/45+.15*st.speed/40+.10*st.luck/43+.10*trophy/45+.10*Math.log1p(e190Capacity(r))/Math.log1p(3000);
  return clamp(Math.round(1+9*score),1,10);
 }
-const e193PreviousPage=e16Page;
-e16Page=function(){
- e193PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const panel=page.querySelector('details:has(.fishRod)');if(!panel)return;
- panel.querySelectorAll('.fishRod').forEach(row=>{
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/, '').trim();
-  const rod=E161_RODS.find(r=>r.name===name);
-  if(!rod)return;
-  row.classList.add('e193Rod');
-  const muted=row.querySelector('.fishMuted');
-  if(muted)muted.textContent=(muted.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'').replace(/\s*·\s*[\d.,]+\s*oro\s*$/i,'');
-  row.querySelectorAll('.e164RodStat').forEach(el=>{el.textContent=(el.textContent||'').replace(/Sin nivel mínimo\s*·?\s*/gi,'');});
-  const info=row.querySelector('div');if(!info)return;
-  const score=e193RodScore(rod);
-  const badge=document.createElement('div');badge.className='e193RodBadge';
-  badge.innerHTML='<span class="e193Stars" title="Valoración orientativa de estadísticas">'+('★'.repeat(score))+'<span style="opacity:.22">'+('☆'.repeat(10-score))+'</span></span><span class="e193Tier">'+score+'/10 · Valoración general</span>';
-  info.append(badge);
-  const art=document.createElement('div');art.className='e193RodImage';art.innerHTML=e189RodSVG(rod.id);info.append(art);
-  const buy=row.querySelector('[data-e161-buy]');
-  if(buy){
-   const controls=document.createElement('div');controls.className='e193Buy';
-   const price=document.createElement('span');price.className='e193Price';price.textContent='🪙 '+fmt(rod.price)+' oro';
-   controls.append(price);buy.textContent='Comprar';controls.append(buy);row.append(controls);
-  }
- });
-};
+
+
 /* Inventario único: objetos y todos los grados de peces; orden personalizable. */
 function e193InvRows(){
  const inv=state?.inventory||{};
@@ -5030,39 +5353,8 @@ function e209CompletedQuests(){
  return rows;
 }
 let e194QuestOpen=false;
-const e194PreviousPage=e16Page;
-e16Page=function(){
- const old=document.querySelector('#page_fishing .e194QuestFold');if(old)e194QuestOpen=old.open;
- e194PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const quests=page.querySelector('.e171Quests');
- if(quests){
-  e210ZoneChallenges(quests);
-  const active=[...quests.children].filter(el=>!el.matches('.e171QuestGroup'));
-  if(active.length){const fold=document.createElement('details');fold.className='e194QuestFold';fold.open=e194QuestOpen;
-   const sum=document.createElement('summary');sum.textContent='📜 Encargos de esta zona ('+active.length+')';
-   const body=document.createElement('div');body.className='e194QuestBody';active.forEach(el=>body.append(el));fold.append(sum,body);quests.prepend(fold);
-   fold.addEventListener('toggle',()=>{e194QuestOpen=fold.open;});
-  }
-  quests.querySelectorAll('.e171QuestGroup').forEach(n=>n.remove());
-  quests.append(e216AtlasNode());quests.querySelector('.atlasRows').scrollTop=e216View().scrollTop||0;
- }
- // Todas las cañas (compradas o ganadas en quests) reciben ilustración.
- const list=page.querySelector('details:has(.fishRod)');
- if(list)list.querySelectorAll('.fishRod').forEach(row=>{
-  const label=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),...(typeof E187_ROD!=='undefined'?[E187_ROD]:[])].find(r=>r?.name===label);
-  const id=rod?.id||(/brumas/i.test(label)?'bruma':/guardarr/i.test(label)?'guardarr':/viejo/i.test(label)?'viejo':/coral/i.test(label)?'coral':null);
-  if(!id)return;
-  const existing=row.querySelector('.e193RodImage');
-  if(existing){existing.innerHTML=e194RodArt(id);return;}
-  if(row.querySelector('.e194QuestRodArt'))return;
-  const art=document.createElement('div');art.className='e194QuestRodArt';art.innerHTML=e194RodArt(id);
-  const info=row.querySelector('div');if(info)info.append(art);
- });
- const next=[...page.querySelectorAll('*')].find(el=>el.children.length===0&&/Próxima caña:\s*.*nivel\s*\d+/i.test(el.textContent||''));
- if(next)next.textContent='';
-};
+
+
 function e194UpdateDockRod(){
  const dock=document.getElementById('combatDock'),vitals=dock?.querySelector('.dockVitals');if(!vitals)return;
  let panel=vitals.querySelector('.e194DockRod');if(!panel){panel=document.createElement('div');panel.className='e194DockRod';panel.innerHTML='<div class="e194DockRodArt"></div><div class="e194DockRodText"></div>';vitals.append(panel);}
@@ -5133,8 +5425,8 @@ e16Start=function(id){
  e195Pending={id,left};e16Result='';e16Page();
  e195ShakeTimer=setTimeout(()=>{if(!e195Pending)return;e195Reset();if(e161Fishing&&e161OnPage())e161NextBite();},18000);
 };
-const e195PriorPage=e16Page;
-e16Page=function(){e195PriorPage();e195DrawShake();};
+
+
 document.addEventListener('click',e=>{
  const b=e.target.closest('.e195Bubble');if(!b)return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -5246,8 +5538,8 @@ function e197Sync(){
  for(const name of e232RegionalBonus().names)card.insertAdjacentHTML('beforeend','<small class="e232RegionalPerk">'+esc(name)+' · mejora regional activa</small>');
  if(perks.abismo)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌌 Pulso del abismo · +8 px de control activos</small>');
 }
-const e197PreviousPage=e16Page;
-e16Page=function(){e197PreviousPage();e197Sync();};
+
+
 const e197PreviousTab=selectWorkspaceTab;
 selectWorkspaceTab=function(id,save=true){e197PreviousTab(id,save);e197Sync();};
 const e197PreviousRender=renderGame;
@@ -5323,38 +5615,6 @@ function e1101View(r){
  ['🛡 Resiliencia',st.resilience+'%'],['🏆 Trofeos',st.trophy+'%']
  ].map(([k,v])=>'<div class="e1101Stat">'+k+'<b>'+v+'</b></div>').join('')+'</div>';
 }
-const e1101OldPage=e16Page;
-e16Page=function(){
- const result=e1101OldPage();
- const page=document.getElementById('page_fishing');
- if(!page||!state)return result;
- const panel=page.querySelector('details:has(.fishRod)');
- if(panel)panel.querySelectorAll('.fishRod').forEach(row=>{
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=E161_RODS.find(r=>r.name===name);
-  if(!rod||row.querySelector('.e1101Stats'))return;
-  const stats=document.createElement('div');stats.innerHTML=e1101View(rod);
-  const info=row.querySelector('div');if(info)info.append(stats);
-  const equipped=e161Rod(),a=e1101Stats(rod),b=e1101Stats(equipped);
-  const diff=document.createElement('div');diff.className='e1101Compare';
-  diff.textContent=equipped&&rod.id!==equipped.id?
-    'Vs. tu caña: Atracción '+(a.speed-b.speed>=0?'+':'')+(a.speed-b.speed)+'% · Suerte '+(a.luck-b.luck>=0?'+':'')+(a.luck-b.luck)+'% · Control '+(a.control-b.control>=0?'+':'')+(a.control-b.control):
-    'Estadísticas de tu caña actual';
-  if(info)info.append(diff);
- });
- // Una sola referencia al estado de la picada dentro del HUD.
- const hud=document.getElementById('e188FishingHud');
- if(hud){
-  const labels=hud.querySelectorAll('small,.fishMuted,.e188Status');
-  let seen=false;
-  labels.forEach(el=>{
-   if(/pescando|esperando.*picada|pez.*luchando/i.test(el.textContent||'')){
-    if(seen)el.style.display='none';else seen=true;
-   }
-  });
- }
- return result;
-};
 </script>
 
 <style id="e1102-quest-stats">
@@ -5382,37 +5642,6 @@ e1101Stats=function(rod){
  return {...base,speed:special?.wait??base.speed,luck:special?.rare??base.luck,
   resilience:special?.resilience??base.resilience,
   trophy:Math.min(30,trophy+(state?Math.floor((e16FishLevel()-1)/10):0))};
-};
-const e1102PreviousPage=e16Page;
-e16Page=function(){
- const result=e1102PreviousPage();
- const page=document.getElementById('page_fishing');
- const panel=page?.querySelector('details:has(.fishRod)');
- if(!panel||!state)return result;
- const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
- const active=e161Rod();
- for(const row of panel.querySelectorAll('.fishRod')){
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=all.find(r=>r.name===name);
-  if(!rod)continue;
-  row.querySelectorAll('.e1101Stats,.e1101Compare,.e1102QuestTag').forEach(el=>el.remove());
-  const target=row.querySelector('div');if(!target)continue;
-  const wrapper=document.createElement('div');wrapper.innerHTML=e1101View(rod);
-  target.append(wrapper.firstElementChild);
-  const a=e1101Stats(rod),b=e1101Stats(active);
-  const names=[['Atracción','speed','%'],['Suerte','luck','%'],['Control','control',' px'],['Resiliencia','resilience','%'],['Trofeos','trophy','%']];
-  const cmp=document.createElement('div');cmp.className='e1101Compare';
-  cmp.textContent=rod.id===active?.id?'✓ Caña equipada':
-   'Vs. equipada: '+names.map(([name,key,unit])=>{const delta=a[key]-b[key];return name+' '+(delta>0?'+':'')+delta+unit}).join(' · ');
-  target.append(cmp);
-  if(E1102_QUEST_VALUES[rod.id]){
-   row.classList.add('e1102Quest');
-   const tag=document.createElement('div');tag.className='e1102QuestTag';
-   tag.textContent='🏆 Caña de misión · Estadísticas incluidas en la comparación';
-   target.append(tag);
-  }
- }
- return result;
 };
 </script>
 
@@ -5493,28 +5722,6 @@ e186LuckPercent=function(){
  return e1101Stats(e161Rod()).trophy;
 };
 /* Mostrar rol y ventajas claras en la tienda. */
-const e1103OldPage=e16Page;
-e16Page=function(){
- const result=e1103OldPage();
- const panel=document.querySelector('#page_fishing details:has(.fishRod)');
- if(!panel||!state)return result;
- if(!panel.querySelector('.e1103Note')){
-  const note=document.createElement('p');note.className='e1103Note';
-  note.textContent='Atracción = menos espera · Suerte = peces raros · Control = barra más ancha · Resiliencia = pez más lento · Trofeos = mejores ejemplares. Cada caña tiene un rol distinto.';
-  panel.prepend(note);
- }
- const rods=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
- for(const row of panel.querySelectorAll('.fishRod')){
-  const name=row.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const rod=rods.find(r=>r.name===name);
-  if(!rod||row.querySelector('.e1103Identity'))continue;
-  const target=row.querySelector('div');if(!target)continue;
-  const role=document.createElement('div');role.className='e1103Identity';
-  role.textContent='✦ '+(E1103_SPECIAL[rod.id]?.role||'Caña especializada');
-  target.append(role);
- }
- return result;
-};
 </script>
 
 <style id="e1105-clean-fishing">
@@ -5528,56 +5735,12 @@ e16Page=function(){
 "use strict";
 /* El panel de captura queda exclusivamente para el minijuego.
    Datos de zona, caña y bonificaciones disponibles en un desplegable aparte. */
-const e1105PriorPage=e16Page;
-e16Page=function(){
- const result=e1105PriorPage();
- const page=document.getElementById('page_fishing');
- const dock=page?.querySelector('.e162Dock');
- if(!dock)return result;
- const stats=dock.querySelector('.e185Summary');
- if(stats){
-  let details=page.querySelector('.e1105Details');
-  if(!details){
-   details=document.createElement('details');
-   details.className='e1105Details';
-   const title=document.createElement('summary');
-   title.textContent='🎣 Ver datos de zona, caña y bonificaciones';
-   details.append(title);
-   dock.insertAdjacentElement('afterend',details);
-  }
-  details.querySelector('.e185Summary')?.remove();
-  details.append(stats);
- }
- // Una sola línea de estado antes del minijuego, sin mensajes duplicados.
- const status=page.querySelector('.e162DockHead');
- if(status){
-  const nodes=[...status.querySelectorAll('*')].filter(n=>n.children.length===0);
-  let seen=false;
-  for(const n of nodes){
-   if(/esperando picada|caña lanzada/i.test(n.textContent||'')){
-    if(seen)n.style.visibility='hidden';else seen=true;
-   }
-  }
- }
- return result;
-};
 </script>
 
 <script data-e1106-stable-game>
 "use strict";
 /* Los cambios de fase no deben cambiar la altura del documento ni crear
    dos anuncios simultáneos de que picó un pez. */
-const e1106OldPage=e16Page;
-e16Page=function(){
- const result=e1106OldPage();
- const page=document.getElementById('page_fishing');
- if(!page)return result;
- const waiting=page.querySelector('#e161WaitingText');
- if(waiting)waiting.classList.toggle('e1106Quiet',!!(e16Session||e195Pending));
- const game=page.querySelector('#e16GamePanel');
- if(game&&e161Fishing)game.style.display='block';
- return result;
-};
 </script>
 
 <style id="e1107-fishing-ui">
@@ -5657,8 +5820,8 @@ function e1107Sync(){
   game.append(stop);
  }
 }
-const e1107OldPage=e16Page;
-e16Page=function(){const result=e1107OldPage();e1107Sync();return result;};
+
+
 const e1107OldHud=e188UpdateHud;
 e188UpdateHud=function(){const result=e1107OldHud();e1107Sync();return result;};
 document.addEventListener('click',e=>{
@@ -5715,28 +5878,6 @@ document.addEventListener('click',e=>{
 "use strict";
 /* La capa E1.8.3 movía el botón dentro del minijuego. Lo reubicamos fuera
    del overlay para que funcione tanto en sacudida como en captura. */
-const e1108OldPage=e16Page;
-e16Page=function(){
- const result=e1108OldPage();
- const page=document.getElementById('page_fishing');
- const dock=page?.querySelector('.e162Dock');
- const game=dock?.querySelector('#e16GamePanel');
- if(!dock||!game)return result;
- game.querySelectorAll('.e1107StopShake').forEach(n=>n.remove());
- let toolbar=dock.querySelector('.e1108Toolbar');
- if(!toolbar){toolbar=document.createElement('div');toolbar.className='e1108Toolbar';game.before(toolbar);}
- const toggle=dock.querySelector('[data-e161-toggle]');
- if(toggle){
-  toolbar.append(toggle);
-  toggle.disabled=!(e161Fishing||e161Rod()&&e161CanFish());
-  toggle.textContent=e161Fishing?'Dejar de pescar':'🎣 Tirar la caña';
- }
- const actions=game.querySelector('.e183Actions');
- if(actions)actions.remove();
- // El mismo espacio del minijuego se mantiene durante la espera, los círculos y la captura.
- if(e161Fishing)game.style.display='block';
- return result;
-};
 </script>
 <style id="e1109-final-polish">
 /* El mismo marco visual y la misma altura para ambas etapas. */
@@ -5774,14 +5915,6 @@ e16Page=function(){
 "use strict";
 /* Eliminar el botón Cancelar redundante, manteniendo el control superior
    "Dejar de pescar" que funciona en ambas fases. */
-const e1109PreviousPage=e16Page;
-e16Page=function(){
- const result=e1109PreviousPage();
- const game=document.querySelector('#page_fishing .e162Dock #e16GamePanel');
- if(!game)return result;
- game.querySelectorAll('[data-e16-cancel]').forEach(b=>b.remove());
- return result;
-};
 </script>
 
 <style id="e1110-simplified-fishing">
@@ -5863,19 +5996,6 @@ e16Finish=function(won){
  finally{fishingFinishDepth--;}
  if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0,newAbsoluteRecord:!!caught.newAbsoluteRecord};}
  e16Page();e188UpdateHud();persist();
-};
-const e1111PriorPage=e16Page;
-e16Page=function(){
- const result=e1111PriorPage();
- const page=document.getElementById('page_fishing');
- const dock=page?.querySelector('.e162Dock');
- if(!dock)return result;
- // Durante la pausa, resultado único y bien visible sobre el minijuego.
- if(Date.now()<e1111ResultUntil&&!e16Session&&!e195Pending&&e16Result){
-  const existing=dock.querySelector('.fishCatch');
-  if(existing){existing.classList.add('e1111CatchNotice');existing.setAttribute('role','status');}
- }
- return result;
 };
 </script>
 
@@ -5965,8 +6085,6 @@ function e1113RefreshArt(){
   if(rod)node.innerHTML=e194RodArt(rod.id);
  });
 }
-const e1113PriorPage=e16Page;
-e16Page=function(){const r=e1113PriorPage();e1113RefreshArt();return r;};
 </script>
 
 <style id="e1114-hd-styles">
@@ -5989,18 +6107,6 @@ function e1114RodIndex(id){const s=String(id||'').toLowerCase();for(const [k,n] 
 function e1114FishIndex(id){const s=String(id||'').toLowerCase();for(const [k,n] of Object.entries(E1114_FISH_KEYS))if(s.includes(k))return n;return e1113Hash(s)%E1114_FISH_IMAGES.length;}
 e194RodArt=function(id){return '<img class="e1114Rod" alt="Ilustración detallada de caña de pesca" draggable="false" src="'+E1114_ROD_IMAGES[e1114RodIndex(id)]+'">';};
 e189FishSVG=function(id){return '<img class="e1114Fish" alt="Ilustración de pez" draggable="false" src="'+E1114_FISH_IMAGES[e1114FishIndex(id)]+'">';};
-const e1114PreviousPage=e16Page;
-e16Page=function(){
- const result=e1114PreviousPage();
- const page=document.getElementById('page_fishing');if(!page)return result;
- // Actualizar tarjetas existentes que fueron generadas antes de este parche.
- const zone=typeof e165Zone==='function'?e165Zone():null;
- if(zone){const fishList=E16_FISH.filter(f=>zone.fish.includes(f.id));
- const cards=page.querySelectorAll('.e186Fish');cards.forEach((card,i)=>{
-  const sprite=card.querySelector('.e192Sprite');if(sprite&&fishList[i])sprite.innerHTML=e189FishSVG(fishList[i].id);
- });}
- return result;
-};
 </script>
 
 <style id="e1115-hd-fit">
@@ -6104,20 +6210,6 @@ e189FishSVG=function(id){
  const url=E1117_FISH[id];
  return url?'<img class="e1117Fish" alt="Ilustración de '+String(id).replaceAll('_',' ')+'" draggable="false" src="'+url+'">':e1117FishOld(id);
 };
-const e1117PageOld=e16Page;
-e16Page=function(){const r=e1117PageOld();
- document.querySelectorAll('#page_fishing .e1114Rod,#combatDock .e1114Rod').forEach(el=>{
-  const box=el.closest('.fishRod,.e17Quest,.e171Quest,.e187Quest');
-  const name=box?.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
-  const rod=all.find(x=>x.name===name)||e161Rod();
-  if(rod)el.outerHTML=e194RodArt(rod.id);
- });
- const zone=e165Zone();if(zone){const list=E16_FISH.filter(f=>zone.fish.includes(f.id));
-  document.querySelectorAll('#page_fishing .e186Fish').forEach((card,i)=>{
-   const sprite=card.querySelector('.e192Sprite');if(sprite&&list[i])sprite.innerHTML=card.classList.contains('e186Unknown')?e190MysteryArt():e189FishSVG(list[i].id);
-  });}
- return r;};
 </script>
 
 <style id="e1118-compact-fishing-hud">
@@ -6281,7 +6373,7 @@ function sync(){
  if(page&&!page.classList.contains('hidden')&&!document.getElementById('gameScreen').classList.contains('hidden')){let banner=page.querySelector('.e1123ZoneBanner');if(!banner){banner=document.createElement('div');banner.className='e1123ZoneBanner';banner.innerHTML='<img alt="Paisaje de la zona de pesca"><div class="e1123ZoneBannerText"><strong></strong><span></span></div>';const anchor=page.querySelector('.e162DockHead')||page.querySelector('h2');if(anchor)anchor.after(banner);else page.prepend(banner);}if(typeof e227ZoneArt==='function'&&e227ZoneArt(zone)){if(banner.dataset.artZone!==zone.id){banner.querySelector('img,svg')?.remove();banner.insertAdjacentHTML('afterbegin',e227ZoneArt(zone));banner.dataset.artZone=zone.id;}}else banner.querySelector('img').src=e221ZoneImage(zone)||data.muelle;banner.querySelector('strong').textContent=zone.name;banner.querySelector('span').textContent=zone.desc||'Explorá las aguas y descubrí nuevas especies.';}
 }
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
-const previousPage=e16Page;e16Page=function(){const r=previousPage();sync();return r;};
+fishingPageZoneSync=sync;
 const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
 const previousPaint=e16Paint;e16Paint=function(){const r=previousPaint();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
@@ -6724,7 +6816,7 @@ function e216RodComparison(rod){
 <script data-e1121-rod-shop>
 "use strict";
 (function(){
- const old=e16Page,viewStates=new WeakMap();
+ const viewStates=new WeakMap();
  let renderedState=null;
  // Presentation recommendations only. Buying/equipping keeps the existing rules.
  const recommendedLevels={e192_rod_laguna:25,e192_rod_coral:40,e192_rod_abyss:60};
@@ -6761,15 +6853,10 @@ function e216RodComparison(rod){
   const disabled=equipped||!!e16Session||!!e195Pending||(!owned&&(!isQuest&&state.gold<rod.price));
   return `<article class="rodShopRow${isQuest?' questRod':''}${equipped?' equipped':''}" data-rod-id="${rod.id}" data-source="${isQuest?'quest':'gold'}" data-zone="${e210RodZone(rod)}" data-price="${rod.price||0}" data-required-level="${e217RequiredLevel(rod)??''}" data-control="${st.control}" data-resilience="${st.resilience}" data-speed="${st.speed}" data-luck="${st.luck}" data-trophy="${st.trophy}" data-max-kg="${st.maxKg}"><div class="rodShopArt">${e194RodArt(rod.id)}</div><div class="rodShopInfo"><div class="rodShopTitle"><b>${esc(rod.name)}</b>${stars}<span class="rodSource${isQuest?' quest':''}">${isQuest?'📜 Misión':'🪙 Compra'}</span></div><div class="rodShopStats">${stats}</div><small>${esc(requirement)}${rod.unlock?'':' · '+esc(E1103_SPECIAL[rod.id]?.role||rod.desc)}</small></div><div class="rodShopAction"><span>${!isQuest?fmt(rod.price)+' oro':'Premio de misión'}</span><button class="small" ${action} ${disabled?'disabled':''}>${equipped?'✓ Equipada':owned?'Equipar':rod.unlock?(e208QuestProgress(rod).ready?'Reclamar':'Ver encargo'):isQuest?'Ver encargo':'Comprar'}</button></div></article>`;
  }
- e16Page=function(){
-  if(fishingFinishDepth)return;
-  fishingRenderDepth++;
-  try {
-   e216Remember();remember();
-   const previousShop=document.getElementById('fishingRodShop');
-   const result=old.apply(this,arguments);
+ fishingPageShop={remember,render:function(previousShop){
+
    const page=document.getElementById('page_fishing'),shop=page?.querySelector('details:has(.fishRod)');
-   if(!shop||!state)return result;
+   if(!shop||!state)return;
    const view=viewStates.get(state),active=e161Rod();
    const catalog=e221Rods();
    const sameLocation=view?.location===e165Zone().id;
@@ -6798,9 +6885,8 @@ function e216RodComparison(rod){
    page.querySelector('h2')?.remove();
    renderedState=state;
    shop.addEventListener('toggle',()=>{if(shop.isConnected)remember();},true);
-   return result;
-  } finally {fishingRenderDepth--;if(!fishingRenderDepth){e16Paint();measureDock();}}
- };
+   return;
+  }};
  const previousTab=selectWorkspaceTab;
  selectWorkspaceTab=function(id,save=true){const result=previousTab(id,save);placeShop();return result;};
  window.addEventListener('click',event=>{
@@ -7199,8 +7285,8 @@ function e218Journal(){
  if(!journal.dataset.detailToggle){journal.dataset.detailToggle='true';journal.addEventListener('toggle',()=>{if(journal.open&&state){const grid=journal.querySelector('.e218Album');if(grid)e218PlaceDetail(grid,e218Selected.get(state));}});}
  document.querySelectorAll('#page_fishing .e186Fish').forEach(card=>{card.title=[...card.querySelectorAll('strong,small')].map(n=>n.textContent.trim()).filter(Boolean).join(' · ');card.querySelectorAll('small').forEach(n=>n.remove());});
 }
-const e218PriorPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e218PriorPage();e218Journal();return result;};
+
+
 window.addEventListener('resize',()=>{const grid=document.querySelector('.e218Album');if(grid&&state)e218PlaceDetail(grid,e218Selected.get(state));});
 </script>
 <style id="fishing-journal-css">
@@ -7269,8 +7355,8 @@ function e221Decorate(){
  const cast=document.querySelector('#page_fishing [data-e161-toggle]');if(cast&&!e161Fishing&&!cast.querySelector('.e221Art')){const r=cast.getBoundingClientRect();if(r.width){cast.style.width=r.width+'px';cast.style.height=r.height+'px';cast.classList.add('e221Cast');cast.innerHTML=e221Art('cast')+'<span>Tirar la caña</span>';}}
  document.querySelectorAll('#page_fishing .e218Card img,#page_fishing .e218Detail img,#fishingRodShop img').forEach(img=>{img.loading='lazy';img.decoding='async';});
 }
-const e221PriorPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e221PriorPage();e221Decorate();return result;};
+
+
 const e221PriorTab=selectWorkspaceTab;
 selectWorkspaceTab=function(){const result=e221PriorTab.apply(this,arguments);e221Decorate();return result;};
 </script>
@@ -8103,8 +8189,8 @@ function e227RenderQuests(){
  for(const q of qs){const section=document.createElement('section');section.className='e227Quest';section.dataset.questId=q.id;section.innerHTML=`<b>${esc(q.title)}</b><ul>${q.goals.map(g=>`<li>${esc(g.label)} · ${fmt(Math.min(g.have,g.need))}/${fmt(g.need)}</li>`).join('')}</ul><small>${esc(q.note)}</small><div class="actions"><span>${esc(q.reward)}</span><button data-expansion-claim="${q.id}" ${q.goals.every(g=>g.have>=g.need)?'':'disabled'}>Reclamar recompensa</button></div>`;body.append(section);}
  fold.querySelector(':scope>summary').textContent='Encargos de esta zona ('+body.children.length+')';e216CompactQuests();
 }
-const e227PriorPage=e16Page;
-e16Page=function(){if(state)e227MigrateMastery(state);const result=e227PriorPage();e227RenderQuests();return result;};
+
+
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-expansion-claim]');if(!button)return;
  event.preventDefault();if(!state||!ready||busy||managing||!storageReady||simulationLocked()||e16Session||e195Pending)return;
@@ -10035,8 +10121,8 @@ function e228Presentation(){
  for(const b of document.querySelectorAll('.e165ZoneBtn')){const z=E165_ZONES.find(z=>z.id===b.dataset.e165Zone);if(z&&!b.querySelector('svg'))b.insertAdjacentHTML('afterbegin',e227ZoneArt(z,'e228ZoneLandscape'));}
  e228RemoveDecorativeEmoji(document.getElementById('page_fishing'));e228RemoveDecorativeEmoji(document.querySelector('.e197FishingSkills'));e228RemoveDecorativeEmoji(document.querySelector('.e1107RodPanel'));
 }
-const e228PreviousPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e228PreviousPage();e228Presentation();return result;};
+
+
 document.addEventListener('click',e=>{const atlas=e.target.closest('[data-trophy-atlas]'),travel=e.target.closest('[data-atlas-travel]'),alternative=e.target.closest('[data-alternative-quest]');if(atlas){e.preventDefault();e228OpenAtlas(atlas.dataset.trophyAtlas,atlas.dataset.trophyQuest);}if(travel){e.preventDefault();e228Travel(travel.dataset.atlasTravel);}if(alternative){const q=E228_REGIONAL_QUESTS.find(q=>q.id===alternative.dataset.alternativeQuest);if(q)e228OpenAtlas(q.zone,q.id);}});
 </script>
 <style id="fishing-presentation-28">/* Estable 28: scoped artwork only; the authoritative 118px HUD geometry is unchanged. */
@@ -10106,8 +10192,8 @@ function e229Polish(){
  const shop=document.querySelector('#fishingRodShop>summary .e221Art');if(shop)shop.innerHTML=e227Illustration('ui','shop-header','',true);
  e228RemoveDecorativeEmoji(page);
 }
-const e229PreviousPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e229PreviousPage();e229Polish();return result;};
+
+
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-journal-category]');if(button){const view=e220JournalView();view.category=view.category===button.dataset.journalCategory?null:button.dataset.journalCategory;e220FilterJournal(document.querySelector('.e218Album'));}
  const claim=event.target.closest('.e229CollectionAward');if(claim&&!event.target.closest('button')){event.preventDefault();event.stopPropagation();}
@@ -10573,8 +10659,6 @@ let e231RenderDepth=0,e231QuestCache=null,e231ReferenceCache=null;
 const e231Definitions=e216QuestDefinitions,e231Reference=e222DifficultyReference;
 e216QuestDefinitions=function(){if(!e231RenderDepth)return e231Definitions();return e231QuestCache||(e231QuestCache=e231Definitions());};
 e222DifficultyReference=function(){if(!e231RenderDepth)return e231Reference();return e231ReferenceCache||(e231ReferenceCache=e231Reference());};
-const e231PreviousPage=e16Page;
-e16Page=function(){if(state)e234MigrateRegional(state);e231RenderDepth++;try{const r=e231PreviousPage();const panel=document.getElementById('e16GamePanel');if(panel&&!panel.querySelector('.e231StageScenery'))panel.insertAdjacentHTML('afterbegin',e227Illustration('ui','water','e231StageScenery',true));return r;}finally{if(!--e231RenderDepth){e231QuestCache=null;e231ReferenceCache=null;}}};
 
 </script>
 <style>

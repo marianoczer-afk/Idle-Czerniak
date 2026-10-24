@@ -81,6 +81,6 @@ function e228Presentation(){
  for(const b of document.querySelectorAll('.e165ZoneBtn')){const z=E165_ZONES.find(z=>z.id===b.dataset.e165Zone);if(z&&!b.querySelector('svg'))b.insertAdjacentHTML('afterbegin',e227ZoneArt(z,'e228ZoneLandscape'));}
  e228RemoveDecorativeEmoji(document.getElementById('page_fishing'));e228RemoveDecorativeEmoji(document.querySelector('.e197FishingSkills'));e228RemoveDecorativeEmoji(document.querySelector('.e1107RodPanel'));
 }
-const e228PreviousPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e228PreviousPage();e228Presentation();return result;};
+
+
 document.addEventListener('click',e=>{const atlas=e.target.closest('[data-trophy-atlas]'),travel=e.target.closest('[data-atlas-travel]'),alternative=e.target.closest('[data-alternative-quest]');if(atlas){e.preventDefault();e228OpenAtlas(atlas.dataset.trophyAtlas,atlas.dataset.trophyQuest);}if(travel){e.preventDefault();e228Travel(travel.dataset.atlasTravel);}if(alternative){const q=E228_REGIONAL_QUESTS.find(q=>q.id===alternative.dataset.alternativeQuest);if(q)e228OpenAtlas(q.zone,q.id);}});

@@ -17,8 +17,8 @@ function e229Polish(){
  const shop=document.querySelector('#fishingRodShop>summary .e221Art');if(shop)shop.innerHTML=e227Illustration('ui','shop-header','',true);
  e228RemoveDecorativeEmoji(page);
 }
-const e229PreviousPage=e16Page;
-e16Page=function(){if(fishingFinishDepth)return;const result=e229PreviousPage();e229Polish();return result;};
+
+
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-journal-category]');if(button){const view=e220JournalView();view.category=view.category===button.dataset.journalCategory?null:button.dataset.journalCategory;e220FilterJournal(document.querySelector('.e218Album'));}
  const claim=event.target.closest('.e229CollectionAward');if(claim&&!event.target.closest('button')){event.preventDefault();event.stopPropagation();}

@@ -46,16 +46,3 @@ e16Finish=function(won){
  if(won&&e182LastCatch&&caught){state.ui.lastFishingCatch={id:caught.fish.id,xp:e182LastCatch.xp,price:e182LastCatch.price,quality:e182LastCatch.quality||'',weightKg:caught.weightKg||0,newAbsoluteRecord:!!caught.newAbsoluteRecord};}
  e16Page();e188UpdateHud();persist();
 };
-const e1111PriorPage=e16Page;
-e16Page=function(){
- const result=e1111PriorPage();
- const page=document.getElementById('page_fishing');
- const dock=page?.querySelector('.e162Dock');
- if(!dock)return result;
- // Durante la pausa, resultado único y bien visible sobre el minijuego.
- if(Date.now()<e1111ResultUntil&&!e16Session&&!e195Pending&&e16Result){
-  const existing=dock.querySelector('.fishCatch');
-  if(existing){existing.classList.add('e1111CatchNotice');existing.setAttribute('role','status');}
- }
- return result;
-};

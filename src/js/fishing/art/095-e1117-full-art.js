@@ -12,17 +12,3 @@ e189FishSVG=function(id){
  const url=E1117_FISH[id];
  return url?'<img class="e1117Fish" alt="Ilustración de '+String(id).replaceAll('_',' ')+'" draggable="false" src="'+url+'">':e1117FishOld(id);
 };
-const e1117PageOld=e16Page;
-e16Page=function(){const r=e1117PageOld();
- document.querySelectorAll('#page_fishing .e1114Rod,#combatDock .e1114Rod').forEach(el=>{
-  const box=el.closest('.fishRod,.e17Quest,.e171Quest,.e187Quest');
-  const name=box?.querySelector('b')?.textContent?.replace(/^✓\s*/,'').trim();
-  const all=[...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD];
-  const rod=all.find(x=>x.name===name)||e161Rod();
-  if(rod)el.outerHTML=e194RodArt(rod.id);
- });
- const zone=e165Zone();if(zone){const list=E16_FISH.filter(f=>zone.fish.includes(f.id));
-  document.querySelectorAll('#page_fishing .e186Fish').forEach((card,i)=>{
-   const sprite=card.querySelector('.e192Sprite');if(sprite&&list[i])sprite.innerHTML=card.classList.contains('e186Unknown')?e190MysteryArt():e189FishSVG(list[i].id);
-  });}
- return r;};

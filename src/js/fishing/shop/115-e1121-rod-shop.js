@@ -1,7 +1,7 @@
 
 "use strict";
 (function(){
- const old=e16Page,viewStates=new WeakMap();
+ const viewStates=new WeakMap();
  let renderedState=null;
  // Presentation recommendations only. Buying/equipping keeps the existing rules.
  const recommendedLevels={e192_rod_laguna:25,e192_rod_coral:40,e192_rod_abyss:60};
@@ -38,15 +38,10 @@
   const disabled=equipped||!!e16Session||!!e195Pending||(!owned&&(!isQuest&&state.gold<rod.price));
   return `<article class="rodShopRow${isQuest?' questRod':''}${equipped?' equipped':''}" data-rod-id="${rod.id}" data-source="${isQuest?'quest':'gold'}" data-zone="${e210RodZone(rod)}" data-price="${rod.price||0}" data-required-level="${e217RequiredLevel(rod)??''}" data-control="${st.control}" data-resilience="${st.resilience}" data-speed="${st.speed}" data-luck="${st.luck}" data-trophy="${st.trophy}" data-max-kg="${st.maxKg}"><div class="rodShopArt">${e194RodArt(rod.id)}</div><div class="rodShopInfo"><div class="rodShopTitle"><b>${esc(rod.name)}</b>${stars}<span class="rodSource${isQuest?' quest':''}">${isQuest?'📜 Misión':'🪙 Compra'}</span></div><div class="rodShopStats">${stats}</div><small>${esc(requirement)}${rod.unlock?'':' · '+esc(E1103_SPECIAL[rod.id]?.role||rod.desc)}</small></div><div class="rodShopAction"><span>${!isQuest?fmt(rod.price)+' oro':'Premio de misión'}</span><button class="small" ${action} ${disabled?'disabled':''}>${equipped?'✓ Equipada':owned?'Equipar':rod.unlock?(e208QuestProgress(rod).ready?'Reclamar':'Ver encargo'):isQuest?'Ver encargo':'Comprar'}</button></div></article>`;
  }
- e16Page=function(){
-  if(fishingFinishDepth)return;
-  fishingRenderDepth++;
-  try {
-   e216Remember();remember();
-   const previousShop=document.getElementById('fishingRodShop');
-   const result=old.apply(this,arguments);
+ fishingPageShop={remember,render:function(previousShop){
+
    const page=document.getElementById('page_fishing'),shop=page?.querySelector('details:has(.fishRod)');
-   if(!shop||!state)return result;
+   if(!shop||!state)return;
    const view=viewStates.get(state),active=e161Rod();
    const catalog=e221Rods();
    const sameLocation=view?.location===e165Zone().id;
@@ -75,9 +70,8 @@
    page.querySelector('h2')?.remove();
    renderedState=state;
    shop.addEventListener('toggle',()=>{if(shop.isConnected)remember();},true);
-   return result;
-  } finally {fishingRenderDepth--;if(!fishingRenderDepth){e16Paint();measureDock();}}
- };
+   return;
+  }};
  const previousTab=selectWorkspaceTab;
  selectWorkspaceTab=function(id,save=true){const result=previousTab(id,save);placeShop();return result;};
  window.addEventListener('click',event=>{

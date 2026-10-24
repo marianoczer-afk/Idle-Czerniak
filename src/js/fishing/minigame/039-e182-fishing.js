@@ -2,31 +2,8 @@
 "use strict";
 /* Sin cambiar datos guardados, XP, probabilidades, ni el balance del minijuego. */
 let e182LastCatch=null;
-const e182BeforePage=e16Page;
-e16Page=function(){
- e182BeforePage();
- const current=document.getElementById('page_fishing');if(!current||!state)return;
- const dock=current.querySelector('.e162Dock'),game=current.querySelector('#e16GamePanel');if(!dock||!game)return;
- // Reserva siempre el mismo espacio para que una picada no empuje el documento.
- game.style.display='block';
- game.classList.toggle('e182Idle',!e16Session);
- game.setAttribute('aria-hidden',e16Session?'false':'true');
- const previous=current.querySelector('.fishCatch');
- if(previous)previous.remove();
- let result=dock.querySelector('.e182Result');
- if(!result){result=document.createElement('div');result.className='e182Result';dock.append(result);}
- const recent=e182LastCatch&&Date.now()-e182LastCatch.at<7500&&e182LastCatch.zone===e165Zone().id;
- result.hidden=!recent;
- if(recent){
-  const c=e182LastCatch;
-  result.innerHTML=`<b>🎉 ¡Capturaste ${c.name}!</b> · +${fmt(c.xp)} XP de Pesca · <b>${fmt(c.price)} oro</b> al vender<small>El pez se guardó en tu inventario. Podés venderlo en el mercader.</small>`;
- }
- // No duplicar el panel de progreso; el principal ya está junto al minijuego.
- const extra=[...current.querySelectorAll('.fishPanel')].find(p=>p!==dock&&p.textContent?.includes('Cada 3 niveles ganás'));
- if(extra)extra.remove();
- // Al recrear los controles, el navegador puede intentar desplazar la página al foco.
- /* no programmatic scrolling */
-};
+
+
 const e182BeforeFinish=e16Finish;
 e16Finish=function(won){
  const fish=won?e16Session?.fish:null;

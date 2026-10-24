@@ -36,8 +36,8 @@ function e1107Sync(){
   game.append(stop);
  }
 }
-const e1107OldPage=e16Page;
-e16Page=function(){const result=e1107OldPage();e1107Sync();return result;};
+
+
 const e1107OldHud=e188UpdateHud;
 e188UpdateHud=function(){const result=e1107OldHud();e1107Sync();return result;};
 document.addEventListener('click',e=>{

@@ -20,8 +20,8 @@ function e197Sync(){
  for(const name of e232RegionalBonus().names)card.insertAdjacentHTML('beforeend','<small class="e232RegionalPerk">'+esc(name)+' · mejora regional activa</small>');
  if(perks.abismo)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌌 Pulso del abismo · +8 px de control activos</small>');
 }
-const e197PreviousPage=e16Page;
-e16Page=function(){e197PreviousPage();e197Sync();};
+
+
 const e197PreviousTab=selectWorkspaceTab;
 selectWorkspaceTab=function(id,save=true){e197PreviousTab(id,save);e197Sync();};
 const e197PreviousRender=renderGame;

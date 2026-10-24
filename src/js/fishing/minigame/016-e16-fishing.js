@@ -101,21 +101,7 @@ function e190ReturnToFishing(){
  window.scrollTo({top:Math.max(0,top),behavior:'auto'});
 }
 function e16Rod(){return !!state?.owned?.e16_rod;}
-function e16Page(){
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const lvl=e16FishLevel(),xp=e16FishSkill().xp,lo=10*(lvl-1)*(lvl-1),hi=10*lvl*lvl;
- page.innerHTML=`<h2>🎣 Pesca · Nivel ${lvl}</h2>
- <div class="fishPanel"><b>Progreso de Pesca</b><div class="fishMuted">${fmt(Math.floor(xp-lo))} / ${fmt(hi-lo)} XP hacia nivel ${lvl+1}</div><div class="bar xp"><div style="width:${Math.max(0,Math.min(100,100*(xp-lo)/(hi-lo)))}%"></div></div>
- <p class="fishMuted">La pesca es una profesión independiente del nivel de personaje. Mantené presionado el botón o la barra espaciadora para subir la zona verde; soltá para que baje. Mantené al pez dentro hasta completar la captura.</p></div>
- <div class="fishPanel"><h3>Equipo de pesca</h3>${e16Rod()?'<p>✅ Caña sencilla equipada. Ya podés pescar.</p>':`<p>Comprá una caña sencilla por <b>${E16_ROD_PRICE} oro</b>. Es una compra permanente, pensada para el inicio.</p><button data-e16-buyrod ${state.gold<E16_ROD_PRICE?'disabled':''}>Comprar caña · ${E16_ROD_PRICE} oro</button>`}</div>
- <div class="fishPanel"><h3>Zona de pesca · Muelle del pueblo</h3><div class="fishSpecies">${E16_FISH.map(f=>`<div>${f.icon} <b>${f.name}</b><div class="fishMuted">${lvl>=f.req?'Disponible':'🔒 Pesca '+f.req} · ${f.price} oro · ${f.xp} XP</div></div>`).join('')}</div>
- <p class="fishMuted">Seleccioná una especie disponible para intentar pescarla. Los peces difíciles se mueven más y requieren mejor control. Los peces capturados se guardan en el inventario y se pueden vender al mercader.</p>
- <div class="actions">${E16_FISH.map(f=>`<button class="small" data-e16-cast="${f.id}" ${!e16Rod()||lvl<f.req||!!e16Session?'disabled':''}>${f.icon} ${f.name}</button>`).join('')}</div></div>
- <div class="fishPanel" id="e16GamePanel"><h3>Minijuego de pesca</h3><div id="e16Status" class="fishMuted" aria-live="polite">${e16Session?'¡El pez está picando!':e16Result||'Comprá tu caña y elegí un pez para empezar.'}</div>
- <div class="fishGrid" style="margin:12px 0"><div class="fishTank" id="e16Tank"><div class="fishZone" id="e16Zone" style="bottom:0"></div><div class="fishTarget" id="e16Target" style="bottom:150px">🐟</div></div><div><div class="fishMuted">Captura</div><div class="fishMeter"><div class="fishMeterFill" id="e16Progress"></div></div></div></div>
- <div style="text-align:center"><button class="primary fishControl" id="e16Hold" ${e16Session?'':'disabled'}>MANTENER PARA SUBIR ↑</button><p class="fishMuted">Mouse, pantalla táctil o barra espaciadora. Si el pez se escapa, podés volver a intentar sin gastar oro.</p><button class="small" data-e16-cancel ${e16Session?'':'disabled'}>Cancelar intento</button></div></div>`;
- if(e16Session)e16Paint();
-}
+/* @include src/js/fishing/page/render.js */
 function e16Paint(){if(!e16Session)return;const g=e16Session;const zone=document.getElementById('e16Zone'),target=document.getElementById('e16Target'),meter=document.getElementById('e16Progress');if(zone){zone.style.bottom=g.pos+'px';zone.style.height=g.fish.zone+'px';}if(target)target.style.bottom=g.target+'px';if(meter)meter.style.height=Math.round(g.progress*100)+'%';}
 function e16Finish(won){const g=e16Session;if(!g)return;e16Session=null;e16Holding=false;cancelAnimationFrame(e16Frame);if(won){const id='pez_'+g.fish.id;state.inventory[id]=(state.inventory[id]||0)+1;const gained=sklXp(state,'pesca',g.fish.xp);e16Result=`¡Capturaste ${g.fish.name}! +${Math.floor(gained)} XP de Pesca. Vendelo en Inventario.`;addLog('Pesca: '+e16Result);persist();updateInv();}else e16Result='El pez escapó. ¡Volvé a intentarlo!';e16Page();}
 function e16Animate(now){if(!e16Session)return;const g=e16Session,dt=Math.min(.05,Math.max(0,(now-e16Last)/1000));e16Last=now;

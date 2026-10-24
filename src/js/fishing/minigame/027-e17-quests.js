@@ -35,25 +35,8 @@ function e17QuestHtml(){
  <p class="fishMuted">Los peces entregados se consumen. Podés venderlos en Inventario, pero entonces no contarán para el encargo.</p>`}
  </section>`;
 }
-const e17PreviousPage=e16Page;
-e16Page=function(){
- e17PreviousPage();
- const page=document.getElementById('page_fishing');if(!page||!state)return;
- const zone=e165Zone();
- if(zone.id==='muelle'){
-  const section=document.createElement('div');section.innerHTML=e17QuestHtml();
-  const quest=section.firstElementChild;
-  const anchor=page.querySelector('.e165ZoneInfo')||page.querySelector('.e162Dock');
-  if(anchor)anchor.after(quest);else page.append(quest);
- }
- const details=page.querySelector('details:has(.fishRod)');
- if(details&&e17Done()){
-  const row=document.createElement('div');row.className='fishRod e17SpecialRod';
-  row.innerHTML=`<div><b>🏆 ${E17_ROD.name}</b><div class="fishMuted">Misión del Muelle · Pesca 6 · ${E17_ROD.desc}</div></div><button class="small" data-e17-equip ${e17Selected()?'disabled':''}>${e17Selected()?'✓ Equipada':'Equipar'}</button>`;
-  details.append(row);
-  if(e17Selected()){const summary=details.querySelector('summary');if(summary)summary.textContent='🎣 Cañas y estadísticas · '+E17_ROD.name;}
- }
-};
+
+
 document.addEventListener('click',event=>{
  const deliver=event.target.closest('[data-e17-deliver]');
  const equip=event.target.closest('[data-e17-equip]');
