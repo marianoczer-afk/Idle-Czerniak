@@ -1,0 +1,12 @@
+{
+  "build": "estable-35",
+  "htmlBytes": 26659044,
+  "htmlSha256": "f92d1dd64a5026a9161e1101f83da227cf4883cd9928163baed1ac97cf64fefc",
+  "zipFile": "argentum-idle-estable35.zip",
+  "zipBytes": 19793574,
+  "zipSha256": "acd0de04344e9f7d2db3c140998aa579e519499b63f42717f6e42da5ee351dbd",
+  "contents": [
+    "index.html"
+  ],
+  "selfContained": true
+}
