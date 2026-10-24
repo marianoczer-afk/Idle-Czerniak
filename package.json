@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run build && python3 -m http.server 8000 --bind 0.0.0.0",
-    "test": "node --test tests/build.test.cjs tests/expansion27.test.cjs tests/stability.test.cjs tests/trophies28.test.cjs tests/polish29.test.cjs tests/presentation30.test.cjs",
+    "test": "node --test tests/build.test.cjs tests/expansion27.test.cjs tests/stability.test.cjs tests/trophies28.test.cjs tests/polish29.test.cjs tests/presentation30.test.cjs tests/world31.test.cjs",
     "audit": "node scripts/audit-source.cjs",
     "build": "node scripts/build.cjs",
     "build:check": "node scripts/build.cjs --check",

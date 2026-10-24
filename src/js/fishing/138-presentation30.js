@@ -1,10 +1,15 @@
 'use strict';
 // Read-only presentation. No persistence, simulation or reward calculations here.
-function e230HudArt(kind,id,width,height){
- const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f)return '';
- const w=Math.max(1,Math.round(width)),h=Math.max(1,Math.round(height));
- return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e229HudComposition e230HudComposition" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(kind==='rod'?(e161Rod()?.name||id):(E16_FISH.find(f=>f.id===id)?.name||id))}" data-foreground="alpha"><svg width="${w}" height="${h}" viewBox="0 0 ${water.width} ${water.height}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#${water.symbol}" width="${water.width}" height="${water.height}"/></svg><svg width="${w}" height="${h}" viewBox="0 0 ${f.width} ${f.height}" preserveAspectRatio="xMidYMid meet"><use href="#${f.symbol}" width="${f.width}" height="${f.height}"/></svg></svg>`;
+let e231ArtSerial=0;
+function e230HudArt(kind,id,width,height,category='normal'){
+ const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f||!water)return '';
+ const w=Math.max(1,Math.round(width)),h=Math.max(1,Math.round(height)),key='e231-art-'+(++e231ArtSerial);
+ const label=kind==='rod'?E161_RODS.find(r=>r.id===id)?.name:E16_FISH.find(f=>f.id===id)?.name;
+ const glints=['large','huge','legendary'].includes(category),color=category==='legendary'?'#ffe19a':category==='huge'?'#aee9ff':'#d5ecc3';
+ const dots=glints?'<g class="e231ScaleGlints" mask="url(#'+key+'-body)" fill="'+color+'">'+[[.25,.40],[.38,.55],[.51,.38],[.58,.62],[.67,.45],[.75,.56]].map(([x,y],i)=>'<path opacity="'+(category==='legendary'?.82:.55)+'" d="M'+(w*x)+' '+(h*y-3)+'l1.2 2 3 .8-3 .8-1.2 2-1.2-2-3-.8 3-.8Z"/>').join('')+'</g>':'';
+ return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e229HudComposition e230HudComposition" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(label||id)}" data-foreground="alpha" data-specimen-category="${category}"><defs><pattern id="${key}-water" width="${w}" height="${h}" patternUnits="userSpaceOnUse" viewBox="0 0 ${water.width} ${water.height}" preserveAspectRatio="xMidYMid slice"><use href="#${water.symbol}" width="${water.width}" height="${water.height}"/></pattern>${glints?`<mask id="${key}-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="${w}" height="${h}"><use href="#${f.symbol}" width="${w}" height="${h}"/></mask>`:''}</defs><rect width="${w}" height="${h}" fill="url(#${key}-water)"/><use class="e231Subject" href="#${f.symbol}" width="${w}" height="${h}"/>${dots}</svg>`;
 }
+
 function e230RenderQuests(body,defs,zone){
  const buttons=new Map();for(const row of body.querySelectorAll('[data-quest-key]')){const b=row.querySelector('[data-expansion-claim],[data-catalog-claim],[data-e187-claim],[data-e171-deliver],[data-e17-deliver],[data-e18-claim]');if(b)buttons.set(row.dataset.questKey,b);}
  const ready=q=>!q.done&&q.goals.every(g=>g.have>=g.need);

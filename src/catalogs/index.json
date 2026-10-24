@@ -114,5 +114,9 @@
   {
     "file": "src/catalogs/130-expansion.js",
     "symbol": "E228_REGIONAL_QUESTS"
+  },
+  {
+    "file": "src/catalogs/140-regional31.js",
+    "symbol": "E231_QUESTS"
   }
 ]

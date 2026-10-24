@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "build": "estable-30",
+  "build": "estable-31",
   "runtimeInput": false,
-  "source": "inventario-estable30.json + produccion-estable30.json",
+  "source": "inventario-estable31.json + produccion-estable31.json",
   "measuredBoxes": {
     "hudHeight": 118,
     "desktop": {
@@ -109,17 +109,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-mojarra",
+        "symbol": "art30-hud-fish-mojarra",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-80b5eaf896ca"
+        "key": "atlas-2a33749acc4e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo pequeño comprimido, plateado, escamas finas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -141,17 +141,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-bagre",
+        "symbol": "art30-hud-fish-bagre",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-b01b01781e0c"
+        "key": "atlas-0bf57f4659a5"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cabeza ancha, bigotes largos completos, piel lisa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -173,17 +173,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-trucha",
+        "symbol": "art30-hud-fish-trucha",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-c8ac4332b009"
+        "key": "atlas-a2a6cad930d2"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido moteado, aleta adiposa visible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -205,17 +205,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-salmon",
+        "symbol": "art30-hud-fish-salmon",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-23cea7adfcb2"
+        "key": "atlas-1c8c3d49e131"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido cobrizo de lomo arqueado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -237,17 +237,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_espada",
+        "symbol": "art30-hud-fish-pez_espada",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-1632ac9a42fd"
+        "key": "atlas-c0e1d5ca318e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pico largo íntegro y cola falcada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -269,17 +269,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-carpa_dorada",
+        "symbol": "art30-hud-fish-carpa_dorada",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-027971e0929e"
+        "key": "atlas-97b236ca5c31"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa de escamas doradas y barbillones. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -301,17 +301,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-trucha_arcoiris",
+        "symbol": "art30-hud-fish-trucha_arcoiris",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-5b720315551f"
+        "key": "atlas-579af4d3e780"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Franja rosada lateral y motas negras. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -333,17 +333,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_fantasma",
+        "symbol": "art30-hud-fish-pez_fantasma",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-cdbd5ce31fca"
+        "key": "atlas-7a5133acfb06"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Silueta translúcida con esqueleto insinuado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -365,17 +365,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-lucio",
+        "symbol": "art30-hud-fish-lucio",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-78afd2ec7e5a"
+        "key": "atlas-965aa52b2bef"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Hocico aplanado y cuerpo largo moteado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -397,17 +397,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-anguila",
+        "symbol": "art30-hud-fish-anguila",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-d8866eb95585"
+        "key": "atlas-cd8876217473"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo serpentino oscuro con destellos eléctricos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -429,17 +429,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-lubina",
+        "symbol": "art30-hud-fish-lubina",
         "resourceIds": [
-          "image-a7fc23853a1928de"
+          "image-d140f7ce9d2e6aa6"
         ],
-        "key": "atlas-b9d99e2aff41"
+        "key": "atlas-22b494f323bb"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Lubina plateada de doble dorsal. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a7fc23853a1928de"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -461,17 +461,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-atun",
+        "symbol": "art30-hud-fish-atun",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-a64ea55698b7"
+        "key": "atlas-fbb6c5ef5c5c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo fusiforme potente y aletillas amarillas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -493,17 +493,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-mantarraya",
+        "symbol": "art30-hud-fish-mantarraya",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-206be4d90956"
+        "key": "atlas-85e6968c4202"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Disco ancho, dos lóbulos cefálicos, cola completa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -525,17 +525,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-perca_esmeralda",
+        "symbol": "art30-hud-fish-perca_esmeralda",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-26b7f744cdc1"
+        "key": "atlas-bfe7d252d1d9"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo alto esmeralda, dorsal espinosa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -557,17 +557,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-cangrejo_azul",
+        "symbol": "art30-hud-fish-cangrejo_azul",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-1c617d35fba9"
+        "key": "atlas-f2ecf57d3b7b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Caparazón ancho y ambas pinzas azules completas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -589,17 +589,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-koi_imperial",
+        "symbol": "art30-hud-fish-koi_imperial",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-d41fe3364d8b"
+        "key": "atlas-0e93e0ef5255"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa blanca naranja roja, aletas fluidas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -621,17 +621,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-esturion",
+        "symbol": "art30-hud-fish-esturion",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-784fb9dac05a"
+        "key": "atlas-6ececd230e36"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Hocico largo, escudos óseos y barbillones. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -653,17 +653,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_luna",
+        "symbol": "art30-hud-fish-pez_luna",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-dbb5d58c83ce"
+        "key": "atlas-2385e9e167b0"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo discoidal, aletas altas, sin cola inventada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-d0bcc3ffa5991f2f"
       ]
     },
     {
@@ -685,17 +685,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-caballito_mar",
+        "symbol": "art30-hud-fish-caballito_mar",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-5fe14e70023c"
+        "key": "atlas-baf2066e70a8"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Perfil vertical, hocico tubular y cola enrollada. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -717,17 +717,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-morena",
+        "symbol": "art30-hud-fish-morena",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-4c83e7a2260e"
+        "key": "atlas-c9535005c93a"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cabeza maciza sin aletas pectorales, cuerpo sinuoso. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-87a47f99ae5d077e"
       ]
     },
     {
@@ -749,17 +749,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-tiburon_arrecife",
+        "symbol": "art30-hud-fish-tiburon_arrecife",
         "resourceIds": [
-          "image-a2cd505cb9c93d84"
+          "image-f19270fd0fde5546"
         ],
-        "key": "atlas-92d4281e0b28"
+        "key": "atlas-3db6df26d70b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Silueta de tiburón estilizado, todas las aletas visibles. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-a2cd505cb9c93d84"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -781,17 +781,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_linternilla",
+        "symbol": "art30-hud-fish-pez_linternilla",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-a04370da1daa"
+        "key": "atlas-34b3409448fe"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez abisal oscuro, fotóforos pequeños. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -813,17 +813,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-calamar_abismo",
+        "symbol": "art30-hud-fish-calamar_abismo",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-b28615e9a213"
+        "key": "atlas-5c4c305a20a7"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Manto alargado, ocho brazos y dos tentáculos completos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -845,17 +845,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_cristal",
+        "symbol": "art30-hud-fish-pez_cristal",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-95a6ad506afa"
+        "key": "atlas-b0512a000bad"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez translúcido con reflejos cian. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -877,17 +877,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-leviatan",
+        "symbol": "art30-hud-fish-leviatan",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-af19e193d711"
+        "key": "atlas-2fce9613be8e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cría marina serpentina con mandíbula reconocible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -909,17 +909,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-sabalo_manglar",
+        "symbol": "art30-hud-fish-sabalo_manglar",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-771a6ff397ab"
+        "key": "atlas-5f0b1bb66594"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Sábalo comprimido de escamas grandes. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -941,17 +941,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_arquero",
+        "symbol": "art30-hud-fish-pez_arquero",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-20a39ba0b1d7"
+        "key": "atlas-c892bb9c74a1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo romboidal plateado con bandas negras. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -973,17 +973,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-anguila_manglar",
+        "symbol": "art30-hud-fish-anguila_manglar",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-ef7e269a1400"
+        "key": "atlas-9656e1432a9b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Anguila sinuosa verde pardo entre reflejos de raíces. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -1005,17 +1005,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-tarpon",
+        "symbol": "art30-hud-fish-tarpon",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-2a4f3e22d976"
+        "key": "atlas-c00c676e970b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Tarpón plateado de mandíbula superior grande. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -1037,17 +1037,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-trucha_alpina",
+        "symbol": "art30-hud-fish-trucha_alpina",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-540a0c77a325"
+        "key": "atlas-0a8f399e4902"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Trucha moteada con vientre frío plateado. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -1069,17 +1069,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-salvelino",
+        "symbol": "art30-hud-fish-salvelino",
         "resourceIds": [
-          "image-0bbe149bf4a3216a"
+          "image-ff670c13ce9a819b"
         ],
-        "key": "atlas-9207b8bbcd99"
+        "key": "atlas-30a8e0ddaaee"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Salmónido oscuro con puntos claros y vientre naranja. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-0bbe149bf4a3216a"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -1101,17 +1101,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-bacalao_hielo",
+        "symbol": "art30-hud-fish-bacalao_hielo",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-ef1df758a4f7"
+        "key": "atlas-6ef21efcb96d"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Bacalao con barbilla y tres dorsales. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1133,17 +1133,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-esturion_blanco",
+        "symbol": "art30-hud-fish-esturion_blanco",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-2a92bd08f39c"
+        "key": "atlas-1b81bde5a4c0"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Esturión pálido de escudos prominentes. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1165,17 +1165,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_lava",
+        "symbol": "art30-hud-fish-pez_lava",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-009b00180ee0"
+        "key": "atlas-f6638a3a74b8"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez oscuro con grietas cálidas discretas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1197,17 +1197,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-mero_obsidiana",
+        "symbol": "art30-hud-fish-mero_obsidiana",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-f5c75abbdfe2"
+        "key": "atlas-443b426f5cf9"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Mero macizo de boca ancha, escamas negras facetadas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1229,17 +1229,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_escorpion",
+        "symbol": "art30-hud-fish-pez_escorpion",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-96e01d35a5e1"
+        "key": "atlas-c4cf8b96d61f"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Aletas radiales espinosas, patrón rojo pardo. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1261,17 +1261,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-dragon_mar",
+        "symbol": "art30-hud-fish-dragon_mar",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-9a53f7bcc6af"
+        "key": "atlas-90b86bb12996"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cuerpo fino con apéndices foliares completos. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1293,17 +1293,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-carpa_celeste",
+        "symbol": "art30-hud-fish-carpa_celeste",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-9d67b4ba9862"
+        "key": "atlas-f7e3aab895cc"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Carpa azul perla con escamas estelares discretas. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1325,17 +1325,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-pez_cometa",
+        "symbol": "art30-hud-fish-pez_cometa",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-5ff6f7b7b1d9"
+        "key": "atlas-93e06db28b1a"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Pez compacto con cola larga bifurcada luminosa. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1357,17 +1357,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-raya_aurora",
+        "symbol": "art30-hud-fish-raya_aurora",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-2f35276a9e36"
+        "key": "atlas-51810214b8f3"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Raya de disco ancho con bordes iridiscentes y cola larga. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1389,17 +1389,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-guardian_mareas",
+        "symbol": "art30-hud-fish-guardian_mareas",
         "resourceIds": [
-          "image-971850f2d089619f"
+          "image-6f63758c627506e8"
         ],
-        "key": "atlas-c469d87b6f04"
+        "key": "atlas-2c150682af0d"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Coloso marino de silueta propia, cresta de mareas y cabeza visible. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-971850f2d089619f"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -1421,17 +1421,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-gobio_runico",
+        "symbol": "art30-hud-fish-gobio_runico",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-5be7c31a46d9"
+        "key": "atlas-2c5235740b95"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Gobio compacto de escamas pétreas, una runa tenue en el opérculo; no joyas flotantes.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1453,17 +1453,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-nautilo_bronce",
+        "symbol": "art30-hud-fish-nautilo_bronce",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-9dc00fbc146b"
+        "key": "atlas-68590e4a38dc"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Concha espiral segmentada de bronce natural, tentáculos cortos completos.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1485,17 +1485,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-congrio_archivo",
+        "symbol": "art30-hud-fish-congrio_archivo",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-66b3b5acd171"
+        "key": "atlas-dd4bd04bfd03"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Congrio alargado color pergamino, cabeza claramente distinguible y cuerpo curvado entero.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1517,17 +1517,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-tetra_prismatico",
+        "symbol": "art30-hud-fish-tetra_prismatico",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-23b7c94197e5"
+        "key": "atlas-119415c486a5"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Tetra de cuerpo alto translúcido con reflejos prismáticos sutiles, anatomía real.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1549,17 +1549,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-ajolote_cuarzo",
+        "symbol": "art30-hud-fish-ajolote_cuarzo",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-9fb7f54400bc"
+        "key": "atlas-90a2df57c535"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Ajolote pálido con seis branquias externas cristalinas, cuatro patas visibles; no pez genérico.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1581,17 +1581,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-esturion_geoda",
+        "symbol": "art30-hud-fish-esturion_geoda",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-1be293ea303c"
+        "key": "atlas-2d0be6bd29b3"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Esturión robusto, placas de cuarzo azul y hocico largo; nada de letras sobre el cuerpo.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -1613,17 +1613,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-isopodo_fosil",
+        "symbol": "art30-hud-fish-isopodo_fosil",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-058235681f26"
+        "key": "atlas-3a36f075b8a5"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Crustáceo segmentado, patas completas y caparazón oscuro con bordes ámbar.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-d62efdc0934aa4ad"
       ]
     },
     {
@@ -1645,17 +1645,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-quimera_ambar",
+        "symbol": "art30-hud-fish-quimera_ambar",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-2c87f59e69c6"
+        "key": "atlas-1919c3f45371"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Quimera abisal de hocico corto, aletas amplias y cola filiforme íntegra.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-2e20e23a191cf38b"
       ]
     },
     {
@@ -1677,17 +1677,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art28-fish-titan_ammonita",
+        "symbol": "art30-hud-fish-titan_ammonita",
         "resourceIds": [
-          "image-1b233a5c9ff21cc6"
+          "image-e930b32675a04cdc"
         ],
-        "key": "atlas-0e710f63f973"
+        "key": "atlas-aaca5e282a97"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Cefalópodo de gran concha espiral fósil y brazos separados legibles; no copiar al Guardián.. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-1b233a5c9ff21cc6"
+        "image-c32cf9b6f0ccb420"
       ]
     },
     {
@@ -1706,17 +1706,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e16_rod",
+        "symbol": "art30-hud-rod-e16_rod",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-d6473c527ad0"
+        "key": "atlas-2646f004d329"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera simple y carrete de latón pequeño; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1735,17 +1735,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e161_rod_bamboo",
+        "symbol": "art30-hud-rod-e161_rod_bamboo",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-d06602d92694"
+        "key": "atlas-fe9bea09aa1e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "bambú segmentado y cuerda de lino; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1764,17 +1764,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e161_rod_fiber",
+        "symbol": "art30-hud-rod-e161_rod_fiber",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-473485c541a7"
+        "key": "atlas-61163e97763d"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "fibra oscura y carrete de acero pulido; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1793,17 +1793,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e161_rod_steel",
+        "symbol": "art30-hud-rod-e161_rod_steel",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-eb0a1a93eaca"
+        "key": "atlas-c0abc1158243"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "acero azulado y refuerzos de plata; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1822,17 +1822,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e192_rod_laguna",
+        "symbol": "art30-hud-rod-e192_rod_laguna",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-9cd03131508f"
+        "key": "atlas-c868c4feae3e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "jade esmeralda y oro viejo; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1851,17 +1851,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e192_rod_coral",
+        "symbol": "art30-hud-rod-e192_rod_coral",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-113b10ad372f"
+        "key": "atlas-0c52ffb35463"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "nácar marfil y coral rosa; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1880,17 +1880,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e192_rod_abyss",
+        "symbol": "art30-hud-rod-e192_rod_abyss",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-c148a49a445f"
+        "key": "atlas-4098d385bed6"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "metal astral azul y puntas de cristal; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1909,17 +1909,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_junco_cauce",
+        "symbol": "art30-hud-rod-e208_rod_junco_cauce",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-75280812d56c"
+        "key": "atlas-569f41217f0c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "junco, hilo dorado y carrete pequeño; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1938,17 +1938,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_junco_destello",
+        "symbol": "art30-hud-rod-e208_rod_junco_destello",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-be4b0110a80e"
+        "key": "atlas-929bbb8c7b95"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "junco, hilo dorado y carrete pequeño; identidad de Atracción · menos espera y toques; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1967,17 +1967,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_sauce_pulso",
+        "symbol": "art30-hud-rod-e208_rod_sauce_pulso",
         "resourceIds": [
-          "image-d0e4884112b48efa"
+          "image-22bf5d85909dcefa"
         ],
-        "key": "atlas-af1a611045f1"
+        "key": "atlas-d94a5e0d7778"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera de sauce tallada y hojas; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-d0e4884112b48efa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -1996,17 +1996,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_sauce_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_sauce_fortuna",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-9cf8ce6ed3ab"
+        "key": "atlas-ed58f9c832b1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera de sauce tallada y hojas; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2025,17 +2025,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_marea_cauce",
+        "symbol": "art30-hud-rod-e208_rod_marea_cauce",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-af4a888c5f49"
+        "key": "atlas-f5ce9af60b93"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera marina, latón y cordaje; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2054,17 +2054,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_marea_titan",
+        "symbol": "art30-hud-rod-e208_rod_marea_titan",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-ed2fe05d6d11"
+        "key": "atlas-2405c83f29b6"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera marina, latón y cordaje; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2083,17 +2083,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_nenufar_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_nenufar_fortuna",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-8d099b1dfbf7"
+        "key": "atlas-d638b6e11491"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "jade, hojas de nenúfar y oro viejo; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2112,17 +2112,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_nenufar_reliquia",
+        "symbol": "art30-hud-rod-e208_rod_nenufar_reliquia",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-6987c5ac7fa8"
+        "key": "atlas-178fead72b64"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "jade, hojas de nenúfar y oro viejo; identidad de Trofeos · ejemplares especiales; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2141,17 +2141,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_coral_pulso",
+        "symbol": "art30-hud-rod-e208_rod_coral_pulso",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-207a8d85e89e"
+        "key": "atlas-9b11e9166519"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "coral rojo, nácar y bronce; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2170,17 +2170,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_coral_cauce",
+        "symbol": "art30-hud-rod-e208_rod_coral_cauce",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-c51d616c0c7b"
+        "key": "atlas-eda9ea4e6142"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "coral rojo, nácar y bronce; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2199,17 +2199,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_fosa_pulso",
+        "symbol": "art30-hud-rod-e208_rod_fosa_pulso",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-0fabfdbbd034"
+        "key": "atlas-4295e3c855f4"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "metal abisal oscuro y luz cian; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2228,17 +2228,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_fosa_titan",
+        "symbol": "art30-hud-rod-e208_rod_fosa_titan",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-383d71d0c3ab"
+        "key": "atlas-50c60b04ed67"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "metal abisal oscuro y luz cian; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2257,17 +2257,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_mangle_cauce",
+        "symbol": "art30-hud-rod-e208_rod_mangle_cauce",
         "resourceIds": [
-          "image-e9bbd9307aa2a21a"
+          "image-f5f9af9db8598259"
         ],
-        "key": "atlas-2583acc49324"
+        "key": "atlas-71443f072811"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera retorcida y cobre verde; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-e9bbd9307aa2a21a"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -2286,17 +2286,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_mangle_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_mangle_fortuna",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-e3640ec4de9f"
+        "key": "atlas-a9886575b7bd"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera retorcida y cobre verde; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2315,17 +2315,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_escarcha_pulso",
+        "symbol": "art30-hud-rod-e208_rod_escarcha_pulso",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-224f988f4aca"
+        "key": "atlas-995aee111e76"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata, hielo azul y aurora; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2344,17 +2344,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_escarcha_cauce",
+        "symbol": "art30-hud-rod-e208_rod_escarcha_cauce",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-b7a9b7155448"
+        "key": "atlas-d5cf636affb6"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata, hielo azul y aurora; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2373,17 +2373,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_obsidiana_destello",
+        "symbol": "art30-hud-rod-e208_rod_obsidiana_destello",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-5dd1f9b47189"
+        "key": "atlas-640681d750be"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "obsidiana y grietas ámbar; identidad de Atracción · menos espera y toques; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2402,17 +2402,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_obsidiana_titan",
+        "symbol": "art30-hud-rod-e208_rod_obsidiana_titan",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-a71dded5ad01"
+        "key": "atlas-474a834a3e05"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "obsidiana y grietas ámbar; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2431,17 +2431,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_celeste_pulso",
+        "symbol": "art30-hud-rod-e208_rod_celeste_pulso",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-c5af27361f41"
+        "key": "atlas-6e7f5d0a4b7b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro pálido y constelaciones azules; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2460,17 +2460,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_celeste_reliquia",
+        "symbol": "art30-hud-rod-e208_rod_celeste_reliquia",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-265dba9f868f"
+        "key": "atlas-7217f0b02137"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro pálido y constelaciones azules; identidad de Trofeos · ejemplares especiales; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -2489,17 +2489,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_pulso",
+        "symbol": "art30-hud-rod-e208_rod_custodio_pulso",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-9af00f34a1bb"
+        "key": "atlas-88cf9d828886"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-af12f56c1a96b261"
       ]
     },
     {
@@ -2518,17 +2518,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_cauce",
+        "symbol": "art30-hud-rod-e208_rod_custodio_cauce",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-b14d741dcf33"
+        "key": "atlas-0ed0ce2a9f1c"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-140cc945e4fbe146"
       ]
     },
     {
@@ -2547,17 +2547,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_destello",
+        "symbol": "art30-hud-rod-e208_rod_custodio_destello",
         "resourceIds": [
-          "image-fc42b3efa2b79c04"
+          "image-8b6bf14e0da26dc6"
         ],
-        "key": "atlas-788db632b2b0"
+        "key": "atlas-4cade09ee2f4"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Atracción · menos espera y toques; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-fc42b3efa2b79c04"
+        "image-f665f2d0089eb34c"
       ]
     },
     {
@@ -2576,17 +2576,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_custodio_fortuna",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-18d18194709f"
+        "key": "atlas-88a144427d61"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2605,17 +2605,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_titan",
+        "symbol": "art30-hud-rod-e208_rod_custodio_titan",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-151f71347b7a"
+        "key": "atlas-941960a15c6b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2634,17 +2634,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_custodio_reliquia",
+        "symbol": "art30-hud-rod-e208_rod_custodio_reliquia",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-18897f6a8fa6"
+        "key": "atlas-642a72a661b4"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "roble, bronce y emblema fluvial; identidad de Trofeos · ejemplares especiales; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2663,17 +2663,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_pulso",
+        "symbol": "art30-hud-rod-e208_rod_boreal_pulso",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-a7881d85ee15"
+        "key": "atlas-c846fb56b0f1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2692,17 +2692,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_cauce",
+        "symbol": "art30-hud-rod-e208_rod_boreal_cauce",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-a3430001b079"
+        "key": "atlas-d233d62faeb1"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2721,17 +2721,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_destello",
+        "symbol": "art30-hud-rod-e208_rod_boreal_destello",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-78eab3167d3d"
+        "key": "atlas-af7c01b291bd"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Atracción · menos espera y toques; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2750,17 +2750,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_boreal_fortuna",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-b41bd6185d74"
+        "key": "atlas-8023a66d0f56"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2779,17 +2779,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_titan",
+        "symbol": "art30-hud-rod-e208_rod_boreal_titan",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-58209f8277dc"
+        "key": "atlas-3cf74e94284e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2808,17 +2808,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_boreal_reliquia",
+        "symbol": "art30-hud-rod-e208_rod_boreal_reliquia",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-2e3468dfa457"
+        "key": "atlas-330308978213"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "plata y cuarzo glacial; identidad de Trofeos · ejemplares especiales; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2837,17 +2837,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_pulso",
+        "symbol": "art30-hud-rod-e208_rod_eterno_pulso",
         "resourceIds": [
-          "image-c8aea481a958b326"
+          "image-e19ff103f3f00067"
         ],
-        "key": "atlas-b9b4337e20d0"
+        "key": "atlas-2aa87d26f422"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Control · precisión; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-c8aea481a958b326"
+        "image-e19ff103f3f00067"
       ]
     },
     {
@@ -2866,17 +2866,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_cauce",
+        "symbol": "art30-hud-rod-e208_rod_eterno_cauce",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-649e71376b2b"
+        "key": "atlas-e9d3208f9463"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Resiliencia · peces inquietos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -2895,17 +2895,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_destello",
+        "symbol": "art30-hud-rod-e208_rod_eterno_destello",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-227aeffb5eb3"
+        "key": "atlas-e209581b498d"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Atracción · menos espera y toques; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -2924,17 +2924,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_fortuna",
+        "symbol": "art30-hud-rod-e208_rod_eterno_fortuna",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-03fad17b40e9"
+        "key": "atlas-163a99aac7ae"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Suerte · especies raras; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -2953,17 +2953,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_titan",
+        "symbol": "art30-hud-rod-e208_rod_eterno_titan",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-c39cbaacf184"
+        "key": "atlas-aa2c8446477f"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Capacidad · grandes pesos; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -2982,17 +2982,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e208_rod_eterno_reliquia",
+        "symbol": "art30-hud-rod-e208_rod_eterno_reliquia",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-827b4bdbfcf6"
+        "key": "atlas-2d8da6d742bf"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "oro celestial y perla estelar; identidad de Trofeos · ejemplares especiales; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3011,17 +3011,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e17_rod_viejo",
+        "symbol": "art30-hud-rod-e17_rod_viejo",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-ba0c2703eef7"
+        "key": "atlas-9cf2dbe3a056"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera envejecida y carrete dorado artesanal; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3040,17 +3040,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e171_rod_rio",
+        "symbol": "art30-hud-rod-e171_rod_rio",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-ddc744571a48"
+        "key": "atlas-8d6cea6d1efa"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "sauce verde y ornamentos de río; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3069,17 +3069,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e171_rod_costa",
+        "symbol": "art30-hud-rod-e171_rod_costa",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-142a5ed04fb3"
+        "key": "atlas-0a4ca06f5cba"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "latón azul y cristal de bruma; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3098,17 +3098,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e18_rod_trofeo",
+        "symbol": "art30-hud-rod-e18_rod_trofeo",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-cddcd9475e98"
+        "key": "atlas-96348c10c5b7"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "madera noble y medallón de colección; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3127,17 +3127,17 @@
       ],
       "currentArt": {
         "kind": "atlas",
-        "symbol": "art27-rod-e187_rod_coral",
+        "symbol": "art30-hud-rod-e187_rod_coral",
         "resourceIds": [
-          "image-4b8b219c9414b081"
+          "image-1161a87afb234b32"
         ],
-        "key": "atlas-eda789a332a6"
+        "key": "atlas-de33b9b01856"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "coral rojo, perlas y cobre; identidad única reconocible; caña diagonal leve, mango a izquierda, punta y sedal completos, carrete como foco secundario. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-4b8b219c9414b081"
+        "image-1161a87afb234b32"
       ]
     },
     {
@@ -3155,16 +3155,18 @@
         960
       ],
       "currentArt": {
-        "kind": "svg-image",
-        "resourceIds": [],
-        "key": "svg-image-d40fa2c85ec5",
-        "format": "image/svg+xml"
+        "kind": "atlas",
+        "symbol": "art27-zone-muelle",
+        "resourceIds": [
+          "image-2cb44873151b3726"
+        ],
+        "key": "atlas-0858560c7eeb"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Muelle humilde de madera, casas lejanas, agua calma matinal; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-2cb44873151b3726"
       ]
     },
     {
@@ -3182,16 +3184,18 @@
         960
       ],
       "currentArt": {
-        "kind": "svg-image",
-        "resourceIds": [],
-        "key": "svg-image-5408c989e226",
-        "format": "image/svg+xml"
+        "kind": "atlas",
+        "symbol": "art27-zone-rio",
+        "resourceIds": [
+          "image-2cb44873151b3726"
+        ],
+        "key": "atlas-69843b0f1de0"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Río verde entre bosques, recodo y corriente reconocible; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-2cb44873151b3726"
       ]
     },
     {
@@ -3209,16 +3213,18 @@
         960
       ],
       "currentArt": {
-        "kind": "svg-image",
-        "resourceIds": [],
-        "key": "svg-image-e1250bf00def",
-        "format": "image/svg+xml"
+        "kind": "atlas",
+        "symbol": "art27-zone-costa",
+        "resourceIds": [
+          "image-2cb44873151b3726"
+        ],
+        "key": "atlas-a4a2f4dbcb0f"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Acantilados bajos, bruma marina azul, oleaje suave; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-2cb44873151b3726"
       ]
     },
     {
@@ -3236,15 +3242,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-laguna",
+        "resourceIds": [
+          "image-2cb44873151b3726"
+        ],
+        "key": "atlas-89dba9a4954b"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Laguna de juncos y vegetación esmeralda; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-2cb44873151b3726"
       ]
     },
     {
@@ -3262,15 +3271,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-arrecife",
+        "resourceIds": [
+          "image-6045281abbcff6ee"
+        ],
+        "key": "atlas-4a9c67a920de"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Agua turquesa con coral visible bajo la superficie; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-6045281abbcff6ee"
       ]
     },
     {
@@ -3288,15 +3300,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-abismo",
+        "resourceIds": [
+          "image-6045281abbcff6ee"
+        ],
+        "key": "atlas-6a8bb05707af"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Mar profundo azul negro, abertura de fosa sin horizonte cálido; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-6045281abbcff6ee"
       ]
     },
     {
@@ -3314,15 +3329,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-manglar",
+        "resourceIds": [
+          "image-6045281abbcff6ee"
+        ],
+        "key": "atlas-7c2107da92bb"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Raíces arqueadas en agua verde y luz filtrada; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-6045281abbcff6ee"
       ]
     },
     {
@@ -3340,15 +3358,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-glaciar",
+        "resourceIds": [
+          "image-6045281abbcff6ee"
+        ],
+        "key": "atlas-f7642d164912"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Lago azul helado entre glaciares y picos blancos; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-bd43a5ed9742c4b2"
+        "image-6045281abbcff6ee"
       ]
     },
     {
@@ -3366,15 +3387,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-volcan",
+        "resourceIds": [
+          "image-6ab989d927e01840"
+        ],
+        "key": "atlas-f9463b5027bd"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Bahía de basalto, fumarolas y reflejos cálidos; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-6ab989d927e01840"
       ]
     },
     {
@@ -3392,15 +3416,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-santuario",
+        "resourceIds": [
+          "image-6ab989d927e01840"
+        ],
+        "key": "atlas-17125f98cc14"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Santuario de piedra celeste y reflejos astrales sobre agua clara; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-6ab989d927e01840"
       ]
     },
     {
@@ -3418,15 +3445,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-ruinas_sumergidas",
+        "resourceIds": [
+          "image-6ab989d927e01840"
+        ],
+        "key": "atlas-14983a1f768e"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Bibliotecas hundidas, bronce envejecido y ventanas turquesas; exploración arqueológica, no cielo mágico.; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-6ab989d927e01840"
       ]
     },
     {
@@ -3444,15 +3474,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-cavernas_cristal",
+        "resourceIds": [
+          "image-6ab989d927e01840"
+        ],
+        "key": "atlas-ff91a0dd30d0"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Agua subterránea violeta, cristales refractados y fauna translúcida; precisión y peces nerviosos.; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-6ab989d927e01840"
       ]
     },
     {
@@ -3470,15 +3503,18 @@
         960
       ],
       "currentArt": {
-        "kind": "raster",
-        "resourceIds": [],
-        "key": "raster-74234e98afe7"
+        "kind": "atlas",
+        "symbol": "art27-zone-abismo_primordial",
+        "resourceIds": [
+          "image-010de6c3b89952e7"
+        ],
+        "key": "atlas-49f76fdf3512"
       },
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "brief": "Fosa negra con bioluminiscencia ámbar y arcos fósiles; culminación opcional de colección a nivel 100.; foco central y horizonte alto para que el nombre inferior no tape la identidad. Fantasía medieval pintada, luz legible en miniatura, anatomía/silueta completa, sin texto, marco, números ni interfaz. Mantener margen de seguridad interno 4%; nunca estirar.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-010de6c3b89952e7"
       ]
     },
     {
@@ -3745,7 +3781,7 @@
       "action": "keep-review",
       "brief": "Flotador rojo y blanco con ondas de agua. Sin texto incrustado. No reservar espacio ni cambiar geometría del HUD.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-ace3f03ec32a4c46"
       ]
     },
     {
@@ -3764,7 +3800,7 @@
       "action": "keep-review",
       "brief": "Agua oscura de baja intensidad, sin peces que revelen captura. Sin texto incrustado. No reservar espacio ni cambiar geometría del HUD.",
       "resourceIds": [
-        "image-379d989a161150a5"
+        "image-cae22f805f5fdab7"
       ]
     },
     {
@@ -4047,7 +4083,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4061,7 +4097,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4075,7 +4111,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4089,7 +4125,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4103,7 +4139,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4117,7 +4153,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4131,7 +4167,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4145,7 +4181,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4159,7 +4195,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4173,7 +4209,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-22bf5d85909dcefa"
+        "image-18640b1f04d46f4f"
       ]
     },
     {
@@ -4187,7 +4223,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4201,7 +4237,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4215,7 +4251,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4229,7 +4265,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4243,7 +4279,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4257,7 +4293,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4271,7 +4307,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4285,7 +4321,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4299,7 +4335,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4313,7 +4349,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f5f9af9db8598259"
+        "image-64942039f8286268"
       ]
     },
     {
@@ -4327,7 +4363,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4341,7 +4377,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4355,7 +4391,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4369,7 +4405,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4383,7 +4419,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4397,7 +4433,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4411,7 +4447,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-0313c67c383970b7"
       ]
     },
     {
@@ -4425,7 +4461,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-af12f56c1a96b261"
       ]
     },
     {
@@ -4439,7 +4475,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-140cc945e4fbe146"
       ]
     },
     {
@@ -4453,7 +4489,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-8b6bf14e0da26dc6"
+        "image-f665f2d0089eb34c"
       ]
     },
     {
@@ -4747,7 +4783,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4761,7 +4797,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4775,7 +4811,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4789,7 +4825,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4803,7 +4839,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4817,7 +4853,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4831,7 +4867,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-d62efdc0934aa4ad"
       ]
     },
     {
@@ -4845,7 +4881,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-2e20e23a191cf38b"
       ]
     },
     {
@@ -4859,7 +4895,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-c32cf9b6f0ccb420"
       ]
     },
     {
@@ -4873,7 +4909,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-e930b32675a04cdc"
+        "image-98ae83771dd1b924"
       ]
     },
     {
@@ -4887,7 +4923,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4901,7 +4937,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4915,7 +4951,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4929,7 +4965,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4943,7 +4979,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4957,7 +4993,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4971,7 +5007,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4985,7 +5021,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -4999,7 +5035,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -5013,7 +5049,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-d140f7ce9d2e6aa6"
+        "image-5f89f7f67d6cc809"
       ]
     },
     {
@@ -5027,7 +5063,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5041,7 +5077,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5055,7 +5091,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5069,7 +5105,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5083,7 +5119,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5097,7 +5133,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5111,7 +5147,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-d0bcc3ffa5991f2f"
       ]
     },
     {
@@ -5125,7 +5161,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5139,7 +5175,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-87a47f99ae5d077e"
       ]
     },
     {
@@ -5153,7 +5189,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-f19270fd0fde5546"
+        "image-799f1c0a0bb2f6d9"
       ]
     },
     {
@@ -5167,7 +5203,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5181,7 +5217,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5195,7 +5231,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5209,7 +5245,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5223,7 +5259,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5237,7 +5273,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5251,7 +5287,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5265,7 +5301,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5279,7 +5315,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5293,7 +5329,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-ff670c13ce9a819b"
+        "image-d61a27e087efd1fb"
       ]
     },
     {
@@ -5307,7 +5343,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5321,7 +5357,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5335,7 +5371,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5349,7 +5385,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5363,7 +5399,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5377,7 +5413,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5391,7 +5427,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5405,7 +5441,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5419,7 +5455,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -5433,7 +5469,7 @@
       "currentStatus": "generated-integrated-review-pending",
       "action": "keep-review",
       "resourceIds": [
-        "image-6f63758c627506e8"
+        "image-2fc7d3f0470b6ef9"
       ]
     },
     {
@@ -6316,6 +6352,216 @@
       "action": "keep-review",
       "resourceIds": [
         "image-d5fedb64d121643f"
+      ]
+    },
+    {
+      "id": "quest:e231_cuaderno_muelle",
+      "name": "e231_cuaderno_muelle",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_estanque_muelle",
+      "name": "e231_estanque_muelle",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_vigia_costa",
+      "name": "e231_vigia_costa",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_derrota_costa",
+      "name": "e231_derrota_costa",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_jardin_laguna",
+      "name": "e231_jardin_laguna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_koi_laguna",
+      "name": "e231_koi_laguna",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_vivero_arrecife",
+      "name": "e231_vivero_arrecife",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_guardian_arrecife",
+      "name": "e231_guardian_arrecife",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-a576aa89435fca21"
+      ]
+    },
+    {
+      "id": "quest:e231_luz_abismo",
+      "name": "e231_luz_abismo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_cartografo_abismo",
+      "name": "e231_cartografo_abismo",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_puentes_manglar",
+      "name": "e231_puentes_manglar",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_forja_volcan",
+      "name": "e231_forja_volcan",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_mosaico_ruinas_sumergidas",
+      "name": "e231_mosaico_ruinas_sumergidas",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_refraccion_cavernas_cristal",
+      "name": "e231_refraccion_cavernas_cristal",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
+      ]
+    },
+    {
+      "id": "quest:e231_estratos_abismo_primordial",
+      "name": "e231_estratos_abismo_primordial",
+      "kind": "quest",
+      "uses": [
+        "trophies",
+        "atlas"
+      ],
+      "currentStatus": "generated-integrated-review-pending",
+      "action": "keep-review",
+      "resourceIds": [
+        "image-c5228394b999c71a"
       ]
     }
   ]

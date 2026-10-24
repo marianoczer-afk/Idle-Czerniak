@@ -1,0 +1,15 @@
+{
+  "fish": {
+    "unchangedGameplayEntries": 50
+  },
+  "rods": {
+    "unchangedGameplayEntries": 90
+  },
+  "zones": {
+    "unchangedGameplayEntries": 13
+  },
+  "quests": {
+    "historicUnchanged": 37,
+    "added": 15
+  }
+}

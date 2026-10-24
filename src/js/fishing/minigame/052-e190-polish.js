@@ -22,25 +22,35 @@ function e189UpdateArt(){
 /* Reemplazar el texto que muestra el nombre en el panel mientras está picando. */
 const e190PreviousPage=e16Page;
 e16Page=function(){e190PreviousPage();if(!e16Session)return;const page=document.getElementById('page_fishing');if(!page)return;const waiting=page.querySelector('#e161WaitingText');if(waiting)waiting.textContent='🐟 ¡Picó un pez misterioso!';const status=page.querySelector('#e16Status');if(status)status.textContent='🐟 ¡Picó un pez misterioso!';};
-/* Movimiento ligeramente más vivo: oscilación suave para comunes, microgiros extra en peces difíciles.
-   Conserva aceleración del jugador, zona, velocidades principales y ganancia/pérdida de captura. */
+/* Recorridos continuos y anticipación de impulso. La dificultad, control y resiliencia
+   se miden por separado de la selección aleatoria y las recompensas. */
 // Capture behavior is separate from rarity weights: demanding fish need sustained tracking.
 /* @include src/catalogs/052-e190-polish-e210_capture_profiles.js */
 function e190FishingStep(g,holding,dt,width,random=Math.random){
  if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(28,width*g.controlFraction+(g.controlExtra||0)));
- // All movement scales with the track, so desktop and touch share the same timing.
+ // Player input stays proportional to the track on desktop and touch.
  const limit=Math.max(0,width-g.fish.zone-4),scale=width/520;
  g.vel+=(holding?600:-570)*scale*dt;g.vel=Math.max(-220*scale,Math.min(220*scale,g.vel));g.pos=Math.max(0,Math.min(limit,g.pos+g.vel*dt));if(g.pos===0||g.pos===limit)g.vel=0;
- g.time+=dt;const diff=E161_DIFFICULTY[g.fish.id]||1,motion=g.motion||{distance:1,interval:1};
- if(g.time>=g.burstAt){g.burst=(random()*.42+.25)*diff*(random()<.5?-1:1);g.burstAt=g.time+(.32+random()*.65/Math.sqrt(diff))*motion.interval;}
- const sway=Math.sin(g.time*(3+g.fish.wiggle*5)+g.seed)*g.fish.wiggle*.035;
+ const diff=E161_DIFFICULTY[g.fish.id]||1,motion=g.motion||{distance:1,interval:1};
  const profile=E210_CAPTURE_PROFILES[g.fish.id]||{speed:1,run:1,gain:1,loss:1};
- const speed=(.085+g.fish.speed*.10)*Math.sqrt(diff)*profile.speed;
- g.target+=(g.dir*speed+g.burst*.09+sway)*width*motion.distance*dt;
- if(g.target<3){g.target=3;g.dir=1;g.burst=Math.abs(g.burst);}if(g.target>width-30){g.target=width-30;g.dir=-1;g.burst=-Math.abs(g.burst);}
- if(g.time>=g.turnAt){g.dir=random()<.5?-1:1;g.turnAt=g.time+(.30+random()*.65/Math.sqrt(diff))*motion.interval*profile.run;}
+ // A seeded continuous path replaces frequent random reversals. Resilience slows
+ // timing/acceleration, never collapses the sweep into a stationary control bar.
+ if(!Number.isFinite(g.motionPhase)){const phase=Math.asin(Math.max(-1,Math.min(1,((g.target+12)/width-.5)/.37)));g.motionPhase=g.dir<0?Math.PI-phase:phase;g.targetVelocity=0;}
+ const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)/Math.pow(motion.interval,.35);
+ g.motionPhase+=frequency*dt;g.time+=dt;
+ const ripple=Math.min(.045,.012+diff*.008)*Math.sin(g.motionPhase*(2.2+g.fish.wiggle*.5)+g.seed);
+ const desired=width*(.5+.37*Math.sin(g.motionPhase)+ripple)-12;
+ const maxVelocity=width*(.24+.034*Math.min(4,diff))*Math.sqrt(motion.distance);
+ const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*8))*Math.sqrt(motion.distance);
+ g.targetVelocity=Math.max(-maxVelocity,Math.min(maxVelocity,(g.targetVelocity||0)+acceleration*dt));
+ g.target=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*dt));
+ if(g.target===3||g.target===width-30)g.targetVelocity=0;
+ g.dir=g.targetVelocity>=0?1:-1;
+ // A short, non-interactive tell indicates current momentum; no hidden species.
+ g.anticipation=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*.32));
  const inside=g.target+12>=g.pos&&g.target+12<=g.pos+g.fish.zone;
- const gain=.105/(1+Math.max(0,diff-1)*.18)*profile.gain,loss=.095*(.8+diff*.30)*profile.loss;
+ const endurance=1+Math.max(0,(g.fish.req||1)-32)*.003;
+ const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*(g.time<.9?.4:1);
  g.progress=Math.max(0,Math.min(1,g.progress+(inside?gain:-loss)*dt));
  return g.progress>=1?'won':g.time>4&&g.progress<=0?'escaped':null;
 }

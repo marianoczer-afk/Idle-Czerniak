@@ -1,318 +1,318 @@
 const E227_ART={
  "rod:e16_rod": {
   "symbol": "art27-rod-e16_rod",
-  "width": 1024,
-  "height": 141
+  "width": 970,
+  "height": 134
  },
  "rod:e161_rod_bamboo": {
   "symbol": "art27-rod-e161_rod_bamboo",
-  "width": 1024,
-  "height": 124
+  "width": 966,
+  "height": 131
  },
  "rod:e161_rod_fiber": {
   "symbol": "art27-rod-e161_rod_fiber",
-  "width": 1024,
-  "height": 132
+  "width": 972,
+  "height": 134
  },
  "rod:e161_rod_steel": {
   "symbol": "art27-rod-e161_rod_steel",
-  "width": 1024,
-  "height": 141
+  "width": 973,
+  "height": 152
  },
  "rod:e192_rod_laguna": {
   "symbol": "art27-rod-e192_rod_laguna",
-  "width": 1024,
-  "height": 145
+  "width": 971,
+  "height": 155
  },
  "rod:e192_rod_coral": {
   "symbol": "art27-rod-e192_rod_coral",
-  "width": 1024,
-  "height": 141
+  "width": 975,
+  "height": 143
  },
  "rod:e192_rod_abyss": {
   "symbol": "art27-rod-e192_rod_abyss",
-  "width": 1024,
-  "height": 161
+  "width": 969,
+  "height": 162
  },
  "rod:e208_rod_junco_cauce": {
   "symbol": "art27-rod-e208_rod_junco_cauce",
-  "width": 1024,
-  "height": 147
+  "width": 972,
+  "height": 144
  },
  "rod:e208_rod_junco_destello": {
   "symbol": "art27-rod-e208_rod_junco_destello",
-  "width": 1024,
-  "height": 160
+  "width": 974,
+  "height": 158
  },
  "rod:e208_rod_sauce_pulso": {
   "symbol": "art27-rod-e208_rod_sauce_pulso",
-  "width": 1024,
-  "height": 244
+  "width": 980,
+  "height": 190
  },
  "rod:e208_rod_sauce_fortuna": {
   "symbol": "art27-rod-e208_rod_sauce_fortuna",
-  "width": 1024,
-  "height": 154
+  "width": 984,
+  "height": 143
  },
  "rod:e208_rod_marea_cauce": {
   "symbol": "art27-rod-e208_rod_marea_cauce",
-  "width": 1024,
-  "height": 131
+  "width": 984,
+  "height": 134
  },
  "rod:e208_rod_marea_titan": {
   "symbol": "art27-rod-e208_rod_marea_titan",
-  "width": 1024,
-  "height": 129
+  "width": 991,
+  "height": 131
  },
  "rod:e208_rod_nenufar_fortuna": {
   "symbol": "art27-rod-e208_rod_nenufar_fortuna",
-  "width": 1024,
-  "height": 136
+  "width": 988,
+  "height": 137
  },
  "rod:e208_rod_nenufar_reliquia": {
   "symbol": "art27-rod-e208_rod_nenufar_reliquia",
-  "width": 1024,
-  "height": 149
+  "width": 987,
+  "height": 144
  },
  "rod:e208_rod_coral_pulso": {
   "symbol": "art27-rod-e208_rod_coral_pulso",
-  "width": 1024,
-  "height": 150
+  "width": 992,
+  "height": 146
  },
  "rod:e208_rod_coral_cauce": {
   "symbol": "art27-rod-e208_rod_coral_cauce",
-  "width": 1024,
-  "height": 142
+  "width": 989,
+  "height": 145
  },
  "rod:e208_rod_fosa_pulso": {
   "symbol": "art27-rod-e208_rod_fosa_pulso",
-  "width": 1024,
-  "height": 152
+  "width": 994,
+  "height": 154
  },
  "rod:e208_rod_fosa_titan": {
   "symbol": "art27-rod-e208_rod_fosa_titan",
-  "width": 1024,
-  "height": 174
+  "width": 997,
+  "height": 176
  },
  "rod:e208_rod_mangle_cauce": {
   "symbol": "art27-rod-e208_rod_mangle_cauce",
-  "width": 1024,
-  "height": 219
+  "width": 988,
+  "height": 191
  },
  "rod:e208_rod_mangle_fortuna": {
   "symbol": "art27-rod-e208_rod_mangle_fortuna",
-  "width": 1024,
-  "height": 151
+  "width": 976,
+  "height": 134
  },
  "rod:e208_rod_escarcha_pulso": {
   "symbol": "art27-rod-e208_rod_escarcha_pulso",
-  "width": 1024,
-  "height": 134
+  "width": 973,
+  "height": 136
  },
  "rod:e208_rod_escarcha_cauce": {
   "symbol": "art27-rod-e208_rod_escarcha_cauce",
-  "width": 1024,
-  "height": 143
+  "width": 984,
+  "height": 146
  },
  "rod:e208_rod_obsidiana_destello": {
   "symbol": "art27-rod-e208_rod_obsidiana_destello",
-  "width": 1024,
-  "height": 130
+  "width": 971,
+  "height": 138
  },
  "rod:e208_rod_obsidiana_titan": {
   "symbol": "art27-rod-e208_rod_obsidiana_titan",
-  "width": 1024,
-  "height": 147
+  "width": 977,
+  "height": 146
  },
  "rod:e208_rod_celeste_pulso": {
   "symbol": "art27-rod-e208_rod_celeste_pulso",
-  "width": 1024,
-  "height": 153
+  "width": 985,
+  "height": 150
  },
  "rod:e208_rod_celeste_reliquia": {
   "symbol": "art27-rod-e208_rod_celeste_reliquia",
-  "width": 1024,
-  "height": 158
+  "width": 975,
+  "height": 160
  },
  "rod:e208_rod_custodio_pulso": {
   "symbol": "art27-rod-e208_rod_custodio_pulso",
-  "width": 1024,
-  "height": 154
+  "width": 2122,
+  "height": 319
  },
  "rod:e208_rod_custodio_cauce": {
   "symbol": "art27-rod-e208_rod_custodio_cauce",
-  "width": 1024,
-  "height": 157
+  "width": 2142,
+  "height": 345
  },
  "rod:e208_rod_custodio_destello": {
   "symbol": "art27-rod-e208_rod_custodio_destello",
-  "width": 1024,
-  "height": 209
+  "width": 2124,
+  "height": 347
  },
  "rod:e208_rod_custodio_fortuna": {
   "symbol": "art27-rod-e208_rod_custodio_fortuna",
-  "width": 1024,
-  "height": 137
+  "width": 976,
+  "height": 131
  },
  "rod:e208_rod_custodio_titan": {
   "symbol": "art27-rod-e208_rod_custodio_titan",
-  "width": 1024,
-  "height": 140
+  "width": 983,
+  "height": 135
  },
  "rod:e208_rod_custodio_reliquia": {
   "symbol": "art27-rod-e208_rod_custodio_reliquia",
-  "width": 1024,
-  "height": 137
+  "width": 976,
+  "height": 136
  },
  "rod:e208_rod_boreal_pulso": {
   "symbol": "art27-rod-e208_rod_boreal_pulso",
-  "width": 1024,
-  "height": 136
+  "width": 977,
+  "height": 137
  },
  "rod:e208_rod_boreal_cauce": {
   "symbol": "art27-rod-e208_rod_boreal_cauce",
-  "width": 1024,
-  "height": 145
+  "width": 979,
+  "height": 151
  },
  "rod:e208_rod_boreal_destello": {
   "symbol": "art27-rod-e208_rod_boreal_destello",
-  "width": 1024,
+  "width": 974,
   "height": 142
  },
  "rod:e208_rod_boreal_fortuna": {
   "symbol": "art27-rod-e208_rod_boreal_fortuna",
-  "width": 1024,
-  "height": 152
+  "width": 981,
+  "height": 151
  },
  "rod:e208_rod_boreal_titan": {
   "symbol": "art27-rod-e208_rod_boreal_titan",
-  "width": 1024,
+  "width": 980,
   "height": 154
  },
  "rod:e208_rod_boreal_reliquia": {
   "symbol": "art27-rod-e208_rod_boreal_reliquia",
-  "width": 1024,
-  "height": 158
+  "width": 977,
+  "height": 156
  },
  "rod:e208_rod_eterno_pulso": {
   "symbol": "art27-rod-e208_rod_eterno_pulso",
-  "width": 1024,
-  "height": 235
+  "width": 983,
+  "height": 208
  },
  "rod:e208_rod_eterno_cauce": {
   "symbol": "art27-rod-e208_rod_eterno_cauce",
-  "width": 1024,
-  "height": 139
+  "width": 964,
+  "height": 128
  },
  "rod:e208_rod_eterno_destello": {
   "symbol": "art27-rod-e208_rod_eterno_destello",
-  "width": 1024,
-  "height": 141
+  "width": 972,
+  "height": 131
  },
  "rod:e208_rod_eterno_fortuna": {
   "symbol": "art27-rod-e208_rod_eterno_fortuna",
-  "width": 1024,
-  "height": 132
+  "width": 978,
+  "height": 133
  },
  "rod:e208_rod_eterno_titan": {
   "symbol": "art27-rod-e208_rod_eterno_titan",
-  "width": 1024,
-  "height": 144
+  "width": 978,
+  "height": 141
  },
  "rod:e208_rod_eterno_reliquia": {
   "symbol": "art27-rod-e208_rod_eterno_reliquia",
-  "width": 1024,
-  "height": 142
+  "width": 974,
+  "height": 139
  },
  "rod:e17_rod_viejo": {
   "symbol": "art27-rod-e17_rod_viejo",
-  "width": 1024,
-  "height": 144
+  "width": 967,
+  "height": 147
  },
  "rod:e171_rod_rio": {
   "symbol": "art27-rod-e171_rod_rio",
-  "width": 1024,
-  "height": 161
+  "width": 972,
+  "height": 155
  },
  "rod:e171_rod_costa": {
   "symbol": "art27-rod-e171_rod_costa",
-  "width": 1024,
-  "height": 159
+  "width": 962,
+  "height": 162
  },
  "rod:e18_rod_trofeo": {
   "symbol": "art27-rod-e18_rod_trofeo",
-  "width": 1024,
-  "height": 165
+  "width": 976,
+  "height": 157
  },
  "rod:e187_rod_coral": {
   "symbol": "art27-rod-e187_rod_coral",
-  "width": 1024,
-  "height": 209
+  "width": 966,
+  "height": 185
  },
  "zone:muelle": {
   "symbol": "art27-zone-muelle",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:rio": {
   "symbol": "art27-zone-rio",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:costa": {
   "symbol": "art27-zone-costa",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:laguna": {
   "symbol": "art27-zone-laguna",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:arrecife": {
   "symbol": "art27-zone-arrecife",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:abismo": {
   "symbol": "art27-zone-abismo",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:manglar": {
   "symbol": "art27-zone-manglar",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:glaciar": {
   "symbol": "art27-zone-glaciar",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:volcan": {
   "symbol": "art27-zone-volcan",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:santuario": {
   "symbol": "art27-zone-santuario",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:ruinas_sumergidas": {
   "symbol": "art27-zone-ruinas_sumergidas",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:cavernas_cristal": {
   "symbol": "art27-zone-cavernas_cristal",
-  "width": 512,
+  "width": 1024,
   "height": 384
  },
  "zone:abismo_primordial": {
   "symbol": "art27-zone-abismo_primordial",
-  "width": 512,
-  "height": 384
+  "width": 1774,
+  "height": 887
  },
  "ui:sidebar": {
   "symbol": "art27-ui-sidebar",
@@ -321,263 +321,263 @@ const E227_ART={
  },
  "ui:cast": {
   "symbol": "art27-ui-cast",
-  "width": 512,
-  "height": 384
+  "width": 2172,
+  "height": 724
  },
  "ui:water": {
   "symbol": "art27-ui-water",
-  "width": 512,
-  "height": 384
+  "width": 1916,
+  "height": 821
  },
  "fish:gobio_runico": {
   "symbol": "art28-fish-gobio_runico",
-  "width": 512,
-  "height": 274
+  "width": 455,
+  "height": 260
  },
  "fish:nautilo_bronce": {
   "symbol": "art28-fish-nautilo_bronce",
-  "width": 512,
-  "height": 274
+  "width": 460,
+  "height": 277
  },
  "fish:congrio_archivo": {
   "symbol": "art28-fish-congrio_archivo",
-  "width": 512,
-  "height": 276
+  "width": 473,
+  "height": 273
  },
  "fish:tetra_prismatico": {
   "symbol": "art28-fish-tetra_prismatico",
-  "width": 512,
-  "height": 276
+  "width": 440,
+  "height": 283
  },
  "fish:ajolote_cuarzo": {
   "symbol": "art28-fish-ajolote_cuarzo",
-  "width": 512,
-  "height": 274
+  "width": 454,
+  "height": 272
  },
  "fish:esturion_geoda": {
   "symbol": "art28-fish-esturion_geoda",
-  "width": 512,
-  "height": 274
+  "width": 487,
+  "height": 243
  },
  "fish:isopodo_fosil": {
   "symbol": "art28-fish-isopodo_fosil",
-  "width": 512,
-  "height": 294
+  "width": 1318,
+  "height": 694
  },
  "fish:quimera_ambar": {
   "symbol": "art28-fish-quimera_ambar",
-  "width": 512,
-  "height": 294
+  "width": 1419,
+  "height": 856
  },
  "fish:titan_ammonita": {
   "symbol": "art28-fish-titan_ammonita",
-  "width": 512,
-  "height": 418
+  "width": 1137,
+  "height": 915
  },
  "fish:bagre": {
   "symbol": "art28-fish-bagre",
-  "width": 512,
-  "height": 418
+  "width": 484,
+  "height": 380
  },
  "fish:mojarra": {
   "symbol": "art28-fish-mojarra",
-  "width": 512,
-  "height": 278
+  "width": 456,
+  "height": 274
  },
  "fish:trucha": {
   "symbol": "art28-fish-trucha",
-  "width": 512,
-  "height": 278
+  "width": 487,
+  "height": 246
  },
  "fish:salmon": {
   "symbol": "art28-fish-salmon",
-  "width": 512,
-  "height": 264
+  "width": 483,
+  "height": 242
  },
  "fish:pez_espada": {
   "symbol": "art28-fish-pez_espada",
-  "width": 512,
-  "height": 264
+  "width": 497,
+  "height": 274
  },
  "fish:carpa_dorada": {
   "symbol": "art28-fish-carpa_dorada",
-  "width": 512,
-  "height": 273
+  "width": 477,
+  "height": 289
  },
  "fish:trucha_arcoiris": {
   "symbol": "art28-fish-trucha_arcoiris",
-  "width": 512,
-  "height": 273
+  "width": 493,
+  "height": 235
  },
  "fish:pez_fantasma": {
   "symbol": "art28-fish-pez_fantasma",
-  "width": 512,
-  "height": 307
+  "width": 479,
+  "height": 297
  },
  "fish:lucio": {
   "symbol": "art28-fish-lucio",
-  "width": 512,
-  "height": 307
+  "width": 496,
+  "height": 248
  },
  "fish:anguila": {
   "symbol": "art28-fish-anguila",
-  "width": 512,
-  "height": 414
+  "width": 460,
+  "height": 332
  },
  "fish:lubina": {
   "symbol": "art28-fish-lubina",
-  "width": 512,
-  "height": 414
+  "width": 494,
+  "height": 292
  },
  "fish:atun": {
   "symbol": "art28-fish-atun",
-  "width": 512,
-  "height": 269
+  "width": 486,
+  "height": 252
  },
  "fish:mantarraya": {
   "symbol": "art28-fish-mantarraya",
-  "width": 512,
-  "height": 269
+  "width": 477,
+  "height": 267
  },
  "fish:perca_esmeralda": {
   "symbol": "art28-fish-perca_esmeralda",
-  "width": 512,
-  "height": 262
+  "width": 466,
+  "height": 269
  },
  "fish:cangrejo_azul": {
   "symbol": "art28-fish-cangrejo_azul",
-  "width": 512,
-  "height": 262
+  "width": 482,
+  "height": 256
  },
  "fish:koi_imperial": {
   "symbol": "art28-fish-koi_imperial",
-  "width": 512,
-  "height": 261
+  "width": 486,
+  "height": 257
  },
  "fish:esturion": {
   "symbol": "art28-fish-esturion",
-  "width": 512,
-  "height": 261
+  "width": 484,
+  "height": 228
  },
  "fish:pez_luna": {
   "symbol": "art28-fish-pez_luna",
-  "width": 512,
-  "height": 340
+  "width": 928,
+  "height": 851
  },
  "fish:caballito_mar": {
   "symbol": "art28-fish-caballito_mar",
-  "width": 512,
-  "height": 340
+  "width": 211,
+  "height": 327
  },
  "fish:morena": {
   "symbol": "art28-fish-morena",
-  "width": 512,
-  "height": 404
+  "width": 1365,
+  "height": 782
  },
  "fish:tiburon_arrecife": {
   "symbol": "art28-fish-tiburon_arrecife",
-  "width": 512,
-  "height": 404
+  "width": 483,
+  "height": 280
  },
  "fish:pez_linternilla": {
   "symbol": "art28-fish-pez_linternilla",
-  "width": 512,
-  "height": 292
+  "width": 492,
+  "height": 297
  },
  "fish:calamar_abismo": {
   "symbol": "art28-fish-calamar_abismo",
-  "width": 512,
-  "height": 292
+  "width": 496,
+  "height": 287
  },
  "fish:pez_cristal": {
   "symbol": "art28-fish-pez_cristal",
-  "width": 512,
-  "height": 291
+  "width": 485,
+  "height": 272
  },
  "fish:leviatan": {
   "symbol": "art28-fish-leviatan",
-  "width": 512,
-  "height": 291
+  "width": 481,
+  "height": 288
  },
  "fish:sabalo_manglar": {
   "symbol": "art28-fish-sabalo_manglar",
-  "width": 512,
-  "height": 257
+  "width": 497,
+  "height": 253
  },
  "fish:pez_arquero": {
   "symbol": "art28-fish-pez_arquero",
-  "width": 512,
-  "height": 257
+  "width": 450,
+  "height": 265
  },
  "fish:anguila_manglar": {
   "symbol": "art28-fish-anguila_manglar",
-  "width": 512,
-  "height": 316
+  "width": 485,
+  "height": 292
  },
  "fish:tarpon": {
   "symbol": "art28-fish-tarpon",
-  "width": 512,
-  "height": 316
+  "width": 499,
+  "height": 289
  },
  "fish:trucha_alpina": {
   "symbol": "art28-fish-trucha_alpina",
-  "width": 512,
-  "height": 380
+  "width": 490,
+  "height": 257
  },
  "fish:salvelino": {
   "symbol": "art28-fish-salvelino",
-  "width": 512,
-  "height": 380
+  "width": 488,
+  "height": 268
  },
  "fish:bacalao_hielo": {
   "symbol": "art28-fish-bacalao_hielo",
-  "width": 512,
-  "height": 258
+  "width": 494,
+  "height": 237
  },
  "fish:esturion_blanco": {
   "symbol": "art28-fish-esturion_blanco",
-  "width": 512,
-  "height": 258
+  "width": 489,
+  "height": 194
  },
  "fish:pez_lava": {
   "symbol": "art28-fish-pez_lava",
-  "width": 512,
-  "height": 262
+  "width": 484,
+  "height": 272
  },
  "fish:mero_obsidiana": {
   "symbol": "art28-fish-mero_obsidiana",
-  "width": 512,
-  "height": 262
+  "width": 491,
+  "height": 271
  },
  "fish:pez_escorpion": {
   "symbol": "art28-fish-pez_escorpion",
-  "width": 512,
-  "height": 302
+  "width": 449,
+  "height": 296
  },
  "fish:dragon_mar": {
   "symbol": "art28-fish-dragon_mar",
-  "width": 512,
-  "height": 302
+  "width": 500,
+  "height": 297
  },
  "fish:carpa_celeste": {
   "symbol": "art28-fish-carpa_celeste",
-  "width": 512,
-  "height": 304
+  "width": 475,
+  "height": 296
  },
  "fish:pez_cometa": {
   "symbol": "art28-fish-pez_cometa",
-  "width": 512,
-  "height": 304
+  "width": 485,
+  "height": 275
  },
  "fish:raya_aurora": {
   "symbol": "art28-fish-raya_aurora",
-  "width": 512,
-  "height": 410
+  "width": 463,
+  "height": 339
  },
  "fish:guardian_mareas": {
   "symbol": "art28-fish-guardian_mareas",
-  "width": 512,
-  "height": 410
+  "width": 464,
+  "height": 390
  },
  "ui:quest-delivery": {
   "symbol": "art28-ui-quest-delivery",
@@ -621,153 +621,153 @@ const E227_ART={
  },
  "hud-rod:e16_rod": {
   "symbol": "art30-hud-rod-e16_rod",
-  "width": 965,
-  "height": 125
+  "width": 970,
+  "height": 134
  },
  "hud-rod:e161_rod_bamboo": {
   "symbol": "art30-hud-rod-e161_rod_bamboo",
-  "width": 965,
-  "height": 124
+  "width": 966,
+  "height": 131
  },
  "hud-rod:e161_rod_fiber": {
   "symbol": "art30-hud-rod-e161_rod_fiber",
-  "width": 969,
+  "width": 972,
   "height": 134
  },
  "hud-rod:e161_rod_steel": {
   "symbol": "art30-hud-rod-e161_rod_steel",
-  "width": 969,
-  "height": 141
+  "width": 973,
+  "height": 152
  },
  "hud-rod:e192_rod_laguna": {
   "symbol": "art30-hud-rod-e192_rod_laguna",
-  "width": 967,
-  "height": 144
+  "width": 971,
+  "height": 155
  },
  "hud-rod:e192_rod_coral": {
   "symbol": "art30-hud-rod-e192_rod_coral",
-  "width": 970,
-  "height": 149
+  "width": 975,
+  "height": 143
  },
  "hud-rod:e192_rod_abyss": {
   "symbol": "art30-hud-rod-e192_rod_abyss",
-  "width": 966,
-  "height": 158
+  "width": 969,
+  "height": 162
  },
  "hud-rod:e208_rod_junco_cauce": {
   "symbol": "art30-hud-rod-e208_rod_junco_cauce",
-  "width": 967,
+  "width": 972,
   "height": 144
  },
  "hud-rod:e208_rod_junco_destello": {
   "symbol": "art30-hud-rod-e208_rod_junco_destello",
-  "width": 968,
-  "height": 160
+  "width": 974,
+  "height": 158
  },
  "hud-rod:e208_rod_sauce_pulso": {
   "symbol": "art30-hud-rod-e208_rod_sauce_pulso",
-  "width": 968,
-  "height": 184
+  "width": 980,
+  "height": 190
  },
  "hud-rod:e208_rod_sauce_fortuna": {
   "symbol": "art30-hud-rod-e208_rod_sauce_fortuna",
-  "width": 974,
-  "height": 137
+  "width": 984,
+  "height": 143
  },
  "hud-rod:e208_rod_marea_cauce": {
   "symbol": "art30-hud-rod-e208_rod_marea_cauce",
-  "width": 977,
-  "height": 133
+  "width": 984,
+  "height": 134
  },
  "hud-rod:e208_rod_marea_titan": {
   "symbol": "art30-hud-rod-e208_rod_marea_titan",
-  "width": 987,
-  "height": 126
+  "width": 991,
+  "height": 131
  },
  "hud-rod:e208_rod_nenufar_fortuna": {
   "symbol": "art30-hud-rod-e208_rod_nenufar_fortuna",
-  "width": 979,
+  "width": 988,
   "height": 137
  },
  "hud-rod:e208_rod_nenufar_reliquia": {
   "symbol": "art30-hud-rod-e208_rod_nenufar_reliquia",
-  "width": 973,
-  "height": 145
+  "width": 987,
+  "height": 144
  },
  "hud-rod:e208_rod_coral_pulso": {
   "symbol": "art30-hud-rod-e208_rod_coral_pulso",
-  "width": 981,
-  "height": 148
+  "width": 992,
+  "height": 146
  },
  "hud-rod:e208_rod_coral_cauce": {
   "symbol": "art30-hud-rod-e208_rod_coral_cauce",
-  "width": 982,
-  "height": 140
+  "width": 989,
+  "height": 145
  },
  "hud-rod:e208_rod_fosa_pulso": {
   "symbol": "art30-hud-rod-e208_rod_fosa_pulso",
-  "width": 984,
-  "height": 157
+  "width": 994,
+  "height": 154
  },
  "hud-rod:e208_rod_fosa_titan": {
   "symbol": "art30-hud-rod-e208_rod_fosa_titan",
-  "width": 991,
-  "height": 179
+  "width": 997,
+  "height": 176
  },
  "hud-rod:e208_rod_mangle_cauce": {
   "symbol": "art30-hud-rod-e208_rod_mangle_cauce",
-  "width": 979,
-  "height": 196
+  "width": 988,
+  "height": 191
  },
  "hud-rod:e208_rod_mangle_fortuna": {
   "symbol": "art30-hud-rod-e208_rod_mangle_fortuna",
-  "width": 973,
-  "height": 133
+  "width": 976,
+  "height": 134
  },
  "hud-rod:e208_rod_escarcha_pulso": {
   "symbol": "art30-hud-rod-e208_rod_escarcha_pulso",
-  "width": 971,
-  "height": 134
+  "width": 973,
+  "height": 136
  },
  "hud-rod:e208_rod_escarcha_cauce": {
   "symbol": "art30-hud-rod-e208_rod_escarcha_cauce",
-  "width": 981,
-  "height": 142
+  "width": 984,
+  "height": 146
  },
  "hud-rod:e208_rod_obsidiana_destello": {
   "symbol": "art30-hud-rod-e208_rod_obsidiana_destello",
-  "width": 976,
-  "height": 136
+  "width": 971,
+  "height": 138
  },
  "hud-rod:e208_rod_obsidiana_titan": {
   "symbol": "art30-hud-rod-e208_rod_obsidiana_titan",
-  "width": 975,
+  "width": 977,
   "height": 146
  },
  "hud-rod:e208_rod_celeste_pulso": {
   "symbol": "art30-hud-rod-e208_rod_celeste_pulso",
-  "width": 981,
-  "height": 149
+  "width": 985,
+  "height": 150
  },
  "hud-rod:e208_rod_celeste_reliquia": {
   "symbol": "art30-hud-rod-e208_rod_celeste_reliquia",
-  "width": 972,
-  "height": 157
+  "width": 975,
+  "height": 160
  },
  "hud-rod:e208_rod_custodio_pulso": {
   "symbol": "art30-hud-rod-e208_rod_custodio_pulso",
-  "width": 977,
-  "height": 151
+  "width": 2122,
+  "height": 319
  },
  "hud-rod:e208_rod_custodio_cauce": {
   "symbol": "art30-hud-rod-e208_rod_custodio_cauce",
-  "width": 972,
-  "height": 160
+  "width": 2142,
+  "height": 345
  },
  "hud-rod:e208_rod_custodio_destello": {
   "symbol": "art30-hud-rod-e208_rod_custodio_destello",
-  "width": 975,
-  "height": 159
+  "width": 2124,
+  "height": 347
  },
  "hud-rod:e208_rod_custodio_fortuna": {
   "symbol": "art30-hud-rod-e208_rod_custodio_fortuna",
@@ -871,253 +871,253 @@ const E227_ART={
  },
  "hud-fish:gobio_runico": {
   "symbol": "art30-hud-fish-gobio_runico",
-  "width": 454,
-  "height": 258
+  "width": 455,
+  "height": 260
  },
  "hud-fish:nautilo_bronce": {
   "symbol": "art30-hud-fish-nautilo_bronce",
-  "width": 445,
-  "height": 272
+  "width": 460,
+  "height": 277
  },
  "hud-fish:congrio_archivo": {
   "symbol": "art30-hud-fish-congrio_archivo",
-  "width": 479,
-  "height": 265
+  "width": 473,
+  "height": 273
  },
  "hud-fish:tetra_prismatico": {
   "symbol": "art30-hud-fish-tetra_prismatico",
-  "width": 404,
-  "height": 270
+  "width": 440,
+  "height": 283
  },
  "hud-fish:ajolote_cuarzo": {
   "symbol": "art30-hud-fish-ajolote_cuarzo",
-  "width": 459,
-  "height": 283
+  "width": 454,
+  "height": 272
  },
  "hud-fish:esturion_geoda": {
   "symbol": "art30-hud-fish-esturion_geoda",
-  "width": 498,
-  "height": 256
+  "width": 487,
+  "height": 243
  },
  "hud-fish:isopodo_fosil": {
   "symbol": "art30-hud-fish-isopodo_fosil",
-  "width": 504,
-  "height": 269
+  "width": 1318,
+  "height": 694
  },
  "hud-fish:quimera_ambar": {
   "symbol": "art30-hud-fish-quimera_ambar",
-  "width": 503,
-  "height": 295
+  "width": 1419,
+  "height": 856
  },
  "hud-fish:titan_ammonita": {
   "symbol": "art30-hud-fish-titan_ammonita",
-  "width": 472,
-  "height": 422
+  "width": 1137,
+  "height": 915
  },
  "hud-fish:bagre": {
   "symbol": "art30-hud-fish-bagre",
-  "width": 507,
-  "height": 402
+  "width": 484,
+  "height": 380
  },
  "hud-fish:mojarra": {
   "symbol": "art30-hud-fish-mojarra",
-  "width": 431,
-  "height": 264
+  "width": 456,
+  "height": 274
  },
  "hud-fish:trucha": {
   "symbol": "art30-hud-fish-trucha",
-  "width": 473,
-  "height": 238
+  "width": 487,
+  "height": 246
  },
  "hud-fish:salmon": {
   "symbol": "art30-hud-fish-salmon",
   "width": 483,
-  "height": 240
+  "height": 242
  },
  "hud-fish:pez_espada": {
   "symbol": "art30-hud-fish-pez_espada",
-  "width": 512,
-  "height": 273
+  "width": 497,
+  "height": 274
  },
  "hud-fish:carpa_dorada": {
   "symbol": "art30-hud-fish-carpa_dorada",
-  "width": 479,
-  "height": 278
+  "width": 477,
+  "height": 289
  },
  "hud-fish:trucha_arcoiris": {
   "symbol": "art30-hud-fish-trucha_arcoiris",
-  "width": 494,
-  "height": 241
+  "width": 493,
+  "height": 235
  },
  "hud-fish:pez_fantasma": {
   "symbol": "art30-hud-fish-pez_fantasma",
-  "width": 512,
-  "height": 299
+  "width": 479,
+  "height": 297
  },
  "hud-fish:lucio": {
   "symbol": "art30-hud-fish-lucio",
-  "width": 495,
-  "height": 247
+  "width": 496,
+  "height": 248
  },
  "hud-fish:anguila": {
   "symbol": "art30-hud-fish-anguila",
-  "width": 480,
-  "height": 397
+  "width": 460,
+  "height": 332
  },
  "hud-fish:lubina": {
   "symbol": "art30-hud-fish-lubina",
-  "width": 491,
-  "height": 294
+  "width": 494,
+  "height": 292
  },
  "hud-fish:atun": {
   "symbol": "art30-hud-fish-atun",
-  "width": 498,
-  "height": 251
+  "width": 486,
+  "height": 252
  },
  "hud-fish:mantarraya": {
   "symbol": "art30-hud-fish-mantarraya",
-  "width": 494,
-  "height": 263
+  "width": 477,
+  "height": 267
  },
  "hud-fish:perca_esmeralda": {
   "symbol": "art30-hud-fish-perca_esmeralda",
-  "width": 465,
-  "height": 270
+  "width": 466,
+  "height": 269
  },
  "hud-fish:cangrejo_azul": {
   "symbol": "art30-hud-fish-cangrejo_azul",
-  "width": 496,
-  "height": 251
+  "width": 482,
+  "height": 256
  },
  "hud-fish:koi_imperial": {
   "symbol": "art30-hud-fish-koi_imperial",
-  "width": 495,
-  "height": 253
+  "width": 486,
+  "height": 257
  },
  "hud-fish:esturion": {
   "symbol": "art30-hud-fish-esturion",
-  "width": 492,
-  "height": 250
+  "width": 484,
+  "height": 228
  },
  "hud-fish:pez_luna": {
   "symbol": "art30-hud-fish-pez_luna",
-  "width": 344,
-  "height": 346
+  "width": 928,
+  "height": 851
  },
  "hud-fish:caballito_mar": {
   "symbol": "art30-hud-fish-caballito_mar",
-  "width": 215,
-  "height": 341
+  "width": 211,
+  "height": 327
  },
  "hud-fish:morena": {
   "symbol": "art30-hud-fish-morena",
-  "width": 492,
-  "height": 305
+  "width": 1365,
+  "height": 782
  },
  "hud-fish:tiburon_arrecife": {
   "symbol": "art30-hud-fish-tiburon_arrecife",
-  "width": 500,
-  "height": 285
+  "width": 483,
+  "height": 280
  },
  "hud-fish:pez_linternilla": {
   "symbol": "art30-hud-fish-pez_linternilla",
-  "width": 481,
-  "height": 285
+  "width": 492,
+  "height": 297
  },
  "hud-fish:calamar_abismo": {
   "symbol": "art30-hud-fish-calamar_abismo",
-  "width": 494,
-  "height": 285
+  "width": 496,
+  "height": 287
  },
  "hud-fish:pez_cristal": {
   "symbol": "art30-hud-fish-pez_cristal",
-  "width": 480,
-  "height": 268
+  "width": 485,
+  "height": 272
  },
  "hud-fish:leviatan": {
   "symbol": "art30-hud-fish-leviatan",
-  "width": 495,
-  "height": 286
+  "width": 481,
+  "height": 288
  },
  "hud-fish:sabalo_manglar": {
   "symbol": "art30-hud-fish-sabalo_manglar",
-  "width": 499,
-  "height": 252
+  "width": 497,
+  "height": 253
  },
  "hud-fish:pez_arquero": {
   "symbol": "art30-hud-fish-pez_arquero",
-  "width": 454,
-  "height": 262
+  "width": 450,
+  "height": 265
  },
  "hud-fish:anguila_manglar": {
   "symbol": "art30-hud-fish-anguila_manglar",
-  "width": 478,
-  "height": 293
+  "width": 485,
+  "height": 292
  },
  "hud-fish:tarpon": {
   "symbol": "art30-hud-fish-tarpon",
-  "width": 502,
-  "height": 300
+  "width": 499,
+  "height": 289
  },
  "hud-fish:trucha_alpina": {
   "symbol": "art30-hud-fish-trucha_alpina",
-  "width": 489,
-  "height": 252
+  "width": 490,
+  "height": 257
  },
  "hud-fish:salvelino": {
   "symbol": "art30-hud-fish-salvelino",
-  "width": 493,
-  "height": 274
+  "width": 488,
+  "height": 268
  },
  "hud-fish:bacalao_hielo": {
   "symbol": "art30-hud-fish-bacalao_hielo",
-  "width": 493,
+  "width": 494,
   "height": 237
  },
  "hud-fish:esturion_blanco": {
   "symbol": "art30-hud-fish-esturion_blanco",
-  "width": 505,
-  "height": 190
+  "width": 489,
+  "height": 194
  },
  "hud-fish:pez_lava": {
   "symbol": "art30-hud-fish-pez_lava",
-  "width": 483,
-  "height": 268
+  "width": 484,
+  "height": 272
  },
  "hud-fish:mero_obsidiana": {
   "symbol": "art30-hud-fish-mero_obsidiana",
-  "width": 488,
-  "height": 269
+  "width": 491,
+  "height": 271
  },
  "hud-fish:pez_escorpion": {
   "symbol": "art30-hud-fish-pez_escorpion",
-  "width": 434,
-  "height": 298
+  "width": 449,
+  "height": 296
  },
  "hud-fish:dragon_mar": {
   "symbol": "art30-hud-fish-dragon_mar",
-  "width": 498,
-  "height": 299
+  "width": 500,
+  "height": 297
  },
  "hud-fish:carpa_celeste": {
   "symbol": "art30-hud-fish-carpa_celeste",
-  "width": 472,
-  "height": 302
+  "width": 475,
+  "height": 296
  },
  "hud-fish:pez_cometa": {
   "symbol": "art30-hud-fish-pez_cometa",
-  "width": 483,
-  "height": 282
+  "width": 485,
+  "height": 275
  },
  "hud-fish:raya_aurora": {
   "symbol": "art30-hud-fish-raya_aurora",
-  "width": 469,
-  "height": 344
+  "width": 463,
+  "height": 339
  },
  "hud-fish:guardian_mareas": {
   "symbol": "art30-hud-fish-guardian_mareas",
-  "width": 489,
-  "height": 424
+  "width": 464,
+  "height": 390
  },
  "quest:e17_viejo": {
   "symbol": "art30-quest-e17_viejo",
@@ -1433,5 +1433,110 @@ const E227_ART={
   "symbol": "art30-medal-abismo_primordial",
   "width": 437,
   "height": 372
+ },
+ "attribute:speed": {
+  "symbol": "art31-attribute-speed",
+  "width": 512,
+  "height": 480
+ },
+ "attribute:luck": {
+  "symbol": "art31-attribute-luck",
+  "width": 512,
+  "height": 480
+ },
+ "attribute:control": {
+  "symbol": "art31-attribute-control",
+  "width": 512,
+  "height": 480
+ },
+ "attribute:resilience": {
+  "symbol": "art31-attribute-resilience",
+  "width": 512,
+  "height": 480
+ },
+ "attribute:trophy": {
+  "symbol": "art31-attribute-trophy",
+  "width": 512,
+  "height": 576
+ },
+ "attribute:maxKg": {
+  "symbol": "art31-attribute-maxKg",
+  "width": 512,
+  "height": 576
+ },
+ "quest:e231_cuaderno_muelle": {
+  "symbol": "art31-quest-e231_cuaderno_muelle",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_estanque_muelle": {
+  "symbol": "art31-quest-e231_estanque_muelle",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_vigia_costa": {
+  "symbol": "art31-quest-e231_vigia_costa",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_derrota_costa": {
+  "symbol": "art31-quest-e231_derrota_costa",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_jardin_laguna": {
+  "symbol": "art31-quest-e231_jardin_laguna",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_koi_laguna": {
+  "symbol": "art31-quest-e231_koi_laguna",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_vivero_arrecife": {
+  "symbol": "art31-quest-e231_vivero_arrecife",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_guardian_arrecife": {
+  "symbol": "art31-quest-e231_guardian_arrecife",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_luz_abismo": {
+  "symbol": "art31-quest-e231_luz_abismo",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_cartografo_abismo": {
+  "symbol": "art31-quest-e231_cartografo_abismo",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_puentes_manglar": {
+  "symbol": "art31-quest-e231_puentes_manglar",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_forja_volcan": {
+  "symbol": "art31-quest-e231_forja_volcan",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_mosaico_ruinas_sumergidas": {
+  "symbol": "art31-quest-e231_mosaico_ruinas_sumergidas",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_refraccion_cavernas_cristal": {
+  "symbol": "art31-quest-e231_refraccion_cavernas_cristal",
+  "width": 512,
+  "height": 384
+ },
+ "quest:e231_estratos_abismo_primordial": {
+  "symbol": "art31-quest-e231_estratos_abismo_primordial",
+  "width": 512,
+  "height": 384
  }
 };

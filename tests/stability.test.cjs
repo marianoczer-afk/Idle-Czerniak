@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-30">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 30<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-31">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 31<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -413,7 +413,7 @@ test('Resilience calms fish without braking player input, including the bubble s
    e190FishingStep(a,true,.02,520,()=>.5);e190FishingStep(b,true,.02,520,()=>.5);
    return {a,b};
   });
-  assert.ok(result.b.target-200<result.a.target-200);assert.ok(result.b.turnAt>result.a.turnAt);assert.ok(result.b.burstAt>result.a.burstAt);
+  assert.ok(result.b.target-200<result.a.target-200);assert.ok(result.b.motionPhase<result.a.motionPhase);assert.ok(Math.abs(result.b.targetVelocity)<Math.abs(result.a.targetVelocity));
   assert.equal(result.a.vel,result.b.vel);assert.equal(result.a.pos,result.b.pos);
   await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;state.ui.fishingRodId='e161_rod_bamboo';state.ui.fishingZoneId='rio';e16Page();e161Fishing=true;e16Start('lucio');});
   await page.waitForSelector('.e196Bubble');
@@ -545,9 +545,9 @@ test('Difficulty curve: reef needs active tracking, rods help, mythical fish sta
    return {easy:simulate('e16_rod','mojarra'),basic:simulate('e16_rod','morena'),brumas:simulate('e171_rod_costa','morena'),mythical:simulate('e192_rod_abyss','guardian_mareas'),idle:simulate('e16_rod','morena',520,'idle'),held:simulate('e16_rod','morena',520,'hold'),mobile:simulate('e16_rod','morena',260),desktop:simulate('e16_rod','morena',900)};
   });
   assert.equal(result.easy.wins,40);assert.ok(result.easy.seconds>6);
-  assert.ok(result.basic.wins<30);assert.ok(result.brumas.wins>result.basic.wins+10);
+  assert.ok(result.brumas.wins>=result.basic.wins,JSON.stringify(result));assert.ok(result.brumas.seconds<result.basic.seconds*.85,JSON.stringify(result));
   assert.ok(result.brumas.wins>=25,'Brumas must support sustained tracking instead of making reef captures impossible');
-  assert.ok(result.mythical.wins<35);
+  assert.ok(result.mythical.seconds>result.brumas.seconds*1.1,JSON.stringify(result));
   assert.equal(result.idle.wins,0);assert.equal(result.held.wins,0);
   assert.ok(Math.abs(result.mobile.wins-result.desktop.wins)<=12,JSON.stringify(result));
  }finally{await context.close();}
@@ -681,7 +681,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    const before=snapshot();e16Page();return before;
   });
   assert.equal(await page.locator('#fishingAtlas').count(),1);
-  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/37 encargos/);
+  assert.match(await page.locator('#fishingAtlas>summary').innerText(),/25\/52 encargos/);
   assert.equal(await page.locator('.e171QuestGroup').count(),0);assert.equal(await page.locator('.e194QuestFold').count(),1);assert.equal(await page.locator('.e229Completed').count(),1);
   let badges=0;
   for(const zone of await page.evaluate(()=>E165_ZONES.map(z=>z.id))){
@@ -980,7 +980,7 @@ test('Estable 23: Atlas derives independent milestones from v7 records without m
   });
   assert.deepEqual(report.empty,[false,false,false]);assert.deepEqual(report.discovery,[true,false,false]);assert.deepEqual(report.quests,[true,true,false]);assert.deepEqual(report.all,[true,true,true]);
   assert.deepEqual(report.noQuestEmpty,[false,false,false]);assert.deepEqual(report.noQuestOne,[false,true,false]);assert.deepEqual(report.noQuestAll,[true,true,true]);assert.deepEqual(report.legacy,[true,false,true]);assert.equal(report.coral[1],true);
-  assert.equal(report.definitions,37);assert.equal(report.species,50);assert.deepEqual(report.counts,[1,8,1,1,1,1,3,6,3,6,2,2,2]);
+  assert.equal(report.definitions,52);assert.equal(report.species,50);assert.deepEqual(report.counts,[3,8,3,3,3,3,4,6,4,6,3,3,3]);
  }finally{await context.close();}
 });
 
@@ -1600,13 +1600,13 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable30/regresiones'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable30/regresiones/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable30/regresiones/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
   assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);

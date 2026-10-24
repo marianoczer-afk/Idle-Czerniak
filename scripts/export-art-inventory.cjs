@@ -16,7 +16,7 @@ async function main(){
    draft={name:'Inventario de desarrollo aislado',race:'humano',cls:'guerrero'};await changeRoster('create');state.skills.pesca={xp:98010};
    const resolveArt=(id,seen=new Set())=>{if(seen.has(id))return '';seen.add(id);const node=document.getElementById(id);return node?node.outerHTML+[...node.querySelectorAll('use')].map(n=>resolveArt((n.getAttribute('href')||'').slice(1),seen)).join(''):'';};
    const describe=markup=>{const t=document.createElement('template');t.innerHTML=markup;const image=t.content.querySelector('img'),use=t.content.querySelector('use');return image?{kind:'raster',source:image.getAttribute('src')}:use?{kind:'atlas',symbol:use.getAttribute('href').slice(1),source:resolveArt(use.getAttribute('href').slice(1))}:{kind:'vector',source:markup};};
-   const zones=E165_ZONES.map(z=>({...z,art:describe('<img src="'+e221ZoneImage(z)+'">')}));
+   const zones=E165_ZONES.map(z=>({...z,art:describe(e227ZoneArt(z)||'<img src="'+e221ZoneImage(z)+'">')}));
    const fish=E16_FISH.map(f=>({...f,weightKg:e190WeightRange(f),difficulty:E161_DIFFICULTY[f.id]||1,art:describe(e189FishSVG(f.id))}));
    const catalogue=[...new Map([...E161_RODS,E17_ROD,...E171_QUESTS.map(q=>q.rod),E18_ROD,E187_ROD].map(r=>[r.id,r])).values()];
    const rods=catalogue.map(r=>({...r,art:describe(e194RodArt(r.id)),offered:e212Offered(r),zoneId:e210RodZone(r),requiredFishing:e217RequiredLevel(r),statsAtFishing100:e1101Stats(r)}));

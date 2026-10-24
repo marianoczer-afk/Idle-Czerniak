@@ -25,6 +25,6 @@ document.addEventListener('click',event=>{
 });
 // Transparent foregrounds replace the old blurred/masked source-strip simulation.
 function e229HudArt(kind,id,width,height){return e230HudArt(kind,id,width,height);}
-function e229Hud(){if(!state||!e161OnPage())return;for(const [kind,id,selector] of [['rod',e161Rod()?.id,'#combatDock .e194DockRodArt'],['fish',state.ui?.lastFishingCatch?.id,'#combatDock .e189Art']]){const node=document.querySelector(selector);if(!node||!id)continue;const r=node.getBoundingClientRect(),key=id+':'+Math.round(r.width)+':'+Math.round(r.height);if(node.dataset.hudComposition===key&&node.querySelector('.e229HudComposition'))continue;const art=e229HudArt(kind,id,r.width,r.height);if(art){node.innerHTML=art;node.dataset.hudComposition=key;}}}
+function e229Hud(){if(!state||!e161OnPage())return;for(const [kind,id,selector] of [['rod',e161Rod()?.id,'#combatDock .e194DockRodArt'],['fish',state.ui?.lastFishingCatch?.id,'#combatDock .e189Art']]){const node=document.querySelector(selector);if(!node||!id)continue;const r=node.getBoundingClientRect(),height=r.height-(kind==='fish'?12:0),key=id+':'+Math.round(r.width)+':'+Math.round(height);if(node.dataset.hudComposition===key&&node.querySelector('.e229HudComposition'))continue;const art=e229HudArt(kind,id,r.width,height);if(art){node.innerHTML=art;node.dataset.hudComposition=key;}}if(typeof e231RarityHud==='function')e231RarityHud();}
 const e229PreviousHud=e188UpdateHud;
 e188UpdateHud=function(){const result=e229PreviousHud();e229Hud();return result;};
