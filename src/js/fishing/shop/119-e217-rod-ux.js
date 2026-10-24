@@ -9,7 +9,8 @@ function e220RodProvenance(rod){
 const E217_STAT_KEYS=['speed','luck','control','resilience','trophy','maxKg'];
 const E217_SORT_OPTIONS=[['recommended','Recomendadas'],['speed','Mayor atracción'],['luck','Mayor suerte'],['control','Mayor control'],['resilience','Mayor resiliencia'],['maxKg','Mayor capacidad de peso']];
 function e217RequiredLevel(rod){
- // req on catalog rods is a display tier, NOT a purchase/equipment requirement.
+ // Character skill gates only quest acquisition, never gold purchases or owned equipment.
+ if(rod.unlock)return rod.req;
  if(rod.id===E17_ROD.id)return E17_QUEST.level;
  const quest=E171_QUESTS.find(q=>q.rod.id===rod.id);if(quest)return quest.level;
  if(rod.id===E187_ROD.id)return E187_QUESTS.find(q=>q.kind==='rod').req;
@@ -52,7 +53,7 @@ function e217MenuTools(popup,anchor){
  const update=()=>{
   const key=sort.value+'|'+e16FishLevel()+'|'+e161Rod()?.id+'|'+rods.map(r=>Number(!!state.owned?.[r.id])).join('');
   if(key!==orderKey){for(const rod of e217SortRods(rods,sort.value))popup.append(choices.get(rod.id).closest('.e222RodEntry'));orderKey=key;}
-  const query=normalize(search.value.trim()),mine=toolbar.querySelector('[data-picker-mine]').checked;for(const rod of rods){const row=choices.get(rod.id),hidden=!normalize(rod.name).includes(query)||(mine&&!state.owned?.[rod.id]);row.hidden=hidden;row.closest('.e222RodEntry').hidden=hidden;}
+  const query=normalize(search.value.trim()),mine=toolbar.querySelector('[data-picker-mine]').checked;for(const rod of rods){const row=choices.get(rod.id),hidden=!normalize(rod.name+' '+(e232RodAliases.get(rod.id)||'')).includes(query)||(mine&&!state.owned?.[rod.id]);row.hidden=hidden;row.closest('.e222RodEntry').hidden=hidden;}
   popup.scrollTop=0;
  };
  search.addEventListener('input',update);sort.addEventListener('change',update);toolbar.querySelector('[data-picker-mine]').addEventListener('change',update);popup.e222Update=update;update();

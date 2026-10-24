@@ -7,8 +7,7 @@ const e231ArtNames=new Map([...E16_FISH.map(f=>['fish:'+f.id,f.name]),...e221Rod
 function e231ResponsiveArt(kind,id,category='normal'){
  const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f||!water)return '';
  const key='e231-responsive-'+(++e231ArtSerial),name=e231ArtNames.get(kind+':'+id)||(kind==='fish'?E16_FISH.find(f=>f.id===id)?.name:e221Rods().find(r=>r.id===id)?.name);
- const special=['large','huge','legendary'].includes(category),color=category==='legendary'?'#ffe19a':category==='huge'?'#aee9ff':'#d5ecc3';
- return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e231ResponsiveArt" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(name||id)}" data-foreground="alpha" data-specimen-category="${category}"><defs>${special?`<mask id="${key}-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%"><use href="#${f.symbol}" width="100%" height="100%"/></mask>`:''}</defs><rect width="100%" height="100%" fill="url(#argentum-water-skin)"/><use class="e231Subject" href="#${f.symbol}" width="100%" height="100%"/>${special?`<g class="e231ScaleGlints" mask="url(#${key}-body)" fill="${color}" opacity=".85">${[[25,40],[38,55],[51,38],[58,62],[67,45],[75,56]].map(([x,y])=>`<circle cx="${x}%" cy="${y}%" r="1.5"/><circle cx="${x}%" cy="${y}%" r="3" opacity=".16"/>`).join('')}</g>`:''}</svg>`;
+ return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e231ResponsiveArt" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(name||id)}" data-foreground="alpha" data-specimen-category="${category}"><rect width="100%" height="100%" fill="url(#argentum-water-skin)"/><use class="e231Subject" href="#${f.symbol}" width="100%" height="100%"/>${e232SpecimenLayer(f.symbol,key,category)}</svg>`;
 }
 e194RodArt=function(id){return e231ResponsiveArt('rod',id)||e231OldRodArt(id);};
 e189FishSVG=function(id){return e231ResponsiveArt('fish',id)||e231OldFishArt(id);};
@@ -25,7 +24,7 @@ const e231PreviousPaint=e16Paint;
 e16Paint=function(){const r=e231PreviousPaint();if(!e16Session)return r;const tank=document.getElementById('e16Tank');if(!tank)return r;let tell=tank.querySelector('.e231Momentum');if(!tell){tell=document.createElement('span');tell.className='e231Momentum';tell.setAttribute('aria-hidden','true');tank.append(tell);}const x=e16Session.anticipation??e16Session.target;const transform='translateX('+Math.round(x)+'px)';if(tell.style.transform!==transform)tell.style.transform=transform;const direction=e16Session.dir>=0?'right':'left';if(tell.dataset.direction!==direction)tell.dataset.direction=direction;return r;};
 // Restyle recorded specimens, not the unrelated rarity of their species.
 const e231PreviousJournal=e230StyleJournalCard;
-e230StyleJournalCard=function(card,id){e231PreviousJournal(card,id);const category=card.dataset.catchCategory,art=card.querySelector('.e218Art');if(!art)return;const key=id+':'+category;if(art.dataset.specimenStyle===key)return;art.innerHTML=e231ResponsiveArt('fish',id,category)||e231OldFishArt(id);art.dataset.specimenStyle=key;};
+e230StyleJournalCard=function(card,id,record){e231PreviousJournal(card,id,record);const category=card.dataset.catchCategory,art=card.querySelector('.e218Art');if(!art)return;const key=id+':'+category;if(art.dataset.specimenStyle===key)return;art.innerHTML=e231ResponsiveArt('fish',id,category)||e231OldFishArt(id);art.dataset.specimenStyle=key;};
 
 // Read-only results are reused only inside one synchronous page render. Claims,
 // imports, character changes and later events always compute fresh progress.

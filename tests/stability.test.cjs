@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-31">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 31<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-32">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 32<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -366,7 +366,7 @@ for(const width of [1366,390])test(`Estable 23: larger rod art, provenance, star
   assert.match(await page.locator('.e197FishingSkills').innerText(),/Instinto de pescador.*\+5%/);
   assert.equal(await page.evaluate(()=>!!state.owned.e187_rod_coral),false,'XP reward does not invent a rod');
   // Existing rod and control rewards report their actual effect as well.
-  for(const [zone,pattern] of [['arrecife',/Caña Coralina.*11,5%/],['abismo',/8 px.*control permanente/]]){
+  for(const [zone,pattern] of [['arrecife',/Caña · Rama Coralina/],['abismo',/8 px.*control permanente/]]){
    await page.evaluate(zone=>{state.skills.pesca.xp=18490;state.ui.fishingZoneId=zone;state.ui.e187Rewards[zone]=true;if(zone==='arrecife')state.owned.e187_rod_coral=true;e16Page();},zone);
    await atlasZone(page,zone);await page.locator(`[data-atlas-badge="${zone}"]`).click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),pattern);
   }
@@ -397,7 +397,7 @@ test('Weight and control balance: every species defined, capacity limits and pro
   });
   assert.equal(result.count,50);assert.equal(result.samples,18000);assert.equal(result.allReachable,true);
   assert.ok(result.caps.every(n=>n>0));
-  for(const row of result.widths){assert.ok(row.steel>row.basic);closeTo(row.steel-row.basic,row.width*.08,.001);}
+  for(const row of result.widths){assert.ok(row.steel>row.basic);closeTo(row.steel-row.basic,row.width*.064,.001);}
   closeTo(result.resized,104,.001);
  }finally{await context.close();}
 });
@@ -418,7 +418,7 @@ test('Resilience calms fish without braking player input, including the bubble s
   await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;state.ui.fishingRodId='e161_rod_bamboo';state.ui.fishingZoneId='rio';e16Page();e161Fishing=true;e16Start('lucio');});
   await page.waitForSelector('.e196Bubble');
   while(await page.locator('.e196Bubble').count())await page.locator('.e196Bubble').click();
-  assert.deepEqual(await page.evaluate(()=>e16Session.motion),{distance:1-.28*.65,interval:1+.28*1.5});
+  assert.deepEqual(await page.evaluate(()=>e16Session.motion),{distance:1-.28*.5,interval:1+.28*2});
   assert.ok(await page.evaluate(()=>e16Session.weightKg>0&&e16Session.weightKg<=60));
  }finally{await context.close();}
 });
@@ -532,7 +532,7 @@ test('Difficulty curve: reef needs active tracking, rods help, mythical fish sta
     const rod=rods.find(r=>r.id===rodId),fish=E16_FISH.find(f=>f.id===fishId);let wins=0,total=0;
     for(let i=0;i<40;i++){
      const seed={rngState:seedHash('balance05:'+i)},random=()=>seededNext(seed),zone=e190CaptureWidth(fish,rod,33,width,false);
-     const g={fish:{...fish,zone},controlFraction:zone/width,controlExtra:0,motion:e190MotionProfile(fish,rod),pos:width/2-zone/2,vel:0,target:width/2-12,dir:1,turnAt:.35,seed:random()*6,time:0,progress:.23,burst:0,burstAt:.5};
+     const g={fish:{...fish,zone},capture:e232CaptureProfile(fish,rod,Math.max(33,fish.req),e190WeightRange(fish)[0]),weightKg:e190WeightRange(fish)[0],controlFraction:zone/width,controlExtra:0,motion:e190MotionProfile(fish,rod),pos:width/2-zone/2,vel:0,target:width/2-12,dir:1,turnAt:.35,seed:random()*6,time:0,progress:.23,burst:0,burstAt:.5};
      let outcome=null,holding=false,nextInput=0;
      while(g.time<60&&!outcome){
       if(g.time>=nextInput){holding=mode==='hold'||mode==='tracking'&&(g.target+12-(g.pos+g.fish.zone/2)-g.vel*.18)>0;nextInput=g.time+.20;}
@@ -545,7 +545,7 @@ test('Difficulty curve: reef needs active tracking, rods help, mythical fish sta
    return {easy:simulate('e16_rod','mojarra'),basic:simulate('e16_rod','morena'),brumas:simulate('e171_rod_costa','morena'),mythical:simulate('e192_rod_abyss','guardian_mareas'),idle:simulate('e16_rod','morena',520,'idle'),held:simulate('e16_rod','morena',520,'hold'),mobile:simulate('e16_rod','morena',260),desktop:simulate('e16_rod','morena',900)};
   });
   assert.equal(result.easy.wins,40);assert.ok(result.easy.seconds>6);
-  assert.ok(result.brumas.wins>=result.basic.wins,JSON.stringify(result));assert.ok(result.brumas.seconds<result.basic.seconds*.85,JSON.stringify(result));
+  assert.ok(result.brumas.wins>=result.basic.wins,JSON.stringify(result));if(result.basic.wins)assert.ok(result.brumas.seconds<result.basic.seconds*.85,JSON.stringify(result));else assert.ok(result.brumas.wins>result.basic.wins,JSON.stringify(result));
   assert.ok(result.brumas.wins>=25,'Brumas must support sustained tracking instead of making reef captures impossible');
   assert.ok(result.mythical.seconds>result.brumas.seconds*1.1,JSON.stringify(result));
   assert.equal(result.idle.wins,0);assert.equal(result.held.wins,0);
@@ -622,7 +622,7 @@ test('New gold rods have no level gate; challenge rewards cannot be bought or cl
    const index=E161_RODS.findIndex(r=>r.id==='e208_rod_custodio_pulso'),button=document.createElement('button');button.dataset.e161Buy=index;document.body.append(button);button.click();button.remove();return !!state.owned.e208_rod_custodio_pulso;
   }),false);
   const expected=await page.evaluate(()=>{
-   const rod=E208_CATALOG.find(r=>r.id==='e208_rod_custodio_pulso'),q=rod.unlock;
+   const rod=E208_CATALOG.find(r=>r.id==='e208_rod_custodio_pulso'),q=rod.unlock;state.skills.pesca.xp=10*17**2;
    state.ui.fishingWeights={bySpecies:{},byZone:{[q.zone]:{catches:q.catches,bestKg:q.bestKg,species:{bagre:5,trucha:7}}}};
    e16Page();return{gold:state.gold,xp:state.skills.pesca.xp,inventory:JSON.stringify(state.inventory)};
   });
@@ -688,7 +688,7 @@ test('Completed ledger includes all 25 quests, permanent perks and new rod chall
    await atlasZone(page,zone);badges+=await page.locator('[data-atlas-badge]').count();
   }
   assert.equal(badges,25);
-  for(const [zone,pattern] of [['laguna',/naturalista.*5%.*permanente activa/is],['arrecife',/secreto del arrecife.*Caña Coralina/is],['abismo',/8 px.*permanente activa/is]]){
+  for(const [zone,pattern] of [['laguna',/naturalista.*5%.*permanente activa/is],['arrecife',/secreto del arrecife.*Rama Coralina/is],['abismo',/8 px.*permanente activa/is]]){
    await atlasZone(page,zone);await page.locator(`[data-atlas-badge="${zone}"]`).click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),pattern);
   }
   for(const zone of ['muelle','arrecife','abismo','santuario']){
@@ -897,8 +897,8 @@ test('Estable 23: quest goals explain all conditions and mark each completed obj
   await page.evaluate(()=>{state.ui.fishingZoneId='rio';state.ui.fishingWeights={byZone:{rio:{catches:3,species:{mojarra:2,lubina:1},bestKg:7.35}}};e16Page();document.querySelector('.e194QuestFold').open=true;document.querySelectorAll('.e216Quest').forEach(n=>n.open=true);});
   const quest=page.locator('.e194QuestBody [data-quest-id="e208_rod_custodio_pulso"]');
   assert.match(await quest.innerText(),/Conseguí 12 capturas/);assert.match(await quest.innerText(),/Descubrí 2 especies distintas/);assert.match(await quest.innerText(),/Capturá un pez de al menos 2 kg/);assert.equal(await quest.locator('.e230Delivery').count(),0);
-  assert.equal(await quest.locator('.e230Goal').count(),3);assert.equal(await quest.locator('.e230Goal.done').count(),2);assert.equal(await quest.locator('button').isDisabled(),true);
-  await page.evaluate(()=>{state.ui.fishingWeights.byZone.rio.catches=12;e16Page();});assert.equal(await quest.locator('.e230Goal.done').count(),3);assert.equal(await quest.locator('button').isEnabled(),true);
+  assert.equal(await quest.locator('.e230Goal').count(),4);assert.equal(await quest.locator('.e230Goal.done').count(),3);assert.equal(await quest.locator('button').isDisabled(),true);
+  await page.evaluate(()=>{state.ui.fishingWeights.byZone.rio.catches=12;e16Page();});assert.equal(await quest.locator('.e230Goal.done').count(),4);assert.equal(await quest.locator('button').isEnabled(),true);
  }finally{await context.close();}
 });
 
@@ -913,9 +913,9 @@ for(const width of [1366,390])test(`Estable 23: restored zone and rod shortcuts 
   assert.match(await page.locator('#combatDock .e1118Zone small').innerText(),/Río del Bosque/);
   const image=page.locator('#combatDock .e1118Zone svg');assert.equal(await image.isVisible(),true);assert.equal(await image.locator('use').getAttribute('href'),'#art27-zone-rio');
   await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;});
-  await page.locator('#combatDock .e194DockRod').click();await page.locator('.e1120Choice').filter({hasText:'Caña de bambú'}).click();
+  await page.locator('#combatDock .e194DockRod').click();await page.locator('.e1120Choice').filter({hasText:'Bambú del Remanso'}).click();
   assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_bamboo');
-  assert.match(await page.locator('#combatDock .e1123RodName').innerText(),/bambú/);
+  assert.match(await page.locator('#combatDock .e1123RodName').innerText(),/Bambú/);
   assert.equal(await page.locator('.e1120Menu').count(),1);await page.keyboard.press('Escape');
   assert.equal(await page.locator('#page_fishing #e16GamePanel').isVisible(),true);
  }finally{await context.close();}
@@ -997,7 +997,7 @@ for(const width of [1366,390])test(`Estable 23: Atlas search, mastery, accessibl
   await page.locator('[data-atlas-search]').fill('rio del');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-search]').fill('');
   await page.locator('[data-atlas-filter]').selectOption('complete');assert.equal(await page.locator('.atlasRow:visible').count(),1);await page.locator('[data-atlas-zone="manglar"]').click();assert.equal(await page.locator('.atlasMedal').count(),1);assert.match(await page.locator('.atlasZoneDetail').innerText(),/sin encargos principales/);
   await page.locator('[data-atlas-filter]').selectOption('pending');assert.equal(await page.locator('.atlasRow:visible').count(),12);await page.locator('[data-atlas-zone="arrecife"]').click();
-  const before=await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId}));const badge=page.locator('[data-atlas-badge="arrecife"]');assert.match(await badge.getAttribute('title'),/secreto del arrecife.*Entregá.*Caña Coralina/is);await badge.click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),/Recompensa ya obtenida/);assert.equal(await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId})),before);
+  const before=await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId}));const badge=page.locator('[data-atlas-badge="arrecife"]');assert.match(await badge.getAttribute('title'),/secreto del arrecife.*Entregá.*Rama Coralina/is);await badge.click();assert.match(await page.locator('.atlasBadgeDetail').innerText(),/Recompensa ya obtenida/);assert.equal(await page.evaluate(()=>JSON.stringify({gold:state.gold,xp:state.skills.pesca.xp,inventory:state.inventory,owned:state.owned,record:state.ui.e18Fishing,weights:state.ui.fishingWeights,rewards:state.ui.e187Rewards,achievements:state.ui.e191Achievements,zone:state.ui.fishingZoneId})),before);
   const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,rows:[...document.querySelectorAll('.atlasRow:not([hidden])')].map(n=>n.getBoundingClientRect().height),quests:[...document.querySelectorAll('.e230Quest')].map(n=>n.getBoundingClientRect().height)}));assert.ok(geometry.overflow<=1,JSON.stringify(geometry));assert.ok(geometry.rows.every(h=>h<=65));assert.ok(geometry.quests.every(h=>h<=(width<700?280:180)));
   await page.evaluate(async()=>persist());await page.reload();await page.waitForFunction(()=>storageReady&&ready&&!busy);await page.evaluate(()=>selectWorkspaceTab('fishing'));await atlasZone(page,'manglar');assert.equal(await page.locator('.atlasMedal').count(),1);assert.equal(await page.evaluate(()=>state.owned.e187_rod_coral),true);
  }finally{await context.close();}
@@ -1008,10 +1008,10 @@ for(const width of [1366,390])test(`Estable 23: thin rod art, signed attribute c
  try{
   await character(page,40,false);await page.evaluate(()=>{state.owned.e208_rod_custodio_titan=true;state.ui.fishingRodId='e208_rod_custodio_titan';e16Page();});
   assert.equal(await page.locator('#combatDock .e1118Zone .e1120RodLabel').count(),0);assert.equal(await page.locator('#page_fishing>h2').count(),0);
-  const name=page.locator('#combatDock .e1123RodName');assert.match(await name.innerText(),/Custodio del Río · Ancla de Titanes/);assert.ok(await name.evaluate(n=>n.scrollWidth<=n.clientWidth+1));
+  const name=page.locator('#combatDock .e1123RodName');assert.match(await name.innerText(),/Ancla de los Juncos/);assert.ok(await name.evaluate(n=>n.scrollWidth<=n.clientWidth+1));
   await page.locator('#combatDock .e194DockRod').click();
-  const choice=page.locator('.e1120Choice').filter({has:page.locator('b',{hasText:'Caña de fibra'})});assert.equal(await choice.locator('.e216RodThumb svg').count(),1);assert.equal(await choice.locator('.rodCompare').count(),6);
-  const actual=await choice.locator('[data-stat="control"]').getAttribute('data-delta'),expected=await page.evaluate(()=>Math.round((e1101Stats(E161_RODS.find(r=>r.id==='e161_rod_fiber')).control-e1101Stats(e161Rod()).control)/4*100)/100);assert.equal(Number(actual),expected);
+  const choice=page.locator('.e1120Choice').filter({has:page.locator('b',{hasText:'Hilo de Plata'})});assert.equal(await choice.locator('.e216RodThumb svg').count(),1);assert.equal(await choice.locator('.rodCompare').count(),6);
+  const actual=await choice.locator('[data-stat="control"]').getAttribute('data-delta'),expected=await page.evaluate(()=>Math.round((e1101Stats(E161_RODS.find(r=>r.id==='e161_rod_fiber')).control-e1101Stats(e161Rod()).control)/5*100)/100);assert.equal(Number(actual),expected);
   const deltas=await page.locator('.rodCompare').evaluateAll(ns=>ns.map(n=>({delta:Number(n.dataset.delta),better:n.classList.contains('better'),worse:n.classList.contains('worse'),same:n.classList.contains('same')})));for(const d of deltas){assert.equal(d.better,d.delta>0);assert.equal(d.worse,d.delta<0);assert.equal(d.same,d.delta===0);}assert.ok(deltas.some(d=>d.better)&&deltas.some(d=>d.worse));
   assert.ok(await page.locator('.e1120Menu').evaluate(n=>n.scrollWidth<=n.clientWidth+1));
  }finally{await context.close();}
@@ -1045,7 +1045,7 @@ test('Estable 23: catalog comparisons use pp/kg, recalculate on equip and preser
  const {context,page}=await fresh();
  try{
   await character(page,40);await page.locator('#tab_shop').click();await page.locator('#fishingRodShop').evaluate(n=>n.open=true);await page.locator('.rodTier[data-tier="inicio"]').evaluate(n=>n.open=true);
-  const row=page.locator('.rodShopRow[data-rod-id="e161_rod_fiber"]');assert.equal(await row.locator('.rodCompare').count(),6);assert.match(await row.locator('[data-stat="control"]').innerText(),/▼2,5 pp/);assert.match(await row.locator('[data-stat="maxKg"]').innerText(),/▼220 kg/);
+  const row=page.locator('.rodShopRow[data-rod-id="e161_rod_fiber"]');assert.equal(await row.locator('.rodCompare').count(),6);assert.match(await row.locator('[data-stat="control"]').innerText(),/▼2 pp/);assert.match(await row.locator('[data-stat="maxKg"]').innerText(),/▼220 kg/);
   const gold=await page.evaluate(()=>state.gold);await row.locator('button').click();assert.equal(await page.evaluate(()=>e161Rod().id),'e161_rod_fiber');assert.equal(await page.evaluate(()=>state.gold),gold-700);
   assert.ok(await row.locator('.rodCompare').evaluateAll(ns=>ns.every(n=>Number(n.dataset.delta)===0&&n.textContent.includes('='))));
   await page.locator('[data-rod-filter]').selectOption('quest');await page.locator('[data-rod-search]').fill('');
@@ -1381,7 +1381,7 @@ for(const width of [1366,390])test(`Estable 23: shop ownership toggle preserves 
  assert.equal(await page.locator('[data-rod-search]').inputValue(),'custodio');assert.equal(await page.locator('[data-rod-zone]').inputValue(),'rio');assert.equal(await page.locator('[data-rod-filter]').inputValue(),'quest');assert.equal(await page.locator('[data-rod-sort]').inputValue(),'control');
  const heading=await page.locator('#fishingRodShop>summary').innerText();assert.match(heading,/Tienda de cañas\s+50 cañas · 2 obtenidas/);assert.doesNotMatch(heading,/reforzada|🎣/);assert.equal(await page.locator('.rodTier>summary').evaluateAll(ns=>ns.some(n=>/[🌱🌊✨]/u.test(n.textContent))),false);
  const requirements=await page.evaluate(()=>[E17_ROD,...E171_QUESTS.map(q=>q.rod),E187_ROD].map(e217RequiredLevel));assert.deepEqual(requirements,[6,12,24,32]);assert.equal(await page.locator('[data-rod-sort] option[value="levelAsc"]').count(),0);
- await page.locator('#tab_fishing').click();await page.locator('#combatDock .e194DockRod').click();const tag=page.locator('.e1120Choice[data-rod-id="e208_rod_custodio_pulso"] .rodProvenance');assert.match(await tag.innerText(),/Río del Bosque · Encargo/);assert.match(await tag.getAttribute('title'),/Familia: Custodio del Río.*Encargo: Custodio del Río: Pulso Certero/);
+ await page.locator('#tab_fishing').click();await page.locator('#combatDock .e194DockRod').click();const tag=page.locator('.e1120Choice[data-rod-id="e208_rod_custodio_pulso"] .rodProvenance');assert.match(await tag.innerText(),/Río del Bosque · Encargo/);assert.match(await tag.getAttribute('title'),/Familia: Custodio del Río.*Encargo: El legado de Custodio del Río/);
  assert.equal(await page.evaluate(()=>e220RodProvenance({id:'unknown',name:'Prueba'}).zone),'');assert.equal(await page.locator('.e1120Choice[data-rod-id="e208_rod_custodio_pulso"] .rodCompare').count(),6);
  }finally{await context.close();}
 });
@@ -1481,10 +1481,10 @@ for(const width of [1366,390])test(`Estable 23: picker acquisition links, revers
   await page.locator('#combatDock .e194DockRod').click();const mine=page.locator('[data-picker-mine]');await mine.check();assert.equal(await page.locator('.e1120Choice:visible').count(),2);
   await page.locator('.e1120Choice[data-rod-id="e16_rod"]').click();assert.equal(await page.locator('[data-picker-mine]').isChecked(),true);assert.equal(await page.evaluate(()=>e161Rod().id),'e16_rod');assert.equal(await page.locator('.e1120Choice.active').getAttribute('data-rod-id'),'e16_rod');
   await mine.uncheck();assert.equal(await page.locator('.e1120Choice:visible').count(),50);await page.locator('.e217RodTools input[type="search"]').fill('bambu');
-  await page.getByRole('button',{name:'Ir a comprar: Caña de bambú',exact:true}).click();assert.equal(await page.locator('.e1120Menu').count(),0);
+  await page.getByRole('button',{name:'Ir a comprar: Bambú del Remanso',exact:true}).click();assert.equal(await page.locator('.e1120Menu').count(),0);
   const rod=page.locator('.rodShopRow[data-rod-id="e161_rod_bamboo"]');assert.equal(await rod.isVisible(),true);assert.equal(await rod.evaluate(n=>n.closest('.rodTier').open),true);assert.equal(await rod.locator('button').isDisabled(),true);assert.match(await rod.innerText(),/170 oro/);assert.equal(await page.evaluate(()=>!!state.owned.e161_rod_bamboo),false);
   await page.evaluate(()=>{e161Fishing=true;e161StopWait();});await page.locator('#combatDock .e194DockRod').click();await page.locator('.e217RodTools input[type="search"]').fill('Coralina');
-  await page.getByRole('button',{name:'Ver encargo: Caña Coralina',exact:true}).click();const preview=page.locator('[data-quest-preview]');assert.equal(await preview.count(),1);assert.match(await preview.innerText(),/Coralina|coral/i);assert.match(await preview.innerText(),/32/);assert.equal(await page.evaluate(()=>e165Zone().id),'costa');assert.equal(await page.evaluate(()=>e161Fishing),true);assert.equal(await page.evaluate(()=>!!state.owned.e187_rod_coral),false);
+  await page.getByRole('button',{name:'Ver encargo: Rama Coralina',exact:true}).click();const preview=page.locator('[data-quest-preview]');assert.equal(await preview.count(),1);assert.match(await preview.innerText(),/Coralina|coral/i);assert.match(await preview.innerText(),/32/);assert.equal(await page.evaluate(()=>e165Zone().id),'costa');assert.equal(await page.evaluate(()=>e161Fishing),true);assert.equal(await page.evaluate(()=>!!state.owned.e187_rod_coral),false);
   await page.evaluate(()=>{e210StopFishing();state.skills.pesca.xp=0;e16Page();});await page.locator('#combatDock .e194DockRod').click();await page.locator('.e217RodTools input[type="search"]').fill('Viejo');const locked=page.locator('.e1120Choice[data-rod-id="e17_rod_viejo"]');assert.equal(await locked.isDisabled(),true);assert.match(await locked.innerText(),/Bloqueada · Requiere Pesca 6/);assert.equal(await page.getByRole('button',{name:'Ver encargo: Caña del Viejo Pescador',exact:true}).isEnabled(),true);
  }finally{await context.close();}
 });
@@ -1586,7 +1586,7 @@ for(const width of [1366,390])test(`Estable 25: compact fish captions and persis
   const report=await page.evaluate(()=>{const box=q=>document.querySelector(q).getBoundingClientRect(),label=document.querySelector('.e225CaptureLabel'),badge=document.querySelector('.e225LastRecord');return{height:box('#combatDock').height,zone:box('.e1118Zone').height,rod:box('.e194DockRod').height,badgeRight:box('.e225LastRecord').left>=box('.e225CaptureLabel').right,labelFits:label.scrollWidth<=label.clientWidth,badgeSize:parseFloat(getComputedStyle(badge).fontSize),titleSize:parseFloat(getComputedStyle(label).fontSize),cards:[...document.querySelectorAll('.e186Fish')].map(c=>{const a=c.querySelector('.e192Sprite').getBoundingClientRect();return{art:a.width,card:c.clientWidth,small:c.querySelectorAll('small').length,name:parseFloat(getComputedStyle(c.querySelector('strong')).fontSize)};}),journal:[...document.querySelectorAll('.e218Card')].map(c=>({lines:c.querySelectorAll('.e225JournalMeta small').length,title:c.title,art:c.querySelector('.e218Art').getBoundingClientRect().height,all:c.getBoundingClientRect().height}))};});
   assert.equal(report.height,118);assert.equal(report.zone,report.rod);assert.ok(report.badgeRight&&report.labelFits);assert.ok(report.badgeSize<=report.titleSize);
   for(const c of report.cards){assert.ok(c.art>=c.card-14);assert.equal(c.small,0);assert.ok(c.name<=11);}
-  for(const c of report.journal){assert.equal(c.lines,2);assert.match(c.title,/Mejor categoría/);assert.ok(c.art>c.all*.55);}
+  for(const c of report.journal){assert.equal(c.lines,2);assert.match(c.title,/Récord absoluto/);assert.ok(c.art>c.all*.55);}
   await page.locator('[data-journal-fish="trucha"]').click();assert.equal(await page.locator('.e218Detail').count(),1);assert.match(await page.locator('.e218Detail').innerText(),/Récord absoluto/);
  }finally{await context.close();}
 });
@@ -1600,13 +1600,13 @@ for(const width of [1366,390])test(`Estable 26: styleable zone picker, boundary 
   await page.locator('#combatDock .e1118Zone').click();
   const menu=page.locator('.e1120Menu');
   assert.equal(await menu.evaluate(n=>getComputedStyle(n).scrollbarWidth),'none');
-  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones/zonas-desktop.png')});}
+  if(width===1366){require('node:fs').mkdirSync(join(__dirname,'../arte/verificacion/estable32/regresiones/regresiones'),{recursive:true});await page.screenshot({path:join(__dirname,'../arte/verificacion/estable32/regresiones/regresiones/zonas-desktop.png')});}
   await page.keyboard.press('Escape');
   await page.locator('#fishingRodShop').evaluate(n=>{n.open=true;n.querySelectorAll('.rodTier').forEach(n=>n.open=true)});
   const filter=page.locator('[data-rod-zone]');await filter.scrollIntoViewIfNeeded();await filter.click();
   assert.equal(await filter.evaluate(n=>getComputedStyle(n).appearance),'base-select');
   assert.deepEqual(await filter.evaluate(n=>({bar:getComputedStyle(n,'::picker(select)').scrollbarWidth,chain:getComputedStyle(n,'::picker(select)').overscrollBehaviorY})),{bar:'none',chain:'auto'});
-  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable31/regresiones/regresiones/filtro-desktop.png')});
+  if(width===1366)await page.screenshot({path:join(__dirname,'../arte/verificacion/estable32/regresiones/regresiones/filtro-desktop.png')});
   await page.keyboard.press('End');await page.keyboard.press('Enter');
   assert.equal(await filter.inputValue(),await page.evaluate(()=>E165_ZONES.at(-1).id));
   assert.match(await page.locator('[data-rod-results]').innerText(),/cañas/);

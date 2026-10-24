@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argentum Idle Online · Estable 31</title>
-<meta name="argentum-build" content="estable-31">
+<title>Argentum Idle Online · Estable 32</title>
+<meta name="argentum-build" content="estable-32">
 <style>
   :root { --bg:#14110f; --panel:#201a16; --panel2:#2a221c; --border:#5a4632; --text:#efe6d6; --muted:#a8977f; --gold:#e0b44c; --hp:#c94a4a; --xp:#7cbf5b; --en:#b65a3a; --mp:#4a84c9; --ok:#6fbf73; --warn:#e0a24c; }
   * { box-sizing:border-box; }
@@ -211,7 +211,7 @@
 </head>
 <body>
 <header>
-  <h1>Argentum Idle Online · Estable 31</h1>
+  <h1>Argentum Idle Online · Estable 32</h1>
   <div id="saveStatus">Cargando...</div>
 </header>
 
@@ -225,7 +225,7 @@
         <button data-act="newCharacter" id="newCharacterBtn" class="primary">Crear personaje</button>
         <button data-act="export">Exportar todos los personajes</button>
         <button data-act="importRoster">Importar JSON</button>
-        <button data-act="downloadHtml">Descargar index.html · Estable 31</button>
+        <button data-act="downloadHtml">Descargar index.html · Estable 32</button>
       </div>
       <input type="file" id="rosterImportFile" accept=".json,application/json" hidden>
       <details style="margin-top:12px"><summary>Pruebas aisladas de guardado v7</summary><button data-act="rosterTests">Ejecutar pruebas</button><pre id="rosterTestOutput" style="white-space:pre-wrap">No ejecutadas. No modifican tus partidas.</pre></details>
@@ -776,7 +776,7 @@ function renderGame(){
     <h2 style="margin-top:16px">Guardado</h2>
     <div id="saveInfo" class="muted" style="font-size:.85rem">${lastSave ? "Último guardado "+lastSave : "Guardado automático activo"}</div>
     <div class="actions">
-      <button data-act="downloadHtml">Descargar index.html · Estable 31</button>
+      <button data-act="downloadHtml">Descargar index.html · Estable 32</button>
       <button data-act="export">Exportar JSON</button>
       <button data-act="import">Importar JSON</button>
       <input type="file" id="importFile" accept=".json,application/json" hidden>
@@ -3048,17 +3048,18 @@ function e190SampleWeight(fish,rod=e161Rod(),random=Math.random){
  return Math.round((low+random()*(high-low))*100)/100;
 }
 function e190TrackWidth(){return Math.max(60,(document.getElementById('e16Tank')?.clientWidth||520)-6);}
-function e190ControlPercent(control){return control/4;}
+function e190ControlPercent(control){return control/5;}
 function e190CaptureWidth(fish,rod=e161Rod(),level=e16FishLevel(),width=e190TrackWidth(),abismo=!!e187Rewards().abismo){
- const skill=Math.min(22,Math.floor((level-1)/3)*2);
- const difficulty=E161_DIFFICULTY[fish.id]||1;
- const fraction=clamp(.16+e1101Stats(rod).control/400+skill/2000-(difficulty-1)*.025,.10,.36);
- return Math.min(width*.55,Math.max(28,width*fraction+(abismo?8:0)));
+ const st=e1101Stats(rod),demand=Math.max(0,(fish.req-1)/99),difficulty=E161_DIFFICULTY[fish.id]||1;
+ const fraction=clamp(.15+st.control/500+Math.min(.012,(level-1)/8250)-(difficulty-1)*.018-demand*.045,.075,.30);
+ // The historical +8px reward is 8px at the 520px reference, proportional on mobile.
+ return Math.max(16,width*(fraction+(abismo?8/520:0)));
 }
 function e190MotionProfile(fish,rod=e161Rod()){
  const resilience=clamp(e1101Stats(rod).resilience,0,60)/100;
- return {distance:1-resilience*.65,interval:1+resilience*1.5};
+ return {distance:1-resilience*.5,interval:1+resilience*2};
 }
+
 function e190Weights(){
  state.ui=state.ui||{};
  return state.ui.fishingWeights||(state.ui.fishingWeights={bySpecies:{},byZone:{}});
@@ -3073,15 +3074,22 @@ function e190RecordWeight(catchInfo){
  const known=e218Record(id),previousBest=known.best;
  catchInfo.newAbsoluteRecord=previousBest>0&&catchInfo.weightKg>previousBest;
  speciesRecord.bestKg=previousBest;speciesRecord.categoryBestKg={...speciesRecord.categoryBestKg,...known.categories};if(known.category)speciesRecord.bestCategory=known.category;
+ const priorCount=Math.max(Number(speciesRecord.catches)||0,(Number(state.ui?.e18Fishing?.bySpecies?.[id]?.total)||0)-1);
+ if(!speciesRecord.categoryCounts){
+  const historical=state.ui?.e18Fishing?.bySpecies?.[id]?.categoryCounts||{};
+  speciesRecord.categoryCounts=Object.fromEntries(Object.entries(historical).filter(([key,n])=>Object.hasOwn(E218_CATEGORIES,key)&&Number.isSafeInteger(n)&&n>=0));
+  speciesRecord.categoryCountBaseline=Math.max(0,priorCount-Object.values(speciesRecord.categoryCounts).reduce((a,b)=>a+b,0));
+ }
  record(speciesRecord);
  const label=e183LastQuality?.fish===catchInfo.fish.name?e183LastQuality.label:'';
  const category=label.includes('LEGENDARIO')?'legendary':label.includes('ENORME')?'huge':label.includes('Grande')?'large':'normal';
+ speciesRecord.categoryCounts[category]=(Number(speciesRecord.categoryCounts[category])||0)+1;
  speciesRecord.categoryBestKg=speciesRecord.categoryBestKg||{};
  speciesRecord.categoryBestKg[category]=Math.max(Number(speciesRecord.categoryBestKg[category])||0,catchInfo.weightKg);
  if(catchInfo.weightKg>previousBest)speciesRecord.bestCategory=category;
  const zone=weights.byZone[catchInfo.zone]||(weights.byZone[catchInfo.zone]={species:{}});
  zone.species=zone.species||{};zone.species[id]=(zone.species[id]||0)+1;record(zone);
- weights.last={id,weightKg:catchInfo.weightKg,zone:catchInfo.zone,rodId:catchInfo.rodId};
+ weights.last={id,weightKg:catchInfo.weightKg,category,zone:catchInfo.zone,rodId:catchInfo.rodId};
  if(e182LastCatch)e182LastCatch.weightKg=catchInfo.weightKg;
 }
 function e190CollectorProgress(){
@@ -3253,7 +3261,7 @@ e16Start=function(id){
  if(weightKg===null){e161Fishing=false;e16Result='La caña no soporta el peso de este pez.';e16Page();return;}
  const rod=e161Rod(),motion=e190MotionProfile(f,rod),zone=e190CaptureWidth(f,rod);
  const fish={...f,zone};
- e16Session={fish,weightKg,rodId:rod.id,motion,controlFraction:e190CaptureWidth(f,rod,e16FishLevel(),1000,false)/1000,controlExtra:e187Rewards().abismo?8:0,pos:100,vel:0,target:Math.random()*Math.max(20,e190TrackWidth()-40)+8,dir:Math.random()<.5?-1:1,turnAt:.35,seed:Math.random()*6,time:0,progress:.23,burst:0,burstAt:.5};
+ e16Session={fish,weightKg,rodId:rod.id,motion,capture:e232CaptureProfile(f,rod,e16FishLevel(),weightKg),controlFraction:e190CaptureWidth(f,rod,e16FishLevel(),1000,false)/1000,controlExtra:0,controlRewardFraction:e187Rewards().abismo?8/520:0,pos:100,vel:0,target:Math.random()*Math.max(20,e190TrackWidth()-40)+8,dir:Math.random()<.5?-1:1,turnAt:.35,seed:Math.random()*6,time:0,progress:.23,burst:0,burstAt:.5};
  e16Holding=false;e16Result='';e16Page();e16Last=performance.now();e16Frame=requestAnimationFrame(e16Animate);
 };
 e16Animate=function(now){
@@ -3947,7 +3955,7 @@ e16Finish=function(won){
   if(quality==='legendary'){r.legendary=(Number(r.legendary)||0)+1;if(zone==='rio')r.riverHuge=true;}
   const previous=r.bySpecies[fish.id]||{total:0,best:'normal'};
   const rank={normal:0,large:1,huge:2,legendary:3};
-  r.bySpecies[fish.id]={total:(Number(previous.total)||0)+1,best:rank[quality]>rank[previous.best||'normal']?quality:previous.best};
+  r.bySpecies[fish.id]={...previous,total:(Number(previous.total)||0)+1,best:rank[quality]>rank[previous.best||'normal']?quality:previous.best};
  }
  e18OldFinish(won);
  if(fish){
@@ -4655,21 +4663,23 @@ const E210_CAPTURE_PROFILES={
  morena:{speed:1.34,run:1.9,gain:.86,loss:1.30},
  tiburon_arrecife:{speed:1.48,run:2.1,gain:.82,loss:1.40}
 };
+const E232_DEFAULT_CAPTURE={speed:1,run:1,gain:1,loss:1};
 function e190FishingStep(g,holding,dt,width,random=Math.random){
- if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(28,width*g.controlFraction+(g.controlExtra||0)));
+ if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(16,width*(g.controlFraction+(g.controlRewardFraction||0))+(g.controlExtra||0)));
  // Player input stays proportional to the track on desktop and touch.
  const limit=Math.max(0,width-g.fish.zone-4),scale=width/520;
  g.vel+=(holding?600:-570)*scale*dt;g.vel=Math.max(-220*scale,Math.min(220*scale,g.vel));g.pos=Math.max(0,Math.min(limit,g.pos+g.vel*dt));if(g.pos===0||g.pos===limit)g.vel=0;
  const diff=E161_DIFFICULTY[g.fish.id]||1,motion=g.motion||{distance:1,interval:1};
- const profile=E210_CAPTURE_PROFILES[g.fish.id]||{speed:1,run:1,gain:1,loss:1};
+ const profile=E210_CAPTURE_PROFILES[g.fish.id]||E232_DEFAULT_CAPTURE;
  // A seeded continuous path replaces frequent random reversals. Resilience slows
  // timing/acceleration, never collapses the sweep into a stationary control bar.
  if(!Number.isFinite(g.motionPhase)){const phase=Math.asin(Math.max(-1,Math.min(1,((g.target+12)/width-.5)/.37)));g.motionPhase=g.dir<0?Math.PI-phase:phase;g.targetVelocity=0;}
- const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)/Math.pow(motion.interval,.35);
+ const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),pressure=capture.pressure;
+ const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)*pressure/Math.pow(motion.interval,.65);
  g.motionPhase+=frequency*dt;g.time+=dt;
  const ripple=Math.min(.045,.012+diff*.008)*Math.sin(g.motionPhase*(2.2+g.fish.wiggle*.5)+g.seed);
  const desired=width*(.5+.37*Math.sin(g.motionPhase)+ripple)-12;
- const maxVelocity=width*(.24+.034*Math.min(4,diff))*Math.sqrt(motion.distance);
+ const maxVelocity=width*Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance));
  const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*8))*Math.sqrt(motion.distance);
  g.targetVelocity=Math.max(-maxVelocity,Math.min(maxVelocity,(g.targetVelocity||0)+acceleration*dt));
  g.target=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*dt));
@@ -4679,7 +4689,7 @@ function e190FishingStep(g,holding,dt,width,random=Math.random){
  g.anticipation=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*.32));
  const inside=g.target+12>=g.pos&&g.target+12<=g.pos+g.fish.zone;
  const endurance=1+Math.max(0,(g.fish.req||1)-32)*.003;
- const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*(g.time<.9?.4:1);
+ const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain/capture.endurance,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*capture.loss*(g.time<.9?.4:1);
  g.progress=Math.max(0,Math.min(1,g.progress+(inside?gain:-loss)*dt));
  return g.progress>=1?'won':g.time>4&&g.progress<=0?'escaped':null;
 }
@@ -5216,10 +5226,11 @@ function e197Sync(){
  if(!card){card=document.createElement('div');card.className='e197FishingSkills';box.after(card);}
  const lv=e16FishLevel(),xp=e16FishSkill().xp,lo=10*(lv-1)*(lv-1),hi=10*lv*lv;
  const pct=e16FishProgress().percent;
- const rod=e161Rod(),perks=e187Rewards(),key=JSON.stringify([xp,rod?.name,!!perks.laguna,!!perks.abismo]);
+ const rod=e161Rod(),perks=e187Rewards(),key=JSON.stringify([xp,rod?.name,!!perks.laguna,!!perks.abismo,e165Zone().id,e232RegionalBonus().names]);
  if(card.dataset.renderKey===key)return;card.dataset.renderKey=key;
  card.innerHTML=(typeof e227Illustration==='function'?e227Illustration('ui','sidebar','e227SidebarArt',true):'')+'<b>Progreso de Pesca</b><div class="e197Line"><span>Nivel '+lv+(lv===100?' · Máximo':'')+'</span><b>'+(lv===100?fmt(xp)+' XP acumulada':Math.floor(xp-lo)+' / '+(hi-lo)+' XP')+'</b></div><div class="e197Track"><div class="e197Fill" style="width:'+pct.toFixed(1)+'%"></div></div><div class="e197Line"><span>🎣 Caña equipada</span><b>'+ (rod?.name||'Ninguna').replaceAll('<','&lt;')+'</b></div><small>La experiencia y las cañas mejoran tu capacidad de pesca. Los atributos de combate siguen disponibles en su pestaña.</small>';
  if(perks.laguna)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌿 Instinto de pescador · +5% XP de Pesca activo</small>');
+ for(const name of e232RegionalBonus().names)card.insertAdjacentHTML('beforeend','<small class="e232RegionalPerk">'+esc(name)+' · mejora regional activa</small>');
  if(perks.abismo)card.insertAdjacentHTML('beforeend','<small class="e197Perk">🌌 Pulso del abismo · +8 px de control activos</small>');
 }
 const e197PreviousPage=e16Page;
@@ -6487,15 +6498,15 @@ for(const family of E208_FAMILIES)for(const specialty of E208_SPECIALTIES){
 function e208QuestProgress(rod){
  const q=rod.unlock,record=state?.ui?.fishingWeights?.byZone?.[q?.zone]||{};
  const catches=Number(record.catches||0),species=Object.keys(record.species||{}).filter(id=>record.species[id]>0).length,bestKg=Number(record.bestKg||0);
- return {catches,species,bestKg,ready:!!q&&catches>=q.catches&&species>=q.species&&bestKg>=q.bestKg};
+ return {catches,species,bestKg,ready:!!q&&e16FishLevel()>=rod.req&&catches>=q.catches&&species>=q.species&&bestKg>=q.bestKg};
 }
 function e208QuestText(rod){
  const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
- return `${zone.name}: capturá ${q.catches} peces (${Math.min(p.catches,q.catches)}/${q.catches}), ${q.species} especies distintas (${Math.min(p.species,q.species)}/${q.species}) y un pez de ${e190Kg(q.bestKg)} o más (récord: ${e190Kg(p.bestKg)}).`;
+ return `${zone.name}: alcanzá Pesca ${rod.req}; capturá ${q.catches} peces (${Math.min(p.catches,q.catches)}/${q.catches}), ${q.species} especies distintas (${Math.min(p.species,q.species)}/${q.species}) y un pez de ${e190Kg(q.bestKg)} o más (récord: ${e190Kg(p.bestKg)}).`;
 }
 function e212QuestGoals(rod){
  const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
- const goals=[[p.catches>=q.catches,`Capturá ${q.catches} peces en total`,`${Math.min(p.catches,q.catches)} de ${q.catches}`],[p.species>=q.species,`Capturá ${q.species} especies distintas`,`${Math.min(p.species,q.species)} de ${q.species}`],[p.bestKg>=q.bestKg,`Capturá un pez de ${e190Kg(q.bestKg)} o más`,`Tu récord: ${e190Kg(p.bestKg)}`]];
+ const goals=[[e16FishLevel()>=rod.req,'Alcanzá habilidad de Pesca '+rod.req,e16FishLevel()+' de '+rod.req],[p.catches>=q.catches,`Capturá ${q.catches} peces en total`,`${Math.min(p.catches,q.catches)} de ${q.catches}`],[p.species>=q.species,`Capturá ${q.species} especies distintas`,`${Math.min(p.species,q.species)} de ${q.species}`],[p.bestKg>=q.bestKg,`Capturá un pez de ${e190Kg(q.bestKg)} o más`,`Tu récord: ${e190Kg(p.bestKg)}`]];
  return `<p>Completá estos tres objetivos en <b>${esc(zone.name)}</b>:</p><ul class="e212Goals">${goals.map(([done,label,progress])=>`<li class="${done?'done':''}"><span>${done?'✓':'○'} ${esc(label)}</span><b>${esc(progress)}</b></li>`).join('')}</ul><small>Cuenta lo que ya pescaste en esta zona. No se consumen peces; podés venderlos.</small>`;
 }
 // Retired offers retain their IDs, stats and owned equipment for existing saves.
@@ -6520,7 +6531,7 @@ function e208FilterShop(shop,expand=false){
    return Number(b.dataset[sort])-Number(a.dataset[sort])||owned(b)-owned(a);
   }).forEach(row=>container.append(row));
   for(const row of rows){
-   const owned=!!state.owned?.[row.dataset.rodId],text=row.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+   const owned=!!state.owned?.[row.dataset.rodId],text=(row.textContent+' '+(e232RodAliases.get(row.dataset.rodId)||'')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
    const matches=source==='all'||source==='owned'&&owned||source==='locked'&&!owned||source==='affordable'&&row.dataset.source==='gold'&&!owned&&state.gold>=Number(row.dataset.price)||source===row.dataset.source;
    row.hidden=!(text.includes(query)&&matches&&(!mine||owned)&&(zone==='all'||row.dataset.zone===zone));if(!row.hidden)visible++;
   }
@@ -6628,8 +6639,8 @@ function e216QuestDefinitions(){
  const result=[delivery('e17_viejo',E17_QUEST,E17_ROD.name,!!state.owned?.[E17_ROD.id],E17_ROD.id),...E171_QUESTS.map(q=>delivery(q.id,q,q.rod.name,!!state.owned?.[q.rod.id],q.rod.id)),...E187_QUESTS.map(q=>delivery(q.id,q,q.reward,!!state.ui?.e187Rewards?.[q.id]||(q.kind==='rod'&&!!state.owned?.[E187_ROD.id]),q.kind==='rod'?E187_ROD.id:null))];
  const w=state.ui?.fishingWeights?.byZone?.rio||{};
  result.push({id:'coleccionista',rodId:E18_ROD.id,zone:'rio',title:'El trofeo de las corrientes',reward:E18_ROD.name,done:!!state.owned?.[E18_ROD.id],note:'Capturas históricas del Río del Bosque; no consume peces. Se conserva el crédito de trofeo de las partidas antiguas.',goals:[{label:'Conseguí 5 capturas',have:w.catches||0,need:5},{label:'Descubrí 3 especies distintas',have:Object.values(w.species||{}).filter(n=>n>0).length,need:3},{label:'Capturá un pez de al menos 8 kg',have:w.bestKg||0,need:8}]});
- for(const rod of E208_CATALOG.filter(r=>r.unlock)){const q=rod.unlock,p=e208QuestProgress(rod);result.push({id:rod.id,rodId:rod.id,zone:q.zone,title:q.title,reward:rod.name,done:!!state.owned?.[rod.id],note:'Capturas históricas de esta zona; los tres objetivos son necesarios. No consume peces.',goals:[{label:`Conseguí ${q.catches} capturas`,have:p.catches,need:q.catches},{label:`Descubrí ${q.species} especies distintas`,have:p.species,need:q.species},{label:`Capturá un pez de al menos ${e190Kg(q.bestKg)}`,have:p.bestKg,need:q.bestKg}]});}
- return result.concat(typeof e227QuestDefinitions==='function'?e227QuestDefinitions():[]);
+ for(const rod of E208_CATALOG.filter(r=>r.unlock)){const q=rod.unlock,p=e208QuestProgress(rod);result.push({id:rod.id,rodId:rod.id,zone:q.zone,title:q.title,reward:rod.name,done:!!state.owned?.[rod.id],note:'Capturas históricas de esta zona; los tres objetivos son necesarios. No consume peces.',goals:[{kind:'level',label:`Alcanzá habilidad de Pesca ${rod.req}`,have:e16FishLevel(),need:rod.req},{label:`Conseguí ${q.catches} capturas`,have:p.catches,need:q.catches},{label:`Descubrí ${q.species} especies distintas`,have:p.species,need:q.species},{label:`Capturá un pez de al menos ${e190Kg(q.bestKg)}`,have:p.bestKg,need:q.bestKg}]});}
+ return result.concat(typeof e227QuestDefinitions==='function'?e227QuestDefinitions():[]).map(e232QuestDefinition);
 }
 function e216ZoneProgress(zone,definitions=e216QuestDefinitions()){
  const species=[...new Set(zone.fish)],record=state.ui?.e18Fishing?.bySpecies||{},weights=state.ui?.fishingWeights?.bySpecies||{};
@@ -6913,7 +6924,8 @@ function e220RodProvenance(rod){
 const E217_STAT_KEYS=['speed','luck','control','resilience','trophy','maxKg'];
 const E217_SORT_OPTIONS=[['recommended','Recomendadas'],['speed','Mayor atracción'],['luck','Mayor suerte'],['control','Mayor control'],['resilience','Mayor resiliencia'],['maxKg','Mayor capacidad de peso']];
 function e217RequiredLevel(rod){
- // req on catalog rods is a display tier, NOT a purchase/equipment requirement.
+ // Character skill gates only quest acquisition, never gold purchases or owned equipment.
+ if(rod.unlock)return rod.req;
  if(rod.id===E17_ROD.id)return E17_QUEST.level;
  const quest=E171_QUESTS.find(q=>q.rod.id===rod.id);if(quest)return quest.level;
  if(rod.id===E187_ROD.id)return E187_QUESTS.find(q=>q.kind==='rod').req;
@@ -6956,7 +6968,7 @@ function e217MenuTools(popup,anchor){
  const update=()=>{
   const key=sort.value+'|'+e16FishLevel()+'|'+e161Rod()?.id+'|'+rods.map(r=>Number(!!state.owned?.[r.id])).join('');
   if(key!==orderKey){for(const rod of e217SortRods(rods,sort.value))popup.append(choices.get(rod.id).closest('.e222RodEntry'));orderKey=key;}
-  const query=normalize(search.value.trim()),mine=toolbar.querySelector('[data-picker-mine]').checked;for(const rod of rods){const row=choices.get(rod.id),hidden=!normalize(rod.name).includes(query)||(mine&&!state.owned?.[rod.id]);row.hidden=hidden;row.closest('.e222RodEntry').hidden=hidden;}
+  const query=normalize(search.value.trim()),mine=toolbar.querySelector('[data-picker-mine]').checked;for(const rod of rods){const row=choices.get(rod.id),hidden=!normalize(rod.name+' '+(e232RodAliases.get(rod.id)||'')).includes(query)||(mine&&!state.owned?.[rod.id]);row.hidden=hidden;row.closest('.e222RodEntry').hidden=hidden;}
   popup.scrollTop=0;
  };
  search.addEventListener('input',update);sort.addEventListener('change',update);toolbar.querySelector('[data-picker-mine]').addEventListener('change',update);popup.e222Update=update;update();
@@ -7111,7 +7123,7 @@ function e218Record(id){
  if(!category&&lastCategory&&weight===best)category=lastCategory;
  if(!category&&matches.length===1)category=matches[0];
  if(category&&best>0)categories[category]=Math.max(categories[category]||0,best);
- return {count:Number(h.total)||Number(w.catches)||0,best,category,categories,quality:h.best||'normal'};
+ return {count:Math.max(Number(h.total)||0,Number(w.catches)||0),best,category,categories,quality:h.best||'normal',categoryCounts:w.categoryCounts||h.categoryCounts||{},countsPartial:Number(w.categoryCountBaseline)>0||Object.values(w.categoryCounts||h.categoryCounts||{}).reduce((a,b)=>a+(Number(b)||0),0)<Math.max(Number(h.total)||0,Number(w.catches)||0)};
 }
 function e218Detail(f){
  const r=e218Record(f.id),panel=document.createElement('section');panel.className='e218Detail';panel.id='fishingSpeciesDetail';
@@ -7133,31 +7145,33 @@ function e220Normalize(text){return text.normalize('NFD').replace(/[\u0300-\u036
 function e220FilterJournal(list){
  const v=e220JournalView(),query=e220Normalize(v.search),cards=[...list.querySelectorAll('[data-journal-fish]')];
  list.querySelector('.e218Detail')?.remove();
- const records=new Map(cards.map(c=>[c.dataset.journalFish,e218Record(c.dataset.journalFish)]));
+ const records=new Map(cards.map(c=>{const r=e218Record(c.dataset.journalFish);return[c.dataset.journalFish,{...r,raw:r,totalCount:r.count,...e232JournalStats(r,v.category)}];}));
  const fish=new Map(E16_FISH.map(f=>[f.id,f])),difficulty=e222DifficultyReference();
  cards.sort((a,b)=>{const x=fish.get(a.dataset.journalFish),y=fish.get(b.dataset.journalFish),ra=records.get(x.id),rb=records.get(y.id),tie=()=>x.name.localeCompare(y.name,'es');
   if(v.sort==='difficulty'||v.sort==='difficultyHigh'){const d=(difficulty.get(y.id)?.chance??1)-(difficulty.get(x.id)?.chance??1)||(difficulty.get(x.id)?.level??0)-(difficulty.get(y.id)?.level??0)||tie()||x.id.localeCompare(y.id);return v.sort==='difficultyHigh'?-d:d;}
   if(v.sort==='name')return tie();
   if(v.sort==='valueHigh'||v.sort==='valueLow')return (v.sort==='valueHigh'?y.price-x.price:x.price-y.price)||tie();
   if(v.sort==='weightHigh'||v.sort==='weightLow'){if(!ra.best||!rb.best)return ra.best===rb.best?tie():!ra.best?1:-1;return(v.sort==='weightHigh'?rb.best-ra.best:ra.best-rb.best)||tie();}
+  if(!ra.countKnown||!rb.countKnown)return ra.countKnown===rb.countKnown?tie():ra.countKnown?-1:1;
   return(v.sort==='least'?ra.count-rb.count:rb.count-ra.count)||tie();
  });
  let visible=0;
- for(const card of cards){const f=fish.get(card.dataset.journalFish),r=records.get(f.id),category=v.category,matchCategory=!category||category==='species'||!!r.categories[category]||r.category===category||(r.count>0&&r.quality===category);card.hidden=!(matchCategory&&e220Normalize(f.name).includes(query)&&(v.zone==='all'||E165_ZONES.find(z=>z.id===v.zone)?.fish.includes(f.id)));if(!card.hidden)visible++;list.append(card);}
+ for(const card of cards){const f=fish.get(card.dataset.journalFish),r=records.get(f.id),category=v.category,matchCategory=!category||category==='species'||!!r.categories[category]||r.category===category||(r.totalCount>0&&r.quality===category);e232JournalCaption(card,f,r.raw,category);card.hidden=!(matchCategory&&e220Normalize(f.name).includes(query)&&(v.zone==='all'||E165_ZONES.find(z=>z.id===v.zone)?.fish.includes(f.id)));if(!card.hidden)visible++;list.append(card);}
  const selected=e218Selected.get(state);if(selected&&!cards.some(c=>c.dataset.journalFish===selected&&!c.hidden))e218Selected.delete(state);
  list.querySelectorAll('[data-journal-fish]').forEach(c=>c.setAttribute('aria-expanded','false'));
  const empty=list.parentElement.querySelector('.journalEmpty');empty.hidden=visible>0;empty.textContent=cards.length?'No hay especies descubiertas con estos filtros.':'Tus especies aparecerán acá cuando captures peces.';
  list.parentElement.querySelector('[data-journal-results]').textContent=visible+' especies';
  for(const b of list.closest('details').querySelectorAll('[data-journal-category]'))b.setAttribute('aria-pressed',String(b.dataset.journalCategory===v.category));
- if(typeof e230StyleJournal==='function')e230StyleJournal(list);
+ if(typeof e230StyleJournal==='function')e230StyleJournal(list,records);
  if(list.closest('details').open)e218PlaceDetail(list,e218Selected.get(state));
 }
 function e218Journal(){
  const journal=document.querySelector('#page_fishing .e181Journal');if(!journal||!state)return;
  const list=journal.querySelector('.e187JournalList');if(!list)return;list.replaceChildren();list.classList.add('e218Album');
  const fishes=E16_FISH.filter(f=>e218Record(f.id).count>0),record=e18Record(),total=Number(record.total)||0,large=Number(record.large)||0,huge=Number(record.huge)||0,legendary=Number(record.legendary)||0;
+ const known=k=>Object.hasOwn(record,k)&&Number.isSafeInteger(record[k])&&record[k]>=0,normalKnown=['large','huge','legendary'].every(known)&&large+huge+legendary<=total;
  let stats=journal.querySelector('.e18Pills');stats.className='e18Pills journalSummary';
- stats.innerHTML=[['total','Capturas',total],['species','Especies',fishes.length],['normal','Comunes',Math.max(0,total-large-huge-legendary)],['large','Grandes',large],['huge','Enormes',huge],['legendary','Legendarios',legendary]].map(([key,label,value])=>'<'+(key==='total'?'span':'button')+' data-journal-stat="'+key+'" '+(key==='total'?'title="Total histórico de capturas; no es una categoría"':'type="button" data-journal-category="'+key+'" aria-pressed="false" title="'+(key==='species'?'Todas las especies descubiertas':'Filtrar especies con una captura verificada de esta categoría; el número es el total histórico de capturas, no el número de especies')+'"')+'><i aria-hidden="true"></i><span>'+label+'</span><b>'+fmt(value)+'</b></'+(key==='total'?'span':'button')+'>').join('');
+ stats.innerHTML=[['total','Capturas',total],['species','Especies',fishes.length],['normal','Comunes',normalKnown?Math.max(0,total-large-huge-legendary):null],['large','Grandes',known('large')?large:null],['huge','Enormes',known('huge')?huge:null],['legendary','Legendarios',known('legendary')?legendary:null]].map(([key,label,value])=>'<'+(key==='total'?'span':'button')+' data-journal-stat="'+key+'" '+(key==='total'?'title="Total histórico de capturas; no es una categoría"':'type="button" data-journal-category="'+key+'" aria-pressed="false" title="'+(key==='species'?'Todas las especies descubiertas':'Filtrar especies con una captura verificada de esta categoría; el número es el total histórico de capturas, no el número de especies')+'"')+'><i aria-hidden="true"></i><span>'+label+'</span><b>'+(value===null?'—':fmt(value))+'</b></'+(key==='total'?'span':'button')+'>').join('');
  const oldText=journal.querySelector('p');if(oldText)oldText.remove();journal.querySelector('.journalTools')?.remove();journal.querySelector('.journalEmpty')?.remove();
  const tools=document.createElement('div');tools.className='journalTools';tools.innerHTML='<input type="search" data-journal-search aria-label="Buscar especie del Diario" placeholder="Buscar especie…"><select data-journal-zone aria-label="Zona del Diario"><option value="all">Todas las zonas</option>'+e221ZoneOptions()+'</select><select data-journal-sort aria-label="Ordenar Diario" title="Dificultad de referencia: nivel 100, sin suerte y con capacidad suficiente; se toma la zona más favorable. No es tu probabilidad actual. Valor de venta: precio base Común por unidad"><option value="difficulty">Más fáciles de conseguir</option><option value="difficultyHigh">Más difíciles de conseguir</option><option value="most">Más capturados</option><option value="least">Menos capturados</option><option value="weightHigh">Mayor peso récord</option><option value="weightLow">Menor peso récord</option><option value="valueHigh">Mayor valor base de venta</option><option value="valueLow">Menor valor base de venta</option><option value="name">Nombre A–Z</option></select><small data-journal-results aria-live="polite"></small>';
  list.before(tools);const empty=document.createElement('p');empty.className='journalEmpty';list.after(empty);
@@ -7168,7 +7182,7 @@ function e218Journal(){
  card.innerHTML='<div class="e218Art">'+e189FishSVG(f.id)+'</div><div class="e225JournalCaption"><b>'+f.name+'</b><div class="e225JournalMeta"><small>'+fmt(r.count)+' capt.</small><small>'+(r.best?e190Kg(r.best):'Sin récord')+'</small></div></div>';
  card.onclick=()=>{const next=e218Selected.get(state)===f.id?null:f.id;e218Selected.set(state,next);e218PlaceDetail(list,next);};list.append(card);}
  e220FilterJournal(list);
- journal.addEventListener('toggle',()=>{if(journal.open)e218PlaceDetail(list,e218Selected.get(state));});
+ if(!journal.dataset.detailToggle){journal.dataset.detailToggle='true';journal.addEventListener('toggle',()=>{if(journal.open&&state){const grid=journal.querySelector('.e218Album');if(grid)e218PlaceDetail(grid,e218Selected.get(state));}});}
  document.querySelectorAll('#page_fishing .e186Fish').forEach(card=>{card.title=[...card.querySelectorAll('strong,small')].map(n=>n.textContent.trim()).filter(Boolean).join(' · ');card.querySelectorAll('small').forEach(n=>n.remove());});
 }
 const e218PriorPage=e16Page;
@@ -8017,7 +8031,7 @@ function e227QuestGoal(q,goal){
  if(goal.kind==='speciesWeight')return{label:`Capturá ${E16_FISH.find(f=>f.id===goal.id).name} de al menos ${e190Kg(goal.need)}`,have:Number(state.ui?.fishingWeights?.bySpecies?.[goal.id]?.bestKg)||0,need:goal.need};
  const ids=goal.ids||zone.fish;return{label:goal.ids?'Descubrí '+ids.map(id=>E16_FISH.find(f=>f.id===id).name).join(' y '):`Descubrí ${goal.need} especies de ${zone.name}`,have:ids.filter(id=>e227Discovered(state,id)).length,need:goal.need};
 }
-function e227QuestDefinitions(){return E227_QUESTS.map(q=>({...q,reward:q.rodId?'Insignia · '+E161_RODS.find(r=>r.id===q.rodId).name:'Insignia de encargo',done:!!state.ui?.fishingQuestRewards?.[q.id],goals:q.goals.map(g=>({...e227QuestGoal(q,g),kind:g.kind,fishIds:g.id?[g.id]:g.ids||[]})),note:(q.description?q.description+' ':'')+(q.masteryRole==='supplemental'?'Encargo complementario: no cambia las estrellas históricas. Cuenta el progreso guardado; no consume peces.':'Encargo principal de maestría. Cuenta el progreso guardado; no consume peces ni exige la especie mítica.')}));}
+function e227QuestDefinitions(){return E227_QUESTS.map(q=>({...q,reward:q.rodId?'Caña · '+E161_RODS.find(r=>r.id===q.rodId).name:e232BadgeReward(q),done:!!state.ui?.fishingQuestRewards?.[q.id],goals:q.goals.map(g=>({...e227QuestGoal(q,g),kind:g.kind,fishIds:g.id?[g.id]:g.ids||[]})),note:(q.description?q.description+' ':'')+(q.masteryRole==='supplemental'?'Encargo complementario: no cambia las estrellas históricas. Cuenta el progreso guardado; no consume peces.':'Encargo principal de maestría. Cuenta el progreso guardado; no consume peces ni exige la especie mítica.')}));}
 function e227RenderQuests(){
  const group=document.querySelector('#page_fishing .e171Quests');if(!group||!state)return;
  const qs=e227QuestDefinitions().filter(q=>q.zone===e165Zone().id&&!q.done);if(!qs.length)return;
@@ -8082,7 +8096,7 @@ function e227TopShell(){
  const identity=document.createElement('div');identity.className='generalIdentity';identity.innerHTML='<b id="generalCharacter"></b><div class="generalXP"><span id="generalXPText"></span><div class="generalXPTrack" role="progressbar" aria-label="Experiencia general del personaje" aria-valuemin="0" aria-valuemax="100"><span id="generalXPBar"></span></div></div>';
  const title=header.querySelector('h1');top.append(identity,title);header.prepend(top);
  const nav=document.createElement('div');nav.className='globalHeaderNav';
- const settings=document.createElement('details');settings.id='gameSettings';settings.innerHTML='<summary aria-label="Configuración" title="Configuración"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 2-1 3-3 1-2 3 2 3-1 3 3 3 3-1 3 2 3-2 3 1 3-3-1-3 2-3-2-3-3-1-1-3Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="saveIndicator" aria-hidden="true"></span></summary><div class="settingsPanel"><h2>Configuración</h2><div id="settingsSaveState" role="status"></div><div class="settingsActions"></div><div class="settingsTechnical"><small>Estable 31 · Guardado automático · v7 · hasta cinco personajes</small><div id="settingsLastSave"></div></div></div>';
+ const settings=document.createElement('details');settings.id='gameSettings';settings.innerHTML='<summary aria-label="Configuración" title="Configuración"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 2-1 3-3 1-2 3 2 3-1 3 3 3 3-1 3 2 3-2 3 1 3-3-1-3 2-3-2-3-3-1-1-3Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="saveIndicator" aria-hidden="true"></span></summary><div class="settingsPanel"><h2>Configuración</h2><div id="settingsSaveState" role="status"></div><div class="settingsActions"></div><div class="settingsTechnical"><small>Estable 32 · Guardado automático · v7 · hasta cinco personajes</small><div id="settingsLastSave"></div></div></div>';
  nav.append(settings);header.append(nav);
  if(typeof ResizeObserver!=='undefined')new ResizeObserver(()=>document.documentElement.style.setProperty('--global-header-height',header.getBoundingClientRect().height+'px')).observe(header);
  const status=header.querySelector('#saveStatus');if(status){settings.querySelector('#settingsSaveState').append(status);if(status.classList.contains('warn')){settings.querySelector('summary').classList.add('saveError');settings.querySelector('summary').setAttribute('aria-label','Configuración · Atención: '+status.textContent);}}
@@ -8103,14 +8117,14 @@ function e227InstallTop(){
  const session=document.getElementById('e13SessionBox');if(session)root.querySelector('#page_combat')?.prepend(session);
  // Duplicate identity/progression is now in the top row. Keep HP, MP, stats and rest.
  const attributes=root.querySelector('details[data-ui-panel="attributes"] .sectionBody');if(attributes){for(const id of ['lvlText','xpText','xpBar']){const n=attributes.querySelector('#'+id);if(n){if(id==='xpBar')n.parentElement.hidden=true;else n.closest('.row').hidden=true;}}attributes.querySelector(':scope>.muted')?.setAttribute('hidden','');}
- if(!host.querySelector('[data-previous-stable]'))host.insertAdjacentHTML('beforeend','<p><a data-previous-stable href="https://github.com/marianoczer-afk/Idle-Czerniak/blob/6043de08b8ee24897470b5564afa023ece0dce60/index.html" target="_blank" rel="noopener">Versión anterior · Estable 30</a></p>');
+ if(!host.querySelector('[data-previous-stable]'))host.insertAdjacentHTML('beforeend','<p><a data-previous-stable href="https://github.com/marianoczer-afk/Idle-Czerniak/blob/76e984450699f52bc79c35f47422aab049ded773/index.html" target="_blank" rel="noopener">Versión anterior · Estable 31</a></p>');
  e227MoveDev();e227UpdateTop();
 }
 function e227UpdateTop(){
  const header=document.querySelector('.globalHeader');if(!header)return;
  e215SetText(document.getElementById('settingsLastSave'),lastSave?'Último guardado correcto: '+lastSave:'Todavía no hay un guardado confirmado');
  const active=!!(state&&ready&&!document.getElementById('gameScreen').classList.contains('hidden'));document.body.classList.toggle('hasActiveCharacter',active);
- const title=header.querySelector('h1');title.textContent=active?'ARGENTUM IDLE ONLINE':'Argentum Idle Online · Estable 31';
+ const title=header.querySelector('h1');title.textContent=active?'ARGENTUM IDLE ONLINE':'Argentum Idle Online · Estable 32';
  if(!active){e227ClearGeneralDrop();return;}
  const level=levelFromXp(state.xp),low=xpFor(level),high=xpFor(level+1),earned=Math.max(0,state.xp-low),need=high-low,percent=clamp(earned/need*100,0,100);
  e215SetText(document.getElementById('generalCharacter'),`${state.name} · ${classById(state.cls).name} · ${raceById(state.race).name} · Nv ${level}`);
@@ -8138,7 +8152,7 @@ const e227PreviousCharacters=showCharacters;
 showCharacters=function(){e227ClearGeneralDrop();const result=e227PreviousCharacters();e227TopShell();e227UpdateTop();return result;};
 const e227PreviousModeChrome=refreshModeChrome;
 refreshModeChrome=function(){const result=e227PreviousModeChrome();e227MoveDev();return result;};
-function e227CleanDownload(page){const header=page.querySelector('body>header');header.className='';header.innerHTML='<h1>Argentum Idle Online · Estable 31</h1><div id="saveStatus">Cargando...</div>';page.querySelectorAll('.generalXPDrop').forEach(n=>n.remove());page.querySelector('body').classList.remove('hasActiveCharacter');}
+function e227CleanDownload(page){const header=page.querySelector('body>header');header.className='';header.innerHTML='<h1>Argentum Idle Online · Estable 32</h1><div id="saveStatus">Cargando...</div>';page.querySelectorAll('.generalXPDrop').forEach(n=>n.remove());page.querySelector('body').classList.remove('hasActiveCharacter');}
 document.addEventListener('click',event=>{const panel=document.getElementById('gameSettings');if(panel?.open&&!panel.contains(event.target))panel.open=false;});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){const panel=document.getElementById('gameSettings');if(panel?.open){panel.open=false;panel.querySelector('summary').focus();}}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)e227ClearGeneralDrop();});
@@ -9881,7 +9895,7 @@ let e231ArtSerial=0;
 function e230HudArt(kind,id,width,height,category='normal'){
  const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f||!water)return '';
  const w=Math.max(1,Math.round(width)),h=Math.max(1,Math.round(height)),key='e231-art-'+(++e231ArtSerial);
- const label=kind==='rod'?E161_RODS.find(r=>r.id===id)?.name:E16_FISH.find(f=>f.id===id)?.name;
+ const label=e231ArtNames.get(kind+':'+id);
  const glints=['large','huge','legendary'].includes(category),color=category==='legendary'?'#ffe19a':category==='huge'?'#aee9ff':'#d5ecc3';
  const dots=glints?'<g class="e231ScaleGlints" mask="url(#'+key+'-body)" fill="'+color+'">'+[[.25,.40],[.38,.55],[.51,.38],[.58,.62],[.67,.45],[.75,.56]].map(([x,y],i)=>'<path opacity="'+(category==='legendary'?.82:.55)+'" d="M'+(w*x)+' '+(h*y-3)+'l1.2 2 3 .8-3 .8-1.2 2-1.2-2-3-.8 3-.8Z"/>').join('')+'</g>':'';
  return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e229HudComposition e230HudComposition" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(label||id)}" data-foreground="alpha" data-specimen-category="${category}"><defs><pattern id="${key}-water" width="${w}" height="${h}" patternUnits="userSpaceOnUse" viewBox="0 0 ${water.width} ${water.height}" preserveAspectRatio="xMidYMid slice"><use href="#${water.symbol}" width="${water.width}" height="${water.height}"/></pattern>${glints?`<mask id="${key}-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="${w}" height="${h}"><use href="#${f.symbol}" width="${w}" height="${h}"/></mask>`:''}</defs><rect width="${w}" height="${h}" fill="url(#${key}-water)"/><use class="e231Subject" href="#${f.symbol}" width="${w}" height="${h}"/>${dots}</svg>`;
@@ -9898,12 +9912,12 @@ function e230RenderQuests(body,defs,zone){
  const b=buttons.get(q.id);if(b&&!q.done)row.querySelector('.e230QuestReward').append(b);fragment.append(row);
  }body.replaceChildren(fragment);
 }
-function e230StyleJournalCard(card,id){
- const r=e218Record(id),view=e220JournalView(),known=Object.keys(r.categories).filter(k=>r.categories[k]>0),order=['normal','large','huge','legendary'];
+function e230StyleJournalCard(card,id,r=e218Record(id)){
+ const view=e220JournalView(),known=Object.keys(r.categories).filter(k=>r.categories[k]>0),order=['normal','large','huge','legendary'];
  if(r.count>0&&order.includes(r.quality))known.push(r.quality);
- const category=known.includes(view.category)?view.category:order.filter(k=>known.includes(k)).pop()||'normal';card.dataset.catchCategory=category;
+ const category=order.includes(view.category)?view.category:order.filter(k=>known.includes(k)).pop()||'normal';card.dataset.catchCategory=category;
 }
-function e230StyleJournal(list){if(list)for(const card of list.querySelectorAll('[data-journal-fish]'))e230StyleJournalCard(card,card.dataset.journalFish);}
+function e230StyleJournal(list,records){if(list)for(const card of list.querySelectorAll('[data-journal-fish]'))e230StyleJournalCard(card,card.dataset.journalFish,records?.get(card.dataset.journalFish)?.raw);}
 </script>
 <style id="presentation-30">/* Presentation only: stage hit boxes and canonical 118px HUD height stay untouched. */
 .e229CollectionSeal{clip-path:none;background:transparent;border:0;overflow:visible;width:42px;height:42px}
@@ -10278,8 +10292,7 @@ const e231ArtNames=new Map([...E16_FISH.map(f=>['fish:'+f.id,f.name]),...e221Rod
 function e231ResponsiveArt(kind,id,category='normal'){
  const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f||!water)return '';
  const key='e231-responsive-'+(++e231ArtSerial),name=e231ArtNames.get(kind+':'+id)||(kind==='fish'?E16_FISH.find(f=>f.id===id)?.name:e221Rods().find(r=>r.id===id)?.name);
- const special=['large','huge','legendary'].includes(category),color=category==='legendary'?'#ffe19a':category==='huge'?'#aee9ff':'#d5ecc3';
- return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e231ResponsiveArt" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(name||id)}" data-foreground="alpha" data-specimen-category="${category}"><defs>${special?`<mask id="${key}-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%"><use href="#${f.symbol}" width="100%" height="100%"/></mask>`:''}</defs><rect width="100%" height="100%" fill="url(#argentum-water-skin)"/><use class="e231Subject" href="#${f.symbol}" width="100%" height="100%"/>${special?`<g class="e231ScaleGlints" mask="url(#${key}-body)" fill="${color}" opacity=".85">${[[25,40],[38,55],[51,38],[58,62],[67,45],[75,56]].map(([x,y])=>`<circle cx="${x}%" cy="${y}%" r="1.5"/><circle cx="${x}%" cy="${y}%" r="3" opacity=".16"/>`).join('')}</g>`:''}</svg>`;
+ return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e231ResponsiveArt" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(name||id)}" data-foreground="alpha" data-specimen-category="${category}"><rect width="100%" height="100%" fill="url(#argentum-water-skin)"/><use class="e231Subject" href="#${f.symbol}" width="100%" height="100%"/>${e232SpecimenLayer(f.symbol,key,category)}</svg>`;
 }
 e194RodArt=function(id){return e231ResponsiveArt('rod',id)||e231OldRodArt(id);};
 e189FishSVG=function(id){return e231ResponsiveArt('fish',id)||e231OldFishArt(id);};
@@ -10296,7 +10309,7 @@ const e231PreviousPaint=e16Paint;
 e16Paint=function(){const r=e231PreviousPaint();if(!e16Session)return r;const tank=document.getElementById('e16Tank');if(!tank)return r;let tell=tank.querySelector('.e231Momentum');if(!tell){tell=document.createElement('span');tell.className='e231Momentum';tell.setAttribute('aria-hidden','true');tank.append(tell);}const x=e16Session.anticipation??e16Session.target;const transform='translateX('+Math.round(x)+'px)';if(tell.style.transform!==transform)tell.style.transform=transform;const direction=e16Session.dir>=0?'right':'left';if(tell.dataset.direction!==direction)tell.dataset.direction=direction;return r;};
 // Restyle recorded specimens, not the unrelated rarity of their species.
 const e231PreviousJournal=e230StyleJournalCard;
-e230StyleJournalCard=function(card,id){e231PreviousJournal(card,id);const category=card.dataset.catchCategory,art=card.querySelector('.e218Art');if(!art)return;const key=id+':'+category;if(art.dataset.specimenStyle===key)return;art.innerHTML=e231ResponsiveArt('fish',id,category)||e231OldFishArt(id);art.dataset.specimenStyle=key;};
+e230StyleJournalCard=function(card,id,record){e231PreviousJournal(card,id,record);const category=card.dataset.catchCategory,art=card.querySelector('.e218Art');if(!art)return;const key=id+':'+category;if(art.dataset.specimenStyle===key)return;art.innerHTML=e231ResponsiveArt('fish',id,category)||e231OldFishArt(id);art.dataset.specimenStyle=key;};
 
 // Read-only results are reused only inside one synchronous page render. Claims,
 // imports, character changes and later events always compute fresh progress.
@@ -10337,6 +10350,151 @@ e16Page=function(){e231RenderDepth++;try{const r=e231PreviousPage();const panel=
 .e231RarityBadge[data-rarity=uncommon]{color:#a2ca84}.e231RarityBadge[data-rarity=rare]{color:#8bbce3}.e231RarityBadge[data-rarity=very-rare]{color:#c9a0e4}.e231RarityBadge[data-rarity=exceptional]{color:#ead18c}.e231RarityBadge[data-rarity=mythic]{color:#f6ce70}
 @media(max-width:700px){.e229CollectionAward{width:calc(44% - 10px)}.e1120Menu[data-type=rod] .e216RodThumb{height:42px}.e1123ZoneBannerText{max-width:94%}.e1107RodStats>div{padding-left:33px}}
 
+</style>
+<script data-progression-32>'use strict';
+const E232_ROD_NAMES={
+ "e16_rod": "Caña sencilla",
+ "e161_rod_bamboo": "Bambú del Remanso",
+ "e161_rod_fiber": "Hilo de Plata",
+ "e161_rod_steel": "Acero del Barquero",
+ "e192_rod_laguna": "Vara Esmeralda",
+ "e192_rod_coral": "Aguja de Nácar",
+ "e192_rod_abyss": "Caña Astral",
+ "e17_rod_viejo": "Caña del Viejo Pescador",
+ "e171_rod_rio": "Guardarríos",
+ "e171_rod_costa": "Vigía de las Brumas",
+ "e18_rod_trofeo": "Tesoro del Coleccionista",
+ "e187_rod_coral": "Rama Coralina",
+ "e208_rod_junco_cauce": "Raíz Serena",
+ "e208_rod_junco_destello": "Chispa del Estanque",
+ "e208_rod_sauce_pulso": "Veta del Sauce",
+ "e208_rod_sauce_fortuna": "Ojo del Martín Pescador",
+ "e208_rod_marea_cauce": "Timón de la Niebla",
+ "e208_rod_marea_titan": "Quilla de Bronce",
+ "e208_rod_nenufar_fortuna": "Susurro de Nenúfar",
+ "e208_rod_nenufar_reliquia": "Relicario de Jade",
+ "e208_rod_coral_pulso": "Aguja del Atolón",
+ "e208_rod_coral_cauce": "Abrazo del Coral",
+ "e208_rod_fosa_pulso": "Compás de la Fosa",
+ "e208_rod_fosa_titan": "Ancla del Silencio",
+ "e208_rod_mangle_cauce": "Raíz Indómita",
+ "e208_rod_mangle_fortuna": "Lucerna del Manglar",
+ "e208_rod_escarcha_pulso": "Aguja de la Aurora",
+ "e208_rod_escarcha_cauce": "Abrazo de Escarcha",
+ "e208_rod_obsidiana_destello": "Ascua del Eclipse",
+ "e208_rod_obsidiana_titan": "Yunque de Obsidiana",
+ "e208_rod_celeste_pulso": "Meridiano Celestial",
+ "e208_rod_celeste_reliquia": "Astrolabio de las Mareas",
+ "e208_rod_custodio_pulso": "Custodio del Río",
+ "e208_rod_custodio_cauce": "Trenza de Corrientes",
+ "e208_rod_custodio_destello": "Centella del Junquillo",
+ "e208_rod_custodio_fortuna": "Ojo de Ámbar",
+ "e208_rod_custodio_titan": "Ancla de los Juncos",
+ "e208_rod_custodio_reliquia": "Memoria del Roble",
+ "e208_rod_boreal_pulso": "Aguja del Invierno",
+ "e208_rod_boreal_cauce": "Pacto Boreal",
+ "e208_rod_boreal_destello": "Aliento de la Aurora",
+ "e208_rod_boreal_fortuna": "Lucero del Deshielo",
+ "e208_rod_boreal_titan": "Colmillo del Glaciar",
+ "e208_rod_boreal_reliquia": "Corona de Cristal Helado",
+ "e208_rod_eterno_pulso": "Mandato del Firmamento",
+ "e208_rod_eterno_cauce": "Juramento del Horizonte",
+ "e208_rod_eterno_destello": "Albor de las Mareas",
+ "e208_rod_eterno_fortuna": "Oráculo de las Estrellas",
+ "e208_rod_eterno_titan": "Balanza del Leviatán",
+ "e208_rod_eterno_reliquia": "Legado de las Mareas"
+};
+const E232_BADGES={
+ "laguna": "Hoja del Naturalista",
+ "abismo": "Ojo de las Profundidades",
+ "manglar_cartografo": "Rosa de las Raíces",
+ "manglar_salto": "Escama del Saltador",
+ "volcan_cuaderno": "Folio de Ceniza",
+ "volcan_guardian": "Escudo de la Caldera",
+ "ruinas_censo": "Llave del Archivista",
+ "cristal_bitacora": "Prisma del Espeleólogo",
+ "primordial_sondeo": "Sonda del Primer Mar",
+ "e231_cuaderno_muelle": "Pluma del Aprendiz",
+ "e231_estanque_muelle": "Espejo del Remanso",
+ "e231_derrota_costa": "Rumbo del Navegante",
+ "e231_koi_laguna": "Lágrima del Koi",
+ "e231_guardian_arrecife": "Guardián de las Agujas",
+ "e231_luz_abismo": "Faro de las Tinieblas",
+ "e231_puentes_manglar": "Nudo de las Raíces",
+ "e231_forja_volcan": "Sello de la Forja",
+ "e231_mosaico_ruinas_sumergidas": "Tesela de la Memoria",
+ "e231_refraccion_cavernas_cristal": "Prisma de Siete Luces",
+ "e231_estratos_abismo_primordial": "Huella del Primer Océano"
+};
+const E232_PERKS={
+ "e231_puentes_manglar": {
+  "zone": "manglar",
+  "resilience": 2,
+  "name": "Paso entre raíces",
+  "label": "+2 puntos de Resiliencia en Manglares Susurrantes"
+ },
+ "e231_forja_volcan": {
+  "zone": "volcan",
+  "control": 2,
+  "name": "Temple de ceniza",
+  "label": "+0,4 puntos porcentuales de barra en Bahía Volcánica"
+ },
+ "e231_estratos_abismo_primordial": {
+  "zone": "abismo_primordial",
+  "resilience": 2,
+  "name": "Memoria primordial",
+  "label": "+2 puntos de Resiliencia en Abismo Primordial"
+ }
+};
+
+const e232RodAliases=new Map(e221Rods().map(r=>[r.id,r.name]));
+// IDs, ownership and rewards already granted remain authoritative. Names are display data.
+for(const rod of e221Rods())if(E232_ROD_NAMES[rod.id]){rod.name=E232_ROD_NAMES[rod.id];if(rod.desc)rod.desc=rod.desc.replace(/Control \+[\d,.]+% de barra/,'Control +'+e190ControlPercent(rod.bonus||0)+'% de barra');if(rod.unlock)rod.unlock.title='El legado de '+rod.name;e231ArtNames.set('rod:'+rod.id,rod.name);}
+E187_QUESTS.find(q=>q.id==='arrecife').reward='Caña · '+E187_ROD.name;
+function e232BadgeReward(q){const name=E232_BADGES[q.id]||q.title,perk=E232_PERKS[q.id];return 'Insignia · '+name+(perk?' · '+perk.name+': '+perk.label:'');}
+// Derived booleans, not additive mutations on load: one reward cannot stack twice.
+const e232NoRegionalBonus={control:0,resilience:0,names:[]};
+const e232RegionalPerks=new Map(Object.entries(E232_PERKS).map(([id,p])=>[p.zone,{id,bonus:{control:Math.min(2,p.control||0),resilience:Math.min(2,p.resilience||0),names:[p.name]}}]));
+function e232RegionalBonus(zone=e165Zone().id){const p=e232RegionalPerks.get(zone);return p&&state?.ui?.fishingQuestRewards?.[p.id]?p.bonus:e232NoRegionalBonus;}
+
+const e232BaseStats=e1101Stats;
+e1101Stats=function(rod){const base=e232BaseStats(rod),perk=e232RegionalBonus();if(!perk.control&&!perk.resilience)return base;return{...base,control:base.control+perk.control,resilience:Math.min(60,base.resilience+perk.resilience)};};
+function e232CaptureProfile(fish,rod,level,weight){
+ const st=e1101Stats(rod),demand=clamp((fish.req-1)/99,0,1),handling=.65*st.control/64+.35*st.resilience/60;
+ const shortfall=Math.max(0,.20+.90*demand-handling),load=Number.isFinite(weight)?clamp(weight/e190Capacity(rod),0,1):0;
+ return{demand,shortfall,load,pressure:(1+.65*demand+.9*shortfall+.12*load)*(1-Math.min(.24,handling*.25))-Math.min(.03,Math.max(0,level-fish.req)*.0006),endurance:1+.85*shortfall+.35*load,loss:1+.65*shortfall+.25*load};
+}
+function e232JournalStats(r,category){
+ if(!Object.hasOwn(E218_CATEGORIES,category))return{best:r.best,count:r.count,countKnown:true,partial:false};
+ const count=Number(r.categoryCounts[category]),countKnown=Object.hasOwn(r.categoryCounts,category)&&Number.isSafeInteger(count)&&count>=0;
+ return{best:r.categories[category]||0,count:countKnown?count:0,countKnown,partial:r.countsPartial};
+}
+function e232JournalCaption(card,f,r,category){
+ const v=e232JournalStats(r,category),specific=Object.hasOwn(E218_CATEGORIES,category),count=v.countKnown?fmt(v.count)+(specific&&v.partial?' capt. registradas':' capt.'):'Cantidad sin registrar';
+ const weight=v.best?e190Kg(v.best):'Sin récord registrado',meta=card.querySelector('.e225JournalMeta');
+ if(meta){meta.innerHTML='<small>'+esc(count)+'</small><small>'+esc(weight)+'</small>';}
+ card.title=f.name+' · '+(specific?E218_CATEGORIES[category]:'Todas las categorías')+' · '+count+' · '+(specific?'Récord de categoría: ':'Récord absoluto: ')+weight+(specific&&v.partial?' · Contador parcial desde Estable 32; el total histórico se conserva en la vista general.':'');card.setAttribute('aria-label',card.title);
+}
+const e232OldDetail=e218Detail;
+e218Detail=function(f){const panel=e232OldDetail(f),r=e218Record(f.id),category=e220JournalView().category,v=e232JournalStats(r,category);if(Object.hasOwn(E218_CATEGORIES,category)){const text=panel.querySelector('p'),record=panel.querySelector('strong');if(text)text.textContent=E218_CATEGORIES[category]+' · '+(v.countKnown?fmt(v.count)+(v.partial?' capturas registradas desde Estable 32':' capturas'):'Cantidad histórica de esta categoría sin registrar');if(record)record.textContent='Récord '+E218_CATEGORIES[category]+': '+(v.best?e190Kg(v.best):'Sin récord registrado');}for(const node of panel.querySelectorAll('.e218Records span'))if(node.textContent==='Sin récord')node.textContent='Sin récord registrado';return panel;};
+// Static surface accents: the alpha mask confines every reflection to the animal.
+// No raster variants, full-image color filters, timers or extra animation loops.
+function e232SpecimenLayer(symbol,key,category,width='100%',height='100%'){
+ if(!['large','huge','legendary'].includes(category))return '';
+ const rank={large:1,huge:2,legendary:3}[category],color=['','#d8ead0','#bcecff','#ffdb78'][rank];
+ const scales=Array.from({length:rank*4},(_,i)=>{const x=35+(i%5)*28,y=32+Math.floor(i/5)*17;return '<path d="M'+x+' '+y+'q5 7 10 0" fill="none" stroke="'+color+'" stroke-width="'+(rank===1?.8:1.15)+'" opacity="'+(rank===1?.42:.58)+'"/>';}).join('');
+ const sheen=rank>1?'<defs><linearGradient id="'+key+'-shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+color+'" stop-opacity="0"/><stop offset=".5" stop-color="'+color+'" stop-opacity=".65"/><stop offset="1" stop-color="'+color+'" stop-opacity="0"/></linearGradient></defs><path d="M25 73Q70 8 127 31M77 85Q130 22 181 40" fill="none" stroke="url(#'+key+'-shine)" stroke-width="'+(rank===3?12:8)+'"/>':'';
+ const sparks=rank===3?[[52,32],[90,51],[132,37],[155,65],[73,68]].map(([x,y])=>'<path d="M'+x+' '+(y-4)+'l1.4 3 3.6 1-3.6 1-1.4 3-1.4-3-3.6-1 3.6-1Z" fill="#fff0bf"/>').join(''):'';
+ return '<defs><mask id="'+key+'-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="'+width+'" height="'+height+'"><use href="#'+symbol+'" width="'+width+'" height="'+height+'"/></mask></defs><g class="e231ScaleGlints e232SpecimenSurface" mask="url(#'+key+'-body)" data-category="'+category+'"><svg width="'+width+'" height="'+height+'" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">'+sheen+scales+sparks+'</svg></g>';
+}
+// Decorate normalized definitions once. All quest surfaces (Atlas/Trophies/shop) share these names.
+function e232QuestDefinition(q){return {...q,reward:q.rodId?'Caña · '+(E232_ROD_NAMES[q.rodId]||e231ArtNames.get('rod:'+q.rodId)||q.reward):E232_BADGES[q.id]?e232BadgeReward(q)+(q.id==='laguna'?' · Instinto de pescador: +5% XP de Pesca permanente':q.id==='abismo'?' · Pulso del abismo: +8 px de control permanente':''):q.reward};}
+</script>
+<style id="progression-32">/* Surface detail is static and clipped to the fish, never the surrounding card. */
+.e232SpecimenSurface{pointer-events:none}
+.e218Card .e225JournalMeta small{white-space:normal}
+.e218Detail .e218Records div{min-width:0}
+.e232RegionalPerk{display:block;color:#b9d6b5;font-size:12px;margin-top:5px}
 </style>
 </body>
 </html>

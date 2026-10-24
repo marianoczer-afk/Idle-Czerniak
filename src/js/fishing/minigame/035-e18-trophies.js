@@ -27,7 +27,7 @@ e16Finish=function(won){
   if(quality==='legendary'){r.legendary=(Number(r.legendary)||0)+1;if(zone==='rio')r.riverHuge=true;}
   const previous=r.bySpecies[fish.id]||{total:0,best:'normal'};
   const rank={normal:0,large:1,huge:2,legendary:3};
-  r.bySpecies[fish.id]={total:(Number(previous.total)||0)+1,best:rank[quality]>rank[previous.best||'normal']?quality:previous.best};
+  r.bySpecies[fish.id]={...previous,total:(Number(previous.total)||0)+1,best:rank[quality]>rank[previous.best||'normal']?quality:previous.best};
  }
  e18OldFinish(won);
  if(fish){

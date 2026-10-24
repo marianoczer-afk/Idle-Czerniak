@@ -4,7 +4,7 @@ let e231ArtSerial=0;
 function e230HudArt(kind,id,width,height,category='normal'){
  const f=E227_ART['hud-'+kind+':'+id],water=E227_ART['ui:water'];if(!f||!water)return '';
  const w=Math.max(1,Math.round(width)),h=Math.max(1,Math.round(height)),key='e231-art-'+(++e231ArtSerial);
- const label=kind==='rod'?E161_RODS.find(r=>r.id===id)?.name:E16_FISH.find(f=>f.id===id)?.name;
+ const label=e231ArtNames.get(kind+':'+id);
  const glints=['large','huge','legendary'].includes(category),color=category==='legendary'?'#ffe19a':category==='huge'?'#aee9ff':'#d5ecc3';
  const dots=glints?'<g class="e231ScaleGlints" mask="url(#'+key+'-body)" fill="'+color+'">'+[[.25,.40],[.38,.55],[.51,.38],[.58,.62],[.67,.45],[.75,.56]].map(([x,y],i)=>'<path opacity="'+(category==='legendary'?.82:.55)+'" d="M'+(w*x)+' '+(h*y-3)+'l1.2 2 3 .8-3 .8-1.2 2-1.2-2-3-.8 3-.8Z"/>').join('')+'</g>':'';
  return `<svg class="${kind==='rod'?'rodIllustration':'fishIllustration'} e229HudComposition e230HudComposition" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(label||id)}" data-foreground="alpha" data-specimen-category="${category}"><defs><pattern id="${key}-water" width="${w}" height="${h}" patternUnits="userSpaceOnUse" viewBox="0 0 ${water.width} ${water.height}" preserveAspectRatio="xMidYMid slice"><use href="#${water.symbol}" width="${water.width}" height="${water.height}"/></pattern>${glints?`<mask id="${key}-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="${w}" height="${h}"><use href="#${f.symbol}" width="${w}" height="${h}"/></mask>`:''}</defs><rect width="${w}" height="${h}" fill="url(#${key}-water)"/><use class="e231Subject" href="#${f.symbol}" width="${w}" height="${h}"/>${dots}</svg>`;
@@ -21,9 +21,9 @@ function e230RenderQuests(body,defs,zone){
  const b=buttons.get(q.id);if(b&&!q.done)row.querySelector('.e230QuestReward').append(b);fragment.append(row);
  }body.replaceChildren(fragment);
 }
-function e230StyleJournalCard(card,id){
- const r=e218Record(id),view=e220JournalView(),known=Object.keys(r.categories).filter(k=>r.categories[k]>0),order=['normal','large','huge','legendary'];
+function e230StyleJournalCard(card,id,r=e218Record(id)){
+ const view=e220JournalView(),known=Object.keys(r.categories).filter(k=>r.categories[k]>0),order=['normal','large','huge','legendary'];
  if(r.count>0&&order.includes(r.quality))known.push(r.quality);
- const category=known.includes(view.category)?view.category:order.filter(k=>known.includes(k)).pop()||'normal';card.dataset.catchCategory=category;
+ const category=order.includes(view.category)?view.category:order.filter(k=>known.includes(k)).pop()||'normal';card.dataset.catchCategory=category;
 }
-function e230StyleJournal(list){if(list)for(const card of list.querySelectorAll('[data-journal-fish]'))e230StyleJournalCard(card,card.dataset.journalFish);}
+function e230StyleJournal(list,records){if(list)for(const card of list.querySelectorAll('[data-journal-fish]'))e230StyleJournalCard(card,card.dataset.journalFish,records?.get(card.dataset.journalFish)?.raw);}

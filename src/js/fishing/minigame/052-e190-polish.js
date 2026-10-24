@@ -26,21 +26,23 @@ e16Page=function(){e190PreviousPage();if(!e16Session)return;const page=document.
    se miden por separado de la selección aleatoria y las recompensas. */
 // Capture behavior is separate from rarity weights: demanding fish need sustained tracking.
 /* @include src/catalogs/052-e190-polish-e210_capture_profiles.js */
+const E232_DEFAULT_CAPTURE={speed:1,run:1,gain:1,loss:1};
 function e190FishingStep(g,holding,dt,width,random=Math.random){
- if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(28,width*g.controlFraction+(g.controlExtra||0)));
+ if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(16,width*(g.controlFraction+(g.controlRewardFraction||0))+(g.controlExtra||0)));
  // Player input stays proportional to the track on desktop and touch.
  const limit=Math.max(0,width-g.fish.zone-4),scale=width/520;
  g.vel+=(holding?600:-570)*scale*dt;g.vel=Math.max(-220*scale,Math.min(220*scale,g.vel));g.pos=Math.max(0,Math.min(limit,g.pos+g.vel*dt));if(g.pos===0||g.pos===limit)g.vel=0;
  const diff=E161_DIFFICULTY[g.fish.id]||1,motion=g.motion||{distance:1,interval:1};
- const profile=E210_CAPTURE_PROFILES[g.fish.id]||{speed:1,run:1,gain:1,loss:1};
+ const profile=E210_CAPTURE_PROFILES[g.fish.id]||E232_DEFAULT_CAPTURE;
  // A seeded continuous path replaces frequent random reversals. Resilience slows
  // timing/acceleration, never collapses the sweep into a stationary control bar.
  if(!Number.isFinite(g.motionPhase)){const phase=Math.asin(Math.max(-1,Math.min(1,((g.target+12)/width-.5)/.37)));g.motionPhase=g.dir<0?Math.PI-phase:phase;g.targetVelocity=0;}
- const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)/Math.pow(motion.interval,.35);
+ const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),pressure=capture.pressure;
+ const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)*pressure/Math.pow(motion.interval,.65);
  g.motionPhase+=frequency*dt;g.time+=dt;
  const ripple=Math.min(.045,.012+diff*.008)*Math.sin(g.motionPhase*(2.2+g.fish.wiggle*.5)+g.seed);
  const desired=width*(.5+.37*Math.sin(g.motionPhase)+ripple)-12;
- const maxVelocity=width*(.24+.034*Math.min(4,diff))*Math.sqrt(motion.distance);
+ const maxVelocity=width*Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance));
  const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*8))*Math.sqrt(motion.distance);
  g.targetVelocity=Math.max(-maxVelocity,Math.min(maxVelocity,(g.targetVelocity||0)+acceleration*dt));
  g.target=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*dt));
@@ -50,7 +52,7 @@ function e190FishingStep(g,holding,dt,width,random=Math.random){
  g.anticipation=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*.32));
  const inside=g.target+12>=g.pos&&g.target+12<=g.pos+g.fish.zone;
  const endurance=1+Math.max(0,(g.fish.req||1)-32)*.003;
- const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*(g.time<.9?.4:1);
+ const gain=.13/(1+Math.max(0,diff-1)*.20)/endurance*profile.gain/capture.endurance,loss=Math.max(.13,.10*(.85+diff*.14)*profile.loss)*capture.loss*(g.time<.9?.4:1);
  g.progress=Math.max(0,Math.min(1,g.progress+(inside?gain:-loss)*dt));
  return g.progress>=1?'won':g.time>4&&g.progress<=0?'escaped':null;
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "version": "before",
+    "species": 50,
+    "recordReadsPerFilter": 100,
+    "toggleListenersBefore": 1,
+    "toggleListenersAfterEightRenders": 9
+  },
+  {
+    "version": "after",
+    "species": 50,
+    "recordReadsPerFilter": 50,
+    "toggleListenersBefore": 1,
+    "toggleListenersAfterEightRenders": 1
+  }
+]

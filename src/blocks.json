@@ -842,5 +842,17 @@
     "id": "block-141",
     "type": "style",
     "file": "src/css/fishing/141-world31.css"
+  },
+  {
+    "id": "block-142",
+    "file": "src/js/fishing/142-progression32.js",
+    "type": "script",
+    "attributes": " data-progression-32"
+  },
+  {
+    "id": "block-143",
+    "file": "src/css/fishing/143-progression32.css",
+    "type": "style",
+    "attributes": " id=\"progression-32\""
   }
 ]

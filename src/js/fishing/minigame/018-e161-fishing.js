@@ -69,7 +69,7 @@ e16Start=function(id){
  if(weightKg===null){e161Fishing=false;e16Result='La caña no soporta el peso de este pez.';e16Page();return;}
  const rod=e161Rod(),motion=e190MotionProfile(f,rod),zone=e190CaptureWidth(f,rod);
  const fish={...f,zone};
- e16Session={fish,weightKg,rodId:rod.id,motion,controlFraction:e190CaptureWidth(f,rod,e16FishLevel(),1000,false)/1000,controlExtra:e187Rewards().abismo?8:0,pos:100,vel:0,target:Math.random()*Math.max(20,e190TrackWidth()-40)+8,dir:Math.random()<.5?-1:1,turnAt:.35,seed:Math.random()*6,time:0,progress:.23,burst:0,burstAt:.5};
+ e16Session={fish,weightKg,rodId:rod.id,motion,capture:e232CaptureProfile(f,rod,e16FishLevel(),weightKg),controlFraction:e190CaptureWidth(f,rod,e16FishLevel(),1000,false)/1000,controlExtra:0,controlRewardFraction:e187Rewards().abismo?8/520:0,pos:100,vel:0,target:Math.random()*Math.max(20,e190TrackWidth()-40)+8,dir:Math.random()<.5?-1:1,turnAt:.35,seed:Math.random()*6,time:0,progress:.23,burst:0,burstAt:.5};
  e16Holding=false;e16Result='';e16Page();e16Last=performance.now();e16Frame=requestAnimationFrame(e16Animate);
 };
 e16Animate=function(now){

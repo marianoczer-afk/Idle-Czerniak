@@ -1,0 +1,144 @@
+[
+  {
+    "version": "before",
+    "viewport": 390,
+    "cpuThrottle": 4,
+    "quality": "normal (fixed RNG)",
+    "warmup": 2,
+    "medianSyncMs": 130.7,
+    "maxSyncMs": 170.7,
+    "samples": [
+      {
+        "syncMs": 154.5,
+        "paintWindowMs": 217.2,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 150.2,
+        "paintWindowMs": 197.7,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 131.6,
+        "paintWindowMs": 193.4,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 126.1,
+        "paintWindowMs": 175.7,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 121.9,
+        "paintWindowMs": 175.8,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 168.4,
+        "paintWindowMs": 220.3,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 129.8,
+        "paintWindowMs": 175.4,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 128.4,
+        "paintWindowMs": 181.5,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 141,
+        "paintWindowMs": 198.1,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 170.7,
+        "paintWindowMs": 224.4,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 162.7,
+        "paintWindowMs": 215.7,
+        "nodes": 2860
+      },
+      {
+        "syncMs": 122.1,
+        "paintWindowMs": 166.6,
+        "nodes": 2860
+      }
+    ]
+  },
+  {
+    "version": "after",
+    "viewport": 390,
+    "cpuThrottle": 4,
+    "quality": "normal (fixed RNG)",
+    "warmup": 2,
+    "medianSyncMs": 131.55,
+    "maxSyncMs": 179.2,
+    "samples": [
+      {
+        "syncMs": 143.6,
+        "paintWindowMs": 213.6,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 156.4,
+        "paintWindowMs": 204.2,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 133.6,
+        "paintWindowMs": 188.6,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 127.4,
+        "paintWindowMs": 177.1,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 126.4,
+        "paintWindowMs": 179.6,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 158.7,
+        "paintWindowMs": 206.5,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 120.6,
+        "paintWindowMs": 166.6,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 129.5,
+        "paintWindowMs": 192.9,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 179.2,
+        "paintWindowMs": 230.8,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 146,
+        "paintWindowMs": 208.7,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 137.1,
+        "paintWindowMs": 178.5,
+        "nodes": 2800
+      },
+      {
+        "syncMs": 124.4,
+        "paintWindowMs": 172.6,
+        "nodes": 2800
+      }
+    ]
+  }
+]

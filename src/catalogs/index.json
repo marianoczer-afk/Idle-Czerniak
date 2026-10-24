@@ -118,5 +118,9 @@
   {
     "file": "src/catalogs/140-regional31.js",
     "symbol": "E231_QUESTS"
+  },
+  {
+    "file": "src/catalogs/142-progression32.js",
+    "symbol": "E232_ROD_NAMES"
   }
 ]

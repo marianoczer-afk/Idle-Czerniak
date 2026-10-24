@@ -17,15 +17,15 @@ for(const family of E208_FAMILIES)for(const specialty of E208_SPECIALTIES){
 function e208QuestProgress(rod){
  const q=rod.unlock,record=state?.ui?.fishingWeights?.byZone?.[q?.zone]||{};
  const catches=Number(record.catches||0),species=Object.keys(record.species||{}).filter(id=>record.species[id]>0).length,bestKg=Number(record.bestKg||0);
- return {catches,species,bestKg,ready:!!q&&catches>=q.catches&&species>=q.species&&bestKg>=q.bestKg};
+ return {catches,species,bestKg,ready:!!q&&e16FishLevel()>=rod.req&&catches>=q.catches&&species>=q.species&&bestKg>=q.bestKg};
 }
 function e208QuestText(rod){
  const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
- return `${zone.name}: capturá ${q.catches} peces (${Math.min(p.catches,q.catches)}/${q.catches}), ${q.species} especies distintas (${Math.min(p.species,q.species)}/${q.species}) y un pez de ${e190Kg(q.bestKg)} o más (récord: ${e190Kg(p.bestKg)}).`;
+ return `${zone.name}: alcanzá Pesca ${rod.req}; capturá ${q.catches} peces (${Math.min(p.catches,q.catches)}/${q.catches}), ${q.species} especies distintas (${Math.min(p.species,q.species)}/${q.species}) y un pez de ${e190Kg(q.bestKg)} o más (récord: ${e190Kg(p.bestKg)}).`;
 }
 function e212QuestGoals(rod){
  const q=rod.unlock,p=e208QuestProgress(rod),zone=E165_ZONES.find(z=>z.id===q.zone);
- const goals=[[p.catches>=q.catches,`Capturá ${q.catches} peces en total`,`${Math.min(p.catches,q.catches)} de ${q.catches}`],[p.species>=q.species,`Capturá ${q.species} especies distintas`,`${Math.min(p.species,q.species)} de ${q.species}`],[p.bestKg>=q.bestKg,`Capturá un pez de ${e190Kg(q.bestKg)} o más`,`Tu récord: ${e190Kg(p.bestKg)}`]];
+ const goals=[[e16FishLevel()>=rod.req,'Alcanzá habilidad de Pesca '+rod.req,e16FishLevel()+' de '+rod.req],[p.catches>=q.catches,`Capturá ${q.catches} peces en total`,`${Math.min(p.catches,q.catches)} de ${q.catches}`],[p.species>=q.species,`Capturá ${q.species} especies distintas`,`${Math.min(p.species,q.species)} de ${q.species}`],[p.bestKg>=q.bestKg,`Capturá un pez de ${e190Kg(q.bestKg)} o más`,`Tu récord: ${e190Kg(p.bestKg)}`]];
  return `<p>Completá estos tres objetivos en <b>${esc(zone.name)}</b>:</p><ul class="e212Goals">${goals.map(([done,label,progress])=>`<li class="${done?'done':''}"><span>${done?'✓':'○'} ${esc(label)}</span><b>${esc(progress)}</b></li>`).join('')}</ul><small>Cuenta lo que ya pescaste en esta zona. No se consumen peces; podés venderlos.</small>`;
 }
 // Retired offers retain their IDs, stats and owned equipment for existing saves.
@@ -50,7 +50,7 @@ function e208FilterShop(shop,expand=false){
    return Number(b.dataset[sort])-Number(a.dataset[sort])||owned(b)-owned(a);
   }).forEach(row=>container.append(row));
   for(const row of rows){
-   const owned=!!state.owned?.[row.dataset.rodId],text=row.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+   const owned=!!state.owned?.[row.dataset.rodId],text=(row.textContent+' '+(e232RodAliases.get(row.dataset.rodId)||'')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
    const matches=source==='all'||source==='owned'&&owned||source==='locked'&&!owned||source==='affordable'&&row.dataset.source==='gold'&&!owned&&state.gold>=Number(row.dataset.price)||source===row.dataset.source;
    row.hidden=!(text.includes(query)&&matches&&(!mine||owned)&&(zone==='all'||row.dataset.zone===zone));if(!row.hidden)visible++;
   }

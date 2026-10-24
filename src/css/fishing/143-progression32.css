@@ -1,0 +1,5 @@
+/* Surface detail is static and clipped to the fish, never the surrounding card. */
+.e232SpecimenSurface{pointer-events:none}
+.e218Card .e225JournalMeta small{white-space:normal}
+.e218Detail .e218Records div{min-width:0}
+.e232RegionalPerk{display:block;color:#b9d6b5;font-size:12px;margin-top:5px}

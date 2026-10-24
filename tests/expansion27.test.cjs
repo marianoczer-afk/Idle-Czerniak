@@ -13,12 +13,12 @@ for(const width of [1366,390])test(`Estable 27 header/settings and unchanged HUD
  assert.ok(metrics.header<=110);assert.equal(metrics.hud,118);assert.equal(metrics.tabs,1);assert.equal(metrics.savePanels,0);assert.equal(metrics.quick,0);assert.equal(metrics.rest,true);assert.equal(metrics.session,true);
  await page.locator('#gameSettings>summary').click();
  for(const selector of ['[data-act="export"]','[data-act="import"]','[data-act="downloadHtml"]','[data-act="switchCharacter"]','#devModeToggle','[data-previous-stable]'])assert.equal(await page.locator('#gameSettings '+selector).isVisible(),true,selector);
- assert.match(await page.locator('#gameSettings [data-act="downloadHtml"]').innerText(),/Estable 31/);assert.equal(await page.locator('#gameSettings [data-act="save"]').count(),0);
+ assert.match(await page.locator('#gameSettings [data-act="downloadHtml"]').innerText(),/Estable 32/);assert.equal(await page.locator('#gameSettings [data-act="save"]').count(),0);
  await page.evaluate(()=>setStatus('No se pudo guardar: prueba aislada',true));assert.equal(await page.locator('#gameSettings>summary').getAttribute('class'),'saveError');assert.match(await page.locator('#settingsSaveState').innerText(),/No se pudo guardar/);
  await page.evaluate(()=>persist());assert.equal(await page.locator('#gameSettings>summary').getAttribute('class'),'');
- fs.mkdirSync(path.join(root,'arte/verificacion/estable31/regresiones/regresiones'),{recursive:true});await page.screenshot({path:path.join(root,`arte/verificacion/estable31/regresiones/regresiones/configuracion-${width}.png`)});
+ fs.mkdirSync(path.join(root,'arte/verificacion/estable32/regresiones/regresiones'),{recursive:true});await page.screenshot({path:path.join(root,`arte/verificacion/estable32/regresiones/regresiones/configuracion-${width}.png`)});
  await page.keyboard.press('Escape');assert.equal(await page.locator('#gameSettings').evaluate(n=>n.open),false);
- await page.screenshot({path:path.join(root,`arte/verificacion/estable31/regresiones/regresiones/pesca-${width}.png`)});
+ await page.screenshot({path:path.join(root,`arte/verificacion/estable32/regresiones/regresiones/pesca-${width}.png`)});
  const before=await page.locator('header').boundingBox();await page.evaluate(()=>{gainCharacterXP(state,25);updateLive();});await page.waitForSelector('.generalXPDrop');assert.equal(await page.locator('.generalXPDrop').innerText(),'+25 XP');assert.deepEqual(await page.locator('header').boundingBox(),before);await page.waitForTimeout(1850);assert.equal(await page.locator('.generalXPDrop').count(),0);
  await page.locator('#tab_combat').click();await page.locator('#tab_combat').press('ArrowRight');assert.equal(await page.locator('#tab_magic').getAttribute('aria-selected'),'true');
  }finally{await context.close();}});
@@ -31,7 +31,7 @@ test('Estable 27 additive v7 mastery migration freezes historical milestones and
 test('Estable 27 real normalized distributions, deterministic selection and viable existing rods',async()=>{const {context,page}=await fresh();try{
  const result=await page.evaluate(()=>{const rows=[];for(const z of E227_ZONES){state.ui.fishingZoneId=z.id;state.skills.pesca.xp=98010;const distribution=e161FishDistribution(),sum=distribution.reduce((a,b)=>a+b.probability,0),counts={};let seed=41253;const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);for(let i=0;i<10000;i++){const f=e161RandomFish(random);counts[f.id]=(counts[f.id]||0)+1;}rows.push({zone:z.id,sum,entries:distribution.map(d=>({id:d.fish.id,p:d.probability,actual:(counts[d.fish.id]||0)/10000})),viable:E161_RODS.filter(r=>e212Offered(r)&&z.fish.every(id=>e190CanLift(E16_FISH.find(f=>f.id===id),r))).map(r=>r.id)});}return rows;});
  for(const row of result){assert.ok(Math.abs(row.sum-1)<1e-12);assert.equal(row.entries.length,4);assert.ok(row.viable.includes('e192_rod_abyss'));for(const f of row.entries)assert.ok(Math.abs(f.p-f.actual)<.025,JSON.stringify(f));}
- fs.writeFileSync(path.join(root,'arte/verificacion/estable31/regresiones/regresiones/distribuciones.json'),JSON.stringify(result,null,2)+'\n');
+ fs.writeFileSync(path.join(root,'arte/verificacion/estable32/regresiones/regresiones/distribuciones.json'),JSON.stringify(result,null,2)+'\n');
  for(const level of [87,88,93,94,98,99,100]){const valid=await page.evaluate(l=>{state.skills.pesca.xp=10*(l-1)**2;return E227_ZONES.map(z=>{state.ui.fishingZoneId=z.id;return e165Zone().id===z.id})},level);assert.deepEqual(valid,[level>=88,level>=94,level>=99]);}
  }finally{await context.close();}});
 test('Estable 27 all nine species capture into inventory, journal and weight records',async()=>{const {context,page}=await fresh();try{

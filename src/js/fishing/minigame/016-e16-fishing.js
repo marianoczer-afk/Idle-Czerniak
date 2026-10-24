@@ -25,17 +25,18 @@ function e190SampleWeight(fish,rod=e161Rod(),random=Math.random){
  return Math.round((low+random()*(high-low))*100)/100;
 }
 function e190TrackWidth(){return Math.max(60,(document.getElementById('e16Tank')?.clientWidth||520)-6);}
-function e190ControlPercent(control){return control/4;}
+function e190ControlPercent(control){return control/5;}
 function e190CaptureWidth(fish,rod=e161Rod(),level=e16FishLevel(),width=e190TrackWidth(),abismo=!!e187Rewards().abismo){
- const skill=Math.min(22,Math.floor((level-1)/3)*2);
- const difficulty=E161_DIFFICULTY[fish.id]||1;
- const fraction=clamp(.16+e1101Stats(rod).control/400+skill/2000-(difficulty-1)*.025,.10,.36);
- return Math.min(width*.55,Math.max(28,width*fraction+(abismo?8:0)));
+ const st=e1101Stats(rod),demand=Math.max(0,(fish.req-1)/99),difficulty=E161_DIFFICULTY[fish.id]||1;
+ const fraction=clamp(.15+st.control/500+Math.min(.012,(level-1)/8250)-(difficulty-1)*.018-demand*.045,.075,.30);
+ // The historical +8px reward is 8px at the 520px reference, proportional on mobile.
+ return Math.max(16,width*(fraction+(abismo?8/520:0)));
 }
 function e190MotionProfile(fish,rod=e161Rod()){
  const resilience=clamp(e1101Stats(rod).resilience,0,60)/100;
- return {distance:1-resilience*.65,interval:1+resilience*1.5};
+ return {distance:1-resilience*.5,interval:1+resilience*2};
 }
+
 function e190Weights(){
  state.ui=state.ui||{};
  return state.ui.fishingWeights||(state.ui.fishingWeights={bySpecies:{},byZone:{}});
@@ -50,15 +51,22 @@ function e190RecordWeight(catchInfo){
  const known=e218Record(id),previousBest=known.best;
  catchInfo.newAbsoluteRecord=previousBest>0&&catchInfo.weightKg>previousBest;
  speciesRecord.bestKg=previousBest;speciesRecord.categoryBestKg={...speciesRecord.categoryBestKg,...known.categories};if(known.category)speciesRecord.bestCategory=known.category;
+ const priorCount=Math.max(Number(speciesRecord.catches)||0,(Number(state.ui?.e18Fishing?.bySpecies?.[id]?.total)||0)-1);
+ if(!speciesRecord.categoryCounts){
+  const historical=state.ui?.e18Fishing?.bySpecies?.[id]?.categoryCounts||{};
+  speciesRecord.categoryCounts=Object.fromEntries(Object.entries(historical).filter(([key,n])=>Object.hasOwn(E218_CATEGORIES,key)&&Number.isSafeInteger(n)&&n>=0));
+  speciesRecord.categoryCountBaseline=Math.max(0,priorCount-Object.values(speciesRecord.categoryCounts).reduce((a,b)=>a+b,0));
+ }
  record(speciesRecord);
  const label=e183LastQuality?.fish===catchInfo.fish.name?e183LastQuality.label:'';
  const category=label.includes('LEGENDARIO')?'legendary':label.includes('ENORME')?'huge':label.includes('Grande')?'large':'normal';
+ speciesRecord.categoryCounts[category]=(Number(speciesRecord.categoryCounts[category])||0)+1;
  speciesRecord.categoryBestKg=speciesRecord.categoryBestKg||{};
  speciesRecord.categoryBestKg[category]=Math.max(Number(speciesRecord.categoryBestKg[category])||0,catchInfo.weightKg);
  if(catchInfo.weightKg>previousBest)speciesRecord.bestCategory=category;
  const zone=weights.byZone[catchInfo.zone]||(weights.byZone[catchInfo.zone]={species:{}});
  zone.species=zone.species||{};zone.species[id]=(zone.species[id]||0)+1;record(zone);
- weights.last={id,weightKg:catchInfo.weightKg,zone:catchInfo.zone,rodId:catchInfo.rodId};
+ weights.last={id,weightKg:catchInfo.weightKg,category,zone:catchInfo.zone,rodId:catchInfo.rodId};
  if(e182LastCatch)e182LastCatch.weightKg=catchInfo.weightKg;
 }
 function e190CollectorProgress(){
