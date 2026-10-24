@@ -13,7 +13,7 @@ for(const width of [1366,390])test(`Estable 27 header/settings and unchanged HUD
  assert.ok(metrics.header<=110);assert.equal(metrics.hud,118);assert.equal(metrics.tabs,1);assert.equal(metrics.savePanels,0);assert.equal(metrics.quick,0);assert.equal(metrics.rest,true);assert.equal(metrics.session,true);
  await page.locator('#gameSettings>summary').click();
  for(const selector of ['[data-act="export"]','[data-act="import"]','[data-act="downloadHtml"]','[data-act="switchCharacter"]','#devModeToggle','[data-previous-stable]'])assert.equal(await page.locator('#gameSettings '+selector).isVisible(),true,selector);
- assert.match(await page.locator('#gameSettings [data-act="downloadHtml"]').innerText(),/Estable 32/);assert.equal(await page.locator('#gameSettings [data-act="save"]').count(),0);
+ assert.match(await page.locator('#gameSettings [data-act="downloadHtml"]').innerText(),/Estable 33/);assert.equal(await page.locator('#gameSettings [data-act="save"]').count(),0);
  await page.evaluate(()=>setStatus('No se pudo guardar: prueba aislada',true));assert.equal(await page.locator('#gameSettings>summary').getAttribute('class'),'saveError');assert.match(await page.locator('#settingsSaveState').innerText(),/No se pudo guardar/);
  await page.evaluate(()=>persist());assert.equal(await page.locator('#gameSettings>summary').getAttribute('class'),'');
  fs.mkdirSync(path.join(root,'arte/verificacion/estable32/regresiones/regresiones'),{recursive:true});await page.screenshot({path:path.join(root,`arte/verificacion/estable32/regresiones/regresiones/configuracion-${width}.png`)});

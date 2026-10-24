@@ -9,7 +9,7 @@ function e227TopShell(){
  const identity=document.createElement('div');identity.className='generalIdentity';identity.innerHTML='<b id="generalCharacter"></b><div class="generalXP"><span id="generalXPText"></span><div class="generalXPTrack" role="progressbar" aria-label="Experiencia general del personaje" aria-valuemin="0" aria-valuemax="100"><span id="generalXPBar"></span></div></div>';
  const title=header.querySelector('h1');top.append(identity,title);header.prepend(top);
  const nav=document.createElement('div');nav.className='globalHeaderNav';
- const settings=document.createElement('details');settings.id='gameSettings';settings.innerHTML='<summary aria-label="Configuración" title="Configuración"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 2-1 3-3 1-2 3 2 3-1 3 3 3 3-1 3 2 3-2 3 1 3-3-1-3 2-3-2-3-3-1-1-3Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="saveIndicator" aria-hidden="true"></span></summary><div class="settingsPanel"><h2>Configuración</h2><div id="settingsSaveState" role="status"></div><div class="settingsActions"></div><div class="settingsTechnical"><small>Estable 32 · Guardado automático · v7 · hasta cinco personajes</small><div id="settingsLastSave"></div></div></div>';
+ const settings=document.createElement('details');settings.id='gameSettings';settings.innerHTML='<summary aria-label="Configuración" title="Configuración"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 2-1 3-3 1-2 3 2 3-1 3 3 3 3-1 3 2 3-2 3 1 3-3-1-3 2-3-2-3-3-1-1-3Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="saveIndicator" aria-hidden="true"></span></summary><div class="settingsPanel"><h2>Configuración</h2><div id="settingsSaveState" role="status"></div><div class="settingsActions"></div><div class="settingsTechnical"><small>Estable 33 · Guardado automático · v7 · hasta cinco personajes</small><div id="settingsLastSave"></div></div></div>';
  nav.append(settings);header.append(nav);
  if(typeof ResizeObserver!=='undefined')new ResizeObserver(()=>document.documentElement.style.setProperty('--global-header-height',header.getBoundingClientRect().height+'px')).observe(header);
  const status=header.querySelector('#saveStatus');if(status){settings.querySelector('#settingsSaveState').append(status);if(status.classList.contains('warn')){settings.querySelector('summary').classList.add('saveError');settings.querySelector('summary').setAttribute('aria-label','Configuración · Atención: '+status.textContent);}}
@@ -30,14 +30,14 @@ function e227InstallTop(){
  const session=document.getElementById('e13SessionBox');if(session)root.querySelector('#page_combat')?.prepend(session);
  // Duplicate identity/progression is now in the top row. Keep HP, MP, stats and rest.
  const attributes=root.querySelector('details[data-ui-panel="attributes"] .sectionBody');if(attributes){for(const id of ['lvlText','xpText','xpBar']){const n=attributes.querySelector('#'+id);if(n){if(id==='xpBar')n.parentElement.hidden=true;else n.closest('.row').hidden=true;}}attributes.querySelector(':scope>.muted')?.setAttribute('hidden','');}
- if(!host.querySelector('[data-previous-stable]'))host.insertAdjacentHTML('beforeend','<p><a data-previous-stable href="https://github.com/marianoczer-afk/Idle-Czerniak/blob/76e984450699f52bc79c35f47422aab049ded773/index.html" target="_blank" rel="noopener">Versión anterior · Estable 31</a></p>');
+ if(!host.querySelector('[data-previous-stable]'))host.insertAdjacentHTML('beforeend','<p><a data-previous-stable href="https://github.com/marianoczer-afk/Idle-Czerniak/blob/96d7e5a06cb1b9bae41fc1b13d11c10687996085/index.html" target="_blank" rel="noopener">Versión anterior · Estable 32</a></p>');
  e227MoveDev();e227UpdateTop();
 }
 function e227UpdateTop(){
  const header=document.querySelector('.globalHeader');if(!header)return;
  e215SetText(document.getElementById('settingsLastSave'),lastSave?'Último guardado correcto: '+lastSave:'Todavía no hay un guardado confirmado');
  const active=!!(state&&ready&&!document.getElementById('gameScreen').classList.contains('hidden'));document.body.classList.toggle('hasActiveCharacter',active);
- const title=header.querySelector('h1');title.textContent=active?'ARGENTUM IDLE ONLINE':'Argentum Idle Online · Estable 32';
+ const title=header.querySelector('h1');title.textContent=active?'ARGENTUM IDLE ONLINE':'Argentum Idle Online · Estable 33';
  if(!active){e227ClearGeneralDrop();return;}
  const level=levelFromXp(state.xp),low=xpFor(level),high=xpFor(level+1),earned=Math.max(0,state.xp-low),need=high-low,percent=clamp(earned/need*100,0,100);
  e215SetText(document.getElementById('generalCharacter'),`${state.name} · ${classById(state.cls).name} · ${raceById(state.race).name} · Nv ${level}`);
@@ -65,7 +65,7 @@ const e227PreviousCharacters=showCharacters;
 showCharacters=function(){e227ClearGeneralDrop();const result=e227PreviousCharacters();e227TopShell();e227UpdateTop();return result;};
 const e227PreviousModeChrome=refreshModeChrome;
 refreshModeChrome=function(){const result=e227PreviousModeChrome();e227MoveDev();return result;};
-function e227CleanDownload(page){const header=page.querySelector('body>header');header.className='';header.innerHTML='<h1>Argentum Idle Online · Estable 32</h1><div id="saveStatus">Cargando...</div>';page.querySelectorAll('.generalXPDrop').forEach(n=>n.remove());page.querySelector('body').classList.remove('hasActiveCharacter');}
+function e227CleanDownload(page){const header=page.querySelector('body>header');header.className='';header.innerHTML='<h1>Argentum Idle Online · Estable 33</h1><div id="saveStatus">Cargando...</div>';page.querySelectorAll('.generalXPDrop').forEach(n=>n.remove());page.querySelector('body').classList.remove('hasActiveCharacter');}
 document.addEventListener('click',event=>{const panel=document.getElementById('gameSettings');if(panel?.open&&!panel.contains(event.target))panel.open=false;});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){const panel=document.getElementById('gameSettings');if(panel?.open){panel.open=false;panel.querySelector('summary').focus();}}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)e227ClearGeneralDrop();});

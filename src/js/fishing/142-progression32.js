@@ -34,11 +34,19 @@ e218Detail=function(f){const panel=e232OldDetail(f),r=e218Record(f.id),category=
 // No raster variants, full-image color filters, timers or extra animation loops.
 function e232SpecimenLayer(symbol,key,category,width='100%',height='100%'){
  if(!['large','huge','legendary'].includes(category))return '';
- const rank={large:1,huge:2,legendary:3}[category],color=['','#d8ead0','#bcecff','#ffdb78'][rank];
- const scales=Array.from({length:rank*4},(_,i)=>{const x=35+(i%5)*28,y=32+Math.floor(i/5)*17;return '<path d="M'+x+' '+y+'q5 7 10 0" fill="none" stroke="'+color+'" stroke-width="'+(rank===1?.8:1.15)+'" opacity="'+(rank===1?.42:.58)+'"/>';}).join('');
- const sheen=rank>1?'<defs><linearGradient id="'+key+'-shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+color+'" stop-opacity="0"/><stop offset=".5" stop-color="'+color+'" stop-opacity=".65"/><stop offset="1" stop-color="'+color+'" stop-opacity="0"/></linearGradient></defs><path d="M25 73Q70 8 127 31M77 85Q130 22 181 40" fill="none" stroke="url(#'+key+'-shine)" stroke-width="'+(rank===3?12:8)+'"/>':'';
- const sparks=rank===3?[[52,32],[90,51],[132,37],[155,65],[73,68]].map(([x,y])=>'<path d="M'+x+' '+(y-4)+'l1.4 3 3.6 1-3.6 1-1.4 3-1.4-3-3.6-1 3.6-1Z" fill="#fff0bf"/>').join(''):'';
- return '<defs><mask id="'+key+'-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="'+width+'" height="'+height+'"><use href="#'+symbol+'" width="'+width+'" height="'+height+'"/></mask></defs><g class="e231ScaleGlints e232SpecimenSurface" mask="url(#'+key+'-body)" data-category="'+category+'"><svg width="'+width+'" height="'+height+'" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">'+sheen+scales+sparks+'</svg></g>';
+ const rank={large:1,huge:2,legendary:3}[category],id=symbol.split('hud-fish-').pop(),color=['','#dcebcf','#a8e7ff','#ffd46e'][rank];
+ let paths,points,anatomy;
+ if(/calamar/.test(id)){anatomy='mantle-tentacles';paths=['M104 44Q138 17 170 33','M91 49Q61 43 35 63T18 69','M88 57Q65 80 43 71T23 75'];points=[[128,34],[151,32],[77,55],[54,70],[30,62]];}
+ else if(/bagre/.test(id)){anatomy='back-whiskers';paths=['M38 41Q85 23 146 44','M40 52Q25 58 17 69','M43 55Q29 67 24 78','M113 38L129 23'];points=[[58,39],[84,34],[115,39],[35,58],[26,68]];}
+ else if(/cangrejo|isopodo/.test(id)){anatomy='shell-claws';paths=['M72 43Q101 23 127 44','M45 45Q32 26 48 20','M147 43Q168 24 152 17','M78 59Q101 67 123 56'];points=[[87,42],[112,39],[42,29],[155,28],[104,58]];}
+ else if(/mantarraya/.test(id)){anatomy='wings';paths=['M38 61Q64 37 96 42','M104 42Q145 34 169 61','M99 48Q109 66 116 82'];points=[[68,48],[136,48],[96,44],[113,66]];}
+ else if(/anguila|morena|congrio/.test(id)){anatomy='sinuous-back';paths=['M25 62Q68 28 98 50T173 43','M36 65Q76 43 108 64'];points=[[49,48],[83,44],[111,56],[155,49]];}
+ else{anatomy='scales-fins';const shift=[...id].reduce((n,c)=>n+c.charCodeAt(0),0)%9-4;paths=['M40 43Q90 '+(23+shift)+' 152 43','M75 47q6 9 12 0m5 4q6 9 12 0m5-9q6 9 12 0','M92 30L105 20M104 67L120 76'];points=[[65,40],[88,35+shift],[115,38],[139,47],[101,64]];}
+ const strokes=paths.slice(0,rank===1?1:paths.length).map(d=>'<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="'+[0,1.1,2.6,3.3][rank]+'" stroke-linecap="round" opacity="'+[0,.48,.86,.95][rank]+'"/>').join('');
+ const spots=rank>1?points.map(([x,y],i)=>'<ellipse cx="'+x+'" cy="'+y+'" rx="'+(rank===3?6:4)+'" ry="2.4" fill="'+color+'" opacity=".32"/>'+(rank===3&&i<4?'<path d="M'+x+' '+(y-3)+'l1 2 3 1-3 1-1 2-1-2-3-1 3-1Z" fill="#fff2ba"/>':'')).join(''):'';
+ // Shared alpha threshold removes semi-transparent fringe; no blur/color filter
+ // is applied to the picture. Anatomy strokes remain inside the opaque animal.
+ return '<defs><mask id="'+key+'-body" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="'+width+'" height="'+height+'"><use href="#'+symbol+'" width="'+width+'" height="'+height+'" filter="url(#argentum-specimen-edge)"/></mask></defs><g class="e231ScaleGlints e232SpecimenSurface" mask="url(#'+key+'-body)" data-category="'+category+'" data-anatomy="'+anatomy+'"><svg width="'+width+'" height="'+height+'" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">'+strokes+spots+'</svg></g>';
 }
 // Decorate normalized definitions once. All quest surfaces (Atlas/Trophies/shop) share these names.
 function e232QuestDefinition(q){return {...q,reward:q.rodId?'Caña · '+(E232_ROD_NAMES[q.rodId]||e231ArtNames.get('rod:'+q.rodId)||q.reward):E232_BADGES[q.id]?e232BadgeReward(q)+(q.id==='laguna'?' · Instinto de pescador: +5% XP de Pesca permanente':q.id==='abismo'?' · Pulso del abismo: +8 px de control permanente':''):q.reward};}

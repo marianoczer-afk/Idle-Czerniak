@@ -19,7 +19,7 @@ e16Finish=function(won){
  const zone=fish?e165Zone().id:null;
  let quality=null;
  if(fish){
-  const roll=e186QualityRoll();
+  const roll=Number.isFinite(e16Session.qualityRoll)?e16Session.qualityRoll:e186QualityRoll();
   quality=roll<.018?'legendary':roll<.115?'huge':roll<.34?'large':'normal';
   const r=e18Record();r.total=Math.max(0,Number(r.total)||0)+1;
   if(quality==='large')r.large=(Number(r.large)||0)+1;

@@ -36,3 +36,12 @@
 /* Clipped decorative backgrounds must not let flex rows shrink into the viewport. */
 #fishingRodShop .rodShopRow{flex-shrink:0;background:#122326}
 #fishingRodShop .rodShopArt{background:transparent;border-color:transparent}
+
+/* Inline selection spans only its own medal row; no change to the bottom HUD. */
+.e228TrophySelection{grid-column:1/-1;min-width:0}.e228TrophySelection[hidden]{display:none}
+.e228TrophySelection .e228TrophyDetail{grid-template-columns:64px minmax(0,1fr);gap:9px;margin:0;padding:8px}
+.e228TrophySelection .e228TrophyDetail .e228AwardArt{height:64px}
+.e228TrophySelection .e228TrophyDetail h3{font-size:13px;margin:0 0 3px}
+.e228TrophySelection .e228TrophyDetail small{font-size:11px}
+.e228TrophySelection .e228TrophyDetail ul{font-size:11px;line-height:1.35;margin:5px 0 0;padding-left:14px}
+.e233RecognitionState{color:#d7bb70;font-weight:500}

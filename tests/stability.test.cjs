@@ -287,8 +287,8 @@ test('Downloaded index.html boots independently and retains the rod shop',async(
   const download=await pending;assert.equal(download.suggestedFilename(),'index.html');
   const html=readFileSync(await download.path(),'utf8');
   assert.doesNotMatch(html,/data-rod-shop-open/);
-  assert.match(html,/<meta name="argentum-build" content="estable-32">/);
-  assert.match(html,/<h1>Argentum Idle Online · Estable 32<\/h1>/);
+  assert.match(html,/<meta name="argentum-build" content="estable-33">/);
+  assert.match(html,/<h1>Argentum Idle Online · Estable 33<\/h1>/);
   downloadedContext=await browser.newContext();const exported=await downloadedContext.newPage();
   exported.on('pageerror',e=>errors.push(e.message));
   directory=mkdtempSync(join(tmpdir(),'argentum-html-'));
@@ -413,7 +413,7 @@ test('Resilience calms fish without braking player input, including the bubble s
    e190FishingStep(a,true,.02,520,()=>.5);e190FishingStep(b,true,.02,520,()=>.5);
    return {a,b};
   });
-  assert.ok(result.b.target-200<result.a.target-200);assert.ok(result.b.motionPhase<result.a.motionPhase);assert.ok(Math.abs(result.b.targetVelocity)<Math.abs(result.a.targetVelocity));
+  assert.ok(result.b.target-200<result.a.target-200);assert.ok(result.b.roamAt>result.a.roamAt);assert.ok(Math.abs(result.b.targetVelocity)<Math.abs(result.a.targetVelocity));
   assert.equal(result.a.vel,result.b.vel);assert.equal(result.a.pos,result.b.pos);
   await page.evaluate(()=>{state.owned.e161_rod_bamboo=true;state.ui.fishingRodId='e161_rod_bamboo';state.ui.fishingZoneId='rio';e16Page();e161Fishing=true;e16Start('lucio');});
   await page.waitForSelector('.e196Bubble');

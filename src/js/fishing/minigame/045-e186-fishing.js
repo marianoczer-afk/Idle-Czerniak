@@ -12,7 +12,7 @@ function e186LuckPercent(){
 }
 /* Conserva exactamente la distribución original con caña básica a nivel 1.
    Aumenta moderadamente la frecuencia de calidad grande, enorme y legendaria
-   con cañas avanzadas y nivel. No afecta la dificultad del minijuego. */
+   con cañas avanzadas y nivel. La categoría se muestrea una vez por intento y modula los movimientos. */
 function e186QualityRoll(){
  const boost=1+e186LuckPercent()/100;
  const roll=Math.random();

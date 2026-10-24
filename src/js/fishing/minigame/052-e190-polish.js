@@ -27,6 +27,7 @@ e16Page=function(){e190PreviousPage();if(!e16Session)return;const page=document.
 // Capture behavior is separate from rarity weights: demanding fish need sustained tracking.
 /* @include src/catalogs/052-e190-polish-e210_capture_profiles.js */
 const E232_DEFAULT_CAPTURE={speed:1,run:1,gain:1,loss:1};
+function e233MotionRandom(g){let n=g.motionRng;n^=n<<13;n^=n>>>17;n^=n<<5;g.motionRng=n>>>0;return g.motionRng/4294967296;}
 function e190FishingStep(g,holding,dt,width,random=Math.random){
  if(Number.isFinite(g.controlFraction))g.fish.zone=Math.min(width*.55,Math.max(16,width*(g.controlFraction+(g.controlRewardFraction||0))+(g.controlExtra||0)));
  // Player input stays proportional to the track on desktop and touch.
@@ -34,16 +35,27 @@ function e190FishingStep(g,holding,dt,width,random=Math.random){
  g.vel+=(holding?600:-570)*scale*dt;g.vel=Math.max(-220*scale,Math.min(220*scale,g.vel));g.pos=Math.max(0,Math.min(limit,g.pos+g.vel*dt));if(g.pos===0||g.pos===limit)g.vel=0;
  const diff=E161_DIFFICULTY[g.fish.id]||1,motion=g.motion||{distance:1,interval:1};
  const profile=E210_CAPTURE_PROFILES[g.fish.id]||E232_DEFAULT_CAPTURE;
- // A seeded continuous path replaces frequent random reversals. Resilience slows
- // timing/acceleration, never collapses the sweep into a stationary control bar.
- if(!Number.isFinite(g.motionPhase)){const phase=Math.asin(Math.max(-1,Math.min(1,((g.target+12)/width-.5)/.37)));g.motionPhase=g.dir<0?Math.PI-phase:phase;g.targetVelocity=0;}
- const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),pressure=capture.pressure;
- const frequency=(.64+Math.min(4,diff)*.075)*Math.sqrt(profile.speed)*pressure/Math.pow(motion.interval,.65);
- g.motionPhase+=frequency*dt;g.time+=dt;
- const ripple=Math.min(.045,.012+diff*.008)*Math.sin(g.motionPhase*(2.2+g.fish.wiggle*.5)+g.seed);
- const desired=width*(.5+.37*Math.sin(g.motionPhase)+ripple)-12;
- const maxVelocity=width*Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance));
- const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*8))*Math.sqrt(motion.distance);
+ // Local zigzags with occasional changes of hunting ground. Randomness is
+ // attempt-local; the smooth velocity/acceleration limits prevent teleporting.
+ if(g===e16Session&&!Number.isFinite(g.qualityRoll)){g.qualityRoll=e186QualityRoll();g.qualityRank=g.qualityRoll<.018?3:g.qualityRoll<.115?2:g.qualityRoll<.34?1:0;}
+ if(!g.motionRng)g.motionRng=((Math.floor((g.seed||1)*1e7)^g.fish.id.split('').reduce((n,c)=>Math.imul(n,31)+c.charCodeAt(0),7))>>>0)||1;
+ const capture=g.capture||e232CaptureProfile(g.fish,e161Rod(),e16FishLevel(),g.weightKg),pressure=capture.pressure,rank=g.qualityRank||0;
+ g.time+=dt;
+ if(!Number.isFinite(g.roamAt)||g.time>=g.roamAt){
+  g.roamCount=(g.roamCount||0)+1;
+  if(!Number.isFinite(g.roamCenter)||g.roamCount%3===1){const old=g.roamCenter??(g.target+12)/width;g.roamCenter=old<.5?.78+e233MotionRandom(g)*.10:.12+e233MotionRandom(g)*.10;}
+  const reversal=e233MotionRandom(g)<(.64+Math.min(.18,g.fish.wiggle*.15));g.roamDir=reversal?-(g.roamDir||g.dir||1):(g.roamDir||g.dir||1);
+  const long=g.roamCount%3===1,reach=long?.19+e233MotionRandom(g)*.12:.065+e233MotionRandom(g)*(.065+.012*rank);
+  g.roamAim=clamp(g.roamCenter+(long?0:g.roamDir*reach),.08,.92)*width-12;
+  if(Math.abs(g.roamAim-g.target)<width*.055)g.roamAim=clamp((g.target+12)/width-g.roamDir*(.12+.04*e233MotionRandom(g)),.08,.92)*width-12;
+  // Brief feints vary by species and specimen; a cue still shows momentum.
+  const feint=e233MotionRandom(g)<(.10+.045*Math.min(4,diff)+rank*.035);
+  g.roamAt=g.time+(feint?.25+e233MotionRandom(g)*.16:.55+e233MotionRandom(g)*.50)*Math.pow(motion.interval,.55)/(1+.045*diff+.07*rank);
+  if(long){const cruise=Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance)*Math.sqrt(profile.speed)*(1+.045*rank));g.roamAt=Math.max(g.roamAt,g.time+Math.abs(g.roamAim-g.target)/(width*cruise)+.45);}
+ }
+ const desired=g.roamAim+Math.sin(g.time*(2.5+g.fish.wiggle*3)+(g.seed||0))*width*.008;
+ const maxVelocity=width*Math.min(.38,(.21+.025*Math.min(4,diff))*pressure*Math.sqrt(motion.distance)*Math.sqrt(profile.speed)*(1+.045*rank));
+ const acceleration=Math.max(-width,Math.min(width,(desired-g.target)*16-(g.targetVelocity||0)*6))*Math.sqrt(motion.distance);
  g.targetVelocity=Math.max(-maxVelocity,Math.min(maxVelocity,(g.targetVelocity||0)+acceleration*dt));
  g.target=Math.max(3,Math.min(width-30,g.target+g.targetVelocity*dt));
  if(g.target===3||g.target===width-30)g.targetVelocity=0;

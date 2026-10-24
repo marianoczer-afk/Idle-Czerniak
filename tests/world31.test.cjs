@@ -9,12 +9,12 @@ test('World31 smooth sweep: every species catchable; widest and calmest rods nev
  const{p,context}=await fresh();try{
  const result=await p.evaluate(()=>{
   const bad=[],automatic=[],times=[];state.skills.pesca.xp=98010;
-  const rods=e221Rods(),tracker=rods.find(r=>r.id==='e192_rod_abyss'),calmest=rods.reduce((a,b)=>e1101Stats(b).resilience>e1101Stats(a).resilience?b:a);
+  const rods=e221Rods(),tracker=rods.find(r=>r.id==='e208_rod_eterno_pulso'),calmest=rods.reduce((a,b)=>e1101Stats(b).resilience>e1101Stats(a).resilience?b:a);
   for(const f of E16_FISH){
    const width=520,widest=rods.reduce((a,b)=>e190CaptureWidth(f,b,100,width,false)>e190CaptureWidth(f,a,100,width,false)?b:a);
    const strategies=[{active:true,rod:tracker},...[widest,calmest].flatMap(rod=>[.15,.3,.5,.7,.85].map(position=>({rod,position})))];
    for(const strategy of strategies)for(let seed=1;seed<=4;seed++){
-    const zone=e190CaptureWidth(f,strategy.rod,100,width,false),g={fish:{...f,zone},motion:e190MotionProfile(f,strategy.rod),controlFraction:zone/width,pos:width*.25,vel:0,target:width*(.2+.13*seed),dir:seed%2?1:-1,seed,time:0,progress:.23};
+    const zone=e190CaptureWidth(f,strategy.rod,100,width,false),g={fish:{...f,zone},rodId:strategy.rod.id,weightKg:e190WeightRange(f)[0],capture:e232CaptureProfile(f,strategy.rod,100,e190WeightRange(f)[0]),motion:e190MotionProfile(f,strategy.rod),controlFraction:zone/width,pos:width*.25,vel:0,target:width*(.2+.13*seed),dir:seed%2?1:-1,seed,time:0,progress:.23};
     let outcome,last=g.target;
     for(let i=0;i<60*60;i++){
      const hold=strategy.active?g.pos+zone/2+g.vel*.14<g.target+12:false;
@@ -29,7 +29,7 @@ test('World31 smooth sweep: every species catchable; widest and calmest rods nev
   return{bad,automatic,maxSeconds:Math.max(...times),minSeconds:Math.min(...times)};
  });
  assert.deepEqual(result.bad,[]);assert.deepEqual(result.automatic,[]);assert.ok(result.maxSeconds<30);assert.ok(result.minSeconds>3);
- fs.mkdirSync(path.join(root,'arte/verificacion/estable32'),{recursive:true});fs.writeFileSync(path.join(root,'arte/verificacion/estable32/simulacion-especies.json'),JSON.stringify(result,null,2));
+ fs.mkdirSync(path.join(root,'arte/verificacion/estable33'),{recursive:true});fs.writeFileSync(path.join(root,'arte/verificacion/estable33/simulacion-especies.json'),JSON.stringify(result,null,2));
  }finally{await context.close();}
 });
 test('World31 supplemental quests preserve old stars, consume nothing and grant each new reward once',async()=>{const{p,context}=await fresh();try{const before=await p.evaluate(()=>{state.gold=12345;state.ui.fishingMasteryEarned=Object.fromEntries(E165_ZONES.map(z=>[z.id,7]));state.ui.fishingWeights={bySpecies:Object.fromEntries(E16_FISH.map(f=>[f.id,{catches:1000,bestKg:3000}])),byZone:Object.fromEntries(E165_ZONES.map(z=>[z.id,{catches:1000,bestKg:3000,species:Object.fromEntries(z.fish.map(id=>[id,1000]))}]))};return{inventory:JSON.stringify(state.inventory),gold:state.gold};});for(const id of await p.evaluate(()=>E231_QUESTS.map(q=>q.id))){await p.evaluate(id=>{state.ui.fishingZoneId=E231_QUESTS.find(q=>q.id===id).zone;e16Page();const b=document.querySelector('[data-expansion-claim="'+id+'"]');if(!b||b.disabled)throw Error('Unreachable '+id);b.click();const clone=document.createElement('button');clone.dataset.expansionClaim=id;document.body.append(clone);clone.click();clone.remove();},id);}const after=await p.evaluate(async()=>{await persist();return{inventory:JSON.stringify(state.inventory),gold:state.gold,claimed:E231_QUESTS.every(q=>state.ui.fishingQuestRewards[q.id]),rods:E231_QUESTS.filter(q=>q.rodId).every(q=>state.owned[q.rodId]),stars:E165_ZONES.every(z=>e216ZoneProgress(z).complete),unique:new Set(e228Recognitions().map(i=>E227_ART[i.artKind+':'+i.artId].symbol)).size};});assert.equal(after.inventory,before.inventory);assert.equal(after.gold,before.gold);assert.ok(after.claimed&&after.rods&&after.stars);assert.equal(after.unique,78);await p.reload();await p.waitForFunction(()=>storageReady&&ready);assert.equal(await p.evaluate(()=>E231_QUESTS.every(q=>state.ui.fishingQuestRewards[q.id])),true);}finally{await context.close();}});
