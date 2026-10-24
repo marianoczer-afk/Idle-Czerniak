@@ -12,12 +12,13 @@
     "art:gallery": "node scripts/build-art-gallery.cjs",
     "test:polish33": "node --test tests/polish33.test.cjs",
     "test:fishing34": "node --test tests/fishing34.test.cjs",
-    "test:full": "node --test tests/build.test.cjs tests/expansion27.test.cjs tests/stability.test.cjs tests/trophies28.test.cjs tests/polish29.test.cjs tests/presentation30.test.cjs tests/world31.test.cjs tests/progression32.test.cjs tests/polish33.test.cjs tests/fishing34.test.cjs tests/workflow.test.cjs",
-    "test:fast": "node --test --test-name-pattern=\"Generated single HTML|Source catalogues|Build profiling|Architecture inventory\" tests/build.test.cjs tests/workflow.test.cjs",
+    "test:full": "node --test --test-concurrency=2 tests/*.test.cjs",
+    "test:fast": "node --test --test-name-pattern=\"Generated single HTML|Gameplay engines|Source catalogues|Build profiling|Architecture inventory\" tests/build.test.cjs tests/workflow.test.cjs",
     "test:smoke": "node --test --test-name-pattern=\"regional capture|legacy credit\" tests/fishing34.test.cjs",
     "test:assets": "python3 tests/optimize-assets.test.py",
     "architecture:inventory": "node scripts/architecture-inventory.cjs",
-    "build:profile": "node scripts/build.cjs --check --profile"
+    "build:profile": "node scripts/build.cjs --check --profile",
+    "test:render": "node --test tests/render-equivalence.test.cjs"
   },
   "devDependencies": {
     "acorn": "8.15.0",
