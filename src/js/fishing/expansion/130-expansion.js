@@ -39,6 +39,7 @@ const e227PreviousRecord=makeRosterRecord;
 makeRosterRecord=function(){if(state&&ready)e227EarnMastery();return e227PreviousRecord();};
 function e227QuestGoal(q,goal){
  const zone=E165_ZONES.find(z=>z.id===q.zone),record=state.ui?.fishingWeights?.byZone?.[q.zone]||{};
+ if(goal.kind==='speciesQualityCount'){const f=E16_FISH.find(f=>f.id===goal.id),counts=e218Record(goal.id).categoryCounts;return{label:`Conseguí ${goal.need} ${f.name} · ${E218_CATEGORIES[goal.category]} (contadores registrados)`,have:Number(counts[goal.category])||0,need:goal.need};}
  if(goal.kind==='speciesCount')return{label:`Capturá ${goal.need} ${E16_FISH.find(f=>f.id===goal.id).name} en ${zone.name}`,have:e234LocalCount(record,goal.id),need:goal.need};
  if(goal.kind==='captures')return{label:`Conseguí ${goal.need} capturas en ${zone.name}`,have:Number(record.catches)||0,need:goal.need};
  if(goal.kind==='weight')return{label:`Récord local de al menos ${e190Kg(goal.need)}`,have:Number(record.bestKg)||0,need:goal.need};
