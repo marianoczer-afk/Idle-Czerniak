@@ -60,7 +60,7 @@ function e194UpdateDockRod(){
  panel.dataset.key=key;panel.querySelector('.e194DockRodArt').innerHTML=e194RodArt(id);
  panel.querySelector('.e194DockRodText').innerHTML='🎣 '+(rod?.name||'Caña equipada')+'<small>Tu caña equipada</small>';
 }
-const e194PriorHud=e188UpdateHud;
-e188UpdateHud=function(){e194PriorHud();e194UpdateDockRod();};
+
+
 const e194PriorRender=renderGame;
 renderGame=function(){e194PriorRender();e194UpdateDockRod();};

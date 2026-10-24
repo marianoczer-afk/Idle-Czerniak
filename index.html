@@ -4946,7 +4946,9 @@ function e188HudNode(){
  }
  return node;
 }
-function e188UpdateHud(){
+// One HUD lifecycle; the order preserves layout, menu behavior and live XP.
+let fishingHudMenuSync,fishingHudXpSync;
+function fishingRenderHudBase(){
  const dock=document.getElementById('combatDock');if(!dock)return;
  const active=!!(state&&ready&&e161OnPage()&&!document.getElementById('gameScreen')?.classList.contains('hidden'));
  dock.classList.toggle('e188FishingMode',active);
@@ -4954,6 +4956,22 @@ function e188UpdateHud(){
  const node=e188HudNode();if(!node)return;
  measureDock();
 }
+function e188UpdateHud(){
+ if(!fishingFinishDepth){
+  fishingRenderHudBase();
+  e189UpdateArt();
+  e194UpdateDockRod();
+  e1107Sync();
+  e1118SyncHud();
+  fishingHudMenuSync();
+  fishingHudXpSync();
+  fishingPageZoneSync();
+  e211SyncHud();
+ }
+ // This outer artwork phase also ran when the transaction guard skipped updates.
+ e229Hud();
+}
+
 const e188PriorFinish=e16Finish;
 e16Finish=function(won){e188PriorFinish(won);e188UpdateHud();};
 const e188PriorTab=selectWorkspaceTab;
@@ -4984,8 +5002,8 @@ function e189RodSVG(id){
  return '<svg viewBox="0 0 40 44" role="img" aria-label="Ilustración de caña" xmlns="http://www.w3.org/2000/svg"><path d="M8 39 Q20 15 32 3" stroke="'+color+'" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M8 39 L15 27" stroke="#624329" stroke-width="4.6" stroke-linecap="round"/><path d="M32 3 Q39 15 34 27" stroke="#c5d7db" stroke-width=".8" stroke-dasharray="2 1" fill="none"/><path d="M34 27 l-3 4 3 4 3-4Z" fill="'+color+'"/><circle cx="14" cy="28" r="4" fill="#d6b776" stroke="#664b2d" stroke-width="2"/><path d="M13 12 L19 16" stroke="'+color+'" stroke-width="1.8"/></svg>';
 }
 function e189Quality(q){const k=(q||'').toLowerCase();if(/legend/.test(k))return {stars:'★',color:'#ffd56b',label:'ORO · LEGENDARIO'};if(/enorme|huge/.test(k))return {stars:'★',color:'#cbd9e7',label:'PLATA · ENORME'};if(/grande|large/.test(k))return {stars:'★',color:'#c58d59',label:'BRONCE · GRANDE'};return {stars:'',color:'',label:''};}
-const e189PrevHud=e188UpdateHud;
-e188UpdateHud=function(){e189PrevHud();e189UpdateArt();};
+
+
 const e189PrevPaint=e16Paint;
 e16Paint=function(){e189PrevPaint();if(e16Session)e189UpdateArt();};
 </script>
@@ -5363,8 +5381,8 @@ function e194UpdateDockRod(){
  panel.dataset.key=key;panel.querySelector('.e194DockRodArt').innerHTML=e194RodArt(id);
  panel.querySelector('.e194DockRodText').innerHTML='🎣 '+(rod?.name||'Caña equipada')+'<small>Tu caña equipada</small>';
 }
-const e194PriorHud=e188UpdateHud;
-e188UpdateHud=function(){e194PriorHud();e194UpdateDockRod();};
+
+
 const e194PriorRender=renderGame;
 renderGame=function(){e194PriorRender();e194UpdateDockRod();};
 </script>
@@ -5822,8 +5840,8 @@ function e1107Sync(){
 }
 
 
-const e1107OldHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e1107OldHud();e1107Sync();return result;};
+
+
 document.addEventListener('click',e=>{
  const stop=e.target.closest('.e1107StopShake');
  if(!stop)return;
@@ -6233,8 +6251,8 @@ function e1118SyncHud(){
  e215SetText(tile.querySelector('small'),zoneName);
 
 }
-const e1118PrevHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e1118PrevHud();e1118SyncHud();return result;};
+
+
 const e1118PrevRender=renderGame;
 renderGame=function(){const result=e1118PrevRender();e1118SyncHud();return result;};
 </script>
@@ -6304,7 +6322,7 @@ document.addEventListener('click',e=>{
  if(popup&&!e.target.closest('.e1120Menu'))closeMenu();
 },true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();if((e.key==='Enter'||e.key===' ')&&e.target.matches('#combatDock.e188FishingMode .e1118Zone,#combatDock.e188FishingMode .e194DockRod')){e.preventDefault();openMenu(e.target.classList.contains('e1118Zone')?'zone':'rod',e.target);}});
-const old=e188UpdateHud;e188UpdateHud=function(){const result=old();sync();return result;};
+fishingHudMenuSync=sync;
 const oldRender=renderGame;renderGame=function(){const result=oldRender();sync();return result;};
 })();
 </script>
@@ -6325,8 +6343,8 @@ const oldRender=renderGame;renderGame=function(){const result=oldRender();sync()
  // Actualización final tras el render normal: el HUD de combate escribe el nivel general.
  const priorLive=updateLive;
  updateLive=function(){const result=priorLive.apply(this,arguments);e197Sync();updateFishingXp();return result;};
- const priorHud=e188UpdateHud;
- e188UpdateHud=function(){const result=priorHud.apply(this,arguments);updateFishingXp();return result;};
+
+ fishingHudXpSync=updateFishingXp;
  const priorRender=renderGame;
  renderGame=function(){const result=priorRender.apply(this,arguments);updateFishingXp();return result;};
  document.addEventListener('pointerup',()=>queueMicrotask(updateFishingXp),true);
@@ -6374,7 +6392,7 @@ function sync(){
 }
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
 fishingPageZoneSync=sync;
-const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
+
 const previousPaint=e16Paint;e16Paint=function(){const r=previousPaint();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
 })();
@@ -10201,8 +10219,6 @@ document.addEventListener('click',event=>{
 // Transparent foregrounds replace the old blurred/masked source-strip simulation.
 function e229HudArt(kind,id,width,height){const cat=kind==='fish'?e220QualityKey(state?.ui?.lastFishingCatch?.quality)||'normal':'normal';return e230HudArt(kind,id,width,height,E227_ART['specimen-'+cat+':'+id]?cat:'normal');}
 function e229Hud(){if(!state||!e161OnPage())return;for(const [kind,id,selector] of [['rod',e161Rod()?.id,'#combatDock .e194DockRodArt'],['fish',state.ui?.lastFishingCatch?.id,'#combatDock .e189Art']]){const node=document.querySelector(selector);if(!node||!id)continue;const r=node.getBoundingClientRect(),height=r.height-(kind==='fish'?12:0),key=id+':'+(kind==='fish'?state.ui?.lastFishingCatch?.quality||'normal':'')+':'+Math.round(r.width)+':'+Math.round(height);if(node.dataset.hudComposition===key&&node.querySelector('.e229HudComposition'))continue;const art=e229HudArt(kind,id,r.width,height);if(art){node.innerHTML=art;node.dataset.hudComposition=key;}}if(typeof e231RarityHud==='function')e231RarityHud();}
-const e229PreviousHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e229PreviousHud();e229Hud();return result;};
 </script>
 <style id="polish-29">/* Integration stays outside the fishing stage; lower HUD retains its canonical geometry. */
 .e229Scene{position:relative;isolation:isolate;border:1px solid #77613e;border-radius:10px;overflow:hidden;background:#102627;margin:10px 0}

@@ -80,14 +80,7 @@ function e188HudNode(){
  }
  return node;
 }
-function e188UpdateHud(){
- const dock=document.getElementById('combatDock');if(!dock)return;
- const active=!!(state&&ready&&e161OnPage()&&!document.getElementById('gameScreen')?.classList.contains('hidden'));
- dock.classList.toggle('e188FishingMode',active);
- if(!active){e215PlaceXp(false);measureDock();return;}
- const node=e188HudNode();if(!node)return;
- measureDock();
-}
+/* @include src/js/fishing/hud/update.js */
 const e188PriorFinish=e16Finish;
 e16Finish=function(won){e188PriorFinish(won);e188UpdateHud();};
 const e188PriorTab=selectWorkspaceTab;

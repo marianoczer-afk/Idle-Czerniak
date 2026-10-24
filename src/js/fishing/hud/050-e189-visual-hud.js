@@ -17,7 +17,7 @@ function e189RodSVG(id){
  return '<svg viewBox="0 0 40 44" role="img" aria-label="Ilustración de caña" xmlns="http://www.w3.org/2000/svg"><path d="M8 39 Q20 15 32 3" stroke="'+color+'" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M8 39 L15 27" stroke="#624329" stroke-width="4.6" stroke-linecap="round"/><path d="M32 3 Q39 15 34 27" stroke="#c5d7db" stroke-width=".8" stroke-dasharray="2 1" fill="none"/><path d="M34 27 l-3 4 3 4 3-4Z" fill="'+color+'"/><circle cx="14" cy="28" r="4" fill="#d6b776" stroke="#664b2d" stroke-width="2"/><path d="M13 12 L19 16" stroke="'+color+'" stroke-width="1.8"/></svg>';
 }
 function e189Quality(q){const k=(q||'').toLowerCase();if(/legend/.test(k))return {stars:'★',color:'#ffd56b',label:'ORO · LEGENDARIO'};if(/enorme|huge/.test(k))return {stars:'★',color:'#cbd9e7',label:'PLATA · ENORME'};if(/grande|large/.test(k))return {stars:'★',color:'#c58d59',label:'BRONCE · GRANDE'};return {stars:'',color:'',label:''};}
-const e189PrevHud=e188UpdateHud;
-e188UpdateHud=function(){e189PrevHud();e189UpdateArt();};
+
+
 const e189PrevPaint=e16Paint;
 e16Paint=function(){e189PrevPaint();if(e16Session)e189UpdateArt();};

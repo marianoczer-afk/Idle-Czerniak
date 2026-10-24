@@ -23,7 +23,7 @@ function sync(){
 }
 const previousRender=renderGame;renderGame=function(){const r=previousRender();sync();return r;};
 fishingPageZoneSync=sync;
-const previousHud=e188UpdateHud;e188UpdateHud=function(){if(fishingFinishDepth)return;const r=previousHud();sync();e211SyncHud();return r;};
+
 const previousPaint=e16Paint;e16Paint=function(){const r=previousPaint();e211SyncHud();return r;};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
 })();

@@ -38,8 +38,8 @@ function e1107Sync(){
 }
 
 
-const e1107OldHud=e188UpdateHud;
-e188UpdateHud=function(){const result=e1107OldHud();e1107Sync();return result;};
+
+
 document.addEventListener('click',e=>{
  const stop=e.target.closest('.e1107StopShake');
  if(!stop)return;
