@@ -1,0 +1,58 @@
+AUDITORIA Y OPTIMIZACION DE REPOSITORIO — ARGENTUM IDLE ONLINE
+PARA CLAUDE (copiar como instruccion de trabajo)
+Fecha: 24/10/2026
+
+REPOSITORIO: https://github.com/marianoczer-afk/Idle-Czerniak
+SITIO JUGABLE: https://marianoczer-afk.github.io/Idle-Czerniak/
+VERSION A PRESERVAR: Estable 35.
+BACKUP DE ARCHIVOS ANTES DE LAS LIMPIEZAS:
+https://codeload.github.com/marianoczer-afk/Idle-Czerniak/zip/refs/heads/backup/estable35-antes-de-limpiezas
+Rama backup: backup/estable35-antes-de-limpiezas, commit ad4c3dc9a0ca863de077bc2642dea82017b10b7b.
+
+OBJETIVO
+Quiero que Codex tarde menos en trabajar en el proyecto. Las tareas llegaron a tardar 40–90 minutos. Quiero un diagnostico medido, una propuesta de reduccion de peso y mejoras en el flujo de trabajo, sin romper Estable 35 ni perder ilustraciones originales. NO presupongas que el peso sea la unica causa: identifica cuanto tarda cada etapa y que cambios aportarian realmente.
+
+DATOS YA VERIFICADOS
+- GitHub informa aproximadamente 533859 KiB de repositorio (incluye historia, no es el peso de la version activa).
+- Antes de la limpieza, el arbol activo rondaba los 486 MiB; luego de la limpieza ronda 268 MiB.
+- Se retiraron del arbol activo ZIP antiguos Estable 28–34 (~105 MiB), 371 capturas historicas Estable 26–34 (~100 MiB), tres muestras graficas antiguas (~6.3 MiB) y dos volcados TXT antiguos. Permanecen en commits previos de Git.
+- El proyecto mantiene aproximadamente 188 MiB en assets/originals, 15.6 MiB en assets/optimized, 13.3 MiB en assets/runtime y recursos en assets/illustrations.
+- Se contrastaron los archivos de esas cuatro carpetas con assets/manifest.json: todos aparecen referenciados en el manifiesto. Eso NO prueba que todos se usen visualmente, pero no son huerfanos obvios.
+- src/ y scripts/ son pequeños. index.html es un compilado standalone de ~25 MiB, y descargas/argentum-idle-estable35.zip es el paquete jugable vigente (~19 MiB).
+- El build fue medido anteriormente en menos de 1 segundo en otra revision; la duracion de Codex aun NO se desgloso por etapa.
+- Existen AGENTS.md, docs/ARQUITECTURA.md, docs/LIMPIEZA_REPOSITORIO.md, .rgignore, .gitignore y .gitattributes. Leerlos antes de proponer cambios.
+- El juego usa save v7 y HUD inferior de Pesca de 118px; deben preservarse.
+
+TAREAS — EN ESTE ORDEN
+1. DIAGNOSTICO MEDIDO, ANTES DE EDITAR
+   - Medir tiempo y bytes de: clone normal vs shallow (si es factible), checkout, indexacion/lectura del codigo, npm run build:profile, npm run test:fast, test:smoke, test:render y full (solo cuando corresponda).
+   - Usar git count-objects -vH, git rev-list --objects --all, git cat-file y git verify-pack para localizar blobs historicos grandes y duplicaciones. Separar tamano del arbol HEAD de tamano del historial.
+   - Medir y comparar el tiempo real que consumen arte, screenshots, Playwright, tests, empaquetado, analisis y edicion. No inventar la causa de los 90 minutos.
+   - Detectar si los clones de Codex son completos o superficiales y si .rgignore realmente limita lo que lee.
+2. AUDITORIA DE IMAGENES Y DEPENDENCIAS
+   - Rastrear el uso efectivo de cada imagen desde src/template.html, src/blocks.json, scripts/build.cjs, scripts/production-art.cjs, assets/manifest.json, arte/produccion-estable31.json y arte/produccion-estable34.json.
+   - Diferenciar fuente original, optimizado, runtime, atlas, imagen de referencia y arte usado por el juego.
+   - Identificar solo archivos comprobablemente prescindibles y presentar evidencia por archivo/ruta, ahorro real y riesgo. No borrar assets/originals ni recursos del manifiesto por suposicion.
+   - Considerar almacenamiento externo versionado para originales si fuera necesario, pero preservar una copia recuperable y un proceso de build reproducible. No cambiar a Git LFS sin estudiar compatibilidad con GitHub Pages, builds y clonacion.
+3. PROPUESTA DE OPTIMIZACION
+   - Proponer alternativas ordenadas por impacto, esfuerzo, riesgo y beneficio medible sobre Codex: clonacion shallow, evitar leer index.html/base64, evitar imagenes y ZIP para cambios normales, pruebas focalizadas, caching, arte en tareas separadas, compactacion segura.
+   - Mostrar tabla ANTES/DESPUES con MiB, segundos medidos y evidencia. Si no hay datos, decir NO MEDIDO.
+   - Crear una rama para cambios seguros; no tocar main directamente, no reescribir historial, no hacer force-push ni eliminar originales sin autorizacion explicita.
+4. SOLO SI SE CONSIDERA REESCRIBIR HISTORIA GIT
+   - PRIMERO generar un backup REAL DEL HISTORIAL: git bundle create ... --all desde un clon completo con todas las refs relevantes. Ejecutar git bundle verify y probar restauracion en un clon nuevo. Guardar ese .bundle FUERA del repositorio.
+   - El ZIP de backup enlazado arriba es SOLO una foto de archivos, NO conserva commits, ramas, tags ni toda la historia. No confundirlo con git bundle.
+   - Proponer procedimiento de migracion y rollback, ramas y PR abiertos, coordinacion con GitHub Pages, verificaciones de SHA y como se reconfiguraran clones de Codex. Pedir autorizacion antes de cualquier paso destructivo.
+5. VERIFICACION
+   - Preservar Estable 35 identico funcionalmente; no modificar gameplay, pesca, progreso, balance, inventario ni save v7.
+   - Ejecutar build:check y las pruebas que correspondan al alcance; si se modifican recursos de build o arte, validar build y tests de assets. Reportar exactamente que se ejecuto y que NO.
+   - No agregar capturas, galerias, ZIP viejos ni reportes binarios al repositorio.
+
+ENTREGABLES QUE NECESITO
+A) Informe claro en espanol: causa(s) verificadas de la lentitud, tiempos por etapa y principales blobs historicos.
+B) Inventario clasificado de archivos: NECESARIO, ARCHIVABLE, INCIERTO, con evidencia de dependencias.
+C) Plan de limpieza con ahorro estimado y riesgos, separando limpieza segura de reescritura destructiva del historial.
+D) Si hay cambios seguros, implementarlos SOLO en una rama con tests, commits y un resumen; no fusionar sin mi permiso.
+E) Instrucciones simples para alguien que NO sabe usar GitHub; entregar enlaces de descarga directos cuando sea posible.
+
+IMPORTANTE
+No necesito un refactor general del juego. El objetivo es reducir tiempos de Codex y peso innecesario sin perder nada valioso. Si la medicion demuestra que el peso no es la causa principal, decilo claramente y prioriza las optimizaciones que si ayuden.
