@@ -12,3 +12,5 @@ Read `docs/ARQUITECTURA.md` first, then only the relevant system files. `DESARRO
 - `npm run build:profile` measures build stages without changing output. `test:assets` requires Pillow and tests optimizer caching in temporary fixtures. Node build does not need Pillow.
 - Preserve v7 unknown fields, inventory, historical IDs, claims and records. No balance, quest, fish, rod or mechanic changes without task scope. Keep the fixed bottom HUD at 118px unless explicitly authorized otherwise.
 - Do not commit/push directly to `main` without explicit approval for the current task. Work on a review branch; never merge a PR automatically.
+- Keep only the current playable release ZIP in `descargas/`; remove superseded release ZIPs from the active tree when publishing a new stable version. Do not commit historical code dumps or handoff transcripts.
+- Temporary screenshots and generated galleries/inventories are ignored by default. If the user explicitly needs visual evidence checked into Git, select and force-add only the requested files. Do not automatically add all screenshots.

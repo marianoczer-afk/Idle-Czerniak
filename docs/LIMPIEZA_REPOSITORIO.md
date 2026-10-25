@@ -28,3 +28,10 @@ Se compararon las cuatro carpetas `assets/` con `assets/manifest.json`: todos lo
 ## Alcance de la verificacion
 
 Se verificaron los paths y manifiesto en GitHub, asi como la incorporacion de cada PR a main. No se ejecutaron las pruebas automatizadas del juego ni se midieron tiempos de Codex desde esta limpieza. Ningun archivo de codigo o recurso runtime fue modificado.
+## Limpieza preventiva final (octubre 2026)
+
+- Retirados del arbol activo el volcado historico `descargas/argentum-estable34-fuentes-sin-imagenes.txt` y el traspaso antiguo `descargas/traspaso-claude-estable34.txt`.
+- Se actualizaron `.gitignore` y `AGENTS.md` para evitar que vuelvan a acumularse capturas, galerias e inventarios generados.
+- Se agrego `.gitattributes` para identificar `index.html` como compilado y evitar diffs de recursos binarios en GitHub.
+- No se tocaron archivos de `src/`, `scripts/`, `tests/`, `assets/`, `index.html`, ni el ZIP jugable de Estable 35.
+- No se ha reescrito el historial de Git. El tamaño del repositorio que GitHub informa puede seguir siendo grande por archivos de commits antiguos. Reescribirlo requiere respaldo verificado y una migracion planificada, no es una limpieza segura automatica.
