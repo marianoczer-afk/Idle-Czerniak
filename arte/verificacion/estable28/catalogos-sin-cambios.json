@@ -1,9 +1,0 @@
-{
-  "base": "4c2724e",
-  "zones": 13,
-  "fish": 50,
-  "rods": 90,
-  "offered": 50,
-  "compared": "Todos los campos comunes salvo art y name; números, requisitos, XP, precios, stats100/stats1, weights, dificultad, zonas y desbloqueos idénticos.",
-  "displayNameChange": "Pez fantasma: se retira ★ decorativa"
-}
