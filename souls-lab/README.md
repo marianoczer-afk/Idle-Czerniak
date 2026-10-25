@@ -3,7 +3,8 @@
 ## Estado
 Primera iteración jugable para estudiar el *feeling* de entrenamiento y arena inspirado en la estructura de Swords and Souls (Flash). **No es todavía la versión artística ni de balance final.**
 
-- Entrada: `souls-lab/index.html` (abrir por servidor HTTP junto a `feel.js`).
+- Entrada de desarrollo: `souls-lab/index.html` (abrir por servidor HTTP junto a `feel.js`).
+- Vista descargable: `souls-lab/standalone.html` contiene ambos scripts integrados; descargar y abrir con doble clic, sin servidor ni conexión. Es una copia de prueba, **no editarla**: los cambios deben realizarse en `index.html` / `feel.js` y luego regenerar la copia.
 - Código base: HTML que aportó el usuario, conservado y mejorado sin modificar Estable 35.
 - Mejora incremental: `souls-lab/feel.js`. No requiere bundler ni librerías externas.
 - El juego principal permanece en `src/` y en el `index.html` raíz; no hay vínculo ni cambio en sus 143 bloques.
