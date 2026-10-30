@@ -1,0 +1,40 @@
+
+/* Illustrated medieval emblems, aligned inside their own header row. */
+#page_fishing :is(.e221Panel,.fishingTrophies,.e194QuestFold)>summary{display:flex!important;align-items:center!important;gap:12px!important;min-height:68px!important;height:auto!important;padding:8px 6px!important;position:relative!important;overflow:visible!important}
+#page_fishing :is(.e221Art,.e229QuestHeaderArt,.e228TrophyHeaderArt):has(.e239Emblem){position:static!important;inset:auto!important;transform:none!important;width:48px!important;height:48px!important;min-width:48px!important;flex:0 0 48px!important;padding:0!important;margin:0!important;background:none!important;border:0!important;overflow:visible!important}
+#page_fishing .e239Emblem{display:block;width:100%!important;height:100%!important;overflow:hidden;filter:drop-shadow(0 2px 2px #00151caa)}
+#page_fishing .e221HeaderWords{display:flex!important;flex-direction:column;justify-content:center;min-width:0;gap:3px;line-height:1.35!important}
+body.e237Fishing #page_fishing :is(.e221HeaderWords>b,.fishingTrophies>summary b,.e194QuestFold>summary b){font:700 14px Georgia,serif!important;color:#ead7a2!important;letter-spacing:.015em}
+#page_fishing .e221HeaderWords small{display:block!important;line-height:1.35!important;white-space:normal!important;overflow:visible!important;max-height:none!important;height:auto!important;font-size:10px!important}
+body.e237Fishing #page_fishing .e221Panel:not([open]){height:auto!important;min-height:68px!important;max-height:none!important;padding:0 10px!important;overflow:visible!important}
+body.e237Fishing #page_fishing .e221Panel>summary{height:auto!important;max-height:none!important;min-height:68px!important;box-sizing:border-box!important}
+#page_fishing .e221Panel>summary>.e221HeaderWords{flex:1}
+#page_fishing .e221Panel>summary:after{margin-left:auto;flex:none}
+#page_fishing [data-e161-toggle]{display:none!important}
+#page_fishing .e1107StopShake{display:none!important}
+body.e237Fishing .generalXP[hidden]{display:none!important}
+#page_fishing .e196ShakeOverlay .e196Header{font-weight:900!important;color:#fff2c9!important;font-size:16px!important;text-shadow:0 2px 3px #00121f,0 0 8px #00121f;background:#09212bd9;border:1px solid #8b956b99;border-radius:7px;padding:8px 10px;left:8px;right:8px;top:8px}
+#page_fishing .e196ShakeOverlay .e196Counter{font-weight:800;color:#f8e4b7;text-shadow:0 2px 4px #00101c;background:#08222cdd;padding:4px;border-radius:5px;left:15%;right:15%}
+body.e237Fishing .e239Fish[data-specimen-category=huge]>.e231Subject{filter:saturate(1.35) hue-rotate(10deg) brightness(1.1) drop-shadow(0 0 2px #69d3f0)}
+body.e237Fishing .e239Fish[data-specimen-category=normal]>.e231Subject{filter:saturate(1.06) brightness(1.03)}
+body.e237Fishing .e239Fish[data-specimen-category=legendary]>.e231Subject{filter:sepia(1) saturate(2.1) hue-rotate(350deg) brightness(1.12) drop-shadow(0 0 2px #f2cb55)}
+#combatDock .e189Art[data-quality=huge]{border-color:#73ddff!important;box-shadow:inset 0 0 13px #398dbe77,0 0 7px #4596c888}
+#combatDock .e189Art[data-quality=legendary]{border-color:#f8d76b!important;box-shadow:inset 0 0 20px #d5a22e77,0 0 12px #e5bc4677}
+#combatDock.e188FishingMode .e189Art.e235CatchFlash.e237HugeCatch{animation:e239EpicBlue 1.8s ease-out both}
+#combatDock.e188FishingMode .e189Art.e235CatchFlash.e235RareCatch{animation:e239EpicGold 2.2s ease-out both}
+@keyframes e239EpicBlue{0%,24%{border-color:#cff8ff;box-shadow:inset 0 0 24px #55c5e5bb,0 0 28px #69ddff}65%{box-shadow:inset 0 0 14px #399abb88,0 0 15px #49a9db}100%{box-shadow:inset 0 0 13px #398dbe77,0 0 7px #4596c888}}
+@keyframes e239EpicGold{0%,20%{border-color:#fff3aa;box-shadow:inset 0 0 26px #ffe09baa,0 0 34px #ffce55}50%{box-shadow:inset 0 0 22px #e0af48aa,0 0 24px #e8bd4baa}100%{box-shadow:inset 0 0 20px #d5a22e77,0 0 12px #e5bc4677}}
+.e239Rod{background:transparent!important;overflow:visible}
+#fishingRodShop .rodShopArt:has(.e239Rod){height:78px;background:none!important}
+#fishingRodShop .rodShopArt>.e239Rod{mask:none!important;filter:drop-shadow(0 2px 2px #00121c)}
+[data-ui-tab][hidden]{display:none!important}
+#soulsHost39{width:100%;max-width:1340px;margin:8px auto 0;min-width:0}
+#soulsHost39.hidden{display:none}
+#soulsFrame39{display:block;border:1px solid #3a6470;border-radius:12px;width:100%;height:1000px;min-height:580px;background:#081e29}
+body.e239SoulsActive .hybridSidebar,body.e239SoulsActive #combatDock{display:none!important}
+body.e239SoulsActive .hybridMain{margin:0!important;width:100%!important}
+body.e239SoulsActive #uiWorkspace{min-height:0}
+#worldGold39{display:inline-block;margin-left:auto;font:700 13px Georgia;color:#efd697;white-space:nowrap;padding:6px 12px;border:1px solid #877a4a77;border-radius:20px;background:#17382e}
+@media(max-width:700px){#page_fishing :is(.e221Panel,.fishingTrophies,.e194QuestFold)>summary{min-height:64px!important;padding:8px 2px!important;gap:9px!important}#page_fishing :is(.e221Art,.e229QuestHeaderArt,.e228TrophyHeaderArt):has(.e239Emblem){width:42px!important;height:42px!important;min-width:42px!important;flex-basis:42px!important}body.e237Fishing #page_fishing :is(.e221HeaderWords>b,.fishingTrophies>summary b,.e194QuestFold>summary b){font-size:13px!important}#worldGold39{font-size:11px;padding:4px 8px}#page_fishing .e196ShakeOverlay .e196Header{font-size:12px!important;padding:6px}.rodCompare[data-stat=temple]{color:#c8d2a3}#soulsFrame39{border-radius:8px}}
+@media(prefers-reduced-motion:reduce){#combatDock.e188FishingMode .e189Art.e235CatchFlash.e237HugeCatch,#combatDock.e188FishingMode .e189Art.e235CatchFlash.e235RareCatch{animation:none}}
+

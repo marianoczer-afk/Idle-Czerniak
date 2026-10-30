@@ -1,0 +1,64 @@
+
+/* Fishing-only palette; other workspaces keep their existing appearance. */
+body.e237Fishing{--bg:#071a24;--panel:#102c36;--panel2:#163d47;--border:#35606a;--text:#e2f0ed;--muted:#9dbfbe;--gold:#c8e4d2;background:radial-gradient(ellipse at 75% 0,#164451,#081d29 60%,#06141f)}
+body.e237Fishing>header.globalHeader{background:linear-gradient(135deg,#102f3b,#0a202b);border-color:#38616b}
+body.e237Fishing .workspaceTabs{background:transparent}
+body.e237Fishing .workspaceTabs [aria-selected=true]{background:#23565d;border-color:#80bdba;color:#eafff4}
+body.e237Fishing .hybridSidebar{background:#0a222d;border-color:#355661}
+body.e237Fishing .hybridSidebar .panel,body.e237Fishing .hybridSidebar .sideCard{background:#102f38!important;border-color:#365e65!important}
+body.e237Fishing #page_fishing .e162Dock{background:linear-gradient(145deg,#102e38,#0b242f)!important;border-color:#39616d!important;box-shadow:0 8px 26px #00101830}
+body.e237Fishing #page_fishing .e194QuestFold,body.e237Fishing #fishingRodShop{background:#102c36!important;border-color:#3b6269!important}
+body.e237Fishing #page_fishing .e194QuestFold>summary,body.e237Fishing #fishingRodShop>summary{color:#d1ede3}
+body.e237Fishing #page_fishing .e230Quest{grid-template-columns:28px minmax(0,1fr) 140px;gap:8px;padding:8px;background:#12313a;border-color:#31525c;border-radius:8px;margin:5px 0}
+body.e237Fishing #page_fishing .e230Quest.e230Claimable{border-color:#b7d49c!important;background:#173e40}
+body.e237Fishing #page_fishing .e230QuestSeal{width:28px;height:34px;align-self:start;opacity:.8}
+body.e237Fishing #page_fishing .e230QuestGoals>strong{font-size:12px;line-height:1.3;display:block;color:#d6e9db}
+body.e237Fishing #page_fishing .e230Goal{grid-template-columns:minmax(0,1fr) 50px;gap:2px 8px;padding:2px 0;font-size:11px;line-height:1.25}
+body.e237Fishing #page_fishing .e230Goal .e234GoalFishGroup,body.e237Fishing #page_fishing .e230Goal>.e230GoalFish{display:none}
+body.e237Fishing #page_fishing .e230Goal>span{grid-column:1;grid-row:1}
+body.e237Fishing #page_fishing .e230Goal>b{grid-column:2;grid-row:1;font-size:10px}
+body.e237Fishing #page_fishing .e230Goal>progress{grid-column:1/-1;height:3px;margin:0;width:100%;accent-color:#7fc4b1}
+body.e237Fishing #page_fishing .e235QuestGuide{font-size:10px;line-height:1.3;color:#99c1c6;margin:3px 0 5px}
+body.e237Fishing #page_fishing .e230QuestReward{width:auto;align-self:center;display:flex;flex-direction:column;gap:3px}
+body.e237Fishing #page_fishing .e230RewardArt{width:110px;height:32px;margin:auto}
+body.e237Fishing #page_fishing .e230QuestReward>b{font-size:10px;line-height:1.2}
+body.e237Fishing #page_fishing .e230QuestReward>small{font-size:10px}
+body.e237Fishing #page_fishing .e230QuestReward>button{padding:5px 9px;min-height:32px;font-size:11px}
+body.e237Fishing #page_fishing .e230Delivery{font-size:10px!important;margin:3px 0;color:#9dbbb4}
+body.e237Fishing #page_fishing .e229Completed{opacity:.64}
+body.e237Fishing #page_fishing .e229Completed .e230Goal{display:none}
+body.e237Fishing #page_fishing .e229Completed .e235QuestGuide{display:none}
+body.e237Fishing #page_fishing .e229Completed .e230RewardArt{height:25px}
+body.e237Fishing #fishingRodShop .rodTier{border:0;background:transparent;padding:0;margin:0}
+body.e237Fishing #fishingRodShop .rodRows{max-height:none;overflow:visible}
+body.e237Fishing #fishingRodShop .rodShopRow{background:linear-gradient(110deg,#12343f,#102c37);border-color:#335963}
+body.e237Fishing #fishingRodShop .rodShopRow.equipped{border-color:#8ac7b1;background:#184540}
+body.e237Fishing #fishingRodShop .rodShopNote{color:#b3ced0}
+body.e237Fishing #fishingRodShop .rodShopTitle>b{color:#e1eee3}
+body.e237Fishing #fishingRodShop input,body.e237Fishing #fishingRodShop select{background:#0b222d;color:#d7e9e6;border-color:#3a6570}
+body.e237Fishing #combatDock.e188FishingMode{background:linear-gradient(180deg,#0d2c38,#071c27)!important;border-color:#4d8490;box-shadow:0 -4px 22px #00171c90}
+body.e237Fishing #combatDock .e194DockRod,body.e237Fishing #combatDock .e189Art{border-color:#629b9d!important}
+body.e237Fishing #page_fishing .e229Scene{border-color:#416d78;background:#0c2834}
+body.e237Fishing #page_fishing .e229Scene>.e186Book{background:linear-gradient(#143b44f2,#102c37f2)!important}
+.e231ResponsiveArt[data-specimen-category=legendary]>.e231Subject[href^="#e237-creature-"]{filter:sepia(1) saturate(1.8) hue-rotate(350deg) brightness(1.1)}
+#combatDock.e188FishingMode .e189Art.e235CatchFlash{--catch-glow:#c5fff1;animation:e237CatchGlow 1.2s ease-out both;z-index:2}
+#combatDock.e188FishingMode .e189Art.e235RareCatch{--catch-glow:#ffcf50}
+#combatDock.e188FishingMode .e189Art.e237HugeCatch{--catch-glow:#65d8ff}
+#combatDock.e188FishingMode .e189Art.e235CatchFlash:after{content:'';position:absolute;inset:-40%;pointer-events:none;z-index:4;background:linear-gradient(110deg,transparent 38%,#f2fffbb3 50%,transparent 62%);transform:translateX(-80%);animation:e237CatchSweep .8s ease-out both;mix-blend-mode:screen}
+@keyframes e237CatchGlow{0%,16%{border-color:var(--catch-glow);box-shadow:inset 0 0 0 2px var(--catch-glow),inset 0 0 22px var(--catch-glow),0 0 22px var(--catch-glow)}45%{border-color:var(--catch-glow);box-shadow:inset 0 0 10px var(--catch-glow),0 0 12px var(--catch-glow)}100%{box-shadow:inset 0 0 0 transparent,0 0 0 transparent}}
+@keyframes e237CatchSweep{0%{transform:translateX(-80%);opacity:0}15%{opacity:.8}100%{transform:translateX(80%);opacity:0}}
+@media(max-width:700px){
+ body.e237Fishing #page_fishing .e230Quest{grid-template-columns:minmax(0,1fr) 96px;gap:7px;padding:7px}
+ body.e237Fishing #page_fishing .e230QuestSeal{display:none}
+ body.e237Fishing #page_fishing .e230QuestReward{grid-column:2;grid-row:1;display:flex;gap:4px;min-width:0}
+ body.e237Fishing #page_fishing .e230RewardArt{width:90px;height:27px}
+ body.e237Fishing #page_fishing .e230QuestGoals>strong{font-size:11px}
+ body.e237Fishing #page_fishing .e230Goal{font-size:10px;grid-template-columns:minmax(0,1fr) 36px;gap:2px 4px}
+ body.e237Fishing #page_fishing .e230Goal>b{font-size:9px}
+ body.e237Fishing #page_fishing .e235QuestGuide{font-size:9px}
+ body.e237Fishing #page_fishing .e230QuestReward>button{width:100%;min-height:36px;font-size:10px;white-space:normal;padding:5px}
+ body.e237Fishing #page_fishing .e194QuestFold{padding:8px}
+ body.e237Fishing #fishingRodShop .rodShopRow{padding:8px}
+}
+@media(prefers-reduced-motion:reduce){#combatDock.e188FishingMode .e189Art.e235CatchFlash{animation:none;box-shadow:inset 0 0 0 2px var(--catch-glow);border-color:var(--catch-glow)}#combatDock.e188FishingMode .e189Art.e235CatchFlash:after{display:none;animation:none}}
+

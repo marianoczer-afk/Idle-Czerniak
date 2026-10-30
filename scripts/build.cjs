@@ -1,17 +1,11 @@
-'use strict';
-const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{Script}=require('node:vm');
-const root=path.join(__dirname,'..'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
-function local(file){const target=path.resolve(root,file);if(!target.startsWith(root+path.sep))throw Error('Path outside project: '+file);return target;}
-function expand(file,stack=[]){if(stack.includes(file))throw Error('Circular source include: '+stack.concat(file));return fs.readFileSync(local(file),'utf8').replace(/\/\* @include ([\w/.-]+) \*\//g,(_,f)=>expand(f,stack.concat(file)));}
-function generate({profile=false}={}){const timings={},counts={uniqueAssets:0,assetReferences:0,cacheHits:0,runtimeBytesRead:0};let phase=performance.now();const mark=name=>{const now=performance.now();if(profile)timings[name]=now-phase;phase=now;};const manifest=JSON.parse(fs.readFileSync(local('assets/manifest.json'))),blocks=JSON.parse(fs.readFileSync(local('src/blocks.json'))),uris=new Map();let html=fs.readFileSync(local('src/template.html'),'utf8');
- mark('metadata');html=html.replace('@@ART_LIBRARY@@',()=>require('./production-art.cjs').library());
- mark('artLibrary');for(const b of blocks){const token='@@BLOCK:'+b.id+'@@';if(!html.includes(token))throw Error('Missing ordered block '+b.id);let code=expand(b.file);if(b.type==='script')new Script(code,{filename:b.file});html=html.replace(token,()=>code);}
- mark('expandAndParseBlocks');html=html.replace(/@@ASSET:([^@]+)@@/g,(_,id)=>{counts.assetReferences++;if(uris.has(id))return uris.get(id);const a=manifest.resources[id];if(!a)throw Error('Missing resource '+id);const bytes=fs.readFileSync(local(a.runtime));counts.uniqueAssets++;counts.runtimeBytesRead+=bytes.length;if(!bytes.length)throw Error('Empty resource '+id);
- const same=a.runtime===a.source;if(!same&&a.runtimeSha256&&hash(bytes)!==a.runtimeSha256)throw Error('Runtime asset modified without updating manifest: '+id);if(same&&hash(bytes)!==a.sha256)throw Error('Original asset modified without updating manifest: '+id);
- const key=hash(Buffer.concat([Buffer.from(same?a.originalPrefix+':'+a.encoding:a.runtimeMime),bytes])),cache=local('.build-cache/'+key+'.uri');let uri;if(fs.existsSync(cache)){counts.cacheHits++;uri=fs.readFileSync(cache,'utf8');}else{uri=same?(a.encoding==='percent'?a.originalPrefix+a.originalPayload:a.originalPrefix+bytes.toString('base64')):'data:'+a.runtimeMime+';base64,'+bytes.toString('base64');fs.mkdirSync(path.dirname(cache),{recursive:true});fs.writeFileSync(cache,uri);}uris.set(id,uri);return uri;});
- mark('embedAssets');if(/@@(?:ASSET|BLOCK):|@@ART_LIBRARY@@|\/\* @include /.test(html))throw Error('Unresolved build token');
- new Script([...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]).join('\n;\n'));
- mark('validateCombinedSyntax');return {html,manifest,blocks,...(profile?{profile:{timingsMs:timings,counts}}:{})};
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),vm=require('vm');
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+function build(){
+ const assets=JSON.parse(read('src/embedded.json')),blocks=JSON.parse(read('src/blocks.json')),cache=new Map();
+ function hydrate(s){return s.replace(/\{\{asset:([a-f0-9]+)\}\}/g,(_,id)=>{if(cache.has(id))return cache.get(id);const asset=assets[id];if(!asset)throw Error('Unknown asset '+id);const raw=asset.text?Buffer.from(hydrate(read(asset.path))):fs.readFileSync(path.join(root,asset.path));const uri='data:'+asset.mime+';base64,'+raw.toString('base64');cache.set(id,uri);return uri;});}
+ const document=hydrate(read('src/souls/document.html'));
+ let html=read('src/template.html').replace(/\{\{block:(\d+)\}\}/g,(_,n)=>{const block=blocks[Number(n)];let body=hydrate(read(block.path)).replaceAll('{{souls-document-base64}}',Buffer.from(document).toString('base64'));if(block.type==='script'&&!/type\s*=\s*["'](?:application\/json|importmap)["']/.test(block.attrs)&&!/type\s*=\s*["']module["']/.test(block.attrs))new vm.Script(body,{filename:block.path});return body;});
+ html=hydrate(html);if(/\{\{(?:asset:|block:|souls-document-base64)/.test(html))throw Error('Unresolved source marker');return html;
 }
-function build({check=false,profile=false}={}){const start=performance.now(),generated=generate({profile}),{html,manifest,blocks}=generated,target=local('index.html'),bytes=Buffer.byteLength(html),sha256=hash(html);if(check){if(!fs.existsSync(target)||fs.readFileSync(target,'utf8')!==html)throw Error('index.html is stale or not generated from these sources');}else{const temp=target+'.build-tmp';fs.writeFileSync(temp,html);fs.renameSync(temp,target);}console.log(`${check?'Verified':'Built'} index.html: ${bytes} bytes, ${blocks.length} ordered blocks, SHA-256 ${sha256}`);if(profile)console.error(JSON.stringify({...generated.profile,totalMs:performance.now()-start},null,2));return{bytes,sha256};}
-module.exports={build,generate,expand,local};if(require.main===module)build({check:process.argv.includes('--check'),profile:process.argv.includes('--profile')});
+if(require.main===module){const html=build(),target=path.join(root,'index.html');if(process.argv.includes('--check')){if(fs.readFileSync(target,'utf8')!==html)throw Error('index.html differs from sources');console.log('Build matches index.html exactly.');}else{fs.writeFileSync(target,html);console.log('Built index.html: '+Buffer.byteLength(html)+' bytes');}}
+module.exports={build};
