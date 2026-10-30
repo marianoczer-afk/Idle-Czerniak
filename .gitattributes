@@ -1,6 +1,5 @@
-# Generated standalone build. GitHub should not treat it as hand-edited source.
+* -text
 /index.html linguist-generated=true -diff
-# Binary assets and release archives should not create giant diffs.
 *.png binary
 *.jpg binary
 *.jpeg binary

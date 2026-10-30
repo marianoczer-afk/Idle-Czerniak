@@ -1,9 +1,5 @@
 node_modules/
 test-results/
 .build-cache/
+respaldos/
 *.build-tmp
-# Do not commit generated visual evidence or old gallery/inventory exports by default.
-# Previously tracked files (such as Estable 35 screenshots) remain tracked.
-/arte/verificacion/estable[0-9]*/
-/arte/galeria-estable*.html
-/arte/inventario-estable*.json

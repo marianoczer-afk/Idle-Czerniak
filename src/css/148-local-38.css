@@ -1,0 +1,65 @@
+
+/* Complete the aquatic palette on every fishing collection surface. */
+body.e237Fishing #page_fishing :is(.fishingAtlas,.e181Journal,.fishingTrophies){background:linear-gradient(140deg,#102f3b,#0b222e)!important;border:1px solid #365e6e!important;border-radius:12px;padding:10px 12px!important;box-shadow:0 7px 22px #00131d30}
+body.e237Fishing #page_fishing :is(.fishingAtlas,.e181Journal,.fishingTrophies)>summary{color:#d5ece6;min-height:48px;gap:11px}
+body.e237Fishing #page_fishing .e221HeaderWords>b,body.e237Fishing #page_fishing .fishingTrophies>summary b{font-family:system-ui,sans-serif;color:#e1f0e9!important;font-size:13px!important;letter-spacing:.015em}
+body.e237Fishing #page_fishing :is(.e221HeaderWords small,.atlasResults,.atlasHint,.journalEmpty,.journalHistorical,[data-journal-results]){color:#94b9c4!important}
+body.e237Fishing #page_fishing :is(input[type=search],select){background:#0a202b!important;border:1px solid #3b6475!important;color:#dcefeb!important;border-radius:7px;min-height:34px}
+body.e237Fishing #page_fishing :is(input[type=search],select):focus-visible{outline:2px solid #7bbdbe;outline-offset:2px}
+body.e237Fishing #page_fishing select::picker(select){background:#102c39;color:#dfefeb;border-color:#4a7483}
+body.e237Fishing #fishingAtlas .atlasRows{gap:5px;padding:2px 1px 5px}
+body.e237Fishing #fishingAtlas .atlasRow{background:linear-gradient(100deg,#123744,#102c38);border-color:#315767;border-radius:8px;padding:8px 10px;color:#d3e7e5;transition:border-color .15s,background .15s}
+body.e237Fishing #fishingAtlas .atlasRow:hover{border-color:#62999e;background:#194450}
+body.e237Fishing #fishingAtlas .atlasRow.selected{background:linear-gradient(100deg,#20505a,#143945);border-color:#79b7b7;box-shadow:inset 3px 0 #89c5bc}
+body.e237Fishing #fishingAtlas .atlasRow small{color:#9bbec6}
+body.e237Fishing #fishingAtlas .atlasRow b:before{color:#7fbcb9}
+body.e237Fishing #fishingAtlas .atlasStars{color:#365660;font-size:17px}
+body.e237Fishing #fishingAtlas .atlasStars .earned{color:#d9c584;text-shadow:0 0 7px #d6c17c28}
+body.e237Fishing #fishingAtlas .atlasZoneDetail{background:#103341;border-color:#477681;border-radius:9px;padding:12px}
+body.e237Fishing #fishingAtlas .atlasZoneDetail:before{background:linear-gradient(100deg,#092530f5,#0c2b38dc 60%,#12323dbd)}
+body.e237Fishing #fishingAtlas .atlasDetailHead h3{color:#e3f1e7}
+body.e237Fishing #fishingAtlas :is(.atlasCounts,.atlasZoneDetail small,.e228AtlasRoles){color:#a8c9ce}
+body.e237Fishing #fishingAtlas .atlasCounts b{color:#d8f0e5}
+body.e237Fishing #fishingAtlas .atlasMilestones li{background:#0b283b88;border-color:#345c68;color:#acccd0;border-radius:6px}
+body.e237Fishing #fishingAtlas .atlasMilestones li.done{background:#17493f99;color:#bae5cb;border-color:#548d79}
+body.e237Fishing #fishingAtlas .atlasMilestones b{color:#a1d9c3}
+body.e237Fishing #fishingAtlas :is(.atlasBadge,.collectionBadge){background:#153a47;color:#c7e5df;border-color:#47727c;border-radius:7px}
+body.e237Fishing #fishingAtlas .atlasBadge[aria-expanded=true]{background:#20505a;border-color:#9dccc1}
+body.e237Fishing #fishingAtlas .atlasBadgeDetail{background:#102f3c;border-color:#4b7882;color:#c5deda;border-radius:8px}
+body.e237Fishing #fishingAtlas .e228AtlasTravel{background:#25594f;color:#e2f3df;border-color:#83b49a}
+body.e237Fishing #page_fishing .journalSummary>:is(span,button){background:#153644;border:1px solid #315564;border-radius:7px;padding:6px;color:#a8c7cc}
+body.e237Fishing #page_fishing .journalSummary button[aria-pressed=true]{background:#24505b;border-color:#8fc7bd}
+body.e237Fishing #page_fishing .journalSummary b{color:#dfefe7}
+body.e237Fishing #page_fishing .e218Card{background:linear-gradient(150deg,#153c49,#0e2c3a);border-color:#3b6473;color:#dbece5;border-radius:9px;padding:7px;box-shadow:0 2px 6px #03192340}
+body.e237Fishing #page_fishing .e218Card:hover{border-color:#6fa8af}
+body.e237Fishing #page_fishing .e218Card[aria-expanded=true]{background:#20505a;border-color:#9acbbf}
+body.e237Fishing #page_fishing .e218Card small{color:#a6c6cd}
+body.e237Fishing #page_fishing .e218Art{border-radius:6px;background:#0b2834}
+body.e237Fishing #page_fishing .e218Detail{background:linear-gradient(120deg,#123b46,#0d2a38);border-color:#68999e;border-radius:9px;color:#ddede6}
+body.e237Fishing #page_fishing .e218Detail p{color:#a6c6cb}
+body.e237Fishing #page_fishing .e218Detail h3{color:#e4f3e8}
+body.e237Fishing #page_fishing .e218Records div{background:#092535;border-color:#355d6b;color:#bed4da}
+body.e237Fishing #page_fishing .e218Records [data-category=large]{background:#163e3a;border-color:#538e75;color:#c0e0c4}
+body.e237Fishing #page_fishing .e218Records [data-category=huge]{background:#123c53;border-color:#579cb9;color:#bde7f7}
+body.e237Fishing #page_fishing .e218Records [data-category=legendary]{background:#3d3c28;border-color:#b29c58;color:#f3df9e}
+body.e237Fishing #page_fishing .e228Trophy{background:linear-gradient(155deg,#17414c,#102b3a);border-color:#3e6977;color:#d6e8df;border-radius:9px}
+body.e237Fishing #page_fishing .e228Trophy:hover{border-color:#8dbab4}
+body.e237Fishing #page_fishing .e228Trophy.mastery{background:linear-gradient(155deg,#22484d,#173d40);border-color:#b4b579}
+body.e237Fishing #page_fishing .e228Trophy.pending{background:#0d2835;color:#87a4af;border-color:#304c5d}
+body.e237Fishing #page_fishing .e228Trophy small{color:#9bbbc5}
+body.e237Fishing #page_fishing .e228TrophyDetail{background:#12333f;border-color:#6f9694;color:#d0e5df;border-radius:9px}
+body.e237Fishing #page_fishing .e228TrophyDetail h3{color:#d8ebe1}
+body.e237Fishing #page_fishing .e228TrophyDetail small{color:#9fbdc6}
+body.e237Fishing #fishingRodShop .rodShopRow:after{background:linear-gradient(90deg,#092b3444,#0e303bdf 48%,#102c38f5 85%)}
+body.e237Fishing #fishingRodShop [data-rod-mine][aria-pressed=true]{background:#225549;border-color:#8ec1aa;color:#e0f2e4}
+body.e237Fishing .e1120Menu{background:#102d3a;border-color:#5d8793;color:#d8e9e6}
+body.e237Fishing .e1120Menu .e1120Choice{background:#143744;border-color:#355966;color:#d7eae5}
+/* The PNGs contain real alpha; no backing tile, image mask, border or crop. */
+#page_fishing :is(.e229QuestHeaderArt,.e228TrophyHeaderArt,.e221Art:has(.e238HeaderIcon)){background:none!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;mask:none!important}
+#page_fishing :is(.e229QuestHeaderArt,.e228TrophyHeaderArt,.e221Art:has(.e238HeaderIcon)):before,#page_fishing :is(.e229QuestHeaderArt,.e228TrophyHeaderArt,.e221Art:has(.e238HeaderIcon)):after{content:none!important;display:none!important}
+#page_fishing .e238HeaderIcon{display:block;width:100%;height:100%;object-fit:contain;background:transparent;border:0;filter:drop-shadow(0 2px 2px #00172166)}
+#page_fishing :is(.e229QuestHeaderArt,.e228TrophyHeaderArt){width:38px;height:38px;flex:none}
+#page_fishing .e221Panel>summary>.e221Art:has(.e238HeaderIcon){width:38px;height:38px}
+@media(max-width:600px){body.e237Fishing #page_fishing :is(.fishingAtlas,.e181Journal,.fishingTrophies){padding:8px!important}body.e237Fishing #fishingAtlas .atlasRow{min-height:49px;padding:8px}body.e237Fishing #page_fishing .journalSummary b{font-size:13px}#page_fishing :is(.e229QuestHeaderArt,.e228TrophyHeaderArt){width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){body.e237Fishing #fishingAtlas .atlasRow{transition:none}}
+

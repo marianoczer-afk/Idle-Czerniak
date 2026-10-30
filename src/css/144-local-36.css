@@ -1,0 +1,11 @@
+
+.e235QuestGuide{display:block;color:#d4bd81;font-size:11px;line-height:1.4;margin:4px 0 7px}
+.e235Chevron{display:inline-block;margin-left:6px;color:#e5c77e;font-size:15px;line-height:1;vertical-align:middle}
+.e186Book[open]>.e221BookHeader .e235Chevron{transform:rotate(90deg)}
+.e235QuestNotice{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;padding:4px 8px;border:1px solid #b99a50;border-radius:12px;color:#ffe3a0;background:#4d3d1d;font-size:11px;font-weight:600;line-height:1.3;white-space:normal;max-width:145px}
+#page_fishing .e194QuestFold>summary:has(.e235QuestNotice){gap:8px;flex-wrap:wrap}
+#combatDock.e188FishingMode .e189Art.e235CatchFlash{--catch-glow:#b9e6d1;animation:e235CatchGlow .8s ease-out both}
+#combatDock.e188FishingMode .e189Art.e235RareCatch{--catch-glow:#ffda84}
+@keyframes e235CatchGlow{0%{box-shadow:inset 0 0 0 2px var(--catch-glow),0 0 15px var(--catch-glow);border-color:var(--catch-glow)}35%{box-shadow:inset 0 0 10px 1px var(--catch-glow),0 0 7px var(--catch-glow);border-color:var(--catch-glow)}100%{box-shadow:inset 0 0 0 transparent,0 0 0 transparent}}
+@media(max-width:700px){.e235QuestNotice{font-size:10px;max-width:118px;padding:3px 6px}.e235Chevron{margin-left:4px}}
+@media(prefers-reduced-motion:reduce){#combatDock.e188FishingMode .e189Art.e235CatchFlash{animation:none;border-color:var(--catch-glow);box-shadow:inset 0 0 0 1px var(--catch-glow)}}

@@ -1,1 +1,0 @@
-const E212_OFFERS={junco:['cauce','destello'],sauce:['pulso','fortuna'],marea:['cauce','titan'],nenufar:['fortuna','reliquia'],coral:['pulso','cauce'],fosa:['pulso','titan'],mangle:['cauce','fortuna'],escarcha:['pulso','cauce'],obsidiana:['destello','titan'],celeste:['pulso','reliquia']};

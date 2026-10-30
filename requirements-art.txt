@@ -1,2 +1,0 @@
-# Optional development tool; not needed to build or play.
-Pillow==12.3.0

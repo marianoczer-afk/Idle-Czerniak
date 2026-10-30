@@ -1,0 +1,44 @@
+require('fs').mkdirSync('test-results',{recursive:true});
+const fs=require('fs'),http=require('http');
+const {chromium}=require('playwright');
+(async()=>{const server=http.createServer((q,r)=>{r.setHeader('Content-Type','text/html;charset=utf-8');r.end(fs.readFileSync('index.html'));});await new Promise(r=>server.listen(0,'127.0.0.1',r));let browser;const checks=[],errors=[];const check=(name,ok)=>{checks.push({name,ok});if(!ok)throw Error(name);};
+try{browser=await chromium.launch({...(process.env.PLAYWRIGHT_CHANNEL?{channel:process.env.PLAYWRIGHT_CHANNEL}:{}),headless:true});const page=await browser.newPage({viewport:{width:1366,height:768}});page.on('pageerror',e=>errors.push(String(e)));await page.goto('http://127.0.0.1:'+server.address().port);await page.waitForTimeout(500);
+await page.evaluate(async()=>{draft={name:'Prueba 41',race:'humano',cls:'guerrero'};await changeRoster('create');state.gold=11429;state.skills.pesca.xp=10*45**2;e16Page();e188UpdateHud();});
+await page.waitForTimeout(800);
+check('Cuatro pestañas ilustradas',await page.locator('.workspaceTabs button:not([hidden]) .e241Art').count()===4);
+check('Header compacto en PC',await page.locator('.globalHeader').evaluate(el=>el.getBoundingClientRect().height<75));
+check('Cañas horizontales con paletas aplicadas al objeto',await page.evaluate(()=>e194RodArt('e16_rod').includes('class="e231Subject" style="filter:hue-rotate(')));
+const fishingEconomy=await page.evaluate(()=>E16_FISH.filter(f=>E165_ZONES.find(z=>z.id==='abismo').fish.includes(f.id)).map(f=>({fish:f.name,before:E241_ORIGINAL_PRICES[f.id],now:f.price})));
+check('Pesca en Fosa entrega más oro',fishingEconomy.every(f=>f.now>f.before));
+const quest=await page.evaluate(()=>{const q=E227_QUESTS.find(q=>q.id==='e231_luz_abismo');state.ui.fishingZoneId=q.zone;state.ui.fishingWeights??={};state.ui.fishingWeights.byZone??={};state.ui.fishingWeights.byZone[q.zone]={species:Object.fromEntries(q.goals.filter(g=>g.kind==='speciesCount').map(g=>[g.id,g.need]))};e16Page();e188UpdateHud();return e227QuestDefinitions().find(x=>x.id===q.id);});
+check('Objetivos del Faro preparados en prueba aislada',quest.goals.every(g=>g.have>=g.need));
+await page.waitForTimeout(900);check('Burbuja esperando al reclamar',await page.evaluate(()=>!!e195Pending&&!e16Session));
+await page.locator('[data-expansion-claim="e231_luz_abismo"]').evaluate(el=>el.click());
+check('Faro de las Tinieblas se puede reclamar con burbuja',await page.evaluate(()=>state.ui.fishingQuestRewards.e231_luz_abismo===true));
+const claims=await page.evaluate(()=>JSON.stringify(state.ui.fishingQuestRewards));await page.evaluate(()=>{const el=document.createElement('button');el.dataset.expansionClaim='e231_luz_abismo';document.body.append(el);el.click();el.remove();});check('Recompensa no se duplica',await page.evaluate(s=>JSON.stringify(state.ui.fishingQuestRewards)===s,claims));
+await page.evaluate(()=>selectWorkspaceTab('souls_train'));await page.waitForFunction(()=>!!document.getElementById('soulsFrame39')?.contentWindow?.UnifiedSouls);await page.waitForTimeout(700);const frame=page.frames()[1];
+check('Disciplinas ilustradas',await frame.locator('#modes .art41').count()===5);
+check('Equipo ilustrado',await frame.locator('#inventorySlots .art41').count()===5);
+for(const [level,tier]of [[0,0],[5,1],[10,2]]){await frame.evaluate(level=>{UnifiedSouls.state.gear.sword=level;UnifiedSouls.economy.render();},level);await frame.waitForTimeout(30);check('Equipo cambia de ilustración en mejora '+level,await frame.locator('[data-slot="sword"] .gear41').getAttribute('data-tier')===String(tier));}
+await frame.evaluate(()=>{UnifiedSouls.state.gear.sword=0;UnifiedSouls.economy.render();});
+const data=await frame.evaluate(async()=>{
+const {Training}=await import('souls/training/model.js'),{tuning,difficultyTarget}=await import('souls/training/balance.js'),{dodgeMotion}=await import('souls/training/geometry.js');
+let flashes=0;const e=new Training({feedback:k=>{if(k==='miss')flashes++;}});e.start('def');e.session.combo=5;e.bad();e.bad();e.bad();const first=flashes,active=e.active;e.good(false);e.bad();
+let legs=true;for(let age=0;age<1.5;age+=.01){const p=dodgeMotion({kind:'low',age,windup:.8});legs&&=Math.abs(Math.hypot(p.legKnee.x,p.legKnee.y-25)-30)<1e-6&&Math.abs(Math.hypot(p.legFoot.x-p.legKnee.x,p.legFoot.y-p.legKnee.y)-34)<1e-6;}
+const tempos=[0,10,30,60,100].map(c=>tuning('dodge',difficultyTarget(c*1.65)).windup);
+const {equipmentCost}=await import('souls/progression/equipment.js');const {roomCost}=await import('souls/progression/training-xp.js');
+return{first,flashes,active,legs,tempos,cost:equipmentCost('sword',0),room:roomCost(3),noticeParent:document.getElementById('levelUpNotice').parentElement.className};});
+check('Primer fallo destella una vez y no interrumpe',data.first===1&&data.active);
+check('Acierto rearma destello',data.flashes===2);
+check('Patada conserva largo de articulaciones',data.legs);
+check('Esquiva acelera con combo',data.tempos[0]-data.tempos[3]>.22&&data.tempos.every(v=>v>=.57));
+check('Aviso de nivel fuera del campo de juego',data.noticeParent==='scene-hud');
+check('Mejoras accesibles sin final del juego',data.cost<280&&data.room<10000);
+await page.screenshot({path:'test-results/prueba-41-entrenamiento-pc.png'});
+console.log('layout',await frame.evaluate(()=>({scene:document.getElementById('scene').getBoundingClientRect().toJSON(),canvas:document.getElementById('cv').getBoundingClientRect().toJSON(),body:document.body.scrollHeight,view:innerHeight})));
+check('Sin errores JS',errors.length===0);
+await page.setViewportSize({width:390,height:844});await page.waitForTimeout(600);await page.screenshot({path:'test-results/prueba-41-entrenamiento-movil.png'});check('Sin desborde horizontal móvil',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)&&await frame.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+await page.evaluate(()=>selectWorkspaceTab('fishing'));await page.waitForTimeout(200);check('HUD vuelve a pesca',await page.locator('#combatDock').isVisible());
+const filePage=await browser.newPage();filePage.on('pageerror',e=>errors.push(String(e)));await filePage.goto(require('url').pathToFileURL(require('path').resolve('index.html')).href);await filePage.waitForTimeout(500);await filePage.evaluate(async()=>{draft={name:'Archivo 41',race:'humano',cls:'guerrero'};await changeRoster('create');selectWorkspaceTab('souls_train');});await filePage.waitForFunction(()=>!!document.getElementById('soulsFrame39')?.contentWindow?.UnifiedSouls);check('HTML autocontenido funciona con apertura directa',await filePage.locator('#soulsFrame39').isVisible());check('Sin errores al abrir archivo',errors.length===0);
+fs.writeFileSync('test-results/VERIFICACION-41.json',JSON.stringify({checks,errors,data,fishingEconomy},null,2));console.log(JSON.stringify({checks,errors,data,fishingEconomy},null,2));
+}catch(e){fs.writeFileSync('test-results/VERIFICACION-41-parcial.json',JSON.stringify({checks,errors,error:String(e)},null,2));throw e;}finally{await browser?.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
