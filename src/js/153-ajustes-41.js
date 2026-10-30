@@ -1,8 +1,9 @@
 'use strict';
 const E241_ATLAS="{{asset:1e2edc663a4810e6f631532d}}";
-function e241Art(i){return `<span class="e241Art" aria-hidden="true" style="--x:${i%4};--y:${Math.floor(i/4)};background-image:url('${E241_ATLAS}')"></span>`;}
+const e241ArtSheet=document.createElement('style');e241ArtSheet.textContent=`.e241Art{background-image:url("${E241_ATLAS}")}`;document.head.append(e241ArtSheet);
+function e241Art(i){return `<span class="e241Art" aria-hidden="true" style="--x:${i%4};--y:${Math.floor(i/4)}"></span>`;}
 function e241Decorate(){for(const [id,i]of [['fishing',0],['souls_train',1],['souls_arena',2],['souls_shop',3]]){const el=document.querySelector('.workspaceTabs [data-ui-tab="'+id+'"]');if(el&&!el.querySelector('.e241Art'))el.insertAdjacentHTML('afterbegin',e241Art(i));}}
-new MutationObserver(e241Decorate).observe(document.body,{childList:true,subtree:true});e241Decorate();
+e241Decorate();
 function e241FrameSize(){const frame=document.getElementById('soulsFrame39');if(!frame)return;const header=document.querySelector('.globalHeader');const height=Math.max(360,Math.min(1000,innerHeight-(header?.getBoundingClientRect().height||65)-16));frame.style.height=height+'px';}
 IdleSoulsHost.resize=function(win){if(document.getElementById('soulsFrame39')?.contentWindow===win)e241FrameSize();};addEventListener('resize',e241FrameSize);
 // New catches pay more as fishing progression advances. Existing wallet and XP stay intact.

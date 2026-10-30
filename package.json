@@ -7,7 +7,9 @@
     "build:check": "node scripts/build.cjs --check",
     "test:fast": "node --test tests/build.test.cjs",
     "test:smoke": "node tests/verificar-41.cjs",
-    "test:full": "node --test tests/build.test.cjs && node tests/verificar-40.cjs && node tests/verificar-41.cjs"
+    "test:full": "node tests/full.cjs",
+    "test:ui": "node tests/ui-performance.cjs",
+    "perf": "node tests/performance.cjs"
   },
   "devDependencies": {
     "playwright": "1.58.2"

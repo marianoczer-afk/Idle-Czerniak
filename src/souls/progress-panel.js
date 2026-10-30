@@ -1,8 +1,9 @@
+import {art41,gearArt41,modeArt41} from "souls/ui-art41.js";
 import {MODES} from "souls/training/model.js";
 import {xpRequired} from "souls/state.js";
 export function mountProgressPanel(root,state){
  const panel=root.querySelector('#trainingStats'),previous={};
- panel.innerHTML=Object.entries(MODES).map(([key,m])=>`<div class="training-attribute" data-attribute="${key}"><div><span>${m.icon} ${m.name}</span><b></b></div><progress aria-label="${m.name}: experiencia"></progress><small></small></div>`).join('');
+ panel.innerHTML=Object.entries(MODES).map(([key,m])=>`<div class="training-attribute" data-attribute="${key}"><div><span>${art41(modeArt41[key])}${m.name}</span><b></b></div><progress aria-label="${m.name}: experiencia"></progress><small></small></div>`).join('');
  const rows=Object.fromEntries(Object.keys(MODES).map(key=>[key,panel.querySelector(`[data-attribute="${key}"]`)]));
  return()=>{for(const [key,row] of Object.entries(rows)){
   const level=state.stats[key],xp=state.xp[key],required=xpRequired(level);

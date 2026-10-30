@@ -1,15 +1,16 @@
+import {art41,gearArt41,modeArt41} from "souls/ui-art41.js";
 import {mountStage,canvasPoint} from "souls/stage.js";
 import {touchAction} from "souls/training/controls.js";
 import { Training, MODES, WORLD, cuePresentation, clamp } from "souls/training/model.js";
 import { TrainingRenderer } from "souls/training/render.js";
 export function mountTraining({ root=document.getElementById('soulsApp'), reward, onSave, feedback=()=>{}, canMutate=()=>true, getRecord=()=>0,getMission,getTraining,experiment={},measurement=null, getProgress=()=>({level:0,xp:0,required:20}) }) {
-  const $=id=>root.querySelector(`#${id}`), canvas=$('cv'), scene=$('scene');
+  const nodes=new Map(),$=id=>{if(!nodes.has(id))nodes.set(id,root.querySelector('#'+id));return nodes.get(id);},text=(id,value)=>{const el=$(id),next=String(value);if(el.textContent!==next)el.textContent=next;}, canvas=$('cv'), scene=$('scene');
   const engine=new Training({...experiment,onEvent:measurement?event=>measurement.record(event):null,reward,feedback,getRecord,getMission,getTraining}), renderer=new TrainingRenderer(canvas);
   let selected='str',view='train',pauseReason=null,lastMilestone=0,lastImpact=0,lastLevelKey='',lastPercent=0;
   const pause=$('pause');
   function begin(){if(!canMutate())return;engine.start(selected);lastMilestone=0;pauseReason=null;$('overlay').classList.add('hidden');$('result').textContent='';update();}
   function modeButtons(){
-    $('modes').innerHTML=Object.entries(MODES).map(([key,m])=>`<button class="mode ${key===selected?'active':''}" data-mode="${key}" aria-pressed="${key===selected}"><span class="emoji">${m.icon}</span>${m.name}</button>`).join('');
+    $('modes').innerHTML=Object.entries(MODES).map(([key,m])=>`<button class="mode ${key===selected?'active':''}" data-mode="${key}" aria-pressed="${key===selected}"><span class="emoji">${art41(modeArt41[key])}</span>${m.name}</button>`).join('');
     $('modes').querySelectorAll('button').forEach(button=>button.onclick=()=>{onSave();selected=button.dataset.mode;engine.stop();engine.session=null;modeButtons();begin();button.blur();});
     scene.dataset.discipline=selected;$('guide').textContent=MODES[selected].guide;canvas.style.cursor=selected==='acc'?'none':'default';
 
@@ -23,24 +24,24 @@ export function mountTraining({ root=document.getElementById('soulsApp'), reward
   function update(){
     const s=engine.session,p=getProgress(selected),cue=cuePresentation(s);
     engine.showTouchHints=matchMedia('(pointer: coarse)').matches&&(s?.time??0)<3;
-    $('touchHintText').hidden=!engine.showTouchHints;$('touchHintText').textContent=selected==='str'?'Tocá arriba, a la derecha, abajo o detrás del héroe':selected==='dodge'?'Zonas ↑ / ↓ / ← · ? para ayuda':selected==='def'?'Tocá o arrastrá alrededor del héroe':selected==='acc'?'Tocá el centro del objetivo':'Dorado: tocá · rojo: esperá';
+    $('touchHintText').hidden=!engine.showTouchHints;text('touchHintText',selected==='str'?'Tocá arriba, a la derecha, abajo o detrás del héroe':selected==='dodge'?'Zonas ↑ / ↓ / ← · ? para ayuda':selected==='def'?'Tocá o arrastrá alrededor del héroe':selected==='acc'?'Tocá el centro del objetivo':'Dorado: tocá · rojo: esperá');
     if(s?.impactId!==lastImpact&&s?.perfectRun>=2&&['str','def'].includes(selected)){lastImpact=s.impactId;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)$('comboFocus').animate([{transform:'scale(1)'},{transform:'scale(1.1)'},{transform:'scale(1)'}],{duration:160});}
     $('cueBanner').hidden=!cue;if(cue){$('cueBanner').textContent=cue.text;$('cueBanner').dataset.tone=cue.tone;}
-    $('combo').textContent=s?.combo??0;$('bestCombo').textContent=Math.max(s?.best??0,getRecord(selected));$('sessionXp').textContent=s?.xp??0;
-    $('attributeLevel').textContent=`${MODES[selected].name} · Nv ${p.level}`;$('attributeProgress').max=p.required;$('attributeProgress').value=p.xp;$('attributeXp').textContent=`${p.xp} / ${p.required} XP`;
+    text('combo',s?.combo??0);text('bestCombo',Math.max(s?.best??0,getRecord(selected)));text('sessionXp',s?.xp??0);
+    text('attributeLevel',`${MODES[selected].name} · Nv ${p.level}`);$('attributeProgress').max=p.required;$('attributeProgress').value=p.xp;text('attributeXp',`${p.xp} / ${p.required} XP`);
     const percent=Math.min(100,100*p.xp/p.required),notice=s?.levelNotice,key=notice?`${selected}:${notice.from}:${notice.to}`:'';
-    $('attributeFill').style.width=`${percent}%`;
-    $('trainingBonus').textContent=`Sala ${engine.getTraining(selected).room??1}/10 · +${Math.round(((engine.getTraining(selected).room??1)-1)*10)}% · Estación +${engine.getTraining(selected).station??0} XP · Perfecto +1 XP`;
-    $('xpFeedback').textContent=s?.lastXp?`${s.lastXp.passive?'Lectura · ':s.lastXp.combo>=25?'★ ':''}+${s.lastXp.amount.toLocaleString('es-AR')} XP`:'';
+    if($('attributeFill').style.width!==`${percent}%`)$('attributeFill').style.width=`${percent}%`;
+    text('trainingBonus',`Sala ${engine.getTraining(selected).room??1}/10 · +${Math.round(((engine.getTraining(selected).room??1)-1)*10)}% · Estación +${engine.getTraining(selected).station??0} XP · Perfecto +1 XP`);
+    text('xpFeedback',s?.lastXp?`${s.lastXp.passive?'Lectura · ':s.lastXp.combo>=25?'★ ':''}+${s.lastXp.amount.toLocaleString('es-AR')} XP`:'');
     $('xpFeedback').dataset.combo=s?.lastXp?.combo??0;
     $('levelUpNotice').hidden=!notice;
-    if(notice&&key!==lastLevelKey){lastLevelKey=key;$('levelUpIcon').textContent=MODES[selected].icon;$('levelUpTitle').textContent=`¡+${notice.to-notice.from} ${MODES[selected].name}!`;$('levelUpDetail').textContent='';$('levelUpNotice').title=notice.detail;$('levelUpNotice').dataset.from=notice.from;$('levelUpNotice').dataset.to=notice.to;
+    if(notice&&key!==lastLevelKey){lastLevelKey=key;$('levelUpIcon').innerHTML=art41(modeArt41[selected]);$('levelUpTitle').textContent=`¡+${notice.to-notice.from} ${MODES[selected].name}!`;$('levelUpDetail').textContent='';$('levelUpNotice').title=notice.detail;$('levelUpNotice').dataset.from=notice.from;$('levelUpNotice').dataset.to=notice.to;
       if(!matchMedia('(prefers-reduced-motion: reduce)').matches){$('attributeFill').animate([{width:`${lastPercent}%`},{width:'100%',offset:.3},{width:'0%',offset:.5},{width:`${percent}%`}],{duration:750});$('levelUpNotice').animate([{opacity:0,transform:'translateY(6px) scale(.94)'},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:260});}
     }lastPercent=percent;
-    $('soulsMission').textContent=s?.missionFlash>0?'¡MISIÓN COMPLETADA!':s?engine.missionLabel():'Misión 1';$('recoveryNotice').hidden=!s?.recovery;
-    $('rewardNotice').textContent=s?.notice?.text??'';
+    text('soulsMission',s?.missionFlash>0?'¡MISIÓN COMPLETADA!':s?engine.missionLabel():'Misión 1');$('recoveryNotice').hidden=!s?.recovery;
+    text('rewardNotice',s?.notice?.text??'');
     if(s?.milestoneId&&s.milestoneId!==lastMilestone){lastMilestone=s.milestoneId;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)$('comboFocus').animate([{transform:'scale(1)'},{transform:'scale(1.18)',color:'#fff8bf'},{transform:'scale(1)'}],{duration:420});}
-    $('actionFeedback').textContent=s?.feedback?.text??'';$('actionFeedback').dataset.tone=s?.feedback?.tone??'';
+    text('actionFeedback',s?.feedback?.text??'');$('actionFeedback').dataset.tone=s?.feedback?.tone??'';
     pause.disabled=!canMutate()||!s?.running;pause.textContent=s?.paused||s?.recovery?'▶ Continuar':'⏸ Pausar';$('stop').disabled=!s?.running;
   }
   function pauseFor(reason){if(engine.active){engine.pause(true);pauseReason=reason;onSave();update();}}

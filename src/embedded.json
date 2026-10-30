@@ -868,5 +868,10 @@
     "path": "assets/embedded/28a9eeb91312bf9ff39d77b9.png",
     "mime": "image/png",
     "text": false
+  },
+  "aa410000000000000000000001": {
+    "path": "src/souls/ui-art41.js",
+    "mime": "text/javascript",
+    "text": true
   }
 }
