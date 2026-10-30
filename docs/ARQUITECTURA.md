@@ -1,5 +1,7 @@
 # Arquitectura de la importación 41
 
+La revisión de rendimiento 1 modifica la presentación sobre esa importación: `src/souls/ui-art41.js` instala hojas de sprites compartidas y exporta sus constructores; los renderizadores generan los iconos directamente, sin observar todo el DOM. La cabecera principal decora sus pestañas en el punto de instalación existente. El informe y el contrato actualizado están en `RENDIMIENTO-41.md` y `src/release.json`.
+
 Esta importación reemplaza las fuentes activas 35 por una extracción verificable de la entrega local 41. No consolida ni optimiza sus capas históricas.
 
 - src/template.html conserva exactamente la estructura y ubicación de scripts y estilos.

@@ -1,3 +1,4 @@
+import {art41} from "souls/ui-art41.js";
 import {TrainingMeasurement} from "souls/experiments/measurement.js";
 import {experimentFromSearch} from "souls/experiments/a32.js";
 import {statGain} from "souls/progression/stat-gain.js";
@@ -110,21 +111,7 @@ window.UnifiedSouls={state,training,arena,economy,setView(value){if(value==='pau
 parent.IdleSoulsHost.ready(window);
 const resize=new ResizeObserver(()=>{parent.IdleSoulsHost.resize(window,document.documentElement.scrollHeight);});resize.observe(document.getElementById('soulsApp'));
 
-const hudAtlas41="{{asset:1e2edc663a4810e6f631532d}}";
-const gearAtlas41="{{asset:e2b26a532d7e2773acd12aff}}";
-function gearArt41(slot,level){const x=['helmet','sword','shield','armor','bow'].indexOf(slot),tier=level<5?0:level<10?1:2;return `<span class="art41 gear41" data-tier="${tier}" aria-hidden="true" style="--x:${x};--y:${tier};background-image:url('${gearAtlas41}')"></span>`;}
-function art41(index){return `<span class="art41" aria-hidden="true" style="--x:${index%4};--y:${Math.floor(index/4)};background-image:url('${hudAtlas41}')"></span>`;}
+// Static headers are decorated once; dynamic panels render their own icons.
+document.querySelector('#shop>.panel>h2').insertAdjacentHTML('afterbegin',art41(3));
 document.querySelector('.scene-hud').append(document.getElementById('levelUpNotice'));
-function decorate41(){
- const modes={str:4,def:5,acc:6,dodge:7,crit:8};
- for(const el of document.querySelectorAll('[data-mode] .emoji')){const key=el.parentElement.dataset.mode;if(!el.querySelector('.art41'))el.innerHTML=art41(modes[key]);}
- for(const row of document.querySelectorAll('[data-attribute]')){const el=row.querySelector('div>span');if(el&&!el.querySelector('.art41')){el.textContent=el.textContent.replace(/^[^\p{L}]+/u,'');el.insertAdjacentHTML('afterbegin',art41(modes[row.dataset.attribute]));}}
- document.querySelectorAll('.equipment-slot').forEach(el=>{if(!el.querySelector('.art41')){for(const node of [...el.childNodes])if(node.nodeType===3)node.remove();el.insertAdjacentHTML('afterbegin',gearArt41(el.dataset.slot,state.gear[el.dataset.slot]));}});
- document.querySelectorAll('#shopList .shopitem').forEach(el=>{const slot=el.querySelector('[data-buy]')?.dataset.buy,title=el.querySelector('b');if(slot&&title&&!title.querySelector('.art41')){title.textContent=title.textContent.replace(/^[^\p{L}]+/u,'');title.insertAdjacentHTML('afterbegin',gearArt41(slot,state.gear[slot]));}});
- document.querySelectorAll('#soulsStations .shopitem').forEach(el=>{const key=el.querySelector('[data-station]')?.dataset.station,title=el.querySelector('b');if(key&&title&&!title.querySelector('.art41')){title.textContent=title.textContent.replace(/^[^\p{L}]+/u,'');title.insertAdjacentHTML('afterbegin',art41(modes[key]));}});
- const selected=document.querySelector('.equipment-slot.active')?.dataset.slot,detail=document.querySelector('#equipmentDetail>small');if(selected&&detail&&!detail.querySelector('.art41'))detail.insertAdjacentHTML('afterbegin',gearArt41(selected,state.gear[selected]+1));
- for(const [id,i]of [['inventoryPanel',3],['attributesPanel',1]]){const el=document.querySelector('#'+id+'>summary');if(el&&!el.querySelector('.art41'))el.insertAdjacentHTML('afterbegin',art41(i));}
- document.querySelectorAll('#shop h2').forEach(el=>{if(!el.querySelector('.art41'))el.insertAdjacentHTML('afterbegin',art41(el.closest('#roomUpgrade')?14:el.closest('#soulsStations')?1:3));});
- const notice=document.getElementById('levelUpIcon');if(notice&&notice.textContent){const icons={str:'⚔️',def:'🛡️',acc:'🎯',dodge:'💨',crit:'✨'};const key=Object.keys(modes).find(k=>icons[k]===notice.textContent)||Object.keys(modes).find(k=>document.querySelector('[data-mode="'+k+'"]')?.classList.contains('active'));if(key)notice.innerHTML=art41(modes[key]);}
-}
-new MutationObserver(decorate41).observe(document.getElementById('soulsApp'),{childList:true,subtree:true});decorate41();
+for(const [id,i]of [['inventoryPanel',3],['attributesPanel',1]])document.querySelector('#'+id+'>summary').insertAdjacentHTML('afterbegin',art41(i));

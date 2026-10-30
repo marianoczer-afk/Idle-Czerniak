@@ -1,5 +1,7 @@
 {
   "version": 41,
-  "sha256": "8b0a1ecebb577b078d0a5f95bbadd05a7d150798f65eb15e10628eb24dc6dc37",
-  "bytes": 58432044
+  "sha256": "1fbbfced6273ff6d8a23c1cd0dc1dda5f037c26fc0d684d8ba2aff7317342742",
+  "bytes": 58429705,
+  "importedSha256": "8b0a1ecebb577b078d0a5f95bbadd05a7d150798f65eb15e10628eb24dc6dc37",
+  "revision": "rendimiento-1"
 }

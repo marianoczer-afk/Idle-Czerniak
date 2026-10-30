@@ -1,5 +1,7 @@
 # Argentum Idle Online — Estable 41
 
+**Revisión de rendimiento 1:** ilustraciones compartidas y menos reconstrucción de interfaz. Mediciones, condiciones y límites en [docs/RENDIMIENTO-41.md](docs/RENDIMIENTO-41.md). El aspecto, las mecánicas y los datos del jugador se conservan.
+
 Versión actual de Pesca, Entrenamiento, Arenas y Equipo y sala. Abrí index.html directamente para jugar. No requiere servidor.
 
 Las fuentes reconstruyen exactamente la versión local 41, sin optimización de rendimiento ni cambios de mecánicas en esta importación. Las versiones anteriores se conservan en el historial Git. Los TXT para Claude permanecen en la carpeta local original.

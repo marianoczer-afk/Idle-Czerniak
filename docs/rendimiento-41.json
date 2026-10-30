@@ -1,0 +1,408 @@
+{
+  "conditions": "Edge headless; 1366x768; CPU throttle 4x; warmup 2s; sampling 8s; two fresh isolated contexts per scenario. Synthetic idle training (no automatic successful hits), not a player hardware FPS guarantee.",
+  "selection": "Baseline run 1 only: run 0 overlapped a Node build and is excluded. Final after samples both runs. Preliminary after using oversized CSS custom properties failed art validation and is excluded entirely; final samples use the validated shared stylesheet.",
+  "baselineDate": "2026-10-30T05:19:14.194Z",
+  "afterDate": "2026-10-30T05:28:26.683Z",
+  "rows": [
+    {
+      "scenario": "pesca",
+      "beforeFPS": 59.78998766831505,
+      "afterFPS": 59.788306954915384,
+      "beforeTaskSeconds": 0.493719,
+      "afterTaskSeconds": 0.5423355,
+      "beforeP95ms": 17.100000000000364,
+      "afterP95ms": 17.09999999999991,
+      "beforeObserverCalls": 0,
+      "afterObserverCalls": 0,
+      "beforeInlineImageChars": 15056232,
+      "afterInlineImageChars": 0
+    },
+    {
+      "scenario": "defensa",
+      "beforeFPS": 44.10075230695112,
+      "afterFPS": 57.979878672891125,
+      "beforeTaskSeconds": 7.962130999999999,
+      "afterTaskSeconds": 2.993947,
+      "beforeP95ms": 33.599999999998545,
+      "afterP95ms": 16.950000000000728,
+      "beforeObserverCalls": 356,
+      "afterObserverCalls": 0,
+      "beforeInlineImageChars": 110543090,
+      "afterInlineImageChars": 0
+    },
+    {
+      "scenario": "esquiva",
+      "beforeFPS": 47.19020617919924,
+      "afterFPS": 59.78840415843929,
+      "beforeTaskSeconds": 7.9773060000000005,
+      "afterTaskSeconds": 2.803353,
+      "beforeP95ms": 33.5,
+      "afterP95ms": 17,
+      "beforeObserverCalls": 381,
+      "afterObserverCalls": 0,
+      "beforeInlineImageChars": 110543090,
+      "afterInlineImageChars": 0
+    }
+  ],
+  "before": [
+    {
+      "scenario": "pesca",
+      "run": 1,
+      "elapsed": 8008.469600000004,
+      "frames": 480,
+      "fps": 59.78998766831505,
+      "p95": 17.100000000000364,
+      "over33": 0,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 9,
+          "ms": 0.30000000074505806,
+          "records": 418,
+          "target": "BODY"
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 0.493719,
+        "ScriptDuration": 0.078961,
+        "LayoutDuration": 0.012276999999999996,
+        "RecalcStyleDuration": 0.205494,
+        "JSHeapUsedSize": 27337692,
+        "Nodes": 31227
+      },
+      "dom": {
+        "nodes": 4999,
+        "inlineImageChars": 15056232,
+        "running": null
+      },
+      "errors": []
+    },
+    {
+      "scenario": "defensa",
+      "run": 1,
+      "elapsed": 8014.481,
+      "frames": 357,
+      "fps": 44.10075230695112,
+      "p95": 33.599999999998545,
+      "over33": 85,
+      "longTasks": [
+        92,
+        92
+      ],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 15,
+          "ms": 0.9999999962747097,
+          "records": 557,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        },
+        {
+          "calls": 356,
+          "ms": 122.1999999396503,
+          "records": 3559,
+          "target": "soulsApp"
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 7.962130999999999,
+        "ScriptDuration": 0.890973,
+        "LayoutDuration": 0.52375,
+        "RecalcStyleDuration": 0.10877799999999999,
+        "JSHeapUsedSize": 18193832,
+        "Nodes": 13538
+      },
+      "dom": {
+        "nodes": 424,
+        "inlineImageChars": 110543090,
+        "running": true
+      },
+      "errors": []
+    },
+    {
+      "scenario": "esquiva",
+      "run": 1,
+      "elapsed": 8012.5628,
+      "frames": 382,
+      "fps": 47.19020617919924,
+      "p95": 33.5,
+      "over33": 81,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 9,
+          "ms": 0.30000000447034836,
+          "records": 395,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        },
+        {
+          "calls": 381,
+          "ms": 133.2000000104308,
+          "records": 3746,
+          "target": "soulsApp"
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 7.9773060000000005,
+        "ScriptDuration": 0.801045,
+        "LayoutDuration": 0.544716,
+        "RecalcStyleDuration": 0.115169,
+        "JSHeapUsedSize": 17121092,
+        "Nodes": 14443
+      },
+      "dom": {
+        "nodes": 424,
+        "inlineImageChars": 110543090,
+        "running": true
+      },
+      "errors": []
+    }
+  ],
+  "after": [
+    {
+      "scenario": "pesca",
+      "run": 0,
+      "elapsed": 8009.1255,
+      "frames": 479,
+      "fps": 59.788306954915384,
+      "p95": 17.100000000000364,
+      "over33": 0,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 0.458128,
+        "ScriptDuration": 0.07503800000000001,
+        "LayoutDuration": 0.012287000000000006,
+        "RecalcStyleDuration": 0.18888300000000002,
+        "JSHeapUsedSize": 27149216,
+        "Nodes": 31224
+      },
+      "dom": {
+        "nodes": 5000,
+        "inlineImageChars": 0,
+        "running": null
+      },
+      "errors": []
+    },
+    {
+      "scenario": "defensa",
+      "run": 0,
+      "elapsed": 8006.946899999999,
+      "frames": 462,
+      "fps": 57.66782335172379,
+      "p95": 17.100000000000364,
+      "over33": 6,
+      "longTasks": [
+        92,
+        92
+      ],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 3.011935,
+        "ScriptDuration": 0.7672680000000001,
+        "LayoutDuration": 0.380066,
+        "RecalcStyleDuration": 0.127594,
+        "JSHeapUsedSize": 15874404,
+        "Nodes": 11510
+      },
+      "dom": {
+        "nodes": 425,
+        "inlineImageChars": 0,
+        "running": true
+      },
+      "errors": []
+    },
+    {
+      "scenario": "esquiva",
+      "run": 0,
+      "elapsed": 8003.412400000001,
+      "frames": 480,
+      "fps": 59.78700878121691,
+      "p95": 17.100000000000364,
+      "over33": 0,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 2.523062,
+        "ScriptDuration": 0.583549,
+        "LayoutDuration": 0.38967599999999997,
+        "RecalcStyleDuration": 0.12156100000000002,
+        "JSHeapUsedSize": 14436684,
+        "Nodes": 11368
+      },
+      "dom": {
+        "nodes": 425,
+        "inlineImageChars": 0,
+        "running": true
+      },
+      "errors": []
+    },
+    {
+      "scenario": "pesca",
+      "run": 1,
+      "elapsed": 8012.9859,
+      "frames": 479,
+      "fps": 59.788306954915384,
+      "p95": 17.099999999999454,
+      "over33": 0,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 0.626543,
+        "ScriptDuration": 0.085825,
+        "LayoutDuration": 0.013674000000000006,
+        "RecalcStyleDuration": 0.27229400000000004,
+        "JSHeapUsedSize": 27144804,
+        "Nodes": 31226
+      },
+      "dom": {
+        "nodes": 5000,
+        "inlineImageChars": 0,
+        "running": null
+      },
+      "errors": []
+    },
+    {
+      "scenario": "defensa",
+      "run": 1,
+      "elapsed": 8001.882400000002,
+      "frames": 467,
+      "fps": 58.29193399405846,
+      "p95": 16.80000000000109,
+      "over33": 4,
+      "longTasks": [
+        78,
+        78
+      ],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 2.975959,
+        "ScriptDuration": 0.845935,
+        "LayoutDuration": 0.297923,
+        "RecalcStyleDuration": 0.104099,
+        "JSHeapUsedSize": 15350988,
+        "Nodes": 11430
+      },
+      "dom": {
+        "nodes": 425,
+        "inlineImageChars": 0,
+        "running": true
+      },
+      "errors": []
+    },
+    {
+      "scenario": "esquiva",
+      "run": 1,
+      "elapsed": 8000.656600000002,
+      "frames": 479,
+      "fps": 59.78979953566168,
+      "p95": 16.899999999999636,
+      "over33": 0,
+      "longTasks": [],
+      "observers": [
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0,
+          "target": "BODY"
+        },
+        {
+          "calls": 0,
+          "ms": 0,
+          "records": 0
+        }
+      ],
+      "metrics": {
+        "TaskDuration": 3.083644,
+        "ScriptDuration": 0.8322369999999999,
+        "LayoutDuration": 0.36686,
+        "RecalcStyleDuration": 0.123223,
+        "JSHeapUsedSize": 14209116,
+        "Nodes": 11271
+      },
+      "dom": {
+        "nodes": 425,
+        "inlineImageChars": 0,
+        "running": true
+      },
+      "errors": []
+    }
+  ]
+}

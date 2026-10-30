@@ -22,6 +22,7 @@ function e227InstallTop(){
  document.body.classList.toggle('hasActiveCharacter',active);
  if(!root||!state){e227UpdateTop();return;}
  const tabs=root.querySelector('.workspaceTabs');if(tabs){header.querySelector('.workspaceTabs')?.remove();header.querySelector('.globalHeaderNav').prepend(tabs);}
+ if(typeof e241Decorate==='function')e241Decorate();
  // Move the original controls, preserving data actions and file inputs.
  const save=root.querySelector('details[data-ui-panel="save"]'),host=header.querySelector('.settingsActions');
  if(save){for(const child of [...host.children])if(child.id!=='devModeToggle')child.remove();const body=save.querySelector('.sectionBody');if(body)host.prepend(...body.childNodes);save.remove();}
